@@ -1,0 +1,62 @@
+export default {
+  en: {
+    "input.email.label": "Email",
+    "input.email.placeholder": "Enter your email",
+    "input.usename.label": "Username",
+    "input.username.placeholder": "Enter your username",
+    "input.password.label": "Password",
+    "input.password.placeholder": "Enter your password",
+    "input.password-confirm.label": "Confirm your password",
+    "input.password-confirm.placeholder": "Enter your password",
+
+    "button.back": "Back",
+    "button.login": "Sign In",
+    "button.login.with": "Continue with {{name}}",
+
+    "link.forget.password": "Forgot my password",
+    "link.privacy-policy.label": "Privacy Policy",
+    "link.terms-of-service.label": "Terms of Service",
+
+    "label.or": "Or",
+    "label.logout": "Log out",
+    "label.next": "Start",
+    "label.login": "Authentication",
+    "label.register": "Create account",
+
+    "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
+    "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",
+
+    "language.en": "English",
+    "language.pt": "Portuguese"
+  },
+  pt: {
+    "input.email.label": "Email",
+    "input.email.placeholder": "Digite o seu email",
+    "input.usename.label": "Nome de utilizador",
+    "input.username.placeholder": "Digite o seu nome de utilizador",
+    "input.password.label": "Senha",
+    "input.password.placeholder": "Digite a sua senha",
+    "input.password-confirm.label": "Confirme a senha",
+    "input.password-confirm.placeholder": "Digite a senha",
+
+    "button.back": "Voltar",
+    "button.login": "Entrar",
+    "button.login.with": "Continuar com {{name}}",
+
+    "link.forget.password": "Esqueci a minha senha",
+    "link.privacy-policy.label": "Política de Privacidade",
+    "link.terms-of-service.label": "Termos de Serviço",
+
+    "label.or": "Ou",
+    "label.logout": "Sair",
+    "label.next": "Começar",
+    "label.login": "Autenticação",
+    "label.register": "Criação de conta",
+
+    "text.login": "Insira as suas credenciais abaixo para aceder à sua conta com segurança e continuar de onde parou.",
+    "text.register": "Preencha os campos abaixo com as suas informações para criar a sua nova conta e aproveitar todos os nossos recursos.",
+
+    "language.en": "Inglês",
+    "language.pt": "Português"
+  },
+};
