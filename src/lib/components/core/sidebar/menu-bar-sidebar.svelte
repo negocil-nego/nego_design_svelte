@@ -11,20 +11,28 @@
   import NavUserSidebar from "../nav/ui/nav-user-sidebar.svelte";
   import NavMenuBar from "../nav/ui/nav-menu-bar.svelte";
   import NavMenuBottomBar from "../nav/ui/nav-menu-bottom-bar.svelte";
+  import NavMenuTopBar from "../nav/ui/nav-menu-top-bar.svelte";
+  import {
+    HelpCircleFreeIcons,
+    Setting06FreeIcons,
+  } from "@hugeicons/core-free-icons";
+  import { t } from "$lib/i18n";
 
   type Props = {
     menusButtons?: NavMenuSidebar[];
     menus: NavMenuItem[];
     user: NavUserSidebarItem;
+    footer?: Snippet;
     header?: Snippet;
   };
 
   let {
     ref = $bindable(null),
     collapsible = "icon",
-    menusButtons = [],
+    menusButtons,
     menus,
     user,
+    footer,
     header,
     ...restProps
   }: ComponentProps<typeof Sidebar.Root> & Props = $props();
@@ -32,14 +40,35 @@
 
 <Sidebar.Root bind:ref {collapsible} {...restProps}>
   <Sidebar.Header>
-    {@render header?.()}
+    {#if header}
+      {@render header?.()}
+    {:else}
+      <NavMenuTopBar
+        content={{
+          title: $t("label.panel"),
+          subtitle: $t("label.administrative"),
+        }}
+      />
+    {/if}
   </Sidebar.Header>
   <Sidebar.Content>
     <NavMenuBar items={menus} />
   </Sidebar.Content>
   <Sidebar.Footer>
-    {#if menusButtons.length > 0}
-      <NavMenuBottomBar items={menusButtons} class="mt-auto mb-3" />
+    {#if footer}
+      {@render footer?.()}
+    {:else if menusButtons}
+      {#if menusButtons.length == 0}
+        <NavMenuBottomBar
+          items={[
+            { icon: HelpCircleFreeIcons, title: $t("label.help") },
+            { icon: Setting06FreeIcons, title: $t("label.settings") },
+          ]}
+          class="mt-auto"
+        />
+      {:else if menusButtons.length > 0}
+        <NavMenuBottomBar items={menusButtons} class="mt-auto" />
+      {/if}
     {/if}
     <NavUserSidebar {user} />
   </Sidebar.Footer>

@@ -20,6 +20,10 @@ export default {
     "label.or": "Or",
     "label.logout": "Log out",
     "label.next": "Start",
+    "label.help": "Help",
+    "label.settings": "Settings",
+    "label.panel": "Panel",
+    "label.administrative": "Administrative",
     "label.login": "Authentication",
     "label.register": "Create account",
 
@@ -50,6 +54,10 @@ export default {
     "label.or": "Ou",
     "label.logout": "Sair",
     "label.next": "Começar",
+    "label.help": "Ajuda",
+    "label.settings": "Definições",
+    "label.panel": "Painel",
+    "label.administrative": "Administrativo",
     "label.login": "Autenticação",
     "label.register": "Criação de conta",
 

@@ -4,12 +4,12 @@ export interface SubMenuSidebar {
     title: string,
     url: string,
     icon: IconSvgElement,
-    isActive: boolean,
+    isActive?: boolean,
 }
 
 export interface NavMenuSidebar {
     title: string,
-    url: string,
+    url?: string,
     icon: IconSvgElement,
     isActive?: boolean,
 }
