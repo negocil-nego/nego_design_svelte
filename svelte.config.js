@@ -1,9 +1,15 @@
+import adapter from '@sveltejs/adapter-node';
+import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
+
+/** @type {import('@sveltejs/kit').Config} */
 const config = {
-  // ... other config
+  preprocess: vitePreprocess(),
   kit: {
-    // ... other config
+    adapter: adapter(),
     alias: {
-      "@/*": "./path/to/lib/*",
+      "@/*": "./src/lib/*",
     },
   },
 };
+
+export default config;
