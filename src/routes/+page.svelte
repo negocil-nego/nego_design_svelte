@@ -1,5 +1,6 @@
 <script lang="ts">
   import DataTableCore from "$lib/components/core/datatable/ui/DataTableCore.svelte";
+  import DataTableActions from "$lib/components/core/datatable/ui/DataTableActions.svelte";
   import MenuBarSidebar from "$lib/components/core/sidebar/menu-bar-sidebar.svelte";
   import AdminContent from "$lib/components/pages/admin/ui/admin-content.svelte";
   import AdminPanel from "$lib/components/pages/admin/ui/admin-panel.svelte";
@@ -102,8 +103,19 @@
         config={[
           { accessorKey: "email", header: "Email", cell: "email" },
           { accessorKey: "amount", header: "Amount", cell: "amount" },
-          { accessorKey: "status", header: "Status", cell: "status" },
+          {
+            accessorKey: "status",
+            header: "Status",
+            cell: "status",
+            badge: [
+              { value: "Pending", className: "bg-yellow-500" },
+              { value: "Processing", className: "bg-blue-500" },
+              { value: "Success", className: "bg-green-500" },
+              { value: "Failed", className: "bg-red-500" },
+            ],
+          },
         ]}
+        actions={DataTableActions}
         columnFilter="email"
         items={data}
       />

@@ -1,5 +1,6 @@
 <script lang="ts" generics="T">
     import {
+        type CellContext,
         type ColumnDef,
         type ColumnFiltersState,
         type PaginationState,
@@ -13,23 +14,40 @@
     } from "@tanstack/table-core";
     import type { DataTableItem } from "../data/data-table";
     import { resolveHeader } from "../data/resolve-header.svelte";
-    import { resolveCell } from "../data/resolve-cell.svelte";
-    import { createSvelteTable } from "$lib/components/ui/data-table";
+    import { resolveCellBadge } from "../data/resolve-cell-badge.svelte";
+    import {
+        createDragColumn,
+        createSelectColumn,
+    } from "../data/columns-create";
+    import {
+        createSvelteTable,
+        renderComponent,
+    } from "$lib/components/ui/data-table";
     import DataTableListFilter from "./DataTableListFilter.svelte";
     import DataTableContent from "./DataTableContent.svelte";
     import DataTableListPagination from "./DataTableListPagination.svelte";
 
-    let { config, columnFilter, items = [] }: DataTableItem<T> = $props();
+    let { config, columnFilter, actions, items = [] }: DataTableItem<T> = $props();
 
-    let columns: ColumnDef<T>[] = $derived(
-        config.map((it) => ({
+    let columns: ColumnDef<T>[] = $derived([
+        createDragColumn<T>(),
+        createSelectColumn<T>(),
+        ...config.map((it) => ({
             accessorKey: it.accessorKey,
             header: resolveHeader(it.header),
-            cell: resolveCell(it.cell),
+            cell: resolveCellBadge(it.cell, it.badge),
             enableSorting: it.enableSorting,
             enableHiding: it.enableHiding,
         })),
-    );
+        ...(actions
+            ? [{
+                  id: "actions",
+                  cell: (ctx: CellContext<T, unknown>) => renderComponent(actions, ctx as any),
+                  enableSorting: false,
+                  enableHiding: false,
+              } satisfies ColumnDef<T>]
+            : []),
+    ]);
 
     let pagination = $state<PaginationState>({ pageIndex: 0, pageSize: 10 });
     let columnFilters = $state<ColumnFiltersState>([]);
@@ -42,11 +60,21 @@
             data: items,
             columns,
             state: {
-                pagination,
-                sorting,
-                columnVisibility,
-                rowSelection,
-                columnFilters,
+                get pagination() {
+                    return pagination;
+                },
+                get sorting() {
+                    return sorting;
+                },
+                get columnVisibility() {
+                    return columnVisibility;
+                },
+                get rowSelection() {
+                    return rowSelection;
+                },
+                get columnFilters() {
+                    return columnFilters;
+                },
             },
             getCoreRowModel: getCoreRowModel(),
             getPaginationRowModel: getPaginationRowModel(),
