@@ -12,10 +12,6 @@
   import NavMenuBar from "../nav/ui/nav-menu-bar.svelte";
   import NavMenuBottomBar from "../nav/ui/nav-menu-bottom-bar.svelte";
   import NavMenuTopBar from "../nav/ui/nav-menu-top-bar.svelte";
-  import {
-    HelpCircleFreeIcons,
-    Setting06FreeIcons,
-  } from "@hugeicons/core-free-icons";
   import { t } from "$lib/i18n";
 
   type Props = {
@@ -57,18 +53,8 @@
   <Sidebar.Footer>
     {#if footer}
       {@render footer?.()}
-    {:else if menusButtons}
-      {#if menusButtons.length == 0}
-        <NavMenuBottomBar
-          items={[
-            { icon: HelpCircleFreeIcons, title: $t("label.help") },
-            { icon: Setting06FreeIcons, title: $t("label.settings") },
-          ]}
-          class="mt-auto"
-        />
-      {:else if menusButtons.length > 0}
-        <NavMenuBottomBar items={menusButtons} class="mt-auto" />
-      {/if}
+    {:else if menusButtons && menusButtons.length > 0}
+      <NavMenuBottomBar items={menusButtons} class="mt-auto" />
     {/if}
     <NavUserSidebar {user} />
   </Sidebar.Footer>

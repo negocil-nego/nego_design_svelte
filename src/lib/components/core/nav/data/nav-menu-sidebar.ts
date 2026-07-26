@@ -1,5 +1,9 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
 
+export interface GroupMenuSidebar {
+    name: string,
+}
+
 export interface SubMenuSidebar {
     title: string,
     url: string,
@@ -12,6 +16,7 @@ export interface NavMenuSidebar {
     url?: string,
     icon: IconSvgElement,
     isActive?: boolean,
+    group?: GroupMenuSidebar
 }
 
 export interface NavMenuAndSubmenuSidebar extends NavMenuSidebar {
