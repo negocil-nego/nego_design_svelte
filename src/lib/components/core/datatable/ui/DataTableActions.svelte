@@ -18,7 +18,11 @@
         {/snippet}
     </DropdownMenu.Trigger>
     <DropdownMenu.Content align="end">
-        <DropdownMenu.Item onclick={() => console.log(row.original)}>Copy</DropdownMenu.Item>
-        <DropdownMenu.Item onclick={() => console.log(row.original)}>Delete</DropdownMenu.Item>
+        <DropdownMenu.Item onclick={() => console.log(row.original)}
+            >Copy</DropdownMenu.Item
+        >
+        <DropdownMenu.Item onclick={() => console.log(row.original)}
+            >Delete</DropdownMenu.Item
+        >
     </DropdownMenu.Content>
 </DropdownMenu.Root>
