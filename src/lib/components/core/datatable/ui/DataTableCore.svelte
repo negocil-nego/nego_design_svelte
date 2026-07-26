@@ -12,40 +12,20 @@
         getSortedRowModel,
     } from "@tanstack/table-core";
     import type { DataTableItem } from "../data/data-table";
-    import {
-        createSvelteTable,
-        renderComponent,
-        renderSnippet,
-    } from "$lib/components/ui/data-table";
-    import { createRawSnippet } from "svelte";
+    import { resolveHeader } from "../data/resolve-header.svelte";
+    import { resolveCell } from "../data/resolve-cell.svelte";
+    import { createSvelteTable } from "$lib/components/ui/data-table";
     import DataTableListFilter from "./DataTableListFilter.svelte";
     import DataTableContent from "./DataTableContent.svelte";
     import DataTableListPagination from "./DataTableListPagination.svelte";
-    import DataTableEmailButton from "../../data-table/data-table-email-button.svelte";
 
-    let { config, items = [] }: DataTableItem<T> = $props();
+    let { config, columnFilter, items = [] }: DataTableItem<T> = $props();
 
     let columns: ColumnDef<T>[] = $derived(
         config.map((it) => ({
             accessorKey: it.accessorKey,
-            header: ({ column }) =>
-                renderComponent(DataTableEmailButton, {
-                    onclick: column.getToggleSortingHandler(),
-                }),
-            cell: ({ row }) => {
-                const statusSnippet = createRawSnippet<[{ status: string }]>(
-                    (getStatus) => {
-                        const { status } = getStatus();
-                        return {
-                            render: () =>
-                                `<div class="capitalize">${status}</div>`,
-                        };
-                    },
-                );
-                return renderSnippet(statusSnippet, {
-                    status: row.original.status,
-                });
-            },
+            header: resolveHeader(it.header),
+            cell: resolveCell(it.cell),
             enableSorting: it.enableSorting,
             enableHiding: it.enableHiding,
         })),
@@ -130,7 +110,7 @@
 </script>
 
 <div class="-mb-8 w-full">
-    <DataTableListFilter {table} />
+    <DataTableListFilter {table} column={columnFilter} />
     <DataTableContent {table} {columns} />
     <DataTableListPagination {table} />
 </div>

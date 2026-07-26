@@ -104,6 +104,7 @@
           { accessorKey: "amount", header: "Amount", cell: "amount" },
           { accessorKey: "status", header: "Status", cell: "status" },
         ]}
+        columnFilter="email"
         items={data}
       />
     </AdminContent>
