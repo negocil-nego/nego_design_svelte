@@ -6,15 +6,17 @@
   import type { Snippet } from "svelte";
   import AuthCard from "./AuthCard.svelte";
   import LeftHero from "./LeftHero.svelte";
+  import type { AuthFormType } from "../data/page-props";
 
   type Props = {
     carousel?: CarouselItem[];
     varient?: CarouselItemType;
     title?: string;
     children?: Snippet;
+    formType?: AuthFormType;
   };
 
-  let { carousel, varient, title, children }: Props = $props();
+  let { carousel, varient, title, formType, children }: Props = $props();
 </script>
 
 <main class="h-screen w-screen flex items-center">
@@ -25,7 +27,7 @@
     {#if children}
       {@render children()}
     {:else}
-      <AuthCard />
+      <AuthCard {formType} />
     {/if}
   </div>
 </main>

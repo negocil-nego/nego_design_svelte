@@ -6,9 +6,19 @@
   import ButtonBack from "$lib/components/core/button/ButtonBack.svelte";
   import LabelOr from "$lib/components/core/label/LabelOr.svelte";
   //import FormRegister from "./FormRegister.svelte";
-  import FormLogin from "./FormLogin.svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
+  import type { AuthFormType, Credential } from "../data/page-props";
+  import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
+  import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
+  import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
+
+  type Props = {
+    formType?: AuthFormType;
+    onSubmit?: (credential: Credential) => void;
+  };
+
+  let { formType, onSubmit }: Props = $props();
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
@@ -39,7 +49,13 @@
     />
 
     {#snippet loginSnippet()}
-      <FormLogin />
+      {#if formType == "EMAIL_PASSWORD"}
+        <FormLoginEmailPassword {onSubmit} />
+      {:else if formType == "USERNAME_PASSWORD"}
+        <FormLoginUsernamePassword {onSubmit} />
+      {:else if formType == "PHONE_PASSWORD"}
+        <FormLoginPhonePassword {onSubmit} />
+      {/if}
     {/snippet}
 
     <!-- {#snippet registerSnippet()}
