@@ -1,18 +1,12 @@
-interface $$__sveltets_2_IsomorphicComponent<Props extends Record<string, any> = any, Events extends Record<string, any> = any, Slots extends Record<string, any> = any, Exports = {}, Bindings = string> {
-    new (options: import('svelte').ComponentConstructorOptions<Props>): import('svelte').SvelteComponent<Props, Events, Slots> & {
-        $$bindings?: Bindings;
-    } & Exports;
-    (internal: unknown, props: {
-        $$events?: Events;
-        $$slots?: Slots;
-    }): Exports & {
-        $set?: any;
-        $on?: any;
-    };
-    z_$$bindings?: Bindings;
-}
-declare const AuthCard: $$__sveltets_2_IsomorphicComponent<Record<string, never>, {
-    [evt: string]: CustomEvent<any>;
-}, {}, {}, string>;
-type AuthCard = InstanceType<typeof AuthCard>;
+import type { Snippet } from "svelte";
+import type { AuthFormType, Credential, LinkProps } from "../data/page-props";
+type Props = {
+    formType?: AuthFormType;
+    onSubmit?: (credential: Credential) => void;
+    register?: Snippet;
+    privacyPolicy?: LinkProps;
+    termsOfService?: LinkProps;
+};
+declare const AuthCard: import("svelte").Component<Props, {}, "">;
+type AuthCard = ReturnType<typeof AuthCard>;
 export default AuthCard;

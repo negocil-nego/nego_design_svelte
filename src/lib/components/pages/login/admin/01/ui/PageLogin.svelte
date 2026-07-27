@@ -6,7 +6,7 @@
   import type { Snippet } from "svelte";
   import AuthCard from "./AuthCard.svelte";
   import LeftHero from "./LeftHero.svelte";
-  import type { AuthFormType } from "../data/page-props";
+  import type { AuthFormType, LinkProps } from "../data/page-props";
 
   type Props = {
     carousel?: CarouselItem[];
@@ -14,9 +14,11 @@
     title?: string;
     children?: Snippet;
     formType?: AuthFormType;
+    privacyPolicy?: LinkProps;
+    termsOfService?: LinkProps;
   };
 
-  let { carousel, varient, title, formType, children }: Props = $props();
+  let { carousel, varient, title, formType, children, privacyPolicy, termsOfService }: Props = $props();
 </script>
 
 <main class="h-screen w-screen flex items-center">
@@ -27,7 +29,7 @@
     {#if children}
       {@render children()}
     {:else}
-      <AuthCard {formType} />
+      <AuthCard {formType} {privacyPolicy} {termsOfService} />
     {/if}
   </div>
 </main>

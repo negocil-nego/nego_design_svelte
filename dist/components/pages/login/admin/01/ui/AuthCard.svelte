@@ -6,9 +6,23 @@
   import ButtonBack from "../../../../../core/button/ButtonBack.svelte";
   import LabelOr from "../../../../../core/label/LabelOr.svelte";
   //import FormRegister from "./FormRegister.svelte";
-  import FormLogin from "./FormLogin.svelte";
+  import type { Snippet } from "svelte";
   import { LightSwitch } from "../../../../../ui/light-switch";
   import { t } from "../../../../../../i18n";
+  import type { AuthFormType, Credential, LinkProps } from "../data/page-props";
+  import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
+  import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
+  import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
+
+  type Props = {
+    formType?: AuthFormType;
+    onSubmit?: (credential: Credential) => void;
+    register?: Snippet;
+    privacyPolicy?: LinkProps;
+    termsOfService?: LinkProps;
+  };
+
+  let { formType, onSubmit, register, privacyPolicy, termsOfService }: Props = $props();
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
@@ -31,28 +45,40 @@
           item: { label: $t("label.login"), value: "login" },
           children: loginSnippet,
         },
-        // {
-        //   item: { label: $t("label.register"), value: "register" },
-        //   children: registerSnippet,
-        // },
+        ...(register
+          ? [
+              {
+                item: { label: $t("label.register"), value: "register" },
+                children: registerSnippet,
+              },
+            ]
+          : []),
       ]}
     />
 
     {#snippet loginSnippet()}
-      <FormLogin />
+      {#if formType == "EMAIL_PASSWORD"}
+        <FormLoginEmailPassword {onSubmit} />
+      {:else if formType == "USERNAME_PASSWORD"}
+        <FormLoginUsernamePassword {onSubmit} />
+      {:else if formType == "PHONE_PASSWORD"}
+        <FormLoginPhonePassword {onSubmit} />
+      {/if}
     {/snippet}
 
-    <!-- {#snippet registerSnippet()}
-      <FormRegister />
-    {/snippet} -->
+    {#snippet registerSnippet()}
+      {#if register}
+        {@render register()}
+      {/if}
+    {/snippet}
   </div>
 
   <!-- Footer Terms -->
   <div
     class="text-[11px] text-slate-400 py-2 flex justify-center gap-2 bg-background"
   >
-    <LinkPrivacyPolity />
+    <LinkPrivacyPolity href={privacyPolicy?.url} onclick={privacyPolicy?.onclick} />
     <LabelOr />
-    <LinkTermsOfService />
+    <LinkTermsOfService href={termsOfService?.url} onclick={termsOfService?.onclick} />
   </div>
 </div>

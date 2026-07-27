@@ -6,3 +6,8 @@ export type Credential = {
   password: string
   data: string
 }
+
+export type LinkProps = {
+  url?: string
+  onclick?: () => void
+}

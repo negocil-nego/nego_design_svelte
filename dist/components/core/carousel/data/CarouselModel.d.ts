@@ -1,3 +1,4 @@
+export type CarouselItemType = "NUMBER" | "DOT" | "POINTER";
 export interface CarouselItem {
     title: string;
     description: string;
@@ -6,5 +7,5 @@ export interface CarouselItem {
 }
 export interface CarouselProps {
     items: CarouselItem[];
-    varient: 'NUMBER' | 'POINTER';
+    varient: CarouselItemType;
 }
