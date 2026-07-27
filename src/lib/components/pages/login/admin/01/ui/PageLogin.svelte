@@ -1,38 +1,32 @@
 <script lang="ts">
-  import { t } from "$lib/i18n";
+  import type {
+    CarouselItem,
+    CarouselItemType,
+  } from "$lib/components/core/carousel/data/CarouselModel";
+  import type { Snippet } from "svelte";
   import AuthCard from "./AuthCard.svelte";
   import LeftHero from "./LeftHero.svelte";
+
+  type Props = {
+    carousel?: CarouselItem[];
+    varient?: CarouselItemType;
+    title?: string;
+    children?: Snippet;
+  };
+
+  let { carousel, varient, title, children }: Props = $props();
 </script>
 
 <main class="h-screen w-screen flex items-center">
   <div class="hidden md:block md:w-8/12">
-    <LeftHero
-      title="Negodesign"
-      varient="POINTER"
-      items={[
-        {
-          buttonText: $t("label.next"),
-          title: "ALorem Ipsum is simply dummy text of the printing and",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled",
-        },
-        {
-          buttonText: $t("label.next"),
-          title: "BLorem Ipsum is simply dummy text of the printing and",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled",
-        },
-        {
-          buttonText: $t("label.next"),
-          title: "CLorem Ipsum is simply dummy text of the printing and",
-          description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled",
-        },
-      ]}
-    />
+    <LeftHero {title} varient={varient ?? "POINTER"} items={carousel ?? []} />
   </div>
   <div class="w-full md:px-0 md:w-4/12 border-gray-900">
-    <AuthCard />
+    {#if children}
+      {@render children()}
+    {:else}
+      <AuthCard />
+    {/if}
   </div>
 </main>
 
