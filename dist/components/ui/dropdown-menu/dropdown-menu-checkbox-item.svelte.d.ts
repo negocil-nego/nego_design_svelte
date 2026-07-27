@@ -4,6 +4,6 @@ import type { Snippet } from "svelte";
 type $$ComponentProps = WithoutChildrenOrChild<DropdownMenuPrimitive.CheckboxItemProps> & {
     children?: Snippet;
 };
-declare const DropdownMenuCheckboxItem: import("svelte").Component<$$ComponentProps, {}, "ref" | "checked" | "indeterminate">;
+declare const DropdownMenuCheckboxItem: import("svelte").Component<$$ComponentProps, {}, "checked" | "indeterminate" | "ref">;
 type DropdownMenuCheckboxItem = ReturnType<typeof DropdownMenuCheckboxItem>;
 export default DropdownMenuCheckboxItem;

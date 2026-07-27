@@ -1,24 +1,17 @@
 <script lang="ts">
-  import type {
-    CarouselItem,
-    CarouselItemType,
-  } from "$lib/components/core/carousel/data/CarouselModel";
-  import type { Snippet } from "svelte";
   import AuthCard from "./AuthCard.svelte";
   import LeftHero from "./LeftHero.svelte";
-  import type { AuthFormType, LinkProps } from "../data/page-props";
+  import type { PageLoginProps } from "../data/page-props";
 
-  type Props = {
-    carousel?: CarouselItem[];
-    varient?: CarouselItemType;
-    title?: string;
-    children?: Snippet;
-    formType?: AuthFormType;
-    privacyPolicy?: LinkProps;
-    termsOfService?: LinkProps;
-  };
-
-  let { carousel, varient, title, formType, children, privacyPolicy, termsOfService }: Props = $props();
+  let {
+    carousel,
+    varient,
+    title,
+    formType,
+    children,
+    privacyPolicy,
+    termsOfService,
+  }: PageLoginProps = $props();
 </script>
 
 <main class="h-screen w-screen flex items-center">

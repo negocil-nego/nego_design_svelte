@@ -8,6 +8,6 @@ type Props = WithElementRef<Omit<HTMLInputAttributes, "type"> & ({
     type?: InputType;
     files?: undefined;
 })>;
-declare const Input: import("svelte").Component<Props, {}, "ref" | "value" | "files">;
+declare const Input: import("svelte").Component<Props, {}, "files" | "value" | "ref">;
 type Input = ReturnType<typeof Input>;
 export default Input;

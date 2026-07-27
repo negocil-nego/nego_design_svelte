@@ -1,4 +1,4 @@
 import { Checkbox as CheckboxPrimitive } from "bits-ui";
-declare const Checkbox: import("svelte").Component<Omit<Omit<CheckboxPrimitive.RootProps, "child">, "children">, {}, "ref" | "checked" | "indeterminate">;
+declare const Checkbox: import("svelte").Component<Omit<Omit<CheckboxPrimitive.RootProps, "child">, "children">, {}, "checked" | "indeterminate" | "ref">;
 type Checkbox = ReturnType<typeof Checkbox>;
 export default Checkbox;

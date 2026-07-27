@@ -42,7 +42,7 @@
         ...(actions
             ? [{
                   id: "actions",
-                  cell: (ctx: CellContext<T, unknown>) => renderComponent(actions, ctx as any),
+                  cell: (ctx: CellContext<T, unknown>) => renderComponent(actions, ctx as unknown),
                   enableSorting: false,
                   enableHiding: false,
               } satisfies ColumnDef<T>]

@@ -2,10 +2,10 @@ declare const SidebarInput: import("svelte").Component<(Omit<import("svelte/elem
     type: "file";
     files?: FileList;
 } | {
-    type?: "number" | "submit" | "reset" | "button" | "search" | "checkbox" | "radio" | (string & {}) | "text" | "tel" | "url" | "email" | "hidden" | "color" | "date" | "time" | "datetime-local" | "image" | "month" | "password" | "range" | "week";
+    type?: "number" | "button" | "checkbox" | "color" | "date" | "datetime-local" | "email" | "hidden" | "image" | "month" | "password" | "radio" | "range" | "reset" | "search" | "submit" | "tel" | "text" | "time" | "url" | "week" | (string & {});
     files?: undefined;
 })) & {
     ref?: HTMLElement | null | undefined;
-}, {}, "ref" | "value">;
+}, {}, "value" | "ref">;
 type SidebarInput = ReturnType<typeof SidebarInput>;
 export default SidebarInput;
