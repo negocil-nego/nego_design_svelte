@@ -8,8 +8,12 @@ import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/ui/AdminPanel.svelte";
 import PageLogin from "./components/pages/login/PageLogin.svelte";
+import NegoDesignLayout from "./components/pages/NegoDesignLayout.svelte";
+export { 
+/** Página de configurações para uma aplicação da negodesign. @see NegoDesignLayout */
+NegoDesignLayout, 
 /** Página de login com carousel hero e card de autenticação. @see PageLoginProps */
-export { PageLogin, 
+PageLogin, 
 /** Tabela de dados genérica com paginação, ordenação e filtros. @see DataTableItem */
 DataTableCore, 
 /** Sidebar de navegação com menus, usuário e botões. @see MenuBarSidebar */
