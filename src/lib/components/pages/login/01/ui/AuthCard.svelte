@@ -5,7 +5,6 @@
   import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
   import ButtonBack from "$lib/components/core/button/ButtonBack.svelte";
   import LabelOr from "$lib/components/core/label/LabelOr.svelte";
-  //import FormRegister from "./FormRegister.svelte";
   import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
@@ -14,6 +13,14 @@
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
 
+  /**
+   * Card de autenticação com abas login/register.
+   * @property {AuthFormType} formType - Tipo do form (EMAIL_PASSWORD, USERNAME_PASSWORD, PHONE_PASSWORD)
+   * @property {(cred: Credential) => void} onSubmit - Callback ao submeter credenciais
+   * @property {Snippet} register - Snippet do form de registro (opcional, exibe aba Register)
+   * @property {LinkProps} privacyPolicy - Config do link de privacidade { url, onclick }
+   * @property {LinkProps} termsOfService - Config do link de termos { url, onclick }
+   */
   type Props = {
     formType?: AuthFormType;
     onSubmit?: (credential: Credential) => void;

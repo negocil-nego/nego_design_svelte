@@ -1,15 +1,20 @@
 <script lang="ts">
-  import InputEmail from "../../../../../core/form/ui/input-email.svelte";
-  import InputUsername from "../../../../../core/form/ui/input-username.svelte";
-  import InputPhone from "../../../../../core/form/ui/input-phone.svelte";
-  import InputPassword from "../../../../../core/form/ui/input-password.svelte";
-  import ButtonLogin from "../../../../../core/button/ButtonLogin.svelte";
-  import LinkForgetPassword from "../../../../../core/link/link-forget-password.svelte";
-  import LabelOr from "../../../../../core/label/LabelOr.svelte";
-  import ButtonLoginWith from "../../../../../core/button/ButtonLoginWith.svelte";
-  import { t } from "../../../../../../i18n";
+  import InputEmail from "../../../../core/form/ui/input-email.svelte";
+  import InputUsername from "../../../../core/form/ui/input-username.svelte";
+  import InputPhone from "../../../../core/form/ui/input-phone.svelte";
+  import InputPassword from "../../../../core/form/ui/input-password.svelte";
+  import ButtonLogin from "../../../../core/button/ButtonLogin.svelte";
+  import LinkForgetPassword from "../../../../core/link/link-forget-password.svelte";
+  import LabelOr from "../../../../core/label/LabelOr.svelte";
+  import ButtonLoginWith from "../../../../core/button/ButtonLoginWith.svelte";
+  import { t } from "../../../../../i18n";
   import type { Credential, LoginVariant } from "../data/page-props";
 
+  /**
+   * Formulário de login reutilizável.
+   * @property {LoginVariant} variant - Tipo do input de dados (EMAIL, USERNAME, PHONE)
+   * @property {(cred: Credential) => void} onSubmit - Callback ao submeter { data, password }
+   */
   type Props = {
     variant: LoginVariant;
     onSubmit?: (credential: Credential) => void;

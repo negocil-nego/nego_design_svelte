@@ -14,6 +14,14 @@
   import NavMenuTopBar from "../nav/ui/nav-menu-top-bar.svelte";
   import { t } from "../../../i18n";
 
+  /**
+   * Sidebar de navegação com menus, usuário e botões.
+   * @property {NavMenuSidebar[]} menusButtons - Botões do footer (ex: logout)
+   * @property {NavMenuItem[]} menus - Itens de navegação principal
+   * @property {NavUserSidebarItem} user - Dados do usuário logado
+   * @property {Snippet} footer - Snippet customizado do footer
+   * @property {Snippet} header - Snippet customizado do header
+   */
   type Props = {
     menusButtons?: NavMenuSidebar[];
     menus: NavMenuItem[];

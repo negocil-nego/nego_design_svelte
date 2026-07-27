@@ -1,4 +1,5 @@
 import type { Snippet } from "svelte";
+/** Wrapper de conteúdo para páginas admin. */
 type Props = {
     children?: Snippet;
 };

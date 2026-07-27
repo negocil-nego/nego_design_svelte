@@ -1,4 +1,5 @@
 import type { Credential } from "../data/page-props";
+/** Form de login com email e senha. Wrapper fino de FormLogin variant="EMAIL". */
 type Props = {
     onSubmit?: (credential: Credential) => void;
 };

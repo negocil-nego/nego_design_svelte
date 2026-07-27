@@ -3,6 +3,7 @@
   import InputBase from "./input-base.svelte";
   import { t } from "../../../../i18n";
 
+  /** Campo de input para telefone com ícone e label. */
   let {
     label,
     placeholder,

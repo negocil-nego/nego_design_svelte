@@ -1,19 +1,26 @@
 <script lang="ts">
-  import LanguageSwitcher from "../../../../../ui/language-switcher/language-switcher.svelte";
-  import LinkTermsOfService from "../../../../../core/link/link-terms-of-service.svelte";
-  import LinkPrivacyPolity from "../../../../../core/link/link-privacy-polity.svelte";
-  import TabUnderline from "../../../../../core/tabs/ui/tab-underline.svelte";
-  import ButtonBack from "../../../../../core/button/ButtonBack.svelte";
-  import LabelOr from "../../../../../core/label/LabelOr.svelte";
-  //import FormRegister from "./FormRegister.svelte";
+  import LanguageSwitcher from "../../../../ui/language-switcher/language-switcher.svelte";
+  import LinkTermsOfService from "../../../../core/link/link-terms-of-service.svelte";
+  import LinkPrivacyPolity from "../../../../core/link/link-privacy-polity.svelte";
+  import TabUnderline from "../../../../core/tabs/ui/tab-underline.svelte";
+  import ButtonBack from "../../../../core/button/ButtonBack.svelte";
+  import LabelOr from "../../../../core/label/LabelOr.svelte";
   import type { Snippet } from "svelte";
-  import { LightSwitch } from "../../../../../ui/light-switch";
-  import { t } from "../../../../../../i18n";
+  import { LightSwitch } from "../../../../ui/light-switch";
+  import { t } from "../../../../../i18n";
   import type { AuthFormType, Credential, LinkProps } from "../data/page-props";
   import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
 
+  /**
+   * Card de autenticação com abas login/register.
+   * @property {AuthFormType} formType - Tipo do form (EMAIL_PASSWORD, USERNAME_PASSWORD, PHONE_PASSWORD)
+   * @property {(cred: Credential) => void} onSubmit - Callback ao submeter credenciais
+   * @property {Snippet} register - Snippet do form de registro (opcional, exibe aba Register)
+   * @property {LinkProps} privacyPolicy - Config do link de privacidade { url, onclick }
+   * @property {LinkProps} termsOfService - Config do link de termos { url, onclick }
+   */
   type Props = {
     formType?: AuthFormType;
     onSubmit?: (credential: Credential) => void;

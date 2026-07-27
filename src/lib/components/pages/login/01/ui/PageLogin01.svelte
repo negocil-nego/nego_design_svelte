@@ -3,6 +3,15 @@
   import LeftHero from "./LeftHero.svelte";
   import type { PageLoginProps } from "../data/page-props";
 
+  /**
+   * Variante 01 da página de login.
+   * Layout split: hero à esquerda, auth card à direita.
+   * @property {CarouselItem[]} carousel - Itens do carousel
+   * @property {string} title - Título do hero
+   * @property {AuthFormType} formType - Tipo do form de login
+   * @property {LinkProps} privacyPolicy - Config do link de privacidade
+   * @property {LinkProps} termsOfService - Config do link de termos
+   */
   let {
     carousel,
     varient,

@@ -1,4 +1,4 @@
-import type { CarouselProps } from "../../../../../core/carousel/data/CarouselModel";
+import type { CarouselProps } from "../../../../core/carousel/data/CarouselModel";
 import type { Snippet } from "svelte";
 type Props = {
     title?: string | Snippet;

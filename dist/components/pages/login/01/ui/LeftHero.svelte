@@ -1,9 +1,9 @@
 <script lang="ts">
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-  import type { CarouselProps } from "../../../../../core/carousel/data/CarouselModel";
+  import type { CarouselProps } from "../../../../core/carousel/data/CarouselModel";
   import type { Snippet } from "svelte";
-  import Button from "../../../../../ui/button/button.svelte";
+  import Button from "../../../../ui/button/button.svelte";
 
   type Props = {
     title?: string | Snippet;

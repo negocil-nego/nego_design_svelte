@@ -15,6 +15,7 @@
 			"svelte": "./dist/index.js",
 			"default": "./dist/index.js"
 		},
+		"./styles.css": "./dist/globals.css",
 		"./*.svelte": "./dist/*.svelte",
 		"./*": {
 			"types": "./dist/*.d.ts",
@@ -25,7 +26,7 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"package": "svelte-kit sync && svelte-package",
+		"package": "svelte-kit sync && svelte-package && tailwindcss -i ./src/lib/styles/globals.css -o ./dist/globals.css",
 		"prepublishOnly": "npm run package",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
@@ -71,6 +72,7 @@
 		"@sveltejs/kit": "^2.63.0",
 		"@sveltejs/package": "^2.5.8",
 		"@sveltejs/vite-plugin-svelte": "^7.1.2",
+		"@tailwindcss/cli": "^4.3.0",
 		"@tailwindcss/forms": "^0.5.11",
 		"@tailwindcss/typography": "^0.5.19",
 		"@tailwindcss/vite": "^4.3.0",
