@@ -6,6 +6,7 @@
   import ButtonBack from "$lib/components/core/button/ButtonBack.svelte";
   import LabelOr from "$lib/components/core/label/LabelOr.svelte";
   //import FormRegister from "./FormRegister.svelte";
+  import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
   import type { AuthFormType, Credential } from "../data/page-props";
@@ -16,9 +17,10 @@
   type Props = {
     formType?: AuthFormType;
     onSubmit?: (credential: Credential) => void;
+    register?: Snippet;
   };
 
-  let { formType, onSubmit }: Props = $props();
+  let { formType, onSubmit, register }: Props = $props();
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
@@ -41,10 +43,14 @@
           item: { label: $t("label.login"), value: "login" },
           children: loginSnippet,
         },
-        // {
-        //   item: { label: $t("label.register"), value: "register" },
-        //   children: registerSnippet,
-        // },
+        ...(register
+          ? [
+              {
+                item: { label: $t("label.register"), value: "register" },
+                children: registerSnippet,
+              },
+            ]
+          : []),
       ]}
     />
 
@@ -58,9 +64,11 @@
       {/if}
     {/snippet}
 
-    <!-- {#snippet registerSnippet()}
-      <FormRegister />
-    {/snippet} -->
+    {#snippet registerSnippet()}
+      {#if register}
+        {@render register()}
+      {/if}
+    {/snippet}
   </div>
 
   <!-- Footer Terms -->
