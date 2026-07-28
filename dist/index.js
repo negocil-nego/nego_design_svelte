@@ -8,15 +8,25 @@ import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/ui/AdminPanel.svelte";
 import PageLogin from "./components/pages/login/PageLogin.svelte";
-import NegoDesignLayout from "./components/NegoDesignLayout.svelte";
-export { locale, locales, t } from "./i18n";
-export { defineNegodesignConfig, getConfig } from "./config";
-export { getMergedTranslations, getLocales } from "./i18n/config";
+import PageForgetPassword from "./components/pages/forget-password/PageForgetPassword.svelte";
+import NegoDesign from "./components/NegoDesign.svelte";
+/** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
+export { locale } from "./i18n";
+/** Lista de idiomas disponíveis. Atualizado automaticamente. */
+export { locales } from "./i18n";
+/** Função de tradução reativa. Use `$t("chave")` nos templates. */
+export { t } from "./i18n";
+/** Retorna as traduções mescladas (base + customizadas). */
+export { getMergedTranslations } from "./i18n/config";
+/** Retorna a lista de idiomas disponíveis. */
+export { getLocales } from "./i18n/config";
 export { 
-/** Página de configurações para uma aplicação da negodesign. @see NegoDesignLayout */
-NegoDesignLayout, 
+/** Componente raiz do Negodesign. Configura o tema, idioma e traduções. @property {Record<string, Record<string, string>>} translations - Traduções customizadas @property {Snippet} children - Conteúdo da aplicação */
+NegoDesign, 
 /** Página de login com carousel hero e card de autenticação. @see PageLoginProps */
 PageLogin, 
+/** Página de recuperação de senha com carousel hero e card de recuperação. @see PageForgetPasswordProps */
+PageForgetPassword, 
 /** Tabela de dados genérica com paginação, ordenação e filtros. @see DataTableItem */
 DataTableCore, 
 /** Sidebar de navegação com menus, usuário e botões. @see MenuBarSidebar */

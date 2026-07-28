@@ -1,6 +1,7 @@
 import { derived, writable } from "svelte/store";
 import { getMergedTranslations } from "./config";
 
+/** Locale atual do sistema de internacionalização. Pode ser alterado diretamente. */
 export const locale = writable("en");
 
 type TranslationVars = Record<string, string | number>;
@@ -26,8 +27,20 @@ function translate(currentLocale: string, key: string, vars: TranslationVars) {
     return text;
 }
 
+/** Lista de idiomas disponíveis. Atualizado automaticamente quando a config muda. */
 export const locales = derived(locale, () => Object.keys(getMergedTranslations()) as string[]);
 
+/**
+ * Função de tradução reativa. Use `$t("chave")` nos templates Svelte
+ * ou `get(t)("chave")` em scripts.
+ *
+ * Suporta interpolação de variáveis: `$t("button.login.with", { name: "Google" })`
+ * @example
+ * ```svelte
+ * <p>{$t("label.welcome")}</p>
+ * <p>{$t("button.login.with", { name: "Google" })}</p>
+ * ```
+ */
 export const t = derived(
     locale,
     ($locale) =>

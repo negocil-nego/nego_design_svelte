@@ -1,12 +1,13 @@
 <script lang="ts">
   import AuthCard from "./AuthCard.svelte";
   import LeftHero from "./LeftHero.svelte";
-  import type { PageLoginProps } from "../data/page-props";
+  import type { PageLoginProps } from "../../types";
+  import { t } from "$lib/i18n";
 
   /**
    * Variante 01 da página de login.
    * Layout split: hero à esquerda, auth card à direita.
-   * @property {CarouselItem[]} carousel - Itens do carousel
+   * @property {CarouselItem[]} carousel - Itens do carousel (opcional, usa valores padrão)
    * @property {string} title - Título do hero
    * @property {AuthFormType} formType - Tipo do form de login
    * @property {LinkProps} privacyPolicy - Config do link de privacidade
@@ -18,9 +19,30 @@
     title,
     formType,
     children,
+    onSubmit,
     privacyPolicy,
     termsOfService,
   }: PageLoginProps = $props();
+
+  const defaultCarousel = $derived([
+    {
+      buttonText: $t("label.next"),
+      title: $t("carousel.login.01.slide1.title"),
+      description: $t("carousel.login.01.slide1.description"),
+    },
+    {
+      buttonText: $t("label.next"),
+      title: $t("carousel.login.01.slide2.title"),
+      description: $t("carousel.login.01.slide2.description"),
+    },
+    {
+      buttonText: $t("label.next"),
+      title: $t("carousel.login.01.slide3.title"),
+      description: $t("carousel.login.01.slide3.description"),
+    },
+  ]);
+
+  const carouselItems = $derived(carousel ?? defaultCarousel);
 </script>
 
 <main class="h-screen w-screen flex items-center">
@@ -32,13 +54,13 @@
     </defs>
   </svg>
   <div class="hidden md:block md:w-8/12">
-    <LeftHero {title} varient={varient ?? "POINTER"} items={carousel ?? []} />
+    <LeftHero {title} varient={varient ?? "POINTER"} items={carouselItems} />
   </div>
   <div class="w-full md:px-0 md:w-4/12 border-gray-900">
     {#if children}
       {@render children()}
     {:else}
-      <AuthCard {formType} {privacyPolicy} {termsOfService} />
+      <AuthCard {formType} {onSubmit} {privacyPolicy} {termsOfService} />
     {/if}
   </div>
 </main>

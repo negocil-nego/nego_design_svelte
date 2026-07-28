@@ -1,4 +1,4 @@
-import type { PageLoginProps } from "./01/data/page-props";
+import type { PageLoginProps } from "./types";
 /**
  * Página de login principal.
  * @property {"01"} varient - Variante do layout de login

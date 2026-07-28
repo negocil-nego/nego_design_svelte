@@ -1,4 +1,4 @@
-import type { Credential, LoginVariant } from "../data/page-props";
+import type { LoginRequestDto, LoginVariant } from "../../types";
 /**
  * Formulário de login reutilizável.
  * @property {LoginVariant} variant - Tipo do input de dados (EMAIL, USERNAME, PHONE)
@@ -6,7 +6,7 @@ import type { Credential, LoginVariant } from "../data/page-props";
  */
 type Props = {
     variant: LoginVariant;
-    onSubmit?: (credential: Credential) => void;
+    onSubmit?: (credential: LoginRequestDto) => void;
 };
 declare const FormLogin: import("svelte").Component<Props, {}, "">;
 type FormLogin = ReturnType<typeof FormLogin>;

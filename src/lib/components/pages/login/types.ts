@@ -5,7 +5,7 @@ export type AuthFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSW
 
 export type LoginVariant = "EMAIL" | "USERNAME" | "PHONE"
 
-export type Credential = {
+export type LoginRequestDto = {
   password: string
   data: string
 }
@@ -16,11 +16,12 @@ export type LinkProps = {
 }
 
 export type PageLoginProps = {
-    carousel?: CarouselItem[];
-    varient?: CarouselItemType;
-    title?: string;
-    children?: Snippet;
-    formType?: AuthFormType;
-    privacyPolicy?: LinkProps;
-    termsOfService?: LinkProps;
-  };
+  carousel?: CarouselItem[];
+  varient?: CarouselItemType;
+  title?: string;
+  children?: Snippet;
+  formType?: AuthFormType;
+  onSubmit?: (credential: LoginRequestDto) => void;
+  privacyPolicy?: LinkProps;
+  termsOfService?: LinkProps;
+};

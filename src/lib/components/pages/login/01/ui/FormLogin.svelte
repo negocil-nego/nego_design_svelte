@@ -8,7 +8,7 @@
   import LabelOr from "$lib/components/core/label/LabelOr.svelte";
   import ButtonLoginWith from "$lib/components/core/button/ButtonLoginWith.svelte";
   import { t } from "$lib/i18n";
-  import type { Credential, LoginVariant } from "../data/page-props";
+  import type { LoginRequestDto, LoginVariant } from "../../types";
 
   /**
    * Formulário de login reutilizável.
@@ -17,7 +17,7 @@
    */
   type Props = {
     variant: LoginVariant;
-    onSubmit?: (credential: Credential) => void;
+    onSubmit?: (credential: LoginRequestDto) => void;
   };
 
   let { variant, onSubmit }: Props = $props();

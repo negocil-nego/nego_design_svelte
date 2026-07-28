@@ -8,7 +8,7 @@
   import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { AuthFormType, Credential, LinkProps } from "../data/page-props";
+  import type { AuthFormType, LoginRequestDto, LinkProps } from "../../types";
   import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
@@ -23,13 +23,14 @@
    */
   type Props = {
     formType?: AuthFormType;
-    onSubmit?: (credential: Credential) => void;
+    onSubmit?: (credential: LoginRequestDto) => void;
     register?: Snippet;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
   };
 
-  let { formType, onSubmit, register, privacyPolicy, termsOfService }: Props = $props();
+  let { formType, onSubmit, register, privacyPolicy, termsOfService }: Props =
+    $props();
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
@@ -84,8 +85,14 @@
   <div
     class="text-[11px] text-slate-400 py-2 flex justify-center gap-2 bg-background"
   >
-    <LinkPrivacyPolity href={privacyPolicy?.url} onclick={privacyPolicy?.onclick} />
+    <LinkPrivacyPolity
+      href={privacyPolicy?.url}
+      onclick={privacyPolicy?.onclick}
+    />
     <LabelOr />
-    <LinkTermsOfService href={termsOfService?.url} onclick={termsOfService?.onclick} />
+    <LinkTermsOfService
+      href={termsOfService?.url}
+      onclick={termsOfService?.onclick}
+    />
   </div>
 </div>

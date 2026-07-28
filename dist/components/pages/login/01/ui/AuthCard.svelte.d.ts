@@ -1,5 +1,5 @@
 import type { Snippet } from "svelte";
-import type { AuthFormType, Credential, LinkProps } from "../data/page-props";
+import type { AuthFormType, LoginRequestDto, LinkProps } from "../../types";
 /**
  * Card de autenticação com abas login/register.
  * @property {AuthFormType} formType - Tipo do form (EMAIL_PASSWORD, USERNAME_PASSWORD, PHONE_PASSWORD)
@@ -10,7 +10,7 @@ import type { AuthFormType, Credential, LinkProps } from "../data/page-props";
  */
 type Props = {
     formType?: AuthFormType;
-    onSubmit?: (credential: Credential) => void;
+    onSubmit?: (credential: LoginRequestDto) => void;
     register?: Snippet;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;

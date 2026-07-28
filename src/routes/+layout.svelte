@@ -1,11 +1,11 @@
 <script lang="ts">
   import "./layout.css";
   import favicon from "$lib/assets/favicon.svg";
-  import NegoDesignLayout from "$lib/components/NegoDesignLayout.svelte";
+  import NegoDesign from "$lib/components/NegoDesign.svelte";
   let { children } = $props();
 </script>
 
 <svelte:head><link rel="icon" href={favicon} /></svelte:head>
-<NegoDesignLayout>
+<NegoDesign>
   {@render children()}
-</NegoDesignLayout>
+</NegoDesign>

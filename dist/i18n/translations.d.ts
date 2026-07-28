@@ -11,6 +11,7 @@ declare const _default: {
         "button.back": string;
         "button.login": string;
         "button.login.with": string;
+        "button.send": string;
         "link.forget.password": string;
         "link.privacy-policy.label": string;
         "link.terms-of-service.label": string;
@@ -24,6 +25,7 @@ declare const _default: {
         "label.platform": string;
         "label.login": string;
         "label.register": string;
+        "label.forget-password": string;
         "label.home": string;
         "label.maneger": string;
         "label.folder": string;
@@ -34,6 +36,13 @@ declare const _default: {
         "label.welcome": string;
         "text.login": string;
         "text.register": string;
+        "text.forget-password": string;
+        "carousel.login.01.slide1.title": string;
+        "carousel.login.01.slide1.description": string;
+        "carousel.login.01.slide2.title": string;
+        "carousel.login.01.slide2.description": string;
+        "carousel.login.01.slide3.title": string;
+        "carousel.login.01.slide3.description": string;
         "language.en": string;
         "language.pt": string;
     };
@@ -49,6 +58,7 @@ declare const _default: {
         "button.back": string;
         "button.login": string;
         "button.login.with": string;
+        "button.send": string;
         "link.forget.password": string;
         "link.privacy-policy.label": string;
         "link.terms-of-service.label": string;
@@ -62,6 +72,7 @@ declare const _default: {
         "label.platform": string;
         "label.login": string;
         "label.register": string;
+        "label.forget-password": string;
         "label.home": string;
         "label.maneger": string;
         "label.folder": string;
@@ -72,6 +83,13 @@ declare const _default: {
         "label.welcome": string;
         "text.login": string;
         "text.register": string;
+        "text.forget-password": string;
+        "carousel.login.01.slide1.title": string;
+        "carousel.login.01.slide1.description": string;
+        "carousel.login.01.slide2.title": string;
+        "carousel.login.01.slide2.description": string;
+        "carousel.login.01.slide3.title": string;
+        "carousel.login.01.slide3.description": string;
         "language.en": string;
         "language.pt": string;
     };

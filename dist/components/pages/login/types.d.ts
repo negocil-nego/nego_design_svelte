@@ -1,8 +1,8 @@
-import type { CarouselItem, CarouselItemType } from "../../../../core/carousel/data/CarouselModel";
+import type { CarouselItem, CarouselItemType } from "../../core/carousel/data/CarouselModel";
 import type { Snippet } from "svelte";
 export type AuthFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSWORD";
 export type LoginVariant = "EMAIL" | "USERNAME" | "PHONE";
-export type Credential = {
+export type LoginRequestDto = {
     password: string;
     data: string;
 };
@@ -16,6 +16,7 @@ export type PageLoginProps = {
     title?: string;
     children?: Snippet;
     formType?: AuthFormType;
+    onSubmit?: (credential: LoginRequestDto) => void;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
 };

@@ -12,6 +12,7 @@ export default {
     "button.back": "Back",
     "button.login": "Sign In",
     "button.login.with": "Continue with {{name}}",
+    "button.send": "Send",
 
     "link.forget.password": "Forgot my password",
     "link.privacy-policy.label": "Privacy Policy",
@@ -27,6 +28,7 @@ export default {
     "label.platform": "Platform",
     "label.login": "Authentication",
     "label.register": "Create account",
+    "label.forget-password": "Forgot Password",
     "label.home": "Home",
     "label.maneger": "Maneger",
     "label.folder": "Folder",
@@ -38,6 +40,14 @@ export default {
 
     "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
     "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",
+    "text.forget-password": "Enter your email address below and we will send you a link to reset your password.",
+
+    "carousel.login.01.slide1.title": "Welcome to the Admin Panel",
+    "carousel.login.01.slide1.description": "Manage your platform efficiently with our comprehensive administration tools. Monitor performance, configure settings, and oversee all operations from a single dashboard.",
+    "carousel.login.01.slide2.title": "User Management",
+    "carousel.login.01.slide2.description": "Create, edit, and manage user accounts with ease. Assign roles, set permissions, and ensure secure access control for your entire organization.",
+    "carousel.login.01.slide3.title": "Analytics & Reports",
+    "carousel.login.01.slide3.description": "Gain valuable insights with real-time analytics and detailed reports. Track key metrics, identify trends, and make data-driven decisions to grow your business.",
 
     "language.en": "English",
     "language.pt": "Portuguese"
@@ -55,6 +65,7 @@ export default {
     "button.back": "Voltar",
     "button.login": "Entrar",
     "button.login.with": "Continuar com {{name}}",
+    "button.send": "Enviar",
 
     "link.forget.password": "Esqueci a minha senha",
     "link.privacy-policy.label": "Política de Privacidade",
@@ -70,6 +81,7 @@ export default {
     "label.platform": "Plataforma",
     "label.login": "Autenticação",
     "label.register": "Criação de conta",
+    "label.forget-password": "Esqueci a Senha",
     "label.home": "Página inicial",
     "label.maneger": "Gerenciamento",
     "label.folder": "Pasta",
@@ -81,6 +93,14 @@ export default {
 
     "text.login": "Insira as suas credenciais abaixo para aceder à sua conta com segurança e continuar de onde parou.",
     "text.register": "Preencha os campos abaixo com as suas informações para criar a sua nova conta e aproveitar todos os nossos recursos.",
+    "text.forget-password": "Insira o seu endereço de email abaixo e enviaremos um link para redefinir a sua senha.",
+
+    "carousel.login.01.slide1.title": "Bem-vindo ao Painel Administrativo",
+    "carousel.login.01.slide1.description": "Gerencie a sua plataforma de forma eficiente com as nossas ferramentas de administração abrangentes. Monitorize a performance, configure definições e supervise todas as operações a partir de um único painel.",
+    "carousel.login.01.slide2.title": "Gestão de Utilizadores",
+    "carousel.login.01.slide2.description": "Crie, edite e gerencie contas de utilizador com facilidade. Atribua funções, defina permissões e garanta um controlo de acesso seguro para toda a sua organização.",
+    "carousel.login.01.slide3.title": "Análises e Relatórios",
+    "carousel.login.01.slide3.description": "Obtenha informações valiosas com análises em tempo real e relatórios detalhados. Acompanhe métricas importantes, identifique tendências e tome decisões baseadas em dados para fazer crescer o seu negócio.",
 
     "language.en": "Inglês",
     "language.pt": "Português"

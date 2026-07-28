@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { PageLoginProps } from "./01/data/page-props";
+  import type { PageLoginProps } from "./types";
   import PageLogin01 from "./01/ui/PageLogin01.svelte";
 
   /**
