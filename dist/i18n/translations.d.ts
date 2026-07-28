@@ -31,6 +31,7 @@ declare const _default: {
         "label.users": string;
         "label.account": string;
         "label.profile": string;
+        "label.welcome": string;
         "text.login": string;
         "text.register": string;
         "language.en": string;
@@ -68,6 +69,7 @@ declare const _default: {
         "label.users": string;
         "label.account": string;
         "label.profile": string;
+        "label.welcome": string;
         "text.login": string;
         "text.register": string;
         "language.en": string;

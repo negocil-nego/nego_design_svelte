@@ -24,6 +24,13 @@
 </script>
 
 <main class="h-screen w-screen flex items-center">
+  <svg width="0" height="0" class="absolute">
+    <defs>
+      <clipPath id="grid-curve-clip" clipPathUnits="objectBoundingBox">
+        <path d="M0.35,0 L1,0 C0.85,0.3 1,0.6 0.4,1 L1,1 Z" />
+      </clipPath>
+    </defs>
+  </svg>
   <div class="hidden md:block md:w-8/12">
     <LeftHero {title} varient={varient ?? "POINTER"} items={carousel ?? []} />
   </div>
@@ -45,5 +52,6 @@
         transparent 1px
       ),
       linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    clip-path: url(#grid-curve-clip);
   }
 </style>
