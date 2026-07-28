@@ -8,7 +8,11 @@ import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/ui/AdminPanel.svelte";
 import PageLogin from "./components/pages/login/PageLogin.svelte";
-import NegoDesignLayout from "./components/pages/NegoDesignLayout.svelte";
+import NegoDesignLayout from "./components/NegoDesignLayout.svelte";
+
+export { locale, locales, t } from "./i18n";
+export { defineNegodesignConfig, getConfig } from "./config";
+export { getMergedTranslations, getLocales } from "./i18n/config";
 
 export {
     /** Página de configurações para uma aplicação da negodesign. @see NegoDesignLayout */

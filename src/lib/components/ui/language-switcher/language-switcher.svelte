@@ -38,7 +38,7 @@
   </DropdownMenu.Trigger>
   <DropdownMenu.Content {align}>
     <DropdownMenu.RadioGroup bind:value={$locale}>
-      {#each locales as code (code)}
+      {#each $locales as code (code)}
         <DropdownMenu.RadioItem value={code}>
           {$t(`language.${code}`)}
         </DropdownMenu.RadioItem>

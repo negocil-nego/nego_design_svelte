@@ -4,6 +4,8 @@
   import type { CarouselProps } from "$lib/components/core/carousel/data/CarouselModel";
   import type { Snippet } from "svelte";
   import Button from "$lib/components/ui/button/button.svelte";
+  import { t } from "$lib/i18n";
+  import Logo from "$lib/assets/login-01-admin.webp";
 
   type Props = {
     title?: string | Snippet;
@@ -45,7 +47,7 @@
       {#if typeof title === "function"}
         {@render title()}
       {:else}
-        {title || ""}
+        {title || $t("label.welcome")}
       {/if}
     </div>
   </div>
@@ -100,6 +102,12 @@
       {/each}
     </div>
   </section>
+
+  <aside
+    class="hidden z-50 lg:block lg:absolute lg:right-0 lg:-bottom-3 lg:w-105 lg:h-105"
+  >
+    <img src={Logo} alt="" class="shadow rounded-tl-lg rounded-bl-lg" />
+  </aside>
 </div>
 
 <aside class="absolute grid-pattern p-0 top-0 h-screen w-8/12"></aside>

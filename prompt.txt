@@ -1,0 +1,1 @@
+o defineNegodesignConfig é a funcão de configuração geral não é para ficar apenas em "src\lib\i18n\config.ts" colo na raiz da pasta lib e deves também no componente NegoDesignLayout ter uma propriedade,  translations que irá ser chamado defineNegodesignConfig e receber a configuração
