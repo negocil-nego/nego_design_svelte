@@ -3,23 +3,23 @@ import type {
     LoginRequestDto,
     LinkProps,
     PageLoginProps
-} from "../components/pages/login/types";
+} from "../components/pages/security/login/types";
 
 import type {
     ForgetPasswordVariant,
     ForgetPasswordRequestDto,
     PageForgetPasswordProps
-} from "../components/pages/forget-password/types";
+} from "../components/pages/security/forget-password/types";
 
 import type {
     ResetPasswordRequestDto,
     PageResetPasswordProps
-} from "../components/pages/reset-password/types";
+} from "../components/pages/security/reset-password/types";
 
 import type {
     OtpVerificationRequestDto,
     PageOtpVerificationProps
-} from "../components/pages/otp-verification/types";
+} from "../components/pages/security/otp-verification/types";
 
 export type {
     /**  Dados necessários para autenticação de um utilizador. @see LoginRequestDto */

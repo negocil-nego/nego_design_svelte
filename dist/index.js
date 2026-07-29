@@ -9,10 +9,11 @@ import DataTableCore from "./components/core/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/ui/AdminPanel.svelte";
-import PageLogin from "./components/pages/login/PageLogin.svelte";
-import PageForgetPassword from "./components/pages/forget-password/PageForgetPassword.svelte";
-import PageResetPassword from "./components/pages/reset-password/PageResetPassword.svelte";
-import PageOtpVerification from "./components/pages/otp-verification/PageOtpVerification.svelte";
+import PageLogin from "./components/pages/security/login/PageLogin.svelte";
+import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
+import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
+import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
+import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -33,6 +34,8 @@ PageLogin,
 PageForgetPassword, 
 /** Página de redefinição de senha com carousel hero e card de redefinição. @see PageResetPasswordProps */
 PageResetPassword, 
+/** Página de redefinição de senha com carousel hero e card de redefinição. @see PageResetPasswordProps */
+PrivacyPolicyOrTermsOfUse, 
 /** Página de verificação OTP com carousel hero e card de verificação. @see PageOtpVerificationProps */
 PageOtpVerification, 
 /** Tabela de dados genérica com paginação, ordenação e filtros. @see DataTableItem */

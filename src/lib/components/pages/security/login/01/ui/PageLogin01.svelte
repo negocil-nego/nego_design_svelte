@@ -1,8 +1,8 @@
 <script lang="ts">
   import AuthCard from "./LoginCard.svelte";
-  import LeftHero from "../../../../core/panel/LeftHero.svelte";
+  import LeftHero from "../../../../../core/panel/LeftHero.svelte";
   import type { PageLoginProps } from "../../types";
-  import { t } from "../../../../../i18n";
+  import { t } from "$lib/i18n";
 
   /**
    * Variante 01 da página de login.

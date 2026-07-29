@@ -1,0 +1,73 @@
+<script lang="ts" module>
+  /**
+   * Variante 01 da página de Política de Privacidade / Termos de Uso.
+   * Layout de três colunas: sidebar de navegação, conteúdo principal e TOC.
+   * Inclui scroll-spy com IntersectionObserver para destacar a secção ativa.
+   * @component
+   * @example
+   * ```svelte
+   * <PrivacyPolicyOrTermsOfUse01 data={pageData} />
+   * ```
+   */
+</script>
+
+<script lang="ts">
+  import type { DocPageData } from "../types";
+  import { buildToc } from "../shared/toc";
+  import PrivacyPolicyOrTermsOfUseBreadcrumb from "../shared/PrivacyPolicyOrTermsOfUseBreadcrumb.svelte";
+  import DocSectionView from "../shared/DocSectionView.svelte";
+  import DocsSidebar from "./DocsSidebar.svelte";
+  import TableOfContents from "./TableOfContents.svelte";
+
+  let { data }: { data: DocPageData } = $props();
+
+  const toc = $derived(buildToc(data.sections));
+
+  /** Secção atualmente visível, para destacar na TOC (scroll-spy simples). */
+  let activeId = $state<string | undefined>(undefined);
+
+  $effect(() => {
+    const headingEls = toc
+      .map((item) => document.getElementById(item.id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    if (headingEls.length === 0) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries.find((entry) => entry.isIntersecting);
+        if (visible) activeId = visible.target.id;
+      },
+      { rootMargin: "0px 0px -70% 0px", threshold: 0 },
+    );
+
+    headingEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  });
+</script>
+
+<div class="mx-auto max-w-7xl px-6 py-10">
+  <div class="flex gap-10">
+    <DocsSidebar sections={data.sections} {activeId} />
+
+    <main class="min-w-0 flex-1 flex flex-col gap-8">
+      <header class="flex flex-col gap-4">
+        <div>
+          <h1 class="text-3xl font-bold tracking-tight">{data.title}</h1>
+          <p class="mt-1 text-sm text-muted-foreground">
+            Latest update: {data.lastUpdated}
+          </p>
+        </div>
+        <PrivacyPolicyOrTermsOfUseBreadcrumb items={data.breadcrumb} />
+      </header>
+
+      <div class="flex flex-col gap-10">
+        {#each data.sections as section (section.id)}
+          <DocSectionView {section} />
+        {/each}
+      </div>
+    </main>
+
+    <TableOfContents items={toc} {activeId} />
+  </div>
+</div>

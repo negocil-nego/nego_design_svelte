@@ -53,7 +53,7 @@
   </div>
 
   <section class="flex flex-col gap-5">
-    <div class="my-auto max-w-sm md:max-w-md">
+    <div class="my-auto max-w-sm md:max-w-md lg:max-w-100">
       {#if currentItem}
         {#key currentIndex}
           <div
@@ -103,7 +103,9 @@
     </div>
   </section>
 
-  <aside class="hidden z-50 lg:block lg:absolute lg:right-0 lg:-bottom-3">
+  <aside
+    class="hidden z-50 lg:block lg:absolute lg:right-0 lg:-bottom-3 lg:w-105 lg:h-105"
+  >
     <img
       src={Logo}
       alt=""
