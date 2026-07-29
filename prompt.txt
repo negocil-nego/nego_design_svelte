@@ -1,1 +1,27 @@
-o defineNegodesignConfig é a funcão de configuração geral não é para ficar apenas em "src\lib\i18n\config.ts" colo na raiz da pasta lib e deves também no componente NegoDesignLayout ter uma propriedade,  translations que irá ser chamado defineNegodesignConfig e receber a configuração
+Com base src\lib\components\pages\forget-password\01 deves criar o 
+src\lib\components\pages\reset-password\01 6 src\lib\components\pages\otp-verification\01 
+
+Para reset-password
+Código de verificação
+<InputCodeOtp/>
+
+Senha nova
+<InputPassword/>
+
+Confirma de senah
+<InputPasswordConfirm/>
+
+Para otp-verification
+<InputCodeOtp/>
+
+Não esquercer de criar os texto para o carousel.reset-password, carousel.otp-verification nos arquivos en.ts, pt.ts
+
+--------------------------
+InputCodeOtp: personalizar este componente de modo que possa dizer quantidade de caixa caixa de Código que pode aparecer
+e se terá separador ou não e cria a internacionalização do "$t("input.otp.placeholder"), $t("input.otp.label")" nos arquivos
+en.ts, pt.ts.
+--------------------------
+PageForgetPassword: no formType, além do PHONE, EMAIL, terás um novo que PHONE_EMAIL que podes usar o <InputEmailOrPhone/>
+criar os "$t("input.email-or-phone.label"), $t("input.email-or-phone.placeholder")" em en.ts, pt.ts
+--------------------------
+No projecto "\negoturismo\site\admin" cria as rotas "reset-password", "otp-verification" usando os componentes que criaste no projecto "negodesign"

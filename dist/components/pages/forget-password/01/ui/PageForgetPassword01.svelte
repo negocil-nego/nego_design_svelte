@@ -1,6 +1,6 @@
 <script lang="ts">
   import ForgetPasswordCard from "./ForgetPasswordCard.svelte";
-  import LeftHero from "../../../login/01/ui/LeftHero.svelte";
+  import LeftHero from "../../../../core/panel/LeftHero.svelte";
   import type { PageForgetPasswordProps } from "../../types";
   import { t } from "../../../../../i18n";
 

@@ -3,12 +3,16 @@ import InputUsername from "./components/core/form/ui/input-username.svelte";
 import InputPassword from "./components/core/form/ui/input-password.svelte";
 import InputPhone from "./components/core/form/ui/input-phone.svelte";
 import InputEmail from "./components/core/form/ui/input-email.svelte";
+import InputEmailOrPhone from "./components/core/form/ui/input-email-or-phone.svelte";
+import InputCodeOtp from "./components/core/form/ui/input-code-otp.svelte";
 import DataTableCore from "./components/core/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/ui/AdminPanel.svelte";
 import PageLogin from "./components/pages/login/PageLogin.svelte";
 import PageForgetPassword from "./components/pages/forget-password/PageForgetPassword.svelte";
+import PageResetPassword from "./components/pages/reset-password/PageResetPassword.svelte";
+import PageOtpVerification from "./components/pages/otp-verification/PageOtpVerification.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -27,6 +31,10 @@ NegoDesign,
 PageLogin, 
 /** Página de recuperação de senha com carousel hero e card de recuperação. @see PageForgetPasswordProps */
 PageForgetPassword, 
+/** Página de redefinição de senha com carousel hero e card de redefinição. @see PageResetPasswordProps */
+PageResetPassword, 
+/** Página de verificação OTP com carousel hero e card de verificação. @see PageOtpVerificationProps */
+PageOtpVerification, 
 /** Tabela de dados genérica com paginação, ordenação e filtros. @see DataTableItem */
 DataTableCore, 
 /** Sidebar de navegação com menus, usuário e botões. @see MenuBarSidebar */
@@ -39,6 +47,10 @@ AdminContent,
 InputEmail, 
 /** Campo de input para telefone. @property {string} value - Valor vinculado @property {string} label - Rótulo personalizado */
 InputPhone, 
+/** Campo de input para email ou telefone. @property {string} value - Valor vinculado @property {string} label - Rótulo personalizado */
+InputEmailOrPhone, 
+/** Campo de input para código OTP. @property {number} length - Quantidade de caixas @property {boolean} separator - Exibir separador */
+InputCodeOtp, 
 /** Campo de input para senha. @property {string} value - Valor vinculado @property {string} label - Rótulo personalizado */
 InputPassword, 
 /** Campo de input para nome de usuário. @property {string} value - Valor vinculado @property {string} label - Rótulo personalizado */

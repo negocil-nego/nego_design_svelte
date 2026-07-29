@@ -107,7 +107,7 @@
     <img
       src={Logo}
       alt=""
-      class="shadow rounded-tl-lg rounded-bl-lg lg:w-106 lg:h-110"
+      class="shadow rounded-tl-lg rounded-bl-lg lg:w-105 lg:h-105"
     />
   </aside>
 </div>

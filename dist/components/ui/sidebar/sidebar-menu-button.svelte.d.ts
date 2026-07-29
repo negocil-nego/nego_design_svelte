@@ -1,35 +1,35 @@
 import { type VariantProps } from "tailwind-variants";
 export declare const sidebarMenuButtonVariants: import("tailwind-variants").TVReturnType<{
     variant: {
-        default: string;
-        outline: string;
+        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground";
+        outline: "bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:shadow-[0_0_0_1px_var(--sidebar-accent)]";
     };
     size: {
-        default: string;
-        sm: string;
-        lg: string;
+        default: "h-9 text-sm";
+        sm: "h-8 text-xs";
+        lg: "h-14 px-3 text-sm group-data-[collapsible=icon]:p-0!";
     };
 }, undefined, "ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground gap-2 rounded-lg px-3 py-2 text-left text-sm transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium peer/menu-button group/menu-button flex w-full items-center overflow-hidden outline-hidden disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate", {
     variant: {
-        default: string;
-        outline: string;
+        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground";
+        outline: "bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:shadow-[0_0_0_1px_var(--sidebar-accent)]";
     };
     size: {
-        default: string;
-        sm: string;
-        lg: string;
+        default: "h-9 text-sm";
+        sm: "h-8 text-xs";
+        lg: "h-14 px-3 text-sm group-data-[collapsible=icon]:p-0!";
     };
-}, undefined, import("tailwind-variants").TVReturnType<{
+}, undefined, import("tailwind-variants").TVReturnTypeLike<{
     variant: {
-        default: string;
-        outline: string;
+        default: "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground";
+        outline: "bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:shadow-[0_0_0_1px_var(--sidebar-accent)]";
     };
     size: {
-        default: string;
-        sm: string;
-        lg: string;
+        default: "h-9 text-sm";
+        sm: "h-8 text-xs";
+        lg: "h-14 px-3 text-sm group-data-[collapsible=icon]:p-0!";
     };
-}, undefined, "ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground gap-2 rounded-lg px-3 py-2 text-left text-sm transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pr-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 data-active:font-medium peer/menu-button group/menu-button flex w-full items-center overflow-hidden outline-hidden disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate", unknown, unknown, undefined>>;
+}, undefined>>;
 export type SidebarMenuButtonVariant = VariantProps<typeof sidebarMenuButtonVariants>["variant"];
 export type SidebarMenuButtonSize = VariantProps<typeof sidebarMenuButtonVariants>["size"];
 import * as Tooltip from "../tooltip/index.js";

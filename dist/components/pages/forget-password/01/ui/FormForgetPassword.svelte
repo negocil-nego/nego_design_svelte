@@ -1,6 +1,7 @@
 <script lang="ts">
   import InputEmail from "../../../../core/form/ui/input-email.svelte";
   import InputPhone from "../../../../core/form/ui/input-phone.svelte";
+  import InputEmailOrPhone from "../../../../core/form/ui/input-email-or-phone.svelte";
   import { t } from "../../../../../i18n";
   import type { ForgetPasswordRequestDto, ForgetPasswordVariant } from "../../types";
   import ButtonSend from "../../../../core/button/ButtonSend.svelte";
@@ -27,6 +28,8 @@
       <InputEmail bind:value={data} />
     {:else if variant === "PHONE"}
       <InputPhone bind:value={data} />
+    {:else if variant === "PHONE_EMAIL"}
+      <InputEmailOrPhone bind:value={data} />
     {/if}
   </div>
 

@@ -5,6 +5,10 @@ declare const _default: {
     "input.username.placeholder": string;
     "input.phone.label": string;
     "input.phone.placeholder": string;
+    "input.email-or-phone.label": string;
+    "input.email-or-phone.placeholder": string;
+    "input.otp.label": string;
+    "input.otp.placeholder": string;
     "input.password.label": string;
     "input.password.placeholder": string;
     "input.password-confirm.label": string;
@@ -27,6 +31,8 @@ declare const _default: {
     "label.login": string;
     "label.register": string;
     "label.forget-password": string;
+    "label.reset-password": string;
+    "label.otp-verification": string;
     "label.home": string;
     "label.maneger": string;
     "label.folder": string;
@@ -38,6 +44,8 @@ declare const _default: {
     "text.login": string;
     "text.register": string;
     "text.forget-password": string;
+    "text.reset-password": string;
+    "text.otp-verification": string;
     "carousel.login.slide1.title": string;
     "carousel.login.slide1.description": string;
     "carousel.login.slide2.title": string;
@@ -50,6 +58,18 @@ declare const _default: {
     "carousel.forget-password.slide2.description": string;
     "carousel.forget-password.slide3.title": string;
     "carousel.forget-password.slide3.description": string;
+    "carousel.reset-password.slide1.title": string;
+    "carousel.reset-password.slide1.description": string;
+    "carousel.reset-password.slide2.title": string;
+    "carousel.reset-password.slide2.description": string;
+    "carousel.reset-password.slide3.title": string;
+    "carousel.reset-password.slide3.description": string;
+    "carousel.otp-verification.slide1.title": string;
+    "carousel.otp-verification.slide1.description": string;
+    "carousel.otp-verification.slide2.title": string;
+    "carousel.otp-verification.slide2.description": string;
+    "carousel.otp-verification.slide3.title": string;
+    "carousel.otp-verification.slide3.description": string;
     "language.en": string;
     "language.pt": string;
 };

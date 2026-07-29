@@ -1,6 +1,6 @@
 <script lang="ts">
-  import AuthCard from "./AuthCard.svelte";
-  import LeftHero from "./LeftHero.svelte";
+  import AuthCard from "./LoginCard.svelte";
+  import LeftHero from "../../../../core/panel/LeftHero.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "../../../../../i18n";
 
@@ -17,7 +17,7 @@
     carousel,
     varient,
     title,
-    formType,
+    formType = "USERNAME_PASSWORD",
     children,
     onSubmit,
     forgetPassword,
