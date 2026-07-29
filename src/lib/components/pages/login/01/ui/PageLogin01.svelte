@@ -1,6 +1,6 @@
 <script lang="ts">
-  import AuthCard from "./AuthCard.svelte";
-  import LeftHero from "./LeftHero.svelte";
+  import AuthCard from "./LoginCard.svelte";
+  import LeftHero from "../../../../core/panel/LeftHero.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "$lib/i18n";
 
@@ -17,9 +17,10 @@
     carousel,
     varient,
     title,
-    formType,
+    formType = "USERNAME_PASSWORD",
     children,
     onSubmit,
+    forgetPassword,
     privacyPolicy,
     termsOfService,
   }: PageLoginProps = $props();
@@ -27,18 +28,18 @@
   const defaultCarousel = $derived([
     {
       buttonText: $t("label.next"),
-      title: $t("carousel.login.01.slide1.title"),
-      description: $t("carousel.login.01.slide1.description"),
+      title: $t("carousel.login.slide1.title"),
+      description: $t("carousel.login.slide1.description"),
     },
     {
       buttonText: $t("label.next"),
-      title: $t("carousel.login.01.slide2.title"),
-      description: $t("carousel.login.01.slide2.description"),
+      title: $t("carousel.login.slide2.title"),
+      description: $t("carousel.login.slide2.description"),
     },
     {
       buttonText: $t("label.next"),
-      title: $t("carousel.login.01.slide3.title"),
-      description: $t("carousel.login.01.slide3.description"),
+      title: $t("carousel.login.slide3.title"),
+      description: $t("carousel.login.slide3.description"),
     },
   ]);
 
@@ -60,7 +61,13 @@
     {#if children}
       {@render children()}
     {:else}
-      <AuthCard {formType} {onSubmit} {privacyPolicy} {termsOfService} />
+      <AuthCard
+        {formType}
+        {onSubmit}
+        {forgetPassword}
+        {privacyPolicy}
+        {termsOfService}
+      />
     {/if}
   </div>
 </main>

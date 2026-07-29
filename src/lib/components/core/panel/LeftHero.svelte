@@ -103,10 +103,12 @@
     </div>
   </section>
 
-  <aside
-    class="hidden z-50 lg:block lg:absolute lg:right-0 lg:-bottom-3 lg:w-105 lg:h-105"
-  >
-    <img src={Logo} alt="" class="shadow rounded-tl-lg rounded-bl-lg" />
+  <aside class="hidden z-50 lg:block lg:absolute lg:right-0 lg:-bottom-3">
+    <img
+      src={Logo}
+      alt=""
+      class="shadow rounded-tl-lg rounded-bl-lg lg:w-106 lg:h-110"
+    />
   </aside>
 </div>
 

@@ -1,5 +1,5 @@
 <script lang="ts" generics="T">
-    import Button from "$lib/components/button.svelte";
+    import Button from "$lib/components/ui/button/button.svelte";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
     import { Input } from "$lib/components/ui/input/index.js";
     import { ArrowDown01Icon } from "@hugeicons/core-free-icons";

@@ -37,5 +37,7 @@
       {/each}
     </UnderlineTabs.List>
   </UnderlineTabs.Root>
-  {@render selected.children()}
+  {#if selected.children}
+    {@render selected.children()}
+  {/if}
 {/if}

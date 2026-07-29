@@ -4,8 +4,12 @@
   import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { ForgetPasswordRequestDto, ForgetPasswordVariant } from "../../types";
+  import type {
+    ForgetPasswordRequestDto,
+    ForgetPasswordVariant,
+  } from "../../types";
   import FormForgetPassword from "./FormForgetPassword.svelte";
+  import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 
   /**
    * Card de recuperação de senha.
@@ -35,9 +39,16 @@
   <div
     class="p-5 h-full border-t-2 bg-background md:border-none rounded-tl-[35px] rounded-tr-[35px]"
   >
-    <div class="py-4">
-      <h2 class="text-lg font-semibold">{$t("label.forget-password")}</h2>
-    </div>
+    <TabUnderline
+      items={[
+        {
+          item: {
+            label: $t("label.forget-password"),
+            value: "forget-password",
+          },
+        },
+      ]}
+    />
 
     {#if children}
       {@render children()}

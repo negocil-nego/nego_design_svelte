@@ -12,6 +12,7 @@ type Props = {
     formType?: AuthFormType;
     onSubmit?: (credential: LoginRequestDto) => void;
     register?: Snippet;
+    forgetPassword?: LinkProps;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
 };

@@ -32,7 +32,19 @@
 	});
 
 	export type ButtonVariant = VariantProps<typeof buttonVariants>["variant"];
-	export type ButtonSize = VariantProps<typeof buttonVariants>["size"];
+	export type ButtonSize = NonNullable<VariantProps<typeof buttonVariants>["size"]>;
+	export type Size = ButtonSize;
+
+	export const sizeMap = {
+		default: { icon: "icon" as ButtonSize },
+		xs: { icon: "icon-xs" as ButtonSize },
+		sm: { icon: "icon-sm" as ButtonSize },
+		lg: { icon: "icon-lg" as ButtonSize },
+		icon: { icon: "icon" as ButtonSize },
+		"icon-xs": { icon: "icon-xs" as ButtonSize },
+		"icon-sm": { icon: "icon-sm" as ButtonSize },
+		"icon-lg": { icon: "icon-lg" as ButtonSize },
+	} satisfies Record<ButtonSize, { icon: ButtonSize }>;
 
 	export type ButtonProps = WithElementRef<HTMLButtonAttributes> &
 		WithElementRef<HTMLAnchorAttributes> & {

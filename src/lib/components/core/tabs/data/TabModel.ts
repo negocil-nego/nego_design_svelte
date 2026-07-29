@@ -7,5 +7,5 @@ export interface TabItem {
 
 export interface TabProps {
     item: TabItem
-    children: Snippet
+    children?: Snippet
 }

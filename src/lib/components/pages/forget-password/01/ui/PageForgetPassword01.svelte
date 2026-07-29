@@ -1,12 +1,13 @@
 <script lang="ts">
   import ForgetPasswordCard from "./ForgetPasswordCard.svelte";
-  import LeftHero from "$lib/components/pages/login/01/ui/LeftHero.svelte";
-  import type { PageForgetPasswordProps } from "$lib/types";
+  import LeftHero from "$lib/components/core/panel/LeftHero.svelte";
+  import type { PageForgetPasswordProps } from "../../types";
+  import { t } from "$lib/i18n";
 
   /**
    * Variante 01 da página de esquecimento de senha.
    * Layout split: hero à esquerda (reutiliza do login), card de recuperação à direita.
-   * @property {CarouselItem[]} carousel - Itens do carousel
+   * @property {CarouselItem[]} carousel - Itens do carousel (opcional, usa valores padrão)
    * @property {string} title - Título do hero
    */
   let {
@@ -17,6 +18,26 @@
     formType,
     onSubmit,
   }: PageForgetPasswordProps = $props();
+
+  const defaultCarousel = $derived([
+    {
+      buttonText: $t("label.next"),
+      title: $t("carousel.forget-password.slide1.title"),
+      description: $t("carousel.forget-password.slide1.description"),
+    },
+    {
+      buttonText: $t("label.next"),
+      title: $t("carousel.forget-password.slide2.title"),
+      description: $t("carousel.forget-password.slide2.description"),
+    },
+    {
+      buttonText: $t("label.next"),
+      title: $t("carousel.forget-password.slide3.title"),
+      description: $t("carousel.forget-password.slide3.description"),
+    },
+  ]);
+
+  const carouselItems = $derived(carousel ?? defaultCarousel);
 </script>
 
 <main class="h-screen w-screen flex items-center">
@@ -28,7 +49,7 @@
     </defs>
   </svg>
   <div class="hidden md:block md:w-8/12">
-    <LeftHero {title} varient={varient ?? "POINTER"} items={carousel ?? []} />
+    <LeftHero {title} varient={varient ?? "POINTER"} items={carouselItems} />
   </div>
   <div class="w-full md:px-0 md:w-4/12 border-gray-900">
     {#if children}

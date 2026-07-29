@@ -5,6 +5,7 @@
 
 <PageLogin
   title="Negodesign"
+  formType="EMAIL_PASSWORD"
   carousel={[
     {
       buttonText: $t("label.next"),

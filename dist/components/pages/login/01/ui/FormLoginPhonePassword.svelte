@@ -1,13 +1,14 @@
 <script lang="ts">
   import FormLogin from "./FormLogin.svelte";
-  import type { LoginRequestDto } from "../../types";
+  import type { LoginRequestDto, LinkProps } from "../../types";
 
   /** Form de login com telefone e senha. Wrapper fino de FormLogin variant="PHONE". */
   type Props = {
     onSubmit?: (credential: LoginRequestDto) => void;
+    forgetPassword?: LinkProps;
   };
 
-  let { onSubmit }: Props = $props();
+  let { onSubmit, forgetPassword }: Props = $props();
 </script>
 
-<FormLogin variant="PHONE" {onSubmit} />
+<FormLogin variant="PHONE" {onSubmit} {forgetPassword} />

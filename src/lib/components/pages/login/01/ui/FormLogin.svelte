@@ -8,19 +8,21 @@
   import LabelOr from "$lib/components/core/label/LabelOr.svelte";
   import ButtonLoginWith from "$lib/components/core/button/ButtonLoginWith.svelte";
   import { t } from "$lib/i18n";
-  import type { LoginRequestDto, LoginVariant } from "../../types";
+  import type { LoginRequestDto, LoginVariant, LinkProps } from "../../types";
 
   /**
    * Formulário de login reutilizável.
    * @property {LoginVariant} variant - Tipo do input de dados (EMAIL, USERNAME, PHONE)
    * @property {(cred: Credential) => void} onSubmit - Callback ao submeter { data, password }
+   * @property {LinkProps} forgetPassword - Config do link de esquecimento de senha { url, onclick }
    */
   type Props = {
     variant: LoginVariant;
     onSubmit?: (credential: LoginRequestDto) => void;
+    forgetPassword?: LinkProps;
   };
 
-  let { variant, onSubmit }: Props = $props();
+  let { variant, onSubmit, forgetPassword }: Props = $props();
   let data = $state("");
   let password = $state("");
 
@@ -45,7 +47,7 @@
 
   <div class="space-y-1 relative">
     <InputPassword bind:value={password} />
-    <LinkForgetPassword />
+    <LinkForgetPassword href={forgetPassword?.url} onclick={forgetPassword?.onclick} />
   </div>
 
   <div class="flex flex-col gap-1">

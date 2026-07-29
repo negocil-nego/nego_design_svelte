@@ -1,4 +1,4 @@
-import type { Size } from "../../button.svelte";
+import type { Size } from "../button/button.svelte";
 export type LightSwitchProps = {
     variant?: "outline" | "ghost";
     size?: Size;

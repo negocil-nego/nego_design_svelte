@@ -1,7 +1,7 @@
 <script lang="ts" generics="T">
     import type { CellContext } from "@tanstack/table-core";
     import * as DropdownMenu from "../../../ui/dropdown-menu/index.js";
-    import Button from "../../../button.svelte";
+    import Button from "../../../ui/button/button.svelte";
     import { MoreHorizontalIcon } from "@hugeicons/core-free-icons";
     import { HugeiconsIcon } from "@hugeicons/svelte";
 

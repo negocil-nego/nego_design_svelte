@@ -25,11 +25,12 @@
     formType?: AuthFormType;
     onSubmit?: (credential: LoginRequestDto) => void;
     register?: Snippet;
+    forgetPassword?: LinkProps;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
   };
 
-  let { formType, onSubmit, register, privacyPolicy, termsOfService }: Props =
+  let { formType, onSubmit, register, forgetPassword, privacyPolicy, termsOfService }: Props =
     $props();
 </script>
 
@@ -66,11 +67,11 @@
 
     {#snippet loginSnippet()}
       {#if formType == "EMAIL_PASSWORD"}
-        <FormLoginEmailPassword {onSubmit} />
+        <FormLoginEmailPassword {onSubmit} {forgetPassword} />
       {:else if formType == "USERNAME_PASSWORD"}
-        <FormLoginUsernamePassword {onSubmit} />
+        <FormLoginUsernamePassword {onSubmit} {forgetPassword} />
       {:else if formType == "PHONE_PASSWORD"}
-        <FormLoginPhonePassword {onSubmit} />
+        <FormLoginPhonePassword {onSubmit} {forgetPassword} />
       {/if}
     {/snippet}
 
