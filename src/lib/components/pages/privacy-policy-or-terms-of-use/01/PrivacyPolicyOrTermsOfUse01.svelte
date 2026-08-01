@@ -1,8 +1,8 @@
 <script lang="ts" module>
   /**
-   * Variante 01 da página de Política de Privacidade / Termos de Uso.
-   * Layout de três colunas: sidebar de navegação, conteúdo principal e TOC.
-   * Inclui scroll-spy com IntersectionObserver para destacar a secção ativa.
+   * Variant 01 of the Privacy Policy / Terms of Use page.
+   * Three-column layout: navigation sidebar, main content, and TOC.
+   * Includes scroll-spy with IntersectionObserver to highlight the active section.
    * @component
    * @example
    * ```svelte
@@ -23,7 +23,7 @@
 
   const toc = $derived(buildToc(data.sections));
 
-  /** Secção atualmente visível, para destacar na TOC (scroll-spy simples). */
+  /** Currently visible section, for highlighting in the TOC (simple scroll-spy). */
   let activeId = $state<string | undefined>(undefined);
 
   $effect(() => {

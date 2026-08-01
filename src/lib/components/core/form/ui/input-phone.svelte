@@ -4,7 +4,7 @@
   import { Label } from "$lib/components/ui/label";
   import { t } from "$lib/i18n";
 
-  /** Campo de input para telefone com ícone e label. */
+  /** Phone input field with icon and label. */
   let {
     label,
     isLabel,

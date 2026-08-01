@@ -1,6 +1,6 @@
 <script lang="ts" module>
   /**
-   * Renderiza a navegação breadcrumb (ex: Blog / Current).
+   * Renders the breadcrumb navigation (e.g., Blog / Current).
    * @component
    * @example
    * ```svelte

@@ -1,6 +1,6 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
 
-export interface NavUserSidebarItem {
+export interface NavUserSidebarProps {
     user: {
         name: string;
         email: string;

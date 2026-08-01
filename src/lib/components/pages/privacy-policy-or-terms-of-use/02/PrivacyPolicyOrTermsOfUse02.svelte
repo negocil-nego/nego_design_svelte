@@ -1,7 +1,7 @@
 <script lang="ts" module>
   /**
-   * Variante 02 da página de Política de Privacidade / Termos de Uso.
-   * Layout simples com hero colorido e conteúdo centralizado em coluna única.
+   * Variant 02 of the Privacy Policy / Terms of Use page.
+   * Simple layout with colored hero and centered content in a single column.
    * @component
    * @example
    * ```svelte

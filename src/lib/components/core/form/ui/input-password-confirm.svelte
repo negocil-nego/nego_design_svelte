@@ -3,7 +3,7 @@
   import InputBase from "./input-base.svelte";
   import { t } from "$lib/i18n";
 
-  /** Campo de input para confirmação de senha com ícone e label. */
+  /** Password confirmation input field with icon and label. */
   let {
     label,
     placeholder,

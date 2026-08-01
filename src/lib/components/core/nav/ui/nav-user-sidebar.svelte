@@ -2,7 +2,7 @@
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import type { NavUserSidebarItem } from "../data/nav-user-sidebar";
+  import type { NavUserSidebarProps } from "../data/nav-user-sidebar";
   import { useSidebar } from "$lib/components/ui/sidebar/index.js";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import {
@@ -12,7 +12,7 @@
   } from "@hugeicons/core-free-icons";
   import { t } from "$lib/i18n";
 
-  let { user: userLogged }: { user: NavUserSidebarItem } = $props();
+  let { user: userLogged }: { user: NavUserSidebarProps } = $props();
 
   const sidebar = useSidebar();
 </script>

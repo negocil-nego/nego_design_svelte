@@ -1,7 +1,7 @@
 <script lang="ts">
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-  import type { CarouselProps } from "$lib/components/core/carousel/data/CarouselModel";
+  import type { LoginCarouselProps } from "$lib/components/pages/security/login/types";
   import type { Snippet } from "svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
@@ -18,7 +18,7 @@
     items = [],
     variant = "DOT",
     autoPlayInterval = 5000,
-  }: Props & CarouselProps = $props();
+  }: Props & LoginCarouselProps = $props();
 
   let currentIndex = $state(0);
   let currentItem = $derived(items[currentIndex] ?? items[0]);

@@ -1,4 +1,4 @@
-import type { CarouselItem, CarouselItemType } from "$lib/components/core/carousel/data/CarouselModel"
+import type { LoginCarouselItem, LoginCarouselItemType } from "$lib/components/pages/security/login/types"
 import type { Snippet } from "svelte"
 
 export type ResetPasswordRequestDto = {
@@ -8,8 +8,8 @@ export type ResetPasswordRequestDto = {
 }
 
 export type PageResetPasswordProps = {
-  carousel?: CarouselItem[];
-  varient?: CarouselItemType;
+  carousel?: LoginCarouselItem[];
+  varient?: LoginCarouselItemType;
   title?: string;
   children?: Snippet;
   otpLength?: number;

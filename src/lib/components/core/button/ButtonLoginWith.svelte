@@ -53,5 +53,5 @@
       <HugeiconsIcon icon={resolvedIcon} size={16} />
     {/if}
   {/if}
-  {$t("button.login.with", { name: resolvedLabel })}
+  {$t("label.login.with", { name: resolvedLabel })}
 </Button>

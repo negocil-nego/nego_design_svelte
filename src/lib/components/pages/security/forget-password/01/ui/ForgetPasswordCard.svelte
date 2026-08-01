@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component ForgetPasswordCard
+   * Password recovery card with tabs, back button, and light switch.
+   *
+   * @example svelte
+   * <ForgetPasswordCard formType="EMAIL" onSubmit={(req) => console.log(req)} />
+   */
+</script>
+
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import ButtonBack from "$lib/components/core/button/ButtonBack.svelte";
@@ -11,11 +21,6 @@
   import FormForgetPassword from "./FormForgetPassword.svelte";
   import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 
-  /**
-   * Card de recuperação de senha.
-   * @property {ForgetPasswordVariant} formType - Tipo do input (EMAIL, PHONE)
-   * @property {(req: ForgetPasswordRequestDto) => void} onSubmit - Callback ao submeter
-   */
   type Props = {
     formType?: ForgetPasswordVariant;
     onSubmit?: (request: ForgetPasswordRequestDto) => void;

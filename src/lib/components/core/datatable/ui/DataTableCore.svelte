@@ -28,11 +28,11 @@
     import DataTableListPagination from "./DataTableListPagination.svelte";
 
     /**
-     * Tabela de dados genérica com paginação, ordenação e filtros.
-     * @property {DataTableItem<T>["config"]} config - Definição das colunas
-     * @property {keyof T} columnFilter - Chave para filtro por coluna
-     * @property {Component} actions - Componente de ações por linha
-     * @property {T[]} items - Dados da tabela
+     * Generic data table with pagination, sorting, and filtering.
+     * @property {DataTableItem<T>["config"]} config - Column definitions
+     * @property {keyof T} columnFilter - Key for column filtering
+     * @property {Component} actions - Per-row actions component
+     * @property {T[]} items - Table data
      */
     let { config, columnFilter, actions, items = [] }: DataTableItem<T> = $props();
 

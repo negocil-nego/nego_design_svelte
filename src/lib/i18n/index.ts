@@ -34,11 +34,11 @@ export const locales = derived(locale, () => Object.keys(getMergedTranslations()
  * Função de tradução reativa. Use `$t("chave")` nos templates Svelte
  * ou `get(t)("chave")` em scripts.
  *
- * Suporta interpolação de variáveis: `$t("button.login.with", { name: "Google" })`
+ * Suporta interpolação de variáveis: `$t("label.login.with", { name: "Google" })`
  * @example
  * ```svelte
  * <p>{$t("label.welcome")}</p>
- * <p>{$t("button.login.with", { name: "Google" })}</p>
+ * <p>{$t("label.login.with", { name: "Google" })}</p>
  * ```
  */
 export const t = derived(

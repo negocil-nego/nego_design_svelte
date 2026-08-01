@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component OtpVerificationCard
+   * OTP verification card with tabs, back button, and light switch.
+   *
+   * @example svelte
+   * <OtpVerificationCard otpLength={6} onSubmit={(req) => verify(req)} />
+   */
+</script>
+
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import ButtonBack from "$lib/components/core/button/ButtonBack.svelte";
@@ -8,11 +18,6 @@
   import FormOtpVerification from "./FormOtpVerification.svelte";
   import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 
-  /**
-   * Card de verificação OTP.
-   * @property {number} otpLength - Quantidade de caixas do código OTP
-   * @property {(req: OtpVerificationRequestDto) => void} onSubmit - Callback ao submeter
-   */
   type Props = {
     otpLength?: number;
     onSubmit?: (request: OtpVerificationRequestDto) => void;

@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component FormForgetPassword
+   * Password recovery form with email, phone, or both input.
+   *
+   * @example svelte
+   * <FormForgetPassword variant="EMAIL" onSubmit={(req) => console.log(req)} />
+   */
+</script>
+
 <script lang="ts">
   import InputEmail from "$lib/components/core/form/ui/input-email.svelte";
   import InputPhone from "$lib/components/core/form/ui/input-phone.svelte";

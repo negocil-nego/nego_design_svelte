@@ -1,4 +1,10 @@
 <script lang="ts" module>
+/**
+ * An addon component for input groups, used to display labels, icons, or actions
+ * adjacent to input fields. Supports inline and block alignment options.
+ *
+ * @component
+ */
 	import { tv, type VariantProps } from 'tailwind-variants';
 	export const inputGroupAddonVariants = tv({
 		base: "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",

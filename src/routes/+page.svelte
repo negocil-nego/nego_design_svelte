@@ -1,5 +1,16 @@
 <script lang="ts">
-  import PageLogin from "$lib/components/pages/security/login/PageLogin.svelte";
+    import NavMenu from "$lib/components/core/nav/ui/nav-menu.svelte";
+    import { AirplaneTakeOff02Icon, ConversationIcon, Hotel01Icon } from "@hugeicons/core-free-icons";
 </script>
-
-<PageLogin title="Negodesign" formType="EMAIL_PASSWORD" />
+<NavMenu
+    logo={{
+        label: "Negoturismo",
+    }}
+    links={[
+        { label: "Hospegadem", href: "#", icon: Hotel01Icon },
+        { label: "Voos", href: "#", icon: AirplaneTakeOff02Icon },
+        { label: "Tradutores", href: "#", icon: ConversationIcon },
+    ]}
+    onclickButtonLogin={() => console.log("login")}
+    onclickButtonRegister={() => console.log("register")}
+/>

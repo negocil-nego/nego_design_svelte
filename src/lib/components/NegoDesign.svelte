@@ -8,7 +8,7 @@
     translations,
     children,
   }: {
-    /** Traduções customizadas por idioma. São mergeadas com as traduções base da lib. */
+    /** Custom translations per language. Merged with the library's base translations. */
     translations?: Translations;
     children: any;
   } = $props();

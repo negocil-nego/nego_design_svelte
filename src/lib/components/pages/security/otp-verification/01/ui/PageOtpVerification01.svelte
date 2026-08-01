@@ -1,13 +1,19 @@
+<script lang="ts" module>
+  /**
+   * @component PageOtpVerification01
+   * Variant 01 of the OTP verification page. Split layout: hero on the left, card on the right.
+   *
+   * @example svelte
+   * <PageOtpVerification01 otpLength={6} onSubmit={(req) => verify(req)} />
+   */
+</script>
+
 <script lang="ts">
   import OtpVerificationCard from "./OtpVerificationCard.svelte";
   import LeftHero from "$lib/components/core/panel/LeftHero.svelte";
   import type { PageOtpVerificationProps } from "../../types";
   import { t } from "$lib/i18n";
 
-  /**
-   * Variante 01 da página de verificação OTP.
-   * Layout split: hero à esquerda (reutiliza do login), card de verificação à direita.
-   */
   let {
     carousel,
     varient,

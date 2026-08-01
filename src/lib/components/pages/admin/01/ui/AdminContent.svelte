@@ -1,0 +1,14 @@
+<script lang="ts">
+  import type { Snippet } from "svelte";
+
+  /** Content wrapper for admin pages. */
+  type Props = {
+    children?: Snippet;
+  };
+
+  let { children }: Props = $props();
+</script>
+
+<div class="flex flex-1 flex-col gap-4 p-4 pt-0">
+  {@render children?.()}
+</div>

@@ -1,6 +1,6 @@
 <script lang="ts" module>
   /**
-   * Renderiza uma secção de documento com título, blocos de conteúdo e subsecções recursivas.
+   * Renders a document section with title, content blocks, and recursive subsections.
    * @component
    * @example
    * ```svelte

@@ -1,7 +1,7 @@
 <script lang="ts" module>
   /**
-   * Painel de tabela de conteúdos (TOC) com scroll-spy.
-   * Exibe links para as secções do documento com destaque na secção ativa.
+   * Table of contents (TOC) panel with scroll-spy.
+   * Displays links to document sections with the active section highlighted.
    * @component
    * @example
    * ```svelte

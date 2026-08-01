@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component FormOtpVerification
+   * OTP verification form with code input and submit button.
+   *
+   * @example svelte
+   * <FormOtpVerification otpLength={6} onSubmit={(req) => verify(req)} />
+   */
+</script>
+
 <script lang="ts">
   import InputCodeOtp from "$lib/components/core/form/ui/input-code-otp.svelte";
   import ButtonSend from "$lib/components/core/button/ButtonSend.svelte";

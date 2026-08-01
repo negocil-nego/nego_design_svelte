@@ -11,5 +11,5 @@
 
 <Button class="w-full flex items-center gap-2" {...restProps}>
   <HugeiconsIcon icon={Login02Icon} size={16} />
-  {$t("button.send")}
+  {$t("label.send")}
 </Button>

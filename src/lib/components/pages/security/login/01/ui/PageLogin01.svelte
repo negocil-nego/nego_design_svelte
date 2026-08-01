@@ -1,18 +1,19 @@
+<script lang="ts" module>
+  /**
+   * @component PageLogin01
+   * Variant 01 of the login page. Split layout: hero on the left, auth card on the right.
+   *
+   * @example svelte
+   * <PageLogin01 formType="USERNAME_PASSWORD" onSubmit={(cred) => login(cred)} />
+   */
+</script>
+
 <script lang="ts">
   import AuthCard from "./LoginCard.svelte";
   import LeftHero from "../../../../../core/panel/LeftHero.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "$lib/i18n";
 
-  /**
-   * Variante 01 da página de login.
-   * Layout split: hero à esquerda, auth card à direita.
-   * @property {CarouselItem[]} carousel - Itens do carousel (opcional, usa valores padrão)
-   * @property {string} title - Título do hero
-   * @property {AuthFormType} formType - Tipo do form de login
-   * @property {LinkProps} privacyPolicy - Config do link de privacidade
-   * @property {LinkProps} termsOfService - Config do link de termos
-   */
   let {
     carousel,
     varient,

@@ -14,5 +14,5 @@
   {...restProps}
 >
   <HugeiconsIcon icon={ArrowLeft01Icon} size={16} />
-  <span class="sr-only">{$t("button.back")}</span>
+  <span class="sr-only">{$t("label.back")}</span>
 </Button>

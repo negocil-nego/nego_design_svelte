@@ -1,17 +1,17 @@
 <script lang="ts" module>
   /**
-   * Componente principal de Política de Privacidade / Termos de Uso.
-   * Permite escolher entre duas variantes de layout:
-   * - **1**: Layout de três colunas com sidebar, conteúdo e TOC (scroll-spy).
-   * - **2**: Layout simples com hero colorido e conteúdo centralizado.
+   * Main Privacy Policy / Terms of Use component.
+   * Allows choosing between two layout variants:
+   * - **1**: Three-column layout with sidebar, content, and TOC (scroll-spy).
+   * - **2**: Simple layout with colored hero and centered content.
    *
    * @component
    * @example
    * ```svelte
-   * <!-- Variante 1 (padrão) — layout de docs com sidebar -->
+    * <!-- Variant 1 (default) — docs layout with sidebar -->
    * <PrivacyPolicyOrTermsOfUse variant={1} data={pageData} />
    *
-   * <!-- Variante 2 — layout com hero -->
+    * <!-- Variant 2 — layout with hero -->
    * <PrivacyPolicyOrTermsOfUse variant={2} data={pageData} />
    * ```
    */

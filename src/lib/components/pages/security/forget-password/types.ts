@@ -1,4 +1,4 @@
-import type { CarouselItem, CarouselItemType } from "$lib/components/core/carousel/data/CarouselModel"
+import type { LoginCarouselItem, LoginCarouselItemType } from "$lib/components/pages/security/login/types"
 import type { Snippet } from "svelte"
 
 export type ForgetPasswordVariant = "EMAIL" | "PHONE" | "PHONE_EMAIL"
@@ -9,8 +9,8 @@ export type ForgetPasswordRequestDto = {
 }
 
 export type PageForgetPasswordProps = {
-  carousel?: CarouselItem[];
-  varient?: CarouselItemType;
+  carousel?: LoginCarouselItem[];
+  varient?: LoginCarouselItemType;
   title?: string;
   children?: Snippet;
   formType?: ForgetPasswordVariant;

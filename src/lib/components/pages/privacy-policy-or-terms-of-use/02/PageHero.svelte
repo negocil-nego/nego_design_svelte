@@ -1,13 +1,13 @@
 <script lang="ts" module>
   /**
-   * Hero de página de documentação com banner colorido e ação opcional.
-   * Exibe título, data de atualização e um botão de pesquisa no canto superior direito.
+   * Documentation page hero with colored banner and optional action.
+   * Displays title, last update date, and a search button in the top-right corner.
    * @component
    * @example
    * ```svelte
    * <PageHero title="Privacy Policy" lastUpdated="24 June 2024" accent="#f0400f">
    *   {#snippet action()}
-   *     <button>Pesquisar</button>
+   *     <button>Search</button>
    *   {/snippet}
    * </PageHero>
    * ```
@@ -23,13 +23,13 @@
     accent = "#f0400f",
     action,
   }: {
-    /** Título da página. */
+    /** Page title. */
     title: string;
-    /** Data da última atualização do documento. */
+    /** Last update date of the document. */
     lastUpdated: string;
-    /** Cor de fundo do banner. */
+    /** Banner background color. */
     accent?: string;
-    /** Ação opcional no canto superior direito (ex: botão de pesquisa). */
+    /** Optional action in the top-right corner (e.g., search button). */
     action?: Snippet;
   } = $props();
 </script>

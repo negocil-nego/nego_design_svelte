@@ -4,7 +4,7 @@
   import { Label } from "$lib/components/ui/label";
   import { t } from "$lib/i18n";
 
-  /** Campo de input para código OTP com caixas configuráveis. */
+  /** OTP code input field with configurable boxes. */
   let {
     label,
     isLabel,
@@ -13,9 +13,9 @@
     separator = true,
     value = $bindable(""),
   }: InputLabelProps & {
-    /** Quantidade de caixas do código OTP. Padrão: 6 */
+    /** Number of OTP code boxes. Default: 6 */
     length?: number;
-    /** Exibir separador entre os grupos. Padrão: true */
+    /** Show separator between groups. Default: true */
     separator?: boolean;
   } = $props();
 

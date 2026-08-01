@@ -2,30 +2,30 @@
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import type { ComponentProps } from "svelte";
 
-  import type { NavUserSidebarItem } from "../nav/data/nav-user-sidebar";
+  import type { NavUserSidebarProps } from "../nav/data/nav-user-sidebar";
   import type {
     NavMenuItem,
-    NavMenuSidebar,
+    NavMenuSidebarProps,
   } from "../nav/data/nav-menu-sidebar";
   import type { Snippet } from "svelte";
+  import NavMenuTopBarSidebar from "../nav/ui/nav-menu-top-bar-sidebar.svelte";
+  import NavMenuBottomSidebar from "../nav/ui/nav-menu-bottom-sidebar.svelte";
+  import NavMenuBarSidebar from "../nav/ui/nav-menu-sidebar.svelte";
   import NavUserSidebar from "../nav/ui/nav-user-sidebar.svelte";
-  import NavMenuBar from "../nav/ui/nav-menu-bar.svelte";
-  import NavMenuBottomBar from "../nav/ui/nav-menu-bottom-bar.svelte";
-  import NavMenuTopBar from "../nav/ui/nav-menu-top-bar.svelte";
   import { t } from "$lib/i18n";
 
   /**
-   * Sidebar de navegação com menus, usuário e botões.
-   * @property {NavMenuSidebar[]} menusButtons - Botões do footer (ex: logout)
-   * @property {NavMenuItem[]} menus - Itens de navegação principal
-   * @property {NavUserSidebarItem} user - Dados do usuário logado
+   * Navigation sidebar with menus, user, and buttons.
+   * @property {NavMenuSidebar[]} menusButtons - Footer buttons (e.g., logout)
+   * @property {NavMenuItem[]} menus - Main navigation items
+   * @property {NavUserSidebarItem} user - Logged-in user data
    * @property {Snippet} footer - Snippet customizado do footer
    * @property {Snippet} header - Snippet customizado do header
    */
   type Props = {
-    menusButtons?: NavMenuSidebar[];
+    menusButtons?: NavMenuSidebarProps[];
     menus: NavMenuItem[];
-    user: NavUserSidebarItem;
+    user: NavUserSidebarProps;
     footer?: Snippet;
     header?: Snippet;
   };
@@ -47,7 +47,7 @@
     {#if header}
       {@render header?.()}
     {:else}
-      <NavMenuTopBar
+      <NavMenuTopBarSidebar
         content={{
           title: $t("label.panel"),
           subtitle: $t("label.administrative"),
@@ -56,13 +56,13 @@
     {/if}
   </Sidebar.Header>
   <Sidebar.Content>
-    <NavMenuBar items={menus} />
+    <NavMenuBarSidebar items={menus} />
   </Sidebar.Content>
   <Sidebar.Footer>
     {#if footer}
       {@render footer?.()}
     {:else if menusButtons && menusButtons.length > 0}
-      <NavMenuBottomBar items={menusButtons} class="mt-auto" />
+      <NavMenuBottomSidebar items={menusButtons} class="mt-auto" />
     {/if}
     <NavUserSidebar {user} />
   </Sidebar.Footer>

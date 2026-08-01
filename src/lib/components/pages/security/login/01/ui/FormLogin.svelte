@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component FormLogin
+   * Reusable login form with input variants (EMAIL, USERNAME, PHONE).
+   *
+   * @example svelte
+   * <FormLogin variant="EMAIL" onSubmit={(cred) => login(cred)} />
+   */
+</script>
+
 <script lang="ts">
   import InputEmail from "$lib/components/core/form/ui/input-email.svelte";
   import InputUsername from "$lib/components/core/form/ui/input-username.svelte";
@@ -10,12 +20,6 @@
   import { t } from "$lib/i18n";
   import type { LoginRequestDto, LoginVariant, LinkProps } from "../../types";
 
-  /**
-   * Formulário de login reutilizável.
-   * @property {LoginVariant} variant - Tipo do input de dados (EMAIL, USERNAME, PHONE)
-   * @property {(cred: Credential) => void} onSubmit - Callback ao submeter { data, password }
-   * @property {LinkProps} forgetPassword - Config do link de esquecimento de senha { url, onclick }
-   */
   type Props = {
     variant: LoginVariant;
     onSubmit?: (credential: LoginRequestDto) => void;

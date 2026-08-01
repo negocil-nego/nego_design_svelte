@@ -1,8 +1,8 @@
 <script lang="ts" module>
   /**
-   * Sidebar de navegação lateral para páginas de documentação.
-   * Gera os links automaticamente a partir das secções do documento.
-   * Navega internamente usando âncoras (#section-id).
+   * Side navigation sidebar for documentation pages.
+   * Generates links automatically from document sections.
+   * Navigates internally using anchors (#section-id).
    *
    * @component
    * @example
@@ -19,13 +19,13 @@
     sections,
     activeId,
   }: {
-    /** Secções do documento (títulos level 1 são exibidos como grupo). */
+    /** Document sections (level 1 titles are displayed as groups). */
     sections: DocSection[];
-    /** ID da secção atualmente visível (scroll-spy). */
+    /** ID of the currently visible section (scroll-spy). */
     activeId?: string;
   } = $props();
 
-  /** Achata as secções level 1 com as suas subsecções para a sidebar. */
+  /** Flattens level 1 sections with their subsections for the sidebar. */
   const flatSections = $derived(
     sections.flatMap((section) => {
       const items = [

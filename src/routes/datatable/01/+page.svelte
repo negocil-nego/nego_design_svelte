@@ -2,8 +2,8 @@
     import DataTableCore from "$lib/components/core/datatable/ui/DataTableCore.svelte";
     import DataTableActions from "$lib/components/core/datatable/ui/DataTableActions.svelte";
     import MenuBarSidebar from "$lib/components/core/sidebar/MenuBarSidebar.svelte";
-    import AdminContent from "$lib/components/pages/admin/ui/AdminContent.svelte";
-    import AdminPanel from "$lib/components/pages/admin/ui/AdminPanel.svelte";
+    import AdminContent from "$lib/components/pages/admin/01/ui/AdminContent.svelte";
+    import AdminPanel from "$lib/components/pages/admin/01/ui/AdminPanel.svelte";
     import { t } from "$lib/i18n";
     import {
         Folder01FreeIcons,
@@ -75,7 +75,7 @@
                 },
                 {
                     icon: ManagerFreeIcons,
-                    title: $t("label.maneger"),
+                    title: $t("label.manager"),
                     submenus: [
                         {
                             icon: GlobalEditingIcon,

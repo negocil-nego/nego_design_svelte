@@ -5,10 +5,10 @@
   import { t } from "$lib/i18n";
 
   /**
-   * Variante 01 da página de esquecimento de senha.
-   * Layout split: hero à esquerda (reutiliza do login), card de recuperação à direita.
-   * @property {CarouselItem[]} carousel - Itens do carousel (opcional, usa valores padrão)
-   * @property {string} title - Título do hero
+   * Variant 01 of the forgot password page.
+   * Split layout: hero on the left (reused from login), recovery card on the right.
+   * @property {CarouselItem[]} carousel - Carousel items (optional, uses default values)
+   * @property {string} title - Hero title
    */
   let {
     carousel,

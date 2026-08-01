@@ -3,7 +3,7 @@
   import InputBase from "./input-base.svelte";
   import { t } from "$lib/i18n";
 
-  /** Campo de input para email com ícone e label. */
+  /** Email or phone input field with icon and label. */
   let {
     label,
     placeholder,

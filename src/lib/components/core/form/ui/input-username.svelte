@@ -3,7 +3,7 @@
   import InputBase from "./input-base.svelte";
   import { t } from "$lib/i18n";
 
-  /** Campo de input para nome de usuário com ícone e label. */
+  /** Username input field with icon and label. */
   let {
     label,
     placeholder,
@@ -13,7 +13,7 @@
 </script>
 
 <InputBase
-  label={label || $t("input.usename.label")}
+  label={label || $t("input.username.label")}
   placeholder={placeholder || $t("input.username.placeholder")}
   isLabel
   isIcon

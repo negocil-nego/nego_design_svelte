@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component LoginCard
+   * Authentication card with login/register tabs, back button, light switch, and link footer.
+   *
+   * @example svelte
+   * <LoginCard formType="EMAIL_PASSWORD" onSubmit={(cred) => login(cred)} />
+   */
+</script>
+
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import LinkTermsOfService from "$lib/components/core/link/link-terms-of-service.svelte";
@@ -8,21 +18,13 @@
   import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { AuthFormType, LoginRequestDto, LinkProps } from "../../types";
+  import type { LoginFormType, LoginRequestDto, LinkProps } from "../../types";
   import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
 
-  /**
-   * Card de autenticação com abas login/register.
-   * @property {AuthFormType} formType - Tipo do form (EMAIL_PASSWORD, USERNAME_PASSWORD, PHONE_PASSWORD)
-   * @property {(cred: Credential) => void} onSubmit - Callback ao submeter credenciais
-   * @property {Snippet} register - Snippet do form de registro (opcional, exibe aba Register)
-   * @property {LinkProps} privacyPolicy - Config do link de privacidade { url, onclick }
-   * @property {LinkProps} termsOfService - Config do link de termos { url, onclick }
-   */
   type Props = {
-    formType?: AuthFormType;
+    formType?: LoginFormType;
     onSubmit?: (credential: LoginRequestDto) => void;
     register?: Snippet;
     forgetPassword?: LinkProps;
@@ -30,8 +32,14 @@
     termsOfService?: LinkProps;
   };
 
-  let { formType, onSubmit, register, forgetPassword, privacyPolicy, termsOfService }: Props =
-    $props();
+  let {
+    formType,
+    onSubmit,
+    register,
+    forgetPassword,
+    privacyPolicy,
+    termsOfService,
+  }: Props = $props();
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">

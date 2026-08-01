@@ -1,6 +1,6 @@
 <script lang="ts" module>
   /**
-   * Renderiza um bloco de conteúdo (parágrafo ou lista).
+   * Renders a content block (paragraph or list).
    * @component
    * @example
    * ```svelte

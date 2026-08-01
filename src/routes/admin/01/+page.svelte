@@ -1,6 +1,6 @@
 <script>
     import MenuBarSidebar from "$lib/components/core/sidebar/MenuBarSidebar.svelte";
-    import AdminPanel from "$lib/components/pages/admin/ui/AdminPanel.svelte";
+    import AdminPanel from "$lib/components/pages/admin/01/ui/AdminPanel.svelte";
     import { t } from "$lib/i18n";
     import {
         Folder01FreeIcons,
@@ -32,7 +32,7 @@
                 },
                 {
                     icon: ManagerFreeIcons,
-                    title: $t("label.maneger"),
+                    title: $t("label.manager"),
                     submenus: [
                         {
                             icon: GlobalEditingIcon,

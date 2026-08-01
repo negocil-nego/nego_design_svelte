@@ -1,13 +1,19 @@
+<script lang="ts" module>
+  /**
+   * @component PageResetPassword01
+   * Variant 01 of the password reset page. Split layout: hero on the left, card on the right.
+   *
+   * @example svelte
+   * <PageResetPassword01 otpLength={6} onSubmit={(req) => reset(req)} />
+   */
+</script>
+
 <script lang="ts">
   import ResetPasswordCard from "./ResetPasswordCard.svelte";
   import LeftHero from "$lib/components/core/panel/LeftHero.svelte";
   import type { PageResetPasswordProps } from "../../types";
   import { t } from "$lib/i18n";
 
-  /**
-   * Variante 01 da página de redefinição de senha.
-   * Layout split: hero à esquerda (reutiliza do login), card de redefinição à direita.
-   */
   let {
     carousel,
     varient,

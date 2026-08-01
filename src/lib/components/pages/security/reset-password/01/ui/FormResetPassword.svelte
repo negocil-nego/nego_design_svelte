@@ -1,3 +1,13 @@
+<script lang="ts" module>
+  /**
+   * @component FormResetPassword
+   * Password reset form with OTP, password, and password confirmation.
+   *
+   * @example svelte
+   * <FormResetPassword otpLength={6} onSubmit={(req) => reset(req)} />
+   */
+</script>
+
 <script lang="ts">
   import InputCodeOtp from "$lib/components/core/form/ui/input-code-otp.svelte";
   import InputPassword from "$lib/components/core/form/ui/input-password.svelte";

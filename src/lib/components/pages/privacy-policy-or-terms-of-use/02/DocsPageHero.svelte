@@ -1,7 +1,7 @@
 <script lang="ts" module>
   /**
-   * Hero de página de documentação com banner e secções de conteúdo.
-   * Combina o PageHero com a renderização das secções do documento.
+   * Documentation page hero with banner and content sections.
+   * Combines PageHero with document section rendering.
    * @component
    * @example
    * ```svelte
@@ -19,9 +19,9 @@
     data,
     accent,
   }: {
-    /** Dados da página — usa title, lastUpdated e sections. */
+    /** Page data — uses title, lastUpdated, and sections. */
     data: Pick<DocPageData, "title" | "lastUpdated" | "sections">;
-    /** Cor de fundo do banner hero. */
+    /** Hero banner background color. */
     accent?: string;
   } = $props();
 </script>
