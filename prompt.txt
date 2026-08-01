@@ -1,11 +1,8 @@
-Na feature  src\lib\components\pages\privacy-policy-or-terms-of-use
-tenta unifica o código que esta em 
-"src\lib\components\pages\privacy-policy-or-terms-of-use\01"
-"src\lib\components\pages\privacy-policy-or-terms-of-use\02"
-Para compartilharem o máximo de componente e tenta reduzar a quantidade de componentes 
-desnecessário que dá para colocar no outro componente como Breadcrumb.svelte
-E no "\src\lib\components\pages\privacy-policy-or-terms-of-use\shared" deve ficar o código que será compartihado entre
-"src\lib\components\pages\privacy-policy-or-terms-of-use\01"
-"src\lib\components\pages\privacy-policy-or-terms-of-use\02"
+Nesses componentes, são muitos semelhante cria um componente para ser reutilizados no dois lugares
+-> negodesign\negodesign\src\lib\components\core\search\01\Search01.svelte
+-> negodesign\negodesign\src\lib\components\core\search\02\Search02.svelte
 
-Faça uma boa otmização de código e reduzação de componente e eliminar o "privacyPolicyData.ts"
+Coloca o método em
+-> negodesign\negodesign\src\lib\components\core\search\shared
+
+Para ser reutilizado em Search01.svelte, Search02.svelte

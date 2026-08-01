@@ -10,6 +10,7 @@
     let {
         logo,
         links,
+        linkClass = "",
         actions,
         align = "LINK_SEPARATED_ACTIONS",
         onclickButtonLogin,
@@ -21,7 +22,7 @@
     <ul class="flex items-center gap-2 md:gap-5 lg:gap-15">
         {#each links as item (item.label)}
             <li>
-                <a class="flex items-center gap-1" href={item.url || "#"}>
+                <a class={`flex items-center gap-1 ${linkClass}`} href={item.url || "#"}>
                     {#if item.icon}
                         <HugeiconsIcon icon={item.icon} size={15}/>
                     {/if}
@@ -73,9 +74,9 @@
     {#if logo}
         <div>
             {#if logo.img}
-                <img src={logo.img} alt="logo of site" class="max-h-50" />
+                <img src={logo.img} alt="logo of site" class={`max-h-50 ${logo.className}`}  />
             {:else if logo.label}
-                <span class="">{logo.label}</span>
+                <span class={logo.className}>{logo.label}</span>
             {/if}
         </div>
     {:else}
