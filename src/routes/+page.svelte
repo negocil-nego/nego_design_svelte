@@ -13,7 +13,7 @@
 </script>
 
 <div
-    class="flex flex-col gap-2 md:gap-5 bg-linear-to-r from-[#007AFF] to-[#0056B3] dark:from-[#00448B] dark:to-[#0466ce] pb-5"
+    class="flex flex-col justify-center items-center gap-2 md:gap-5 bg-linear-to-r from-[#007AFF] to-[#0056B3] dark:from-[#00448B] dark:to-[#0466ce] pb-5"
 >
     <NavMenu
         logo={{
