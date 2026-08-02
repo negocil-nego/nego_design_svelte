@@ -14,7 +14,7 @@
   import { t } from "$lib/i18n";
   import type { SearchInputProps } from "../types";
 
-  let { onSubmit, placeholder, variant = 1, inputClass, iconClass }: SearchInputProps = $props();
+  let { onSubmit, placeholder, variant = 1, buttonClass, inputClass, iconClass }: SearchInputProps = $props();
 
   let value = $state("");
 
@@ -25,7 +25,7 @@
 
 <div class="container relative">
   <div
-    class="mx-auto md:w-3/4 z-10 {variant === 2
+    class="mx-auto md:w-11/12 z-10 {variant === 2
       ? 'border-b'
       : 'border bg-input rounded-lg shadow'} m-auto"
   >
@@ -33,7 +33,7 @@
       <div class="items-center gap-2 hidden md:flex">
         <HugeiconsIcon
           icon={Search01Icon}
-          size={24}
+          size={20}
           color="currentColor"
           strokeWidth={1.5}
           class={iconClass}
@@ -50,8 +50,7 @@
         <Separator class="w-full" orientation="vertical" />
         <Button
           onclick={() => onSubmit?.(value)}
-          class="flex justify-center items-center cursor-pointer"
-          variant="outline"
+          class={`flex justify-center items-center cursor-pointer ${buttonClass}`}
         >
           <HugeiconsIcon
             icon={Search01Icon}

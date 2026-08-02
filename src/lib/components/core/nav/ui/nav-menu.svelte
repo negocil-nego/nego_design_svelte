@@ -6,25 +6,32 @@
     import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
     import { t } from "$lib/i18n";
     import { Login03Icon, User03Icon } from "@hugeicons/core-free-icons";
+    import { useIsMobile } from "$lib/hooks/responsive.svelte";
 
     let {
         logo,
         links,
-        linkClass = "",
         actions,
+        linkClass = "",
+        buttonClass = "",
         align = "LINK_SEPARATED_ACTIONS",
         onclickButtonLogin,
-        onclickButtonRegister ,
+        onclickButtonRegister,
     }: NavMenuProps = $props();
+
+    const responsive = useIsMobile();
 </script>
 
 {#snippet menuLinks()}
     <ul class="flex items-center gap-2 md:gap-5 lg:gap-15">
         {#each links as item (item.label)}
             <li>
-                <a class={`flex items-center gap-1 ${linkClass}`} href={item.url || "#"}>
+                <a
+                    class={`flex items-center gap-1 ${linkClass}`}
+                    href={item.url || "#"}
+                >
                     {#if item.icon}
-                        <HugeiconsIcon icon={item.icon} size={15}/>
+                        <HugeiconsIcon icon={item.icon} size={15} />
                     {/if}
                     {item.label}
                 </a>
@@ -35,11 +42,11 @@
 
 {#snippet actionButtons()}
     <div class="flex items-center gap-2">
-        <LightSwitch/>
-        <LanguageSwitcher/>
+        <LightSwitch />
+        <LanguageSwitcher />
         {#each actions as item (item.label)}
             <Button
-                variant={item.type === "LINK" ? "ghost" : "default"}
+                variant={item.type === "LINK" ? "ghost" : "outline"}
                 class={item.className}
                 onclick={item.onclick}
             >
@@ -49,22 +56,24 @@
                 {item.label}
             </Button>
         {/each}
-        {#if onclickButtonLogin}
-            <Button
-                variant="outline"
-                onclick={onclickButtonLogin}
-            >
-                <HugeiconsIcon icon={Login03Icon} />
-                {$t("label.login")}
-            </Button>
-        {/if}
         {#if onclickButtonRegister}
             <Button
                 variant="outline"
                 onclick={onclickButtonRegister}
+                class={buttonClass}
             >
                 <HugeiconsIcon icon={User03Icon} />
                 {$t("label.register")}
+            </Button>
+        {/if}
+        {#if onclickButtonLogin}
+            <Button
+                variant="outline"
+                onclick={onclickButtonLogin}
+                class={buttonClass}
+            >
+                <HugeiconsIcon icon={Login03Icon} />
+                {$t("label.login")}
             </Button>
         {/if}
     </div>
@@ -74,7 +83,11 @@
     {#if logo}
         <div>
             {#if logo.img}
-                <img src={logo.img} alt="logo of site" class={`max-h-50 ${logo.className}`}  />
+                <img
+                    src={logo.img}
+                    alt="logo of site"
+                    class={`max-h-50 ${logo.className}`}
+                />
             {:else if logo.label}
                 <span class={logo.className}>{logo.label}</span>
             {/if}
@@ -85,13 +98,17 @@
         </div>
     {/if}
 
-    {#if align === "LINK_SEPARATED_ACTIONS"}
-        {@render menuLinks()}
-        {@render actionButtons()}
-    {:else if align === "LINK_INTO_ACTIONS"}
-        <div class="flex items-center gap-2">
+    {#if responsive.isMobile}
+        <div>ll</div>
+    {:else}
+        {#if align === "LINK_SEPARATED_ACTIONS"}
             {@render menuLinks()}
             {@render actionButtons()}
-        </div>
+        {:else if align === "LINK_INTO_ACTIONS"}
+            <div class="flex items-center gap-2">
+                {@render menuLinks()}
+                {@render actionButtons()}
+            </div>
+        {/if}
     {/if}
 </nav>

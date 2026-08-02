@@ -21,4 +21,5 @@ export interface SimpleCarouselProps {
     isBorderItem?: boolean,
     isBorderBottom?: boolean,
     isButtonPreviousAndNext?: boolean,
+    buttonPreviousAndNextClass?: string,
 }

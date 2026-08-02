@@ -14,12 +14,13 @@
     isBorderItem = true,
     isBorderBottom = true,
     isButtonPreviousAndNext = true,
+    buttonPreviousAndNextClass = "",
   }: SimpleCarouselProps = $props();
 
   const DEFAULT_IMG_OR_ICON_CLASS = "size-5 rounded-lg";
 </script>
 
-<nav class={`relative py-3 ${isBorderBottom ? "border-b" : ""}`}>
+<nav class={`relative py-3 px-2 ${isBorderBottom ? "border-b" : ""}`}>
   <Carousel.Root>
     <Carousel.Content class="ml-10">
       {#each items as item (item.value)}
@@ -27,11 +28,13 @@
           onclick={() => item.onClick?.(item.value)}
           class={`
           flex cursor-pointer items-center justify-center gap-1 basis-auto mx-3 pl-0
-          ${orientation === "horizontal" ? "flex-row" : "flex-col"}
           ${isBorderItem ? "border border-solid border-gray-300 rounded-lg" : ""} 
           ${item.value === valueActive ? activeClass : ""}`}
         >
-          <div class="flex gap-1 mx-3 p-2">
+          <div class={`
+              flex gap-1 mx-2 p-0.5 justify-center items-center
+               ${orientation === "horizontal" ? "flex-row" : "flex-col"}
+          `}>
             {#if item.image}
               <img
                 src={item.image}
@@ -51,9 +54,9 @@
     </Carousel.Content>
     {#if isButtonPreviousAndNext}
       <Carousel.Previous
-        class="absolute top-1/2 -translate-y-1/2 left-1 mt-0.5"
+        class={`absolute top-1/2 -translate-y-1/2 left-1 mt-0.5 ${buttonPreviousAndNextClass}`}
       />
-      <Carousel.Next class="absolute top-1/2 -translate-y-1/2 right-1 mt-0.5" />
+      <Carousel.Next class={`absolute top-1/2 -translate-y-1/2 right-1 mt-0.5 ${buttonPreviousAndNextClass}`} />
     {/if}
   </Carousel.Root>
 </nav>

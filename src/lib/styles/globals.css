@@ -9,11 +9,15 @@
 
 @layer {
   .bg-gradient-left {
-    @apply bg-linear-to-r from-[#0077b6] via-[#219ebc] to-[#219ebc] dark:from-[#06344d] dark:via-[#023845] dark:to-[#074656];
+    @apply bg-linear-to-r from-[#0082b6] via-[#0b4a7e] to-[#083baa] dark:from-[#06344d] dark:via-[#023845] dark:to-[#074656];
   }
 
   .bg-gradient-right {
     @apply max-md:bg-linear-to-r max-md:from-[#0077b6] max-md:via-[#219ebc] max-md:to-[#219ebc] dark:max-md:from-[#06344d] dark:max-md:via-[#023845] dark:max-md:to-[#074656];
+  }
+
+  .container-fixed {
+    @apply lg:w-300;
   }
 }
 
@@ -41,7 +45,7 @@
   --chart-3: #ff6700;
   --chart-4: #3a86ff;
   --chart-5: #ffbd00;
-  --radius: 0.62rem;
+  --radius: 0.6rem;
   --sidebar: oklch(0.987 0.002 197.1);
   --sidebar-foreground: oklch(0.148 0.004 228.8);
   --sidebar-primary: #bde0fe;

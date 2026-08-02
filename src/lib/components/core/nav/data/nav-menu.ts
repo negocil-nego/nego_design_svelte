@@ -24,9 +24,10 @@ export interface NavMenuActionsProps {
 }
 
 export interface NavMenuProps {
+    linkClass?: string
+    buttonClass?: string
     logo?: NavMenuLogoProps
     links: NavMenuLinksProps[]
-    linkClass?: string
     actions: NavMenuActionsProps[]
     align?: 'LINK_SEPARATED_ACTIONS' | 'LINK_INTO_ACTIONS'
     onclickButtonLogin?: () => void
