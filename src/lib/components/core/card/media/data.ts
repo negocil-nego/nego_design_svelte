@@ -1,7 +1,7 @@
 import { GlobalIcon, MapPin, NecklaceIcon } from "@hugeicons/core-free-icons";
-import type { CardProps } from "./types";
+import type { CardMediaProps } from "../types";
 
-const items: CardProps[] = [
+const items: CardMediaProps[] = [
     {
         id: 1,
         logo: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',

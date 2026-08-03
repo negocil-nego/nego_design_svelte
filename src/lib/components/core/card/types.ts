@@ -5,7 +5,7 @@ export interface CardTagsProps {
     text: string
 }
 
-export interface CardProps {
+export interface CardMediaProps {
     id: string | number;
     logo?: string;
     title?: string;
@@ -13,6 +13,7 @@ export interface CardProps {
     startMax?: number;
     imageUrl?: string;
     videoUrl?: string;
+    className?: string;
     tags?: CardTagsProps[];
     isFavorite?: boolean;
     startNumber?: number;

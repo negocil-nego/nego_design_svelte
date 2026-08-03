@@ -6,41 +6,51 @@
         className?: string;
         tags: CardTagsProps[];
         isTagBorderBottom?: boolean;
+        isWrap?: boolean;
     };
 
-    const { tags, className, isTagBorderBottom = false }: Props = $props();
+    const {
+        tags,
+        className,
+        isTagBorderBottom,
+        isWrap = false,
+    }: Props = $props();
+
+    let isJustify = $derived(tags.length == 2 || tags.length == 3);
 </script>
 
-{#if tags && tags.length > 0}
+{#snippet createBadge(tag: CardTagsProps)}
     <div
-        class="flex overflow-x-auto no-scrollbar w-full {className} {tags.length ==
-            2 || tags.length == 3
-            ? 'justify-between'
-            : 'gap-4 md:gap-5 lg:gap-10'}"
+        class="flex items-center h-5 shrink-0 {isTagBorderBottom
+            ? 'border'
+            : ''}"
     >
-        {#each tags as tag, i (i)}
-            <div
-                class="flex items-center h-5 shrink-0 {isTagBorderBottom ? 'border' : ''}"
-            >
-                {#if tag.icon}
-                    <HugeiconsIcon
-                        icon={tag.icon}
-                        class="mr-0.5 h-3.75 w-3.75 shrink-0"
-                    />
-                {/if}
-                <div class="whitespace-nowrap">{tag.text}</div>
-            </div>
-        {/each}
+        {#if tag.icon}
+            <HugeiconsIcon
+                icon={tag.icon}
+                class="mr-0.5 h-3.75 w-3.75 shrink-0"
+            />
+        {/if}
+        <div class="whitespace-nowrap">{tag.text}</div>
     </div>
+{/snippet}
+
+{#if tags && tags.length > 0}
+    {#if isWrap}
+        <div class="flex flex-wrap gap-2 {className}">
+            {#each tags as tag, i (i)}
+                 {@render createBadge(tag)}
+            {/each}
+        </div>
+    {:else}
+        <div class="flex overflow-x-auto no-scrollbar w-full
+        {isJustify ? 'justify-between' : 'gap-4 md:gap-5 lg:gap-10'}
+        {className}">
+            {#each tags as tag, i (i)}
+                 {@render createBadge(tag)}
+            {/each}
+        </div>
+    {/if}
 {:else}
     <div class="w-full h-5 {className}"></div>
 {/if}
-<style>
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none; 
-}
-</style>

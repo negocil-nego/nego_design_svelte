@@ -13,7 +13,7 @@
   import PageLogin01 from "./01/ui/PageLogin01.svelte";
 
   type Props = {
-    varient?: "01";
+    variant?: 1;
   };
 
   let { ...props }: PageLoginProps & Props = $props();
