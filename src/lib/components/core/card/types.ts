@@ -1,12 +1,28 @@
+import type { IconSvgElement } from "@hugeicons/svelte";
+
+export interface CardTagsProps {
+    icon?: IconSvgElement
+    text: string
+}
+
 export interface CardProps {
+    id: string | number;
     logo?: string;
     title?: string;
     content?: string;
-    startNumber?: number;
     startMax?: number;
     imageUrl?: string;
-    isImageButtonMaximized?: boolean;
     videoUrl?: string;
-    videoAction?: 'START_REPRODUTION' | 'HOVER_REPRODUTION'
+    tags?: CardTagsProps[];
+    isFavorite?: boolean;
+    startNumber?: number;
+    isTagBorderBottom?: boolean;
+    buttonProfileClass?: string;
+    buttonDetailsClass?: string;
     isVideoButtonMaximized?: boolean;
+    isImageButtonMaximized?: boolean;
+    onFavoriteClick?: (id:string | number) => void;
+    onButtonProfile?:  (id:string | number) => void;
+    onButtonDetails?:  (id:string | number) => void;
+    videoAction?: 'START_REPRODUCTION' | 'HOVER_REPRODUCTION'
 }

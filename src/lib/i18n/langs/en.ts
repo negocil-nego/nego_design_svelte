@@ -46,6 +46,11 @@ export default {
     "label.send": "Send",
     "label.search": "Search",
     "label.search.placeholder": "Do your research",
+    "label.more.options": "More Options",
+    "label.more.details": "More Details",
+    "label.details": "Details",
+    "label.view.profile": " View Profile",
+    "label.description": "Description",
 
     "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
     "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",
