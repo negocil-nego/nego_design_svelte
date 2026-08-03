@@ -16,9 +16,7 @@
     @apply max-md:bg-linear-to-r max-md:from-[#0077b6] max-md:via-[#219ebc] max-md:to-[#219ebc] dark:max-md:from-[#06344d] dark:max-md:via-[#023845] dark:max-md:to-[#074656];
   }
 
-  .container-fixed {
-    @apply lg:w-300;
-  }
+  .container-fixed { @apply w-11/12 lg:w-300; }
 }
 
 :root {

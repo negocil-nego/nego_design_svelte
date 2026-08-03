@@ -51,6 +51,12 @@ export default {
     "label.details": "Details",
     "label.view.profile": " View Profile",
     "label.description": "Description",
+    "label.view.full": "View Full",
+    "label.menu": "Menu",
+    "label.action": "Action",
+    "label.close": "Close",
+    "label.navigation": "Navigation",
+    "label.navigation.text": "Navigate through our application to access all features features and content",
 
     "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
     "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",

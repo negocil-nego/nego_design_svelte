@@ -22,7 +22,7 @@
 {#snippet createBadge(tag: CardTagsProps)}
     <div
         class="flex items-center h-5 shrink-0 {isTagBorderBottom
-            ? 'border border-gray-700'
+            ? 'border border-gray-200 rounded-full px-2 py-1'
             : ''}"
     >
         {#if tag.icon}

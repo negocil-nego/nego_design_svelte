@@ -10,7 +10,7 @@
         {#each items as item, i (i)}
             <CardProfile 
                 {...item} 
-                variant={2}
+                variant={1}
                 onFavoriteClick={(id) => console.log(id)}
                 onButtonProfile={(id) => console.log(id)}
                 onButtonDetails={(id) => console.log(id)}
