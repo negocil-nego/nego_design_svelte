@@ -22,7 +22,7 @@
 {#snippet createBadge(tag: CardTagsProps)}
     <div
         class="flex items-center h-5 shrink-0 {isTagBorderBottom
-            ? 'border'
+            ? 'border border-gray-700'
             : ''}"
     >
         {#if tag.icon}
@@ -37,7 +37,7 @@
 
 {#if tags && tags.length > 0}
     {#if isWrap}
-        <div class="flex flex-wrap gap-2 {className}">
+        <div class="flex flex-wrap gap-2 md:gap-5 {className}">
             {#each tags as tag, i (i)}
                  {@render createBadge(tag)}
             {/each}

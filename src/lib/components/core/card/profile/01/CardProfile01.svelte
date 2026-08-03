@@ -23,7 +23,7 @@
         content,
         startNumber,
         startMax = 5,
-        isTagBorderBottom = false,
+        isTagBorderBottom = true,
         isFavorite = false,
         buttonProfileClass,
         buttonDetailsClass,

@@ -8,7 +8,7 @@
         UserIcon,
     } from "@hugeicons/core-free-icons";
     import { t } from "$lib/i18n";
-    import type {CardProfileProps } from "../../types";
+    import type { CardProfileProps } from "../../types";
     import CardStarRating from "../../shared/CardStarRating.svelte";
     import CardTags from "../../shared/CardTags.svelte";
     import CardDescription from "../../shared/CardDescription.svelte";
@@ -23,7 +23,7 @@
         className,
         startNumber,
         startMax = 5,
-        isTagBorderBottom = false,
+        isTagBorderBottom = true,
         isFavorite = false,
         buttonProfileClass,
         buttonDetailsClass,
@@ -52,26 +52,23 @@
                     <div class="text-center font-bold text-lg">{title}</div>
                 {/if}
                 {#if startNumber}
-                    <CardStarRating startNumber={startNumber} startMax={startMax} />
+                    <CardStarRating {startNumber} {startMax} />
                 {/if}
             </div>
         </div>
         <div class="flex justify-end items-center absolute top-0 right-0">
             <CardFavorite
-                isFavorite={isFavorite}
+                {isFavorite}
                 onFavoriteClick={() => onFavoriteClick!(id)}
             />
         </div>
-        <CardTags
-            className="my-4"
-            tags={tags ?? []}
-            {isTagBorderBottom}
-        />
     </div>
 
     <div class="h-15 mb-8">
         <CardDescription {content} />
     </div>
+
+    <CardTags className="my-4" tags={tags ?? []} {isTagBorderBottom}/>
 
     {#if onButtonProfile || onButtonDetails}
         <div class="flex justify-center items-center gap-2 mt-4 w-full">
