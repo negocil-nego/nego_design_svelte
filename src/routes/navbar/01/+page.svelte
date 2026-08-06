@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SimpleBadgeCarousel from "$lib/components/core/carousel/ui/SimpleBadgeCarousel.svelte";
+    import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
     import NavMenu from "$lib/components/core/nav/ui/nav-menu.svelte";
     import SearchInput from "$lib/components/core/search/SearchInput.svelte";
     import {

@@ -1,4 +1,5 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
+import type { CardPromotionProps } from "../card/types";
 
 export interface ItemCarousel {
     value: string,
@@ -22,4 +23,13 @@ export interface SimpleBadgeCarouselProps {
     isBorderBottom?: boolean,
     isButtonPreviousAndNext?: boolean,
     buttonPreviousAndNextClass?: string,
+}
+
+export interface CarouselPromotionProps {
+    title?: string,
+    items: CardPromotionProps[]
+    isBorderBottom?: boolean,
+    isButtonPreviousAndNext?: boolean,
+    buttonPreviousAndNextClass?: string,
+    containerClass?: string,
 }

@@ -2,7 +2,7 @@
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { SimpleBadgeCarouselProps } from "$lib/components/core/carousel/types.js";
   import { HugeiconsIcon } from "@hugeicons/svelte";
-  import CarouselSlot from "../../panel/CarouselSlot.svelte";
+  import CarouselSlot from "../../../panel/CarouselSlot.svelte";
 
   const {
     items,

@@ -22,9 +22,9 @@ export interface CardMediaProps {
     buttonDetailsClass?: string;
     isVideoButtonMaximized?: boolean;
     isImageButtonMaximized?: boolean;
-    onFavoriteClick?: (id:string | number) => void;
-    onButtonProfile?:  (id:string | number) => void;
-    onButtonDetails?:  (id:string | number) => void;
+    onFavoriteClick?: (id: string | number) => void;
+    onButtonProfile?: (id: string | number) => void;
+    onButtonDetails?: (id: string | number) => void;
     videoAction?: 'START_REPRODUCTION' | 'HOVER_REPRODUCTION'
 }
 
@@ -41,7 +41,18 @@ export interface CardProfileProps {
     isTagBorderBottom?: boolean;
     buttonProfileClass?: string;
     buttonDetailsClass?: string;
-    onFavoriteClick?: (id:string | number) => void;
-    onButtonProfile?:  (id:string | number) => void;
-    onButtonDetails?:  (id:string | number) => void;
+    onFavoriteClick?: (id: string | number) => void;
+    onButtonProfile?: (id: string | number) => void;
+    onButtonDetails?: (id: string | number) => void;
+}
+
+export interface CardPromotionProps {
+    id: string | number;
+    logo?: string;
+    imageUrl?: string;
+    title?: string;
+    className?: string;
+    isFavorite?: boolean;
+    oldPrice?: string | number;
+    newPrice?: string | number;
 }
