@@ -15,7 +15,13 @@
 </script>
 
 <article class="relative rounded-sm">
-  <div class="absolute top-1 right-1 flex gap-1 p-2">
+  {#if logo}
+    <div class="absolute top-1 left-1 z-2 flex gap-1 p-2">
+      <img src={logo} width={30} height={30} alt={title} class="rounded-lg" />
+    </div>
+  {/if}
+
+  <div class="absolute top-1 right-1 z-2 flex gap-1 p-2">
     <CardFavorite {isFavorite} />
   </div>
 
@@ -26,17 +32,13 @@
       class="rounded-lg md:h-37.5 md:w-37.5 lg:h-50 lg:w-50 object-cover object-center"
     />
   {/if}
+  <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
 
   <div
     class="absolute bottom-1 inset-x-0 flex justify-center m-auto bg-black/10 backdrop-blur-sm max-w-11/12 p-2 rounded-md"
   >
-    {#if logo}
-      <div>
-        <img src={logo} width={40} height={40} alt={title} class="rounded-lg" />
-      </div>
-    {/if}
     {#if title}
-      <div class="text-center font-semibold">{title}</div>
+      <div class="text-center font-semibold text-[12px]">{title}</div>
     {/if}
   </div>
 </article>

@@ -27,9 +27,11 @@ export interface SimpleBadgeCarouselProps {
 
 export interface CarouselPromotionProps {
     title?: string,
+    description?: string,
     items: CardPromotionProps[]
     isBorderBottom?: boolean,
     isButtonPreviousAndNext?: boolean,
     buttonPreviousAndNextClass?: string,
     containerClass?: string,
+    onButtonViewAll?: () => void,
 }

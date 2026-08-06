@@ -57,6 +57,7 @@ export default {
     "label.close": "Close",
     "label.navigation": "Navigation",
     "label.navigation.text": "Navigate through our application to access all features features and content",
+    "label.promotion": "Promotions",
 
     "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
     "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",
