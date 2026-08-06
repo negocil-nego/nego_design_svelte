@@ -2,7 +2,8 @@ import type { IconSvgElement } from "@hugeicons/svelte"
 
 export interface NavMenuLogoProps {
     img?: string
-    label: string    
+    url?: string
+    label: string
     className?: string
     onclick?: () => void
 }
@@ -24,12 +25,15 @@ export interface NavMenuActionsProps {
 }
 
 export interface NavMenuProps {
+    navClass?: string
     linkClass?: string
     buttonClass?: string
     logo?: NavMenuLogoProps
     links: NavMenuLinksProps[]
-    actions: NavMenuActionsProps[]
+    actions?: NavMenuActionsProps[]
     align?: 'LINK_SEPARATED_ACTIONS' | 'LINK_INTO_ACTIONS'
+    isLightSwitch?: boolean
+    isLanguageSwitcher?: boolean
     onclickButtonLogin?: () => void
     onclickButtonRegister?: () => void
 }

@@ -12,8 +12,9 @@ import AdminPanel from "./components/pages/admin/01/ui/AdminPanel.svelte";
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
-import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
 import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
+import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
+import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
@@ -40,6 +41,8 @@ export {
     SearchInput,
 
     SimpleBadgeCarousel,
+
+    CarouselHero,
 
     /** Página de login com carousel hero e card de autenticação. @see PageLoginProps */
     PageLogin,

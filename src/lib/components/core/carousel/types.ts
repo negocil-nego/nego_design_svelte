@@ -1,5 +1,6 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
 import type { CardPromotionProps } from "../card/types";
+import type { NavMenuProps } from "../nav/data/nav-menu";
 
 export interface ItemCarousel {
     value: string,
@@ -34,4 +35,15 @@ export interface CarouselPromotionProps {
     buttonPreviousAndNextClass?: string,
     containerClass?: string,
     onButtonViewAll?: () => void,
+}
+
+export interface CarouselHeroItem {
+    title: string,
+    image: string,
+    description: string,
+}
+
+export interface CarouselHeroProps {
+    navMenu: NavMenuProps,
+    items: CarouselHeroItem[]
 }
