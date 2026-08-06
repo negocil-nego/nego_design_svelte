@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SimpleCarousel from "$lib/components/core/carousel/ui/SimpleCarousel.svelte";
+    import SimpleBadgeCarousel from "$lib/components/core/carousel/ui/SimpleBadgeCarousel.svelte";
     import NavMenu from "$lib/components/core/nav/ui/nav-menu.svelte";
     import SearchInput from "$lib/components/core/search/SearchInput.svelte";
     import {
@@ -38,7 +38,7 @@
     />
 </div>
 <div class="relative">
-    <SimpleCarousel
+    <SimpleBadgeCarousel
         buttonPreviousAndNextClass="bg-[#00b627] text-white dark:bg-black dark:text-white"
         orientation="vertical"
         isBorderItem={false}

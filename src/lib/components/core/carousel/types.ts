@@ -10,7 +10,7 @@ export interface ItemCarousel {
     onClick?: (value: string) => void,
 }
 
-export interface SimpleCarouselProps {
+export interface SimpleBadgeCarouselProps {
     items: ItemCarousel[]
     orientation?: "horizontal" | "vertical",
     imageClass?: string,
