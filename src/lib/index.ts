@@ -16,6 +16,8 @@ import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleB
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
 import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
+import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
+import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
@@ -44,6 +46,12 @@ export {
     SimpleBadgeCarousel,
 
     CarouselHero,
+
+    /** Carousel de promoções com cards de produto. @see CarouselPromotionProps */
+    CarouselPromotion,
+
+    /** Carousel de destaques com cards de organização. @see CarouselHighlightsProps */
+    CarouselHighlights,
 
     TabUnderline,
 
