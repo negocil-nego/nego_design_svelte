@@ -52,7 +52,21 @@ export interface CardPromotionProps {
     imageUrl?: string;
     title?: string;
     className?: string;
+    isCart?: boolean;
     isFavorite?: boolean;
     oldPrice?: string | number;
     newPrice?: string | number;
+    buttonBuyText?: string;
+    onClickBuy?: (id: string | number) => void;
+    onClickShop?: (id: string | number) => void;
+    onClickFavorite?: (id: string | number) => void;
+}
+
+export interface CardHighlightProps {
+    id: string | number;
+    logo?: string;
+    imageUrl?: string;
+    title?: string;
+    className?: string;
+    isFavorite?: boolean;
 }

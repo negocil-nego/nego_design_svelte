@@ -14,6 +14,7 @@ import PageOtpVerification from "./components/pages/security/otp-verification/Pa
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
 import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
+import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
@@ -43,6 +44,8 @@ export {
     SimpleBadgeCarousel,
 
     CarouselHero,
+
+    TabUnderline,
 
     /** Página de login com carousel hero e card de autenticação. @see PageLoginProps */
     PageLogin,

@@ -4,9 +4,12 @@
   import type { Snippet } from "svelte";
 
   let {
-    navMenu,
     items,
+    navMenu,
     children,
+    className,
+    titleClass,
+    descriptionClass,
     intervalMs = 5000,
     transitionMs = 1200,
   }: CarouselHeroProps & {
@@ -81,20 +84,23 @@
 
 {#if selected}
   <header
-    class="w-full relative flex flex-col justify-center items-center h-[300px] md:h-[400px] overflow-hidden"
+    class="w-full relative flex flex-col justify-center items-center h-75 md:h-100 overflow-hidden {className}"
   >
     {#each layers as bg, i (i)}
       <div
-        class="absolute inset-0 bg-cover bg-center will-change-[opacity]"
+        class="absolute inset-0 will-change-[opacity]"
         style="
-          background-image: {bg ? `url(${bg})` : 'none'};
-          opacity: {i === active ? 1 : 0};
-          transition: opacity {transitionMs}ms ease-in-out;
-        "
+    background-image: {bg ? `url(${bg})` : 'none'};
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: {i === active ? 1 : 0};
+    transition: opacity {transitionMs}ms ease-in-out;
+  "
       ></div>
     {/each}
 
-    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="h-full absolute inset-0 bg-black/40"></div>
 
     <div class="relative z-10 w-full flex flex-col items-center flex-1">
       <NavMenu {...navMenu} />
@@ -105,15 +111,21 @@
         {#key selected.title}
           <div
             style="transition: opacity {transitionMs * 0.6}ms ease-in-out;"
-            class="opacity-0"
+            class="opacity-0 flex flex-col justify-center items-center text-center"
             use:fadeIn
           >
-            <h1 class="text-white text-2xl md:text-4xl font-bold">
-              {selected.title}
-            </h1>
-            <p class="text-white/90 mt-2 max-w-2xl">
-              {selected.description}
-            </p>
+            <div>
+              <h1
+                class="text-white text-2xl md:text-4xl font-bold {titleClass}"
+              >
+                {selected.title}
+              </h1>
+            </div>
+            <div class="flex flex-col justify-center items-center">
+              <p class="text-white/90 mt-2 max-w-2xl {descriptionClass}">
+                {selected.description}
+              </p>
+            </div>
           </div>
         {/key}
 

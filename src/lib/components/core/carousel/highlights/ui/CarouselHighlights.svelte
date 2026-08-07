@@ -1,11 +1,11 @@
 <script lang="ts">
-  import CardPromotion from "$lib/components/core/card/promotion/CardPromotion.svelte";
-  import type { CarouselPromotionProps } from "$lib/components/core/carousel/types.js";
+  import type { CarouselHighlightsProps } from "$lib/components/core/carousel/types.js";
   import Button from "$lib/components/ui/button/button.svelte";
   import CarouselSlot from "../../../panel/CarouselSlot.svelte";
   import { t } from "$lib/i18n";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
+  import CardHighlight from "$lib/components/core/card/highlight/CardHighlight.svelte";
 
   const {
     title,
@@ -17,7 +17,7 @@
     buttonPreviousAndNextClass = "",
     containerClass = "",
     onButtonViewAll,
-  }: CarouselPromotionProps = $props();
+  }: CarouselHighlightsProps = $props();
 </script>
 
 <div class="w-full flex justify-center">
@@ -57,7 +57,7 @@
     >
       {#each items as item (item.id)}
         <div class="mx-2">
-          <CardPromotion {...item} />
+          <CardHighlight {...item} />
         </div>
       {/each}
     </CarouselSlot>

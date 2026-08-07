@@ -27,6 +27,7 @@ export interface NavMenuActionsProps {
 export interface NavMenuProps {
     navClass?: string
     linkClass?: string
+    groupClass?: string
     buttonClass?: string
     logo?: NavMenuLogoProps
     links: NavMenuLinksProps[]

@@ -1,5 +1,5 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
-import type { CardPromotionProps } from "../card/types";
+import type { CardHighlightProps, CardPromotionProps } from "../card/types";
 import type { NavMenuProps } from "../nav/data/nav-menu";
 
 export interface ItemCarousel {
@@ -7,7 +7,7 @@ export interface ItemCarousel {
     label: string,
     image?: string,
     link?: string,
-    icon?: IconSvgElement,
+    icon?: IconSvgElement | string,
     isActive?: boolean,
     onClick?: (value: string) => void,
 }
@@ -20,8 +20,10 @@ export interface SimpleBadgeCarouselProps {
     labelClass?: string,
     activeClass?: string,
     valueActive?: string,
+    isLoading?: boolean,
     isBorderItem?: boolean,
     isBorderBottom?: boolean,
+    itemCarouselClass?: string,
     isButtonPreviousAndNext?: boolean,
     buttonPreviousAndNextClass?: string,
 }
@@ -29,6 +31,8 @@ export interface SimpleBadgeCarouselProps {
 export interface CarouselPromotionProps {
     title?: string,
     description?: string,
+    titleClass?: string,
+    descriptionClass?: string,
     items: CardPromotionProps[]
     isBorderBottom?: boolean,
     isButtonPreviousAndNext?: boolean,
@@ -44,6 +48,23 @@ export interface CarouselHeroItem {
 }
 
 export interface CarouselHeroProps {
+    items: CarouselHeroItem[],
     navMenu: NavMenuProps,
-    items: CarouselHeroItem[]
+    className?: string
+    titleClass?: string
+    descriptionClass?: string
+}
+
+
+export interface CarouselHighlightsProps {
+    title?: string,
+    description?: string,
+    titleClass?: string,
+    descriptionClass?: string,
+    items: CardHighlightProps[]
+    isBorderBottom?: boolean,
+    isButtonPreviousAndNext?: boolean,
+    buttonPreviousAndNextClass?: string,
+    containerClass?: string,
+    onButtonViewAll?: () => void,
 }

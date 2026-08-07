@@ -58,6 +58,10 @@ export default {
     "label.navigation": "Navegação",
     "label.navigation.text": "Navega pela nossa aplicação",
     "label.promotion": "Promoções",
+    "label.promotion.description": "Promoções imperdiveis",
+    "label.highlight": "Destaques",
+    "label.highlight.description": "Destaques da nossa plataforma",
+    "label.buy": "Compra",
 
     "text.login": "Insira as suas credenciais abaixo para aceder à sua conta com segurança e continuar de onde parou.",
     "text.register": "Preencha os campos abaixo com as suas informações para criar a sua nova conta e aproveitar todos os nossos recursos.",

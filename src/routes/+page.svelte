@@ -1,5 +1,6 @@
-<script>
-  import { CarouselHero } from "$lib";
+<script lang="ts">
+  import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
+  import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
   import {
     AirplaneTakeOff02Icon,
     ConversationIcon,
@@ -8,6 +9,24 @@
 </script>
 
 <CarouselHero
+  titleClass="md:text-2xl lg:text-4px md:my-2 mt-3"
+  descriptionClass="text-xs md:text-lg md:w-3/5 mt-4 mb-2 text-white"
+  navMenu={{
+    logo: { url: "/", label: "Negoturismo", className: "text-white" },
+    navClass: "w-11/12 mt-3 mb-5",
+    linkClass: "text-white",
+    groupClass: "gap-2 md:gap-20",
+    links: [
+      { label: "Hospedagem", url: "#", icon: Hotel01Icon },
+      { label: "Voos", url: "#", icon: AirplaneTakeOff02Icon },
+      { label: "Tradutores", url: "#", icon: ConversationIcon },
+    ],
+    isLanguageSwitcher: false,
+    isLightSwitch: false,
+    buttonClass: "text-white",
+    onclickButtonLogin: () => alert("login"),
+    onclickButtonRegister: () => alert("register"),
+  }}
   items={[
     {
       title: "Encontre a hospedagem ideal",
@@ -38,18 +57,34 @@
         "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1600&q=80",
     },
   ]}
-  navMenu={{
-    logo: { url: "/", label: "Negoturismo", className: "text-white" },
-    linkClass: "text-white",
-    links: [
-      { label: "Hospedagem", url: "#", icon: Hotel01Icon },
-      { label: "Voos", url: "#", icon: AirplaneTakeOff02Icon },
-      { label: "Tradutores", url: "#", icon: ConversationIcon },
-    ],
-    isLanguageSwitcher: false,
-    isLightSwitch: false,
-    buttonClass: "text-white",
-    onclickButtonLogin: () => alert("login"),
-    onclickButtonRegister: () => alert("register"),
-  }}
-/>
+>
+  <div class="md:w-225 mb-10">
+    <SimpleBadgeCarousel
+      buttonPreviousAndNextClass="bg-[#00b627] text-white dark:bg-black dark:text-white"
+      itemCarouselClass="text-white pt-1.5"
+      iconClass="size-6"
+      items={[
+        {
+          label: "Todos",
+          value: "hospegadem",
+          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+        },
+        {
+          label: "Hotel",
+          value: "hotel",
+          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+        },
+        {
+          label: "Hospedaria",
+          value: "hospedaria",
+          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+        },
+        {
+          label: "Pensão",
+          value: "pensao",
+          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+        },
+      ]}
+    />
+  </div>
+</CarouselHero>

@@ -20,8 +20,12 @@ import type {
     OtpVerificationRequestDto,
     PageOtpVerificationProps
 } from "../components/pages/security/otp-verification/types";
+import type { NavMenuLinksProps } from "$lib/components/core/nav/data/nav-menu";
 
 export type {
+    /** @see NavMenuLinksProps */
+    NavMenuLinksProps,
+
     /**  Dados necessários para autenticação de um utilizador. @see LoginRequestDto */
     LoginRequestDto,
     /** Tipo de formulário de login. @see AuthFormType */

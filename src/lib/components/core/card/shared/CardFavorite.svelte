@@ -4,24 +4,25 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
 
   type Props = {
+    id: string | number;
     isFavorite: boolean;
-    onFavoriteClick?: () => void;
+    onFavoriteClick?: (id: string | number) => void;
   };
 
-  let { isFavorite, onFavoriteClick }: Props = $props();
+  let { id, isFavorite, onFavoriteClick }: Props = $props();
 </script>
 
 {#if isFavorite}
   <Button
     class="w-8 h-8 rounded-full bg-[#ce2356]"
-    onclick={() => onFavoriteClick!()}
+    onclick={() => onFavoriteClick!(id)}
   >
     <HugeiconsIcon icon={HeartRemoveIcon} />
   </Button>
 {:else}
   <Button
     class="w-8 h-8 rounded-full bg-[#808080]"
-    onclick={() => onFavoriteClick!()}
+    onclick={() => onFavoriteClick!(id)}
   >
     <HugeiconsIcon icon={HeartAddIcon} />
   </Button>
