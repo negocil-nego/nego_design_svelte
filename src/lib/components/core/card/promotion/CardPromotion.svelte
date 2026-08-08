@@ -1,5 +1,6 @@
 <script lang="ts">
   import Button from "$lib/components/ui/button/button.svelte";
+  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { t } from "$lib/i18n";
   import CardCart from "../shared/CardCart.svelte";
   import CardFavorite from "../shared/CardFavorite.svelte";
@@ -16,6 +17,7 @@
     title,
     isFavorite = false,
     isCart = false,
+    isLoading = false,
     newPrice,
     oldPrice,
     buttonBuyText,
@@ -34,16 +36,27 @@
     {/if}
 
     <div class="absolute top-1 right-1 z-2 flex items-center gap-1 p-2">
-      <CardFavorite {id} {isFavorite} onFavoriteClick={onClickFavorite} />
-      <CardCart {id} {isCart} onCartClick={onClickShop} />
+      <CardFavorite
+        {id}
+        {isFavorite}
+        {isLoading}
+        onFavoriteClick={onClickFavorite}
+      />
+      <CardCart {id} {isCart} {isLoading} onCartClick={onClickShop} />
     </div>
 
     {#if imageUrl}
-      <img
-        src={imageUrl}
-        alt={imageUrl}
-        class="rounded-lg md:h-37.5 md:w-37.5 lg:h-50 lg:w-50 object-cover object-center"
-      />
+      {#if isLoading}
+        <Skeleton
+          class="rounded-lg md:h-37.5 md:w-37.5 lg:h-50 lg:w-50 object-cover object-center"
+        />
+      {:else}
+        <img
+          src={imageUrl}
+          alt={imageUrl}
+          class="rounded-lg md:h-37.5 md:w-37.5 lg:h-50 lg:w-50 object-cover object-center"
+        />
+      {/if}
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
 
@@ -69,13 +82,21 @@
   >
     <div class="flex justify-between w-full items-center">
       {#if title}
-        <div class="font-semibold line-clamp-1 flex-nowrap">
-          {title}
-        </div>
+        {#if isLoading}
+          <Skeleton class="h-4 w-30 rounded-lg" />
+        {:else}
+          <div class="font-semibold line-clamp-1 flex-nowrap">
+            {title}
+          </div>
+        {/if}
       {/if}
     </div>
-    <Button onclick={() => onClickBuy!(id)} class="w-full">
-      {buttonBuyText || $t("label.buy")}
-    </Button>
+    {#if isLoading}
+      <Skeleton class="h-9 w-full rounded-md" />
+    {:else}
+      <Button onclick={() => onClickBuy!(id)} class="w-full">
+        {buttonBuyText || $t("label.buy")}
+      </Button>
+    {/if}
   </div>
 </article>

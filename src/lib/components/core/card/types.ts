@@ -54,6 +54,7 @@ export interface CardPromotionProps {
     className?: string;
     isCart?: boolean;
     isFavorite?: boolean;
+    isLoading?: boolean;
     oldPrice?: string | number;
     newPrice?: string | number;
     buttonBuyText?: string;
