@@ -1,5 +1,5 @@
 <script lang="ts">
-  import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
+  import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
   import {
     BedDoubleIcon,
     DashboardCircleIcon,
@@ -9,7 +9,7 @@
 </script>
 
 <div class="relative">
-  <SimpleBadgeCarousel
+  <CarouselBadge
     buttonPreviousAndNextClass="bg-blue-900 text-white dark:bg-black dark:text-white"
     orientation="vertical"
     isBorderItem={false}

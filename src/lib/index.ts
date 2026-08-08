@@ -12,7 +12,7 @@ import AdminPanel from "./components/pages/admin/01/ui/AdminPanel.svelte";
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
-import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
+import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
 import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
@@ -43,7 +43,7 @@ export {
 
     SearchInput,
 
-    SimpleBadgeCarousel,
+    CarouselBadge,
 
     CarouselHero,
 

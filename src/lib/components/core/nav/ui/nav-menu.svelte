@@ -36,7 +36,7 @@
     {#if isLanguageSwitcher}
       <LanguageSwitcher />
     {/if}
-    {#each actions as item (item.label)}
+    {#each (actions ?? []) as item (item.label)}
       <Button
         variant={item.type === "LINK" ? "ghost" : "outline"}
         class={item.className}

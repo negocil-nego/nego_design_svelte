@@ -88,8 +88,10 @@
   >
     {#each layers as bg, i (i)}
       <div
-        class="absolute inset-0 will-change-[opacity]"
         style="
+    position: absolute;
+    inset: 0;
+    will-change: opacity;
     background-image: {bg ? `url(${bg})` : 'none'};
     background-size: cover;
     background-position: center;
@@ -100,7 +102,9 @@
       ></div>
     {/each}
 
-    <div class="h-full absolute inset-0 bg-black/40"></div>
+    <div
+      style="position: absolute; inset: 0; height: 100%; background-color: rgba(0,0,0,0.4);"
+    ></div>
 
     <div class="relative z-10 w-full flex flex-col items-center flex-1">
       <NavMenu {...navMenu} />
@@ -136,7 +140,9 @@
     </div>
 
     {#if items && items.length > 1}
-      <div class="absolute bottom-3 z-10 flex gap-2">
+      <div
+        style="position: absolute; bottom: 0.75rem; z-index: 10; display: flex; gap: 0.5rem;"
+      >
         {#each items as item, i (i)}
           <button
             aria-label={`Ir para o slide ${i + 1}: ${item.title}`}

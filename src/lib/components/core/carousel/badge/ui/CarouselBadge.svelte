@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as Carousel from "$lib/components/ui/carousel/index.js";
-  import type { SimpleBadgeCarouselProps } from "$lib/components/core/carousel/types.js";
+  import type { CarouselBadgeProps } from "$lib/components/core/carousel/types.js";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import CarouselSlot from "../../../panel/CarouselSlot.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
@@ -19,7 +19,7 @@
     isBorderBottom = false,
     isButtonPreviousAndNext = true,
     buttonPreviousAndNextClass = "",
-  }: SimpleBadgeCarouselProps = $props();
+  }: CarouselBadgeProps = $props();
 
   const DEFAULT_IMG_OR_ICON_CLASS = "size-3";
 </script>
@@ -36,7 +36,7 @@
       </Carousel.Item>
     {/each}
   {:else}
-    {#each items as item (item.value)}
+    {#each items as item, i (i)}
       <Carousel.Item
         onclick={() => item.onClick?.(item.value)}
         class={`

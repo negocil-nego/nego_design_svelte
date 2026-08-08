@@ -1,6 +1,6 @@
 <script lang="ts">
   import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
-  import SimpleBadgeCarousel from "$lib/components/core/carousel/shared/ui/SimpleBadgeCarousel.svelte";
+  import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
   import {
     AirplaneTakeOff02Icon,
     ConversationIcon,
@@ -59,7 +59,7 @@
   ]}
 >
   <div class="md:w-225 mb-10">
-    <SimpleBadgeCarousel
+    <CarouselBadge
       buttonPreviousAndNextClass="bg-[#00b627] text-white dark:bg-black dark:text-white"
       itemCarouselClass="text-white pt-1.5"
       iconClass="size-6"
