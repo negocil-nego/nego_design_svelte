@@ -19,6 +19,10 @@
     containerClass = "",
     children,
   }: Props = $props();
+
+  const styleTopCenter = "bg-blue-700! text-white! cursor-pointer!";
+  const styleCenter =
+    "absolute top-1/2 -translate-y-1/2 mt-0.5 mr-0 z-50 bg-blue-700! text-white! cursor-pointer!";
 </script>
 
 <div
@@ -33,21 +37,21 @@
     {#if positionButtonPreviousAndNext == "center"}
       {#if isButtonPreviousAndNext}
         <Carousel.Previous
-          class={`absolute top-1/2 -translate-y-1/2 -left-8 mt-0.5 mr-0 bg-blue-700! text-white! ${buttonPreviousAndNextClass}`}
+          class={`-left-8 ${styleCenter} ${buttonPreviousAndNextClass}`}
         />
         <Carousel.Next
-          class={`absolute top-1/2 -translate-y-1/2 -right-8 mt-0.5 mr-0 bg-blue-700! text-white! ${buttonPreviousAndNextClass}`}
+          class={`-right-8 ${styleCenter} ${buttonPreviousAndNextClass}`}
         />
       {/if}
     {/if}
     {#if positionButtonPreviousAndNext == "top_right"}
       {#if isButtonPreviousAndNext}
-        <div class="absolute -top-6 right-10 md:right-10 lg:right-12">
+        <div class="absolute -top-6 right-10 md:right-10 lg:right-12 z-20">
           <Carousel.Previous
-            class={`bg-blue-700! text-white! ${buttonPreviousAndNextClass}`}
+            class={`${styleTopCenter} ${buttonPreviousAndNextClass}`}
           />
           <Carousel.Next
-            class={`bg-blue-700! text-white! ${buttonPreviousAndNextClass}`}
+            class={`${styleTopCenter} ${buttonPreviousAndNextClass}`}
           />
         </div>
       {/if}

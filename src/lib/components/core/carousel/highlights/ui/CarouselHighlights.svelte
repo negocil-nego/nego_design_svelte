@@ -16,6 +16,8 @@
     containerClass = "",
     isLoading = false,
     varient = 1,
+    isDescriptionIcon,
+    isDescriptionLabel,
     onButtonViewAll,
   }: CarouselHighlightsProps = $props();
 
@@ -46,7 +48,12 @@
     {:else}
       {#each items as item (item.id)}
         <div class="mx-2">
-          <CardHighlight {...item} {varient} />
+          <CardHighlight
+            {...item}
+            {varient}
+            {isDescriptionIcon}
+            {isDescriptionLabel}
+          />
         </div>
       {/each}
     {/if}

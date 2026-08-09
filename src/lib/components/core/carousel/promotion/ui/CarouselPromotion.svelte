@@ -16,6 +16,8 @@
     buttonPreviousAndNextClass = "",
     containerClass = "",
     positionButtonPreviousAndNext,
+    isDescriptionIcon,
+    isDescriptionLabel,
     onButtonViewAll,
   }: CarouselPromotionProps = $props();
 
@@ -40,14 +42,19 @@
     {#if isLoading}
       {#each Array.from({ length: responsive.isMobile ? 5 : 10 }) as it, i (i)}
         <div class="mx-2">
-          <CardPromotion id={i} {isLoading} />
+          <CardPromotion
+            id={i}
+            {isLoading}
+            {isDescriptionIcon}
+            {isDescriptionLabel}
+          />
           <div class="src-only">{it}</div>
         </div>
       {/each}
     {:else}
       {#each items as item (item.id)}
         <div class="mx-2">
-          <CardPromotion {...item} />
+          <CardPromotion {...item} {isDescriptionIcon} {isDescriptionLabel} />
         </div>
       {/each}
     {/if}

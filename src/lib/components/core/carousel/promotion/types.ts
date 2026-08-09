@@ -7,4 +7,6 @@ export interface CarouselPromotionProps extends CarouselHeaderProps {
     isLoading?: boolean,
     isButtonPreviousAndNext?: boolean,
     buttonPreviousAndNextClass?: string,
+    isDescriptionIcon?: boolean;
+    isDescriptionLabel?: boolean;
 }

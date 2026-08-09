@@ -12,5 +12,7 @@
     buttonPreviousAndNextClass="bg-white dark:bg-gray-800"
     onButtonViewAll={() => console.log("click")}
     positionButtonPreviousAndNext="center"
+    isDescriptionIcon={false}
+    isDescriptionLabel={false}
   />
 </div>

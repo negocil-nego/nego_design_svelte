@@ -3,7 +3,9 @@
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { t } from "$lib/i18n";
   import CardCart from "../shared/CardCart.svelte";
+  import CardDescription from "../shared/CardDescription.svelte";
   import CardFavorite from "../shared/CardFavorite.svelte";
+  import CardTags from "../shared/CardTags.svelte";
   /**
    * Card component with a title and content.
    * @component
@@ -12,15 +14,19 @@
 
   let {
     id,
+    tags,
     logo,
-    imageUrl,
     title,
+    imageUrl,
     isFavorite = false,
     isCart = false,
     isLoading = false,
     newPrice,
     oldPrice,
+    content,
     buttonBuyText,
+    isDescriptionIcon,
+    isDescriptionLabel,
     onClickBuy,
     onClickShop,
     onClickFavorite,
@@ -28,7 +34,7 @@
 </script>
 
 <article class="relative rounded-lg border">
-  <div class="relative w-full p-2">
+  <aside class="relative w-full">
     <div class="absolute top-1 left-1 z-2 gap-1 p-2">
       {#if isLoading}
         <Skeleton class="h-5 w-20 rounded-full bg-black/20" />
@@ -55,7 +61,7 @@
       <img
         src={imageUrl}
         alt={imageUrl}
-        class="rounded-lg md:h-25 md:w-25 lg:h-45 lg:w-45 object-cover object-center"
+        class="rounded-tr-lg rounded-tl-lg md:h-25 lg:h-45 w-full object-cover object-center"
       />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
@@ -78,8 +84,9 @@
         {/if}
       {/if}
     </div>
-  </div>
-  <div
+  </aside>
+
+  <aside
     class="bottom-1 inset-x-0 flex flex-col items-center justify-center gap-0.5 m-auto max-w-11/12 p-1 rounded-md"
   >
     <div class="flex justify-between w-full items-center mb-1">
@@ -93,6 +100,15 @@
         {/if}
       {/if}
     </div>
+
+    <div>
+      <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
+    </div>
+
+    <div class="w-full mb-3">
+      <CardTags {tags} />
+    </div>
+
     {#if isLoading}
       <Skeleton class="h-9 w-full rounded-md" />
     {:else}
@@ -100,5 +116,5 @@
         {buttonBuyText || $t("label.buy")}
       </Button>
     {/if}
-  </div>
+  </aside>
 </article>

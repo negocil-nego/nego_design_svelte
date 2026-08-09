@@ -51,13 +51,17 @@ export interface CardPromotionProps {
     logo?: string;
     imageUrl?: string;
     title?: string;
+    content?: string
     className?: string;
     isCart?: boolean;
-    isFavorite?: boolean;
     isLoading?: boolean;
+    isFavorite?: boolean;
+    tags?: CardTagsProps[]
     oldPrice?: string | number;
     newPrice?: string | number;
     buttonBuyText?: string;
+    isDescriptionIcon?: boolean;
+    isDescriptionLabel?: boolean;
     onClickBuy?: (id: string | number) => void;
     onClickShop?: (id: string | number) => void;
     onClickFavorite?: (id: string | number) => void;
@@ -73,6 +77,8 @@ export interface CardHighlightProps {
     isLoading?: boolean;
     content?: string;
     buttonText?: string;
+    isDescriptionIcon?: boolean;
+    isDescriptionLabel?: boolean;
     tags?: CardTagsProps[]
     onClickFavorite?: (id: string | number) => void;
     onClickBtn?: (id: string | number) => void;

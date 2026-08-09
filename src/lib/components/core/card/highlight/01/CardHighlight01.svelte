@@ -21,6 +21,8 @@
     isLoading = false,
     isFavorite = false,
     buttonText,
+    isDescriptionIcon,
+    isDescriptionLabel,
     onClickBtn,
     onClickFavorite,
   }: CardHighlightProps = $props();
@@ -68,7 +70,12 @@
     </div>
 
     <div class="w-75">
-      <CardDescription {content} {isLoading} />
+      <CardDescription
+        {content}
+        {isLoading}
+        {isDescriptionIcon}
+        {isDescriptionLabel}
+      />
     </div>
 
     <CardTags {tags} {isLoading} />

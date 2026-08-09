@@ -20,6 +20,8 @@
     imageUrl,
     isLoading = false,
     isFavorite = false,
+    isDescriptionIcon,
+    isDescriptionLabel,
     buttonText,
     onClickBtn,
     onClickFavorite,
@@ -68,7 +70,12 @@
     </div>
 
     <div class="w-75 my-2">
-      <CardDescription {content} {isLoading} />
+      <CardDescription
+        {content}
+        {isLoading}
+        {isDescriptionIcon}
+        {isDescriptionLabel}
+      />
     </div>
 
     <div class="my-2">

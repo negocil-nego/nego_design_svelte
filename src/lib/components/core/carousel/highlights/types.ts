@@ -6,6 +6,8 @@ export interface CarouselHighlightsProps extends CarouselHeaderProps {
     varient?: 1 | 2;
     isBorderBottom?: boolean,
     isLoading?: boolean,
+    isDescriptionIcon?: boolean;
+    isDescriptionLabel?: boolean;
     isButtonPreviousAndNext?: boolean,
     buttonPreviousAndNextClass?: string,
 }
