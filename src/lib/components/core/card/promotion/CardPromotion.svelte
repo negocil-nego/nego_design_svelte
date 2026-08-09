@@ -27,13 +27,15 @@
   }: CardPromotionProps = $props();
 </script>
 
-<article class="relative rounded-sm bg-background">
+<article class="relative rounded-lg border">
   <div class="relative w-full p-2">
-    {#if logo}
-      <div class="absolute top-1 left-1 z-2 hidden gap-1 p-2">
+    <div class="absolute top-1 left-1 z-2 gap-1 p-2">
+      {#if isLoading}
+        <Skeleton class="h-5 w-20 rounded-full bg-black/20" />
+      {:else if logo}
         <img src={logo} width={30} height={30} alt={title} class="rounded-lg" />
-      </div>
-    {/if}
+      {/if}
+    </div>
 
     <div class="absolute top-1 right-1 z-2 flex items-center gap-1 p-2">
       <CardFavorite
@@ -45,26 +47,26 @@
       <CardCart {id} {isCart} {isLoading} onCartClick={onClickShop} />
     </div>
 
-    {#if imageUrl}
-      {#if isLoading}
-        <Skeleton
-          class="rounded-lg md:h-37.5 md:w-37.5 lg:h-50 lg:w-50 object-cover object-center"
-        />
-      {:else}
-        <img
-          src={imageUrl}
-          alt={imageUrl}
-          class="rounded-lg md:h-37.5 md:w-37.5 lg:h-50 lg:w-50 object-cover object-center"
-        />
-      {/if}
+    {#if isLoading}
+      <Skeleton
+        class="rounded-lg md:h-25 md:w-25 lg:h-45 lg:w-45 object-cover object-center bg-black/15"
+      />
+    {:else if imageUrl}
+      <img
+        src={imageUrl}
+        alt={imageUrl}
+        class="rounded-lg md:h-25 md:w-25 lg:h-45 lg:w-45 object-cover object-center"
+      />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
 
-    {#if newPrice || oldPrice}
-      <div class="absolute bottom-2 right-3 z-2 flex items-center gap-2 mb-1">
+    <div class="absolute bottom-2 right-3 z-2 flex items-center gap-2 mb-1">
+      {#if isLoading}
+        <Skeleton class="h-5 bg-black/10 w-25 my-2 mr-2" />
+      {:else if newPrice || oldPrice}
         {#if oldPrice}
           <div
-            class="text-[10px] md:text-sm line-through bg-red-500 text-white p-1 rounded-sm"
+            class="text-[10px] md:text-sm line-through bg-red-[180px]0 text-white p-1 rounded-sm"
           >
             {oldPrice}
           </div>
@@ -74,13 +76,13 @@
             {newPrice}
           </div>
         {/if}
-      </div>
-    {/if}
+      {/if}
+    </div>
   </div>
   <div
     class="bottom-1 inset-x-0 flex flex-col items-center justify-center gap-0.5 m-auto max-w-11/12 p-1 rounded-md"
   >
-    <div class="flex justify-between w-full items-center">
+    <div class="flex justify-between w-full items-center mb-1">
       {#if title}
         {#if isLoading}
           <Skeleton class="h-4 w-30 rounded-lg" />

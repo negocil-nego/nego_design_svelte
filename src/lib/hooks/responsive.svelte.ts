@@ -2,7 +2,7 @@ import { onMount } from "svelte";
 
 const MOBILE_BREAKPOINT = 768;
 
-export function useIsMobile() {
+export function useDevice() {
     let isMobile = $state(false);
 
     onMount(() => {

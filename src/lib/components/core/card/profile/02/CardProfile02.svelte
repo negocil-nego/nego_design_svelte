@@ -58,6 +58,7 @@
         </div>
         <div class="flex justify-end items-center absolute top-0 right-0">
             <CardFavorite
+                {id}
                 {isFavorite}
                 onFavoriteClick={() => onFavoriteClick!(id)}
             />
@@ -68,7 +69,7 @@
         <CardDescription {content} />
     </div>
 
-    <CardTags className="my-4" tags={tags ?? []} {isTagBorderBottom}/>
+    <CardTags className="my-4" tags={tags ?? []} {isTagBorderBottom} />
 
     {#if onButtonProfile || onButtonDetails}
         <div class="flex justify-center items-center gap-2 mt-4 w-full">

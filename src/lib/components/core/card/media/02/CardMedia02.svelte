@@ -58,21 +58,18 @@
                     <div class="text-center font-bold text-lg">{title}</div>
                 {/if}
                 {#if startNumber}
-                    <CardStarRating startNumber={startNumber} startMax={startMax} />
+                    <CardStarRating {startNumber} {startMax} />
                 {/if}
             </div>
         </div>
         <div class="flex justify-end items-center absolute top-0 right-0">
             <CardFavorite
-                isFavorite={isFavorite}
+                {id}
+                {isFavorite}
                 onFavoriteClick={() => onFavoriteClick!(id)}
             />
         </div>
-        <CardTags
-            className="my-4"
-            tags={tags ?? []}
-            {isTagBorderBottom}
-        />
+        <CardTags className="my-4" tags={tags ?? []} {isTagBorderBottom} />
     </div>
 
     <div class="h-15 mb-8">

@@ -1,6 +1,5 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
 import type { NavMenuProps } from "../nav/data/nav-menu";
-import type { Snippet } from "svelte";
 
 export interface ItemCarousel {
     value: string,
@@ -19,7 +18,7 @@ export interface CarouselHeaderProps {
     descriptionClass?: string,
     containerClass?: string,
     onButtonViewAll?: () => void,
-    children: Snippet,
+    positionButtonPreviousAndNext?: "center" | "top_right";
 }
 
 export interface CarouselBadgeProps {

@@ -4,6 +4,7 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import CarouselSlot from "../../../panel/CarouselSlot.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import { useDevice } from "$lib/hooks/responsive.svelte";
 
   const {
     items,
@@ -22,6 +23,7 @@
   }: CarouselBadgeProps = $props();
 
   const DEFAULT_IMG_OR_ICON_CLASS = "size-3";
+  const responsive = useDevice();
 </script>
 
 <CarouselSlot
@@ -30,11 +32,12 @@
   {buttonPreviousAndNextClass}
 >
   {#if isLoading}
-    {#each Array.from({ length: 10 }) as it (it)}
-      <Carousel.Item>
-        <Skeleton class="h-4 w-37.5" />
-      </Carousel.Item>
-    {/each}
+    <div class="flex items-center justify-between w-full gap-1 md:gap-2">
+      {#each Array.from({ length: responsive.isMobile ? 2 : 10 }) as it, i (i)}
+        <Skeleton class="h-4 w-25 bg-black/20" />
+        <div class="src-only">{it}</div>
+      {/each}
+    </div>
   {:else}
     {#each items as item, i (i)}
       <Carousel.Item

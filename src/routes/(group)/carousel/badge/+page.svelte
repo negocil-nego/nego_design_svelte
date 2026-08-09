@@ -8,7 +8,7 @@
   } from "@hugeicons/core-free-icons";
 </script>
 
-<div class="relative">
+<div class="relative flex justify-center">
   <CarouselBadge
     buttonPreviousAndNextClass="bg-blue-900 text-white dark:bg-black dark:text-white"
     orientation="vertical"
@@ -24,5 +24,6 @@
       { label: "Hospedaria", value: "hospedaria", icon: Hotel02Icon },
       { label: "Pensão", value: "pensao", icon: BedDoubleIcon },
     ]}
+    isLoading
   />
 </div>

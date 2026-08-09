@@ -4,6 +4,11 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
   import type { CarouselHeaderProps } from "../../types";
+  import type { Snippet } from "svelte";
+
+  type Props = {
+    children: Snippet;
+  };
 
   const {
     title,
@@ -13,19 +18,19 @@
     containerClass = "",
     onButtonViewAll,
     children,
-  }: CarouselHeaderProps = $props();
+  }: CarouselHeaderProps & Props = $props();
 </script>
 
 <div class="w-full flex justify-center">
-  <div class="w-[95%] p-2 rounded-xl {containerClass}">
-    <div class="ml-10 flex flex-col gap-1">
+  <div class="w-[95%] p-2 rounded-xl border {containerClass}">
+    <div class="flex flex-col gap-1">
       <div class="flex justify-between">
         <div>
           {#if title}
             <h1 class={`text-xl ${titleClass}`}>{title}</h1>
           {/if}
           {#if description}
-            <div class={`mt-3 w-11/12 ${descriptionClass}`}>
+            <div class={`mt-3 ${descriptionClass}`}>
               {description}
             </div>
           {/if}
@@ -45,6 +50,6 @@
         {/if}
       </div>
     </div>
+    <div>{@render children()}</div>
   </div>
-  <div>{@render children()}</div>
 </div>

@@ -58,28 +58,25 @@
                     <div class="text-center font-bold text-lg">{title}</div>
                 {/if}
                 {#if startNumber}
-                    <CardStarRating startNumber={startNumber} startMax={startMax} />
+                    <CardStarRating {startNumber} {startMax} />
                 {/if}
             </div>
         </div>
         <div class="flex justify-end items-center">
             <CardFavorite
-                isFavorite={isFavorite}
+                {id}
+                {isFavorite}
                 onFavoriteClick={() => onFavoriteClick!(id)}
             />
         </div>
     </div>
 
     <div class="h-15 my-2">
-        <CardDescription content={content}/>
+        <CardDescription {content} />
     </div>
 
-    <CardTags
-        className="my-6"
-        tags={tags ?? []}
-        isTagBorderBottom={isTagBorderBottom}
-    />    
-    
+    <CardTags className="my-6" tags={tags ?? []} {isTagBorderBottom} />
+
     <CardThumbnailVideo
         {imageUrl}
         {videoUrl}
@@ -91,7 +88,7 @@
         <div class="flex justify-center items-center gap-2 mt-4 w-full">
             {#if onButtonProfile}
                 <CardButton
-                    id={id}
+                    {id}
                     icon={UserIcon}
                     className={buttonProfileClass}
                     text={$t("label.view.profile")}
@@ -101,7 +98,7 @@
             {/if}
             {#if onButtonDetails}
                 <CardButton
-                    id={id}
+                    {id}
                     icon={InformationCircleIcon}
                     className={buttonDetailsClass}
                     text={$t("label.more.details")}

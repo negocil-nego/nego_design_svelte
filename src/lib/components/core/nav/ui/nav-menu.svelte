@@ -6,7 +6,7 @@
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { t } from "$lib/i18n";
   import { Login03Icon, User03Icon } from "@hugeicons/core-free-icons";
-  import { useIsMobile } from "$lib/hooks/responsive.svelte";
+  import { useDevice } from "$lib/hooks/responsive.svelte";
   import NavMenuDrawer from "./mobile/nav-menu-drawer.svelte";
   import MenuLinks from "./menu-links.svelte";
 
@@ -25,7 +25,7 @@
     onclickButtonRegister,
   }: NavMenuProps = $props();
 
-  const responsive = useIsMobile();
+  const responsive = useDevice();
 </script>
 
 {#snippet actionButtons()}
@@ -36,7 +36,7 @@
     {#if isLanguageSwitcher}
       <LanguageSwitcher />
     {/if}
-    {#each (actions ?? []) as item (item.label)}
+    {#each actions ?? [] as item (item.label)}
       <Button
         variant={item.type === "LINK" ? "ghost" : "outline"}
         class={item.className}

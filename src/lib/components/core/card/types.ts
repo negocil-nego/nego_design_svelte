@@ -70,4 +70,10 @@ export interface CardHighlightProps {
     title?: string;
     className?: string;
     isFavorite?: boolean;
+    isLoading?: boolean;
+    content?: string;
+    buttonText?: string;
+    tags?: CardTagsProps[]
+    onClickFavorite?: (id: string | number) => void;
+    onClickBtn?: (id: string | number) => void;
 }

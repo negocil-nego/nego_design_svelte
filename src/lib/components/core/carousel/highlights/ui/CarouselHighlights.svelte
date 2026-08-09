@@ -3,6 +3,7 @@
   import CarouselHeader from "../../shared/ui/CarouselHeader.svelte";
   import CarouselSlot from "../../../panel/CarouselSlot.svelte";
   import type { CarouselHighlightsProps } from "../types";
+  import { useDevice } from "$lib/hooks/responsive.svelte";
 
   const {
     title,
@@ -14,8 +15,11 @@
     buttonPreviousAndNextClass = "",
     containerClass = "",
     isLoading = false,
+    varient = 1,
     onButtonViewAll,
   }: CarouselHighlightsProps = $props();
+
+  const responsive = useDevice();
 </script>
 
 <CarouselHeader
@@ -32,10 +36,19 @@
     {buttonPreviousAndNextClass}
     containerClass="w-full"
   >
-    {#each items as item (item.id)}
-      <div class="mx-2">
-        <CardHighlight {...item} {isLoading} />
-      </div>
-    {/each}
+    {#if isLoading}
+      {#each Array.from({ length: responsive.isMobile ? 5 : 10 }) as it, i (i)}
+        <div class="mx-2">
+          <CardHighlight id={i} {isLoading} {varient} />
+          <div class="src-only">{it}</div>
+        </div>
+      {/each}
+    {:else}
+      {#each items as item (item.id)}
+        <div class="mx-2">
+          <CardHighlight {...item} {varient} />
+        </div>
+      {/each}
+    {/if}
   </CarouselSlot>
 </CarouselHeader>
