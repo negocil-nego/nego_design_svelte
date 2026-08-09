@@ -1,9 +1,11 @@
 <script lang="ts">
   import CardPromotion from "$lib/components/core/card/promotion/CardPromotion.svelte";
   import CarouselSlot from "../../../panel/CarouselSlot.svelte";
+  import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { CarouselPromotionProps } from "../types";
   import CarouselHeader from "../../shared/ui/CarouselHeader.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
+  import Autoplay from "embla-carousel-autoplay";
 
   const {
     title,
@@ -38,24 +40,24 @@
     {buttonPreviousAndNextClass}
     {positionButtonPreviousAndNext}
     containerClass="w-full"
+    plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
   >
     {#if isLoading}
-      {#each Array.from({ length: responsive.isMobile ? 5 : 10 }) as it, i (i)}
-        <div class="mx-2">
+      {#each Array.from({ length: responsive.isMobile ? 5 : 10 }) as _, i (`loading-${i}`)}
+        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
           <CardPromotion
             id={i}
             {isLoading}
             {isDescriptionIcon}
             {isDescriptionLabel}
           />
-          <div class="src-only">{it}</div>
-        </div>
+        </Carousel.Item>
       {/each}
     {:else}
       {#each items as item (item.id)}
-        <div class="mx-2">
+        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
           <CardPromotion {...item} {isDescriptionIcon} {isDescriptionLabel} />
-        </div>
+        </Carousel.Item>
       {/each}
     {/if}
   </CarouselSlot>

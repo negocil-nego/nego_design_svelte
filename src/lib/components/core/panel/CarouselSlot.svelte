@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { Snippet } from "svelte";
+  import type { CarouselPlugins } from "$lib/components/ui/carousel/context.js";
 
   type Props = {
     positionButtonPreviousAndNext?: "center" | "top_right";
@@ -8,6 +9,7 @@
     isButtonPreviousAndNext?: boolean;
     isBorderBottom?: boolean;
     containerClass?: string;
+    plugins?: CarouselPlugins;
     children: Snippet;
   };
 
@@ -17,6 +19,7 @@
     buttonPreviousAndNextClass = "",
     isBorderBottom = true,
     containerClass = "",
+    plugins = [],
     children,
   }: Props = $props();
 
@@ -28,7 +31,7 @@
 <div
   class={`relative py-3 px-2 ${isBorderBottom ? "border-b" : ""} ${containerClass}`}
 >
-  <Carousel.Root>
+  <Carousel.Root {plugins}>
     <Carousel.Content
       class={positionButtonPreviousAndNext == "top_right" ? "" : "ml-0"}
     >
