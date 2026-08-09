@@ -11,5 +11,6 @@
     containerClass="bg-blue-50 dark:bg-gray-800"
     buttonPreviousAndNextClass="bg-white dark:bg-gray-800"
     onButtonViewAll={() => console.log("click")}
+    varient={2}
   />
 </div>

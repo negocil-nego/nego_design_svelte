@@ -5,6 +5,7 @@
   import CardCart from "../shared/CardCart.svelte";
   import CardDescription from "../shared/CardDescription.svelte";
   import CardFavorite from "../shared/CardFavorite.svelte";
+  import CardStartPrice from "../shared/CardStartPrice.svelte";
   import CardTags from "../shared/CardTags.svelte";
   /**
    * Card component with a title and content.
@@ -61,29 +62,10 @@
       <img
         src={imageUrl}
         alt={imageUrl}
-        class="rounded-tr-lg rounded-tl-lg md:h-25 lg:h-45 w-full object-cover object-center"
+        class="rounded-tr-lg rounded-tl-lg h-25 lg:h-45 w-full object-cover object-center"
       />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
-
-    <div class="absolute bottom-2 right-3 z-2 flex items-center gap-2 mb-1">
-      {#if isLoading}
-        <Skeleton class="h-5 bg-black/10 w-25 my-2 mr-2" />
-      {:else if newPrice || oldPrice}
-        {#if oldPrice}
-          <div
-            class="text-[10px] md:text-sm line-through bg-red-[180px]0 text-white p-1 rounded-sm"
-          >
-            {oldPrice}
-          </div>
-        {/if}
-        {#if newPrice}
-          <div class="font-bold text-lg md:text-xl lg:text-2xl relative">
-            {newPrice}
-          </div>
-        {/if}
-      {/if}
-    </div>
   </aside>
 
   <aside
@@ -107,6 +89,16 @@
 
     <div class="w-full mb-3">
       <CardTags {tags} />
+    </div>
+
+    <div class="flex justify-start gap-2 w-full">
+      {#if isLoading}
+        <Skeleton class="h-5 bg-black/10 w-25 my-2 mr-2" />
+      {:else if newPrice || oldPrice}
+        <div>
+          <CardStartPrice {newPrice} {oldPrice} />
+        </div>
+      {/if}
     </div>
 
     {#if isLoading}

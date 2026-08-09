@@ -43,8 +43,8 @@
     plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
   >
     {#if isLoading}
-      {#each Array.from({ length: responsive.isMobile ? 5 : 10 }) as _, i (`loading-${i}`)}
-        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
+      {#each Array.from( { length: responsive.isMobile ? 5 : 10 }, ) as _, i (`loading-${i}`)}
+        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/4">
           <CardPromotion
             id={i}
             {isLoading}
@@ -55,7 +55,7 @@
       {/each}
     {:else}
       {#each items as item (item.id)}
-        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
+        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/4">
           <CardPromotion {...item} {isDescriptionIcon} {isDescriptionLabel} />
         </Carousel.Item>
       {/each}
