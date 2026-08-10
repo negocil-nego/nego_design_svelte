@@ -97,7 +97,11 @@
       />
     </div>
 
-    <CardTags {tags} {isLoading} />
+    {#if tags && tags.length > 0}
+      <div class="w-full mb-2">
+        <CardTags {tags} />
+      </div>
+    {/if}
 
     {#if isLoading}
       <Skeleton class="h-10 w-full rounded-md mt-2 md:mt-3" />

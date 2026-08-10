@@ -12,17 +12,18 @@
     descriptionClass,
     intervalMs = 5000,
     transitionMs = 1200,
+    indicatorShow = false,
   }: CarouselHeroProps & {
     children?: Snippet;
     intervalMs?: number;
     transitionMs?: number;
+    indicatorShow?: boolean;
   } = $props();
 
-  // Buffer duplo: duas camadas fixas, nunca desmontadas — só a opacidade muda.
   let layers = $state<[string, string]>([items?.[0]?.image ?? "", ""]);
   let active = $state<0 | 1>(0);
   let index = $state(0);
-  let switching = false; // evita trocas sobrepostas se o intervalo disparar antes do preload acabar
+  let switching = false;
 
   // eslint-disable-next-line svelte/prefer-svelte-reactivity
   const preloadCache = new Map<string, Promise<void>>();
@@ -35,7 +36,7 @@
     const promise = new Promise<void>((resolve) => {
       const img = new Image();
       img.onload = () => resolve();
-      img.onerror = () => resolve(); // não bloqueia o carousel por uma imagem partida
+      img.onerror = () => resolve();
       img.src = src;
     });
 
@@ -43,7 +44,6 @@
     return promise;
   }
 
-  // Pré-carrega todas as imagens uma vez, assim que os items ficam disponíveis.
   $effect(() => {
     items?.forEach((item) => void preload(item.image));
   });
@@ -53,7 +53,7 @@
     switching = true;
 
     const nextSrc = items[nextIndex].image;
-    await preload(nextSrc); // garante decode/cache antes de trocar a camada -> sem flash
+    await preload(nextSrc);
 
     const nextLayer = active === 0 ? 1 : 0;
     layers[nextLayer] = nextSrc;
@@ -139,20 +139,22 @@
       </section>
     </div>
 
-    {#if items && items.length > 1}
-      <div
-        style="position: absolute; bottom: 0.75rem; z-index: 10; display: flex; gap: 0.5rem;"
-      >
-        {#each items as item, i (`hero-dot-${i}`)}
-          <button
-            aria-label={`Ir para o slide ${i + 1}: ${item.title}`}
-            class="w-2 h-2 rounded-full transition-colors {i === index
-              ? 'bg-white'
-              : 'bg-white/40'}"
-            onclick={() => goTo(i)}
-          ></button>
-        {/each}
-      </div>
+    {#if indicatorShow}
+      {#if items && items.length > 1}
+        <div
+          style="position: absolute; bottom: 0.75rem; z-index: 10; display: flex; gap: 0.5rem;"
+        >
+          {#each items as item, i (`hero-dot-${i}`)}
+            <button
+              aria-label={`Ir para o slide ${i + 1}: ${item.title}`}
+              class="w-2 h-2 rounded-full transition-colors {i === index
+                ? 'bg-white'
+                : 'bg-white/40'}"
+              onclick={() => goTo(i)}
+            ></button>
+          {/each}
+        </div>
+      {/if}
     {/if}
   </header>
 {/if}

@@ -8,37 +8,20 @@
   import Autoplay from "embla-carousel-autoplay";
 
   const {
-    title,
+    headerProps,
+    slotProps,
     items,
-    description,
-    titleClass,
-    descriptionClass,
-    isButtonPreviousAndNext = true,
     isLoading = false,
-    buttonPreviousAndNextClass = "",
-    containerClass = "",
-    positionButtonPreviousAndNext,
     isDescriptionIcon,
     isDescriptionLabel,
-    onButtonViewAll,
   }: CarouselPromotionProps = $props();
 
   const responsive = useDevice();
 </script>
 
-<CarouselHeader
-  {title}
-  {description}
-  {titleClass}
-  {descriptionClass}
-  {containerClass}
-  {onButtonViewAll}
->
+<CarouselHeader {...headerProps}>
   <CarouselSlot
-    isBorderBottom={false}
-    {isButtonPreviousAndNext}
-    {buttonPreviousAndNextClass}
-    {positionButtonPreviousAndNext}
+    {...slotProps}
     containerClass="w-full"
     plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
   >

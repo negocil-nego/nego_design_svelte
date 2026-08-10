@@ -18,11 +18,16 @@
     containerClass = "",
     onButtonViewAll,
     children,
+    isBorder,
   }: CarouselHeaderProps & Props = $props();
 </script>
 
 <div class="w-full flex justify-center">
-  <div class="w-[95%] p-2 rounded-xl border {containerClass}">
+  <div
+    class="w-[95%] p-2 rounded-xl
+    {isBorder ? 'border border-gray-50 dark:border-gray-800' : ''} 
+    {containerClass}"
+  >
     <div class="flex flex-col gap-1">
       <div class="flex justify-between">
         <div>

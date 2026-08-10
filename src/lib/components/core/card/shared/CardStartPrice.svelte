@@ -10,7 +10,7 @@
   let { newPrice, oldPrice, type = "normal" }: Props = $props();
 </script>
 
-<div class="relative min-w-25 md:min-w-32">
+<div class="relative min-w-25 md:min-w-32 ml-0 pl-0">
   {#if type == "start"}
     <img
       src={StartBg}

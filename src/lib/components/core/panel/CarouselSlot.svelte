@@ -1,27 +1,16 @@
 <script lang="ts">
   import * as Carousel from "$lib/components/ui/carousel/index.js";
-  import type { Snippet } from "svelte";
-  import type { CarouselPlugins } from "$lib/components/ui/carousel/context.js";
-
-  type Props = {
-    positionButtonPreviousAndNext?: "center" | "top_right";
-    buttonPreviousAndNextClass?: string;
-    isButtonPreviousAndNext?: boolean;
-    isBorderBottom?: boolean;
-    containerClass?: string;
-    plugins?: CarouselPlugins;
-    children: Snippet;
-  };
+  import type { CarouselSlotProps } from "./type";
 
   const {
     positionButtonPreviousAndNext = "center",
     isButtonPreviousAndNext = true,
     buttonPreviousAndNextClass = "",
     isBorderBottom = true,
-    containerClass = "",
+    containerClass = "w-full",
     plugins = [],
     children,
-  }: Props = $props();
+  }: CarouselSlotProps = $props();
 
   const styleTopCenter = "bg-blue-700! text-white! cursor-pointer!";
   const styleCenter =

@@ -18,6 +18,8 @@ import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
 import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
 import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte";
+import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/CarouselGridMedia.svelte";
+import CarouselGridProfile from "$lib/components/core/carousel/grid/profile/ui/CarouselGridProfile.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
@@ -52,6 +54,12 @@ export {
 
     /** Carousel de destaques com cards de organização. @see CarouselHighlightsProps */
     CarouselHighlights,
+
+    /** Carousel em grid de mídia (imagens/vídeos). Em mobile vira carousel normal. @see CarouselMediaProps */
+    CarouselGridMedia,
+
+    /** Carousel em grid de perfil. Em mobile vira carousel normal. @see CarouselProfileProps */
+    CarouselGridProfile,
 
     TabUnderline,
 

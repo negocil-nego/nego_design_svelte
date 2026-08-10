@@ -108,9 +108,11 @@
       <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
     </div>
 
-    <div class="w-full mb-2">
-      <CardTags {tags} />
-    </div>
+    {#if tags && tags.length > 0}
+      <div class="w-full mb-2">
+        <CardTags {tags} />
+      </div>
+    {/if}
 
     <div class="flex justify-start gap-2 w-full">
       {#if isLoading}
@@ -125,7 +127,7 @@
     {#if isLoading}
       <Skeleton class="h-9 w-full rounded-md" />
     {:else}
-      <Button onclick={() => onClickBuy!(id)} class="w-full">
+      <Button onclick={() => onClickBuy!(id)} class="w-full bottom-0">
         {buttonBuyText || $t("label.buy")}
       </Button>
     {/if}

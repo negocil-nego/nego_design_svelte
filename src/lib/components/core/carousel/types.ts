@@ -19,6 +19,7 @@ export interface CarouselHeaderProps {
     containerClass?: string,
     onButtonViewAll?: () => void,
     positionButtonPreviousAndNext?: "center" | "top_right";
+    isBorder?: boolean;
 }
 
 export interface CarouselBadgeProps {
