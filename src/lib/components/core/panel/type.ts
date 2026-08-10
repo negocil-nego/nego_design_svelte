@@ -8,5 +8,5 @@ export type CarouselSlotProps = {
     isBorderBottom?: boolean;
     containerClass?: string;
     plugins?: CarouselPlugins;
-    children: Snippet;
+    children?: Snippet;
   };

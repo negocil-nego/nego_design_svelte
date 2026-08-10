@@ -9,17 +9,19 @@ import DataTableCore from "./components/core/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/01/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/01/ui/AdminPanel.svelte";
+import CardAdBanner from "$lib/components/core/banner/CardAdBanner.svelte";
+import BannerNotification from "$lib/components/core/banner/BannerNotification.svelte";
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
-import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
 import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
-import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
-import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
+import CarouselGridProfile from "$lib/components/core/carousel/grid/profile/ui/CarouselGridProfile.svelte";
 import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte";
 import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/CarouselGridMedia.svelte";
-import CarouselGridProfile from "$lib/components/core/carousel/grid/profile/ui/CarouselGridProfile.svelte";
+import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
+import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
+import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
@@ -42,6 +44,11 @@ export {
     NegoDesign,
 
     NavMenu,
+
+    CardAdBanner,
+
+    /** Banner de notificação com texto, CTA e botão dismiss. @see BannerNotificationProps */
+    BannerNotification,
 
     SearchInput,
 

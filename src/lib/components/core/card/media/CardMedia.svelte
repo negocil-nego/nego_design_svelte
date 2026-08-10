@@ -12,7 +12,7 @@
 </script>
 
 {#if variant === 2}
-  <CardMedia02 {...restProps} />
+  <CardMedia02 {...restProps} {isLoading} />
 {:else}
-  <CardMedia01 {...restProps} />
+  <CardMedia01 {...restProps} {isLoading} />
 {/if}

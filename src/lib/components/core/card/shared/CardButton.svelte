@@ -1,30 +1,37 @@
 <script lang="ts">
-    import { Button } from "$lib/components/ui/button/index.js";
-    import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/svelte";
+  import { Button } from "$lib/components/ui/button/index.js";
+  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/svelte";
 
-    type CardButtonProps = {
-        id: string | number;
-        icon: IconSvgElement;
-        isFlex?: boolean;
-        className?: string;
-        text: string;
-        onClick: (id: string | number) => void;
-    };
+  type CardButtonProps = {
+    id: string | number;
+    icon: IconSvgElement;
+    isFlex?: boolean;
+    className?: string;
+    text: string;
+    isLoading?: boolean;
+    onClick: (id: string | number) => void;
+  };
 
-    let { 
-        id, 
-        icon, 
-        isFlex, 
-        className, 
-        text, 
-        onClick 
-    }: CardButtonProps = $props();
+  let {
+    id,
+    icon,
+    isFlex,
+    className,
+    text,
+    isLoading,
+    onClick,
+  }: CardButtonProps = $props();
 </script>
 
-<Button
+{#if isLoading}
+  <Skeleton class="w-full h-7.5 rounded-lg bg-gray-500 dark:bg-gray-500/30" />
+{:else}
+  <Button
     class="{isFlex ? 'flex-1' : ''} {className}"
     onclick={() => onClick(id)}
->
+  >
     <HugeiconsIcon {icon} />
     <span>{text}</span>
-</Button>
+  </Button>
+{/if}

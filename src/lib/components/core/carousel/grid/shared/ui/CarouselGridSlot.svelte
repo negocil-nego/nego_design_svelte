@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import CarouselSlot from "../../panel/CarouselSlot.svelte";
-  import type { CarouselSlotProps } from "../../panel/type";
+  import CarouselSlot from "../../../../panel/CarouselSlot.svelte";
+  import type { CarouselSlotProps } from "../../../../panel/type";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import Autoplay from "embla-carousel-autoplay";
 

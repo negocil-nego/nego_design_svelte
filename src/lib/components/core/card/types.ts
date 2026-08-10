@@ -16,6 +16,7 @@ export interface CardMediaProps {
     className?: string;
     tags?: CardTagsProps[];
     isFavorite?: boolean;
+    isLoading?: boolean;
     startNumber?: number;
     isTagBorderBottom?: boolean;
     buttonProfileClass?: string;

@@ -18,12 +18,9 @@
 </script>
 
 <CarouselHeader {...headerProps}>
-  <CarouselGridSlot
-    {slotProps}
-    totalItems={items.length}
-  >
+  <CarouselGridSlot {slotProps} totalItems={items.length}>
     {#if isLoading}
-      {#each Array.from({ length: responsive.isMobile ? 5 : 9 }) as _, i (`loading-${i}`)}
+      {#each Array.from( { length: responsive.isMobile ? 5 : 9 }, ) as _, i (`loading-${i}`)}
         {#if responsive.isMobile}
           <Carousel.Item class="pl-2 basis-auto">
             <CardMedia id={i} {variant} isLoading />

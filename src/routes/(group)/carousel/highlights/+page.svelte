@@ -6,11 +6,15 @@
 <div class="flex items-center justify-center mt-3 lg:mt-5">
   <CarouselHighlights
     {items}
-    title="Destaques"
-    description="Confira os destaques que preparamos para você"
-    containerClass="bg-blue-50 dark:bg-gray-800"
-    buttonPreviousAndNextClass="bg-white dark:bg-gray-800"
-    onButtonViewAll={() => console.log("click")}
+    headerProps={{
+      title: "Destaques",
+      description: "Confira os destaques que preparamos para você",
+      containerClass: "bg-blue-50 dark:bg-gray-800",
+      onButtonViewAll: () => console.log("click"),
+    }}
+    slotProps={{
+      buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
+    }}
     varient={2}
   />
 </div>
