@@ -7,7 +7,7 @@
   import { useDevice } from "$lib/hooks/responsive.svelte";
 
   const {
-    items,
+    items = [],
     imageClass,
     iconClass,
     labelClass,
@@ -33,13 +33,12 @@
 >
   {#if isLoading}
     <div class="flex items-center justify-between w-full gap-1 md:gap-2">
-      {#each Array.from({ length: responsive.isMobile ? 2 : 10 }) as it, i (i)}
+      {#each Array.from({ length: responsive.isMobile ? 2 : 10 }) as _, i (`skeleton-${i}`)}
         <Skeleton class="h-4 w-25 bg-black/20" />
-        <div class="src-only">{it}</div>
       {/each}
     </div>
   {:else}
-    {#each items as item, i (i)}
+    {#each (items ?? []) as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
       <Carousel.Item
         onclick={() => item.onClick?.(item.value)}
         class={`

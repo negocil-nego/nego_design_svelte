@@ -54,8 +54,8 @@
         </Carousel.Item>
       {/each}
     {:else}
-      {#each items as item (item.id)}
-        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/4">
+      {#each items as item, i (`promotion-${item.id ?? i}`)}
+        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
           <CardPromotion {...item} {isDescriptionIcon} {isDescriptionLabel} />
         </Carousel.Item>
       {/each}

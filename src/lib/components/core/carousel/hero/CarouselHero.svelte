@@ -86,7 +86,7 @@
   <header
     class="w-full relative flex flex-col justify-center items-center h-75 md:h-100 overflow-hidden {className}"
   >
-    {#each layers as bg, i (i)}
+    {#each layers as bg, i (`layer-${i}`)}
       <div
         style="
     position: absolute;
@@ -143,7 +143,7 @@
       <div
         style="position: absolute; bottom: 0.75rem; z-index: 10; display: flex; gap: 0.5rem;"
       >
-        {#each items as item, i (i)}
+        {#each items as item, i (`hero-dot-${i}`)}
           <button
             aria-label={`Ir para o slide ${i + 1}: ${item.title}`}
             class="w-2 h-2 rounded-full transition-colors {i === index

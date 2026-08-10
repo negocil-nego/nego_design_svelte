@@ -21,6 +21,7 @@
     isDescriptionIcon,
     isDescriptionLabel,
     onButtonViewAll,
+    positionButtonPreviousAndNext,
   }: CarouselHighlightsProps = $props();
 
   const responsive = useDevice();
@@ -38,6 +39,7 @@
     isBorderBottom={false}
     {isButtonPreviousAndNext}
     {buttonPreviousAndNextClass}
+    {positionButtonPreviousAndNext}
     containerClass="w-full"
     plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
   >
@@ -48,8 +50,8 @@
         </Carousel.Item>
       {/each}
     {:else}
-      {#each items as item (item.id)}
-        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-auto">
+      {#each items as item, i (`highlight-${item.id ?? i}`)}
+        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
           <CardHighlight
             {...item}
             {varient}
