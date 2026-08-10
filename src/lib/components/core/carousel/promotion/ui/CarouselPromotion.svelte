@@ -44,7 +44,7 @@
   >
     {#if isLoading}
       {#each Array.from( { length: responsive.isMobile ? 5 : 10 }, ) as _, i (`loading-${i}`)}
-        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/4">
+        <Carousel.Item class="pl-2 w-75 basis-auto">
           <CardPromotion
             id={i}
             {isLoading}
@@ -55,7 +55,7 @@
       {/each}
     {:else}
       {#each items as item, i (`promotion-${item.id ?? i}`)}
-        <Carousel.Item class="pl-2 md:basis-1/2 lg:basis-1/3">
+        <Carousel.Item class="pl-2 w-75 basis-auto">
           <CardPromotion {...item} {isDescriptionIcon} {isDescriptionLabel} />
         </Carousel.Item>
       {/each}

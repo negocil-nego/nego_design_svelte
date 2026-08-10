@@ -5,6 +5,9 @@
   import CardDescription from "../../shared/CardDescription.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import CardTags from "../../shared/CardTags.svelte";
+  import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
+  import ImgPlaceholder from "$lib/assets/placeholder-image.png";
+
   /**
    * Card component with a title and content.
    * @component
@@ -32,15 +35,25 @@
   class="flex gap-1 bg-white dark:bg-background p-3 rounded-lg shadow border"
 >
   <aside class="relative rounded-lg border h-50">
-    <div class="left-1 z-2 flex gap-1 w-50">
+    <div class="absolute top-3 left-1 z-2 flex gap-1 w-50">
       {#if isLoading}
         <Skeleton class="w-hull h-full rounded-lg" />
       {:else if logo}
-        <img src={logo} alt={title} class="rounded-lg" />
+        <img
+          src={logo}
+          alt={`Logo company ${title}`}
+          class="rounded-lg w-8 h-8 object-cover object-center"
+        />
+      {:else}
+        <img
+          src={ImgPlaceholderCompany}
+          alt={logo}
+          class="rounded-lg w-8 h-8 object-cover object-center"
+        />
       {/if}
     </div>
 
-    <div class="absolute top-3 right-1">
+    <div class="absolute top-3 right-1 z-2">
       <CardFavorite
         {id}
         {isFavorite}
@@ -50,12 +63,18 @@
     </div>
 
     {#if isLoading}
-      <Skeleton class="rounded-lg w-full h-full object-cover object-center" />
+      <Skeleton class="rounded-lg w-50 h-full object-cover object-center" />
     {:else if imageUrl}
       <img
         src={imageUrl}
         alt={imageUrl}
-        class="rounded-lg w-full h-full object-cover object-center"
+        class="rounded-lg w-50 h-full object-cover object-center"
+      />
+    {:else}
+      <img
+        src={ImgPlaceholder}
+        alt={imageUrl}
+        class="rounded-lg w-50 h-full object-cover object-center"
       />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>

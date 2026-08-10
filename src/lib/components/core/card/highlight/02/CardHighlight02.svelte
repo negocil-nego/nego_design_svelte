@@ -5,6 +5,8 @@
   import CardDescription from "../../shared/CardDescription.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import CardTags from "../../shared/CardTags.svelte";
+  import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
+  import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   /**
    * Card component with a title and content.
    * @component
@@ -31,16 +33,28 @@
 <article
   class="flex flex-col gap-1 bg-white dark:bg-background p-3 rounded-lg shadow border"
 >
-  <aside class="relative rounded-lg border h-50">
-    <div class="left-1 z-2 flex gap-1 w-50">
+  <aside class="relative rounded-lg border h-36">
+    <div class="absolute top-3 left-1 z-2 flex gap-1">
       {#if isLoading}
-        <Skeleton class="w-hull h-full rounded-lg" />
+        <Skeleton class="w-full h-full rounded-lg" />
       {:else if logo}
-        <img src={logo} alt={title} class="rounded-lg" />
+        <img
+          src={logo}
+          alt={logo}
+          class="rounded-lg w-8 h-8 object-cover object-center"
+          onerror={(e) =>
+            ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
+        />
+      {:else}
+        <img
+          src={ImgPlaceholderCompany}
+          alt={logo}
+          class="rounded-lg w-8 h-8 object-cover object-center"
+        />
       {/if}
     </div>
 
-    <div class="absolute top-3 right-1">
+    <div class="absolute top-3 right-1 z-2">
       <CardFavorite
         {id}
         {isFavorite}
@@ -56,11 +70,12 @@
         src={imageUrl}
         alt={imageUrl}
         class="rounded-lg w-full h-full object-cover object-center"
+        onerror={(e) => ((e.target as HTMLImageElement).src = ImgPlaceholder)}
       />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
   </aside>
-  <div class="px-2">
+  <div class="px-2 w-55">
     <div class="rounded-md">
       {#if isLoading}
         <Skeleton class="h-4 w-30 rounded-lg" />
@@ -69,7 +84,7 @@
       {/if}
     </div>
 
-    <div class="w-75 my-2">
+    <div class="my-2">
       <CardDescription
         {content}
         {isLoading}

@@ -7,6 +7,9 @@
   import CardFavorite from "../shared/CardFavorite.svelte";
   import CardStartPrice from "../shared/CardStartPrice.svelte";
   import CardTags from "../shared/CardTags.svelte";
+  import ImgPlaceHolderGallery from "$lib/assets/placeholder-image.png";
+  import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
+
   /**
    * Card component with a title and content.
    * @component
@@ -40,7 +43,23 @@
       {#if isLoading}
         <Skeleton class="h-5 w-20 rounded-full bg-black/20" />
       {:else if logo}
-        <img src={logo} width={30} height={30} alt={title} class="rounded-lg" />
+        <img
+          src={logo}
+          width={30}
+          height={30}
+          alt={title}
+          onerror={(e) =>
+            ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
+          class="rounded-lg"
+        />
+      {:else}
+        <img
+          src={ImgPlaceholderCompany}
+          width={30}
+          height={30}
+          alt={title}
+          class="rounded-lg"
+        />
       {/if}
     </div>
 
@@ -56,13 +75,15 @@
 
     {#if isLoading}
       <Skeleton
-        class="rounded-lg md:h-25 md:w-25 lg:h-45 lg:w-45 object-cover object-center bg-black/15"
+        class="rounded-lg h-30 w-full object-cover object-center bg-black/15"
       />
     {:else if imageUrl}
       <img
         src={imageUrl}
         alt={imageUrl}
-        class="rounded-tr-lg rounded-tl-lg h-25 lg:h-45 w-full object-cover object-center"
+        class="rounded-tr-lg rounded-tl-lg h-36 w-full object-cover object-center"
+        onerror={(e) =>
+          ((e.target as HTMLImageElement).src = ImgPlaceHolderGallery)}
       />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
@@ -87,7 +108,7 @@
       <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
     </div>
 
-    <div class="w-full mb-3">
+    <div class="w-full mb-2">
       <CardTags {tags} />
     </div>
 
