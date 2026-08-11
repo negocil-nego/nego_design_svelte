@@ -11,17 +11,11 @@
     children: Snippet;
   };
 
-  const {
-    slotProps,
-    totalItems,
-    children,
-  }: Props = $props();
+  const { slotProps, totalItems, children }: Props = $props();
 
   const responsive = useDevice();
 
-  const colsClass = $derived(
-    totalItems <= 4 ? "grid-cols-2" : "grid-cols-3"
-  );
+  const colsClass = $derived(totalItems <= 2 ? "grid-cols-2" : "grid-cols-3");
 </script>
 
 {#if responsive.isMobile}

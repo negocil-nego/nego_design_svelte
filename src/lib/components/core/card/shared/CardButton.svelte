@@ -25,10 +25,12 @@
 </script>
 
 {#if isLoading}
-  <Skeleton class="w-full h-7.5 rounded-lg bg-gray-500 dark:bg-gray-500/30" />
+  <Skeleton
+    class="w-full h-7.5 rounded-lg bg-gray-500/80 dark:bg-gray-500/30"
+  />
 {:else}
   <Button
-    class="{isFlex ? 'flex-1' : ''} {className}"
+    class="bg-gradient {isFlex ? 'flex-1' : ''} {className}"
     onclick={() => onClick(id)}
   >
     <HugeiconsIcon {icon} />

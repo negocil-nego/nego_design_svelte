@@ -6,7 +6,7 @@
     positionButtonPreviousAndNext = "center",
     isButtonPreviousAndNext = true,
     buttonPreviousAndNextClass = "",
-    isBorderBottom = true,
+    isBorderBottom = false,
     containerClass = "w-full",
     plugins = [],
     children,

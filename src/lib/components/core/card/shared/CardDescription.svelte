@@ -21,7 +21,7 @@
 </script>
 
 {#if isLoading}
-  <Skeleton class="w-full h-full bg-gray-200" />
+  <Skeleton class="w-full h-full bg-gray-500/89" />
 {:else if content}
   {#if isDescriptionLabel}
     <div class="mb-1 text-[14px] md:text-[15px] flex items-center gap-1">

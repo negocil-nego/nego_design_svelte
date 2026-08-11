@@ -42,3 +42,22 @@ export type BannerNotificationProps = {
     ctaClass?: string;
     class?: string;
 }
+
+/**
+ * "Let's get in touch" style CTA banner: bold title, supporting copy,
+ * and up to two pill-shaped action buttons, with a concentric-ring
+ * decoration bleeding off the right edge.
+ * @component
+ */
+export type CardContactCtaProps = {
+    title: string;
+    description?: string;
+    primaryText: string;
+    secondaryText?: string;
+    onClickPrimary?: () => void;
+    onClickSecondary?: () => void;
+    primaryHref?: string;
+    secondaryHref?: string;
+    class?: string;
+    rings?: Array<{ size: number, color: string }>;
+}

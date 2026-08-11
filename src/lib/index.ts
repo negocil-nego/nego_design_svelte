@@ -47,6 +47,8 @@ export {
 
     CardAdBanner,
 
+    CardContactCta,
+
     /** Banner de notificação com texto, CTA e botão dismiss. @see BannerNotificationProps */
     BannerNotification,
 

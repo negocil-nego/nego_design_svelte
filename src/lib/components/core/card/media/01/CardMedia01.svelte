@@ -13,7 +13,6 @@
   import CardButton from "../../shared/CardButton.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import ImgPlaceHolderGallery from "$lib/assets/placeholder-image.png";
   import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
 
   let {
@@ -117,6 +116,8 @@
           isFlex={isShowButtonProfileAndDetails}
           {isLoading}
         />
+      {:else if isLoading}
+        <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
       {/if}
       {#if onButtonDetails}
         <CardButton
@@ -128,6 +129,8 @@
           isFlex={isShowButtonProfileAndDetails}
           {isLoading}
         />
+      {:else if isLoading}
+        <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
       {/if}
     </div>
   {/if}

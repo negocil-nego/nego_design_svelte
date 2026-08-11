@@ -12,6 +12,8 @@
   import CardThumbnailVideo from "../../shared/CardThumbnailVideo.svelte";
   import CardButton from "../../shared/CardButton.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
+  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
   let {
     id,
     tags,
@@ -47,16 +49,29 @@
   <div class="flex flex-col justify-center items-center w-full relative">
     <div class="flex flex-col justify-start gap-2">
       <div class="flex justify-center items-center">
-        {#if logo}
-          <img src={logo} alt={logo} class="w-12 h-12 rounded-lg" />
+        {#if isLoading}
+          <Skeleton class="w-12 h-12 rounded-lg bg-gray-300" />
+        {:else if logo}
+          <img
+            src={logo}
+            alt={logo}
+            class="w-12 h-12 rounded-lg"
+            onerror={(e) =>
+              ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
+          />
         {/if}
       </div>
       <div class="flex flex-col justify-center items-center">
         {#if title}
           <div class="text-center font-bold text-lg">{title}</div>
+        {:else if isLoading}
+          <Skeleton class="w-40 h-5 rounded-lg bg-gray-400 mb-0.5" />
         {/if}
+
         {#if startNumber}
-          <CardStarRating {startNumber} {startMax} />
+          <CardStarRating {startNumber} {startMax} {isLoading} />
+        {:else if isLoading}
+          <Skeleton class="w-20 h-4 rounded-lg bg-gray-300 mt-0.5" />
         {/if}
       </div>
     </div>
@@ -65,13 +80,19 @@
         {id}
         {isFavorite}
         onFavoriteClick={() => onFavoriteClick!(id)}
+        {isLoading}
       />
     </div>
-    <CardTags className="my-4" tags={tags ?? []} {isTagBorderBottom} />
+    <CardTags
+      className="my-2"
+      tags={tags ?? []}
+      {isTagBorderBottom}
+      {isLoading}
+    />
   </div>
 
-  <div class="h-15 mb-8">
-    <CardDescription {content} />
+  <div class="h-15 mb-4">
+    <CardDescription {content} {isLoading} />
   </div>
 
   <CardThumbnailVideo
@@ -79,6 +100,7 @@
     {videoUrl}
     {isImageButtonMaximized}
     {isVideoButtonMaximized}
+    {isLoading}
   />
 
   {#if onButtonProfile || onButtonDetails}
@@ -91,7 +113,10 @@
           text={$t("label.view.profile")}
           onClick={onButtonProfile}
           isFlex={isShowButtonProfileAndDetails}
+          {isLoading}
         />
+      {:else if isLoading}
+        <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
       {/if}
       {#if onButtonDetails}
         <CardButton
@@ -101,7 +126,10 @@
           text={$t("label.more.details")}
           onClick={onButtonDetails}
           isFlex={isShowButtonProfileAndDetails}
+          {isLoading}
         />
+      {:else if isLoading}
+        <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
       {/if}
     </div>
   {/if}

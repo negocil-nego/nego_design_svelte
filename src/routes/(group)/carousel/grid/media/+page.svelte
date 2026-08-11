@@ -15,5 +15,5 @@
     buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
     positionButtonPreviousAndNext: "center",
   }}
-  isLoading
+  variant={1}
 />

@@ -11,7 +11,7 @@
 </script>
 
 <div
-  class="flex flex-col justify-center items-center bg-gradient-left pb-5 border-b"
+  class="flex flex-col justify-center items-center bg-gradient pb-5 border-b"
 >
   <div
     class="container-fixed flex flex-col justify-center items-center gap-2 md:gap-5"
@@ -33,7 +33,7 @@
     />
     <SearchInput
       variant={1}
-      buttonClass="bg-gradient-left"
+      buttonClass="bg-gradient"
       onSubmit={(q) => {
         alert(q);
       }}

@@ -12,6 +12,7 @@
     VideoReplayIcon,
   } from "@hugeicons/core-free-icons";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import ImgPlaceholder from "$lib/assets/placeholder-image.png";
 
   type Props = {
     imageUrl?: string;
@@ -106,7 +107,7 @@
 {/snippet}
 
 {#if isLoading}
-  <Skeleton class="w-full h-12.5 md:h-45.625 bg-gray-500/90" />
+  <Skeleton class="w-full h-12.5 md:h-50 bg-gray-500/90" />
 {:else}
   {#if imageUrl || videoUrl}
     <div
@@ -130,6 +131,7 @@
           alt={imageUrl}
           class="absolute inset-0 w-full {className} rounded-md object-cover transition-opacity duration-500"
           class:opacity-0={videoUrl && showVideo}
+          onerror={(e) => ((e.target as HTMLImageElement).src = ImgPlaceholder)}
         />
       {/if}
 

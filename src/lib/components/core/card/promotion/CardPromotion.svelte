@@ -29,6 +29,7 @@
     oldPrice,
     content,
     buttonBuyText,
+    buttonBuyClass,
     isDescriptionIcon,
     isDescriptionLabel,
     onClickBuy,
@@ -127,7 +128,10 @@
     {#if isLoading}
       <Skeleton class="h-9 w-full rounded-md" />
     {:else}
-      <Button onclick={() => onClickBuy!(id)} class="w-full bottom-0">
+      <Button
+        onclick={() => onClickBuy!(id)}
+        class="w-full bottom-0 bg-gradient {buttonBuyClass}"
+      >
         {buttonBuyText || $t("label.buy")}
       </Button>
     {/if}

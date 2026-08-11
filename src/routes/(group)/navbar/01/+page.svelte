@@ -13,7 +13,7 @@
 </script>
 
 <div
-  class="flex flex-col justify-center items-center gap-2 md:gap-5 bg-gradient-left pb-5 border-b"
+  class="flex flex-col justify-center items-center gap-2 md:gap-5 bg-gradient pb-5 border-b"
 >
   <NavMenu
     logo={{

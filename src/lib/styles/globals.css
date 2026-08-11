@@ -10,7 +10,7 @@
 @plugin '@tailwindcss/typography';
 
 @layer {
-  .bg-gradient-left {
+  .bg-gradient {
     @apply bg-linear-to-r from-[#0082b6] via-[#0b4a7e] to-[#083baa] dark:from-[#06344d] dark:via-[#023845] dark:to-[#074656];
   }
 

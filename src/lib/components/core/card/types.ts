@@ -39,6 +39,7 @@ export interface CardProfileProps {
     tags?: CardTagsProps[];
     isFavorite?: boolean;
     startNumber?: number;
+    isLoading?: boolean;
     isTagBorderBottom?: boolean;
     buttonProfileClass?: string;
     buttonDetailsClass?: string;
@@ -61,6 +62,7 @@ export interface CardPromotionProps {
     oldPrice?: string | number;
     newPrice?: string | number;
     buttonBuyText?: string;
+    buttonBuyClass?: string;
     isDescriptionIcon?: boolean;
     isDescriptionLabel?: boolean;
     onClickBuy?: (id: string | number) => void;
