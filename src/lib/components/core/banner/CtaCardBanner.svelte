@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { CardContactCtaProps } from "./types";
+  import type { CtaCardBannerProps } from "./types";
 
   let {
     title,
@@ -12,10 +12,10 @@
     secondaryHref,
     class: className = "",
     rings: customRings = [],
-  }: CardContactCtaProps = $props();
+  }: CtaCardBannerProps = $props();
 
   // Painter's-algorithm rings: largest/darkest first, smallest/lightest last.
-  const rings =
+  const rings = $derived(
     customRings && customRings.length > 0
       ? customRings
       : [
@@ -26,7 +26,8 @@
           { size: 340, color: "#A9C2F6" },
           { size: 220, color: "#CFDEFA" },
           { size: 110, color: "#EEF3FD" },
-        ];
+        ],
+  );
 </script>
 
 {#snippet pill(

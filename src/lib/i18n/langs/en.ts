@@ -97,6 +97,11 @@ export default {
     "carousel.otp-verification.slide3.title": "Code Verified!",
     "carousel.otp-verification.slide3.description": "Your identity has been verified. You can now proceed with resetting your password or accessing your account.",
 
+    "footer.subscribe": "Subscribe",
+    "footer.subscribe.title": "Subscreva a nossa newsletter",
+    "footer.subscribe.text": "Subscribe to our newsletter to receive the latest news, articles and resources sent directly to your inbox.",
+    "footer.copyr": "All rights reserved",
+
     "language.en": "English",
     "language.pt": "Portuguese"
 };

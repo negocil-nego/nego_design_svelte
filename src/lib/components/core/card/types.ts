@@ -78,8 +78,10 @@ export interface CardHighlightProps {
     className?: string;
     isFavorite?: boolean;
     isLoading?: boolean;
+    isExpandButton?: boolean;
     content?: string;
     buttonText?: string;
+    buttonClass?: string;
     isDescriptionIcon?: boolean;
     isDescriptionLabel?: boolean;
     tags?: CardTagsProps[]

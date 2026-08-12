@@ -12,6 +12,8 @@
    * @component
    */
   import type { CardHighlightProps } from "../../types";
+  import CardButton from "../../shared/CardButton.svelte";
+  import CardLogo from "../../shared/CardLogo.svelte";
 
   let {
     id,
@@ -24,7 +26,9 @@
     isFavorite = false,
     isDescriptionIcon,
     isDescriptionLabel,
+    isExpandButton = false,
     buttonText,
+    buttonClass,
     onClickBtn,
     onClickFavorite,
   }: CardHighlightProps = $props();
@@ -35,23 +39,7 @@
 >
   <aside class="relative rounded-lg border h-36">
     <div class="absolute top-3 left-1 z-2 flex gap-1">
-      {#if isLoading}
-        <Skeleton class="w-full h-full rounded-lg" />
-      {:else if logo}
-        <img
-          src={logo}
-          alt={logo}
-          class="rounded-lg w-8 h-8 object-cover object-center"
-          onerror={(e) =>
-            ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
-        />
-      {:else}
-        <img
-          src={ImgPlaceholderCompany}
-          alt={logo}
-          class="rounded-lg w-8 h-8 object-cover object-center"
-        />
-      {/if}
+      <CardLogo {isLoading} {logo} />
     </div>
 
     <div class="absolute top-3 right-1 z-2">
@@ -99,12 +87,13 @@
       </div>
     {/if}
 
-    {#if isLoading}
-      <Skeleton class="h-10 w-full rounded-md mt-2 md:mt-3" />
-    {:else}
-      <Button onclick={() => onClickBtn!(id)} class="mt-2 md:mt-3 md:min-w-32">
-        {buttonText || $t("label.buy")}
-      </Button>
-    {/if}
+    <CardButton
+      {id}
+      {isLoading}
+      className={buttonClass}
+      isFlex={isExpandButton}
+      onClick={() => onClickBtn!(id)}
+      text={buttonText || $t("label.buy")}
+    />
   </div>
 </article>

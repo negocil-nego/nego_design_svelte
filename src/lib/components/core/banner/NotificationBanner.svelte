@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { BannerNotificationProps } from "./types";
+  import type { NotificationBannerProps } from "./types";
 
   let {
     strongText,
@@ -12,7 +12,7 @@
     textClass = "text-gray-100",
     ctaClass,
     class: className = "",
-  }: BannerNotificationProps = $props();
+  }: NotificationBannerProps = $props();
 </script>
 
 <div
@@ -45,7 +45,8 @@
         <strong class="font-semibold">{strongText}</strong><svg
           viewBox="0 0 2 2"
           aria-hidden="true"
-          class="mx-2 inline size-0.5 fill-current"><circle r="1" cx="1" cy="1" /></svg
+          class="mx-2 inline size-0.5 fill-current"
+          ><circle r="1" cx="1" cy="1" /></svg
         >
       {/if}
       {description}

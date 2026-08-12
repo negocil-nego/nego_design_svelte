@@ -84,18 +84,23 @@ export default {
     "carousel.forget-password.slide3.description": "Escolha uma senha forte e única para manter a sua conta segura. Certifique-se de que seja memorizável, mas difícil de adivinhar por outros.",
 
     "carousel.reset-password.slide1.title": "Redefina a sua Senha",
-    "carousel.reset-password.slide1.description": "Enviámos um código de verificação para o seu email. Insira-o abaixo juntamente com a sua nova senha para recuperar o acesso à sua conta.",
+    "carousel.reset-password.slide1.description": "Enviámos um código de verificação para o seu email. Insira-o abaixo juntamente com a sua nova senha para recuperar o acesso à sua conta",
     "carousel.reset-password.slide2.title": "Crie uma Senha Forte",
-    "carousel.reset-password.slide2.description": "Escolha uma senha com pelo menos 8 caracteres, combinando letras, números e símbolos para máxima segurança.",
+    "carousel.reset-password.slide2.description": "Escolha uma senha com pelo menos 8 caracteres, combinando letras, números e símbolos para máxima segurança",
     "carousel.reset-password.slide3.title": "Tudo Pronto!",
-    "carousel.reset-password.slide3.description": "A sua senha foi redefinida com sucesso. Agora pode iniciar sessão com as suas novas credenciais e continuar de onde parou.",
+    "carousel.reset-password.slide3.description": "A sua senha foi redefinida com sucesso. Agora pode iniciar sessão com as suas novas credenciais e continuar de onde parou",
 
     "carousel.otp-verification.slide1.title": "Verifique a sua Identidade",
-    "carousel.otp-verification.slide1.description": "Enviámos um código de verificação único para o seu email ou telefone. Insita-o abaixo para verificar a sua identidade e prosseguir.",
+    "carousel.otp-verification.slide1.description": "Enviámos um código de verificação único para o seu email ou telefone. Insita-o abaixo para verificar a sua identidade e prosseguir",
     "carousel.otp-verification.slide2.title": "Insira o Código",
-    "carousel.otp-verification.slide2.description": "Verifique a sua caixa de entrada ou mensagens de telefone para o código de 6 dígitos. Pode demorar alguns minutos a chegar.",
+    "carousel.otp-verification.slide2.description": "Verifique a sua caixa de entrada ou mensagens de telefone para o código de 6 dígitos. Pode demorar alguns minutos a chegar",
     "carousel.otp-verification.slide3.title": "Código Verificado!",
-    "carousel.otp-verification.slide3.description": "A sua identidade foi verificada. Agora pode prosseguir com a redefinição da senha ou aceder à sua conta.",
+    "carousel.otp-verification.slide3.description": "A sua identidade foi verificada. Agora pode prosseguir com a redefinição da senha ou aceder à sua conta",
+
+    "footer.subscribe": "Subscrever",
+    "footer.subscribe.title": "Subscreva a nossa newsletter",
+    "footer.subscribe.text": "Subscreva a nossa newsletter para receber as últimas notícias, artigos e recursos enviados diretamente para a sua caixa de entrada",
+    "footer.copyr": "Todos os direitos reservados",
 
     "language.en": "Inglês",
     "language.pt": "Português"

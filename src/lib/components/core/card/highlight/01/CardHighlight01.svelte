@@ -1,18 +1,18 @@
 <script lang="ts">
-  import Button from "$lib/components/ui/button/button.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import { t } from "$lib/i18n";
+  import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   import CardDescription from "../../shared/CardDescription.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import CardTags from "../../shared/CardTags.svelte";
-  import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
-  import ImgPlaceholder from "$lib/assets/placeholder-image.png";
 
   /**
    * Card component with a title and content.
    * @component
    */
   import type { CardHighlightProps } from "../../types";
+  import CardButton from "../../shared/CardButton.svelte";
+  import CardLogo from "../../shared/CardLogo.svelte";
+  import { t } from "$lib/i18n";
 
   let {
     id,
@@ -24,8 +24,10 @@
     isLoading = false,
     isFavorite = false,
     buttonText,
+    buttonClass,
     isDescriptionIcon,
     isDescriptionLabel,
+    isExpandButton = false,
     onClickBtn,
     onClickFavorite,
   }: CardHighlightProps = $props();
@@ -36,21 +38,7 @@
 >
   <aside class="relative rounded-lg border h-50">
     <div class="absolute top-3 left-1 z-2 flex gap-1 w-50">
-      {#if isLoading}
-        <Skeleton class="w-hull h-full rounded-lg" />
-      {:else if logo}
-        <img
-          src={logo}
-          alt={`Logo company ${title}`}
-          class="rounded-lg w-8 h-8 object-cover object-center"
-        />
-      {:else}
-        <img
-          src={ImgPlaceholderCompany}
-          alt={logo}
-          class="rounded-lg w-8 h-8 object-cover object-center"
-        />
-      {/if}
+      <CardLogo {isLoading} {logo} />
     </div>
 
     <div class="absolute top-3 right-1 z-2">
@@ -103,12 +91,13 @@
       </div>
     {/if}
 
-    {#if isLoading}
-      <Skeleton class="h-10 w-full rounded-md mt-2 md:mt-3" />
-    {:else}
-      <Button onclick={() => onClickBtn!(id)} class="mt-2 md:mt-3 md:min-w-32">
-        {buttonText || $t("label.buy")}
-      </Button>
-    {/if}
+    <CardButton
+      {id}
+      {isLoading}
+      className={buttonClass}
+      isFlex={isExpandButton}
+      onClick={() => onClickBtn!(id)}
+      text={buttonText || $t("label.buy")}
+    />
   </div>
 </article>

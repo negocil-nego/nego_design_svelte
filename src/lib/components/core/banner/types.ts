@@ -21,7 +21,7 @@ export type BannerProps = {
     tagBgClass?: string;
 }
 
-export type BannerNotificationProps = {
+export type NotificationBannerProps = {
     /** Strong text before the separator, e.g. "GeneriCon 2023" */
     strongText?: string;
     /** Main description text */
@@ -49,7 +49,7 @@ export type BannerNotificationProps = {
  * decoration bleeding off the right edge.
  * @component
  */
-export type CardContactCtaProps = {
+export type CtaCardBannerProps = {
     title: string;
     description?: string;
     primaryText: string;

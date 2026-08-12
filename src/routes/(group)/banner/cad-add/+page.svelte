@@ -1,8 +1,8 @@
 <script lang="ts">
-  import CardAdBanner from "$lib/components/core/banner/CardAdBanner.svelte";
+  import AdCardBanner from "$lib/components/core/banner/AdCardBanner.svelte";
 </script>
 
-<CardAdBanner
+<AdCardBanner
   tagText="Este anúncio pode ser seu."
   titleHighlight="Este anúncio"
   titleMain="pode ser seu."

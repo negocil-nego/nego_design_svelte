@@ -5,7 +5,7 @@
 
   type CardButtonProps = {
     id: string | number;
-    icon: IconSvgElement;
+    icon?: IconSvgElement | string;
     isFlex?: boolean;
     className?: string;
     text: string;
@@ -33,7 +33,13 @@
     class="bg-gradient {isFlex ? 'flex-1' : ''} {className}"
     onclick={() => onClick(id)}
   >
-    <HugeiconsIcon {icon} />
+    {#if icon}
+      {#if typeof icon === "string"}
+        <i class={icon}></i>
+      {:else}
+        <HugeiconsIcon {icon} />
+      {/if}
+    {/if}
     <span>{text}</span>
   </Button>
 {/if}

@@ -9,8 +9,10 @@ import DataTableCore from "./components/core/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/01/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/01/ui/AdminPanel.svelte";
-import CardAdBanner from "$lib/components/core/banner/CardAdBanner.svelte";
-import BannerNotification from "$lib/components/core/banner/BannerNotification.svelte";
+import AdCardBanner from "$lib/components/core/banner/AdCardBanner.svelte";
+import CtaCardBanner from "$lib/components/core/banner/CtaCardBanner.svelte";
+import NotificationBanner from "$lib/components/core/banner/NotificationBanner.svelte";
+
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
@@ -26,6 +28,7 @@ import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
+import Footer from "$lib/components/core/footer/ui/Footer.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -45,18 +48,20 @@ export {
 
     NavMenu,
 
-    CardAdBanner,
+    AdCardBanner,
 
-    CardContactCta,
+    CtaCardBanner,
 
-    /** Banner de notificação com texto, CTA e botão dismiss. @see BannerNotificationProps */
-    BannerNotification,
+    /** Banner de notificação com texto, CTA e botão dismiss. @see NotificationBannerProps */
+    NotificationBanner,
 
     SearchInput,
 
     CarouselBadge,
 
     CarouselHero,
+
+    Footer,
 
     /** Carousel de promoções com cards de produto. @see CarouselPromotionProps */
     CarouselPromotion,

@@ -13,6 +13,7 @@
   } from "@hugeicons/core-free-icons";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
+  import VideoPlaceholder from "$lib/assets/lonely-404.mp4";
 
   type Props = {
     imageUrl?: string;
@@ -146,6 +147,8 @@
           muted
           loop
           playsinline
+          onerror={(e) =>
+            ((e.target as HTMLImageElement).src = VideoPlaceholder)}
         ></video>
       {/if}
 

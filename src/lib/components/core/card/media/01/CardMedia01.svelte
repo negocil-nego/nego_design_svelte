@@ -13,7 +13,7 @@
   import CardButton from "../../shared/CardButton.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
+  import CardLogo from "../../shared/CardLogo.svelte";
 
   let {
     id,
@@ -49,17 +49,7 @@
   <div class="flex justify-between items-center w-full mb-4">
     <div class="flex justify-start gap-2">
       <div class="flex justify-center items-center">
-        {#if isLoading}
-          <Skeleton class="w-12 h-12 rounded-lg bg-gray-300" />
-        {:else if logo}
-          <img
-            src={logo}
-            alt={logo}
-            class="w-12 h-12 rounded-lg"
-            onerror={(e) =>
-              ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
-          />
-        {/if}
+        <CardLogo {logo} {isLoading} />
       </div>
       <div class="flex-col">
         {#if title}
