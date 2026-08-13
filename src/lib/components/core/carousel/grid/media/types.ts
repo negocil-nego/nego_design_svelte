@@ -5,6 +5,7 @@ import type { CarouselHeaderProps } from "../../types";
 export interface CarouselMediaProps {
     headerProps?: CarouselHeaderProps;
     slotProps?: CarouselSlotProps;
+    gridClass?: string;
     variant?: 1 | 2;
     items: CardMediaProps[];
     isLoading?: boolean;

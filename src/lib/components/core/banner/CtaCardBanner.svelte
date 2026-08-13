@@ -76,7 +76,7 @@
 {/snippet}
 
 <article
-  class="relative isolate overflow-hidden rounded-3xl bg-gradient p-1 shadow-sm {className}"
+  class="relative isolate overflow-hidden rounded-lg bg-gradient p-1 shadow-sm {className}"
 >
   <div
     class="relative overflow-hidden rounded-[1.35rem] px-6 py-10 sm:px-10 sm:py-12"

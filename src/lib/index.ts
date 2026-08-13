@@ -14,6 +14,7 @@ import CtaCardBanner from "$lib/components/core/banner/CtaCardBanner.svelte";
 import NotificationBanner from "$lib/components/core/banner/NotificationBanner.svelte";
 
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
+import ProductDetails from "./components/pages/product-details/ProductDetails.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
@@ -40,6 +41,18 @@ export { t } from "./i18n";
 export { getMergedTranslations } from "./i18n/config";
 /** Retorna a lista de idiomas disponíveis. */
 export { getLocales } from "./i18n/config";
+
+/** Tipos do ProductDetails. */
+export type {
+  ProductDetailsProps,
+  ProductDetailsData,
+  ProductDetailsBreadcrumbItem,
+  ProductDetailsTag,
+  ProductDetailsImage,
+  ProductDetailsLocation,
+  ProductDetailsReview,
+  ProductDetailsTab,
+} from "./components/pages/product-details/types";
 
 
 export {
@@ -88,6 +101,9 @@ export {
 
     /** Página de redefinição de senha com carousel hero e card de redefinição. @see PrivacyPolicyOrTermsOfUseProps */
     PrivacyPolicyOrTermsOfUse,
+
+    /** Página de detalhes do produto com 4 variantes de layout. @see ProductDetailsProps */
+    ProductDetails,
 
     /** Página de verificação OTP com carousel hero e card de verificação. @see PageOtpVerificationProps */
     PageOtpVerification,

@@ -5,6 +5,7 @@ import type { CarouselHeaderProps } from "../../types";
 export interface CarouselProfileProps {
     headerProps?: CarouselHeaderProps;
     slotProps?: CarouselSlotProps;
+    gridClass?: string;
     variant?: 1 | 2;
     items: CardProfileProps[];
     isLoading?: boolean;

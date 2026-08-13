@@ -8,10 +8,11 @@
   type Props = {
     slotProps?: CarouselSlotProps;
     totalItems: number;
+    gridClass?: string;
     children: Snippet;
   };
 
-  const { slotProps, totalItems, children }: Props = $props();
+  const { slotProps, totalItems, gridClass, children }: Props = $props();
 
   const responsive = useDevice();
 
@@ -26,7 +27,7 @@
     {@render children()}
   </CarouselSlot>
 {:else}
-  <div class="grid {colsClass} gap-4 p-2">
+  <div class="grid {colsClass} gap-4 p-2 {gridClass}">
     {@render children()}
   </div>
 {/if}

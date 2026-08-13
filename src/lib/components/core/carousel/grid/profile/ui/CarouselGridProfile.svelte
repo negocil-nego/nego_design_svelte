@@ -9,6 +9,7 @@
   const {
     headerProps,
     slotProps,
+    gridClass,
     items,
     variant,
     isLoading = false,
@@ -18,12 +19,9 @@
 </script>
 
 <CarouselHeader {...headerProps}>
-  <CarouselGridSlot
-    {slotProps}
-    totalItems={items.length}
-  >
+  <CarouselGridSlot {slotProps} {gridClass} totalItems={items.length}>
     {#if isLoading}
-      {#each Array.from({ length: responsive.isMobile ? 5 : 9 }) as _, i (`loading-${i}`)}
+      {#each Array.from( { length: responsive.isMobile ? 5 : 9 }, ) as _, i (`loading-${i}`)}
         {#if responsive.isMobile}
           <Carousel.Item class="pl-2 basis-auto">
             <CardProfile id={i} {variant} isLoading />
