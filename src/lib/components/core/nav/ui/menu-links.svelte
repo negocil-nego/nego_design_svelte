@@ -16,7 +16,7 @@
             <li>
                 <a
                     class={`flex items-center gap-1 ${linkClass}`}
-                    href={item.url || "#"}
+                    href={item.url ?? item.href ?? "#"}
                 >
                     {#if item.icon}
                         <HugeiconsIcon icon={item.icon} size={15} />

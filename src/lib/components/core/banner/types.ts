@@ -1,25 +1,35 @@
+/** Props do componente AdCardBanner — banner de anúncio com faixa lateral colorida e CTA. */
 export type BannerProps = {
-    /** Text shown stacked inside the amber side strip, e.g. "Este anúncio pode ser seu." */
+    /** Texto mostrado na faixa lateral colorida, ex: "Este anúncio pode ser seu." */
     tagText: string;
-    /** First part of the headline (rendered in the amber accent color) */
+    /** Primeira parte do título (renderizada na cor de destaque âmbar) */
     titleHighlight: string;
-    /** Second part of the headline (rendered in the green accent color) */
+    /** Segunda parte do título (renderizada na cor verde de destaque) */
     titleMain: string;
-    /** CTA button label */
+    /** Texto do botão CTA */
     buttonText?: string;
-    /** Called when the CTA button is clicked */
+    /** Chamado quando o botão CTA é clicado */
     onClickButton?: () => void;
-    /** Optional href — if provided, the whole card navigates on click */
+    /** href opcional — se fornecido, todo o card navega ao clicar */
     href?: string;
+    /** Classe CSS adicional para o container */
     class?: string;
-
+    /** Classe CSS para a parte highlight do título */
     titleHighlightClass?: string;
+    /** Classe CSS para a parte principal do título */
     titleMainClass?: string;
+    /** Classe CSS para o fundo do título */
     titleBgClass?: string;
+    /** Classe CSS para o texto da tag lateral */
     tagTextClass?: string;
+    /** Classe CSS para o botão */
     buttonClass?: string;
+    /** Classe CSS para o fundo da tag lateral */
     tagBgClass?: string;
 }
+
+/** Alias para BannerProps — props do componente AdCardBanner. */
+export type AdCardBannerProps = BannerProps;
 
 export type NotificationBannerProps = {
     /** Strong text before the separator, e.g. "GeneriCon 2023" */

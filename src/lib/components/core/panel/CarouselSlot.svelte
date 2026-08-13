@@ -24,7 +24,7 @@
     <Carousel.Content
       class={positionButtonPreviousAndNext == "top_right" ? "" : "ml-0"}
     >
-      {@render children()}
+      {@render children?.()}
     </Carousel.Content>
     {#if positionButtonPreviousAndNext == "center"}
       {#if isButtonPreviousAndNext}

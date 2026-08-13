@@ -30,7 +30,7 @@
   </div>
 {:else}
   <ul class="flex flex-col gap-2">
-    {#each features as feature, i (i)}
+    {#each features as feature, i (feature)}
       <li class="flex items-start gap-2 text-sm text-foreground/90">
         <span aria-hidden="true" class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"></span>
         <span>{feature}</span>
