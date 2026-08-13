@@ -43,29 +43,7 @@ export { getMergedTranslations } from "./i18n/config";
 /** Retorna a lista de idiomas disponíveis. */
 export { getLocales } from "./i18n/config";
 
-/** Tipos do ProductDetails. */
-export type {
-  ProductDetailsProps,
-  ProductDetailsData,
-  ProductDetailsBreadcrumbItem,
-  ProductDetailsTag,
-  ProductDetailsImage,
-  ProductDetailsLocation,
-  ProductDetailsReview,
-  ProductDetailsTab,
-} from "./components/pages/product-details/types";
 
-/** Tipos do ProfileUser. */
-export type {
-  ProfileUserProps,
-  ProfileUserData,
-  ProfileUserVariant,
-  ProfileUserAddress,
-  ProfileUserNote,
-  ProfileUserNotificationPref,
-  ProfileUserMarketingPref,
-  ProfileUserExperience,
-} from "./components/pages/profile-user/types";
 
 export {
     /**

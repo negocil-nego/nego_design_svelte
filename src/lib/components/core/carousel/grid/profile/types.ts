@@ -6,7 +6,7 @@ import type { CarouselHeaderProps } from "../../types";
  * Props do CarouselGridProfile — layout em grid de cards de perfil
  * (guias, intérpretes, organizações). Em mobile vira carousel com swipe.
  */
-export interface CarouselProfileProps {
+export interface CarouselGridProfileProps {
     /** Props do cabeçalho do carousel (título, descrição, etc.) */
     headerProps?: CarouselHeaderProps;
     /** Props do slot/container do carousel (botões navegação, plugins) */

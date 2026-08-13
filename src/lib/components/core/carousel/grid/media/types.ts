@@ -6,7 +6,7 @@ import type { CarouselHeaderProps } from "../../types";
  * Props do CarouselGridMedia — layout em grid de cards de mídia
  * (imagens/vídeos). Em telas mobile o grid vira carousel com swipe.
  */
-export interface CarouselMediaProps {
+export interface CarouselGridMediaProps {
     /** Props do cabeçalho do carousel (título, descrição, etc.) */
     headerProps?: CarouselHeaderProps;
     /** Props do slot/container do carousel (botões navegação, plugins) */

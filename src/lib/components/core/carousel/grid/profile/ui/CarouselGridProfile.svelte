@@ -3,8 +3,8 @@
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import CarouselHeader from "../../../shared/ui/CarouselHeader.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
-  import type { CarouselProfileProps } from "../types";
   import CardProfile from "$lib/components/core/card/profile/CardProfile.svelte";
+  import type { CarouselGridProfileProps } from "$lib/types";
 
   const {
     headerProps,
@@ -13,7 +13,7 @@
     items,
     variant,
     isLoading = false,
-  }: CarouselProfileProps = $props();
+  }: CarouselGridProfileProps = $props();
 
   const responsive = useDevice();
 </script>

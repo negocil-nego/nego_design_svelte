@@ -1,10 +1,10 @@
 <script lang="ts">
   import CarouselGridSlot from "../../shared/ui/CarouselGridSlot.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
-  import type { CarouselMediaProps } from "../types";
   import CarouselHeader from "../../../shared/ui/CarouselHeader.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import CardMedia from "$lib/components/core/card/media/CardMedia.svelte";
+  import type { CarouselGridMediaProps } from "$lib/types";
 
   const {
     headerProps,
@@ -13,7 +13,7 @@
     items,
     variant,
     isLoading = false,
-  }: CarouselMediaProps = $props();
+  }: CarouselGridMediaProps = $props();
 
   const responsive = useDevice();
 </script>

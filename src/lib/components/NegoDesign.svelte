@@ -1,17 +1,9 @@
 <script lang="ts">
   import { ModeWatcher } from "mode-watcher";
   import { setUserTranslations } from "../i18n/config";
+  import type { NegoDesignProps } from "$lib/types";
 
-  type Translations = Record<string, Record<string, string>>;
-
-  let {
-    translations,
-    children,
-  }: {
-    /** Custom translations per language. Merged with the library's base translations. */
-    translations?: Translations;
-    children: any;
-  } = $props();
+  let { translations, children }: NegoDesignProps = $props();
 
   $effect(() => {
     if (translations) {

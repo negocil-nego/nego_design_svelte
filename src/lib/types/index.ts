@@ -46,8 +46,8 @@ import type {
     CardTagsProps
 } from "$lib/components/core/card/types";
 
-import type { CarouselMediaProps } from "$lib/components/core/carousel/grid/media/types";
-import type { CarouselProfileProps } from "$lib/components/core/carousel/grid/profile/types";
+import type { CarouselGridMediaProps } from "$lib/components/core/carousel/grid/media/types";
+import type { CarouselGridProfileProps } from "$lib/components/core/carousel/grid/profile/types";
 import type { CarouselHighlightsProps } from "$lib/components/core/carousel/highlights/types";
 import type { CarouselPromotionProps } from "$lib/components/core/carousel/promotion/types";
 
@@ -109,6 +109,30 @@ import type {
     ProfileUserExperience,
 } from "$lib/components/pages/profile-user/types";
 
+import type {
+    ProductDetailsProps,
+    ProductDetailsData,
+    ProductDetailsBreadcrumbItem,
+    ProductDetailsTag,
+    ProductDetailsImage,
+    ProductDetailsLocation,
+    ProductDetailsReview,
+    ProductDetailsTab
+} from "$lib/components/pages/product-details/types";
+
+import type {
+    PrivacyPolicyOrTermsOfUseProps,
+    DocPageData,
+    DocSection,
+    ContentBlock,
+    BreadcrumbItem,
+    TocItem
+} from "$lib/components/pages/privacy-policy-or-terms-of-use/types";
+
+import type { InputLabelProps } from "$lib/components/core/form/data/InputLabel.svelte";
+import type { NegoDesignProps } from "$lib/components/types";
+
+
 export type {
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */
     NavMenuLinksProps,
@@ -157,10 +181,10 @@ export type {
     /** Props do CarouselHero — carousel hero principal com menu sobreposto. @see CarouselHeroProps */
     CarouselHeroProps,
 
-    /** Props do CarouselGridMedia — layout em grid de cards de mídia (img/vídeo). @see CarouselMediaProps */
-    CarouselMediaProps,
-    /** Props do CarouselGridProfile — grid de cards de perfil (guias, organizações). @see CarouselProfileProps */
-    CarouselProfileProps,
+    /** Props do CarouselGridMedia — layout em grid de cards de mídia (img/vídeo). @see CarouselGridMediaProps */
+    CarouselGridMediaProps,
+    /** Props do CarouselGridProfile — grid de cards de perfil (guias, organizações). @see CarouselGridProfileProps */
+    CarouselGridProfileProps,
     /** Props do CarouselHighlights — carousel de cards de destaque/organizações. @see CarouselHighlightsProps */
     CarouselHighlightsProps,
     /** Props do CarouselPromotion — carousel de cards de promoção com preços. @see CarouselPromotionProps */
@@ -250,5 +274,41 @@ export type {
     /** Conjunto completo dos dados do utilizador apresentados no ProfileUser. @see ProfileUserData */
     ProfileUserData,
     /** Props do componente ProfileUser — página de perfil com 3 variantes. @see ProfileUserProps */
-    ProfileUserProps
+    ProfileUserProps,
+
+    /** Props do NegoDesign — componente raiz do Negodesign. */
+    NegoDesignProps,
+
+    /** Props base para inputs de formulário com label. */
+    InputLabelProps,
+
+    /** Item individual do breadcrumb do ProductDetails. @see ProductDetailsBreadcrumbItem */
+    ProductDetailsBreadcrumbItem,
+    /** Tag/badge associada ao ProductDetails. @see ProductDetailsTag */
+    ProductDetailsTag,
+    /** Imagem da galeria do ProductDetails. @see ProductDetailsImage */
+    ProductDetailsImage,
+    /** Informações de localização do ProductDetails. @see ProductDetailsLocation */
+    ProductDetailsLocation,
+    /** Avaliação de um cliente sobre o ProductDetails. @see ProductDetailsReview */
+    ProductDetailsReview,
+    /** Aba de conteúdo adicional do ProductDetails. @see ProductDetailsTab */
+    ProductDetailsTab,
+    /** Dados completos apresentados na página ProductDetails. @see ProductDetailsData */
+    ProductDetailsData,
+    /** Props do componente ProductDetails. @see ProductDetailsProps */
+    ProductDetailsProps,
+
+    /** Item de breadcrumb do PrivacyPolicyOrTermsOfUse. @see BreadcrumbItem */
+    BreadcrumbItem,
+    /** Bloco de conteúdo do PrivacyPolicyOrTermsOfUse. @see ContentBlock */
+    ContentBlock,
+    /** Secção de conteúdo do PrivacyPolicyOrTermsOfUse. @see DocSection */
+    DocSection,
+    /** Dados completos de PrivacyPolicyOrTermsOfUse. @see DocPageData */
+    DocPageData,
+    /** Item da tabela de conteúdos (TOC). @see TocItem */
+    TocItem,
+    /** Props do componente PrivacyPolicyOrTermsOfUse. @see PrivacyPolicyOrTermsOfUseProps */
+    PrivacyPolicyOrTermsOfUseProps,
 }
