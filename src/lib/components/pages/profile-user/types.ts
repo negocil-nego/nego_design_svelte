@@ -133,11 +133,19 @@ export interface ProfileUserProps {
   activeTab?: string;
   isLoading?: boolean;
   tabs?: { id: string; label: string }[];
+  onLoginAsUser?: (id: string | number) => void;
+  onAddAddress?: () => void;
+  onChangePassword?: (payload: {
+    currentPassword: string;
+    newPassword: string;
+    confirmPassword: string;
+  }) => void;
   userHeader?: ProfileUserHeaderProps;
   userAddress?: ProfileUserAddressProps;
   userResetPassword?: ProfileUserResetPasswordProps;
   userSetting?: ProfileUserSettingProps;
   userTabs?: ProfileUserTabsProps;
 }
+
 
 
