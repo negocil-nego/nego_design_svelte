@@ -1,5 +1,10 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
 
+export interface ProductDetailsFeatureProps {
+  icon?: IconSvgElement | string;
+  label: string;
+}
+
 /**
  * Item individual do breadcrumb de navegação.
  * Representa um nível hierárquico na navegação da página
@@ -32,6 +37,7 @@ export interface ProductDetailsImage {
   src: string;
   /** Texto alternativo para acessibilidade (recomendado). */
   alt?: string;
+  type?: "image" | "video";
 }
 
 /**
@@ -49,6 +55,9 @@ export interface ProductDetailsLocation {
    * Se não for fornecido, usa um mapa padrão.
    */
   mapUrl?: string;
+
+  latitude?: number;
+  longitude?: number;
 }
 
 /**
@@ -124,7 +133,7 @@ export interface ProductDetailsData {
   /** Quantidade disponível em stock. */
   quantityAvailable?: number;
   /** Lista de características/features do produto (strings). */
-  features?: string[];
+  features?: string[] | ProductDetailsFeatureProps[];
   /**
    * Abas de conteúdo personalizadas.
    * Se não for fornecido, usa padrão: Descrição + Avaliações.
@@ -151,7 +160,7 @@ export interface ProductDetailsProps {
    * - 4: Abas de conteúdo (descrição e avaliações) abaixo da info
    * @default 1
    */
-  varient?: 1 | 2 | 3 | 4;
+  varient?: 1 | 2 | 3;
   /** Dados completos do produto a serem exibidos. */
   data: ProductDetailsData;
   /**

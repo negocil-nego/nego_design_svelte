@@ -9,7 +9,7 @@
   const {
     headerProps,
     slotProps,
-    gridClass = "lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6",
+    gridClass = "lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5",
     items,
     variant,
     isLoading = false,

@@ -2,7 +2,7 @@
   import type { CardProfileProps } from "../types";
   import CardProfile01 from "./01/CardProfile01.svelte";
   import CardProfile02 from "./02/CardProfile02.svelte";
-
+  
   type Props = {
     variant?: 1 | 2;
     isLoading?: boolean;

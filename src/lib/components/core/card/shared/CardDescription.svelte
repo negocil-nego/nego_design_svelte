@@ -6,6 +6,7 @@
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 
   type CardDescriptionProps = {
+    lines?: number;
     content?: string;
     isLoading?: boolean;
     isDescriptionIcon?: boolean;
@@ -13,6 +14,7 @@
   };
 
   let {
+    lines = 2,
     content,
     isLoading = false,
     isDescriptionIcon = false,
@@ -33,6 +35,7 @@
   {/if}
   <TruncatableText
     text={content}
+    {lines}
     class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50 mt-3 my-2"
   />
 {/if}

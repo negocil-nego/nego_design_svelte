@@ -12,7 +12,9 @@
 <div class="flex border-t border-gray-300 dark:border-gray-700">
   {#if onEmailClick}
     <button
-      class="flex-1 flex justify-center items-center gap-2 p-3 hover:bg-red-800 hover:text-white cursor-pointer rounded-bl-lg"
+      class="flex-1 flex justify-center items-center gap-2 p-3 hover:bg-red-800 hover:text-white cursor-pointer rounded-bl-lg {!isFlex
+        ? 'rounded-br-lg'
+        : ''}"
       onclick={() => onEmailClick?.(id)}
     >
       <HugeiconsIcon icon={Mail01Icon} size={20} />
@@ -24,7 +26,9 @@
   {/if}
   {#if onWhatsappClick}
     <button
-      class="flex-1 flex justify-center items-center gap-2 p-3 hover:bg-green-600 hover:text-white cursor-pointer rounded-br-lg"
+      class="flex-1 flex justify-center items-center gap-2 p-3 hover:bg-green-600 hover:text-white cursor-pointer rounded-br-lg {!isFlex
+        ? 'rounded-bl-lg'
+        : ''}"
       onclick={() => onWhatsappClick?.(id)}
     >
       <HugeiconsIcon icon={WhatsappIcon} size={20} />

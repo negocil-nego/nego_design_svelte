@@ -12,12 +12,13 @@
 
 <script lang="ts">
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import type { ProductDetailsFeatureProps } from "../types";
 
   let {
     features,
     isLoading = false,
   }: {
-    features: string[];
+    features: string[] | ProductDetailsFeatureProps[];
     isLoading?: boolean;
   } = $props();
 </script>
@@ -29,10 +30,15 @@
     {/each}
   </div>
 {:else}
-  <ul class="flex flex-col gap-2">
-    {#each features as feature, i (feature)}
-      <li class="flex items-start gap-2 text-sm text-foreground/90">
-        <span aria-hidden="true" class="mt-1.5 size-1.5 shrink-0 rounded-full bg-primary"></span>
+  <ul class="flex flex-wrap gap-2 md:gap-5">
+    {#each features as feature, i (i)}
+      <li
+        class="flex items-start gap-2 text-sm text-foreground/90 border rounded-lg p-2"
+      >
+        <span
+          aria-hidden="true"
+          class="mt-1.5 size-1.5 shrink-0 rounded-full bg-gradient"
+        ></span>
         <span>{feature}</span>
       </li>
     {/each}

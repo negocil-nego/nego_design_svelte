@@ -1,25 +1,26 @@
 <script lang="ts" module>
   /**
-   * Variante 03 da página de detalhes do produto.
-   * Layout com galeria, conteúdo expandido e painel de compra sticky.
+   * Variante 04 da página de detalhes do produto.
+   * Layout com galeria, informações e abas de conteúdo (descrição,
+   * avaliações) abaixo dos dados principais.
    * @component
    * @example
    * ```svelte
-   * <ProductDetails03 {data} {onBuy} {onFavorite} {onCart} />
+   * <ProductDetails04 {data} {onBuy} {onFavorite} {onCart} />
    * ```
    */
 </script>
 
 <script lang="ts">
   import ProductDetailBreadcrumb from "../shared/ProductDetailBreadcrumb.svelte";
-  import ProductDetailDescription from "../shared/ProductDetailDescription.svelte";
-  import ProductDetailFeatures from "../shared/ProductDetailFeatures.svelte";
-  import ProductDetailFilesVertical from "../shared/ProductDetailFilesVertical.svelte";
   import ProductDetailHeader from "../shared/ProductDetailHeader.svelte";
+  import ProductDetailImage from "../shared/ProductDetailImage.svelte";
   import ProductDetailMap from "../shared/ProductDetailMap.svelte";
   import ProductDetailTags from "../shared/ProductDetailTags.svelte";
+  import ProductDetailTabs from "../shared/ProductDetailTabs.svelte";
   import ProductPurchasePanel from "../shared/ProductPurchasePanel.svelte";
   import type { ProductDetailsData } from "../types";
+  import { useDevice } from "$lib/hooks/responsive.svelte";
 
   let {
     data,
@@ -34,6 +35,7 @@
     onFavorite?: (id: string | number) => void;
     onCart?: (id: string | number) => void;
   } = $props();
+  const responsive = useDevice();
 </script>
 
 <div class="mx-auto max-w-7xl px-6 py-10">
@@ -41,37 +43,39 @@
     <ProductDetailBreadcrumb items={data.breadcrumb} {isLoading} />
   </div>
 
-  <div class="grid gap-10 lg:grid-cols-[1fr_22rem]">
-    <div class="flex flex-col gap-8">
-      <ProductDetailFilesVertical images={data.gallery} {isLoading} />
+  <div class="grid gap-10 lg:grid-cols-2">
+    <ProductDetailImage files={data.gallery} {isLoading} />
 
-      <div class="flex flex-col gap-5">
-        <ProductDetailHeader title={data.title} subtitle={data.subtitle} {isLoading} />
+    <div class="flex flex-col gap-5">
+      <ProductDetailHeader
+        title={data.title}
+        subtitle={data.subtitle}
+        {isLoading}
+      />
 
-        <ProductDetailTags tags={data.tags} {isLoading} />
+      <ProductDetailTags tags={data.tags} {isLoading} />
 
-        <ProductDetailDescription
-          description={data.description}
-          longDescription={data.longDescription}
-          {isLoading}
-        />
+      <ProductPurchasePanel {data} {isLoading} {onBuy} {onFavorite} {onCart} />
 
-        {#if data.features}
-          <ProductDetailFeatures features={data.features} {isLoading} />
+      {#if !responsive.isMobile}
+        {#if data.location}
+          <div class="mt-5">
+            <ProductDetailMap location={data.location} {isLoading} />
+          </div>
         {/if}
-      </div>
+      {/if}
     </div>
-
-    <aside class="lg:sticky lg:top-8 lg:self-start">
-      <div class="rounded-lg border p-6">
-        <ProductPurchasePanel {data} {isLoading} {onBuy} {onFavorite} {onCart} />
-      </div>
-    </aside>
   </div>
 
-  {#if data.location}
-    <div class="mt-12">
-      <ProductDetailMap location={data.location} {isLoading} />
-    </div>
+  <div class="mt-12 border-t pt-8">
+    <ProductDetailTabs tabs={data.tabs} {data} {isLoading} />
+  </div>
+
+  {#if responsive.isMobile}
+    {#if data.location}
+      <div class="mt-12">
+        <ProductDetailMap location={data.location} {isLoading} />
+      </div>
+    {/if}
   {/if}
 </div>

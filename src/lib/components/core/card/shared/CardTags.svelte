@@ -12,7 +12,7 @@
   };
 
   const {
-    tags,
+    tags = [],
     className,
     isTagBorderBottom,
     isWrap = false,
@@ -55,7 +55,7 @@
   </div>
 {:else}
   <div
-    class="flex overflow-x-auto no-scrollbar w-full
+    class="flex overflow-x-auto no-scrollbar w-full min-w-0
         {isJustify ? 'justify-between gap-3' : 'gap-4 md:gap-5 lg:gap-10'}
         {className}"
   >

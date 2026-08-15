@@ -1,11 +1,11 @@
 <script lang="ts" module>
   /**
-   * Variante 02 da página de detalhes do produto.
-   * Layout com galeria em destaque e conteúdo em coluna centralizada.
+   * Variante 03 da página de detalhes do produto.
+   * Layout com galeria, conteúdo expandido e painel de compra sticky.
    * @component
    * @example
    * ```svelte
-   * <ProductDetails02 {data} {onBuy} {onFavorite} {onCart} />
+   * <ProductDetails03 {data} {onBuy} {onFavorite} {onCart} />
    * ```
    */
 </script>
@@ -17,6 +17,7 @@
   import ProductDetailFilesVertical from "../shared/ProductDetailFilesVertical.svelte";
   import ProductDetailHeader from "../shared/ProductDetailHeader.svelte";
   import ProductDetailMap from "../shared/ProductDetailMap.svelte";
+  import ProductDetailReviews from "../shared/ProductDetailReviews.svelte";
   import ProductDetailTags from "../shared/ProductDetailTags.svelte";
   import ProductPurchasePanel from "../shared/ProductPurchasePanel.svelte";
   import type { ProductDetailsData } from "../types";
@@ -36,52 +37,56 @@
   } = $props();
 </script>
 
-<div class="bg-background">
-  <ProductDetailFilesVertical
-    images={data.gallery}
-    className="mx-auto max-w-5xl px-6 pt-10"
-    {isLoading}
-  />
+<div class="mx-auto max-w-7xl px-6 py-10">
+  <div class="mb-8">
+    <ProductDetailBreadcrumb items={data.breadcrumb} {isLoading} />
+  </div>
 
-  <div class="mx-auto max-w-3xl px-6 py-12">
-    <div class="flex flex-col gap-6">
-      <div class="flex justify-center">
-        <ProductDetailBreadcrumb items={data.breadcrumb} {isLoading} />
-      </div>
+  <div class="grid gap-10 lg:grid-cols-[1fr_26rem]">
+    <div class="flex flex-col gap-8">
+      <ProductDetailFilesVertical files={data.gallery} {isLoading} />
 
-      <ProductDetailHeader
-        title={data.title}
-        subtitle={data.subtitle}
-        className="items-center text-center"
-        {isLoading}
-      />
+      <div class="flex flex-col gap-5">
+        <ProductDetailHeader
+          title={data.title}
+          subtitle={data.subtitle}
+          {isLoading}
+        />
 
-      <div class="flex justify-center">
         <ProductDetailTags tags={data.tags} {isLoading} />
-      </div>
 
-      <ProductDetailDescription
-        description={data.description}
-        longDescription={data.longDescription}
-        {isLoading}
-      />
+        <ProductDetailDescription
+          description={data.description}
+          longDescription={data.longDescription}
+          {isLoading}
+        />
 
-      {#if data.features}
-        <div class="mx-auto w-full max-w-md">
+        {#if data.features}
           <ProductDetailFeatures features={data.features} {isLoading} />
-        </div>
-      {/if}
-
-      <div class="flex justify-center">
-        <div class="w-full max-w-sm">
-          <ProductPurchasePanel {data} {isLoading} {onBuy} {onFavorite} {onCart} />
-        </div>
+        {/if}
       </div>
     </div>
+
+    <aside class="lg:sticky lg:top-8 lg:self-start">
+      <div class="rounded-lg border p-6">
+        <ProductPurchasePanel
+          {data}
+          {isLoading}
+          {onBuy}
+          {onFavorite}
+          {onCart}
+        />
+      </div>
+      {#if data.reviews}
+        <div class="mt-5 md:mt-10">
+          <ProductDetailReviews reviews={data.reviews} {isLoading} />
+        </div>
+      {/if}
+    </aside>
   </div>
 
   {#if data.location}
-    <div class="mx-auto max-w-3xl px-6 pb-12">
+    <div class="mt-12">
       <ProductDetailMap location={data.location} {isLoading} />
     </div>
   {/if}

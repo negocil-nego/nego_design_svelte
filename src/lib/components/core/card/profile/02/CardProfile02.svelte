@@ -14,10 +14,11 @@
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import CardThumbnailVideo from "../../shared/CardThumbnailVideo.svelte";
   import CardPhoneOrWhatsapp from "../../shared/CardPhoneOrWhatsapp.svelte";
+  import ImgPlaceholder from "$lib/assets/placeholder-image.png";
+
   let {
     id,
-    tags,
-    logo,
+    tags = [],
     title,
     content,
     className,
@@ -49,8 +50,14 @@
         <div class="flex justify-center items-center">
           {#if isLoading}
             <Skeleton class="w-12 h-12 rounded-lg bg-gray-400 mt-0.5" />
-          {:else if logo}
-            <img src={logo} alt={logo} class="w-12 h-12 rounded-lg" />
+          {:else if imageUrl}
+            <img
+              src={imageUrl}
+              alt={imageUrl}
+              class="w-12 h-12 rounded-lg"
+              onerror={(e) =>
+                ((e.target as HTMLImageElement).src = ImgPlaceholder)}
+            />
           {/if}
         </div>
         <div class="flex flex-col justify-start items-start">
@@ -84,24 +91,16 @@
         {isLoading}
         {isDescriptionLabel}
         {isDescriptionIcon}
+        lines={tags.length == 0 ? 3 : 2}
       />
     </div>
 
-    {#if tags && tags.length > 0}
-      <CardTags
-        className="my-4"
-        tags={tags ?? []}
-        {isTagBorderBottom}
-        {isLoading}
-      />
-    {:else}
-      <CardTags
-        className="my-4"
-        tags={[{ text: "- - -" }]}
-        {isTagBorderBottom}
-        {isLoading}
-      />
-    {/if}
+    <CardTags
+      className="my-2"
+      tags={tags ?? []}
+      {isTagBorderBottom}
+      {isLoading}
+    />
 
     <CardThumbnailVideo
       {imageUrl}

@@ -20,6 +20,11 @@ export const productData: ProductDetailsData = {
   ],
   gallery: [
     {
+      src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+      alt: "Praia e mars",
+      type: 'video'
+    },
+    {
       src: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1170&auto=format&fit=crop",
       alt: "Praia e mar",
     },

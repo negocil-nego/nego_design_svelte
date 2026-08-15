@@ -5,7 +5,6 @@
 
 <CarouselGridProfile
   {items}
-  variant={2}
   onEmailClick={(id) => alert("email")}
   onWhatsappClick={(id) => alert("whatsapp")}
   onButtonProfile={(id) => alert("buttonProfile")}
