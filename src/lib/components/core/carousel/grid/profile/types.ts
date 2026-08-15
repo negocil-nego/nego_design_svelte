@@ -19,4 +19,13 @@ export interface CarouselGridProfileProps {
     items: CardProfileProps[];
     /** Estado de carregamento (skeleton) */
     isLoading?: boolean;
+    isDescriptionIcon?: boolean;
+    isDescriptionLabel?: boolean;
+    onFavoriteClick?: (id: string | number) => void;
+    /** Callback ao clicar no botão perfil */
+    onButtonProfile?: (id: string | number) => void;
+    /** Callback ao clicar no botão email */
+    onEmailClick?: (id: string | number) => void;
+    /** Callback ao clicar no botão whatsapp */
+    onWhatsappClick?: (id: string | number) => void;
 }

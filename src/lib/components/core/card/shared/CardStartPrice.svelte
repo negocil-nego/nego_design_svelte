@@ -19,7 +19,7 @@
     />
   {/if}
   {#if newPrice && oldPrice}
-    <div class="z-20 flex justify-center items-center">
+    <div class="z-20 flex justify-start items-center">
       <div class="font-extrabold text-lg">{newPrice}</div>
       <div class="mx-2">/</div>
       <div class="font-semibold line-through text-red-600 text-[10px]">

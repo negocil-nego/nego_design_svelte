@@ -89,14 +89,24 @@ export interface CardProfileProps {
     isTagBorderBottom?: boolean;
     /** Classe CSS personalizada para botão de perfil */
     buttonProfileClass?: string;
-    /** Classe CSS personalizada para botão de detalhes */
-    buttonDetailsClass?: string;
     /** Callback ao clicar no botão favorito */
     onFavoriteClick?: (id: string | number) => void;
     /** Callback ao clicar no botão perfil */
     onButtonProfile?: (id: string | number) => void;
-    /** Callback ao clicar no botão detalhes */
-    onButtonDetails?: (id: string | number) => void;
+    /** Callback ao clicar no botão email */
+    onEmailClick?: (id: string | number) => void;
+    /** Callback ao clicar no botão whatsapp */
+    onWhatsappClick?: (id: string | number) => void;
+    /** URL da foto/imagem do perfil */
+    imageUrl?: string;
+    /** URL do vídeo do perfil */
+    videoUrl?: string;
+    /** Indica se o botão de maximizar imagem está ativo */
+    isImageButtonMaximized?: boolean;
+    /** Indica se o botão de maximizar vídeo está ativo */
+    isVideoButtonMaximized?: boolean;
+    isDescriptionIcon?: boolean;
+    isDescriptionLabel?: boolean;
 }
 
 /**
@@ -181,4 +191,10 @@ export interface CardHighlightProps {
     onClickFavorite?: (id: string | number) => void;
     /** Callback ao clicar no botão principal */
     onClickBtn?: (id: string | number) => void;
+}
+
+export interface CardPhoneOrWhatsappProps {
+    id: string | number;
+    onEmailClick?: (id: string | number) => void;
+    onWhatsappClick?: (id: string | number) => void;
 }

@@ -27,7 +27,7 @@
   >
     {#if isLoading}
       {#each Array.from( { length: responsive.isMobile ? 5 : 10 }, ) as _, i (`loading-${i}`)}
-        <Carousel.Item class="pl-2 w-75 basis-auto">
+        <Carousel.Item class="pl-5 w-75 basis-auto">
           <CardPromotion
             id={i}
             {isLoading}

@@ -15,7 +15,7 @@
   let {
     content,
     isLoading = false,
-    isDescriptionIcon = true,
+    isDescriptionIcon = false,
     isDescriptionLabel = true,
   }: CardDescriptionProps = $props();
 </script>
@@ -27,12 +27,12 @@
     <div class="mb-1 text-[14px] md:text-[15px] flex items-center gap-1">
       {#if isDescriptionIcon}
         <HugeiconsIcon icon={Message01Icon} class="h-4 w-4" />
-      {/if}11
+      {/if}
       <div>{$t("label.description")}</div>
     </div>
   {/if}
   <TruncatableText
     text={content}
-    class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50 mt-3 my-4"
+    class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50 mt-3 my-2"
   />
 {/if}

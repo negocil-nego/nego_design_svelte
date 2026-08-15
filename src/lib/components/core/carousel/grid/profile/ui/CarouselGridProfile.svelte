@@ -9,10 +9,16 @@
   const {
     headerProps,
     slotProps,
-    gridClass,
+    gridClass = "lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6",
     items,
     variant,
     isLoading = false,
+    isDescriptionIcon = false,
+    isDescriptionLabel = false,
+    onEmailClick,
+    onWhatsappClick,
+    onButtonProfile,
+    onFavoriteClick,
   }: CarouselGridProfileProps = $props();
 
   const responsive = useDevice();
@@ -21,7 +27,7 @@
 <CarouselHeader {...headerProps}>
   <CarouselGridSlot {slotProps} {gridClass} totalItems={items.length}>
     {#if isLoading}
-      {#each Array.from( { length: responsive.isMobile ? 5 : 9 }, ) as _, i (`loading-${i}`)}
+      {#each Array.from( { length: responsive.isMobile ? 3 : 6 }, ) as _, i (`loading-${i}`)}
         {#if responsive.isMobile}
           <Carousel.Item class="pl-2 basis-auto">
             <CardProfile id={i} {variant} isLoading />
@@ -36,11 +42,29 @@
       {#each items as item, i (`profile-${item.id ?? i}`)}
         {#if responsive.isMobile}
           <Carousel.Item class="pl-2 basis-auto">
-            <CardProfile {...item} {variant} />
+            <CardProfile
+              {...item}
+              {variant}
+              {isDescriptionIcon}
+              {isDescriptionLabel}
+              {onEmailClick}
+              {onWhatsappClick}
+              {onButtonProfile}
+              {onFavoriteClick}
+            />
           </Carousel.Item>
         {:else}
           <div>
-            <CardProfile {...item} {variant} />
+            <CardProfile
+              {...item}
+              {variant}
+              {isDescriptionIcon}
+              {isDescriptionLabel}
+              {onEmailClick}
+              {onWhatsappClick}
+              {onButtonProfile}
+              {onFavoriteClick}
+            />
           </div>
         {/if}
       {/each}

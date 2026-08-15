@@ -10,6 +10,8 @@ const items: CardProfileProps[] = [
         startNumber: 5,
         startMax: 5,
         isFavorite: true,
+        imageUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
+        videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
                 icon: GlobalIcon,
@@ -22,7 +24,7 @@ const items: CardProfileProps[] = [
             {
                 icon: NecklaceIcon,
                 text: 'Rua 19',
-            },            
+            },
         ],
     },
     {
@@ -32,6 +34,8 @@ const items: CardProfileProps[] = [
         content: 'Suítes modernas no coração da cidade, com spa completo e serviço de quarto 24 horas.',
         startNumber: 4,
         startMax: 5,
+        imageUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
+        videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
                 icon: GlobalIcon,
@@ -48,8 +52,8 @@ const items: CardProfileProps[] = [
             {
                 icon: MapPin,
                 text: 'Kilamba',
-            },                      
-        ],        
+            },
+        ],
     },
     {
         id: 3,
@@ -59,6 +63,8 @@ const items: CardProfileProps[] = [
         startNumber: 5,
         startMax: 5,
         isFavorite: true,
+        imageUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
+        videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
                 icon: GlobalIcon,
@@ -68,7 +74,7 @@ const items: CardProfileProps[] = [
                 icon: MapPin,
                 text: 'Huíla',
             },
-        ],         
+        ],
     },
     {
         id: 4,
@@ -77,12 +83,14 @@ const items: CardProfileProps[] = [
         content: 'Localização privilegiada no centro urbano, ideal para viagens de negócios, com centro de conferências.',
         startNumber: 3,
         startMax: 5,
+        imageUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
+        videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
 
             {
                 icon: NecklaceIcon,
                 text: 'Rua 19',
-            },    
+            },
             {
                 icon: GlobalIcon,
                 text: 'Luanda',
@@ -94,7 +102,7 @@ const items: CardProfileProps[] = [
             {
                 icon: NecklaceIcon,
                 text: 'Rua 19',
-            },              
+            },
         ]
     },
     {
@@ -105,6 +113,8 @@ const items: CardProfileProps[] = [
         startNumber: 4,
         startMax: 5,
         isFavorite: true,
+        imageUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
+        videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
     },
 ];
 

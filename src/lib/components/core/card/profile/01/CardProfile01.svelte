@@ -3,7 +3,7 @@
    * Card component with a title and content.
    * @component
    */
-  import { InformationCircleIcon, UserIcon } from "@hugeicons/core-free-icons";
+  import { UserIcon } from "@hugeicons/core-free-icons";
   import { t } from "$lib/i18n";
   import type { CardProfileProps } from "../../types";
   import CardStarRating from "../../shared/CardStarRating.svelte";
@@ -12,6 +12,8 @@
   import CardButton from "../../shared/CardButton.svelte";
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import CardPhoneOrWhatsapp from "../../shared/CardPhoneOrWhatsapp.svelte";
+  import CardThumbnailVideo from "../../shared/CardThumbnailVideo.svelte";
 
   let {
     id,
@@ -24,93 +26,116 @@
     isTagBorderBottom = true,
     isFavorite = false,
     buttonProfileClass,
-    buttonDetailsClass,
     isLoading = false,
+    imageUrl,
+    videoUrl,
+    isImageButtonMaximized = false,
+    isVideoButtonMaximized = false,
+    isDescriptionIcon = false,
+    isDescriptionLabel = false,
+    onEmailClick,
+    onWhatsappClick,
     onFavoriteClick,
     onButtonProfile,
-    onButtonDetails,
   }: CardProfileProps = $props();
-
-  let isShowButtonProfileAndDetails = $derived(
-    onButtonProfile != null && onButtonDetails != null,
-  );
 </script>
 
 <article
-  class="border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-transparent rounded-lg p-5 space-y-1 md:space-y-3"
+  class="border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-transparent rounded-lg relative"
 >
-  <div class="flex justify-between items-center w-full mb-4">
-    <div class="flex justify-start gap-2">
-      <div class="flex justify-center items-center">
-        {#if isLoading}
-          <Skeleton class="w-12 h-12 rounded-lg bg-gray-300" />
-        {:else if logo}
-          <img src={logo} alt={logo} class="w-12 h-12 rounded-lg" />
-        {/if}
+  <div class="p-5">
+    <div class="flex justify-between items-center w-full">
+      <div class="w-full flex flex-col justify-center items-center relative">
+        <div>
+          {#if isLoading}
+            <Skeleton
+              class="w-12 h-12 md:w-14 md:h-14 lg:w-20 lg:h-20 rounded-full bg-gray-300"
+            />
+          {:else if imageUrl}
+            <img
+              src={imageUrl}
+              alt={imageUrl}
+              class="w-12 h-12 md:w-14 md:h-14 lg:w-20 lg:h-20 rounded-full"
+            />
+          {/if}
+        </div>
+        <div>
+          {#if title}
+            <div class="text-center font-bold">{title}</div>
+          {:else if isLoading}
+            <Skeleton class="w-40 h-5 rounded-lg bg-gray-400 mb-0.5" />
+          {/if}
+        </div>
+        <div>
+          {#if startNumber}
+            <CardStarRating {startNumber} {startMax} {isLoading} />
+          {:else if isLoading}
+            <Skeleton class="w-20 h-4 rounded-lg bg-gray-300 mt-0.5" />
+          {/if}
+        </div>
       </div>
-      <div class="flex-col">
-        {#if title}
-          <div class="text-center font-bold text-lg">{title}</div>
-        {:else if isLoading}
-          <Skeleton class="w-40 h-5 rounded-lg bg-gray-400 mb-0.5" />
-        {/if}
 
-        {#if startNumber}
-          <CardStarRating {startNumber} {startMax} {isLoading} />
-        {:else if isLoading}
-          <Skeleton class="w-20 h-4 rounded-lg bg-gray-300 mt-0.5" />
-        {/if}
+      <div class="flex justify-end items-center absolute top-1 right-1">
+        <CardFavorite
+          {id}
+          {isFavorite}
+          onFavoriteClick={() => onFavoriteClick!(id)}
+          {isLoading}
+        />
       </div>
     </div>
-    <div class="flex justify-end items-center">
-      <CardFavorite
-        {id}
-        {isFavorite}
-        onFavoriteClick={() => onFavoriteClick!(id)}
+
+    <div class="my-2">
+      <CardDescription
+        {content}
         {isLoading}
+        {isDescriptionIcon}
+        {isDescriptionLabel}
       />
     </div>
+
+    {#if tags}
+      <CardTags
+        className="my-4"
+        tags={tags ?? []}
+        {isTagBorderBottom}
+        {isLoading}
+      />
+    {:else}
+      <CardTags
+        className="my-4"
+        tags={[{ text: "- - -" }]}
+        {isTagBorderBottom}
+        {isLoading}
+      />
+    {/if}
+
+    <CardThumbnailVideo
+      {imageUrl}
+      {videoUrl}
+      {isImageButtonMaximized}
+      {isVideoButtonMaximized}
+      {isLoading}
+      class="md:h-32.5 lg:h-44"
+    />
+
+    {#if onButtonProfile}
+      <div class="flex justify-center items-center gap-2 w-full mt-3 -mb-1">
+        {#if onButtonProfile}
+          <CardButton
+            {id}
+            icon={UserIcon}
+            className={buttonProfileClass}
+            text={$t("label.view.profile")}
+            onClick={onButtonProfile}
+            {isLoading}
+            isFlex
+          />
+        {:else if isLoading}
+          <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
+        {/if}
+      </div>
+    {/if}
   </div>
-
-  <div class="h-15 my-2">
-    <CardDescription {content} {isLoading} />
-  </div>
-
-  <CardTags
-    className="my-6"
-    tags={tags ?? []}
-    {isTagBorderBottom}
-    {isLoading}
-  />
-
-  {#if onButtonProfile || onButtonDetails}
-    <div class="flex justify-center items-center gap-2 mt-4 w-full">
-      {#if onButtonProfile}
-        <CardButton
-          {id}
-          icon={UserIcon}
-          className={buttonProfileClass}
-          text={$t("label.view.profile")}
-          onClick={onButtonProfile}
-          isFlex={isShowButtonProfileAndDetails}
-          {isLoading}
-        />
-      {:else if isLoading}
-        <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
-      {/if}
-      {#if onButtonDetails}
-        <CardButton
-          {id}
-          icon={InformationCircleIcon}
-          className={buttonDetailsClass}
-          text={$t("label.more.details")}
-          onClick={onButtonDetails}
-          isFlex={isShowButtonProfileAndDetails}
-          {isLoading}
-        />
-      {:else if isLoading}
-        <Skeleton class="w-20 h-4 rounded-lg bg-gray-400 mt-0.5" />
-      {/if}
-    </div>
-  {/if}
+  <CardPhoneOrWhatsapp {id} {onEmailClick} {onWhatsappClick} />
 </article>
