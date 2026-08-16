@@ -202,3 +202,46 @@ export interface CardPhoneOrWhatsappProps {
     onEmailClick?: (id: string | number) => void;
     onWhatsappClick?: (id: string | number) => void;
 }
+
+/**
+ * Props do CardProduct — card de produto com preço antigo/novo,
+ * botão de comprar, favoritar e adicionar ao carrinho.
+ */
+export interface CardProductProps {
+    /** Identificador único da produto */
+    id: string | number;
+    /** URL do logotipo */
+    logo?: string;
+    /** URL da imagem do produto em produto */
+    imageUrl?: string;
+    /** Nome/título da produto */
+    title?: string;
+    /** Descrição da produto */
+    content?: string
+    /** Classe CSS adicional */
+    className?: string;
+    /** Indica se o botão de carrinho está ativo */
+    isCart?: boolean;
+    /** Estado de carregamento (skeleton) */
+    isLoading?: boolean;
+    /** Indica se está marcado como favorito */
+    isFavorite?: boolean;
+    /** Lista de tags */
+    tags?: CardTagsProps[]
+    /** Preço do produto */
+    price?: string | number;
+    /** Texto do botão de compra (padrão: "Comprar") */
+    buttonBuyText?: string;
+    /** Classe CSS personalizada para o botão comprar */
+    buttonBuyClass?: string;
+    /** Exibe ícone antes da descrição */
+    isDescriptionIcon?: boolean;
+    /** Exibe etiqueta (label) na descrição */
+    isDescriptionLabel?: boolean;
+    /** Callback ao clicar no botão comprar */
+    onClickBuy?: (id: string | number) => void;
+    /** Callback ao clicar no botão carrinho */
+    onClickShop?: (id: string | number) => void;
+    /** Callback ao clicar no botão favorito */
+    onClickFavorite?: (id: string | number) => void;
+}

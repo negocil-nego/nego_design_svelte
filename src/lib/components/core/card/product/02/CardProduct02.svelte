@@ -2,19 +2,18 @@
   import Button from "$lib/components/ui/button/button.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { t } from "$lib/i18n";
-  import CardCart from "../shared/CardCart.svelte";
-  import CardDescription from "../shared/CardDescription.svelte";
-  import CardFavorite from "../shared/CardFavorite.svelte";
-  import CardStartPrice from "./CardPromotionPrice.svelte";
-  import CardTags from "../shared/CardTags.svelte";
   import ImgPlaceHolderGallery from "$lib/assets/placeholder-image.png";
   import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
+  import type { CardProductProps } from "../../types";
+  import CardFavorite from "../../shared/CardFavorite.svelte";
+  import CardCart from "../../shared/CardCart.svelte";
+  import CardDescription from "../../shared/CardDescription.svelte";
+  import CardTags from "../../shared/CardTags.svelte";
 
   /**
    * Card component with a title and content.
    * @component
    */
-  import type { CardPromotionProps } from "../types";
 
   let {
     id,
@@ -25,9 +24,8 @@
     isFavorite = false,
     isCart = false,
     isLoading = false,
-    newPrice,
-    oldPrice,
     content,
+    price,
     buttonBuyText,
     buttonBuyClass,
     isDescriptionIcon,
@@ -35,7 +33,7 @@
     onClickBuy,
     onClickShop,
     onClickFavorite,
-  }: CardPromotionProps = $props();
+  }: CardProductProps = $props();
 </script>
 
 <article class="relative rounded-lg border">
@@ -118,10 +116,8 @@
     <div class="flex justify-start gap-2 w-full">
       {#if isLoading}
         <Skeleton class="h-5 bg-black/10 w-25 my-2 mr-2" />
-      {:else if newPrice || oldPrice}
-        <div>
-          <CardStartPrice {newPrice} {oldPrice} />
-        </div>
+      {:else if price}
+        <div class="text-lg font-semibold text-primary">{price}</div>
       {/if}
     </div>
 

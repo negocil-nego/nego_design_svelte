@@ -11,7 +11,7 @@
 </script>
 
 <script lang="ts">
-  import CardStartPrice from "../../../core/card/shared/CardStartPrice.svelte";
+  import CardStartPrice from "../../../core/card/promotion/CardPromotionPrice.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 
   let {
