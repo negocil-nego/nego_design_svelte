@@ -62,20 +62,10 @@ export interface CarouselBadgeProps {
     labelClass?: string,
     /** Classe CSS personalizada para o estado ativo */
     activeClass?: string,
-    /** Valor do item ativo por padrão */
-    valueActive?: string,
     /** Estado de carregamento (skeleton) */
     isLoading?: boolean,
-    /** Exibe borda em cada item */
-    isBorderItem?: boolean,
-    /** Exibe borda inferior no container */
-    isBorderBottom?: boolean,
-    /** Classe CSS adicional para cada item do carousel */
-    itemCarouselClass?: string,
-    /** Exibe botões anterior/próximo */
-    isButtonPreviousAndNext?: boolean,
-    /** Classe CSS personalizada para botões anterior/próximo */
-    buttonPreviousAndNextClass?: string,
+    itemClass?: string,
+    onClick?: (value: string | number) => void,
 }
 
 /**

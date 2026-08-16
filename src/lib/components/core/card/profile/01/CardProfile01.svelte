@@ -109,7 +109,7 @@
       {isImageButtonMaximized}
       {isVideoButtonMaximized}
       {isLoading}
-      class="md:h-32.5 lg:h-44"
+      class="h-32.5 md:h-36 lg:h-44"
     />
 
     {#if onButtonProfile}

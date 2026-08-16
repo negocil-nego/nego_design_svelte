@@ -10,10 +10,9 @@
 
 <div class="relative flex justify-center">
   <CarouselBadge
-    buttonPreviousAndNextClass="bg-blue-900 text-white dark:bg-black dark:text-white"
-    orientation="vertical"
-    isBorderItem={false}
+    orientation="horizontal"
     iconClass="size-6"
+    onClick={(value) => console.log(value)}
     items={[
       {
         label: "Todos",
@@ -24,6 +23,5 @@
       { label: "Hospedaria", value: "hospedaria", icon: Hotel02Icon },
       { label: "Pensão", value: "pensao", icon: BedDoubleIcon },
     ]}
-    isLoading
   />
 </div>

@@ -18,7 +18,8 @@
   $effect(() => {
     if (!textEl) return;
     const check = () =>
-      (isTruncated = textEl!.scrollHeight > textEl!.clientHeight + 1);
+      (isTruncated =
+        (textEl?.scrollHeight ?? 0) > (textEl?.clientHeight ?? 0) + 1);
     // requestAnimationFrame garante que o layout com o clamp já foi aplicado
     // antes de medirmos — medir no mesmo tick pode dar valores desatualizados.
     requestAnimationFrame(check);

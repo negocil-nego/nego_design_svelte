@@ -42,7 +42,7 @@
     {#if positionButtonPreviousAndNext == "top_right" || responsive.isMobile}
       {#if isButtonPreviousAndNext}
         <div
-          class="absolute -top-16 md:-top-10 right-8 md:right-10 lg:right-12 z-20"
+          class="absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20"
         >
           <Carousel.Previous
             class={`${styleTopCenter} ${buttonPreviousAndNextClass}`}
