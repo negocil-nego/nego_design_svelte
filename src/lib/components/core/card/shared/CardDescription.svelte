@@ -36,6 +36,6 @@
   <TruncatableText
     text={content}
     {lines}
-    class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50 mt-3 my-2"
+    class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50 mt-3 my-2 h-[65px] mb-1"
   />
 {/if}

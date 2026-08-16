@@ -15,6 +15,8 @@
     items,
     variant,
     isLoading = false,
+    isDescriptionIcon,
+    isDescriptionLabel,
   }: CarouselGridMediaProps = $props();
 
   const responsive = useDevice();
@@ -32,7 +34,7 @@
       {#if isLoading}
         {#each Array.from( { length: responsive.isMobile ? 3 : 6 }, ) as _, i (`loading-${i}`)}
           {#if responsive.isMobile}
-            <Carousel.Item class="pl-2 basis-auto">
+            <Carousel.Item class="pl-2 basis-auto w-[300px]">
               <CardMedia id={i} {variant} isLoading />
             </Carousel.Item>
           {:else}
@@ -44,12 +46,22 @@
       {:else}
         {#each items as item, i (`media-${item.id ?? i}`)}
           {#if responsive.isMobile}
-            <Carousel.Item class="pl-2 basis-auto">
-              <CardMedia {...item} {variant} />
+            <Carousel.Item class="pl-2 basis-auto w-[300px]">
+              <CardMedia
+                {...item}
+                {variant}
+                {isDescriptionIcon}
+                {isDescriptionLabel}
+              />
             </Carousel.Item>
           {:else}
             <div>
-              <CardMedia {...item} {variant} />
+              <CardMedia
+                {...item}
+                {variant}
+                {isDescriptionIcon}
+                {isDescriptionLabel}
+              />
             </div>
           {/if}
         {/each}

@@ -39,6 +39,6 @@
   <Skeleton class="h-7 w-28 rounded-md" />
 {:else if formatted || oldPrice}
   <div class="flex items-end gap-3">
-    <CardStartPrice newPrice={formatted} oldPrice={oldPrice} />
+    <CardStartPrice newPrice={formatted} {oldPrice} />
   </div>
 {/if}

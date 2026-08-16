@@ -27,7 +27,7 @@
   let {
     imageUrl,
     videoUrl,
-    class: className = "w-64 h-64",
+    class: className = "h-32 md:w-64 md:h-64",
     isImageButtonMaximized = false,
     isVideoButtonMaximized = false,
     isLoading = false,

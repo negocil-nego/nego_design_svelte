@@ -23,7 +23,6 @@
     className,
     imageUrl,
     videoUrl,
-    //videoAction,
     startNumber,
     startMax = 5,
     isImageButtonMaximized = false,
@@ -33,6 +32,8 @@
     isLoading = false,
     buttonProfileClass,
     buttonDetailsClass,
+    isDescriptionIcon,
+    isDescriptionLabel,
     onFavoriteClick,
     onButtonProfile,
     onButtonDetails,
@@ -81,8 +82,13 @@
     />
   </div>
 
-  <div class="h-15 mb-4">
-    <CardDescription {content} {isLoading} />
+  <div class="h-15 mb-10 md:mb-0">
+    <CardDescription
+      {content}
+      {isLoading}
+      {isDescriptionIcon}
+      {isDescriptionLabel}
+    />
   </div>
 
   <CardThumbnailVideo

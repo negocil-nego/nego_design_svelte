@@ -13,6 +13,10 @@ export interface CarouselGridMediaProps {
     slotProps?: CarouselSlotProps;
     /** Classe CSS adicional para o container do grid */
     gridClass?: string;
+    /** Exibe ícone antes da descrição */
+    isDescriptionIcon?: boolean;
+    /** Exibe etiqueta (label) na descrição */
+    isDescriptionLabel?: boolean;
     /** Variante visual do card: 1 ou 2 */
     variant?: 1 | 2;
     /** Lista de itens de mídia para exibir nos cards */

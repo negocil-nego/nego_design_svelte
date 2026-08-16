@@ -16,6 +16,9 @@
     isLoading = false,
     isDescriptionIcon,
     isDescriptionLabel,
+    onClickBuy,
+    onClickShop,
+    onClickFavorite,
   }: CarouselPromotionProps = $props();
 
   const responsive = useDevice();
@@ -48,7 +51,14 @@
       {:else}
         {#each items as item, i (`promotion-${item.id ?? i}`)}
           <Carousel.Item class="pl-2 w-75 basis-auto">
-            <CardPromotion {...item} {isDescriptionIcon} {isDescriptionLabel} />
+            <CardPromotion
+              {...item}
+              {isDescriptionIcon}
+              {isDescriptionLabel}
+              {onClickBuy}
+              {onClickShop}
+              {onClickFavorite}
+            />
           </Carousel.Item>
         {/each}
       {/if}

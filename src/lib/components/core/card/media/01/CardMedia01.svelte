@@ -23,7 +23,6 @@
     content,
     imageUrl,
     videoUrl,
-    //videoAction,
     startNumber,
     startMax = 5,
     isImageButtonMaximized = false,
@@ -33,6 +32,8 @@
     isLoading = false,
     buttonProfileClass,
     buttonDetailsClass,
+    isDescriptionIcon,
+    isDescriptionLabel,
     onFavoriteClick,
     onButtonProfile,
     onButtonDetails,
@@ -75,8 +76,13 @@
     </div>
   </div>
 
-  <div class="h-15 my-2">
-    <CardDescription {content} {isLoading} />
+  <div class="h-15 my-2 mb-5 md:mb-0">
+    <CardDescription
+      {content}
+      {isLoading}
+      {isDescriptionIcon}
+      {isDescriptionLabel}
+    />
   </div>
 
   <CardTags

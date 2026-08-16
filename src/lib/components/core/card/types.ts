@@ -50,6 +50,10 @@ export interface CardMediaProps {
     isVideoButtonMaximized?: boolean;
     /** Exibe o botão de maximizar na imagem */
     isImageButtonMaximized?: boolean;
+    /** Exibe ícone antes da descrição */
+    isDescriptionIcon?: boolean;
+    /** Exibe etiqueta (label) na descrição */
+    isDescriptionLabel?: boolean;
     /** Callback acionado ao clicar no botão de favorito */
     onFavoriteClick?: (id: string | number) => void;
     /** Callback acionado ao clicar no botão de perfil */

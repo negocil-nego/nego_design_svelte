@@ -18,5 +18,8 @@
     }}
     isDescriptionIcon={false}
     isDescriptionLabel={false}
+    onClickShop={(id) => alert(`shop ${id}`)}
+    onClickFavorite={(id) => alert(`favorite ${id}`)}
+    onClickBuy={(id) => alert(`buy ${id}`)}
   />
 </div>
