@@ -37,18 +37,6 @@ export interface DocSection {
     subsections?: DocSection[];
 }
 
-/** Dados completos de uma página de documentação/política. */
-export interface DocPageData {
-    /** título da página */
-    title: string;
-    /** data da última atualização */
-    lastUpdated: string;
-    /** itens do breadcrumb */
-    breadcrumb: BreadcrumbItem[];
-    /** secções de conteúdo (usadas pela sidebar, TOC e renderização) */
-    sections: DocSection[];
-}
-
 /** Item derivado automaticamente das secções, para a tabela de conteúdos (TOC). */
 export interface TocItem {
     id: string;
@@ -60,6 +48,14 @@ export interface TocItem {
 export interface PrivacyPolicyOrTermsOfUseProps {
     /** Variante do layout: 1 = sidebar+TOC, 2 = hero+coluna. */
     variant?: 1 | 2;
-    /** Dados completos da página de documento. */
-    data: DocPageData;
+    /** título da página */
+    title: string;
+    /** data da última atualização */
+    lastUpdated: string;
+    /** itens do breadcrumb */
+    breadcrumb: BreadcrumbItem[];
+    /** secções de conteúdo (usadas pela sidebar, TOC e renderização) */
+    sections: DocSection[];
+    isVisibleMenuLeft?: boolean;
+    isVisibleMenuRight?: boolean;
 }

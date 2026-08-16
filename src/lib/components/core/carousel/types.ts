@@ -96,4 +96,5 @@ export interface CarouselHeroProps {
     titleClass?: string
     /** Classe CSS personalizada para a descrição */
     descriptionClass?: string
+    sectionClass?: string
 }

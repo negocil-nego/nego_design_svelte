@@ -8,10 +8,10 @@
    * @component
    * @example
    * ```svelte
-    * <!-- Variant 1 (default) — docs layout with sidebar -->
+   * <!-- Variant 1 (default) — docs layout with sidebar -->
    * <PrivacyPolicyOrTermsOfUse variant={1} data={pageData} />
    *
-    * <!-- Variant 2 — layout with hero -->
+   * <!-- Variant 2 — layout with hero -->
    * <PrivacyPolicyOrTermsOfUse variant={2} data={pageData} />
    * ```
    */
@@ -22,11 +22,11 @@
   import PrivacyPolicyOrTermsOfUse01 from "./01/PrivacyPolicyOrTermsOfUse01.svelte";
   import PrivacyPolicyOrTermsOfUse02 from "./02/PrivacyPolicyOrTermsOfUse02.svelte";
 
-  let { variant = 1, data }: PrivacyPolicyOrTermsOfUseProps = $props();
+  let { variant = 1, ...data }: PrivacyPolicyOrTermsOfUseProps = $props();
 </script>
 
 {#if variant === 2}
-  <PrivacyPolicyOrTermsOfUse02 {data} />
+  <PrivacyPolicyOrTermsOfUse02 {...data} />
 {:else}
-  <PrivacyPolicyOrTermsOfUse01 {data} />
+  <PrivacyPolicyOrTermsOfUse01 {...data} />
 {/if}

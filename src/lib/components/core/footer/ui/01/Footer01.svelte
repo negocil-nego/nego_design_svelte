@@ -16,16 +16,7 @@
     onSubscribe,
   }: FooterProps = $props();
 
-  let email = $state("");
   const year = new Date().getFullYear();
-
-  function handleSubscribe(e: SubmitEvent) {
-    e.preventDefault();
-    const value = email.trim();
-    if (!value) return;
-    onSubscribe?.(value);
-    email = "";
-  }
 </script>
 
 <footer class="p-10">

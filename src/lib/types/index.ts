@@ -43,7 +43,8 @@ import type {
     CardProfileProps,
     CardPromotionProps,
     CardHighlightProps,
-    CardTagsProps
+    CardTagsProps,
+    CardProductProps
 } from "$lib/components/core/card/types";
 
 import type { CarouselGridMediaProps } from "$lib/components/core/carousel/grid/media/types";
@@ -131,6 +132,8 @@ import type {
 
 import type { InputLabelProps } from "$lib/components/core/form/data/InputLabel.svelte";
 import type { NegoDesignProps } from "$lib/components/types";
+import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/grid/promotion/types";
+import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
 
 
 export type {
@@ -167,6 +170,8 @@ export type {
     CardPromotionProps,
     /** Props do CardHighlight — card de destaque/organização com botão de ação. @see CardHighlightProps */
     CardHighlightProps,
+    /** Props do CardProduct — card de produto com preço antigo/novo e botão comprar. @see CardProductProps */
+    CardProductProps,
 
     /** Props do cabeçalho de carousel (título, descrição, botão "Ver tudo"). @see CarouselHeaderProps */
     CarouselHeaderProps,
@@ -189,6 +194,10 @@ export type {
     CarouselHighlightsProps,
     /** Props do CarouselPromotion — carousel de cards de promoção com preços. @see CarouselPromotionProps */
     CarouselPromotionProps,
+    /** Props do CarouselGridPromotion — grid de cards de produto em promoção. @see CarouselGridPromotionProps */
+    CarouselGridPromotionProps,
+    /** Props do CarouselGridProduct — grid de cards de produto @see CarouselGridProductProps */
+    CarouselGridProductProps,
 
     /** Props base do banner de anúncio (AdCardBanner). @see BannerProps */
     BannerProps,

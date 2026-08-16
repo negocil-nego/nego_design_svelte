@@ -4,8 +4,7 @@ import type { CardProductProps } from "../types";
 const items: CardProductProps[] = [
   {
     id: 1,
-    imageUrl:
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    //imageUrl: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     title: "Hotel Baía Azul",
     content:
       "Acomodação premium de frente para o mar com quartos luxuosos, restaurante internacional, piscina aquecida e serviço de transfer exclusivo para hóspedes.",

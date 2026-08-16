@@ -86,6 +86,12 @@
         onerror={(e) =>
           ((e.target as HTMLImageElement).src = ImgPlaceHolderGallery)}
       />
+    {:else}
+      <img
+        src={ImgPlaceHolderGallery}
+        alt="Not Found"
+        class="rounded-lg h-36 md:h-44 w-full object-cover object-center"
+      />
     {/if}
     <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
   </aside>

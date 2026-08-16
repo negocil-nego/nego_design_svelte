@@ -12,16 +12,23 @@
 </script>
 
 <script lang="ts">
-  import type { DocPageData } from "../types";
   import { buildToc } from "../shared/toc";
   import PrivacyPolicyOrTermsOfUseBreadcrumb from "../shared/PrivacyPolicyOrTermsOfUseBreadcrumb.svelte";
   import DocSectionView from "../shared/DocSectionView.svelte";
   import DocsSidebar from "./DocsSidebar.svelte";
   import TableOfContents from "./TableOfContents.svelte";
+  import type { PrivacyPolicyOrTermsOfUseProps } from "../types";
 
-  let { data }: { data: DocPageData } = $props();
+  let {
+    breadcrumb,
+    sections,
+    title,
+    lastUpdated,
+    isVisibleMenuLeft = true,
+    isVisibleMenuRight,
+  }: PrivacyPolicyOrTermsOfUseProps = $props();
 
-  const toc = $derived(buildToc(data.sections));
+  const toc = $derived(buildToc(sections));
 
   /** Currently visible section, for highlighting in the TOC (simple scroll-spy). */
   let activeId = $state<string | undefined>(undefined);
@@ -48,26 +55,29 @@
 
 <div class="mx-auto max-w-7xl px-6 py-10">
   <div class="flex gap-10">
-    <DocsSidebar sections={data.sections} {activeId} />
+    {#if isVisibleMenuLeft}
+      <DocsSidebar {sections} {activeId} />
+    {/if}
 
     <main class="min-w-0 flex-1 flex flex-col gap-8">
       <header class="flex flex-col gap-4">
         <div>
-          <h1 class="text-3xl font-bold tracking-tight">{data.title}</h1>
+          <h1 class="text-3xl font-bold tracking-tight">{title}</h1>
           <p class="mt-1 text-sm text-muted-foreground">
-            Latest update: {data.lastUpdated}
+            Latest update: {lastUpdated}
           </p>
         </div>
-        <PrivacyPolicyOrTermsOfUseBreadcrumb items={data.breadcrumb} />
+        <PrivacyPolicyOrTermsOfUseBreadcrumb items={breadcrumb} />
       </header>
 
       <div class="flex flex-col gap-10">
-        {#each data.sections as section (section.id)}
+        {#each sections as section (section.id)}
           <DocSectionView {section} />
         {/each}
       </div>
     </main>
-
-    <TableOfContents items={toc} {activeId} />
+    {#if isVisibleMenuRight}
+      <TableOfContents items={toc} {activeId} />
+    {/if}
   </div>
 </div>

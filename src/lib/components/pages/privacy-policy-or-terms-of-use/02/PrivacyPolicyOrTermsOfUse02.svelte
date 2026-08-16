@@ -11,14 +11,14 @@
 </script>
 
 <script lang="ts">
-  import type { DocPageData } from "../types";
   import DocsPageHero from "./DocsPageHero.svelte";
+  import type { PrivacyPolicyOrTermsOfUseProps } from "../types";
 
-  let { data }: { data: DocPageData } = $props();
+  let { ...data }: PrivacyPolicyOrTermsOfUseProps = $props();
 </script>
 
 <svelte:head>
   <title>{data.title}</title>
 </svelte:head>
 
-<DocsPageHero data={data} />
+<DocsPageHero {data} />

@@ -13,6 +13,7 @@
     intervalMs = 5000,
     transitionMs = 1200,
     indicatorShow = false,
+    sectionClass,
   }: CarouselHeroProps & {
     children?: Snippet;
     intervalMs?: number;
@@ -110,7 +111,7 @@
       <NavMenu {...navMenu} />
 
       <section
-        class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4"
+        class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4 {sectionClass}"
       >
         {#key selected.title}
           <div

@@ -20,6 +20,8 @@ import PageOtpVerification from "./components/pages/security/otp-verification/Pa
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
 import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
+import CarouselGridPromotion from "$lib/components/core/carousel/grid/promotion/ui/CarouselGridPromotion.svelte";
+import CarouselGridProduct from "$lib/components/core/carousel/grid/product/ui/CarouselGridProduct.svelte";
 import CarouselGridProfile from "$lib/components/core/carousel/grid/profile/ui/CarouselGridProfile.svelte";
 import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte";
 import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/CarouselGridMedia.svelte";
@@ -137,6 +139,20 @@ export {
      * @see CarouselProfileProps
      */
     CarouselGridProfile,
+
+    /**
+     * Layout em grid responsivo de cards de produto (imagens ou vídeos).
+     * Em telas mobile transforma-se num carousel com swipe.
+     * @see CarouselProductProps
+     */
+    CarouselGridProduct,
+
+    /**
+    * Layout em grid responsivo de cards de produto in promotion (imagens ou vídeos).
+     * Em telas mobile transforma-se num carousel com swipe.
+     * @see CarouselGridPromotion
+     */
+    CarouselGridPromotion,
 
     /**
      * Componente de abas com estilo underline. Troca o conteúdo (Snippet)
