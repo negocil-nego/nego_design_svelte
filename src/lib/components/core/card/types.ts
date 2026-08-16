@@ -210,6 +210,8 @@ export interface CardPhoneOrWhatsappProps {
 export interface CardProductProps {
     /** Identificador único da produto */
     id: string | number;
+    /** Rating da produto */
+    rating?: number;
     /** URL do logotipo */
     logo?: string;
     /** URL da imagem do produto em produto */

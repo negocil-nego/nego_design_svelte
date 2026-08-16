@@ -2,6 +2,7 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import type { CardTagsProps } from "../types";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import * as Popover from "$lib/components/ui/popover"; // adjust path to your setup
 
   type Props = {
     className?: string;
@@ -20,13 +21,14 @@
   }: Props = $props();
 
   let isJustify = $derived(tags?.length == 2 || tags?.length == 3);
+  let open = $state(false);
 </script>
 
-{#snippet createBadge(tag: CardTagsProps)}
+{#snippet createBadge(tag: CardTagsProps, clasName?: string)}
   <div
     class="flex items-center h-5 shrink-0 {isTagBorderBottom
       ? 'border border-gray-200 rounded-full px-2 py-1'
-      : ''}"
+      : ''} {clasName}"
   >
     {#if tag.icon}
       <HugeiconsIcon icon={tag.icon} class="mr-0.5 h-3.75 w-3.75 shrink-0" />
@@ -43,28 +45,51 @@
   </div>
 {/snippet}
 
-{#if isWrap}
-  <div class="flex flex-wrap gap-2 md:gap-5 {className}">
-    {#if isLoading}
-      {@render skeletonTag()}
-    {:else if tags && tags.length > 0}
-      {#each tags as tag, i (i)}
-        {@render createBadge(tag)}
-      {/each}
-    {/if}
-  </div>
-{:else}
-  <div
-    class="flex overflow-x-auto no-scrollbar w-full min-w-0
-        {isJustify ? 'justify-between gap-3' : 'gap-4 md:gap-5 lg:gap-10'}
-        {className}"
+{#snippet tagsRow()}
+  {#if isWrap}
+    <div class="flex flex-wrap gap-2 md:gap-5 {className}">
+      {#if isLoading}
+        {@render skeletonTag()}
+      {:else if tags && tags.length > 0}
+        {#each tags as tag, i (i)}
+          {@render createBadge(tag)}
+        {/each}
+      {/if}
+    </div>
+  {:else}
+    <div
+      class="flex overflow-x-auto no-scrollbar w-full min-w-0
+          {isJustify ? 'justify-between gap-3' : 'gap-4 md:gap-5 lg:gap-10'}
+          {className}"
+    >
+      {#if isLoading}
+        {@render skeletonTag()}
+      {:else if tags && tags.length > 0}
+        {#each tags as tag, i (i)}
+          {@render createBadge(tag)}
+        {/each}
+      {/if}
+    </div>
+  {/if}
+{/snippet}
+
+<Popover.Root bind:open>
+  <Popover.Trigger
+    onmouseenter={() => (open = true)}
+    onmouseleave={() => (open = false)}
+    class="block w-full text-left"
   >
-    {#if isLoading}
-      {@render skeletonTag()}
-    {:else if tags && tags.length > 0}
+    {@render tagsRow()}
+  </Popover.Trigger>
+  <Popover.Content
+    class="w-auto max-w-xs p-3"
+    onmouseenter={() => (open = true)}
+    onmouseleave={() => (open = false)}
+  >
+    <div class="flex flex-col gap-2">
       {#each tags as tag, i (i)}
-        {@render createBadge(tag)}
+        {@render createBadge(tag, "gap-2")}
       {/each}
-    {/if}
-  </div>
-{/if}
+    </div>
+  </Popover.Content>
+</Popover.Root>

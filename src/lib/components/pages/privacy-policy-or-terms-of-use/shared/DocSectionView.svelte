@@ -12,6 +12,7 @@
 <script lang="ts">
   import type { DocSection } from "../types";
   import ContentBlockView from "./ContentBlockView.svelte";
+  import DocSectionView from "./DocSectionView.svelte";
 
   let { section }: { section: DocSection } = $props();
 
@@ -37,7 +38,7 @@
   {#if section.subsections}
     <div class="flex flex-col gap-6 mt-2">
       {#each section.subsections as subsection (subsection.id)}
-        <svelte:self section={subsection} />
+        <DocSectionView section={subsection} />
       {/each}
     </div>
   {/if}

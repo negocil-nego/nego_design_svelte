@@ -9,6 +9,7 @@
   import CardCart from "../../shared/CardCart.svelte";
   import CardDescription from "../../shared/CardDescription.svelte";
   import CardTags from "../../shared/CardTags.svelte";
+  import CardTitlePrice from "../../shared/CardTitlePrice.svelte";
 
   /**
    * Card component with a title and content.
@@ -80,7 +81,7 @@
       <img
         src={imageUrl}
         alt={imageUrl}
-        class="rounded-tr-lg rounded-tl-lg h-36 w-full object-cover object-center"
+        class="rounded-tr-lg rounded-tl-lg h-36 md:h-44 w-full object-cover object-center"
         onerror={(e) =>
           ((e.target as HTMLImageElement).src = ImgPlaceHolderGallery)}
       />
@@ -91,17 +92,7 @@
   <aside
     class="bottom-1 inset-x-0 flex flex-col items-center justify-center gap-0.5 m-auto max-w-11/12 p-1 rounded-md"
   >
-    <div class="flex justify-between w-full items-center mb-1">
-      {#if title}
-        {#if isLoading}
-          <Skeleton class="h-4 w-30 rounded-lg" />
-        {:else}
-          <div class="font-semibold line-clamp-1 flex-nowrap">
-            {title}
-          </div>
-        {/if}
-      {/if}
-    </div>
+    <CardTitlePrice {title} {isLoading} {price} />
 
     <div>
       <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
@@ -112,14 +103,6 @@
         <CardTags {tags} />
       </div>
     {/if}
-
-    <div class="flex justify-start gap-2 w-full">
-      {#if isLoading}
-        <Skeleton class="h-5 bg-black/10 w-25 my-2 mr-2" />
-      {:else if price}
-        <div class="text-lg font-semibold text-primary">{price}</div>
-      {/if}
-    </div>
 
     {#if isLoading}
       <Skeleton class="h-9 w-full rounded-md" />

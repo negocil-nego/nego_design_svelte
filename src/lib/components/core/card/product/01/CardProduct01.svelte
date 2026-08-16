@@ -9,6 +9,7 @@
   import CardCart from "../../shared/CardCart.svelte";
   import CardDescription from "../../shared/CardDescription.svelte";
   import CardTags from "../../shared/CardTags.svelte";
+  import CardTitlePrice from "../../shared/CardTitlePrice.svelte";
 
   /**
    * Card component with a title and content.
@@ -21,6 +22,7 @@
     logo,
     title,
     imageUrl,
+    rating = 0,
     isFavorite = false,
     isCart = false,
     isLoading = false,
@@ -37,8 +39,8 @@
 </script>
 
 <article class="relative rounded-lg border">
-  <aside class="relative w-full">
-    <div class="absolute top-1 left-1 z-2 gap-1 p-2">
+  <aside class="relative w-full p-2">
+    <div class="absolute top-2 left-2 z-2 gap-1 p-2">
       {#if isLoading}
         <Skeleton class="h-5 w-20 rounded-full bg-black/20" />
       {:else if logo}
@@ -62,7 +64,7 @@
       {/if}
     </div>
 
-    <div class="absolute top-1 right-1 z-2 flex items-center gap-1 p-2">
+    <div class="absolute top-2 right-2 z-2 flex items-center gap-1 p-2">
       <CardFavorite
         {id}
         {isFavorite}
@@ -80,7 +82,7 @@
       <img
         src={imageUrl}
         alt={imageUrl}
-        class="rounded-tr-lg rounded-tl-lg h-36 w-full object-cover object-center"
+        class="rounded-lg h-36 md:h-44 w-full object-cover object-center"
         onerror={(e) =>
           ((e.target as HTMLImageElement).src = ImgPlaceHolderGallery)}
       />
@@ -101,24 +103,17 @@
           </div>
         {/if}
       {/if}
-    </div>
-
-    <div>
-      <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
+      <CardTitlePrice {title} {isLoading} {price} />
     </div>
 
     {#if tags && tags.length > 0}
-      <div class="w-full mb-2">
+      <div class="w-full my-1">
         <CardTags {tags} />
       </div>
     {/if}
 
-    <div class="flex justify-start gap-2 w-full">
-      {#if isLoading}
-        <Skeleton class="h-5 bg-black/10 w-25 my-2 mr-2" />
-      {:else if price}
-        <div class="text-lg font-semibold text-primary">{price}</div>
-      {/if}
+    <div>
+      <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
     </div>
 
     {#if isLoading}
@@ -126,7 +121,7 @@
     {:else}
       <Button
         onclick={() => onClickBuy!(id)}
-        class="w-full bottom-0 bg-gradient {buttonBuyClass}"
+        class="w-full mb-2 bg-gradient text-white rounded-full {buttonBuyClass}"
       >
         {buttonBuyText || $t("label.buy")}
       </Button>
