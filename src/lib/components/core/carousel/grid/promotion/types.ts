@@ -1,11 +1,12 @@
-import type { CardProductProps } from "$lib/components/core/card/types";
+import type { CardPromotionProps } from "$lib/components/core/card/types";
 import type { CarouselSlotProps } from "$lib/components/core/panel/type";
 import type { CarouselHeaderProps } from "../../types";
 
 /**
- * Props do CarouselGridProduct — layout em grid de cards de product
+ * Props do CarouselGridProfile — layout em grid de cards de perfil
+ * (guias, intérpretes, organizações). Em mobile vira carousel com swipe.
  */
-export interface CarouselGridProductProps {
+export interface CarouselGridPromotionProps {
     /** Props do cabeçalho do carousel (título, descrição, etc.) */
     headerProps?: CarouselHeaderProps;
     /** Props do slot/container do carousel (botões navegação, plugins) */
@@ -15,7 +16,7 @@ export interface CarouselGridProductProps {
     /** Variante visual do card: 1 ou 2 */
     variant?: 1 | 2;
     /** Lista de perfis para exibir nos cards */
-    items: CardProductProps[];
+    items: CardPromotionProps[];
     /** Estado de carregamento (skeleton) */
     isLoading?: boolean;
     isDescriptionIcon?: boolean;
