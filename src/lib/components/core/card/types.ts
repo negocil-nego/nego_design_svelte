@@ -195,6 +195,10 @@ export interface CardHighlightProps {
 
 export interface CardPhoneOrWhatsappProps {
     id: string | number;
+    className?: string;
+    buttonClass?: string;
+    btnWhatsappClass?: string;
+    btnEmailClass?: string;
     onEmailClick?: (id: string | number) => void;
     onWhatsappClick?: (id: string | number) => void;
 }

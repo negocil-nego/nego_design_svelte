@@ -3,18 +3,25 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import type { CardPhoneOrWhatsappProps } from "../types";
 
-  let { id, onEmailClick, onWhatsappClick }: CardPhoneOrWhatsappProps =
-    $props();
+  let {
+    id,
+    className,
+    buttonClass,
+    btnWhatsappClass,
+    btnEmailClass,
+    onEmailClick,
+    onWhatsappClick,
+  }: CardPhoneOrWhatsappProps = $props();
 
   let isFlex = $derived(onEmailClick && onWhatsappClick);
 </script>
 
-<div class="flex border-t border-gray-300 dark:border-gray-700">
+<div class="flex border-t border-gray-300 dark:border-gray-700 {className}">
   {#if onEmailClick}
     <button
       class="flex-1 flex justify-center items-center gap-2 p-3 hover:bg-red-800 hover:text-white cursor-pointer rounded-bl-lg {!isFlex
         ? 'rounded-br-lg'
-        : ''}"
+        : ''} {buttonClass} {btnEmailClass}"
       onclick={() => onEmailClick?.(id)}
     >
       <HugeiconsIcon icon={Mail01Icon} size={20} />
@@ -28,7 +35,7 @@
     <button
       class="flex-1 flex justify-center items-center gap-2 p-3 hover:bg-green-600 hover:text-white cursor-pointer rounded-br-lg {!isFlex
         ? 'rounded-bl-lg'
-        : ''}"
+        : ''} {buttonClass} {btnWhatsappClass}"
       onclick={() => onWhatsappClick?.(id)}
     >
       <HugeiconsIcon icon={WhatsappIcon} size={20} />

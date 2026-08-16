@@ -11,8 +11,6 @@
 </script>
 
 <script lang="ts">
-  import { useDevice } from "$lib/hooks/responsive.svelte";
-
   import ProductDetailBreadcrumb from "../shared/ProductDetailBreadcrumb.svelte";
   import ProductDetailDescription from "../shared/ProductDetailDescription.svelte";
   import ProductDetailFeatures from "../shared/ProductDetailFeatures.svelte";
