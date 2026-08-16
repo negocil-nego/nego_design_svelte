@@ -33,6 +33,10 @@
   let {
     data = defaultCompanyProfileData,
     isLoading = false,
+    yearFounded,
+    category,
+    address,
+    website,
     onEmail,
     onWhatsapp,
     onCopyLink,
@@ -89,18 +93,14 @@
 
   <div class="flex gap-6">
     {#if !responsive.isMobile}
-      <div class="p-5">
-        <ProfileSidebar
-          items={sections}
-          active={activeSection}
-          onSelect={scrollToSection}
-        />
-      </div>
+      <ProfileSidebar
+        items={sections}
+        active={activeSection}
+        onSelect={scrollToSection}
+      />
     {/if}
 
-    <div
-      class="flex min-w-0 flex-1 flex-col gap-6 border-l md:px-5 md:h-screen"
-    >
+    <div class="flex min-w-0 flex-1 flex-col gap-6 md:px-5 md:pl-10 lg:pl-12">
       <div
         id="banner"
         bind:this={sectionEls["banner"]}

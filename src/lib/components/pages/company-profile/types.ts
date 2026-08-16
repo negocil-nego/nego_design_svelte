@@ -38,6 +38,10 @@ export interface ProfileNavItem {
  * país, botão de contacto e faixa de estatísticas.
  */
 export interface ProfileBannerData {
+  address?: string;
+  category?: string;
+  website?: string;
+  yearFounded?: string;
   /** Imagem(ns) de capa exibidas no topo do banner. */
   coverImages: ProfileImage[];
   /** URL do logótipo da empresa. */
@@ -96,6 +100,10 @@ export interface CompanyProfileData {
  * Propriedades do componente principal CompanyProfile.
  */
 export interface CompanyProfileProps {
+  address?: string;
+  category?: string;
+  website?: string;
+  yearFounded?: string;
   /** Dados completos do perfil a serem exibidos. */
   data?: CompanyProfileData;
   /**

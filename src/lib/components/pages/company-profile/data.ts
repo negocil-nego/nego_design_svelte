@@ -16,7 +16,7 @@ export const defaultCompanyProfileData: CompanyProfileData = {
       },
     ],
     logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=300&auto=format&fit=crop",
-    name: "CARTAPLAST — Indústria de Papel e Embalagens",
+    name: "Hotel empanados S.A",
     countryLabel: "Angola",
     countryFlag: "🇦🇴",
     contactLabel: "Contactar fábrica",

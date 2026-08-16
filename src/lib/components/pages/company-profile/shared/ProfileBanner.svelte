@@ -1,4 +1,5 @@
 <script lang="ts" module>
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   /**
    * Banner de apresentação da empresa/fábrica: imagem de capa, logótipo,
    * nome, país, botão de contacto e faixa de estatísticas rápidas.
@@ -17,7 +18,16 @@
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   import type { ProfileBannerData, ProfileBannerTag } from "../types";
   import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { Copy, Email, Share, WhatsappIcon } from "@hugeicons/core-free-icons";
+  import {
+    Calendar01FreeIcons,
+    Copy,
+    DashboardBrowsingIcon,
+    Email,
+    Link01FreeIcons,
+    MapPin,
+    Share,
+    WhatsappIcon,
+  } from "@hugeicons/core-free-icons";
 
   let {
     id,
@@ -86,7 +96,7 @@
 
     <!-- Logótipo + nome + contacto -->
     <div
-      class="flex flex-col items-center gap-3 px-4 text-center justify-center"
+      class="flex flex-col items-center gap-3 px-4 text-center justify-center md:-mb-10"
     >
       <div class="flex shrink-0 items-center justify-center">
         {#if data.logo}
@@ -107,26 +117,78 @@
         {data.name}
       </h1>
     </div>
-    <Button
-      variant="ghost"
-      onclick={() => onEmail?.(id)}
-      class="absolute bottom-5 left-5 bg-white cursor-pointer"
-    >
-      <HugeiconsIcon icon={Email} class="text-red-500" />
-      Email
-    </Button>
-    <Button
-      variant="ghost"
-      onclick={() => onWhatsapp?.(id)}
-      class="absolute bottom-5 right-5 bg-white cursor-pointer"
-    >
-      <HugeiconsIcon icon={WhatsappIcon} class="text-green-500" />
-      Whatsapp
-    </Button>
+    <div class="flex justify-between w-full p-5">
+      <Button
+        variant="ghost"
+        size="sm"
+        onclick={() => onEmail?.(id)}
+        class="bg-white cursor-pointer"
+      >
+        <HugeiconsIcon icon={Email} class="text-red-500" />
+        Email
+      </Button>
+      <Button
+        variant="ghost"
+        size="sm"
+        onclick={() => onWhatsapp?.(id)}
+        class="bg-white cursor-pointer"
+      >
+        <HugeiconsIcon icon={WhatsappIcon} class="text-green-500" />
+        Whatsapp
+      </Button>
+    </div>
   </div>
   <div
     class="bg-gray-50 dark:bg-background p-2 md:p-10 flex flex-col items-center justify-center"
   >
-    <div class="mb-3"></div>
+    <div
+      class="grid grid-cols-2 items-center w-full
+         [&>*:nth-child(odd)]:border-r
+         [&>*:nth-child(-n+2)]:pb-1 [&>*:nth-child(-n+2)]:md:pb-2.5 [&>*:nth-child(-n+2)]:lg:pb-5
+         [&>*:nth-child(-n+2)]:border-b
+         [&>*:nth-child(n+3)]:pt-1 [&>*:nth-child(n+3)]:md:pt-2.5 [&>*:nth-child(n+3)]:lg:pt-5
+         *:border-border
+         *:w-full
+         *:flex *:flex-col *:items-center"
+    >
+      {@render companyInfo({
+        title: "Categoria",
+        description: data.category,
+        icon: DashboardBrowsingIcon,
+      })}
+      {@render companyInfo({
+        title: "Endereço",
+        description: data.address,
+        icon: MapPin,
+      })}
+      {@render companyInfo({
+        title: "Anos de Atuação",
+        description: data.yearFounded,
+        icon: Calendar01FreeIcons,
+      })}
+      {@render companyInfo({
+        title: "Website",
+        description: data.website,
+        icon: Link01FreeIcons,
+      })}
+    </div>
   </div>
 {/if}
+
+{#snippet companyInfo({
+  title,
+  description,
+  icon,
+}: {
+  title: string;
+  description?: string;
+  icon: any;
+})}
+  <div class="flex flex-col gap-2 items-center">
+    <h3 class="text-md font-semibold flex gap-2 items-center">
+      <HugeiconsIcon {icon} size={15} />
+      {title}
+    </h3>
+    <p class="text-md text-gray-400">{description ?? "---"}</p>
+  </div>
+{/snippet}

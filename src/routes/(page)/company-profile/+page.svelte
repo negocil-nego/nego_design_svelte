@@ -6,6 +6,10 @@
   const data: CompanyProfileData = {
     id: "cartaplast",
     banner: {
+      category: "Agencia de Viagens",
+      address: "Luanda, Angola",
+      website: "www.negodesign.ao",
+      yearFounded: "6 anos de atuação",
       coverImages: [
         {
           src: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=1200&auto=format&fit=crop",
@@ -17,7 +21,7 @@
         },
       ],
       logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?q=80&w=300&auto=format&fit=crop",
-      name: "CARTAPLAST — Indústria de Papel e Embalagens",
+      name: "Hotel Empanado",
       countryLabel: "Angola",
       countryFlag: "🇦🇴",
       contactLabel: "Contactar fábrica",
@@ -81,6 +85,10 @@
 
 <CompanyProfile
   {data}
+  category={data.banner.category}
+  address={data.banner.address}
+  website={data.banner.website}
+  yearFounded={data.banner.yearFounded}
   onEmail={(id) => alert(`Contactar empresa ${id}`)}
   onWhatsapp={(id) => alert(`Contactar empresa ${id}`)}
   onCopyLink={(id) => {

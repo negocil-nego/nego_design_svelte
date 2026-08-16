@@ -31,7 +31,7 @@
 </script>
 
 <nav aria-label="Navegação do perfil" class="w-40 shrink-0 {className ?? ''}">
-  <div class="fixed top-6 flex flex-col gap-1 bg-card p-2">
+  <div class="fixed flex flex-col gap-1 bg-card p-6 md:p-8 h-screen border-r">
     {#if isLoading}
       {#each Array.from({ length: 4 }) as _, i (i)}
         <Skeleton class="h-9 w-full rounded-md" />
