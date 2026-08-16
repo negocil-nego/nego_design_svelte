@@ -201,6 +201,22 @@ export default {
     "profile-user.variant3.highlights.title": "Destaques",
     "profile-user.variant3.highlights.empty": "As conquistas e destaques aparecerão aqui.",
 
+    "empty.title": "Nenhum item encontrado",
+    "empty.description": "Não existem dados disponíveis para apresentação no momento.",
+    "empty.highlights.title": "Nenhum destaque disponível",
+    "empty.highlights.description": "De momento não existem itens em destaque para exibir.",
+    "empty.products.title": "Nenhum produto disponível",
+    "empty.products.description": "De momento não existem produtos disponíveis para exibir.",
+    "empty.promotions.title": "Nenhuma promoção ativa",
+    "empty.promotions.description": "De momento não existem promoções disponíveis para exibir.",
+    "empty.media.title": "Nenhuma mídia encontrada",
+    "empty.media.description": "De momento não existem fotos ou vídeos para exibir.",
+    "empty.profiles.title": "Nenhum perfil encontrado",
+    "empty.profiles.description": "De momento não foram encontrados perfis para exibir.",
+    "empty.not_found": "404 - Não Encontrado",
+    "empty.support": "Precisa de ajuda?",
+    "empty.contact_support": "Contactar suporte",
+
     "language.en": "Inglês",
     "language.pt": "Português"
 };

@@ -1,4 +1,5 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
+import type { CardProductProps } from "$lib/components/core/card/types";
 
 /**
  * Item de estatística exibido na faixa de dados do banner
@@ -83,6 +84,27 @@ export interface ProfileGalleryData {
 }
 
 /**
+ * Dados da secção "Produtos".
+ */
+export interface ProfileProductsData {
+  /** Título da secção (padrão: "Produtos"). */
+  title?: string;
+  /** Descrição da secção de produtos. */
+  description?: string;
+  /** Lista de produtos/serviços da empresa. */
+  items: CardProductProps[];
+  /**
+   * Estado de carregamento.
+   * Quando true, todos os blocos exibem Skeletons no lugar do conteúdo.
+   * @default false
+   */
+  isLoading?: boolean;
+  /** Variante do CardProduct (1 ou 2). */
+  variant?: 1 | 2;
+  varient?: 1 | 2;
+}
+
+/**
  * Dados completos apresentados na página de perfil da empresa/fábrica.
  */
 export interface CompanyProfileData {
@@ -94,16 +116,14 @@ export interface CompanyProfileData {
   about: ProfileAboutData;
   /** Dados da secção "Galeria". */
   gallery: ProfileGalleryData;
+  /** Dados da secção "Produtos". */
+  products?: ProfileProductsData;
 }
 
 /**
  * Propriedades do componente principal CompanyProfile.
  */
 export interface CompanyProfileProps {
-  address?: string;
-  category?: string;
-  website?: string;
-  yearFounded?: string;
   /** Dados completos do perfil a serem exibidos. */
   data?: CompanyProfileData;
   /**
@@ -113,7 +133,8 @@ export interface CompanyProfileProps {
    */
   isLoading?: boolean;
   onWhatsapp?: (id: string | number) => void;
-  onEmail?: (id: string | number) => void;  /** Callback executado quando o utilizador clica em copiar link. */
+  onEmail?: (id: string | number) => void;
+  /** Callback executado quando o utilizador clica em copiar link. */
   onCopyLink?: (id: string | number) => void;
   /** Callback executado quando o utilizador clica em partilhar. */
   onShare?: (id: string | number) => void;

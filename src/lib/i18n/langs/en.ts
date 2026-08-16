@@ -201,6 +201,22 @@ export default {
     "profile-user.variant3.highlights.title": "Highlights",
     "profile-user.variant3.highlights.empty": "Achievements and highlights will appear here.",
 
+    "empty.title": "No items found",
+    "empty.description": "There are no data available to display at this time.",
+    "empty.highlights.title": "No highlights available",
+    "empty.highlights.description": "There are currently no highlighted items to display.",
+    "empty.products.title": "No products available",
+    "empty.products.description": "There are currently no products available to display.",
+    "empty.promotions.title": "No active promotions",
+    "empty.promotions.description": "There are currently no promotions available to display.",
+    "empty.media.title": "No media found",
+    "empty.media.description": "There are currently no photos or videos to display.",
+    "empty.profiles.title": "No profiles found",
+    "empty.profiles.description": "There are currently no profiles found to display.",
+    "empty.not_found": "404 - Not Found",
+    "empty.support": "Need help?",
+    "empty.contact_support": "Contact support",
+
     "language.en": "English",
     "language.pt": "Portuguese"
 };

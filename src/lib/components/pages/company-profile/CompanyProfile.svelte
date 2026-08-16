@@ -27,16 +27,13 @@
   import ProfileMenuBadge from "./shared/ProfileMenuBadge.svelte";
   import ProfileAboutCompany from "./shared/ProfileAboutCompany.svelte";
   import ProfileGallery from "./shared/ProfileGallery.svelte";
+  import ProfileProducts from "./shared/ProfileProducts.svelte";
   import { defaultCompanyProfileData } from "./data";
   import type { CompanyProfileProps, ProfileNavItem } from "./types";
 
   let {
     data = defaultCompanyProfileData,
     isLoading = false,
-    yearFounded,
-    category,
-    address,
-    website,
     onEmail,
     onWhatsapp,
     onCopyLink,
@@ -47,8 +44,9 @@
 
   const sections: ProfileNavItem[] = [
     { id: "banner", label: "Apresentação" },
-    { id: "sobre-empresa", label: "Sobre a empresa" },
-    { id: "galeria-empresa", label: "Galeria da empresa" },
+    { id: "sobre-empresa", label: "Sobre" },
+    { id: "galeria-empresa", label: "Galeria" },
+    { id: "products-empresa", label: "Produtos" },
   ];
 
   let activeSection = $state(sections[0]?.id);
@@ -100,7 +98,7 @@
       />
     {/if}
 
-    <div class="flex min-w-0 flex-1 flex-col gap-6 md:px-5 md:pl-10 lg:pl-12">
+    <div class="flex min-w-0 flex-1 flex-col gap-6 md:px-5 md:pl-10 lg:pl-12 pb-5 md:pb-10">
       <div
         id="banner"
         bind:this={sectionEls["banner"]}
@@ -126,14 +124,20 @@
         <ProfileAboutCompany data={data.about} {isLoading} />
       </div>
 
-      <hr />
-
       <div
         id="galeria-empresa"
         bind:this={sectionEls["galeria-empresa"]}
         data-section-id="galeria-empresa"
       >
         <ProfileGallery data={data.gallery} {isLoading} />
+      </div>
+
+      <div
+        id="products-empresa"
+        bind:this={sectionEls["products-empresa"]}
+        data-section-id="products-empresa"
+      >
+        <ProfileProducts data={data.products} {isLoading} />
       </div>
     </div>
   </div>

@@ -32,7 +32,7 @@
 
 <nav aria-label="Navegação do perfil" class="w-40 shrink-0 {className ?? ''}">
   <div
-    class="fixed flex flex-col gap-1 md:gap-2 bg-card p-6 md:p-8 h-screen border-r"
+    class="fixed flex flex-col gap-1 md:pt-10 lg:pt-20 md:gap-2 bg-card p-6 md:p-8 h-screen border-r"
   >
     {#if isLoading}
       {#each Array.from({ length: 4 }) as _, i (i)}

@@ -85,10 +85,6 @@
 
 <CompanyProfile
   {data}
-  category={data.banner.category}
-  address={data.banner.address}
-  website={data.banner.website}
-  yearFounded={data.banner.yearFounded}
   onEmail={(id) => alert(`Contactar empresa ${id}`)}
   onWhatsapp={(id) => alert(`Contactar empresa ${id}`)}
   onCopyLink={(id) => {
