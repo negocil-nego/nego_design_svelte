@@ -13,13 +13,13 @@
 <script lang="ts">
   import CardStarRating from "../../../core/card/shared/CardStarRating.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import type { ProductDetailsReview } from "../types";
+  import type { ProductDetailsReviewProps } from "../types";
 
   let {
     reviews,
     isLoading = false,
   }: {
-    reviews?: ProductDetailsReview[];
+    reviews?: ProductDetailsReviewProps[];
     isLoading?: boolean;
   } = $props();
 </script>
@@ -49,7 +49,9 @@
       <article class="flex flex-col gap-2 border-b pb-6 last:border-b-0">
         <div class="flex items-center justify-between">
           <div class="flex items-center gap-3">
-            <div class="flex size-9 items-center justify-center rounded-full bg-muted text-sm font-semibold">
+            <div
+              class="flex size-9 items-center justify-center rounded-full bg-muted text-sm font-semibold"
+            >
               {review.author.charAt(0)}
             </div>
             <div>

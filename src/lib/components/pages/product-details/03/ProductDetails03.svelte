@@ -19,18 +19,25 @@
   import ProductDetailTags from "../shared/ProductDetailTags.svelte";
   import ProductDetailTabs from "../shared/ProductDetailTabs.svelte";
   import ProductPurchasePanel from "../shared/ProductPurchasePanel.svelte";
-  import type { ProductDetailsData } from "../types";
+  import type {
+    ProductDetailsData,
+    ProductPromotionDetailsProps,
+  } from "../types";
   import { useDevice } from "$lib/hooks/responsive.svelte";
 
   let {
     data,
     isLoading = false,
+    promotions = [],
+    showPriceWithPromotions = false,
     onBuy,
     onFavorite,
     onCart,
   }: {
     data: ProductDetailsData;
     isLoading?: boolean;
+    promotions?: ProductPromotionDetailsProps[];
+    showPriceWithPromotions?: boolean;
     onBuy?: (id: string | number) => void;
     onFavorite?: (id: string | number) => void;
     onCart?: (id: string | number) => void;
@@ -55,7 +62,15 @@
 
       <ProductDetailTags tags={data.tags} {isLoading} />
 
-      <ProductPurchasePanel {data} {isLoading} {onBuy} {onFavorite} {onCart} />
+      <ProductPurchasePanel
+        {data}
+        {isLoading}
+        {promotions}
+        {showPriceWithPromotions}
+        {onBuy}
+        {onFavorite}
+        {onCart}
+      />
 
       {#if !responsive.isMobile}
         {#if data.location}

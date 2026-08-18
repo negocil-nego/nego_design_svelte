@@ -66,7 +66,10 @@
       {:else}
         <Empty.Description class="text-xs">
           {$t("empty.support")}
-          <a href={actionHref} class="text-primary hover:underline font-medium ml-1">
+          <a
+            href={actionHref}
+            class="text-primary hover:underline font-medium ml-1"
+          >
             {actionLabel ?? $t("empty.contact_support")}
           </a>
         </Empty.Description>

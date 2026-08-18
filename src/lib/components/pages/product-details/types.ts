@@ -64,7 +64,7 @@ export interface ProductDetailsLocation {
  * Avaliação de um cliente sobre o produto.
  * Contém autor, classificação, data e comentário.
  */
-export interface ProductDetailsReview {
+export interface ProductDetailsReviewProps {
   /** Identificador único da avaliação (usado como key nos {#each}). */
   id: string | number;
   /** Nome do autor da avaliação. */
@@ -123,7 +123,7 @@ export interface ProductDetailsData {
   /** Número total de avaliações recebidas. */
   reviewsCount?: number;
   /** Lista de avaliações individuais dos clientes. */
-  reviews?: ProductDetailsReview[];
+  reviews?: ProductDetailsReviewProps[];
   /** Preço atual/promocional do produto. */
   newPrice?: string | number;
   /** Preço original (antes do desconto). */
@@ -151,6 +151,12 @@ export interface ProductDetailsData {
  * Propriedades do componente principal ProductDetails.
  * Suporta quatro variantes de layout e callbacks de interação.
  */
+export interface ProductPromotionDetailsProps {
+  id: string | number;
+  newPrice: string | number;
+  oldPrice: string | number;
+}
+
 export interface ProductDetailsProps {
   /**
    * Variante do layout da página de detalhes.
@@ -169,6 +175,17 @@ export interface ProductDetailsProps {
    * @default false
    */
   isLoading?: boolean;
+  /**
+   * Lista de promoções associadas ao produto.
+   * Cada promoção contém um preço antigo e novo.
+   */
+  promotions?: ProductPromotionDetailsProps[];
+  /**
+   * Quando true, oculta o preço regular do produto
+   * e apresenta apenas os preços das promoções.
+   * @default false
+   */
+  showPriceWithPromotions?: boolean;
   /**
    * Callback executado quando o utilizador clica no botão de compra.
    * Recebe o id do produto como argumento.

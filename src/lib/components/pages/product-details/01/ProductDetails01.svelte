@@ -20,17 +20,24 @@
   import ProductDetailReviews from "../shared/ProductDetailReviews.svelte";
   import ProductDetailTags from "../shared/ProductDetailTags.svelte";
   import ProductPurchasePanel from "../shared/ProductPurchasePanel.svelte";
-  import type { ProductDetailsData } from "../types";
+  import type {
+    ProductDetailsData,
+    ProductPromotionDetailsProps,
+  } from "../types";
 
   let {
     data,
     isLoading = false,
+    promotions = [],
+    showPriceWithPromotions = false,
     onBuy,
     onFavorite,
     onCart,
   }: {
     data: ProductDetailsData;
     isLoading?: boolean;
+    promotions?: ProductPromotionDetailsProps[];
+    showPriceWithPromotions?: boolean;
     onBuy?: (id: string | number) => void;
     onFavorite?: (id: string | number) => void;
     onCart?: (id: string | number) => void;
@@ -64,7 +71,15 @@
         <ProductDetailFeatures features={data.features} {isLoading} />
       {/if}
 
-      <ProductPurchasePanel {data} {isLoading} {onBuy} {onFavorite} {onCart} />
+      <ProductPurchasePanel
+        {data}
+        {isLoading}
+        {promotions}
+        {showPriceWithPromotions}
+        {onBuy}
+        {onFavorite}
+        {onCart}
+      />
     </div>
   </div>
 

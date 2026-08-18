@@ -1,3 +1,8 @@
+
+import type {
+    ProductPromotionDetailsProps
+} from "$lib/components/pages/product-details/types";
+
 import type {
     LoginVariant,
     LoginRequestDto,
@@ -117,13 +122,12 @@ import type {
     ProductDetailsTag,
     ProductDetailsImage,
     ProductDetailsLocation,
-    ProductDetailsReview,
+    ProductDetailsReviewProps,
     ProductDetailsTab
 } from "$lib/components/pages/product-details/types";
 
 import type {
     PrivacyPolicyOrTermsOfUseProps,
-    DocPageData,
     DocSection,
     ContentBlock,
     BreadcrumbItem,
@@ -299,14 +303,16 @@ export type {
     ProductDetailsImage,
     /** Informações de localização do ProductDetails. @see ProductDetailsLocation */
     ProductDetailsLocation,
-    /** Avaliação de um cliente sobre o ProductDetails. @see ProductDetailsReview */
-    ProductDetailsReview,
+    /** Avaliação de um cliente sobre o ProductDetails. @see ProductDetailsReviewProps */
+    ProductDetailsReviewProps,
     /** Aba de conteúdo adicional do ProductDetails. @see ProductDetailsTab */
     ProductDetailsTab,
     /** Dados completos apresentados na página ProductDetails. @see ProductDetailsData */
     ProductDetailsData,
     /** Props do componente ProductDetails. @see ProductDetailsProps */
     ProductDetailsProps,
+    /** Props do componente ProductPromotionDetails. @see ProductPromotionDetailsProps */
+    ProductPromotionDetailsProps,
 
     /** Item de breadcrumb do PrivacyPolicyOrTermsOfUse. @see BreadcrumbItem */
     BreadcrumbItem,
@@ -314,8 +320,6 @@ export type {
     ContentBlock,
     /** Secção de conteúdo do PrivacyPolicyOrTermsOfUse. @see DocSection */
     DocSection,
-    /** Dados completos de PrivacyPolicyOrTermsOfUse. @see DocPageData */
-    DocPageData,
     /** Item da tabela de conteúdos (TOC). @see TocItem */
     TocItem,
     /** Props do componente PrivacyPolicyOrTermsOfUse. @see PrivacyPolicyOrTermsOfUseProps */

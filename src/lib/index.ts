@@ -1,3 +1,5 @@
+import NotFoundEmpty from "$lib/components/core/panel/NotFoundEmpty.svelte";
+
 import InputPasswordConfirm from "./components/core/form/ui/input-password-confirm.svelte";
 import InputEmailOrPhone from "./components/core/form/ui/input-email-or-phone.svelte";
 import InputUsername from "./components/core/form/ui/input-username.svelte";
@@ -48,6 +50,9 @@ export { getLocales } from "./i18n/config";
 
 
 export {
+    /** @see NotFoundEmpty */
+    NotFoundEmpty,
+
     /**
      * Componente raiz do Negodesign.
      * Configura o tema, idioma e traduções da aplicação.

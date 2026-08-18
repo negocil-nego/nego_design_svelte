@@ -14,17 +14,25 @@
   import ProductDetailActions from "./ProductDetailActions.svelte";
   import ProductDetailPrice from "./ProductDetailPrice.svelte";
   import ProductDetailRating from "./ProductDetailRating.svelte";
-  import type { ProductDetailsData } from "../types";
+  import ProductPromotionDetails from "./ProductPromotionDetails.svelte";
+  import type {
+    ProductDetailsData,
+    ProductPromotionDetailsProps,
+  } from "../types";
 
   let {
     data,
     isLoading = false,
+    promotions = [],
+    showPriceWithPromotions = false,
     onBuy,
     onFavorite,
     onCart,
   }: {
     data: ProductDetailsData;
     isLoading?: boolean;
+    promotions?: ProductPromotionDetailsProps[];
+    showPriceWithPromotions?: boolean;
     onBuy?: (id: string | number) => void;
     onFavorite?: (id: string | number) => void;
     onCart?: (id: string | number) => void;
@@ -38,12 +46,16 @@
     {isLoading}
   />
 
-  <ProductDetailPrice
-    newPrice={data.newPrice}
-    oldPrice={data.oldPrice}
-    currency={data.currency}
-    {isLoading}
-  />
+  {#if !(showPriceWithPromotions && promotions.length > 0)}
+    <ProductDetailPrice
+      newPrice={data.newPrice}
+      oldPrice={data.oldPrice}
+      currency={data.currency}
+      {isLoading}
+    />
+  {/if}
+
+  <ProductPromotionDetails {promotions} {isLoading} />
 
   <ProductDetailActions
     id={data.id}
