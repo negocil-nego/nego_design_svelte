@@ -17,6 +17,8 @@
     isLoading = false,
     isDescriptionIcon,
     isDescriptionLabel,
+    isVideoButtonMaximized = false,
+    isImageButtonMaximized = false,
     onFavoriteClick,
     onButtonProfile,
     onButtonDetails,
@@ -55,18 +57,11 @@
                 {variant}
                 {isDescriptionIcon}
                 {isDescriptionLabel}
-                onFavoriteClick={(id: string | number) => {
-                  item?.onFavoriteClick?.(id);
-                  onFavoriteClick?.(id);
-                }}
-                onButtonProfile={(id: string | number) => {
-                  item?.onButtonProfile?.(id);
-                  onButtonProfile?.(id);
-                }}
-                onButtonDetails={(id: string | number) => {
-                  item?.onButtonDetails?.(id);
-                  onButtonDetails?.(id);
-                }}
+                {isVideoButtonMaximized}
+                {isImageButtonMaximized}
+                {onFavoriteClick}
+                {onButtonProfile}
+                {onButtonDetails}
               />
             </Carousel.Item>
           {:else}
@@ -76,18 +71,11 @@
                 {variant}
                 {isDescriptionIcon}
                 {isDescriptionLabel}
-                onFavoriteClick={(id: string | number) => {
-                  item?.onFavoriteClick?.(id);
-                  onFavoriteClick?.(id);
-                }}
-                onButtonProfile={(id: string | number) => {
-                  item?.onButtonProfile?.(id);
-                  onButtonProfile?.(id);
-                }}
-                onButtonDetails={(id: string | number) => {
-                  item?.onButtonDetails?.(id);
-                  onButtonDetails?.(id);
-                }}
+                {isVideoButtonMaximized}
+                {isImageButtonMaximized}
+                {onFavoriteClick}
+                {onButtonProfile}
+                {onButtonDetails}
               />
             </div>
           {/if}

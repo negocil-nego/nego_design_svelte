@@ -15,8 +15,9 @@
     buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
     positionButtonPreviousAndNext: "center",
   }}
-  variant={2}
+  variant={1}
   onFavoriteClick={(id: string | number) => console.log("click", id)}
   onButtonProfile={(id: string | number) => console.log("click", id)}
-  onButtonDetails={(id: string | number) => console.log("click", id)}
+  isImageButtonMaximized
+  isVideoButtonMaximized
 />

@@ -76,7 +76,7 @@
     </div>
   </div>
 
-  <div class="h-15 my-2 mb-5 md:mb-0">
+  <div class=" my-2 mb-2 md:mb-0">
     <CardDescription
       {content}
       {isLoading}
@@ -86,7 +86,7 @@
   </div>
 
   <CardTags
-    className="my-6"
+    className="mt-1 mb-5"
     tags={tags ?? []}
     {isTagBorderBottom}
     {isLoading}

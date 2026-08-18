@@ -27,7 +27,7 @@
   let {
     imageUrl,
     videoUrl,
-    class: className = "h-32 md:w-64 md:h-64",
+    class: className = "h-32 w-full md:h-64",
     isImageButtonMaximized = false,
     isVideoButtonMaximized = false,
     isLoading = false,
@@ -130,15 +130,9 @@
           loading="lazy"
           decoding="async"
           alt={imageUrl}
-          class="absolute inset-0 w-full {className} rounded-md object-cover transition-opacity duration-500"
+          class="absolute inset-0 h-full w-full rounded-md object-cover transition-opacity duration-500"
           class:opacity-0={videoUrl && showVideo}
           onerror={(e) => ((e.target as HTMLImageElement).src = ImgPlaceholder)}
-        />
-      {:else}
-        <img
-          src={ImgPlaceholder}
-          alt={imageUrl}
-          class="rounded-lg w-50 h-[50px] object-cover object-center"
         />
       {/if}
 
@@ -148,7 +142,7 @@
           src={videoUrl}
           preload="metadata"
           onloadedmetadata={onLoadedMetadata}
-          class="absolute inset-0 w-full {className} rounded-md object-cover transition-opacity duration-500"
+          class="absolute inset-0 h-full w-full rounded-md object-cover transition-opacity duration-500"
           class:opacity-0={imageUrl && !showVideo}
           muted
           loop

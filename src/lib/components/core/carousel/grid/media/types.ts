@@ -23,6 +23,10 @@ export interface CarouselGridMediaProps {
     items: CardMediaProps[];
     /** Estado de carregamento (skeleton) */
     isLoading?: boolean;
+    /** Exibe o botão de maximizar no vídeo */
+    isVideoButtonMaximized?: boolean;
+    /** Exibe o botão de maximizar na imagem */
+    isImageButtonMaximized?: boolean;
     /** Callback acionado ao clicar no botão de favorito */
     onFavoriteClick?: (id: string | number) => void;
     /** Callback acionado ao clicar no botão de perfil */

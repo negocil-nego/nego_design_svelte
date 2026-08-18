@@ -29,10 +29,7 @@
     class="w-full h-7.5 rounded-lg bg-gray-500/80 dark:bg-gray-500/30"
   />
 {:else}
-  <Button
-    class="bg-gradient {isFlex ? 'flex-1' : ''} {className}"
-    onclick={() => onClick(id)}
-  >
+  <Button class="bg-gradient flex-1 {className}" onclick={() => onClick(id)}>
     {#if icon}
       {#if typeof icon === "string"}
         <i class={icon}></i>

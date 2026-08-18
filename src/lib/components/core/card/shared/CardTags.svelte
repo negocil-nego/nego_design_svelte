@@ -77,7 +77,7 @@
   <Popover.Trigger
     onmouseenter={() => (open = true)}
     onmouseleave={() => (open = false)}
-    class="block w-full text-left"
+    class="block w-full text-left h-8"
   >
     {@render tagsRow()}
   </Popover.Trigger>

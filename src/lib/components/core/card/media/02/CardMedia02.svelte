@@ -74,15 +74,10 @@
         {isLoading}
       />
     </div>
-    <CardTags
-      className="my-2"
-      tags={tags ?? []}
-      {isTagBorderBottom}
-      {isLoading}
-    />
+    <CardTags tags={tags ?? []} {isTagBorderBottom} {isLoading} />
   </div>
 
-  <div class="h-15 mb-10 md:mb-0">
+  <div class="h-24">
     <CardDescription
       {content}
       {isLoading}
