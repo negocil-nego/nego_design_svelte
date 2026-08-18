@@ -134,6 +134,12 @@
           class:opacity-0={videoUrl && showVideo}
           onerror={(e) => ((e.target as HTMLImageElement).src = ImgPlaceholder)}
         />
+      {:else}
+        <img
+          src={ImgPlaceholder}
+          alt={imageUrl}
+          class="rounded-lg w-50 h-[50px] object-cover object-center"
+        />
       {/if}
 
       {#if videoUrl && isVisible}

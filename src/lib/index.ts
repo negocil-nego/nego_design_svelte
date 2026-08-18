@@ -30,6 +30,9 @@ import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/Carou
 import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
 import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
+
+import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
+
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
@@ -50,9 +53,6 @@ export { getLocales } from "./i18n/config";
 
 
 export {
-    /** @see NotFoundEmpty */
-    NotFoundEmpty,
-
     /**
      * Componente raiz do Negodesign.
      * Configura o tema, idioma e traduções da aplicação.
@@ -89,12 +89,21 @@ export {
      */
     NotificationBanner,
 
+    /** @see NotFoundEmpty */
+    NotFoundEmpty,
+
     /**
      * Campo de input de busca com 2 variantes visuais (borda completa ou underline).
      * Inclui botão de submissão e callback onSubmit.
      * @see SearchInputProps
      */
     SearchInput,
+
+    /**
+     * CompanyProfile de perfil empresa.
+     * @see CompanyProfileProps
+     */
+    CompanyProfile,
 
     /**
      * Carousel de badges/categorias com orientação horizontal ou vertical.

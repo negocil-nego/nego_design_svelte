@@ -17,6 +17,8 @@
     varient = 1,
     isDescriptionIcon,
     isDescriptionLabel,
+    onClickBtn,
+    onClickFavorite,
   }: CarouselHighlightsProps = $props();
 
   const responsive = useDevice();
@@ -48,6 +50,14 @@
               {varient}
               {isDescriptionIcon}
               {isDescriptionLabel}
+              onClickBtn={(id: string | number) => {
+                item.onClickBtn?.(id);
+                onClickBtn?.(id);
+              }}
+              onClickFavorite={(id: string | number) => {
+                item.onClickFavorite?.(id);
+                onClickFavorite?.(id);
+              }}
             />
           </Carousel.Item>
         {/each}

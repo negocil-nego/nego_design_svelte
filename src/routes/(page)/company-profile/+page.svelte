@@ -76,6 +76,11 @@
         },
       ],
     },
+    products: {
+      title: "Produtos",
+      description: "",
+      items: [],
+    },
   };
 </script>
 

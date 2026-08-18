@@ -23,4 +23,10 @@ export interface CarouselGridMediaProps {
     items: CardMediaProps[];
     /** Estado de carregamento (skeleton) */
     isLoading?: boolean;
+    /** Callback acionado ao clicar no botão de favorito */
+    onFavoriteClick?: (id: string | number) => void;
+    /** Callback acionado ao clicar no botão de perfil */
+    onButtonProfile?: (id: string | number) => void;
+    /** Callback acionado ao clicar no botão de detalhes */
+    onButtonDetails?: (id: string | number) => void;
 }

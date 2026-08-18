@@ -21,4 +21,7 @@ export interface CarouselHighlightsProps {
     isDescriptionIcon?: boolean;
     /** Exibe etiqueta (label) na descrição do card */
     isDescriptionLabel?: boolean;
+    onClickFavorite?: (id: string | number) => void;
+    /** Callback ao clicar no botão principal */
+    onClickBtn?: (id: string | number) => void;
 }

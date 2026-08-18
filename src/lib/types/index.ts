@@ -138,6 +138,7 @@ import type { InputLabelProps } from "$lib/components/core/form/data/InputLabel.
 import type { NegoDesignProps } from "$lib/components/types";
 import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/grid/promotion/types";
 import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
+import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
 
 
 export type {
@@ -163,6 +164,9 @@ export type {
 
     /** Props do bloco de usuário logado na sidebar. @see NavUserSidebarProps */
     NavUserSidebarProps,
+
+    /** Props da página de perfil da empresa. @see CompanyProfileProps */
+    CompanyProfileProps,
 
     /** Props de uma tag individual usada nos cards (CardMedia, CardProfile, etc). @see CardTagsProps */
     CardTagsProps,

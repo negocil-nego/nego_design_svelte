@@ -16,4 +16,7 @@
     positionButtonPreviousAndNext: "center",
   }}
   variant={2}
+  onFavoriteClick={(id: string | number) => console.log("click", id)}
+  onButtonProfile={(id: string | number) => console.log("click", id)}
+  onButtonDetails={(id: string | number) => console.log("click", id)}
 />

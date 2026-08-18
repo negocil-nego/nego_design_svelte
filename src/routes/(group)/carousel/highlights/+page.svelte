@@ -16,5 +16,7 @@
       buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
     }}
     varient={2}
+    onClickBtn={(id: string | number) => console.log("click", id)}
+    onClickFavorite={(id: string | number) => console.log("click", id)}
   />
 </div>
