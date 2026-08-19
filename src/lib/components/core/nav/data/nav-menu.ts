@@ -20,6 +20,8 @@ export interface NavMenuLogoProps {
  * Props de um link individual no menu de navegação.
  */
 export interface NavMenuLinksProps {
+    /** Key menu */
+    key?: string
     /** URL de destino do link */
     url?: string
     /** Alias de `url` — URL de destino do link (compatibilidade) */
@@ -56,6 +58,10 @@ export interface NavMenuActionsProps {
  * com logo, links, ações (login/registo), language switcher e light switch.
  */
 export interface NavMenuProps {
+    /** Key nav menu */
+    menuKey?: string
+    /** Key CSS nav menu */
+    activeClass?: string
     /** Classe CSS adicional para o container do nav */
     navClass?: string
     /** Classe CSS personalizada para cada link */

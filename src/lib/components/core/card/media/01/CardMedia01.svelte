@@ -56,13 +56,13 @@
         {#if title}
           <div class="text-center font-bold text-lg">{title}</div>
         {:else if isLoading}
-          <Skeleton class="w-40 h-5 rounded-lg bg-gray-400 mb-0.5" />
+          <Skeleton class="w-5 md:w-40 h-5 rounded-lg bg-gray-400 mb-0.5" />
         {/if}
 
         {#if startNumber}
           <CardStarRating {startNumber} {startMax} {isLoading} />
         {:else if isLoading}
-          <Skeleton class="w-20 h-4 rounded-lg bg-gray-300 mt-0.5" />
+          <Skeleton class="w-5 md:w-20 h-4 rounded-lg bg-gray-300 mt-0.5" />
         {/if}
       </div>
     </div>

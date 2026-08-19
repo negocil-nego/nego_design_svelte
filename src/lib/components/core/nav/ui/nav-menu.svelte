@@ -14,6 +14,8 @@
     logo,
     links,
     actions,
+    menuKey,
+    activeClass,
     navClass = "w-full",
     linkClass = "",
     groupClass = "",
@@ -95,11 +97,25 @@
   {#if responsive.isMobile}
     <NavMenuDrawer {links} {onclickButtonLogin} {onclickButtonRegister} />
   {:else if align === "LINK_SEPARATED_ACTIONS"}
-    <MenuLinks {links} {linkClass} {groupClass} orientation="horizontal" />
+    <MenuLinks
+      {menuKey}
+      {activeClass}
+      {links}
+      {linkClass}
+      {groupClass}
+      orientation="horizontal"
+    />
     {@render actionButtons()}
   {:else if align === "LINK_INTO_ACTIONS"}
     <div class="flex items-center gap-2">
-      <MenuLinks {links} {linkClass} {groupClass} orientation="vertical" />
+      <MenuLinks
+        {menuKey}
+        {activeClass}
+        {links}
+        {linkClass}
+        {groupClass}
+        orientation="vertical"
+      />
       {@render actionButtons()}
     </div>
   {/if}

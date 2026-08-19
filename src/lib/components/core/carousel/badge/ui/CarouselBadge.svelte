@@ -10,16 +10,23 @@
     imageClass,
     iconClass,
     labelClass,
-    activeClass = "bg-gradient text-white rounded-sm px-3",
-    isLoading = false,
+    activeClass = "bg-gradient text-white rounded-full px-3",
     orientation = "horizontal",
+    itemStyle = "DEFAULT",
+    isBorderInline = false,
+    showButton = true,
+    isLoading = false,
+    btnNavClass,
     itemClass,
     onClick,
   }: CarouselBadgeProps = $props();
 
-  const DEFAULT_IMG_OR_ICON_CLASS = "size-3";
-  const NAV_BUTTON_CLASS =
-    "absolute top-1/2 -translate-y-1/2 mt-0.5 md:mr-0 z-50 bg-blue-700! text-white! cursor-pointer!";
+  const TOP_NAV = $derived(isBorderInline ? "top-5.5" : "top-7.5");
+  const borderB = $derived(
+    isBorderInline ? `border-b-2 ${itemStyle == "BORDER" ? "pb-2" : ""}` : "",
+  );
+  const isInlineBorder = $derived(isBorderInline && itemStyle == "INLINE");
+  const DEFAULT_IMG_OR_ICON_CLASS = "size-3 md:size-6";
 
   const responsive = useDevice();
   const skeletonCount = $derived(responsive.isMobile ? 2 : 8);
@@ -54,31 +61,49 @@
   {/if}
 {/snippet}
 
-<Carousel.Root>
-  <Carousel.Content>
-    {#if isLoading}
-      <div class="flex items-center justify-between w-full gap-1 md:gap-2">
-        {#each Array.from({ length: skeletonCount }) as _, i (`skeleton-${i}`)}
-          <Skeleton class="h-4 w-25 bg-gray-900/90" />
-        {/each}
-      </div>
-    {:else}
-      {#each items as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
-        <Carousel.Item class="basis-auto" onclick={() => selectItem(item)}>
-          <div
-            class="flex gap-1 mx-2 p-0.5 justify-center items-center cursor-pointer
+{#if items.length > 0}
+  <Carousel.Root>
+    <Carousel.Content class={borderB}>
+      {#if isLoading}
+        <div class="flex items-center justify-between w-full gap-1 md:gap-2">
+          {#each Array.from( { length: skeletonCount }, ) as _, i (`skeleton-${i}`)}
+            <Skeleton class="h-4 w-25 bg-gray-50/90" />
+          {/each}
+        </div>
+      {:else}
+        {#each items as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
+          <Carousel.Item
+            class="basis-auto relative"
+            onclick={() => selectItem(item)}
+          >
+            <div
+              class="flex gap-1 mx-2 p-1 justify-center items-center cursor-pointer relative hover:text-lg hover:font-bold
+            {isSelected(item)
+                ? isInlineBorder
+                  ? 'text-gradient font-bold'
+                  : activeClass
+                : ''} 
+            {itemStyle == 'BORDER' ? 'border-2 rounded-full min-w-25 px-1' : ''}
             {orientation === 'horizontal' ? 'flex-row' : 'flex-col'}
-            {isSelected(item) ? activeClass : ''} 
+            {isInlineBorder ? 'pb-3' : ''}
             {itemClass} 
           "
-          >
-            {@render itemVisual(item)}
-            <div class={labelClass}>{item.label}</div>
-          </div>
-        </Carousel.Item>
-      {/each}
+            >
+              {@render itemVisual(item)}
+              <div class={labelClass}>{item.label}</div>
+            </div>
+            {#if isSelected(item) && isInlineBorder}
+              <div class="absolute pt-5 w-full h-2 bg-gradient"></div>
+            {/if}
+          </Carousel.Item>
+        {/each}
+      {/if}
+    </Carousel.Content>
+    {#if showButton}
+      {@const navClass =
+        "absolute -translate-y-1/2 z-50 bg-blue-700! text-white! cursor-pointer"}
+      <Carousel.Previous class="-left-8 {navClass} {TOP_NAV} {btnNavClass}" />
+      <Carousel.Next class="-right-8 {navClass} {TOP_NAV} {btnNavClass}" />
     {/if}
-  </Carousel.Content>
-  <Carousel.Previous class="-left-8 {NAV_BUTTON_CLASS}" />
-  <Carousel.Next class="-right-8 {NAV_BUTTON_CLASS}" />
-</Carousel.Root>
+  </Carousel.Root>
+{/if}

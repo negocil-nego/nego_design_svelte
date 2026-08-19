@@ -24,7 +24,7 @@ const items: CardMediaProps[] = [
             {
                 icon: NecklaceIcon,
                 text: 'Rua 19',
-            },            
+            },
         ],
     },
     {
@@ -52,8 +52,8 @@ const items: CardMediaProps[] = [
             {
                 icon: MapPin,
                 text: 'Kilamba',
-            },                      
-        ],        
+            },
+        ],
     },
     {
         id: 3,
@@ -74,7 +74,7 @@ const items: CardMediaProps[] = [
                 icon: MapPin,
                 text: 'Huíla',
             },
-        ],         
+        ],
     },
     {
         id: 4,
@@ -90,7 +90,7 @@ const items: CardMediaProps[] = [
             {
                 icon: NecklaceIcon,
                 text: 'Rua 19',
-            },    
+            },
             {
                 icon: GlobalIcon,
                 text: 'Luanda',
@@ -102,7 +102,7 @@ const items: CardMediaProps[] = [
             {
                 icon: NecklaceIcon,
                 text: 'Rua 19',
-            },              
+            },
         ]
     },
     {

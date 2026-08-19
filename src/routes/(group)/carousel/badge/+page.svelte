@@ -8,7 +8,7 @@
   } from "@hugeicons/core-free-icons";
 </script>
 
-<div class="relative flex justify-center">
+<div class="relative flex justify-center mt-10">
   <CarouselBadge
     orientation="horizontal"
     iconClass="size-6"
@@ -23,5 +23,8 @@
       { label: "Hospedaria", value: "hospedaria", icon: Hotel02Icon },
       { label: "Pensão", value: "pensao", icon: BedDoubleIcon },
     ]}
+    itemStyle="INLINE"
+    showButton={true}
+    isBorderInline
   />
 </div>

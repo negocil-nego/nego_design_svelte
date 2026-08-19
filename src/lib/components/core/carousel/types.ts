@@ -65,6 +65,10 @@ export interface CarouselBadgeProps {
     /** Estado de carregamento (skeleton) */
     isLoading?: boolean,
     itemClass?: string,
+    btnNavClass?: string,
+    isBorderInline?: boolean,
+    showButton?: boolean
+    itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
     onClick?: (value: string | number) => void,
 }
 

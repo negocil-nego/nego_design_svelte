@@ -15,8 +15,6 @@
   const { slotProps, totalItems, gridClass, children }: Props = $props();
 
   const responsive = useDevice();
-
-  const colsClass = $derived(totalItems <= 2 ? "grid-cols-2" : "grid-cols-3");
 </script>
 
 {#if responsive.isMobile}
@@ -27,7 +25,9 @@
     {@render children()}
   </CarouselSlot>
 {:else}
-  <div class="grid {colsClass} gap-4 p-2 {gridClass}">
+  <div
+    class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6 gap-4 p-2 {gridClass}"
+  >
     {@render children()}
   </div>
 {/if}
