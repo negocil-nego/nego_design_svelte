@@ -6,7 +6,7 @@
     import { cn } from "$lib/utils.js";
     import { HugeiconsIcon } from "@hugeicons/svelte";
     import { Login03Icon, Menu, User03Icon } from "@hugeicons/core-free-icons";
-    import MenuLinks from "../menu-links.svelte";
+    import MenuLinks from "../shared/MenuLinks.svelte";
     import LightSwitch from "$lib/components/ui/light-switch/light-switch.svelte";
     import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
     import { t } from "$lib/i18n";

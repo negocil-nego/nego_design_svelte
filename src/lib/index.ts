@@ -32,12 +32,13 @@ import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
 
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
+import Menu from "$lib/components/core/nav/ui/ComplexMenu.svelte";
 
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
-import NavMenu from "./components/core/nav/ui/nav-menu.svelte";
-import NegoDesign from "./components/NegoDesign.svelte";
 import Footer from "$lib/components/core/footer/ui/Footer.svelte";
+import NavMenu from "./components/core/nav/ui/SimpleMenu.svelte";
+import NegoDesign from "./components/NegoDesign.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -53,6 +54,7 @@ export { getLocales } from "./i18n/config";
 
 
 export {
+    Menu,
     /**
      * Componente raiz do Negodesign.
      * Configura o tema, idioma e traduções da aplicação.

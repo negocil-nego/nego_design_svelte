@@ -8,10 +8,10 @@
     NavMenuSidebarProps,
   } from "../nav/data/nav-menu-sidebar";
   import type { Snippet } from "svelte";
-  import NavMenuTopBarSidebar from "../nav/ui/nav-menu-top-bar-sidebar.svelte";
-  import NavMenuBottomSidebar from "../nav/ui/nav-menu-bottom-sidebar.svelte";
-  import NavMenuBarSidebar from "../nav/ui/nav-menu-sidebar.svelte";
-  import NavUserSidebar from "../nav/ui/nav-user-sidebar.svelte";
+  import NavMenuTopBarSidebar from "./ui/navbar/NavMenuTopBarSidebar.svelte";
+  import NavMenuBottomSidebar from "./ui/navbar/NavMenuBottomSidebar.svelte";
+  import NavMenuBarSidebar from "./ui/navbar/NavMenuBarSidebar.svelte";
+  import NavUserSidebar from "./ui/navbar/NavUserSidebar.svelte";
   import { t } from "$lib/i18n";
 
   /**

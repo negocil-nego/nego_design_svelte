@@ -1,6 +1,6 @@
 <script lang="ts">
   import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
-  import NavMenu from "$lib/components/core/nav/ui/nav-menu.svelte";
+  import NavMenu from "$lib/components/core/nav/ui/SimpleMenu.svelte";
   import SearchInput from "$lib/components/core/search/SearchInput.svelte";
   import {
     AirplaneTakeOff02Icon,

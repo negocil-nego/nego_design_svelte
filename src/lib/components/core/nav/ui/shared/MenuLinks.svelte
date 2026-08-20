@@ -1,6 +1,6 @@
 <script lang="ts">
   import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { NavMenuLinksProps } from "../data/nav-menu";
+  import type { NavMenuLinksProps } from "../../data/nav-menu";
 
   type Props = {
     links: NavMenuLinksProps[];

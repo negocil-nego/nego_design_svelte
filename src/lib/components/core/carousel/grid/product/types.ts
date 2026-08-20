@@ -20,4 +20,9 @@ export interface CarouselGridProductProps {
     isLoading?: boolean;
     isDescriptionIcon?: boolean;
     isDescriptionLabel?: boolean;
+    onClickBuy?: (id: string | number) => void;
+    /** Callback ao clicar no botão carrinho */
+    onClickShop?: (id: string | number) => void;
+    /** Callback ao clicar no botão favorito */
+    onClickFavorite?: (id: string | number) => void;
 }

@@ -57,7 +57,7 @@ export interface NavMenuActionsProps {
  * Props do componente NavMenu — barra de navegação principal
  * com logo, links, ações (login/registo), language switcher e light switch.
  */
-export interface NavMenuProps {
+export interface SimpleMenuProps {
     /** Key nav menu */
     menuKey?: string
     /** Key CSS nav menu */

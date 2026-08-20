@@ -17,6 +17,9 @@
     isLoading = false,
     isDescriptionIcon = false,
     isDescriptionLabel = false,
+    onClickBuy,
+    onClickFavorite,
+    onClickShop,
   }: CarouselGridProductProps = $props();
 
   const responsive = useDevice();
@@ -52,6 +55,9 @@
                 {variant}
                 {isDescriptionIcon}
                 {isDescriptionLabel}
+                {onClickBuy}
+                {onClickFavorite}
+                {onClickShop}
               />
             </Carousel.Item>
           {:else}
@@ -61,6 +67,9 @@
                 {variant}
                 {isDescriptionIcon}
                 {isDescriptionLabel}
+                {onClickBuy}
+                {onClickFavorite}
+                {onClickShop}
               />
             </div>
           {/if}

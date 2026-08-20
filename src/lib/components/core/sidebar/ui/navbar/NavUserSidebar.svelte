@@ -2,7 +2,6 @@
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import type { NavUserSidebarProps } from "../data/nav-user-sidebar";
   import { useSidebar } from "$lib/components/ui/sidebar/index.js";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import {
@@ -11,6 +10,7 @@
     SparklesIcon,
   } from "@hugeicons/core-free-icons";
   import { t } from "$lib/i18n";
+  import type { NavUserSidebarProps } from "$lib/types";
 
   let { user: userLogged }: { user: NavUserSidebarProps } = $props();
 

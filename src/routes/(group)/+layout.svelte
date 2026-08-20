@@ -1,10 +1,11 @@
 <script lang="ts">
-  import NavMenu from "$lib/components/core/nav/ui/nav-menu.svelte";
+  import NavMenu from "$lib/components/core/nav/ui/SimpleMenu.svelte";
   import SearchInput from "$lib/components/core/search/SearchInput.svelte";
   import {
     AirplaneTakeOff02Icon,
     ConversationIcon,
     Hotel01Icon,
+    UserSearch,
   } from "@hugeicons/core-free-icons";
 
   let { children } = $props();
@@ -27,6 +28,7 @@
         { label: "Hospegadem", url: "#", icon: Hotel01Icon },
         { label: "Voos", url: "#", icon: AirplaneTakeOff02Icon },
         { label: "Tradutores", url: "#", icon: ConversationIcon },
+        { label: "Freelanchers", url: "#", icon: UserSearch },
       ]}
       onclickButtonLogin={() => alert("login")}
       onclickButtonRegister={() => alert("register")}

@@ -1,5 +1,6 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
-import type { NavMenuProps } from "../nav/data/nav-menu";
+import type { SimpleMenuProps } from "../nav/data/nav-menu";
+import type { MenuProps } from "$lib/types";
 
 /**
  * Item individual do CarouselBadge — categoria/opção com ícone,
@@ -93,7 +94,7 @@ export interface CarouselHeroProps {
     /** Lista de slides do hero */
     items: CarouselHeroItem[],
     /** Configuração do menu de navegação sobreposto */
-    navMenu: NavMenuProps,
+    navMenu: SimpleMenuProps | MenuProps,
     /** Classe CSS adicional para o container */
     className?: string
     /** Classe CSS personalizada para o título */

@@ -1,14 +1,14 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
   import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { NavMenuProps } from "../data/nav-menu";
+  import type { SimpleMenuProps } from "../data/nav-menu";
   import LightSwitch from "$lib/components/ui/light-switch/light-switch.svelte";
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { t } from "$lib/i18n";
   import { Login03Icon, User03Icon } from "@hugeicons/core-free-icons";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import NavMenuDrawer from "./mobile/nav-menu-drawer.svelte";
-  import MenuLinks from "./menu-links.svelte";
+  import MenuLinks from "./shared/MenuLinks.svelte";
 
   let {
     logo,
@@ -25,7 +25,7 @@
     isLanguageSwitcher = false,
     onclickButtonLogin,
     onclickButtonRegister,
-  }: NavMenuProps = $props();
+  }: SimpleMenuProps = $props();
 
   const responsive = useDevice();
 </script>

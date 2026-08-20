@@ -30,7 +30,7 @@ import type {
     NavMenuLinksProps,
     NavMenuLogoProps,
     NavMenuActionsProps,
-    NavMenuProps
+    SimpleMenuProps
 } from "$lib/components/core/nav/data/nav-menu";
 
 import type {
@@ -139,6 +139,7 @@ import type { NegoDesignProps } from "$lib/components/types";
 import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/grid/promotion/types";
 import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
+import type { ComplexMenuProps } from "$lib/components/core/nav/ui/shared/types";
 
 
 export type {
@@ -148,8 +149,10 @@ export type {
     NavMenuLogoProps,
     /** Props de um item de ação (botão ou link) no menu de navegação. @see NavMenuActionsProps */
     NavMenuActionsProps,
-    /** Props do componente NavMenu — barra de navegação principal. @see NavMenuProps */
-    NavMenuProps,
+    /** Props do componente NavMenu — barra de navegação principal. @see SimpleMenuProps */
+    SimpleMenuProps,
+    /** Props do componente NavMenu — barra de navegação complexa. @see ComplexMenuProps */
+    ComplexMenuProps,
 
     /** Item de menu principal da sidebar. @see NavMenuSidebarProps */
     NavMenuSidebarProps,
