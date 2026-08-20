@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { CarouselHeroItem, CarouselHeroProps } from "../types";
   import type { Snippet } from "svelte";
-  import NavbarMenu from "../../nav/ui/NavbarMenu.svelte";
+  import Menu from "../../nav/ui/Menu.svelte";
 
   let {
     items,
@@ -108,7 +108,7 @@
     ></div>
 
     <div class="relative z-10 w-full flex flex-col items-center flex-1">
-      <NavbarMenu {navMenu} />
+      <Menu {navMenu} />
 
       <section
         class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4 {sectionClass}"

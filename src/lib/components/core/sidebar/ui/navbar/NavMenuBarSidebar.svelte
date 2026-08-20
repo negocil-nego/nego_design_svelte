@@ -8,7 +8,7 @@
     NavMenuAndSubmenuSidebarProps,
     NavMenuItem,
     NavMenuSidebarProps,
-  } from "$lib/components/core/nav/data/nav-menu-sidebar";
+  } from "$lib/components/core/sidebar/data/nav-menu-sidebar";
 
   let {
     items,

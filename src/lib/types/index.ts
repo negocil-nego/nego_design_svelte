@@ -39,9 +39,9 @@ import type {
     GroupMenuSidebarProps,
     SubMenuSidebarProps,
     NavMenuItem
-} from "$lib/components/core/nav/data/nav-menu-sidebar";
+} from "$lib/components/core/sidebar/data/nav-menu-sidebar";
 
-import type { NavUserSidebarProps } from "$lib/components/core/nav/data/nav-user-sidebar";
+import type { NavUserSidebarProps } from "$lib/components/core/sidebar/data/nav-user-sidebar";
 
 import type {
     CardMediaProps,
@@ -139,7 +139,7 @@ import type { NegoDesignProps } from "$lib/components/types";
 import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/grid/promotion/types";
 import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
-import type { ComplexMenuProps } from "$lib/components/core/nav/ui/shared/types";
+import type { ComplexMenuProps } from "$lib/components/core/nav/data/types";
 
 
 export type {

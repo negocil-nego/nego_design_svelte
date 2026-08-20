@@ -1,12 +1,12 @@
 <script lang="ts">
+  import NotFoundEmpty from "$lib/components/core/panel/NotFoundEmpty.svelte";
   import CarouselGridSlot from "../../shared/ui/CarouselGridSlot.svelte";
   import CarouselHeader from "../../../shared/ui/CarouselHeader.svelte";
-  import NotFoundEmpty from "$lib/components/core/panel/NotFoundEmpty.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
-  import { useDevice } from "$lib/hooks/responsive.svelte";
-  import { t } from "$lib/i18n";
   import CardProduct from "$lib/components/core/card/product/CardProduct.svelte";
   import type { CarouselGridProductProps } from "../types";
+  import { useDevice } from "$lib/hooks/responsive.svelte";
+  import { t } from "$lib/i18n";
 
   const {
     headerProps,

@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import type { NavigationMenuItemProps } from "./types";
+  import type { NavigationMenuItemProps } from "../../../data/types";
   import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
 
   let { label, href }: NavigationMenuItemProps = $props();

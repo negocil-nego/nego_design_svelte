@@ -1,9 +1,9 @@
 import type { Snippet } from "svelte";
-import type { NavUserSidebarProps } from "../nav/data/nav-user-sidebar";
+import type { NavUserSidebarProps } from "./data/nav-user-sidebar";
 import type {
     NavMenuItem,
     NavMenuSidebarProps,
-} from "../nav/data/nav-menu-sidebar";
+} from "./data/nav-menu-sidebar";
 
 /**
  * Props do componente MenuBarSidebar — sidebar de navegação admin

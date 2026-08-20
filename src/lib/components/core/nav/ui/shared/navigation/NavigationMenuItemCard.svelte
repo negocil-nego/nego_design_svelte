@@ -1,7 +1,7 @@
 <script lang="ts">
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import type { NavigationMenuItemCardProps } from "./types";
-  import MenuListItem from "./MenuListItem.svelte";
+  import type { NavigationMenuItemCardProps } from "../../../data/types";
+  import MenuListItem from "../MenuListItem.svelte";
 
   let { label, header, cards: items }: NavigationMenuItemCardProps = $props();
 </script>

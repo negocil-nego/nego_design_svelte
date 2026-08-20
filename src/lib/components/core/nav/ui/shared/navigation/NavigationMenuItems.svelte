@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import type { NavigationMenuItemsProps } from "./types";
+  import type { NavigationMenuItemsProps } from "../../../data/types";
 
   let { label, items }: NavigationMenuItemsProps = $props();
 </script>

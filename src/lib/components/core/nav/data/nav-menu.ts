@@ -3,6 +3,19 @@ import type { IconSvgElement } from "@hugeicons/svelte"
 /**
  * Props do logotipo no NavMenu.
  */
+export interface NavMenuButtonProps {
+    buttonClass?: string
+    textButtonLogin?: string
+    textButtonRegister?: string
+    /** Callback ao clicar no botão Login */
+    onclickButtonLogin?: () => void
+    /** Callback ao clicar no botão Registar */
+    onclickButtonRegister?: () => void
+}
+
+/**
+ * Props do logotipo no NavMenu.
+ */
 export interface NavMenuLogoProps {
     /** URL da imagem do logotipo */
     img?: string
@@ -53,11 +66,7 @@ export interface NavMenuActionsProps {
     onclick?: () => void
 }
 
-/**
- * Props do componente NavMenu — barra de navegação principal
- * com logo, links, ações (login/registo), language switcher e light switch.
- */
-export interface SimpleMenuProps {
+export type IMenuProps = {
     /** Key nav menu */
     menuKey?: string
     /** Key CSS nav menu */
@@ -72,18 +81,17 @@ export interface SimpleMenuProps {
     buttonClass?: string
     /** Configuração do logotipo */
     logo?: NavMenuLogoProps
-    /** Lista de links de navegação */
-    links: NavMenuLinksProps[]
     /** Lista de ações (ex: Login, Registar) */
     actions?: NavMenuActionsProps[]
     /** Alinhamento dos links e das ações */
     align?: 'LINK_SEPARATED_ACTIONS' | 'LINK_INTO_ACTIONS'
-    /** Exibe o interruptor de tema (claro/escuro) */
-    isLightSwitch?: boolean
-    /** Exibe o seletor de idioma */
-    isLanguageSwitcher?: boolean
-    /** Callback ao clicar no botão Login */
-    onclickButtonLogin?: () => void
-    /** Callback ao clicar no botão Registar */
-    onclickButtonRegister?: () => void
+}
+
+/**
+ * Props do componente NavMenu — barra de navegação principal
+ * com logo, links, ações (login/registo), language switcher e light switch.
+ */
+export interface SimpleMenuProps extends IMenuProps {
+    /** Lista de links de navegação */
+    links: NavMenuLinksProps[]
 }

@@ -1,7 +1,7 @@
 <script lang="ts">
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
-  import type { NavigationMenuItemGridProps } from "./types";
-  import MenuListItem from "./MenuListItem.svelte";
+  import type { NavigationMenuItemGridProps } from "../../../data/types";
+  import MenuListItem from "../MenuListItem.svelte";
 
   let { label, grids: items }: NavigationMenuItemGridProps = $props();
 

@@ -6,7 +6,7 @@
   import type {
     NavMenuItem,
     NavMenuSidebarProps,
-  } from "../nav/data/nav-menu-sidebar";
+  } from "./data/nav-menu-sidebar";
   import type { Snippet } from "svelte";
   import NavMenuTopBarSidebar from "./ui/navbar/NavMenuTopBarSidebar.svelte";
   import NavMenuBottomSidebar from "./ui/navbar/NavMenuBottomSidebar.svelte";

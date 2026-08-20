@@ -32,12 +32,11 @@ import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.
 import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
 
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
-import Menu from "$lib/components/core/nav/ui/ComplexMenu.svelte";
+import Menu from "$lib/components/core/nav/ui/Menu.svelte";
 
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import Footer from "$lib/components/core/footer/ui/Footer.svelte";
-import NavMenu from "./components/core/nav/ui/SimpleMenu.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
@@ -62,13 +61,6 @@ export {
      * @property {Snippet} children - Conteúdo da aplicação
      */
     NegoDesign,
-
-    /**
-     * Barra de navegação principal com logo, links, ações (login/registo),
-     * language switcher e light switch integrados.
-     * @see NavMenuProps
-     */
-    NavMenu,
 
     /**
      * Banner de anúncio com faixa lateral colorida, título destacado e botão CTA.
