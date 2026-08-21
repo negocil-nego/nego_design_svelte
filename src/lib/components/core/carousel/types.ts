@@ -1,6 +1,7 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
-import type { SimpleMenuProps } from "../nav/data/nav-menu";
-import type { MenuProps } from "$lib/types";
+
+export type { CarouselBadgeProps } from "./badge/type";
+export type { CarouselHeroItem, CarouselHeroProps } from "./hero/types";
 
 /**
  * Item individual do CarouselBadge — categoria/opção com ícone,
@@ -44,62 +45,4 @@ export interface CarouselHeaderProps {
     positionButtonPreviousAndNext?: "center" | "top_right";
     /** Exibe borda inferior no header */
     isBorder?: boolean;
-}
-
-/**
- * Props do CarouselBadge — carousel de badges/categorias
- * com orientação horizontal ou vertical.
- */
-export interface CarouselBadgeProps {
-    /** Lista de itens do carousel de badges */
-    items: ItemCarousel[]
-    /** Orientação do layout: horizontal (padrão) ou vertical */
-    orientation?: "horizontal" | "vertical",
-    /** Classe CSS personalizada para a imagem */
-    imageClass?: string,
-    /** Classe CSS personalizada para o ícone */
-    iconClass?: string,
-    /** Classe CSS personalizada para o label */
-    labelClass?: string,
-    /** Classe CSS personalizada para o estado ativo */
-    activeClass?: string,
-    /** Estado de carregamento (skeleton) */
-    isLoading?: boolean,
-    itemClass?: string,
-    btnNavClass?: string,
-    isBorderInline?: boolean,
-    showButton?: boolean
-    itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
-    onClick?: (value: string | number) => void,
-}
-
-/**
- * Item individual do CarouselHero — slide com imagem,
- * título e descrição.
- */
-export interface CarouselHeroItem {
-    /** Título do slide hero */
-    title: string,
-    /** URL da imagem de fundo do slide */
-    image: string,
-    /** Descrição do slide */
-    description: string,
-}
-
-/**
- * Props do CarouselHero — carousel hero principal (ex: página de login)
- * com slides em fullscreen e menu de navegação sobreposto.
- */
-export interface CarouselHeroProps {
-    /** Lista de slides do hero */
-    items: CarouselHeroItem[],
-    /** Configuração do menu de navegação sobreposto */
-    navMenu: SimpleMenuProps | MenuProps,
-    /** Classe CSS adicional para o container */
-    className?: string
-    /** Classe CSS personalizada para o título */
-    titleClass?: string
-    /** Classe CSS personalizada para a descrição */
-    descriptionClass?: string
-    sectionClass?: string
 }

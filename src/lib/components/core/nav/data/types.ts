@@ -45,7 +45,8 @@ export type NavigationMenuItemsProps = {
 }
 
 export type ComplexMenuProps = IMenuProps & {
-    menus: (NavigationMenuItemProps | NavigationMenuItemListProps | NavigationMenuItemCardProps | NavigationMenuItemGridProps | NavigationMenuItemsProps)[]
+    menus: (NavigationMenuItemProps | NavigationMenuItemListProps | NavigationMenuItemCardProps | NavigationMenuItemGridProps | NavigationMenuItemsProps)[];
+    textClass?: string;
 }
 
 export type MenuVarientProps = ComplexMenuProps | SimpleMenuProps;

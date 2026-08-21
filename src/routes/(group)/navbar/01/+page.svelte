@@ -39,9 +39,8 @@
 </div>
 <div class="relative">
   <CarouselBadge
-    buttonPreviousAndNextClass="bg-[#00b627] text-white dark:bg-black dark:text-white"
+    btnNavClass="bg-[#00b627] text-white dark:bg-black dark:text-white"
     orientation="vertical"
-    isBorderItem={false}
     iconClass="size-6"
     items={[
       { label: "Todos", value: "hospegadem", icon: DashboardCircleIcon },

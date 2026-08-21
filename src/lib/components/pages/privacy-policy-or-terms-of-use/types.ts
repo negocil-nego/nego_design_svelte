@@ -59,3 +59,6 @@ export interface PrivacyPolicyOrTermsOfUseProps {
     isVisibleMenuLeft?: boolean;
     isVisibleMenuRight?: boolean;
 }
+
+/** Alias de PrivacyPolicyOrTermsOfUseProps — dados completos da página de documentação. */
+export type DocPageData = PrivacyPolicyOrTermsOfUseProps;

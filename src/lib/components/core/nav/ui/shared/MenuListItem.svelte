@@ -1,7 +1,7 @@
 <script lang="ts">
   import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
   import { cn } from "$lib/utils";
-  import type { ListItemProps } from "../../../data/types";
+  import type { ListItemProps } from "../../data/types";
   let {
     title,
     content,

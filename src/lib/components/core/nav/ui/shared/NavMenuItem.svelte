@@ -1,0 +1,28 @@
+<script lang="ts">
+  import type { ListItemProps } from "../../data/types";
+
+  let { title, content, href, icon }: ListItemProps = $props();
+</script>
+
+<li>
+  <a
+    {href}
+    class="block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+  >
+    {#if icon}
+      <div class="flex items-center gap-1">
+        <div>
+          <i class={`${icon} size-8 md:size-10`}></i>
+        </div>
+        <div class="-mt-1">
+          <div class="leading-none font-medium">{title}</div>
+        </div>
+      </div>
+    {:else}
+      <div class="leading-none font-medium">{title}</div>
+    {/if}
+    <p class="line-clamp-2 text-sm leading-snug text-muted-foreground">
+      {content}
+    </p>
+  </a>
+</li>

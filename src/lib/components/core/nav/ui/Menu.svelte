@@ -8,10 +8,8 @@
   import SimpleMenuMobile from "./mobile/SimpleMenuMobile.svelte";
   import MenuButton from "./shared/MenuButton.svelte";
   import MenuLogo from "./shared/MenuLogo.svelte";
-  import type { MenuProps } from "../data/types";
+  import type { MenuProps, MenuVarientProps } from "../data/types";
   import SimpleMenu from "./SimpleMenu.svelte";
-
-  type MenuItemSlots = ComplexMenuProps | SimpleMenuProps;
 
   let {
     logo,
@@ -22,11 +20,11 @@
     isLanguageSwitcher,
   }: MenuProps = $props();
 
-  function isLinks(item: MenuItemSlots): item is SimpleMenuProps {
+  function isLinks(item: MenuVarientProps): item is SimpleMenuProps {
     return "links" in item;
   }
 
-  function isMenu(item: MenuItemSlots): item is ComplexMenuProps {
+  function isMenu(item: MenuVarientProps): item is ComplexMenuProps {
     return "menus" in item;
   }
 

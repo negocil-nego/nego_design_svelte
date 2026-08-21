@@ -1,7 +1,7 @@
 <script lang="ts">
-  import type { CarouselHeroItem, CarouselHeroProps } from "../types";
   import type { Snippet } from "svelte";
-  import Menu from "../../nav/ui/Menu.svelte";
+  import Menu from "../../../nav/ui/Menu.svelte";
+  import type { CarouselHeroItem, CarouselHeroProps } from "../types";
 
   let {
     items,
@@ -21,7 +21,8 @@
     indicatorShow?: boolean;
   } = $props();
 
-  let layers = $state<[string, string]>([items?.[0]?.image ?? "", ""]);
+  const initialImage = $derived(items?.[0]?.image ?? "");
+  let layers = $state<[string, string]>(["", ""]);
   let active = $state<0 | 1>(0);
   let index = $state(0);
   let switching = false;
@@ -88,12 +89,13 @@
     class="w-full relative flex flex-col justify-center items-center h-75 md:h-100 overflow-hidden {className}"
   >
     {#each layers as bg, i (`layer-${i}`)}
+      {@const src = bg || (i === 0 ? initialImage : "")}
       <div
         style="
     position: absolute;
     inset: 0;
     will-change: opacity;
-    background-image: {bg ? `url(${bg})` : 'none'};
+    background-image: {src ? `url(${src})` : 'none'};
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

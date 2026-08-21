@@ -2,7 +2,7 @@
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 	import { useSidebar } from "$lib/components/ui/sidebar/index.js";
-	import type { NavTopBarSidebarItem } from "../../../nav/data/nav-top-bar-sidebar";
+	import type { NavTopBarSidebarItem } from "../../data/nav-top-bar-sidebar";
 	import { HugeiconsIcon } from "@hugeicons/svelte";
 	import { UnfoldMoreIcon } from "@hugeicons/core-free-icons";
 

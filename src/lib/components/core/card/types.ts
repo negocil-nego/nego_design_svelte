@@ -93,10 +93,14 @@ export interface CardProfileProps {
     isTagBorderBottom?: boolean;
     /** Classe CSS personalizada para botão de perfil */
     buttonProfileClass?: string;
+    /** Classe CSS personalizada para o botão de detalhes */
+    buttonDetailsClass?: string;
     /** Callback ao clicar no botão favorito */
     onFavoriteClick?: (id: string | number) => void;
     /** Callback ao clicar no botão perfil */
     onButtonProfile?: (id: string | number) => void;
+    /** Callback acionado ao clicar no botão de detalhes */
+    onButtonDetails?: (id: string | number) => void;
     /** Callback ao clicar no botão email */
     onEmailClick?: (id: string | number) => void;
     /** Callback ao clicar no botão whatsapp */

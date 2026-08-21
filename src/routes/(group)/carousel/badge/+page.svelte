@@ -12,7 +12,7 @@
   <CarouselBadge
     orientation="horizontal"
     iconClass="size-6"
-    onClick={(value) => console.log(value)}
+    onClick={(value: string | number) => console.log(value)}
     items={[
       {
         label: "Todos",

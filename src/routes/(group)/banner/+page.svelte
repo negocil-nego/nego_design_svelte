@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { NotificationBanner } from "negodesign";
+  import { NotificationBanner } from "$lib";
 </script>
 
 <div class="flex flex-col gap-4">

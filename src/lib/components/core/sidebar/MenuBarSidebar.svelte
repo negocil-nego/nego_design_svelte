@@ -2,7 +2,7 @@
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import type { ComponentProps } from "svelte";
 
-  import type { NavUserSidebarProps } from "../nav/data/nav-user-sidebar";
+  import type { NavUserSidebarProps } from "./data/nav-user-sidebar";
   import type {
     NavMenuItem,
     NavMenuSidebarProps,

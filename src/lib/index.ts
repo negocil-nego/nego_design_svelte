@@ -29,7 +29,7 @@ import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/Caro
 import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/CarouselGridMedia.svelte";
 import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
 import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
-import CarouselHero from "$lib/components/core/carousel/hero/CarouselHero.svelte";
+import CarouselHero from "$lib/components/core/carousel/hero/ui/CarouselHero.svelte";
 
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
 import Menu from "$lib/components/core/nav/ui/Menu.svelte";

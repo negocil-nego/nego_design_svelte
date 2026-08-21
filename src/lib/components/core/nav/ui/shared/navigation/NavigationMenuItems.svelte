@@ -5,7 +5,7 @@
   let { label, items }: NavigationMenuItemsProps = $props();
 </script>
 
-<NavigationMenu.Item class="hidden md:block">
+<NavigationMenu.Item class="hidden md:block relative">
   <NavigationMenu.Trigger>{label}</NavigationMenu.Trigger>
   <NavigationMenu.Content>
     <ul class="grid min-w-50 gap-4 p-1 md:p-2">
