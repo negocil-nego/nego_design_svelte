@@ -4,19 +4,24 @@
   import type { CarouselSlotProps } from "../../../../panel/type";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import Autoplay from "embla-carousel-autoplay";
+  import type { SimpleGridProps } from "$lib/components/core/grid/data/types";
+  import SimpleGrid from "$lib/components/core/grid/ui/SimpleGrid.svelte";
 
   type Props = {
     slotProps?: CarouselSlotProps;
-    totalItems: number;
+    gridProps?: SimpleGridProps;
     gridClass?: string;
     children: Snippet;
   };
 
-  const { slotProps, totalItems, gridClass, children }: Props = $props();
+  const { slotProps, gridProps, gridClass, children }: Props = $props();
 
   const responsive = useDevice();
 </script>
 
+{#if gridProps}
+  <SimpleGrid {...gridProps} />
+{/if}
 {#if responsive.isMobile}
   <CarouselSlot
     {...slotProps}

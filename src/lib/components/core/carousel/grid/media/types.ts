@@ -8,11 +8,12 @@ import type { CarouselHeaderProps } from "../../types";
  * (imagens/vídeos). Em telas mobile o grid vira carousel com swipe.
  */
 export interface CarouselGridMediaProps {
-    gridSimple?: SimpleGridProps,
     /** Props do cabeçalho do carousel (título, descrição, etc.) */
     headerProps?: CarouselHeaderProps;
     /** Props do slot/container do carousel (botões navegação, plugins) */
     slotProps?: CarouselSlotProps;
+    /** Props do grid simples */
+    gridProps?: SimpleGridProps;
     /** Classe CSS adicional para o container do grid */
     gridClass?: string;
     /** Exibe ícone antes da descrição */

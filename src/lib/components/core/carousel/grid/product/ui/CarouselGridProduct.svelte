@@ -11,6 +11,7 @@
   const {
     headerProps,
     slotProps,
+    gridProps,
     gridClass = "lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6",
     items,
     variant,
@@ -33,7 +34,7 @@
       description={$t("empty.products.description")}
     />
   {:else}
-    <CarouselGridSlot {slotProps} {gridClass} totalItems={items?.length ?? 0}>
+    <CarouselGridSlot {slotProps} {gridClass} {gridProps}>
       {#if isLoading}
         {#each Array.from( { length: responsive.isMobile ? 3 : 6 }, ) as _, i (`loading-${i}`)}
           {#if responsive.isMobile}

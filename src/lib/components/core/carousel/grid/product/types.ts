@@ -1,4 +1,5 @@
 import type { CardProductProps } from "$lib/components/core/card/types";
+import type { SimpleGridProps } from "$lib/components/core/grid/data/types";
 import type { CarouselSlotProps } from "$lib/components/core/panel/type";
 import type { CarouselHeaderProps } from "../../types";
 
@@ -10,6 +11,8 @@ export interface CarouselGridProductProps {
     headerProps?: CarouselHeaderProps;
     /** Props do slot/container do carousel (botões navegação, plugins) */
     slotProps?: CarouselSlotProps;
+    /** Props do grid simples */
+    gridProps?: SimpleGridProps;
     /** Classe CSS adicional para o container do grid */
     gridClass?: string;
     /** Variante visual do card: 1 ou 2 */
