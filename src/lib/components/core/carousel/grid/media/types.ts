@@ -1,4 +1,5 @@
 import type { CardMediaProps } from "$lib/components/core/card/types";
+import type { SimpleGridProps } from "$lib/components/core/grid/data/types";
 import type { CarouselSlotProps } from "$lib/components/core/panel/type";
 import type { CarouselHeaderProps } from "../../types";
 
@@ -7,6 +8,7 @@ import type { CarouselHeaderProps } from "../../types";
  * (imagens/vídeos). Em telas mobile o grid vira carousel com swipe.
  */
 export interface CarouselGridMediaProps {
+    gridSimple?: SimpleGridProps,
     /** Props do cabeçalho do carousel (título, descrição, etc.) */
     headerProps?: CarouselHeaderProps;
     /** Props do slot/container do carousel (botões navegação, plugins) */
