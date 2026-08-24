@@ -140,9 +140,10 @@ import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/g
 import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
 import type { ComplexMenuProps } from "$lib/components/core/nav/data/types";
-
+import type { GridProps } from "$lib/components/core/grid/data/types";
 
 export type {
+    GridProps,
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */
     NavMenuLinksProps,
     /** Props do logotipo no NavMenu. @see NavMenuLogoProps */

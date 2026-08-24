@@ -5,11 +5,10 @@
     PhoneCall,
     TestTube02Icon,
   } from "@hugeicons/core-free-icons";
-  import SimpleGrid from "$lib/components/core/grid/ui/SimpleGrid.svelte";
+  import PanelGrid from "$lib/components/core/grid/ui/PanelGrid.svelte";
 </script>
 
-<SimpleGrid
-  isLoading
+<PanelGrid
   items={[
     {
       icon: Coffee03Icon,
