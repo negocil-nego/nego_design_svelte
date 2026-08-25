@@ -18,7 +18,9 @@
     navMenuButton,
     isLightSwitch,
     isLanguageSwitcher,
-  }: MenuProps = $props();
+  }: MenuProps & {
+    navMenu: MenuVarientProps;
+  } = $props();
 
   function isLinks(item: MenuVarientProps): item is SimpleMenuProps {
     return "links" in item;

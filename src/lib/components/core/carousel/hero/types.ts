@@ -1,4 +1,5 @@
-import type { MenuVarientProps } from "../../nav/data/types"
+import type { SimpleMenuProps } from "$lib/types"
+import type { ComplexMenuProps, MenuProps, MenuVarientProps } from "../../nav/data/types"
 
 
 
@@ -23,7 +24,9 @@ export interface CarouselHeroProps {
     /** Lista de slides do hero */
     items: CarouselHeroItem[],
     /** Configuração do menu de navegação sobreposto */
-    navMenu: MenuVarientProps,
+    complexMenu?: ComplexMenuProps,
+    simpleMenu?: SimpleMenuProps,
+    menusProps?: MenuProps,
     /** Classe CSS adicional para o container */
     className?: string
     /** Classe CSS personalizada para o título */

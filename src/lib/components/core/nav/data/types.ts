@@ -53,7 +53,6 @@ export type MenuVarientProps = ComplexMenuProps | SimpleMenuProps;
 
 export type MenuProps = IMenuProps & {
     logo?: NavMenuLogoProps
-    navMenu: MenuVarientProps
     navMenuButton?: NavMenuButtonProps
     isBorder?: boolean
     /** Exibe o interruptor de tema (claro/escuro) */

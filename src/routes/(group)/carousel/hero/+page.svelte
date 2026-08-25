@@ -38,7 +38,7 @@
         "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1600&q=80",
     },
   ]}
-  navMenu={{
+  simpleMenu={{
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     linkClass: "text-white",
     links: [

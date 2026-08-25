@@ -23,6 +23,7 @@ export interface CarouselBadgeProps {
     btnNavClass?: string,
     isBorderInline?: boolean,
     showButton?: boolean
+    menuKey?: string
     itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
     onClick?: (value: string | number) => void,
 }

@@ -11,7 +11,7 @@
 <CarouselHero
   titleClass="md:text-2xl lg:text-4px md:my-2 mt-3"
   descriptionClass="text-xs md:text-lg md:w-3/5 mt-4 mb-2 text-white"
-  navMenu={{
+  simpleMenu={{
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     navClass: "w-11/12 mt-3 mb-5",
     linkClass: "text-white",

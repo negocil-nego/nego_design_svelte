@@ -18,6 +18,7 @@
     isLoading = false,
     btnNavClass,
     itemClass,
+    menuKey,
     onClick,
   }: CarouselBadgeProps = $props();
 
@@ -31,7 +32,7 @@
   const responsive = useDevice();
   const skeletonCount = $derived(responsive.isMobile ? 2 : 8);
 
-  let selectedValue = $state<unknown>(undefined);
+  let selectedValue = $state<string | undefined>(menuKey ?? "");
 
   function isSelected(item: (typeof items)[number]) {
     return item.value !== undefined && item.value === selectedValue;

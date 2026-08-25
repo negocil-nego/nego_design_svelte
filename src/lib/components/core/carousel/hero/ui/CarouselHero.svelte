@@ -2,10 +2,14 @@
   import type { Snippet } from "svelte";
   import Menu from "../../../nav/ui/Menu.svelte";
   import type { CarouselHeroItem, CarouselHeroProps } from "../types";
+  import SimpleMenu from "$lib/components/core/nav/ui/SimpleMenu.svelte";
+  import ComplexMenu from "$lib/components/core/nav/ui/ComplexMenu.svelte";
 
   let {
     items,
-    navMenu,
+    menusProps,
+    simpleMenu,
+    complexMenu,
     children,
     className,
     titleClass,
@@ -110,7 +114,21 @@
     ></div>
 
     <div class="relative z-10 w-full flex flex-col items-center flex-1">
-      <Menu {navMenu} />
+      {#if menusProps}
+        {#if simpleMenu}
+          <Menu navMenu={simpleMenu} {...menusProps} />
+        {/if}
+        {#if complexMenu}
+          <Menu navMenu={complexMenu} {...menusProps} />
+        {/if}
+      {:else}
+        {#if simpleMenu}
+          <SimpleMenu {...simpleMenu} />
+        {/if}
+        {#if complexMenu}
+          <ComplexMenu {...complexMenu} />
+        {/if}
+      {/if}
 
       <section
         class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4 {sectionClass}"
