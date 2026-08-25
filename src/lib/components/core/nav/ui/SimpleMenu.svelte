@@ -6,7 +6,7 @@
 </script>
 
 {#if restProps.align === "LINK_INTO_ACTIONS"}
-  <div class="flex items-center gap-2">
+  <div class="flex items-center gap-2 w-full">
     <MenuLinks {...restProps} orientation="vertical" />
   </div>
 {:else}

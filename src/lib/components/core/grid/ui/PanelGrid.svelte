@@ -17,11 +17,21 @@
     : 'grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 max-h-237.5 overflow-y-auto'} 
     {className}"
 >
-  {#each items as item, i (i)}
-    {#if variant == 2}
-      <Grid02 {...item} {onClick} {isLoading} />
-    {:else}
-      <Grid01 {...item} {onClick} {isLoading} />
-    {/if}
-  {/each}
+  {#if isLoading}
+    {#each Array.from({ length: responsive.isMobile ? 3 : 10 }) as it, i (i)}
+      {#if variant == 2}
+        <Grid02 title={`${it}`} description="" icon="" {isLoading} />
+      {:else}
+        <Grid01 title={`${it}`} description="" icon="" {isLoading} />
+      {/if}
+    {/each}
+  {:else}
+    {#each items as item, i (i)}
+      {#if variant == 2}
+        <Grid02 {...item} {onClick} />
+      {:else}
+        <Grid01 {...item} {onClick} />
+      {/if}
+    {/each}
+  {/if}
 </div>

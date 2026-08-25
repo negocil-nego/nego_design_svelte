@@ -9,6 +9,7 @@
         icon,
         title,
         isLoading,
+        iconClass,
         titleClass,
         description,
         descriptionClass,
@@ -20,9 +21,9 @@
     onclick={() => {
         if (id && onClick) onClick(id);
     }}
-    class="flex flex-col justify-center items-center gap-2"
+    class="flex flex-col justify-center items-center gap-2 hover:bg-primary/30 rounded-xl"
 >
-    <IconRenderGrid {icon} {isLoading} />
+    <IconRenderGrid {icon} {iconClass} {isLoading} />
     <TitleGrid {titleClass} {title} {isLoading} />
     <DescriptionGrid {descriptionClass} {description} {isLoading} />
 </button>

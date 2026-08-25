@@ -5,6 +5,7 @@ export interface ItemGridProps {
     title: string;
     isLoading?: boolean;
     description?: string;
+    iconClass?: string;
     titleClass?: string;
     descriptionClass?: string;
     icon: string | IconSvgElement;

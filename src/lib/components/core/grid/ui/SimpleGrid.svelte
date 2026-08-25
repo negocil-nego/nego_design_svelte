@@ -4,7 +4,7 @@
   import Grid02 from "./02/Grid02.svelte";
   import Grid01 from "./01/Grid01.svelte";
 
-  let { variant, className, isLoading, items }: GridProps = $props();
+  let { variant, className, isLoading, onClick, items }: GridProps = $props();
 
   const styleMobile = "flex justify-between overflow-x-auto no-scrollbar";
 
@@ -25,11 +25,21 @@
 <div
   class="{responsive.isMobile ? styleMobile : cols()} gap-4 my-2 {className}"
 >
-  {#each items as item, i (i)}
-    {#if variant == 2}
-      <Grid02 {...item} {isLoading} />
-    {:else}
-      <Grid01 {...item} {isLoading} />
-    {/if}
-  {/each}
+  {#if isLoading}
+    {#each Array.from({ length: responsive.isMobile ? 3 : 10 }) as it, i (i)}
+      {#if variant == 2}
+        <Grid02 title={`${it}`} description="" icon="" {isLoading} />
+      {:else}
+        <Grid01 title={`${it}`} description="" icon="" {isLoading} />
+      {/if}
+    {/each}
+  {:else}
+    {#each items as item, i (i)}
+      {#if variant == 2}
+        <Grid02 {...item} {onClick} />
+      {:else}
+        <Grid01 {...item} {onClick} />
+      {/if}
+    {/each}
+  {/if}
 </div>

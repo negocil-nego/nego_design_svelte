@@ -46,7 +46,7 @@
 {/snippet}
 
 <nav
-  class="flex items-center justify-between p-2 md:p-5 {isBorder
+  class="flex items-center justify-between p-2 md:p-5 w-full {isBorder
     ? 'border-b-2'
     : ''}"
 >
