@@ -20,7 +20,7 @@
   {#if items}
     {@const gridCols = cols()}
     <DropdownMenu.SubContent>
-      <ul class={`grid w-75 gap-2 p-2 sm:w-100 md:w-125 ${gridCols}`}>
+      <ul class={`grid w-75 gap-2 p-2 sm:w-100 md:w-125  ${gridCols}`}>
         {#each items as item, i (i)}
           <DropdownMenuListItem {...item} />
         {/each}

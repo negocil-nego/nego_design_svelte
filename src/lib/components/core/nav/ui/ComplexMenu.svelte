@@ -1,5 +1,4 @@
 <script lang="ts">
-  import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
   import type { ComplexMenuProps } from "../data/types";
   import {
     isCard,
@@ -14,23 +13,23 @@
   import NavigationMenuItemList from "./shared/navigation/NavigationMenuItemList.svelte";
   import NavigationMenuItems from "./shared/navigation/NavigationMenuItems.svelte";
 
-  let { menus: links, textClass }: ComplexMenuProps = $props();
+  let { menus: links, textClass, subTextClass }: ComplexMenuProps = $props();
 </script>
 
-<NavigationMenu.Root viewport={true}>
-  <NavigationMenu.List class="flex-wrap {textClass}">
-    {#each links as link, i (i)}
-      {#if isCard(link)}
-        <NavigationMenuItemCard {...link} />
-      {:else if isGrid(link)}
-        <NavigationMenuItemGrid {...link} />
-      {:else if isList(link)}
-        <NavigationMenuItemList {...link} />
-      {:else if isItems(link)}
-        <NavigationMenuItems {...link} />
-      {:else if isItem(link)}
-        <NavigationMenuItem {...link} />
-      {/if}
-    {/each}
-  </NavigationMenu.List>
-</NavigationMenu.Root>
+<ul
+  class="flex list-none flex-1 flex-wrap items-center justify-center {textClass}"
+>
+  {#each links as link, i (i)}
+    {#if isCard(link)}
+      <NavigationMenuItemCard {...link} {textClass} {subTextClass} />
+    {:else if isGrid(link)}
+      <NavigationMenuItemGrid {...link} {textClass} {subTextClass} />
+    {:else if isList(link)}
+      <NavigationMenuItemList {...link} {textClass} {subTextClass} />
+    {:else if isItems(link)}
+      <NavigationMenuItems {...link} {textClass} />
+    {:else if isItem(link)}
+      <NavigationMenuItem {...link} {textClass} />
+    {/if}
+  {/each}
+</ul>

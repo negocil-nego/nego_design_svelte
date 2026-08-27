@@ -11,10 +11,13 @@ export type ListItemProps = HTMLAttributes<HTMLAnchorElement> & {
 export type NavigationMenuItemProps = {
     label: string;
     href?: string;
+    textClass?: string;
 }
 
 export type NavigationMenuItemCardProps = {
     label?: string;
+    textClass?: string;
+    subTextClass?: string;
     header?: {
         label: string;
         description: string;
@@ -28,16 +31,21 @@ export type NavigationMenuItemCardProps = {
 
 export type NavigationMenuItemGridProps = {
     label: string;
+    textClass?: string;
+    subTextClass?: string;
     grids?: ListItemProps[];
 }
 
 export type NavigationMenuItemListProps = {
     label: string;
+    textClass?: string;
+    subTextClass?: string;
     list?: ListItemProps[];
 }
 
 export type NavigationMenuItemsProps = {
     label: string;
+    textClass?: string;
     items?: {
         title: string;
         href: string;
@@ -47,6 +55,7 @@ export type NavigationMenuItemsProps = {
 export type ComplexMenuProps = IMenuProps & {
     menus: (NavigationMenuItemProps | NavigationMenuItemListProps | NavigationMenuItemCardProps | NavigationMenuItemGridProps | NavigationMenuItemsProps)[];
     textClass?: string;
+    subTextClass?: string;
 }
 
 export type MenuVarientProps = ComplexMenuProps | SimpleMenuProps;

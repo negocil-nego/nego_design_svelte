@@ -1,15 +1,14 @@
 <script lang="ts">
-  import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
   import type { NavigationMenuItemProps } from "../../../data/types";
-  import { navigationMenuTriggerStyle } from "$lib/components/ui/navigation-menu/navigation-menu-trigger.svelte";
 
-  let { label, href }: NavigationMenuItemProps = $props();
+  let { label, href, textClass }: NavigationMenuItemProps = $props();
 </script>
 
-<NavigationMenu.Item>
-  <NavigationMenu.Link>
-    {#snippet child()}
-      <a {href} class={navigationMenuTriggerStyle()}>{label}</a>
-    {/snippet}
-  </NavigationMenu.Link>
-</NavigationMenu.Item>
+<li>
+  <a
+    {href}
+    class="inline-flex h-9 w-max items-center justify-center rounded-2xl px-4.5 py-2.5 text-sm font-medium transition-all outline-none select-none hover:bg-muted focus:bg-muted focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 {textClass}"
+  >
+    {label}
+  </a>
+</li>

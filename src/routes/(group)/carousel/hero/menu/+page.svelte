@@ -1,10 +1,5 @@
 <script>
   import { CarouselHero } from "$lib";
-  import {
-    AirplaneTakeOff02Icon,
-    ConversationIcon,
-    Hotel01Icon,
-  } from "@hugeicons/core-free-icons";
 </script>
 
 <CarouselHero
@@ -39,6 +34,7 @@
     },
   ]}
   complexMenu={{
+    textClass: "text-white hover:tex-black",
     menus: [
       {
         label: "Inicio",

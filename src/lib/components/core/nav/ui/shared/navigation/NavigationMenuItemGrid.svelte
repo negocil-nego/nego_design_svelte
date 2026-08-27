@@ -1,9 +1,14 @@
 <script lang="ts">
-  import * as NavigationMenu from "$lib/components/ui/navigation-menu/index.js";
   import type { NavigationMenuItemGridProps } from "../../../data/types";
   import MenuListItem from "../MenuListItem.svelte";
+  import NavDropdown from "./NavDropdown.svelte";
 
-  let { label, grids: items }: NavigationMenuItemGridProps = $props();
+  let {
+    label,
+    grids: items,
+    textClass,
+    subTextClass,
+  }: NavigationMenuItemGridProps = $props();
 
   const cols = (): string => {
     const len = items?.length ?? 0;
@@ -13,20 +18,18 @@
     if (len % 2 == 0) return "md:grid-cols-2";
     return "grid-cols-1";
   };
+
+  const gridCols = $derived(cols());
 </script>
 
-<NavigationMenu.Item>
-  <NavigationMenu.Trigger>{label}</NavigationMenu.Trigger>
+<NavDropdown {label}>
   {#if items}
-    {@const gridCols = cols()}
-    <NavigationMenu.Content>
-      <ul
-        class={`grid w-75 gap-2 p-2 sm:w-100 md:w-125 ${gridCols} lg:min-w-150`}
-      >
-        {#each items as item, i (i)}
-          <MenuListItem {...item} />
-        {/each}
-      </ul>
-    </NavigationMenu.Content>
+    <ul
+      class={`grid w-75 gap-2 p-2 sm:w-100 md:w-125 lg:min-w-150 max-h-75 overflow-y-auto ${gridCols}`}
+    >
+      {#each items as item, i (i)}
+        <MenuListItem {...item} {textClass} {subTextClass} />
+      {/each}
+    </ul>
   {/if}
-</NavigationMenu.Item>
+</NavDropdown>
