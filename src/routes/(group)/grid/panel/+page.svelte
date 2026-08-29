@@ -5,10 +5,13 @@
     PhoneCall,
     TestTube02Icon,
   } from "@hugeicons/core-free-icons";
-  import PanelGrid from "$lib/components/core/grid/ui/PanelGrid.svelte";
+  import ItemsPanel from "$lib/components/core/grid/ui/ItemsPanel.svelte";
 </script>
 
-<PanelGrid
+<ItemsPanel
+  variant={2}
+  style="inline"
+  itemClassName="bg-amber-50 border-none"
   items={[
     {
       icon: Coffee03Icon,

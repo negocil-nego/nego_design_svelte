@@ -39,8 +39,8 @@ import SearchInput from "$lib/components/core/search/SearchInput.svelte";
 import Footer from "$lib/components/core/footer/ui/Footer.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
-import SimpleGrid from "$lib/components/core/grid/ui/SimpleGrid.svelte";
-import PanelGrid from "$lib/components/core/grid/ui/PanelGrid.svelte";
+import ItemsSimpleGrid from "$lib/components/core/grid/ui/ItemsSimpleGrid.svelte";
+import ItemsPanel from "$lib/components/core/grid/ui/ItemsPanel.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -58,9 +58,9 @@ export { getLocales } from "./i18n/config";
 export {
     Menu,
 
-    SimpleGrid,
+    ItemsSimpleGrid,
 
-    PanelGrid,
+    ItemsPanel,
 
     /**
      * Componente raiz do Negodesign.

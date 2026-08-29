@@ -7,8 +7,7 @@
     label,
     header,
     cards: items,
-    textClass,
-    subTextClass,
+    hoverClass,
   }: NavigationMenuItemCardProps = $props();
 </script>
 
@@ -24,7 +23,7 @@
   </p>
 {/snippet}
 
-<NavDropdown label={label ?? header?.label ?? ""}>
+<NavDropdown label={label ?? header?.label ?? ""} {hoverClass}>
   <ul class="grid gap-2 p-2 w-100 lg:w-125 lg:grid-cols-[.75fr_1fr]">
     {#if header}
       <li

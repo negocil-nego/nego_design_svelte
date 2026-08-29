@@ -5,7 +5,7 @@
     PhoneCall,
     TestTube02Icon,
   } from "@hugeicons/core-free-icons";
-  import SimpleGrid from "$lib/components/core/grid/ui/SimpleGrid.svelte";
+  import SimpleGrid from "$lib/components/core/grid/ui/ItemsSimpleGrid.svelte";
 </script>
 
 <SimpleGrid

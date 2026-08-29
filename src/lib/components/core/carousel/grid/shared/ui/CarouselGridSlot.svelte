@@ -5,7 +5,7 @@
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import Autoplay from "embla-carousel-autoplay";
   import type { GridProps } from "$lib/components/core/grid/data/types";
-  import SimpleGrid from "$lib/components/core/grid/ui/SimpleGrid.svelte";
+  import SimpleGrid from "$lib/components/core/grid/ui/ItemsSimpleGrid.svelte";
 
   type Props = {
     slotProps?: CarouselSlotProps;

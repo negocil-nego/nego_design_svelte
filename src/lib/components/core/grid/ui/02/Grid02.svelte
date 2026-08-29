@@ -12,6 +12,7 @@
         description,
         iconClass,
         titleClass,
+        itemClassName,
         descriptionClass,
         onClick,
     }: ItemGridProps = $props();
@@ -21,7 +22,7 @@
     onclick={() => {
         if (id && onClick) onClick(id);
     }}
-    class="flex flex-col justify-center items-center gap-2 border rounded-lg p-2 cursor-pointer hover:bg-primary/30"
+    class="flex flex-col justify-center items-center gap-2 border rounded-lg p-2 cursor-pointer {itemClassName}"
 >
     <IconRenderGrid {icon} {iconClass} {isLoading} />
     <TitleGrid {titleClass} {title} {isLoading} />

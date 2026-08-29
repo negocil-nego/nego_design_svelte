@@ -14,7 +14,8 @@
     }}
     slotProps={{
       buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
-      positionButtonPreviousAndNext: "center",
+      positionButtonPreviousAndNext: "top_right",
+      isButtonPreviousAndNext: true,
     }}
     isDescriptionIcon={false}
     isDescriptionLabel={false}

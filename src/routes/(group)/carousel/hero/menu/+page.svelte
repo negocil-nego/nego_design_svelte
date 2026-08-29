@@ -34,11 +34,12 @@
     },
   ]}
   complexMenu={{
-    textClass: "text-white hover:tex-black",
+    textClass: "text-white",
+    hoverClass: "bg-red-600",
     menus: [
       {
         label: "Inicio",
-        href: "/",
+        href: "#",
       },
       {
         label: "Novidade",

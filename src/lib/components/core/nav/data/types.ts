@@ -12,12 +12,14 @@ export type NavigationMenuItemProps = {
     label: string;
     href?: string;
     textClass?: string;
+    hoverClass?: string;
 }
 
 export type NavigationMenuItemCardProps = {
     label?: string;
     textClass?: string;
     subTextClass?: string;
+    hoverClass?: string;
     header?: {
         label: string;
         description: string;
@@ -32,6 +34,7 @@ export type NavigationMenuItemCardProps = {
 export type NavigationMenuItemGridProps = {
     label: string;
     textClass?: string;
+    hoverClass?: string;
     subTextClass?: string;
     grids?: ListItemProps[];
 }
@@ -39,6 +42,7 @@ export type NavigationMenuItemGridProps = {
 export type NavigationMenuItemListProps = {
     label: string;
     textClass?: string;
+    hoverClass?: string;
     subTextClass?: string;
     list?: ListItemProps[];
 }
@@ -46,6 +50,7 @@ export type NavigationMenuItemListProps = {
 export type NavigationMenuItemsProps = {
     label: string;
     textClass?: string;
+    hoverClass?: string;
     items?: {
         title: string;
         href: string;
@@ -56,6 +61,7 @@ export type ComplexMenuProps = IMenuProps & {
     menus: (NavigationMenuItemProps | NavigationMenuItemListProps | NavigationMenuItemCardProps | NavigationMenuItemGridProps | NavigationMenuItemsProps)[];
     textClass?: string;
     subTextClass?: string;
+    hoverClass?: string;
 }
 
 export type MenuVarientProps = ComplexMenuProps | SimpleMenuProps;

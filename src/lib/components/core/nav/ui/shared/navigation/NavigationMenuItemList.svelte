@@ -2,10 +2,10 @@
   import type { NavigationMenuItemListProps } from "../../../data/types";
   import NavDropdown from "./NavDropdown.svelte";
 
-  let { label, list }: NavigationMenuItemListProps = $props();
+  let { label, list, hoverClass }: NavigationMenuItemListProps = $props();
 </script>
 
-<NavDropdown {label} className="hidden md:block">
+<NavDropdown {label} className="hidden md:block" {hoverClass}>
   <ul class="grid w-75 gap-4 p-2">
     {#each list as item, i (i)}
       <li>

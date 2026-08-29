@@ -24,7 +24,7 @@
 
 <div class="w-full flex justify-center">
   <div
-    class="w-[95%] p-2 rounded-xl
+    class="w-full p-2 rounded-xl
     {isBorder ? 'border border-gray-50 dark:border-gray-800' : ''} 
     {containerClass}"
   >
@@ -43,9 +43,8 @@
         {#if onButtonViewAll}
           <div>
             <Button
-              variant="ghost"
-              size="sm"
-              class="flex items-center gap-0.5"
+              variant="outline"
+              class="flex items-center gap-0.5 border"
               onclick={onButtonViewAll}
             >
               {$t("label.view.full")}
