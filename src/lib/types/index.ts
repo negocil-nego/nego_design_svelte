@@ -65,12 +65,16 @@ import type {
     CarouselHeroProps
 } from "$lib/components/core/carousel/types";
 
-import type { CarouselSlotProps } from "$lib/components/core/panel/type";
+import type {
+    CarouselSlotProps,
+    NotFoundEmptyProps
+} from "$lib/components/core/panel/type";
 
 import type {
     BannerProps,
     AdCardBannerProps,
     CtaCardBannerProps,
+    CtaCardImageBannerProps,
     NotificationBannerProps
 } from "$lib/components/core/banner/types";
 
@@ -139,8 +143,15 @@ import type { NegoDesignProps } from "$lib/components/types";
 import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/grid/promotion/types";
 import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
-import type { ComplexMenuProps } from "$lib/components/core/nav/data/types";
-import type { GridProps } from "$lib/components/core/grid/data/types";
+import type {
+    MenuProps,
+    MenuVarientProps,
+    ComplexMenuProps
+} from "$lib/components/core/nav/data/types";
+import type {
+    GridProps,
+    ItemGridProps
+} from "$lib/components/core/grid/data/types";
 
 export type {
     GridProps,
@@ -154,6 +165,14 @@ export type {
     SimpleMenuProps,
     /** Props do componente NavMenu — barra de navegação complexa. @see ComplexMenuProps */
     ComplexMenuProps,
+    /** Props do componente Menu — barra de navegação com variantes (simples ou complexa), logo, botões, light switch e language switcher. @see MenuProps */
+    MenuProps,
+    /** Tipo união das variantes de navegação do Menu (Simples ou Complexa). @see MenuVarientProps */
+    MenuVarientProps,
+    /** Props de um item individual do grid (ItemsSimpleGrid/ItemsPanel). @see ItemGridProps */
+    ItemGridProps,
+    /** Props do NotFoundEmpty — estado vazio com ícone, título, descrição e ação. @see NotFoundEmptyProps */
+    NotFoundEmptyProps,
 
     /** Item de menu principal da sidebar. @see NavMenuSidebarProps */
     NavMenuSidebarProps,
@@ -217,6 +236,8 @@ export type {
     AdCardBannerProps,
     /** Props do CtaCardBanner — banner CTA "Vamos entrar em contacto" com 2 botões. @see CtaCardBannerProps */
     CtaCardBannerProps,
+    /** Props do CtaCardImageBanner — banner CTA com imagem de destaque em fundo gradiente. @see CtaCardImageBannerProps */
+    CtaCardImageBannerProps,
     /** Props do NotificationBanner — banner de notificação com texto, CTA e dismiss. @see NotificationBannerProps */
     NotificationBannerProps,
 

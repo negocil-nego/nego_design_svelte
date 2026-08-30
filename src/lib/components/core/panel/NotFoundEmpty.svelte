@@ -3,20 +3,7 @@
   import { t } from "$lib/i18n";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { Search01Icon } from "@hugeicons/core-free-icons";
-  import type { Snippet } from "svelte";
-  import type { IconSvgElement } from "@hugeicons/svelte";
-
-  type Props = {
-    title?: string;
-    description?: string;
-    icon?: IconSvgElement;
-    className?: string;
-    actionHref?: string;
-    actionLabel?: string;
-    onAction?: () => void;
-    showAction?: boolean;
-    children?: Snippet;
-  };
+  import type { NotFoundEmptyProps } from "./type";
 
   let {
     title,
@@ -28,7 +15,7 @@
     onAction,
     showAction = false,
     children,
-  }: Props = $props();
+  }: NotFoundEmptyProps = $props();
 
   const resolvedTitle = $derived(title ?? $t("empty.title"));
   const resolvedDescription = $derived(description ?? $t("empty.description"));

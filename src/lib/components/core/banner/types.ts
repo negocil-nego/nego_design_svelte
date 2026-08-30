@@ -71,3 +71,41 @@ export type CtaCardBannerProps = {
     class?: string;
     rings?: Array<{ size: number, color: string }>;
 }
+
+/**
+ * CTA banner com imagem de destaque em fundo gradiente.
+ * Título, descrição e até dois CTAs (primário e secundário), cada um com
+ * texto, href e/ou callback de clique, além da imagem e seus atributos.
+ * Usa `bg-gradient` como fundo padrão (customizável via `containerClass`).
+ * @component
+ */
+export type CtaCardImageBannerProps = {
+    /** Título principal do banner. */
+    title: string;
+    /** Texto de apoio / descrição. */
+    description?: string;
+    /** Texto do CTA primário. */
+    primaryText: string;
+    /** href do CTA primário (link). */
+    primaryHref?: string;
+    /** Chamado ao clicar no CTA primário. */
+    onClickPrimary?: () => void;
+    /** Texto do CTA secundário. */
+    secondaryText?: string;
+    /** href do CTA secundário (link). */
+    secondaryHref?: string;
+    /** Chamado ao clicar no CTA secundário. */
+    onClickSecondary?: () => void;
+    /** URL da imagem de destaque. */
+    imageSrc?: string;
+    /** Texto alternativo da imagem. */
+    imageAlt?: string;
+    /** Largura da imagem (atributo width). */
+    imageWidth?: number;
+    /** Altura da imagem (atributo height). */
+    imageHeight?: number;
+    /** Classe CSS adicional para o artigo (fundo). */
+    class?: string;
+    /** Classe CSS do container da imagem. */
+    imageContainerClass?: string;
+} 
