@@ -12,6 +12,8 @@
     secondaryHref="#"
     imageSrc="https://tailwindcss.com/plus-assets/img/component-images/dark-project-app-screenshot.png"
     imageAlt="Captura da app"
+    imageHeight={200}
+    imageWidth={200}
   />
 
   <CtaCardImageBanner
