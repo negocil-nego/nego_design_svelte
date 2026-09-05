@@ -28,7 +28,7 @@
 	type="button"
 	onclick={(e) => {
 		onclick?.(e);
-		sidebar.toggle();
+		sidebar.toggleSidebar();
 	}}
 	{...restProps}
 >

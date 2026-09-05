@@ -1,16 +1,26 @@
 <script lang="ts">
-	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
+	import type { Snippet } from "svelte";
+	import type { HTMLAttributes } from "svelte/elements";
 
 	let {
-		ref = $bindable(null),
-		value = $bindable([]),
+		ref = $bindable<HTMLDivElement | null>(null),
+		// eslint-disable-next-line no-useless-assignment
+		value = $bindable<(string | number)[]>([]),
+		children,
 		...restProps
-	}: DropdownMenuPrimitive.CheckboxGroupProps = $props();
+	}: HTMLAttributes<HTMLDivElement> & {
+		ref?: HTMLDivElement | null;
+		value?: (string | number)[];
+		children?: Snippet;
+	} = $props();
 </script>
 
-<DropdownMenuPrimitive.CheckboxGroup
-	bind:ref
-	bind:value
+<div
+	bind:this={ref}
+	role="group"
+	aria-label="checkbox-group"
 	data-slot="dropdown-menu-checkbox-group"
 	{...restProps}
-/>
+>
+	{@render children?.()}
+</div>

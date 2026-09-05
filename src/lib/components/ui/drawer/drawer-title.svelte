@@ -1,17 +1,20 @@
 <script lang="ts">
-	import { Drawer as DrawerPrimitive } from "vaul-svelte";
-	import { cn } from "$lib/utils.js";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
 
 	let {
 		ref = $bindable(null),
 		class: className,
+		children,
 		...restProps
-	}: DrawerPrimitive.TitleProps = $props();
+	}: WithElementRef<HTMLAttributes<HTMLHeadingElement>> = $props();
 </script>
 
-<DrawerPrimitive.Title
-	bind:ref
+<h2
+	bind:this={ref}
 	data-slot="drawer-title"
 	class={cn("text-foreground text-base font-medium", className)}
 	{...restProps}
-/>
+>
+	{@render children?.()}
+</h2>

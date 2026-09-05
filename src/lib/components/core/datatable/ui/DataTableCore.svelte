@@ -11,7 +11,7 @@
         getFilteredRowModel,
         getPaginationRowModel,
         getSortedRowModel,
-    } from "@tanstack/table-core";
+    } from "$lib/components/ui/data-table";
     import type { DataTableItem } from "../data/data-table";
     import { resolveHeader } from "../data/resolve-header.svelte";
     import { resolveCellBadge } from "../data/resolve-cell-badge.svelte";
@@ -92,53 +92,50 @@
                     | PaginationState
                     | ((arg0: PaginationState) => PaginationState),
             ) => {
-                if (typeof updater === "function") {
-                    pagination = updater(pagination);
-                } else {
-                    pagination = updater;
-                }
+                pagination =
+                    typeof updater === "function"
+                        ? updater(pagination)
+                        : updater;
+                return pagination;
             },
             onSortingChange: (
                 updater: SortingState | ((arg0: SortingState) => SortingState),
             ) => {
-                if (typeof updater === "function") {
-                    sorting = updater(sorting);
-                } else {
-                    sorting = updater;
-                }
+                sorting = typeof updater === "function" ? updater(sorting) : updater;
+                return sorting;
             },
             onColumnFiltersChange: (
                 updater:
                     | ColumnFiltersState
                     | ((arg0: ColumnFiltersState) => ColumnFiltersState),
             ) => {
-                if (typeof updater === "function") {
-                    columnFilters = updater(columnFilters);
-                } else {
-                    columnFilters = updater;
-                }
+                columnFilters =
+                    typeof updater === "function"
+                        ? updater(columnFilters)
+                        : updater;
+                return columnFilters;
             },
             onColumnVisibilityChange: (
                 updater:
                     | VisibilityState
                     | ((arg0: VisibilityState) => VisibilityState),
             ) => {
-                if (typeof updater === "function") {
-                    columnVisibility = updater(columnVisibility);
-                } else {
-                    columnVisibility = updater;
-                }
+                columnVisibility =
+                    typeof updater === "function"
+                        ? updater(columnVisibility)
+                        : updater;
+                return columnVisibility;
             },
             onRowSelectionChange: (
                 updater:
                     | RowSelectionState
                     | ((arg0: RowSelectionState) => RowSelectionState),
             ) => {
-                if (typeof updater === "function") {
-                    rowSelection = updater(rowSelection);
-                } else {
-                    rowSelection = updater;
-                }
+                rowSelection =
+                    typeof updater === "function"
+                        ? updater(rowSelection)
+                        : updater;
+                return rowSelection;
             },
         }),
     );

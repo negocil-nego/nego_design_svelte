@@ -1,10 +1,10 @@
-import type { HeaderContext } from "@tanstack/table-core"
+import type { HeaderContext } from "$lib/components/ui/data-table"
 import { createRawSnippet } from "svelte"
 import { renderSnippet } from "$lib/components/ui/data-table"
 
 export function resolveHeader<T>(
-    configHeader: string | ((context: HeaderContext<T, unknown>) => any),
-): (context: HeaderContext<T, unknown>) => any {
+    configHeader: string | ((context: HeaderContext<T, unknown>) => unknown),
+): (context: HeaderContext<T, unknown>) => unknown {
     if (typeof configHeader === "string") {
         const text = configHeader;
         return ({ column }: HeaderContext<T, unknown>) => {

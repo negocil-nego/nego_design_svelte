@@ -40,7 +40,9 @@
 <div
 	class={cn(
 		"mb-6 flex gap-1 border-b overflow-x-auto",
-		style === "pill" && "-mt-12 mb-6 rounded-t-lg border border-t bg-background px-2 py-1 shadow-sm border-b",
+		style === "pill"
+			? "-mt-12 mb-6 rounded-t-lg border border-t bg-background px-2 py-1 shadow-sm border-b"
+			: "",
 		className
 	)}
 	data-slot="profile-user-tabs"

@@ -1,31 +1,107 @@
 <script lang="ts">
-	import { cn, type WithoutChildrenOrChild } from "$lib/utils.js";
-	import DropdownMenuPortal from "./dropdown-menu-portal.svelte";
-	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
-	import type { ComponentProps } from "svelte";
+	import { getDropdownMenuContext } from "./dropdown-menu-context.svelte.js";
+	import { cn } from "$lib/utils.js";
+	import type { Snippet } from "svelte";
+	import type { HTMLAttributes } from "svelte/elements";
 
 	let {
-		ref = $bindable(null),
-		sideOffset = 4,
+		ref = $bindable<HTMLDivElement | null>(null),
 		align = "start",
+		side = "bottom",
+		sideOffset = 4,
 		portalProps,
 		class: className,
+		children,
 		...restProps
-	}: DropdownMenuPrimitive.ContentProps & {
-		portalProps?: WithoutChildrenOrChild<ComponentProps<typeof DropdownMenuPortal>>;
+	}: HTMLAttributes<HTMLDivElement> & {
+		ref?: HTMLDivElement | null;
+		align?: "start" | "center" | "end";
+		side?: "top" | "right" | "bottom" | "left" | "inline-start" | "inline-end";
+		sideOffset?: number;
+		portalProps?: Record<string, unknown>;
+		class?: string;
+		children?: Snippet;
 	} = $props();
+
+	const store = getDropdownMenuContext();
+
+	let anchorWidth = $state(0);
+
+	$effect(() => {
+		if (!store.open) return;
+		const width = store.anchorEl?.getBoundingClientRect().width ?? 0;
+		if (width > 0) anchorWidth = width;
+	});
+
+	$effect(() => {
+		if (!store.open) return;
+		function handlePointerDown(event: PointerEvent) {
+			const target = event.target as Node;
+			if (store.anchorEl?.contains(target)) return;
+			if (ref?.contains(target)) return;
+			store.closeMenu();
+		}
+		function handleKeydown(event: KeyboardEvent) {
+			if (event.key === "Escape") {
+				store.closeMenu();
+				store.anchorEl?.focus();
+			}
+		}
+		document.addEventListener("pointerdown", handlePointerDown);
+		document.addEventListener("keydown", handleKeydown);
+		return () => {
+			document.removeEventListener("pointerdown", handlePointerDown);
+			document.removeEventListener("keydown", handleKeydown);
+		};
+	});
+
+	let positionClasses = $derived.by(() => {
+		const horizontal =
+			side === "right" || side === "left" || side === "inline-start" || side === "inline-end";
+		if (horizontal) {
+			const sideClass = side === "left" || side === "inline-start" ? "right-full" : "left-full";
+			const alignClass =
+				align === "end"
+					? "bottom-0"
+					: align === "center"
+						? "top-1/2 -translate-y-1/2"
+						: "top-0";
+			const margin =
+				side === "left" || side === "inline-start"
+					? `margin-right: ${sideOffset + 4}px`
+					: `margin-left: ${sideOffset + 4}px`;
+			return { sideClass, alignClass, margin };
+		}
+		const sideClass = side === "top" ? "bottom-full" : "top-full";
+		const alignClass =
+			align === "end" ? "end-0" : align === "center" ? "start-1/2 -translate-x-1/2" : "start-0";
+		const margin =
+			side === "top"
+				? `margin-bottom: ${sideOffset + 4}px`
+				: `margin-top: ${sideOffset + 4}px`;
+		return { sideClass, alignClass, margin };
+	});
+
+	let contentStyle = $derived(
+		`${positionClasses.margin}${anchorWidth > 0 ? `;--bits-dropdown-menu-anchor-width: ${anchorWidth}px` : ""}`,
+	);
 </script>
 
-<DropdownMenuPortal {...portalProps}>
-	<DropdownMenuPrimitive.Content
-		bind:ref
+{#if store.open}
+	<div
+		bind:this={ref}
 		data-slot="dropdown-menu-content"
-		{sideOffset}
-		{align}
+		role="menu"
+		data-state={store.open ? "open" : "closed"}
+		style={contentStyle}
 		class={cn(
-			"data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/5 bg-popover text-popover-foreground dark:ring-foreground/10 min-w-48 rounded-2xl p-1 shadow-2xl ring-1 duration-100 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 z-50 w-(--bits-dropdown-menu-anchor-width) overflow-x-hidden overflow-y-auto outline-none data-closed:overflow-hidden",
-			className
+			"absolute z-50 min-w-48 overflow-x-hidden overflow-y-auto rounded-2xl p-1 shadow-2xl ring-1 ring-foreground/5 bg-popover text-popover-foreground outline-none animate-zoom-in",
+			positionClasses.sideClass,
+			positionClasses.alignClass,
+			className,
 		)}
 		{...restProps}
-	/>
-</DropdownMenuPortal>
+	>
+		{@render children?.()}
+	</div>
+{/if}

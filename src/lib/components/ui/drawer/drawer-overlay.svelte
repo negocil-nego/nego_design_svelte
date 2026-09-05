@@ -1,17 +1,26 @@
 <script lang="ts">
-	import { Drawer as DrawerPrimitive } from "vaul-svelte";
-	import { cn } from "$lib/utils.js";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
+	import { useDrawerContext } from "./drawer.svelte";
 
 	let {
 		ref = $bindable(null),
 		class: className,
 		...restProps
-	}: DrawerPrimitive.OverlayProps = $props();
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
+
+	const drawer = useDrawerContext();
 </script>
 
-<DrawerPrimitive.Overlay
-	bind:ref
-	data-slot="drawer-overlay"
-	class={cn("data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 bg-black/80 supports-backdrop-filter:backdrop-blur-xs fixed inset-0 z-50", className)}
-	{...restProps}
-/>
+{#if drawer.open}
+	<div
+		bind:this={ref}
+		data-slot="drawer-overlay"
+		class={cn(
+			"bg-black/60 fixed inset-0 z-40 animate-fade-in",
+			className
+		)}
+		onclick={() => drawer.setOpen(false)}
+		{...restProps}
+	></div>
+{/if}

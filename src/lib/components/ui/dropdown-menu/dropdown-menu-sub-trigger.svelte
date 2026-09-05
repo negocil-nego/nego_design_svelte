@@ -1,30 +1,58 @@
 <script lang="ts">
-	import { DropdownMenu as DropdownMenuPrimitive } from "bits-ui";
-	import { HugeiconsIcon } from "@hugeicons/svelte"
-	import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
+	import { HugeiconsIcon } from "@hugeicons/svelte";
+	import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
 	import { cn } from "$lib/utils.js";
+	import { getDropdownMenuSubContext } from "./dropdown-menu-context.svelte.js";
+	import type { Snippet } from "svelte";
+	import type { HTMLButtonAttributes } from "svelte/elements";
 
 	let {
-		ref = $bindable(null),
+		ref = $bindable<HTMLButtonElement | null>(null),
 		class: className,
 		inset,
+		disabled,
 		children,
 		...restProps
-	}: DropdownMenuPrimitive.SubTriggerProps & {
+	}: HTMLButtonAttributes & {
+		ref?: HTMLButtonElement | null;
+		class?: string;
 		inset?: boolean;
+		disabled?: boolean;
+		children?: Snippet;
 	} = $props();
+
+	const subStore = getDropdownMenuSubContext();
+
+	let highlighted = $state(false);
+
+	function handleClick() {
+		subStore.open = !subStore.open;
+	}
 </script>
 
-<DropdownMenuPrimitive.SubTrigger
-	bind:ref
+<button
+	bind:this={ref}
+	type="button"
+	role="menuitem"
+	tabindex="-1"
 	data-slot="dropdown-menu-sub-trigger"
 	data-inset={inset}
+	data-state={subStore.open ? "open" : "closed"}
+	data-highlighted={highlighted || undefined}
+	{disabled}
+	onclick={handleClick}
+	onfocus={() => (highlighted = true)}
+	onblur={() => (highlighted = false)}
+	onmouseenter={() => (highlighted = true)}
+	onmouseleave={() => {
+		highlighted = false;
+	}}
 	class={cn(
-		"focus:bg-accent focus:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground gap-2 rounded-xl px-3 py-2 text-sm data-inset:pl-9.5 [&_svg:not([class*='size-'])]:size-4 flex cursor-default items-center outline-hidden select-none data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0",
-		className
+		"relative flex w-full cursor-pointer items-center justify-start gap-2 rounded-lg px-2 py-1.5 text-sm outline-none select-none hover:bg-muted hover:text-foreground disabled:pointer-events-none disabled:opacity-50 [&>svg]:size-4 [&>svg]:shrink-0",
+		className,
 	)}
 	{...restProps}
 >
 	{@render children?.()}
-	<HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} class="ml-auto" />
-</DropdownMenuPrimitive.SubTrigger>
+	<HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} class="ms-auto size-3.5" />
+</button>

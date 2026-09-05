@@ -67,22 +67,22 @@
         {
           label: "Todos",
           value: "hospegadem",
-          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+          icon: Hotel01Icon,
         },
         {
           label: "Hotel",
           value: "hotel",
-          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+          icon: Hotel01Icon,
         },
         {
           label: "Hospedaria",
           value: "hospedaria",
-          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+          icon: Hotel01Icon,
         },
         {
           label: "Pensão",
           value: "pensao",
-          icon: "hgi hgi-stroke hgi-rounded hgi-second-bracket",
+          icon: Hotel01Icon,
         },
       ]}
     />

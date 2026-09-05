@@ -1,7 +1,20 @@
 <script lang="ts">
-	import { Drawer as DrawerPrimitive } from "vaul-svelte";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
 
-	let { ...restProps }: DrawerPrimitive.PortalProps = $props();
+	let {
+		ref = $bindable(null),
+		class: className,
+		children,
+		...restProps
+	}: WithElementRef<HTMLAttributes<HTMLElement>> = $props();
 </script>
 
-<DrawerPrimitive.Portal {...restProps} />
+<div
+	bind:this={ref}
+	data-slot="drawer-portal"
+	class={cn("contents", className)}
+	{...restProps}
+>
+	{@render children?.()}
+</div>

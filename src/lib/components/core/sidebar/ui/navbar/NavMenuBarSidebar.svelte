@@ -1,8 +1,7 @@
 ﻿<script lang="ts">
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   import * as Collapsible from "$lib/components/ui/collapsible/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import ChevronRightIcon from "@lucide/svelte/icons/chevron-right";
+  import { ChevronRightIcon } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import type {
     NavMenuAndSubmenuSidebarProps,
@@ -43,7 +42,8 @@
                   <HugeiconsIcon icon={item.icon} />
                 {/if}
                 <span>{item.title}</span>
-                <ChevronRightIcon
+                <HugeiconsIcon
+                  icon={ChevronRightIcon}
                   class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                 />
               </Sidebar.MenuButton>

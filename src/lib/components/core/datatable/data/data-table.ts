@@ -1,4 +1,4 @@
-import type { CellContext, HeaderContext } from "@tanstack/table-core"
+import type { CellContext, HeaderContext } from "$lib/components/ui/data-table"
 import type { Component } from "svelte"
 
 /**
@@ -14,9 +14,9 @@ export interface DataTableItem<T = unknown> {
         /** Chave de acesso ao valor na linha (ex: "name", "email") */
         accessorKey: string
         /** Cabeçalho da coluna: string estática ou função que renderiza componente customizado */
-        header: string | ((context: HeaderContext<T, unknown>) => any)
+        header: string | ((context: HeaderContext<T, unknown>) => unknown)
         /** Conteúdo da célula: string (valor simples) ou função que renderiza componente customizado */
-        cell: string | ((context: CellContext<T, unknown>) => any)
+        cell: string | ((context: CellContext<T, unknown>) => unknown)
         /** Habilita/desabilita ordenação nesta coluna */
         enableSorting?: boolean
         /** Habilita/desabilita ocultação da coluna */
@@ -34,6 +34,7 @@ export interface DataTableItem<T = unknown> {
     /** Chave da coluna usada para o filtro de pesquisa global/list filter */
     columnFilter?: keyof T & string;
     /** Componente Svelte renderizado na coluna de ações de cada linha */
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     actions?: Component<any>
     /** Array de itens/linhas para popular a tabela */
     items?: T[]

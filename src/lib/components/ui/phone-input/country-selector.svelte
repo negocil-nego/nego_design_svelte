@@ -1,101 +1,87 @@
+<script lang="ts" module>
+	import type { Country } from './types';
+
+	export const COUNTRIES: Country[] = [
+		{ id: 'ao', iso2: 'ao', name: 'Angola', dialCode: '244' },
+		{ id: 'br', iso2: 'br', name: 'Brazil', dialCode: '55' },
+		{ id: 'cv', iso2: 'cv', name: 'Cape Verde', dialCode: '238' },
+		{ id: 'cn', iso2: 'cn', name: 'China', dialCode: '86' },
+		{ id: 'fr', iso2: 'fr', name: 'France', dialCode: '33' },
+		{ id: 'gw', iso2: 'gw', name: 'Guinea-Bissau', dialCode: '245' },
+		{ id: 'jp', iso2: 'jp', name: 'Japan', dialCode: '81' },
+		{ id: 'mz', iso2: 'mz', name: 'Mozambique', dialCode: '258' },
+		{ id: 'pt', iso2: 'pt', name: 'Portugal', dialCode: '351' },
+		{ id: 'st', iso2: 'st', name: 'São Tomé and Príncipe', dialCode: '239' },
+		{ id: 'za', iso2: 'za', name: 'South Africa', dialCode: '27' },
+		{ id: 'es', iso2: 'es', name: 'Spain', dialCode: '34' },
+		{ id: 'gb', iso2: 'gb', name: 'United Kingdom', dialCode: '44' },
+		{ id: 'us', iso2: 'us', name: 'United States', dialCode: '1' }
+	];
+</script>
+
 <script lang="ts">
-	import * as Popover from '$lib/components/ui/popover';
-	import Button from '$lib/components/ui/button/button.svelte';
-	import * as Command from '$lib/components/ui/command';
-	import { ScrollArea } from '$lib/components/ui/scroll-area';
-	import CheckIcon from '@lucide/svelte/icons/check';
-	import ChevronsUpDownIcon from '@lucide/svelte/icons/chevrons-up-down';
 	import { cn } from '$lib/utils.js';
-	import Flag from './flag.svelte';
-	import type { Country, CountryCode } from 'svelte-tel-input/types';
+	import { HugeiconsIcon } from '@hugeicons/svelte';
+	import { GlobalIcon, UnfoldMoreIcon } from '@hugeicons/core-free-icons';
+	import type { CountryCode } from './types';
 
 	interface Props {
-		/** List of countries */
-		countries: Country[];
-		disabled?: boolean;
 		selected?: CountryCode | null;
+		dialCode?: string;
+		disabled?: boolean;
 		onselect?: (val: CountryCode | null) => void;
-		/** Default ordering is alphabetical by country name supply this function to customize the sorting behavior  */
 		order?: (a: Country, b: Country) => number;
 	}
 
 	let {
-		countries,
-		disabled = false,
 		selected = $bindable(null),
+		// eslint-disable-next-line no-useless-assignment
+	dialCode = $bindable(''),
+		disabled = false,
 		onselect = undefined,
 		order = (a, b) => {
 			return a.name.localeCompare(b.name);
 		}
 	}: Props = $props();
 
-	let selectedCountry = $derived(countries.find((a) => a.iso2 == selected));
+	let ordered = $derived(COUNTRIES.slice().sort(order));
 
-	let open = $state(false);
-	let selectedValue = $state(false);
-
-	function selectCountry(country: Country) {
-		selected = country.iso2;
-		selectedValue = true;
-		open = false;
+	function handleChange(e: Event) {
+		selected = (e.currentTarget as HTMLSelectElement).value;
 		onselect?.(selected);
 	}
+
+	$effect(() => {
+		const country = COUNTRIES.find((c) => c.iso2 === selected);
+		dialCode = country?.dialCode ?? '';
+	});
 </script>
 
-<Popover.Root bind:open>
-	<Popover.Trigger>
-		{#snippet child({ props })}
-			<Button
-				{...props}
-				type="button"
-				variant="outline"
-				class={cn('flex shrink-0 gap-1 rounded-l-lg rounded-r-none px-3')}
-				{disabled}
-			>
-				<Flag country={selectedCountry} />
-				<ChevronsUpDownIcon
-					class={cn('-mr-2 h-4 w-4 opacity-50', disabled ? 'hidden' : 'opacity-100')}
-				/>
-			</Button>
-		{/snippet}
-	</Popover.Trigger>
-	<Popover.Content
-		class="w-[300px] p-0"
-		align="start"
-		onCloseAutoFocus={(e) => {
-			if (selectedValue) {
-				selectedValue = false;
-				e.preventDefault();
-			}
-		}}
+<div class="relative flex shrink-0 items-center">
+	<HugeiconsIcon
+		icon={GlobalIcon}
+		strokeWidth={2}
+		class="text-muted-foreground pointer-events-none absolute left-2.5 size-4"
+	/>
+	<select
+		value={selected ?? ''}
+		onchange={handleChange}
+		aria-label="Country code"
+		{disabled}
+		class={cn(
+			'border-input bg-input/30 focus-visible:ring-ring/50 dark:bg-input/30 focus-visible:border-ring h-9 w-fit appearance-none rounded-l-md rounded-r-none border py-1 pr-8 pl-8 text-sm transition-[color,box-shadow] focus-visible:ring-[3px] outline-none disabled:cursor-not-allowed disabled:opacity-50 [&>option]:bg-background',
+			disabled ? 'cursor-not-allowed opacity-50' : ''
+		)}
 	>
-		<Command.Root>
-			<Command.Input placeholder="Search..." />
-			<Command.List>
-				<ScrollArea class="h-72">
-					<Command.Empty>No country found.</Command.Empty>
-					<Command.Group class="overflow-clip">
-						{#each countries.sort(order) as country (country.id)}
-							<Command.Item
-								class="gap-2 [&_.cn-command-item-indicator]:hidden"
-								value={country.name}
-								onSelect={() => selectCountry(country)}
-							>
-								<Flag {country} />
-								<span class="flex-1 text-sm">{country.name}</span>
-								<span class="text-foreground/50 text-sm">
-									+{country.dialCode}
-								</span>
-								<div class="w-4">
-									{#if country.iso2 == selected}
-										<CheckIcon class="phone-input-check-icon size-4" />
-									{/if}
-								</div>
-							</Command.Item>
-						{/each}
-					</Command.Group>
-				</ScrollArea>
-			</Command.List>
-		</Command.Root>
-	</Popover.Content>
-</Popover.Root>
+		{#each ordered as country (country.id)}
+			<option value={country.iso2}>
+				{country.name} (+{country.dialCode})
+			</option>
+		{/each}
+	</select>
+	<HugeiconsIcon
+		icon={UnfoldMoreIcon}
+		strokeWidth={2}
+		class="text-muted-foreground pointer-events-none absolute right-2.5 size-4"
+	/>
+</div>

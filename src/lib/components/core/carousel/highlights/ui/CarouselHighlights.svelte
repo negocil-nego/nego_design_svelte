@@ -7,7 +7,7 @@
   import type { CarouselHighlightsProps } from "../types";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import { t } from "$lib/i18n";
-  import Autoplay from "embla-carousel-autoplay";
+  import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
 
   const {
     headerProps,
@@ -34,7 +34,7 @@
   {:else}
     <CarouselSlot
       {...slotProps}
-      plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
+      plugins={[autoplay({ delay: 4000, stopOnInteraction: true })]}
     >
       {#if isLoading}
         {#each Array.from( { length: responsive.isMobile ? 5 : 10 }, ) as _, i (`loading-${i}`)}

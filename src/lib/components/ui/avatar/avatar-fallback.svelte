@@ -1,20 +1,30 @@
 <script lang="ts">
-	import { Avatar as AvatarPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils.js";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
+	import { getAvatarContext } from "./context.svelte.js";
 
 	let {
 		ref = $bindable(null),
 		class: className,
+		children,
 		...restProps
-	}: AvatarPrimitive.FallbackProps = $props();
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
+
+	const ctx = getAvatarContext();
+
+	let show = $derived(!ctx.src || ctx.imageError);
 </script>
 
-<AvatarPrimitive.Fallback
-	bind:ref
-	data-slot="avatar-fallback"
-	class={cn(
-		"bg-muted text-muted-foreground rounded-full flex size-full items-center justify-center text-sm group-data-[size=sm]/avatar:text-xs",
-		className
-	)}
-	{...restProps}
-/>
+{#if show}
+	<div
+		bind:this={ref}
+		data-slot="avatar-fallback"
+		class={cn(
+			"bg-muted flex size-full items-center justify-center rounded-full fill-foreground text-sm select-none [&>svg]:size-full",
+			className
+		)}
+		{...restProps}
+	>
+		{@render children?.()}
+	</div>
+{/if}

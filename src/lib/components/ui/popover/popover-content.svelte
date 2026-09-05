@@ -1,31 +1,93 @@
 <script lang="ts">
-	import { Popover as PopoverPrimitive } from 'bits-ui';
-	import PopoverPortal from './popover-portal.svelte';
-	import { cn, type WithoutChildrenOrChild } from '$lib/utils.js';
-	import type { ComponentProps } from 'svelte';
+	import { getPopoverContext } from "./popover-context.svelte.js";
+	import { cn } from "$lib/utils.js";
+	import type { Snippet } from "svelte";
+	import type { HTMLAttributes } from "svelte/elements";
 
 	let {
-		ref = $bindable(null),
-		class: className,
+		ref = $bindable<HTMLDivElement | null>(null),
+		align = "center",
+		side = "bottom",
 		sideOffset = 4,
-		align = 'center',
 		portalProps,
+		class: className,
+		children,
 		...restProps
-	}: PopoverPrimitive.ContentProps & {
-		portalProps?: WithoutChildrenOrChild<ComponentProps<typeof PopoverPortal>>;
+	}: HTMLAttributes<HTMLDivElement> & {
+		ref?: HTMLDivElement | null;
+		align?: "start" | "center" | "end";
+		side?: "top" | "right" | "bottom" | "left";
+		sideOffset?: number;
+		portalProps?: Record<string, unknown>;
+		class?: string;
+		children?: Snippet;
 	} = $props();
+
+	const store = getPopoverContext();
+
+	$effect(() => {
+		if (!store.open) return;
+		function handlePointerDown(event: PointerEvent) {
+			const target = event.target as Node;
+			if (store.anchorEl?.contains(target)) return;
+			if (ref?.contains(target)) return;
+			store.closeMenu();
+		}
+		function handleKeydown(event: KeyboardEvent) {
+			if (event.key === "Escape") {
+				store.closeMenu();
+				store.anchorEl?.focus();
+			}
+		}
+		document.addEventListener("pointerdown", handlePointerDown);
+		document.addEventListener("keydown", handleKeydown);
+		return () => {
+			document.removeEventListener("pointerdown", handlePointerDown);
+			document.removeEventListener("keydown", handleKeydown);
+		};
+	});
+
+	let positionClasses = $derived.by(() => {
+		const horizontal = side === "right" || side === "left";
+		if (horizontal) {
+			const sideClass = side === "left" ? "right-full" : "left-full";
+			const alignClass =
+				align === "end"
+					? "bottom-0"
+					: align === "start"
+						? "top-0"
+						: "top-1/2 -translate-y-1/2";
+			const margin =
+				side === "left"
+					? `margin-right: ${sideOffset + 4}px`
+					: `margin-left: ${sideOffset + 4}px`;
+			return { sideClass, alignClass, margin };
+		}
+		const sideClass = side === "top" ? "bottom-full" : "top-full";
+		const alignClass =
+			align === "end" ? "end-0" : align === "start" ? "start-0" : "start-1/2 -translate-x-1/2";
+		const margin =
+			side === "top"
+				? `margin-bottom: ${sideOffset + 4}px`
+				: `margin-top: ${sideOffset + 4}px`;
+		return { sideClass, alignClass, margin };
+	});
 </script>
 
-<PopoverPortal {...portalProps}>
-	<PopoverPrimitive.Content
-		bind:ref
+{#if store.open}
+	<div
+		bind:this={ref}
 		data-slot="popover-content"
-		{sideOffset}
-		{align}
+		data-state={store.open ? "open" : "closed"}
+		style={positionClasses.margin}
 		class={cn(
-			'bg-popover text-popover-foreground data-open:animate-in data-closed:animate-out data-closed:fade-out-0 data-open:fade-in-0 data-closed:zoom-out-95 data-open:zoom-in-95 data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 ring-foreground/10 data-[side=inline-start]:slide-in-from-right-2 data-[side=inline-end]:slide-in-from-left-2 z-50 flex w-72 origin-(--transform-origin) flex-col gap-4 rounded-md p-4 text-sm shadow-md ring-1 outline-hidden duration-100',
-			className
+			"absolute z-50 w-72 rounded-md border bg-popover p-4 text-sm text-popover-foreground shadow-md outline-none animate-zoom-in",
+			positionClasses.sideClass,
+			positionClasses.alignClass,
+			className,
 		)}
 		{...restProps}
-	/>
-</PopoverPortal>
+	>
+		{@render children?.()}
+	</div>
+{/if}

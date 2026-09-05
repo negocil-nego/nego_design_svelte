@@ -57,12 +57,12 @@
       {#if currentItem}
         {#key currentIndex}
           <div
-            class="text-xl md:text-2xl font-bold tracking-tight mb-4 leading-tight animate-in fade-in duration-300"
+            class="text-xl md:text-2xl font-bold tracking-tight mb-4 leading-tight animate-fade-in duration-300"
           >
             {currentItem.title}
           </div>
           <p
-            class=" text-sm mb-6 leading-relaxed animate-in fade-in duration-300"
+            class=" text-sm mb-6 leading-relaxed animate-fade-in duration-300"
           >
             {currentItem.description}
           </p>

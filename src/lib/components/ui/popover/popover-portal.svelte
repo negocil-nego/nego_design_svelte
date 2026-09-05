@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { Popover as PopoverPrimitive } from 'bits-ui';
+	import type { Snippet } from "svelte";
 
-	let { ...restProps }: PopoverPrimitive.PortalProps = $props();
+	let { children }: { children?: Snippet } = $props();
 </script>
 
-<PopoverPrimitive.Portal {...restProps} />
+{@render children?.()}

@@ -1,23 +1,23 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { Component } from "svelte";
 
 export interface NavTopBarSidebarItem {
     content: {
-        logo?: any;
+        logo?: Component<{ class?: string }>;
         title: string;
         subtitle: string
     }
     dropdownMenu?: {
         header: {
-            icon?: any,
+            icon?: Component<{ class?: string }>,
             text: string
         },
         items?: {
-            icon: any,
+            icon: Component<{ class?: string }>,
             text: string,
             onclick?: () => void
         }[],
         footer?: {
-            icon?: any,
+            icon?: Component<{ class?: string }>,
             text: string
         }
     }

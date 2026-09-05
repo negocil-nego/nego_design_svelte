@@ -3,7 +3,7 @@
   import CarouselSlot from "../../../../panel/CarouselSlot.svelte";
   import type { CarouselSlotProps } from "../../../../panel/type";
   import { useDevice } from "$lib/hooks/responsive.svelte";
-  import Autoplay from "embla-carousel-autoplay";
+  import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
   import type { GridProps } from "$lib/components/core/grid/data/types";
   import SimpleGrid from "$lib/components/core/grid/ui/ItemsSimpleGrid.svelte";
 
@@ -25,7 +25,7 @@
 {#if responsive.isMobile}
   <CarouselSlot
     {...slotProps}
-    plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
+    plugins={[autoplay({ delay: 4000, stopOnInteraction: true })]}
   >
     {@render children()}
   </CarouselSlot>

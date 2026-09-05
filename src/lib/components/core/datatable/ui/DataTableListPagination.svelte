@@ -1,6 +1,6 @@
 <script lang="ts" generics="T">
     import Button from "$lib/components/ui/button/button.svelte";
-    import type { Table } from "@tanstack/table-core";
+    import type { Table } from "$lib/components/ui/data-table";
 
     type Props = {
         table: Table<T>;

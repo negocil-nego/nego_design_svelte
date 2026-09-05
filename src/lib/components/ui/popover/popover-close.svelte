@@ -1,7 +1,26 @@
 <script lang="ts">
-	import { Popover as PopoverPrimitive } from 'bits-ui';
+	import { getPopoverContext } from "./popover-context.svelte.js";
+	import type { Snippet } from "svelte";
+	import type { HTMLButtonAttributes } from "svelte/elements";
 
-	let { ref = $bindable(null), ...restProps }: PopoverPrimitive.CloseProps = $props();
+	let {
+		ref = $bindable<HTMLButtonElement | null>(null),
+		children,
+		...restProps
+	}: HTMLButtonAttributes & {
+		ref?: HTMLButtonElement | null;
+		children?: Snippet;
+	} = $props();
+
+	const store = getPopoverContext();
 </script>
 
-<PopoverPrimitive.Close bind:ref data-slot="popover-close" {...restProps} />
+<button
+	bind:this={ref}
+	type="button"
+	data-slot="popover-close"
+	onclick={() => store.closeMenu()}
+	{...restProps}
+>
+	{@render children?.()}
+</button>

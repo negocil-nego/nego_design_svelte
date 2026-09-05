@@ -2,15 +2,15 @@
 	lang="ts"
 	generics="TData, TValue, TContext extends HeaderContext<TData, TValue> | CellContext<TData, TValue>"
 >
-	import type { CellContext, ColumnDefTemplate, HeaderContext } from "@tanstack/table-core";
+	import type { CellContext, ColumnDefTemplate, HeaderContext } from "./table-core.svelte.js";
 	import { RenderComponentConfig, RenderSnippetConfig } from "./render-helpers.js";
 	import type { Attachment } from "svelte/attachments";
 	type Props = {
 		/** The cell or header field of the current cell's column definition. */
-		content?: TContext extends HeaderContext<TData, TValue>
-			? ColumnDefTemplate<HeaderContext<TData, TValue>>
-			: TContext extends CellContext<TData, TValue>
-				? ColumnDefTemplate<CellContext<TData, TValue>>
+		content?: TContext extends CellContext<TData, TValue>
+			? ColumnDefTemplate<CellContext<TData, TValue>>
+			: TContext extends HeaderContext<TData, TValue>
+				? ColumnDefTemplate<HeaderContext<TData, TValue>>
 				: never;
 		/** The result of the `getContext()` function of the header or cell */
 		context: TContext;

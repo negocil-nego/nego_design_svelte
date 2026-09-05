@@ -7,9 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { MapPin } from "@hugeicons/core-free-icons";
+	import { MapPin, PlusSignIcon } from "@hugeicons/core-free-icons";
 	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import PlusIcon from "@lucide/svelte/icons/plus";
 	import Badge from "$lib/components/ui/badge/badge.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
@@ -39,7 +38,7 @@
 	<div class="mb-6 flex items-center justify-between">
 		<h3 class="text-lg font-semibold">{title}</h3>
 		<Button variant="ghost" size="sm" onclick={onAddAddress}>
-			<PlusIcon class="size-4" />
+			<HugeiconsIcon icon={PlusSignIcon} class="size-4" />
 			{addLabel}
 		</Button>
 	</div>

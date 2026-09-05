@@ -11,7 +11,8 @@
 </script>
 
 <script lang="ts">
-  import GlobeIcon from "@lucide/svelte/icons/globe";
+  import { HugeiconsIcon } from "@hugeicons/svelte";
+  import { GlobalIcon } from "@hugeicons/core-free-icons";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
   import { buttonVariants } from "$lib/components/ui/button";
   import { t, locale, locales } from "$lib/i18n";
@@ -33,7 +34,7 @@
     )}
     aria-label="Change language"
   >
-    <GlobeIcon class="size-4" />
+    <HugeiconsIcon icon={GlobalIcon} class="size-4" />
     <span class="sr-only">Change language</span>
   </DropdownMenu.Trigger>
   <DropdownMenu.Content {align}>

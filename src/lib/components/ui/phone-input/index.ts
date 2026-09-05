@@ -2,4 +2,10 @@ import PhoneInput, { defaultOptions } from './phone-input.svelte';
 
 export { PhoneInput, defaultOptions };
 
-export type { PhoneInputProps } from './types';
+export type {
+	PhoneInputProps,
+	Country,
+	CountryCode,
+	DetailedValue,
+	TelInputOptions
+} from './types';

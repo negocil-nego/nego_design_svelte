@@ -17,3 +17,12 @@ export {
 	Previous as CarouselPrevious,
 	Next as CarouselNext,
 };
+
+export { autoplay, type AutoplayOptions } from "./autoplay.js";
+
+export type {
+	CarouselAPI,
+	CarouselOptions,
+	CarouselPlugins,
+	CarouselProps,
+} from "./context.js";

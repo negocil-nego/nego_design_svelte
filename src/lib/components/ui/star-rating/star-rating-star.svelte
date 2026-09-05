@@ -1,41 +1,67 @@
 <script lang="ts">
-	import { cn } from '$lib/utils.js';
-	import StarHalfIcon from '@lucide/svelte/icons/star-half';
-	import StarIcon from '@lucide/svelte/icons/star';
-	import { RatingGroup } from 'bits-ui';
-	import type { StarRatingStarProps } from './types';
+	import { cn } from "$lib/utils.js";
+	import type { StarRatingStarProps } from "./types";
+	import { useStarRatingContext } from "./star-rating.svelte";
+	import { HugeiconsIcon } from "@hugeicons/svelte";
+	import { StarHalfIcon, StarIcon } from "@hugeicons/core-free-icons";
 
-	let { index, state, class: className }: StarRatingStarProps = $props();
+	let { index, class: className, state: _state }: StarRatingStarProps = $props();
+
+	const rating = useStarRatingContext();
+
+	const fraction = $derived.by(() => Math.min(Math.max(rating.value - index, 0), 1));
+	const isActive = $derived(fraction >= 1);
+	const isPartial = $derived(fraction > 0 && fraction < 1);
+	const isCurrentHovered = $derived(rating.hovered === index);
+	const filled = $derived(isActive || isPartial || isCurrentHovered);
+
+	const displayState = $derived(isPartial ? "partial" : isActive ? "active" : "inactive");
+	const iconClass = $derived(
+		filled ? "text-amber-500 fill-current" : "text-muted-foreground fill-transparent"
+	);
+
+	function handleClick() {
+		if (rating.disabled || rating.readOnly) return;
+		rating.selectValue(index + 1);
+	}
+
+	function handleKeydown(e: KeyboardEvent) {
+		if (e.key === "Enter" || e.key === " ") {
+			e.preventDefault();
+			handleClick();
+		}
+	}
 </script>
 
-<RatingGroup.Item
-	{index}
+<span
+	role="radio"
+	aria-checked={isActive ? "true" : isPartial ? "mixed" : "false"}
+	data-star-rating
+	data-state={displayState}
+	data-disabled={rating.disabled ? "true" : undefined}
+	tabindex={rating.disabled ? -1 : 0}
 	class={cn(
-		'ring-ring text-primary ring-offset-background group/item size-5 rounded-md ring-offset-2 outline-hidden group-aria-disabled:opacity-50 focus-visible:ring-2',
+		"ring-ring text-primary ring-offset-background group/item size-5 rounded-md ring-offset-2 outline-hidden group-aria-disabled:opacity-50 focus-visible:ring-2",
 		className
 	)}
+	onclick={handleClick}
+	onkeydown={handleKeydown}
+	onmouseenter={() => rating.setHovered(index)}
+	onmouseleave={() => rating.setHovered(null)}
 >
 	<div class="relative size-full">
-		<StarIcon
-			class={cn('size-full fill-transparent transition-all', {
-				'fill-current': state === 'active'
-			})}
-		/>
-		<StarHalfIcon
-			class={cn(
-				'absolute top-0 left-0 size-full fill-transparent transition-all group-data-[state=active]/item:fill-current',
-				{
-					'ltr:fill-current': state === 'partial'
-				}
-			)}
-		/>
-		<StarHalfIcon
-			class={cn(
-				'absolute top-0 right-0 size-full scale-x-[-1] fill-transparent transition-all group-data-[state=active]/item:fill-current',
-				{
-					'rtl:fill-current': state === 'partial'
-				}
-			)}
-		/>
+		{#if isPartial}
+			<HugeiconsIcon
+				icon={StarHalfIcon}
+				strokeWidth={2}
+				class={cn("absolute top-0 left-0 size-full transition-all", iconClass)}
+			/>
+		{:else}
+			<HugeiconsIcon
+				icon={StarIcon}
+				strokeWidth={2}
+				class={cn("size-full transition-all", iconClass)}
+			/>
+		{/if}
 	</div>
-</RatingGroup.Item>
+</span>

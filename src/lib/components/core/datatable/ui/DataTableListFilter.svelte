@@ -4,7 +4,7 @@
     import { Input } from "$lib/components/ui/input/index.js";
     import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
     import { HugeiconsIcon } from "@hugeicons/svelte";
-    import type { Table } from "@tanstack/table-core";
+    import type { Table } from "$lib/components/ui/data-table";
 
     type Props = {
         table: Table<T>;
@@ -24,8 +24,9 @@
             column &&
             table.getColumn(column)?.setFilterValue(e.currentTarget.value)}
         onchange={(e) => {
-            column &&
+            if (column) {
                 table.getColumn(column)?.setFilterValue(e.currentTarget.value);
+            }
         }}
         class="max-w-sm"
     />

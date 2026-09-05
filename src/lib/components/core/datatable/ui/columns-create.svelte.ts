@@ -1,5 +1,5 @@
 
-import type { ColumnDef } from "@tanstack/table-core";
+import type { ColumnDef } from "$lib/components/ui/data-table";
 import { renderComponent } from "$lib/components/ui/data-table";
 import DataTableDragHandle from "./DataTableDragHandle.svelte";
 import DataTableCheckbox from "./DataTableCheckbox.svelte";
@@ -24,7 +24,7 @@ export function createSelectColumn<T>(): ColumnDef<T> {
                 indeterminate:
                     table.getIsSomePageRowsSelected() &&
                     !table.getIsAllPageRowsSelected(),
-                onCheckedChange: (value: any) =>
+                onCheckedChange: (value: boolean) =>
                     table.toggleAllPageRowsSelected(!!value),
                 "aria-label": "Select all",
             }),
@@ -32,7 +32,7 @@ export function createSelectColumn<T>(): ColumnDef<T> {
             renderComponent(DataTableCheckbox, {
                 class: "w-[15px]",
                 checked: row.getIsSelected(),
-                onCheckedChange: (value: any) => row.toggleSelected(!!value),
+                onCheckedChange: (value: boolean) => row.toggleSelected(!!value),
                 "aria-label": "Select row",
             }),
         enableSorting: false,
