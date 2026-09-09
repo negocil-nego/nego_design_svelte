@@ -146,9 +146,13 @@
 
 <main class="min-h-screen bg-background text-foreground">
   <!-- Hero -->
-  <section class="relative overflow-hidden border-b border-border bg-gradient-to-br from-primary/10 via-background to-background px-6 py-16 md:py-24">
+  <section
+    class="relative overflow-hidden border-b border-border bg-linear-to-br from-primary/10 via-background to-background px-6 py-16 md:py-24"
+  >
     <div class="mx-auto max-w-4xl">
-      <span class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
+      <span
+        class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
+      >
         <HugeiconsIcon icon={Rocket01Icon} class="size-4" />
         Svelte 5 • Tailwind CSS • shadcn style
       </span>
@@ -156,8 +160,9 @@
         Beautiful components for <span class="text-primary">Svelte</span>
       </h1>
       <p class="mt-5 max-w-2xl text-lg text-muted-foreground">
-        NegoDesign is an open-source component library — reusable UI primitives and
-        complete, production-ready pages. Copy them, customize them, ship them fast.
+        NegoDesign is an open-source component library — reusable UI primitives
+        and complete, production-ready pages. Copy them, customize them, ship
+        them fast.
       </p>
       <div class="mt-8 flex flex-wrap gap-3">
         <a
@@ -189,20 +194,24 @@
   <section id="demos" class="mx-auto max-w-6xl scroll-mt-20 px-6 py-12">
     <h2 class="text-2xl font-bold md:text-3xl">Live demos</h2>
     <p class="mt-2 text-muted-foreground">
-      Every category maps to a running example. Open the documentation for props, API
-      reference and copy-paste snippets.
+      Every category maps to a running example. Open the documentation for
+      props, API reference and copy-paste snippets.
     </p>
 
     <div class="mt-8 space-y-8">
       {#each categories as category (category.id)}
         <article class="rounded-2xl border border-border bg-card">
           <header class="flex items-center gap-4 border-b border-border p-6">
-            <span class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
+            <span
+              class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"
+            >
               <HugeiconsIcon icon={category.icon} class="size-6" />
             </span>
             <div>
               <h3 class="text-xl font-bold">{category.title}</h3>
-              <p class="text-sm text-muted-foreground">{category.description}</p>
+              <p class="text-sm text-muted-foreground">
+                {category.description}
+              </p>
             </div>
             <a
               href="/docs/components"
@@ -231,9 +240,14 @@
   <footer class="border-t border-border px-6 py-8">
     <p class="text-center text-sm text-muted-foreground">
       NegoDesign — Svelte 5 component library. Browse the
-      <a href="/docs" class="font-medium text-primary hover:underline">documentation</a>
+      <a href="/docs" class="font-medium text-primary hover:underline"
+        >documentation</a
+      >
       or jump to a
-      <a href="/docs/installation" class="font-medium text-primary hover:underline">clean install</a>.
+      <a
+        href="/docs/installation"
+        class="font-medium text-primary hover:underline">clean install</a
+      >.
     </p>
   </footer>
 </main>
