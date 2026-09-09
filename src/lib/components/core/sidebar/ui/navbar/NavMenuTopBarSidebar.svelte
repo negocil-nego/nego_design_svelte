@@ -6,8 +6,6 @@
 	import { HugeiconsIcon } from "@hugeicons/svelte";
 	import { UnfoldMoreIcon } from "@hugeicons/core-free-icons";
 
-	// This should be `Component` after @lucide/svelte updates types
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	let { content, dropdownMenu }: NavTopBarSidebarItem = $props();
 	const sidebar = useSidebar();
 </script>

@@ -1,6 +1,7 @@
-import type { CellContext } from "@tanstack/table-core"
+import type { CellContext } from "$lib/components/ui/data-table"
 import { renderComponent, renderSnippet } from "$lib/components/ui/data-table"
 import { createRawSnippet } from "svelte"
+import { SvelteMap } from "svelte/reactivity"
 import { Badge } from "$lib/components/ui/badge"
 import { resolveCell } from "./resolve-cell.svelte"
 
@@ -11,12 +12,12 @@ type BadgeConfig = {
 }
 
 export function resolveCellBadge<T>(
-    configCell: string | ((context: CellContext<T, unknown>) => any),
+    configCell: string | ((context: CellContext<T, unknown>) => unknown),
     badge?: BadgeConfig[],
-): (context: CellContext<T, unknown>) => any {
+): (context: CellContext<T, unknown>) => unknown {
     if (typeof configCell === "string" && badge && badge.length > 0) {
         const key = configCell;
-        const badgeMap = new Map(badge.map((b) => [b.value, b]));
+        const badgeMap = new SvelteMap(badge.map((b) => [b.value, b]));
 
         return ({ row }: CellContext<T, unknown>) => {
             const cellValue = String((row.original as Record<string, unknown>)[key]);

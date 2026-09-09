@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ModeWatcher } from "mode-watcher";
   import { setUserTranslations } from "../i18n/config";
   import type { NegoDesignProps } from "$lib/types";
+  import { applyTheme, theme } from "$lib/theme.svelte";
 
   let { translations, children }: NegoDesignProps = $props();
 
@@ -10,7 +10,12 @@
       setUserTranslations(translations);
     }
   });
+
+  $effect(() => {
+    if (typeof document !== "undefined") {
+      applyTheme(theme.current);
+    }
+  });
 </script>
 
-<ModeWatcher />
 {@render children()}

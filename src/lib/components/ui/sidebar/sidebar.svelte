@@ -1,5 +1,4 @@
 <script lang="ts">
-	import * as Sheet from "$lib/components/ui/sheet/index.js";
 	import { cn, type WithElementRef } from "$lib/utils.js";
 	import type { HTMLAttributes } from "svelte/elements";
 	import { SIDEBAR_WIDTH_MOBILE } from "./constants.js";
@@ -13,13 +12,17 @@
 		class: className,
 		children,
 		...restProps
-	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
+	}: WithElementRef<HTMLAttributes<HTMLElement>> & {
 		side?: "left" | "right";
 		variant?: "sidebar" | "floating" | "inset";
 		collapsible?: "offcanvas" | "icon" | "none";
 	} = $props();
 
 	const sidebar = useSidebar();
+
+	$effect(() => {
+		sidebar.setConfig({ collapsible, side, variant });
+	});
 </script>
 
 {#if collapsible === "none"}
@@ -28,48 +31,57 @@
 			"bg-sidebar text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
 			className
 		)}
+		data-slot="sidebar"
 		bind:this={ref}
 		{...restProps}
 	>
 		{@render children?.()}
 	</div>
-{:else if sidebar.isMobile}
-	<Sheet.Root
-		bind:open={() => sidebar.openMobile, (v) => sidebar.setOpenMobile(v)}
-		{...restProps}
-	>
-		<Sheet.Content
-			bind:ref
+{:else}
+	<div data-slot="sidebar-mobile" class="md:hidden">
+		<button
+			type="button"
+			aria-label="Close sidebar"
+			tabindex={-1}
+			class={cn(
+				"bg-black/60 fixed inset-0 z-40 transition-opacity cursor-auto",
+				sidebar.openMobile ? "opacity-100" : "pointer-events-none opacity-0"
+			)}
+			onclick={() => sidebar.setOpenMobile(false)}
+		></button>
+		<aside
 			data-sidebar="sidebar"
 			data-slot="sidebar"
 			data-mobile="true"
+			data-side={side}
+			style="--sidebar-width: {SIDEBAR_WIDTH_MOBILE};"
 			class={cn(
-				"bg-sidebar text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden",
+				"bg-sidebar text-sidebar-foreground fixed inset-y-0 z-50 flex h-svh w-(--sidebar-width) flex-col p-0 transition-transform duration-200 ease-linear md:hidden",
+				sidebar.openMobile
+					? "translate-x-0"
+					: side === "left"
+						? "-translate-x-full"
+						: "translate-x-full",
+				side === "left" ? "start-0" : "end-0",
 				className
 			)}
-			style="--sidebar-width: {SIDEBAR_WIDTH_MOBILE};"
-			{side}
 		>
-			<Sheet.Header class="sr-only">
-				<Sheet.Title>Sidebar</Sheet.Title>
-				<Sheet.Description>Displays the mobile sidebar.</Sheet.Description>
-			</Sheet.Header>
 			<div class="flex h-full w-full flex-col">
 				{@render children?.()}
 			</div>
-		</Sheet.Content>
-	</Sheet.Root>
-{:else}
+		</aside>
+	</div>
+
 	<div
-		bind:this={ref}
 		class="text-sidebar-foreground group peer hidden md:block"
 		data-state={sidebar.state}
 		data-collapsible={sidebar.state === "collapsed" ? collapsible : ""}
 		data-variant={variant}
 		data-side={side}
 		data-slot="sidebar"
+		bind:this={ref}
+		{...restProps}
 	>
-		<!-- This is what handles the sidebar gap on desktop -->
 		<div
 			data-slot="sidebar-gap"
 			class={cn(
@@ -88,7 +100,6 @@
 				side === "left"
 					? "start-0 group-data-[collapsible=offcanvas]:start-[calc(var(--sidebar-width)*-1)]"
 					: "end-0 group-data-[collapsible=offcanvas]:end-[calc(var(--sidebar-width)*-1)]",
-				// Adjust the padding for floating and inset variants.
 				variant === "floating" || variant === "inset"
 					? "p-2 group-data-[collapsible=icon]:w-[calc(var(--sidebar-width-icon)+(--spacing(4))+2px)]"
 					: "group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-e group-data-[side=right]:border-s",

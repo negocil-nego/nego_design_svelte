@@ -1,31 +1,64 @@
 <script lang="ts">
-	import { PinInput as InputOTPPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils.js";
+	import type { HTMLInputAttributes } from "svelte/elements";
+	import { cn, type WithElementRef, type WithoutChildren } from "$lib/utils.js";
+	import { getInputOTPContext, type OtpCell } from "./context.svelte.js";
 
 	let {
 		ref = $bindable(null),
 		cell,
 		class: className,
 		...restProps
-	}: InputOTPPrimitive.CellProps = $props();
+	}: WithoutChildren<WithElementRef<HTMLInputAttributes, HTMLInputElement>> & {
+		cell: OtpCell;
+	} = $props();
+
+	const ctx = getInputOTPContext();
+	const index = $derived(cell.index);
+
+	$effect(() => {
+		ctx.registerInput(index, ref);
+	});
+
+	function handleInput(event: Event & { currentTarget: HTMLInputElement }) {
+		ctx.setValueAt(index, event.currentTarget.value);
+	}
+
+	function handleFocus() {
+		ctx.setActive(index);
+		ref?.select();
+	}
+
+	function handleBlur() {
+		ctx.setActive(null);
+	}
+
+	function handleKeyDown(event: KeyboardEvent) {
+		ctx.handleKeyDown(index, event);
+	}
+
+	function handlePaste(event: ClipboardEvent) {
+		ctx.handlePaste(index, event);
+	}
 </script>
 
-<InputOTPPrimitive.Cell
-	{cell}
-	bind:ref
+<input
+	bind:this={ref}
 	data-slot="input-otp-slot"
+	type="text"
+	inputmode="numeric"
+	autocomplete="one-time-code"
+	maxlength={1}
+	value={cell.char}
+	placeholder={ctx.placeholder}
+	disabled={ctx.disabled}
+	oninput={handleInput}
+	onfocus={handleFocus}
+	onblur={handleBlur}
+	onkeydown={handleKeyDown}
+	onpaste={handlePaste}
 	class={cn(
-		"bg-input/30 border-input data-[active=true]:border-ring data-[active=true]:ring-ring/50 data-[active=true]:aria-invalid:ring-destructive/20 dark:data-[active=true]:aria-invalid:ring-destructive/40 aria-invalid:border-destructive data-[active=true]:aria-invalid:border-destructive size-9 border-y border-r text-sm transition-all outline-none first:rounded-l-4xl first:border-l last:rounded-r-4xl data-[active=true]:ring-[3px] relative flex items-center justify-center data-[active=true]:z-10",
+		"border-input text-foreground bg-input/30 size-10 rounded-md border text-center text-lg shadow-xs transition-[color,box-shadow] outline-none focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50",
 		className
 	)}
 	{...restProps}
->
-	{cell.char}
-	{#if cell.hasFakeCaret}
-		<div
-			class="cn-input-otp-caret pointer-events-none absolute inset-0 flex items-center justify-center"
-		>
-			<div class="animate-caret-blink bg-foreground h-4 w-px duration-1000 bg-foreground h-4 w-px"></div>
-		</div>
-	{/if}
-</InputOTPPrimitive.Cell>
+/>

@@ -1,25 +1,26 @@
 <script lang="ts" module>
-	import { tv, type VariantProps } from "tailwind-variants";
+	import { cn } from "$lib/utils.js";
 
-	export const emptyMediaVariants = tv({
-		base: "mb-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0",
-		variants: {
-			variant: {
-				default: "bg-transparent",
-				icon: "flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&_svg:not([class*='size-'])]:size-6",
-			},
-		},
-		defaultVariants: {
-			variant: "default",
-		},
-	});
+	const emptyMediaBase =
+		"mb-2 flex shrink-0 items-center justify-center [&_svg]:pointer-events-none [&_svg]:shrink-0";
 
-	export type EmptyMediaVariant = VariantProps<typeof emptyMediaVariants>["variant"];
+	const emptyMediaVariantClasses = {
+		default: "bg-transparent",
+		icon: "flex size-10 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&_svg:not([class*='size-'])]:size-6",
+		dashed: "flex size-10 shrink-0 items-center justify-center rounded-lg border-2 border-dashed border-border bg-transparent text-foreground [&_svg:not([class*='size-'])]:size-6",
+	} as const;
+
+	export type EmptyMediaVariant = keyof typeof emptyMediaVariantClasses;
+
+	export function emptyMediaVariants(opts: { variant?: EmptyMediaVariant } = {}): string {
+		const variant = opts.variant ?? "default";
+		return cn(emptyMediaBase, emptyMediaVariantClasses[variant]);
+	}
 </script>
 
 <script lang="ts">
-	import { cn, type WithElementRef } from "$lib/utils.js";
 	import type { HTMLAttributes } from "svelte/elements";
+	import type { WithElementRef } from "$lib/utils.js";
 
 	let {
 		ref = $bindable(null),

@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { Drawer as DrawerPrimitive } from "vaul-svelte";
+	import { cn, type WithElementRef, type WithoutChildrenOrChild } from "$lib/utils.js";
+	import type { ComponentProps, Snippet } from "svelte";
+	import type { HTMLAttributes } from "svelte/elements";
 	import DrawerPortal from "./drawer-portal.svelte";
 	import DrawerOverlay from "./drawer-overlay.svelte";
-	import { cn } from "$lib/utils.js";
-	import type { ComponentProps } from "svelte";
-	import type { WithoutChildrenOrChild } from "$lib/utils.js";
+	import { useDrawerContext } from "./drawer.svelte";
 
 	let {
 		ref = $bindable(null),
@@ -12,22 +12,71 @@
 		portalProps,
 		children,
 		...restProps
-	}: DrawerPrimitive.ContentProps & {
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
 		portalProps?: WithoutChildrenOrChild<ComponentProps<typeof DrawerPortal>>;
+		children?: Snippet;
 	} = $props();
+
+	const drawer = useDrawerContext();
+
+	$effect(() => {
+		if (!drawer.open) return;
+		const previous = document.body.style.overflow;
+		document.body.style.overflow = "hidden";
+		const onKeydown = (event: KeyboardEvent) => {
+			if (event.key === "Escape") drawer.setOpen(false);
+		};
+		document.addEventListener("keydown", onKeydown);
+		return () => {
+			document.body.style.overflow = previous;
+			document.removeEventListener("keydown", onKeydown);
+		};
+	});
+
+	const directionClasses = $derived(
+		drawer.direction === "left" || drawer.direction === "right"
+			? cn(
+					"inset-y-0 w-full max-w-sm",
+					drawer.direction === "left"
+						? "left-0 border-r rounded-r-xl"
+						: "right-0 border-l rounded-l-xl"
+				)
+			: cn(
+					"inset-x-0 h-auto max-h-[80vh]",
+					drawer.direction === "bottom"
+						? "bottom-0 mt-24 rounded-t-xl border-t animate-slide-in-up"
+						: "top-0 mb-24 rounded-b-xl border-b animate-slide-in-down"
+				)
+	);
 </script>
 
-<DrawerPortal {...portalProps}>
-	<DrawerOverlay />
-	<DrawerPrimitive.Content
-		bind:ref
-		data-slot="drawer-content"
-		class={cn("before:bg-popover text-popover-foreground before:border-border relative flex h-auto flex-col bg-transparent p-4 text-sm before:absolute before:inset-2 before:-z-10 before:rounded-4xl before:border data-[vaul-drawer-direction=bottom]:inset-x-0 data-[vaul-drawer-direction=bottom]:bottom-0 data-[vaul-drawer-direction=bottom]:mt-24 data-[vaul-drawer-direction=bottom]:max-h-[80vh] data-[vaul-drawer-direction=left]:inset-y-0 data-[vaul-drawer-direction=left]:left-0 data-[vaul-drawer-direction=left]:w-3/4 data-[vaul-drawer-direction=right]:inset-y-0 data-[vaul-drawer-direction=right]:right-0 data-[vaul-drawer-direction=right]:w-3/4 data-[vaul-drawer-direction=top]:inset-x-0 data-[vaul-drawer-direction=top]:top-0 data-[vaul-drawer-direction=top]:mb-24 data-[vaul-drawer-direction=top]:max-h-[80vh] data-[vaul-drawer-direction=left]:sm:max-w-sm data-[vaul-drawer-direction=right]:sm:max-w-sm group/drawer-content fixed z-50", className)}
-		{...restProps}
-	>
+{#if drawer.open}
+	<DrawerPortal {...portalProps}>
+		<DrawerOverlay />
 		<div
-			class="bg-muted mx-auto mt-4 hidden h-1.5 w-[100px] shrink-0 rounded-full group-data-[vaul-drawer-direction=bottom]/drawer-content:block bg-muted mx-auto hidden shrink-0 group-data-[vaul-drawer-direction=bottom]/drawer-content:block"
-		></div>
-		{@render children?.()}
-	</DrawerPrimitive.Content>
-</DrawerPortal>
+			bind:this={ref}
+			data-slot="drawer-content"
+			data-state={drawer.open ? "open" : "closed"}
+			data-vaul-drawer-direction={drawer.direction}
+			class={cn(
+				"bg-background text-foreground fixed z-50 flex flex-col border p-4 group/drawer-content",
+				directionClasses,
+				className
+			)}
+			{...restProps}
+		>
+			<div
+				aria-hidden="true"
+				class={cn(
+					"bg-muted mx-auto mt-4 h-1.5 w-[100px] shrink-0 rounded-full",
+					drawer.direction === "bottom" || drawer.direction === "top"
+						? "block"
+						: "hidden"
+				)}
+			></div>
+			<div class="flex h-full w-full flex-col">
+				{@render children?.()}
+			</div>
+		</div>
+	</DrawerPortal>
+{/if}

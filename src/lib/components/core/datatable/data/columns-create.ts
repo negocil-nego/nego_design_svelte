@@ -1,4 +1,4 @@
-import type { ColumnDef } from "@tanstack/table-core"
+import type { ColumnDef } from "$lib/components/ui/data-table"
 import { renderComponent } from "$lib/components/ui/data-table"
 import DataTableDragHandle from "../ui/DataTableDragHandle.svelte"
 import DataTableCheckbox from "../ui/DataTableCheckbox.svelte"

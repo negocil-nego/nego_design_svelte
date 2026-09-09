@@ -8,9 +8,9 @@
 </script>
 
 <script lang="ts">
-  import SunIcon from "@lucide/svelte/icons/sun";
-  import MoonIcon from "@lucide/svelte/icons/moon";
-  import { toggleMode } from "mode-watcher";
+  import { HugeiconsIcon } from "@hugeicons/svelte";
+  import { Sun01Icon, Moon01Icon } from "@hugeicons/core-free-icons";
+  import { toggleMode } from "$lib/theme.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
 
   let { variant = "outline", size = "default" }: LightSwitchProps = $props();
@@ -25,18 +25,24 @@
     "icon-sm": "icon-sm",
     "icon-lg": "icon-lg",
   };
+
+  function handleClick() {
+    toggleMode();
+  }
 </script>
 
 <Button
-  onclick={toggleMode}
+  onclick={handleClick}
   {variant}
   size={sizeMap[size] as ButtonSize}
   class="relative rounded-full bg-input"
 >
-  <SunIcon
+  <HugeiconsIcon
+    icon={Sun01Icon}
     class="scale-100 rotate-0 transition-all! dark:scale-0 dark:-rotate-90"
   />
-  <MoonIcon
+  <HugeiconsIcon
+    icon={Moon01Icon}
     class="absolute scale-0 rotate-90 transition-all! dark:scale-100 dark:rotate-0"
   />
   <span class="sr-only">Toggle theme</span>

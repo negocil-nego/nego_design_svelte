@@ -1,33 +1,62 @@
 <script lang="ts">
-	import { Tabs as TabsPrimitive } from 'bits-ui';
-	import { cn } from '$lib/utils.js';
-	import { useUnderlineTabs } from './underline-tabs.svelte.js';
-	import { box } from 'svelte-toolbelt';
-
-	const uid = $props.id();
+	import type { Snippet } from "svelte";
+	import { cn } from "$lib/utils.js";
+	import { useUnderlineTabs } from "./underline-tabs.svelte.js";
 
 	let {
 		ref = $bindable(null),
-		value = $bindable(''),
-		id = uid,
+		defaultValue = "",
+		value = $bindable(defaultValue),
+		onValueChange,
+		orientation = "horizontal",
+		id = "",
 		class: className,
+		children,
 		...restProps
-	}: Omit<TabsPrimitive.RootProps, 'orientation' | 'id'> & { id?: string } = $props();
+	}: {
+		ref?: HTMLDivElement | null;
+		defaultValue?: string;
+		value?: string;
+		onValueChange?: (value: string) => void;
+		orientation?: "horizontal" | "vertical";
+		id?: string;
+		class?: string;
+		children?: Snippet;
+		[key: string]: unknown;
+	} = $props();
+
+	let hovered = $state<string | null>(null);
+
+	function select(next: string) {
+		value = next;
+		onValueChange?.(next);
+	}
+
+	function setHovered(next: string | null) {
+		hovered = next;
+	}
 
 	useUnderlineTabs({
-		value: box.with(
-			() => value,
-			(v) => (value = v)
-		),
-		id: box.with(() => id)
+		get value() {
+			return value;
+		},
+		get hovered() {
+			return hovered;
+		},
+		get orientation() {
+			return orientation;
+		},
+		select,
+		setHovered
 	});
 </script>
 
-<TabsPrimitive.Root
-	bind:ref
-	bind:value
-	orientation="horizontal"
+<div
+	bind:this={ref}
 	data-slot="underline-tabs"
-	class={cn('flex flex-col gap-2', className)}
+	data-orientation={orientation}
+	class={cn("flex flex-col gap-2", className)}
 	{...restProps}
-/>
+>
+	{@render children?.()}
+</div>

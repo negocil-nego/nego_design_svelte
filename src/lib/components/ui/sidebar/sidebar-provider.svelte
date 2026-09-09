@@ -1,5 +1,4 @@
 <script lang="ts">
-	import * as Tooltip from "$lib/components/ui/tooltip/index.js";
 	import { cn, type WithElementRef } from "$lib/utils.js";
 	import type { HTMLAttributes } from "svelte/elements";
 	import {
@@ -12,42 +11,53 @@
 
 	let {
 		ref = $bindable(null),
-		open = $bindable(true),
+		defaultOpen = true,
+		open = $bindable(defaultOpen),
 		onOpenChange = () => {},
+		collapsible = "offcanvas",
+		side = "left",
 		class: className,
 		style,
 		children,
 		...restProps
 	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
+		defaultOpen?: boolean;
 		open?: boolean;
 		onOpenChange?: (open: boolean) => void;
+		collapsible?: "icon" | "offcanvas" | "none";
+		side?: "left" | "right";
 	} = $props();
 
+	// svelte-ignore state_referenced_locally
 	const sidebar = setSidebar({
 		open: () => open,
 		setOpen: (value: boolean) => {
 			open = value;
 			onOpenChange(value);
 
-			// This sets the cookie to keep the sidebar state.
-			document.cookie = `${SIDEBAR_COOKIE_NAME}=${open}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
+			if (typeof document !== "undefined") {
+				document.cookie = `${SIDEBAR_COOKIE_NAME}=${value}; path=/; max-age=${SIDEBAR_COOKIE_MAX_AGE}`;
+			}
 		},
+		collapsible,
+		side,
 	});
 </script>
 
 <svelte:window onkeydown={sidebar.handleShortcutKeydown} />
 
-<Tooltip.Provider delayDuration={0}>
-	<div
-		data-slot="sidebar-wrapper"
-		style="--sidebar-width: {SIDEBAR_WIDTH}; --sidebar-width-icon: {SIDEBAR_WIDTH_ICON}; {style}"
-		class={cn(
-			"group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full",
-			className
-		)}
-		bind:this={ref}
-		{...restProps}
-	>
-		{@render children?.()}
-	</div>
-</Tooltip.Provider>
+<div
+	data-slot="sidebar-wrapper"
+	data-side={sidebar.side}
+	data-collapsible={sidebar.collapsible}
+	data-variant={sidebar.variant}
+	style="--sidebar-width: {SIDEBAR_WIDTH}; --sidebar-width-icon: {SIDEBAR_WIDTH_ICON}; {style}"
+	class={cn(
+		"group/sidebar-wrapper has-data-[variant=inset]:bg-sidebar flex min-h-svh w-full",
+		className
+	)}
+	bind:this={ref}
+	{...restProps}
+>
+	{@render children?.()}
+</div>

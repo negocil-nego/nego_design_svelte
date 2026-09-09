@@ -1,7 +1,7 @@
 <script lang="ts">
-	import emblaCarouselSvelte from "embla-carousel-svelte";
 	import { cn, type WithElementRef } from "$lib/utils.js";
 	import { getEmblaContext } from "./context.js";
+	import type { Action } from "svelte/action";
 	import type { HTMLAttributes } from "svelte/elements";
 
 	let {
@@ -12,31 +12,45 @@
 	}: WithElementRef<HTMLAttributes<HTMLDivElement>> = $props();
 
 	const emblaCtx = getEmblaContext("<Carousel.Content/>");
+
+	let containerEl = $state<HTMLDivElement | null>(null);
+
+	$effect(() => {
+		emblaCtx.setContainer(containerEl);
+	});
+
+	const carouselKeyboard = ((node: HTMLElement) => {
+		const handler = (event: KeyboardEvent) => emblaCtx.handleKeyDown(event);
+		node.addEventListener("keydown", handler);
+		return {
+			destroy() {
+				node.removeEventListener("keydown", handler);
+			},
+		};
+	}) satisfies Action;
 </script>
 
 <div
+	bind:this={ref}
 	data-slot="carousel-content"
 	class="overflow-hidden"
-	use:emblaCarouselSvelte={{
-		options: {
-			container: "[data-embla-container]",
-			slides: "[data-embla-slide]",
-			...emblaCtx.options,
-			axis: emblaCtx.orientation === "horizontal" ? "x" : "y",
-		},
-		plugins: emblaCtx.plugins,
-	}}
-	onemblaInit={emblaCtx.onInit}
+	{...restProps}
 >
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<div
-		bind:this={ref}
+		bind:this={containerEl}
+		use:carouselKeyboard
+		role="region"
+		aria-roledescription="carousel"
+		aria-label="Carousel"
+		tabindex="0"
 		class={cn(
-			"flex",
-			emblaCtx.orientation === "horizontal" ? "-ms-4" : "-mt-4 flex-col",
+			emblaCtx.orientation === "horizontal"
+				? "flex flex-row overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -ms-4"
+				: "flex flex-col overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar -mt-4",
 			className
 		)}
-		data-embla-container=""
-		{...restProps}
+		onscroll={emblaCtx.onScroll}
 	>
 		{@render children?.()}
 	</div>

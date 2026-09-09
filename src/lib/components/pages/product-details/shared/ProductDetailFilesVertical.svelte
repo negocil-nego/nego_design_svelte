@@ -38,7 +38,6 @@
 
 {#snippet media(file: ProductDetailsImage, cls: string)}
   {#if file.type === "video"}
-    <!-- svelte-ignore a11y_media_has_caption -->
     <video src={file.src} class={cls} muted playsinline></video>
   {:else}
     <img src={file.src} alt={file.alt ?? ""} class={cls} />

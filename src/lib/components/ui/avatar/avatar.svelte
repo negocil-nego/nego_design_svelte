@@ -1,26 +1,40 @@
 <script lang="ts">
-	import { Avatar as AvatarPrimitive } from "bits-ui";
-	import { cn } from "$lib/utils.js";
+	import { cn, type WithElementRef } from "$lib/utils.js";
+	import type { HTMLAttributes } from "svelte/elements";
+	import { setAvatarContext } from "./context.svelte.js";
 
 	let {
 		ref = $bindable(null),
-		loadingStatus = $bindable("loading"),
 		size = "default",
+		src,
+		srcset,
 		class: className,
+		children,
 		...restProps
-	}: AvatarPrimitive.RootProps & {
+	}: WithElementRef<HTMLAttributes<HTMLDivElement>> & {
 		size?: "default" | "sm" | "lg";
+		src?: string;
+		srcset?: string;
 	} = $props();
+
+	// svelte-ignore state_referenced_locally
+	const ctx = setAvatarContext(src, srcset);
+
+	$effect(() => {
+		if (src) ctx.src = src;
+		if (srcset) ctx.srcset = srcset;
+	});
 </script>
 
-<AvatarPrimitive.Root
-	bind:ref
-	bind:loadingStatus
+<div
+	bind:this={ref}
 	data-slot="avatar"
 	data-size={size}
 	class={cn(
-		"size-8 rounded-full after:rounded-full data-[size=lg]:size-10 data-[size=sm]:size-6 after:border-border group/avatar relative flex shrink-0 select-none after:absolute after:inset-0 after:border after:mix-blend-darken dark:after:mix-blend-lighten",
+		"group/avatar relative flex size-10 shrink-0 select-none overflow-hidden rounded-full",
 		className
 	)}
 	{...restProps}
-/>
+>
+	{@render children?.()}
+</div>

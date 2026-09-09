@@ -6,7 +6,7 @@
   import CarouselHeader from "../../shared/ui/CarouselHeader.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import { t } from "$lib/i18n";
-  import Autoplay from "embla-carousel-autoplay";
+  import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
   import CardProduct from "$lib/components/core/card/product/CardProduct.svelte";
 
   const {
@@ -32,7 +32,7 @@
     <CarouselSlot
       {...slotProps}
       containerClass="w-full"
-      plugins={[Autoplay({ delay: 4000, stopOnInteraction: true })]}
+      plugins={[autoplay({ delay: 4000, stopOnInteraction: true })]}
     >
       {#if isLoading}
         {#each Array.from( { length: responsive.isMobile ? 5 : 10 }, ) as _, i (`loading-${i}`)}

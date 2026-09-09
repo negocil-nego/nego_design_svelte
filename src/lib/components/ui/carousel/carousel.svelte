@@ -18,43 +18,121 @@
 		...restProps
 	}: WithElementRef<CarouselProps> = $props();
 
+	let isVertical = $derived(orientation === "vertical");
+	let available = $state(false);
+
 	// svelte-ignore state_referenced_locally
-	let carouselState = $state<EmblaContext>({
-		api: undefined,
-		scrollPrev,
-		scrollNext,
+	let ctx = $state<EmblaContext>({
 		orientation,
+		containerEl: undefined,
 		canScrollNext: false,
 		canScrollPrev: false,
-		handleKeyDown,
-		options: opts,
-		plugins,
-		onInit,
-		scrollSnaps: [],
 		selectedIndex: 0,
+		scrollSnaps: [],
+		scrollPrev,
+		scrollNext,
 		scrollTo,
+		onScroll,
+		handleKeyDown,
+		plugins,
+		setContainer,
 	});
 
-	setEmblaContext(carouselState);
+	setEmblaContext(ctx);
 
-	function scrollPrev() {
-		carouselState.api?.scrollPrev();
+	function setContainer(el: HTMLDivElement | null | undefined) {
+		ctx.containerEl = el ?? undefined;
+		available = el != null;
+		updateScrollSnaps();
+		onScroll();
 	}
 
-	function scrollNext() {
-		carouselState.api?.scrollNext();
+	function getSlides(): HTMLElement[] {
+		const container = ctx.containerEl;
+		if (!container) return [];
+		return Array.from(
+			container.querySelectorAll<HTMLElement>("[data-slot='carousel-item']")
+		);
+	}
+
+	function updateScrollSnaps() {
+		const container = ctx.containerEl;
+		if (!container) {
+			ctx.scrollSnaps = [];
+			return;
+		}
+		const scrollPos = isVertical ? container.scrollTop : container.scrollLeft;
+		const origin = isVertical
+			? container.getBoundingClientRect().top
+			: container.getBoundingClientRect().left;
+		ctx.scrollSnaps = getSlides().map((slide) => {
+			const slidePos = isVertical
+				? slide.getBoundingClientRect().top
+				: slide.getBoundingClientRect().left;
+			return slidePos - origin + scrollPos;
+		});
+	}
+
+	function onScroll() {
+		const container = ctx.containerEl;
+		if (!container) return;
+		const pos = isVertical ? container.scrollTop : container.scrollLeft;
+		const size = isVertical ? container.clientHeight : container.clientWidth;
+		const scrollSize = isVertical
+			? container.scrollHeight
+			: container.scrollWidth;
+		const max = Math.max(0, scrollSize - size);
+		ctx.canScrollPrev = pos > 1;
+		ctx.canScrollNext = pos < max - 1;
+		const snaps = ctx.scrollSnaps;
+		let closest = 0;
+		let minDistance = Infinity;
+		for (let i = 0; i < snaps.length; i++) {
+			const distance = Math.abs(snaps[i] - pos);
+			if (distance < minDistance) {
+				minDistance = distance;
+				closest = i;
+			}
+		}
+		ctx.selectedIndex = minDistance === Infinity ? 0 : closest;
 	}
 
 	function scrollTo(index: number, jump?: boolean) {
-		carouselState.api?.scrollTo(index, jump);
+		const container = ctx.containerEl;
+		const snaps = ctx.scrollSnaps;
+		if (!container || snaps.length === 0) return;
+		const target = Math.min(Math.max(index, 0), snaps.length - 1);
+		const snap = snaps[target];
+		container.scrollTo({
+			left: isVertical ? 0 : snap,
+			top: isVertical ? snap : 0,
+			behavior: jump ? "instant" : "smooth",
+		});
 	}
 
-	function onSelect() {
-		if (!carouselState.api) return;
-		carouselState.selectedIndex = carouselState.api.selectedScrollSnap();
-		carouselState.canScrollNext = carouselState.api.canScrollNext();
-		carouselState.canScrollPrev = carouselState.api.canScrollPrev();
+	function scrollPrev() {
+		scrollTo(ctx.selectedIndex - 1);
 	}
+
+	function scrollNext() {
+		scrollTo(ctx.selectedIndex + 1);
+	}
+
+	function buildApi(): CarouselAPI {
+		return {
+			scrollPrev,
+			scrollNext,
+			canScrollPrev: ctx.canScrollPrev,
+			canScrollNext: ctx.canScrollNext,
+			selectedIndex: ctx.selectedIndex,
+			scrollTo,
+			scrollSnapList: () => ctx.scrollSnaps.slice(),
+		};
+	}
+
+	$effect(() => {
+		setApi(buildApi());
+	});
 
 	function handleKeyDown(e: KeyboardEvent) {
 		if (e.key === "ArrowLeft") {
@@ -66,18 +144,65 @@
 		}
 	}
 
-	function onInit(event: CustomEvent<CarouselAPI>) {
-		carouselState.api = event.detail;
-		setApi(carouselState.api);
-
-		carouselState.scrollSnaps = carouselState.api.scrollSnapList();
-		carouselState.api.on("select", onSelect);
-		onSelect();
-	}
-
 	$effect(() => {
+		if (!available) return;
+		const container = ctx.containerEl;
+		if (!container) return;
+		const plugin = plugins[0];
+		if (!plugin?.delay) return;
+
+		let stopped = false;
+		let timer: number | undefined;
+		let lastIndex = ctx.selectedIndex;
+
+		const clearTimer = () => {
+			if (timer !== undefined) window.clearTimeout(timer);
+		};
+
+		const cleanup = () => {
+			stopped = true;
+			clearTimer();
+		};
+
+		const schedule = () => {
+			if (stopped) return;
+			timer = window.setTimeout(() => {
+				if (stopped) return;
+				if (ctx.canScrollNext) {
+					scrollNext();
+				} else if (plugin.loop) {
+					scrollTo(0, true);
+				}
+				lastIndex = ctx.selectedIndex;
+				schedule();
+			}, plugin.delay);
+		};
+
+		const onPointer = () => {
+			if (stopped) return;
+			if (plugin.stopOnInteraction) cleanup();
+		};
+
+		const onScrollReset = () => {
+			if (stopped || plugin.stopOnInteraction) return;
+			if (ctx.selectedIndex !== lastIndex) {
+				clearTimer();
+				lastIndex = ctx.selectedIndex;
+				schedule();
+			}
+		};
+
+		container.addEventListener("pointerdown", onPointer);
+		container.addEventListener("touchstart", onPointer);
+		container.addEventListener("scroll", onScrollReset, { passive: true });
+
+		schedule();
+
 		return () => {
-			carouselState.api?.off("select", onSelect);
+			cleanup();
+			container.removeEventListener("pointerdown", onPointer);
+			container.removeEventListener("touchstart", onPointer);
+			container.removeEventListener("scroll", onScrollReset);
 		};
 	});
 </script>

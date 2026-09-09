@@ -1,5 +1,12 @@
+export type RatingState = "active" | "partial" | "inactive";
+
+export type StarRatingItem = {
+	index: number;
+	state: RatingState;
+};
+
 export type StarRatingStarProps = {
 	index: number;
-	state: 'active' | 'partial' | 'inactive';
+	state?: RatingState;
 	class?: string;
 };

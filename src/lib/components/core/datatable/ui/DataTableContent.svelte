@@ -2,7 +2,7 @@
     import type {
         ColumnDef,
         Table as TanstackTable,
-    } from "@tanstack/table-core";
+    } from "$lib/components/ui/data-table";
     import * as Table from "$lib/components/ui/table/index.js";
     import FlexRender from "$lib/components/ui/data-table/flex-render.svelte";
 
