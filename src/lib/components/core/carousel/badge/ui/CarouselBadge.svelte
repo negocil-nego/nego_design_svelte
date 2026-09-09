@@ -32,6 +32,7 @@
   const responsive = useDevice();
   const skeletonCount = $derived(responsive.isMobile ? 2 : 8);
 
+  // svelte-ignore state_referenced_locally
   let selectedValue = $state<string | undefined>(menuKey ?? "");
 
   function isSelected(item: (typeof items)[number]) {
@@ -73,12 +74,9 @@
         </div>
       {:else}
         {#each items as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
-          <Carousel.Item
-            class="basis-auto relative"
-            onclick={() => selectItem(item)}
-          >
+          <Carousel.Item onclick={() => selectItem(item)}>
             <div
-              class="flex gap-1 mx-2 p-1 justify-center items-center cursor-pointer relative hover:text-lg hover:font-bold
+              class="flex gap-1 mx-2 p-1 justify-center w-min items-center cursor-pointer relative hover:text-lg hover:font-bold
             {isSelected(item)
                 ? isInlineBorder
                   ? 'text-gradient font-bold'

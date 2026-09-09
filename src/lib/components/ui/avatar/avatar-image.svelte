@@ -14,9 +14,6 @@
 
 	const ctx = getAvatarContext();
 
-	if (src) ctx.src = src;
-	if (srcset) ctx.srcset = srcset;
-
 	$effect(() => {
 		if (src) ctx.src = src;
 		if (srcset) ctx.srcset = srcset;

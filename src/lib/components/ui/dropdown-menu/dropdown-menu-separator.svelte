@@ -18,4 +18,4 @@
 	data-slot="dropdown-menu-separator"
 	class={cn("h-px bg-border my-1", className)}
 	{...restProps}
-/>
+></div>

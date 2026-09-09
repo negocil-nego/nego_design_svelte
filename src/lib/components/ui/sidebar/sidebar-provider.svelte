@@ -28,6 +28,7 @@
 		side?: "left" | "right";
 	} = $props();
 
+	// svelte-ignore state_referenced_locally
 	const sidebar = setSidebar({
 		open: () => open,
 		setOpen: (value: boolean) => {

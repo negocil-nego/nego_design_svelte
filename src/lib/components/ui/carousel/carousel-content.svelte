@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { cn, type WithElementRef } from "$lib/utils.js";
 	import { getEmblaContext } from "./context.js";
+	import type { Action } from "svelte/action";
 	import type { HTMLAttributes } from "svelte/elements";
 
 	let {
@@ -17,6 +18,16 @@
 	$effect(() => {
 		emblaCtx.setContainer(containerEl);
 	});
+
+	const carouselKeyboard = ((node: HTMLElement) => {
+		const handler = (event: KeyboardEvent) => emblaCtx.handleKeyDown(event);
+		node.addEventListener("keydown", handler);
+		return {
+			destroy() {
+				node.removeEventListener("keydown", handler);
+			},
+		};
+	}) satisfies Action;
 </script>
 
 <div
@@ -25,8 +36,14 @@
 	class="overflow-hidden"
 	{...restProps}
 >
+	<!-- svelte-ignore a11y_no_noninteractive_tabindex -->
 	<div
 		bind:this={containerEl}
+		use:carouselKeyboard
+		role="region"
+		aria-roledescription="carousel"
+		aria-label="Carousel"
+		tabindex="0"
 		class={cn(
 			emblaCtx.orientation === "horizontal"
 				? "flex flex-row overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -ms-4"
@@ -34,7 +51,6 @@
 			className
 		)}
 		onscroll={emblaCtx.onScroll}
-		onkeydown={emblaCtx.handleKeyDown}
 	>
 		{@render children?.()}
 	</div>

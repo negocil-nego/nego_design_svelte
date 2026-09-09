@@ -17,6 +17,7 @@
 		srcset?: string;
 	} = $props();
 
+	// svelte-ignore state_referenced_locally
 	const ctx = setAvatarContext(src, srcset);
 
 	$effect(() => {

@@ -39,13 +39,16 @@
 	</div>
 {:else}
 	<div data-slot="sidebar-mobile" class="md:hidden">
-		<div
+		<button
+			type="button"
+			aria-label="Close sidebar"
+			tabindex={-1}
 			class={cn(
-				"bg-black/60 fixed inset-0 z-40 transition-opacity",
+				"bg-black/60 fixed inset-0 z-40 transition-opacity cursor-auto",
 				sidebar.openMobile ? "opacity-100" : "pointer-events-none opacity-0"
 			)}
 			onclick={() => sidebar.setOpenMobile(false)}
-		></div>
+		></button>
 		<aside
 			data-sidebar="sidebar"
 			data-slot="sidebar"

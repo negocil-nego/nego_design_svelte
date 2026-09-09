@@ -13,7 +13,7 @@
 	} = $props();
 
 	const ctx = getInputOTPContext();
-	const { index } = cell;
+	const index = $derived(cell.index);
 
 	$effect(() => {
 		ctx.registerInput(index, ref);

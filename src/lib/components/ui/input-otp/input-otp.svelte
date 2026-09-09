@@ -123,6 +123,7 @@
 		focusIndex(cursor - 1);
 	}
 
+	// svelte-ignore state_referenced_locally
 	let ctxState = $state({
 		value,
 		maxlength: total,

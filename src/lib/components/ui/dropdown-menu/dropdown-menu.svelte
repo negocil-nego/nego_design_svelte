@@ -16,6 +16,7 @@
 		children?: Snippet;
 	} = $props();
 
+	// svelte-ignore state_referenced_locally
 	let store: DropdownMenuStore = $state({
 		open: open ?? defaultOpen ?? false,
 		anchorId: generateDropdownMenuId(),
