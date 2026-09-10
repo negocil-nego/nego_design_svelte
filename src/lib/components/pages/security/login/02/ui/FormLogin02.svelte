@@ -9,20 +9,22 @@
 </script>
 
 <script lang="ts">
-  import InputEmail from "$lib/components/core/form/ui/input-email.svelte";
-  import InputUsername from "$lib/components/core/form/ui/input-username.svelte";
-  import InputPhone from "$lib/components/core/form/ui/input-phone.svelte";
-  import InputPassword from "$lib/components/core/form/ui/input-password.svelte";
+  import InputEmail from "$lib/components/ui/form/ui/input-email.svelte";
+  import InputUsername from "$lib/components/ui/form/ui/input-username.svelte";
+  import InputPhone from "$lib/components/ui/form/ui/input-phone.svelte";
+  import InputPassword from "$lib/components/ui/form/ui/input-password.svelte";
+  import SocialLogin from "$lib/components/ui/social-login/social-login.svelte";
   import { t } from "$lib/i18n";
-  import type { LoginRequestDto, LoginVariant, LinkProps } from "../../types";
+  import type { LoginRequestDto, LoginVariant, LinkProps, SocialLoginItem } from "../../types";
 
   type Props = {
     variant: LoginVariant;
     onSubmit?: (credential: LoginRequestDto) => void;
     forgetPassword?: LinkProps;
+    socialLogins?: SocialLoginItem[];
   };
 
-  let { variant, onSubmit, forgetPassword }: Props = $props();
+  let { variant, onSubmit, forgetPassword, socialLogins = [] }: Props = $props();
   let data = $state("");
   let password = $state("");
 
@@ -63,4 +65,6 @@
   >
     {$t("label.login")}
   </button>
+
+  <SocialLogin items={socialLogins} />
 </form>

@@ -19,6 +19,7 @@ export default {
     "link.terms-of-service.label": "Terms of Service",
 
     "label.or": "Or",
+    "label.or.continue.with": "Or Continue With",
     "label.logout": "Log out",
     "label.next": "Start",
     "label.help": "Help",
@@ -43,6 +44,7 @@ export default {
     "label.login": "Sign In",
     "label.register": "Register",
     "label.login.with": "Continue with {{name}}",
+    "label.remember.me": "Remember me",
     "label.send": "Send",
     "label.search": "Search",
     "label.search.placeholder": "Do your research",
@@ -64,9 +66,12 @@ export default {
     "label.buy": "Buy",
 
     "text.login.welcome": "Welcome Back!",
+    "text.login.subtitle": "Sign in to access your unified inbox",
     "text.login.continue": "Continue with Google or enter your details.",
     "text.login.no-account": "Don't have an account?",
     "text.login.sign-up": "Sign Up for free",
+    "text.login.users.count": "10 Million+ Users",
+    "text.login.users.worldwide": "worldwide",
     "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
     "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",
     "text.forget-password": "Enter your email address below and we will send you a link to reset your password.",

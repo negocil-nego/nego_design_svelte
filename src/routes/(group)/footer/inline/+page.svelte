@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FooterInline from "$lib/components/core/footer/ui/02/Footer02.svelte";
+  import FooterInline from "$lib/components/ui/footer/ui/02/Footer02.svelte";
 </script>
 
 <FooterInline

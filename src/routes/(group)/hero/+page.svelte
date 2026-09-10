@@ -1,6 +1,6 @@
 <script lang="ts">
-  import SimpleHero from "$lib/components/core/hero/SimpleHero.svelte";
-  import type { HeroSimpleProps } from "$lib/components/core/hero/types";
+  import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
+  import type { HeroSimpleProps } from "$lib/components/ui/hero/types";
 
   let props: HeroSimpleProps = $state({
     title: "Negócios e Turismo",

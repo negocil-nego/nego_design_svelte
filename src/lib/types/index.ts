@@ -31,7 +31,7 @@ import type {
     NavMenuLogoProps,
     NavMenuActionsProps,
     SimpleMenuProps
-} from "$lib/components/core/nav/data/nav-menu";
+} from "$lib/components/ui/nav/data/nav-menu";
 
 import type {
     NavMenuSidebarProps,
@@ -39,9 +39,9 @@ import type {
     GroupMenuSidebarProps,
     SubMenuSidebarProps,
     NavMenuItem
-} from "$lib/components/core/sidebar/data/nav-menu-sidebar";
+} from "$lib/components/ui/sidebar/core/data/nav-menu-sidebar";
 
-import type { NavUserSidebarProps } from "$lib/components/core/sidebar/data/nav-user-sidebar";
+import type { NavUserSidebarProps } from "$lib/components/ui/sidebar/core/data/nav-user-sidebar";
 
 import type {
     CardMediaProps,
@@ -50,12 +50,12 @@ import type {
     CardHighlightProps,
     CardTagsProps,
     CardProductProps
-} from "$lib/components/core/card/types";
+} from "$lib/components/ui/card/core/types";
 
-import type { CarouselGridMediaProps } from "$lib/components/core/carousel/grid/media/types";
-import type { CarouselGridProfileProps } from "$lib/components/core/carousel/grid/profile/types";
-import type { CarouselHighlightsProps } from "$lib/components/core/carousel/highlights/types";
-import type { CarouselPromotionProps } from "$lib/components/core/carousel/promotion/types";
+import type { CarouselGridMediaProps } from "$lib/components/ui/carousel/core/grid/media/types";
+import type { CarouselGridProfileProps } from "$lib/components/ui/carousel/core/grid/profile/types";
+import type { CarouselHighlightsProps } from "$lib/components/ui/carousel/core/highlights/types";
+import type { CarouselPromotionProps } from "$lib/components/ui/carousel/core/promotion/types";
 
 import type {
     ItemCarousel,
@@ -63,12 +63,12 @@ import type {
     CarouselBadgeProps,
     CarouselHeroItem,
     CarouselHeroProps
-} from "$lib/components/core/carousel/types";
+} from "$lib/components/ui/carousel/core/types";
 
 import type {
     CarouselSlotProps,
     NotFoundEmptyProps
-} from "$lib/components/core/panel/type";
+} from "$lib/components/ui/panel/type";
 
 import type {
     BannerProps,
@@ -76,32 +76,32 @@ import type {
     CtaCardBannerProps,
     CtaCardImageBannerProps,
     NotificationBannerProps
-} from "$lib/components/core/banner/types";
+} from "$lib/components/ui/banner/types";
 
 import type {
     TabItem,
     TabProps
-} from "$lib/components/core/tabs/data/TabModel";
-import type { TabUnderlineProps } from "$lib/components/core/tabs/types";
+} from "$lib/components/ui/tabs/data/TabModel";
+import type { TabUnderlineProps } from "$lib/components/ui/tabs/types";
 
 import type {
     SearchItemProps,
     SearchInputProps
-} from "$lib/components/core/search/types";
+} from "$lib/components/ui/search/types";
 
 import type {
     FooterLinkItem,
     FooterSocialItem,
     FooterColumnProps,
     FooterProps
-} from "$lib/components/core/footer/types";
+} from "$lib/components/ui/footer/types";
 
-import type { MenuBarSidebarProps } from "$lib/components/core/sidebar/types";
+import type { MenuBarSidebarProps } from "$lib/components/ui/sidebar/core/types";
 
 import type {
     DataTableItem,
     DataTableCoreProps
-} from "$lib/components/core/datatable/data/data-table";
+} from "$lib/components/ui/datatable/data/data-table";
 
 import type {
     AdminPanelProps,
@@ -138,20 +138,20 @@ import type {
     TocItem
 } from "$lib/components/pages/privacy-policy-or-terms-of-use/types";
 
-import type { InputLabelProps } from "$lib/components/core/form/data/InputLabel.svelte";
+import type { InputLabelProps } from "$lib/components/ui/form/data/InputLabel.svelte";
 import type { NegoDesignProps } from "$lib/components/types";
-import type { CarouselGridPromotionProps } from "$lib/components/core/carousel/grid/promotion/types";
-import type { CarouselGridProductProps } from "$lib/components/core/carousel/grid/product/types";
+import type { CarouselGridPromotionProps } from "$lib/components/ui/carousel/core/grid/promotion/types";
+import type { CarouselGridProductProps } from "$lib/components/ui/carousel/core/grid/product/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
 import type {
     MenuProps,
     MenuVarientProps,
     ComplexMenuProps
-} from "$lib/components/core/nav/data/types";
+} from "$lib/components/ui/nav/data/types";
 import type {
     GridProps,
     ItemGridProps
-} from "$lib/components/core/grid/data/types";
+} from "$lib/components/ui/grid/core/data/types";
 
 export type {
     GridProps,

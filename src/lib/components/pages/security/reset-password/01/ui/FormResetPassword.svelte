@@ -9,10 +9,10 @@
 </script>
 
 <script lang="ts">
-  import InputCodeOtp from "$lib/components/core/form/ui/input-code-otp.svelte";
-  import InputPassword from "$lib/components/core/form/ui/input-password.svelte";
-  import InputPasswordConfirm from "$lib/components/core/form/ui/input-password-confirm.svelte";
-  import ButtonSend from "$lib/components/core/button/ButtonSend.svelte";
+  import InputCodeOtp from "$lib/components/ui/form/ui/input-code-otp.svelte";
+  import InputPassword from "$lib/components/ui/form/ui/input-password.svelte";
+  import InputPasswordConfirm from "$lib/components/ui/form/ui/input-password-confirm.svelte";
+  import ButtonSend from "$lib/components/ui/button/ButtonSend.svelte";
   import { t } from "$lib/i18n";
   import type { ResetPasswordRequestDto } from "../../types";
 

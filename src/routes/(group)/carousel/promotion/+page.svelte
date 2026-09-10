@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/promotion/data";
-  import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
+  import items from "$lib/components/ui/card/core/promotion/data";
+  import CarouselPromotion from "$lib/components/ui/carousel/core/promotion/ui/CarouselPromotion.svelte";
 </script>
 
 <div class="flex items-center justify-center mt-3 lg:mt-5">

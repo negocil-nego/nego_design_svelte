@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/media/data";
-  import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/CarouselGridMedia.svelte";
+  import items from "$lib/components/ui/card/core/media/data";
+  import CarouselGridMedia from "$lib/components/ui/carousel/core/grid/media/ui/CarouselGridMedia.svelte";
 </script>
 
 <CarouselGridMedia

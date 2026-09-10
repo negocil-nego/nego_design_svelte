@@ -1,5 +1,5 @@
 <script lang="ts">
-  import AdCardBanner from "$lib/components/core/banner/AdCardBanner.svelte";
+  import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
 </script>
 
 <AdCardBanner

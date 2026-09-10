@@ -19,6 +19,7 @@ export default {
     "link.terms-of-service.label": "Termos de Serviço",
 
     "label.or": "Ou",
+    "label.or.continue.with": "Ou Continuar Com",
     "label.logout": "Sair",
     "label.next": "Começar",
     "label.help": "Ajuda",
@@ -43,6 +44,7 @@ export default {
     "label.login": "Entrar",
     "label.register": "Registar",
     "label.login.with": "Continuar com {{name}}",
+    "label.remember.me": "Lembrar-me",
     "label.send": "Enviar",
     "label.search": "Pesquisar",
     "label.search.placeholder": "Faça a sua pesquisa",
@@ -64,9 +66,12 @@ export default {
     "label.buy": "Compra",
 
     "text.login.welcome": "Bem-vindo de Volta!",
+    "text.login.subtitle": "Inicie sessão para aceder à sua caixa de entrada unificada",
     "text.login.continue": "Continuar com Google ou insira os seus dados.",
     "text.login.no-account": "Ainda não tem uma conta?",
     "text.login.sign-up": "Registar-se Grátis",
+    "text.login.users.count": "10 Milhões+ Utilizadores",
+    "text.login.users.worldwide": "mundialmente",
     "text.login": "Insira as suas credenciais abaixo para aceder à sua conta com segurança e continuar de onde parou.",
     "text.register": "Preencha os campos abaixo com as suas informações para criar a sua nova conta e aproveitar todos os nossos recursos.",
     "text.forget-password": "Insira o seu endereço de email abaixo e enviaremos um link para redefinir a sua senha.",

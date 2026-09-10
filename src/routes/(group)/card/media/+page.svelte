@@ -1,6 +1,6 @@
 <script lang="ts">
-  import CardMedia from "$lib/components/core/card/media/CardMedia.svelte";
-  import items from "$lib/components/core/card/media/data";
+  import CardMedia from "$lib/components/ui/card/core/media/CardMedia.svelte";
+  import items from "$lib/components/ui/card/core/media/data";
 </script>
 
 <div class="flex items-center justify-center mt-3 lg:mt-5">

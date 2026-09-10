@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Menu from "$lib/components/core/nav/ui/Menu.svelte";
+  import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
   import {
     Home01Icon,
     Hotel01Icon,

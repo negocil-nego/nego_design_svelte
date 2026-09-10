@@ -1,6 +1,6 @@
 <script lang="ts">
   import ForgetPasswordCard from "./ForgetPasswordCard.svelte";
-  import LeftHero from "$lib/components/core/panel/LeftHero.svelte";
+  import LeftHero from "$lib/components/ui/panel/LeftHero.svelte";
   import type { PageForgetPasswordProps } from "../../types";
   import { t } from "$lib/i18n";
 
@@ -49,7 +49,7 @@
     </defs>
   </svg>
   <div class="hidden md:block md:w-8/12">
-    <LeftHero {title} varient={varient ?? "POINTER"} items={carouselItems} />
+    <LeftHero {title} type={varient ?? "POINTER"} items={carouselItems} />
   </div>
   <div class="w-full md:px-0 md:w-4/12 border-gray-900">
     {#if children}

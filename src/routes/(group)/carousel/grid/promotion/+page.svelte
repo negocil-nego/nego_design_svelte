@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/promotion/data";
-  import CarouselGridPromotion from "$lib/components/core/carousel/grid/promotion/ui/CarouselGridPromotion.svelte";
+  import items from "$lib/components/ui/card/core/promotion/data";
+  import CarouselGridPromotion from "$lib/components/ui/carousel/core/grid/promotion/ui/CarouselGridPromotion.svelte";
 </script>
 
 <svelte:head>

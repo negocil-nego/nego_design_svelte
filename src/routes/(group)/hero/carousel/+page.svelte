@@ -1,5 +1,5 @@
 <script lang="ts">
-    import CarouselHero from "$lib/components/core/carousel/hero/ui/CarouselHero.svelte";
+    import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 </script>
 
 <CarouselHero

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/product/data";
-  import CarouselGridProduct from "$lib/components/core/carousel/grid/product/ui/CarouselGridProduct.svelte";
+  import items from "$lib/components/ui/card/core/product/data";
+  import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
 
   let variant = $state<1 | 2>(2);
 </script>

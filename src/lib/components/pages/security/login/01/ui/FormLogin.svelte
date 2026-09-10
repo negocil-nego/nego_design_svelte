@@ -9,24 +9,24 @@
 </script>
 
 <script lang="ts">
-  import InputEmail from "$lib/components/core/form/ui/input-email.svelte";
-  import InputUsername from "$lib/components/core/form/ui/input-username.svelte";
-  import InputPhone from "$lib/components/core/form/ui/input-phone.svelte";
-  import InputPassword from "$lib/components/core/form/ui/input-password.svelte";
-  import ButtonLogin from "$lib/components/core/button/ButtonLogin.svelte";
-  import LinkForgetPassword from "$lib/components/core/link/link-forget-password.svelte";
-  import LabelOr from "$lib/components/core/label/LabelOr.svelte";
-  import ButtonLoginWith from "$lib/components/core/button/ButtonLoginWith.svelte";
+  import InputEmail from "$lib/components/ui/form/ui/input-email.svelte";
+  import InputUsername from "$lib/components/ui/form/ui/input-username.svelte";
+  import InputPhone from "$lib/components/ui/form/ui/input-phone.svelte";
+  import InputPassword from "$lib/components/ui/form/ui/input-password.svelte";
+  import ButtonLogin from "$lib/components/ui/button/ButtonLogin.svelte";
+  import LinkForgetPassword from "$lib/components/ui/link/link-forget-password.svelte";
+  import SocialLogin from "$lib/components/ui/social-login/social-login.svelte";
   import { t } from "$lib/i18n";
-  import type { LoginRequestDto, LoginVariant, LinkProps } from "../../types";
+  import type { LoginRequestDto, LoginVariant, LinkProps, SocialLoginItem } from "../../types";
 
   type Props = {
     variant: LoginVariant;
     onSubmit?: (credential: LoginRequestDto) => void;
     forgetPassword?: LinkProps;
+    socialLogins?: SocialLoginItem[];
   };
 
-  let { variant, onSubmit, forgetPassword }: Props = $props();
+  let { variant, onSubmit, forgetPassword, socialLogins = [] }: Props = $props();
   let data = $state("");
   let password = $state("");
 
@@ -56,7 +56,6 @@
 
   <div class="flex flex-col gap-1">
     <ButtonLogin type="submit" />
-    <LabelOr variant="SEPARATOR" />
-    <ButtonLoginWith icon="GOOGLE" />
+    <SocialLogin items={socialLogins} />
   </div>
 </form>

@@ -1,5 +1,5 @@
 import type { IconSvgElement } from "@hugeicons/svelte";
-import type { CardProductProps } from "$lib/components/core/card/types";
+import type { CardProductProps } from "$lib/components/ui/card/core/types";
 
 /**
  * Item de estatística exibido na faixa de dados do banner

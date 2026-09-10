@@ -1,5 +1,5 @@
 <script lang="ts">
-  import FooterWithLogo from "$lib/components/core/footer/ui/01/Footer01.svelte";
+  import FooterWithLogo from "$lib/components/ui/footer/ui/01/Footer01.svelte";
 </script>
 
 <FooterWithLogo

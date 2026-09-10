@@ -12,7 +12,7 @@
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { LoginFormType, LoginRequestDto, LinkProps } from "../../types";
+  import type { LoginFormType, LoginRequestDto, LinkProps, SocialLoginItem } from "../../types";
   import FormLoginUsernamePassword02 from "./FormLoginUsernamePassword02.svelte";
   import FormLoginEmailPassword02 from "./FormLoginEmailPassword02.svelte";
   import FormLoginPhonePassword02 from "./FormLoginPhonePassword02.svelte";
@@ -24,6 +24,7 @@
     forgetPassword?: LinkProps;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
+    socialLogins?: SocialLoginItem[];
   };
 
   let {
@@ -33,6 +34,7 @@
     forgetPassword,
     privacyPolicy,
     termsOfService,
+    socialLogins = [],
   }: Props = $props();
 </script>
 
@@ -54,11 +56,11 @@
       </div>
 
       {#if formType == "EMAIL_PASSWORD"}
-        <FormLoginEmailPassword02 {onSubmit} {forgetPassword} />
+        <FormLoginEmailPassword02 {onSubmit} {forgetPassword} {socialLogins} />
       {:else if formType == "USERNAME_PASSWORD"}
-        <FormLoginUsernamePassword02 {onSubmit} {forgetPassword} />
+        <FormLoginUsernamePassword02 {onSubmit} {forgetPassword} {socialLogins} />
       {:else if formType == "PHONE_PASSWORD"}
-        <FormLoginPhonePassword02 {onSubmit} {forgetPassword} />
+        <FormLoginPhonePassword02 {onSubmit} {forgetPassword} {socialLogins} />
       {/if}
 
       <p class="text-center text-sm text-gray-600">

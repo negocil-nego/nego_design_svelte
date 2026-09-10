@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/highlight/data";
-  import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte";
+  import items from "$lib/components/ui/card/core/highlight/data";
+  import CarouselHighlights from "$lib/components/ui/carousel/core/highlights/ui/CarouselHighlights.svelte";
 </script>
 
 <div class="flex items-center justify-center mt-3 lg:mt-5">

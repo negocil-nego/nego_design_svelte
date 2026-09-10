@@ -1,4 +1,4 @@
-import NotFoundEmpty from "$lib/components/core/panel/NotFoundEmpty.svelte";
+import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
 
 import InputPasswordConfirm from "./components/core/form/ui/input-password-confirm.svelte";
 import InputEmailOrPhone from "./components/core/form/ui/input-email-or-phone.svelte";
@@ -11,10 +11,10 @@ import DataTableCore from "./components/core/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/core/sidebar/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/01/ui/AdminContent.svelte";
 import AdminPanel from "./components/pages/admin/01/ui/AdminPanel.svelte";
-import AdCardBanner from "$lib/components/core/banner/AdCardBanner.svelte";
-import CtaCardBanner from "$lib/components/core/banner/CtaCardBanner.svelte";
-import CtaCardImageBanner from "$lib/components/core/banner/CtaCardImageBanner.svelte";
-import NotificationBanner from "$lib/components/core/banner/NotificationBanner.svelte";
+import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
+import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
+import CtaCardImageBanner from "$lib/components/ui/banner/CtaCardImageBanner.svelte";
+import NotificationBanner from "$lib/components/ui/banner/NotificationBanner.svelte";
 
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import ProductDetails from "./components/pages/product-details/ProductDetails.svelte";
@@ -22,26 +22,26 @@ import ProfileUser from "./components/pages/profile-user/ProfileUser.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
-import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
-import CarouselGridPromotion from "$lib/components/core/carousel/grid/promotion/ui/CarouselGridPromotion.svelte";
-import CarouselGridProduct from "$lib/components/core/carousel/grid/product/ui/CarouselGridProduct.svelte";
-import CarouselGridProfile from "$lib/components/core/carousel/grid/profile/ui/CarouselGridProfile.svelte";
-import CarouselHighlights from "$lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte";
-import CarouselGridMedia from "$lib/components/core/carousel/grid/media/ui/CarouselGridMedia.svelte";
-import CarouselPromotion from "$lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte";
-import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
-import CarouselHero from "$lib/components/core/carousel/hero/ui/CarouselHero.svelte";
+import TabUnderline from "$lib/components/ui/tabs/ui/tab-underline.svelte";
+import CarouselGridPromotion from "$lib/components/ui/carousel/core/grid/promotion/ui/CarouselGridPromotion.svelte";
+import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
+import CarouselGridProfile from "$lib/components/ui/carousel/core/grid/profile/ui/CarouselGridProfile.svelte";
+import CarouselHighlights from "$lib/components/ui/carousel/core/highlights/ui/CarouselHighlights.svelte";
+import CarouselGridMedia from "$lib/components/ui/carousel/core/grid/media/ui/CarouselGridMedia.svelte";
+import CarouselPromotion from "$lib/components/ui/carousel/core/promotion/ui/CarouselPromotion.svelte";
+import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
+import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
-import Menu from "$lib/components/core/nav/ui/Menu.svelte";
+import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
-import SearchInput from "$lib/components/core/search/SearchInput.svelte";
-import Footer from "$lib/components/core/footer/ui/Footer.svelte";
+import SearchInput from "$lib/components/ui/search/SearchInput.svelte";
+import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
-import ItemsSimpleGrid from "$lib/components/core/grid/ui/ItemsSimpleGrid.svelte";
-import ItemsPanel from "$lib/components/core/grid/ui/ItemsPanel.svelte";
+import ItemsSimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
+import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";

@@ -5,7 +5,7 @@
     PhoneCall,
     TestTube02Icon,
   } from "@hugeicons/core-free-icons";
-  import ItemsPanel from "$lib/components/core/grid/ui/ItemsPanel.svelte";
+  import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
 </script>
 
 <ItemsPanel

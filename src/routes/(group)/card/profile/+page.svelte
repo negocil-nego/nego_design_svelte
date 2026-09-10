@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/profile/data";
-  import CardProfile from "$lib/components/core/card/profile/CardProfile.svelte";
+  import items from "$lib/components/ui/card/core/profile/data";
+  import CardProfile from "$lib/components/ui/card/core/profile/CardProfile.svelte";
 </script>
 
 <div class="flex items-center justify-center mt-3 lg:mt-5">

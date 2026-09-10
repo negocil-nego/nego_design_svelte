@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CtaCardBanner from "$lib/components/core/banner/CtaCardBanner.svelte";
+  import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
 </script>
 
 <CtaCardBanner

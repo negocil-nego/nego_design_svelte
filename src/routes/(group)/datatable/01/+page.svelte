@@ -1,7 +1,7 @@
 <script lang="ts">
-    import DataTableCore from "$lib/components/core/datatable/ui/DataTableCore.svelte";
-    import DataTableActions from "$lib/components/core/datatable/ui/DataTableActions.svelte";
-    import MenuBarSidebar from "$lib/components/core/sidebar/MenuBarSidebar.svelte";
+    import DataTableCore from "$lib/components/ui/datatable/ui/DataTableCore.svelte";
+    import DataTableActions from "$lib/components/ui/datatable/ui/DataTableActions.svelte";
+    import MenuBarSidebar from "$lib/components/ui/sidebar/core/MenuBarSidebar.svelte";
     import AdminContent from "$lib/components/pages/admin/01/ui/AdminContent.svelte";
     import AdminPanel from "$lib/components/pages/admin/01/ui/AdminPanel.svelte";
     import { t } from "$lib/i18n";

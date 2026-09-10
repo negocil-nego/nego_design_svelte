@@ -1,5 +1,5 @@
 <script>
-    import MenuBarSidebar from "$lib/components/core/sidebar/MenuBarSidebar.svelte";
+    import MenuBarSidebar from "$lib/components/ui/sidebar/core/MenuBarSidebar.svelte";
     import AdminPanel from "$lib/components/pages/admin/01/ui/AdminPanel.svelte";
     import { t } from "$lib/i18n";
     import {

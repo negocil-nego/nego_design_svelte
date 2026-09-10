@@ -9,8 +9,8 @@
 </script>
 
 <script lang="ts">
-  import InputCodeOtp from "$lib/components/core/form/ui/input-code-otp.svelte";
-  import ButtonSend from "$lib/components/core/button/ButtonSend.svelte";
+  import InputCodeOtp from "$lib/components/ui/form/ui/input-code-otp.svelte";
+  import ButtonSend from "$lib/components/ui/button/ButtonSend.svelte";
   import { t } from "$lib/i18n";
   import type { OtpVerificationRequestDto } from "../../types";
 

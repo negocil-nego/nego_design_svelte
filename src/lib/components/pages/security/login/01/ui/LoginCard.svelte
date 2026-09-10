@@ -10,15 +10,15 @@
 
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
-  import LinkTermsOfService from "$lib/components/core/link/link-terms-of-service.svelte";
-  import LinkPrivacyPolity from "$lib/components/core/link/link-privacy-polity.svelte";
-  import TabUnderline from "$lib/components/core/tabs/ui/tab-underline.svelte";
-  import ButtonBack from "$lib/components/core/button/ButtonBack.svelte";
-  import LabelOr from "$lib/components/core/label/LabelOr.svelte";
+  import LinkTermsOfService from "$lib/components/ui/link/link-terms-of-service.svelte";
+  import LinkPrivacyPolity from "$lib/components/ui/link/link-privacy-polity.svelte";
+  import TabUnderline from "$lib/components/ui/tabs/ui/tab-underline.svelte";
+  import ButtonBack from "$lib/components/ui/button/ButtonBack.svelte";
+  import LabelOr from "$lib/components/ui/label/core/LabelOr.svelte";
   import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { LoginFormType, LoginRequestDto, LinkProps } from "../../types";
+  import type { LoginFormType, LoginRequestDto, LinkProps, SocialLoginItem } from "../../types";
   import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
@@ -30,6 +30,7 @@
     forgetPassword?: LinkProps;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
+    socialLogins?: SocialLoginItem[];
   };
 
   let {
@@ -39,6 +40,7 @@
     forgetPassword,
     privacyPolicy,
     termsOfService,
+    socialLogins = [],
   }: Props = $props();
 </script>
 
@@ -75,11 +77,11 @@
 
     {#snippet loginSnippet()}
       {#if formType == "EMAIL_PASSWORD"}
-        <FormLoginEmailPassword {onSubmit} {forgetPassword} />
+        <FormLoginEmailPassword {onSubmit} {forgetPassword} {socialLogins} />
       {:else if formType == "USERNAME_PASSWORD"}
-        <FormLoginUsernamePassword {onSubmit} {forgetPassword} />
+        <FormLoginUsernamePassword {onSubmit} {forgetPassword} {socialLogins} />
       {:else if formType == "PHONE_PASSWORD"}
-        <FormLoginPhonePassword {onSubmit} {forgetPassword} />
+        <FormLoginPhonePassword {onSubmit} {forgetPassword} {socialLogins} />
       {/if}
     {/snippet}
 

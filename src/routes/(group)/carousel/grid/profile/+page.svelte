@@ -1,6 +1,6 @@
 <script lang="ts">
-  import items from "$lib/components/core/card/profile/data";
-  import CarouselGridProfile from "$lib/components/core/carousel/grid/profile/ui/CarouselGridProfile.svelte";
+  import items from "$lib/components/ui/card/core/profile/data";
+  import CarouselGridProfile from "$lib/components/ui/carousel/core/grid/profile/ui/CarouselGridProfile.svelte";
 </script>
 
 <CarouselGridProfile

@@ -10,13 +10,13 @@
 
 <script lang="ts">
   import AuthCard from "./LoginCard.svelte";
-  import LeftHero from "../../../../../core/panel/LeftHero.svelte";
+  import LeftHero from "$lib/components/ui/panel/LeftHero.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "$lib/i18n";
 
   let {
     carousel,
-    varient,
+    variant: varient,
     title,
     formType = "USERNAME_PASSWORD",
     children,
@@ -24,6 +24,7 @@
     forgetPassword,
     privacyPolicy,
     termsOfService,
+    socialLogins = [],
   }: PageLoginProps = $props();
 
   const defaultCarousel = $derived([
@@ -56,7 +57,7 @@
     </defs>
   </svg>
   <div class="hidden md:block md:w-8/12">
-    <LeftHero {title} varient={varient ?? "POINTER"} items={carouselItems} />
+    <LeftHero {title} type={varient ?? "POINTER"} items={carouselItems} />
   </div>
   <div class="w-full md:px-0 md:w-4/12 border-gray-900">
     {#if children}
@@ -68,6 +69,7 @@
         {forgetPassword}
         {privacyPolicy}
         {termsOfService}
+        {socialLogins}
       />
     {/if}
   </div>

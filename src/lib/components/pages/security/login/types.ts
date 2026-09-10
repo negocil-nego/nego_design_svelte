@@ -1,8 +1,10 @@
 import type { Snippet } from "svelte"
+import type { IconSvgElement } from "@hugeicons/svelte"
 
 export type LoginFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSWORD"
 export type LoginCarouselItemType = "NUMBER" | "DOT" | "POINTER"
 export type LoginVariant = "EMAIL" | "USERNAME" | "PHONE"
+export type SocialProvider = "GOOGLE" | "FACEBOOK" | "LINKEDIN"
 
 export interface LoginCarouselItem {
   title: string
@@ -27,6 +29,13 @@ export type LinkProps = {
   onclick?: () => void
 }
 
+export type SocialLoginItem = {
+  provider: SocialProvider
+  icon?: IconSvgElement
+  label?: string
+  onclick?: () => void
+}
+
 export type PageLoginProps = {
   carousel?: LoginCarouselItem[];
   varient?: LoginCarouselItemType;
@@ -37,4 +46,5 @@ export type PageLoginProps = {
   forgetPassword?: LinkProps;
   privacyPolicy?: LinkProps;
   termsOfService?: LinkProps;
+  socialLogins?: SocialLoginItem[];
 };

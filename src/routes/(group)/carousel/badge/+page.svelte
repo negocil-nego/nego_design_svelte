@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CarouselBadge from "$lib/components/core/carousel/badge/ui/CarouselBadge.svelte";
+  import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
   import {
     BedDoubleIcon,
     DashboardCircleIcon,

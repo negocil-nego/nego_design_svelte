@@ -12,11 +12,11 @@
 </script>
 
 <script lang="ts">
-  import CarouselGridProduct from "$lib/components/core/carousel/grid/product/ui/CarouselGridProduct.svelte";
+  import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
   import type { ProfileProductsData } from "../types";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { PackageIcon } from "@hugeicons/core-free-icons";
-  import NotFoundEmpty from "$lib/components/core/panel/NotFoundEmpty.svelte";
+  import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
 
   let {
     data,
