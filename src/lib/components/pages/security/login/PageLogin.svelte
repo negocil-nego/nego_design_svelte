@@ -4,19 +4,24 @@
    * Main login page. Routes to the specified layout variant.
    *
    * @example svelte
-   * <PageLogin varient="01" formType="EMAIL_PASSWORD" onSubmit={(cred) => login(cred)} />
+   * <PageLogin variant={2} formType="EMAIL_PASSWORD" onSubmit={(cred) => login(cred)} />
    */
 </script>
 
 <script lang="ts">
   import type { PageLoginProps } from "./types";
   import PageLogin01 from "./01/ui/PageLogin01.svelte";
+  import PageLogin02 from "./02/ui/PageLogin02.svelte";
 
   type Props = {
-    variant?: 1;
+    variant?: 1 | 2;
   };
 
-  let { ...props }: PageLoginProps & Props = $props();
+  let { variant = 1, ...props }: PageLoginProps & Props = $props();
 </script>
 
-<PageLogin01 {...props} />
+{#if variant === 2}
+  <PageLogin02 {...props} />
+{:else}
+  <PageLogin01 {...props} />
+{/if}

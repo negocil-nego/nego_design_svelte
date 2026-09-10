@@ -63,6 +63,10 @@ export default {
     "label.highlight.description": "Destaques da nossa plataforma",
     "label.buy": "Compra",
 
+    "text.login.welcome": "Bem-vindo de Volta!",
+    "text.login.continue": "Continuar com Google ou insira os seus dados.",
+    "text.login.no-account": "Ainda não tem uma conta?",
+    "text.login.sign-up": "Registar-se Grátis",
     "text.login": "Insira as suas credenciais abaixo para aceder à sua conta com segurança e continuar de onde parou.",
     "text.register": "Preencha os campos abaixo com as suas informações para criar a sua nova conta e aproveitar todos os nossos recursos.",
     "text.forget-password": "Insira o seu endereço de email abaixo e enviaremos um link para redefinir a sua senha.",

@@ -9,6 +9,7 @@ export interface LoginCarouselItem {
   description: string
   buttonText: string
   buttonUrl?: string
+  backgroundUrl?: string
 }
 
 export interface LoginCarouselProps {

@@ -22,12 +22,12 @@
     navMenu: MenuVarientProps;
   } = $props();
 
-  function isLinks(item: MenuVarientProps): item is SimpleMenuProps {
-    return "links" in item;
+  function isLinks(item: MenuVarientProps | undefined): item is SimpleMenuProps {
+    return item !== undefined && "links" in item;
   }
 
-  function isMenu(item: MenuVarientProps): item is ComplexMenuProps {
-    return "menus" in item;
+  function isMenu(item: MenuVarientProps | undefined): item is ComplexMenuProps {
+    return item !== undefined && "menus" in item;
   }
 
   const responsive = useDevice();

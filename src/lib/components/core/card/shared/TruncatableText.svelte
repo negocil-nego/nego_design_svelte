@@ -30,7 +30,7 @@
 </script>
 
 <div class="relative">
-  <p bind:this={textEl} class="line-clamp-3 {className}">
+  <p bind:this={textEl} class="line-clamp-3 lg:min-w-25 {className}">
     {text}
   </p>
 
@@ -42,7 +42,7 @@
         {$t("label.view.full")}
       </Popover.Trigger>
       <Popover.Content>
-        <p class="max-w-xs text-justify text-[12px]">{text}</p>
+        <p class="lg:min-w-25 text-justify text-[12px]">{text}</p>
       </Popover.Content>
     </Popover.Root>
   {/if}

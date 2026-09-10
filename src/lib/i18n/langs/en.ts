@@ -63,6 +63,10 @@ export default {
     "label.highlight.description": "Highlights da nossa plataforma",
     "label.buy": "Buy",
 
+    "text.login.welcome": "Welcome Back!",
+    "text.login.continue": "Continue with Google or enter your details.",
+    "text.login.no-account": "Don't have an account?",
+    "text.login.sign-up": "Sign Up for free",
     "text.login": "Enter your credentials below to securely access your account and continue where you left off.",
     "text.register": "Fill in the fields below with your information to create your new account and enjoy all our features.",
     "text.forget-password": "Enter your email address below and we will send you a link to reset your password.",
