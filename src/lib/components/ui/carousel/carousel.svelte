@@ -55,22 +55,29 @@
 		);
 	}
 
+	function snapsEqual(a: number[], b: number[]): boolean {
+		if (a.length !== b.length) return false;
+		for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+		return true;
+	}
+
 	function updateScrollSnaps() {
 		const container = ctx.containerEl;
 		if (!container) {
-			ctx.scrollSnaps = [];
+			if (ctx.scrollSnaps.length > 0) ctx.scrollSnaps = [];
 			return;
 		}
 		const scrollPos = isVertical ? container.scrollTop : container.scrollLeft;
 		const origin = isVertical
 			? container.getBoundingClientRect().top
 			: container.getBoundingClientRect().left;
-		ctx.scrollSnaps = getSlides().map((slide) => {
+		const next = getSlides().map((slide) => {
 			const slidePos = isVertical
 				? slide.getBoundingClientRect().top
 				: slide.getBoundingClientRect().left;
 			return slidePos - origin + scrollPos;
 		});
+		if (!snapsEqual(ctx.scrollSnaps, next)) ctx.scrollSnaps = next;
 	}
 
 	function onScroll() {
