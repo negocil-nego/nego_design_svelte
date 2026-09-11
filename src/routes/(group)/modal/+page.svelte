@@ -9,7 +9,10 @@
     ModalUpload,
     ModalForm,
   } from "$lib";
-  import type { ModelGridCard, ModelBadge, ModelSocialShare, UploadFile } from "$lib";
+  import type { ModelGridCard } from "$lib/components/ui/modal/core/types";
+  import type { ModelBadge } from "$lib/components/ui/modal/badge/types";
+  import type { ModelSocialShare } from "$lib/components/ui/modal/share/types";
+  import type { UploadFile } from "$lib/components/ui/modal/upload/types";
 
   let openGrid = $state(false);
   let openGrid2 = $state(false);
@@ -157,7 +160,7 @@
   bind:isOpen={openShare}
   title="Share this design"
   linkValue="https://www.uidesigndaily.com/posts/5dcaabe013c06d0019b3e7e1"
-  {socials}
+  networks={socials}
   onShare={(n) => console.log("Share:", n)}
   onCopy={(link) => console.log("Copy:", link)}
 />
