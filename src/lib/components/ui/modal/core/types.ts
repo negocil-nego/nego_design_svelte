@@ -75,12 +75,14 @@ export type ModelGridCard = {
  * Cada item representa uma plataforma de redes sociais para partilhar conteúdo.
  * @property name - Nome da rede social (ex: "Facebook", "Twitter").
  * @property icon - Ícone da rede social (string CSS ou HugeIcons).
+ * @property img - URL da imagem/imagem de marca da rede social.
  * @property color - Cor da rede social (hex, rgb, etc.).
  * @property url - URL de partilha da rede social.
  */
 export type ModelSocialShare = {
 	name: string;
-	icon: string | IconSvgElement;
+	icon?: string | IconSvgElement;
+	img?: string;
 	color?: string;
 	url?: string;
 };

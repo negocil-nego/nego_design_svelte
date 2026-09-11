@@ -64,12 +64,13 @@
   ];
 
   const socials: ModelSocialShare[] = [
-    { name: "Pinterest", icon: "📌", color: "#E60023" },
-    { name: "Twitter", icon: "🐦", color: "#1DA1F2" },
-    { name: "Instagram", icon: "📸", color: "#E4405F" },
-    { name: "Facebook", icon: "👤", color: "#1877F2" },
-    { name: "Tumblr", icon: "📝", color: "#36465D" },
-    { name: "LinkedIn", icon: "💼", color: "#0A66C2" },
+    { name: "WhatsApp", img: "/img/icons8-whatsapp-48.png", color: "#25D366" },
+    { name: "Instagram", img: "/img/icons8-instagram-48.png", color: "#E4405F" },
+    { name: "Facebook", img: "/img/icons8-facebook-48.png", color: "#1877F2" },
+    { name: "Twitter", img: "/img/icons8-twitterx-50.png", color: "#000000" },
+    { name: "LinkedIn", img: "/img/icons8-linkedin-48.png", color: "#0A66C2" },
+    { name: "Pinterest", img: "/img/icons8-pinterest-48.png", color: "#E60023" },
+    { name: "Tumblr", img: "/img/icons8-tumblr-48.png", color: "#36465D" },
   ];
 
   let uploadFiles = $state<UploadFile[]>([

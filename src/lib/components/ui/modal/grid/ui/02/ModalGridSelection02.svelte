@@ -3,7 +3,11 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
   import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
-  import type { ModalGridSelectionProps, ModelGridCard, ModelGridCategory } from "../../types";
+  import type {
+    ModalGridSelectionProps,
+    ModelGridCard,
+    ModelGridCategory,
+  } from "../../types";
 
   let {
     title,
@@ -26,9 +30,13 @@
 
   function handleSelectCard(card: ModelGridCard) {
     if (multiple) {
-      const exists = selectedCards.some((c: ModelGridCard) => c.title === card.title);
+      const exists = selectedCards.some(
+        (c: ModelGridCard) => c.title === card.title,
+      );
       if (exists) {
-        selectedCards = selectedCards.filter((c: ModelGridCard) => c.title !== card.title);
+        selectedCards = selectedCards.filter(
+          (c: ModelGridCard) => c.title !== card.title,
+        );
       } else {
         selectedCards = [...selectedCards, card];
       }
@@ -66,7 +74,7 @@
   showBack={currentStep > 1}
   {onBack}
   {onContinue}
-  class={cn("dark", className)}
+  class={cn(className)}
 >
   {#snippet content()}
     <!-- Categories -->
@@ -78,9 +86,7 @@
             type="button"
             class={cn(
               "rounded-full border px-4 py-1.5 text-sm font-medium transition-all duration-200",
-              active
-                ? "border-white/20 bg-white/10 text-white"
-                : "border-white/10 bg-transparent text-white/60 hover:border-white/20 hover:text-white/80"
+              active ? "" : "",
             )}
             onclick={() => handleSelectCategory(cat)}
           >
@@ -98,9 +104,7 @@
           type="button"
           class={cn(
             "relative flex items-center gap-4 rounded-xl border p-4 text-left transition-all duration-200",
-            selected
-              ? "border-primary/50 bg-primary/10"
-              : "border-white/10 bg-white/5 hover:border-white/20 hover:bg-white/8"
+            selected ? "" : "",
           )}
           onclick={() => handleSelectCard(card)}
         >
@@ -108,21 +112,21 @@
           <div
             class={cn(
               "flex size-10 shrink-0 items-center justify-center rounded-lg",
-              selected ? "bg-primary/20" : "bg-white/10"
+              selected ? "bg-primary/20" : "bg-primary/40",
             )}
           >
             {#if typeof card.icon === "string"}
-              <i class="{card.icon} text-lg text-white/70"></i>
+              <i class="{card.icon} text-lg"></i>
             {:else}
-              <HugeiconsIcon icon={card.icon} class="size-5 text-white/70" />
+              <HugeiconsIcon icon={card.icon} class="size-5" />
             {/if}
           </div>
 
           <!-- Text -->
           <div class="min-w-0 flex-1">
-            <p class="text-sm font-bold text-white">{card.title}</p>
+            <p class="text-sm font-bold">{card.title}</p>
             {#if card.description}
-              <p class="mt-0.5 line-clamp-1 text-xs text-white/50">
+              <p class="mt-0.5 line-clamp-1 text-xs">
                 {card.description}
               </p>
             {/if}
