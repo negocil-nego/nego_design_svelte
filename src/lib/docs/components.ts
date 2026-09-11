@@ -31,6 +31,11 @@ export const categories = [
   "Cards",
   "Carousels",
   "Item Grid",
+  "Tabs",
+  "Form Inputs",
+  "Forms",
+  "Modals",
+  "Empty States",
   "Footer",
   "Admin Panel",
   "Login / Security",
@@ -630,6 +635,501 @@ export const components: DocComponent[] = [
     ],
   },
   {
+    slug: "modal-grid-selection",
+    name: "ModalGridSelection",
+    category: "Modals",
+    description: "Selection modal with a responsive grid of clickable cards. Supports two visual variants: 1 (centered 3-column grid) and 2 (dark 2-column grid with category filters).",
+    path: "src/lib/components/ui/modal/grid/ui/ModalGridSelection.svelte",
+    importPath: "ModalGridSelection",
+    examples: [
+      {
+        title: "Variant 1 — Centered Grid",
+        href: "/modal",
+        code: `import { ModalGridSelection } from "negodesign"
+
+let isOpen = $state(false);
+let selected = $state(null);
+
+<ModalGridSelection
+  bind:isOpen
+  bind:selectedCard={selected}
+  title="What will you be using this for?"
+  subtitle="We'll use this to recommend you our personalized features"
+  totalSteps={3}
+  currentStep={1}
+  cards={[
+    { title: "Student", description: "You're here to impress your teachers.", icon: "nd-cap-icon" },
+    { title: "Business", description: "You're here to grow your brand.", icon: "nd-briefcase-icon" },
+    { title: "Personal", description: "You're here to make anything.", icon: "nd-user-icon" },
+  ]}
+  onSelect={(card) => console.log(card)}
+  onBack={() => console.log("back")}
+  onContinue={() => console.log("continue")}
+/>`,
+      },
+      {
+        title: "Variant 2 — Dark Grid with Categories",
+        code: `import { ModalGridSelection } from "negodesign"
+
+let isOpen = $state(false);
+let selected = $state(null);
+
+<ModalGridSelection
+  variant={2}
+  bind:isOpen
+  bind:selectedCard={selected}
+  title="What are you planning to use this app for?"
+  categories={[
+    { label: "Marketing", value: "marketing" },
+    { label: "Product", value: "product" },
+    { label: "Engineering", value: "engineering" },
+  ]}
+  cards={[
+    { title: "Work Stuff", description: "Just the usual boring work stuff.", icon: "nd-briefcase-icon" },
+    { title: "UI/UX Design", description: "Design apps and prototypes.", icon: "nd-palette-icon" },
+    { title: "Finance", description: "Because I need money.", icon: "nd-money-icon" },
+    { title: "Productivity", description: "Sometimes we need to be productive.", icon: "nd-clock-icon" },
+  ]}
+  onSelect={(card) => console.log(card)}
+  onContinue={() => console.log("continue")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "variant", type: "1 | 2", description: "Visual variant (1: centered grid, 2: dark grid with categories)", default: "1" },
+      { name: "title", type: "string", description: "Required. Modal title", required: true },
+      { name: "subtitle", type: "string", description: "Subtitle below the title" },
+      { name: "categories", type: "ModelGridCategory[]", description: "Category pills at the top (variant 2 only): { label, value }" },
+      { name: "selectedCategory", type: "ModelGridCategory | null", description: "Currently selected category (variant 2, bindable)" },
+      { name: "cards", type: "ModelGridCard[]", description: "Required. Selectable cards: { title, description?, icon }", required: true },
+      { name: "selectedCard", type: "ModelGridCard | null", description: "Currently selected card (bindable)" },
+      { name: "selectedCards", type: "ModelGridCard[]", description: "Selected cards for multiple mode (variant 2, bindable)" },
+      { name: "multiple", type: "boolean", description: "Allows multiple card selection (variant 2)", default: "false" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "totalSteps", type: "number", description: "Total number of steps for pagination dots", default: "1" },
+      { name: "currentStep", type: "number", description: "Current step index", default: "1" },
+      { name: "onSelect", type: "(card: ModelGridCard) => void", description: "Called when a card is selected" },
+      { name: "onSelectCategory", type: "(category: ModelGridCategory) => void", description: "Called when a category is selected (variant 2)" },
+      { name: "onBack", type: "() => void", description: "Called when the Back button is clicked" },
+      { name: "onContinue", type: "() => void", description: "Called when the Continue button is clicked" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-badge-selection",
+    name: "ModalBadgeSelection",
+    category: "Modals",
+    description: "Selection modal with clickable badge/pill tags, progress bar, and Skip/Continue navigation. Second variation of the modal system.",
+    path: "src/lib/components/ui/modal/badge/ui/ModalBadgeSelection.svelte",
+    importPath: "ModalBadgeSelection",
+    examples: [
+      {
+        title: "Modal Badge Selection",
+        href: "/modal",
+        code: `import { ModalBadgeSelection } from "negodesign"
+
+let isOpen = $state(false);
+let selected = $state(null);
+
+<ModalBadgeSelection
+  bind:isOpen
+  bind:selectedBadge={selected}
+  title="What team are you currently on?"
+  subtitle="Please select one answer only."
+  totalSteps={5}
+  currentStep={2}
+  badges={[
+    { label: "Marketing", value: "marketing" },
+    { label: "Engineering", value: "engineering" },
+    { label: "Design", value: "design" },
+    { label: "Operations", value: "operations" },
+  ]}
+  onSelect={(badge) => console.log(badge)}
+  onContinue={() => console.log("continue")}
+  onSkip={() => console.log("skip")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Modal title", required: true },
+      { name: "subtitle", type: "string", description: "Subtitle below the title" },
+      { name: "badges", type: "ModelBadge[]", description: "Required. Selectable badges: { label, value, icon? }", required: true },
+      { name: "selectedBadge", type: "ModelBadge | null", description: "Currently selected badge (bindable)" },
+      { name: "selectedBadges", type: "ModelBadge[]", description: "Selected badges for multiple mode (bindable)" },
+      { name: "multiple", type: "boolean", description: "Allows multiple selection", default: "false" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "totalSteps", type: "number", description: "Total number of steps for progress bar", default: "1" },
+      { name: "currentStep", type: "number", description: "Current step index", default: "1" },
+      { name: "onSelect", type: "(badge: ModelBadge) => void", description: "Called when a badge is selected" },
+      { name: "onBack", type: "() => void", description: "Called when the Back button is clicked" },
+      { name: "onContinue", type: "() => void", description: "Called when the Continue button is clicked" },
+      { name: "onSkip", type: "() => void", description: "Called when Skip This Step is clicked" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-share-selection",
+    name: "ModalShareSelection",
+    category: "Modals",
+    description: "Social share modal with network icons, copy-to-clipboard link input, and close button. Third variation of the modal system.",
+    path: "src/lib/components/ui/modal/share/ui/ModalShareSelection.svelte",
+    importPath: "ModalShareSelection",
+    examples: [
+      {
+        title: "Modal Share Selection",
+        href: "/modal",
+        code: `import { ModalShareSelection } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalShareSelection
+  bind:isOpen
+  title="Share this design"
+  linkValue="https://example.com/design/123"
+  networks={[
+    { name: "Pinterest", icon: "nd-pinterest-icon", color: "#E60023" },
+    { name: "Twitter", icon: "nd-twitter-icon", color: "#1DA1F2" },
+    { name: "Instagram", icon: "nd-instagram-icon", color: "#E4405F" },
+    { name: "Facebook", icon: "nd-facebook-icon", color: "#1877F2" },
+  ]}
+  onShare={(network) => console.log(network)}
+  onCopy={(link) => console.log(link)}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Modal title", required: true },
+      { name: "subtitle", type: "string", description: "Subtitle below the title" },
+      { name: "networks", type: "ModelSocialShare[]", description: "Required. Social networks: { name, icon, color?, url? }", required: true },
+      { name: "linkLabel", type: "string", description: "Text above the link input", default: "Or copy link" },
+      { name: "linkValue", type: "string", description: "URL to share/copy" },
+      { name: "copyText", type: "string", description: "Copy button text", default: "Copy" },
+      { name: "copiedText", type: "string", description: "Text after successful copy", default: "Copied!" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "onShare", type: "(network: ModelSocialShare) => void", description: "Called when a social network is clicked" },
+      { name: "onCopy", type: "(link: string) => void", description: "Called when the link is copied" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-notification",
+    name: "ModalNotification",
+    category: "Modals",
+    description: "Email subscription/notification modal with input field and CTA button. Fourth variation of the modal system.",
+    path: "src/lib/components/ui/modal/notification/ui/ModalNotification.svelte",
+    importPath: "ModalNotification",
+    examples: [
+      {
+        title: "Modal Notification",
+        href: "/modal",
+        code: `import { ModalNotification } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalNotification
+  bind:isOpen
+  title="Be the first to know when new content is available"
+  description="Sign up to receive tips and tricks on how to create online designs that make people take action."
+  placeholder="Your email address"
+  buttonText="Sign me up"
+  onSubmit={(email) => console.log(email)}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Modal title", required: true },
+      { name: "description", type: "string", description: "Description text below the title" },
+      { name: "placeholder", type: "string", description: "Email input placeholder", default: "Your email address" },
+      { name: "buttonText", type: "string", description: "Submit button text", default: "Sign me up" },
+      { name: "buttonLoadingText", type: "string", description: "Loading state button text", default: "Signing up..." },
+      { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "onSubmit", type: "(email: string) => void", description: "Called when the email is submitted" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-feedback",
+    name: "ModalFeedback",
+    category: "Modals",
+    description: "Feedback modal with a rich text editor toolbar (bold, italic, underline, lists, alignment) and image upload button. Fifth variation of the modal system.",
+    path: "src/lib/components/ui/modal/feedback/ui/ModalFeedback.svelte",
+    importPath: "ModalFeedback",
+    examples: [
+      {
+        title: "Modal Feedback",
+        href: "/modal",
+        code: `import { ModalFeedback } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalFeedback
+  bind:isOpen
+  title="Your Feedback"
+  icon="🔥"
+  onSubmit={(content, images) => console.log(content, images)}
+  onAddImage={() => console.log("add image")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Modal title", default: "Your Feedback" },
+      { name: "icon", type: "string", description: "Emoji/icon next to the title", default: "🔥" },
+      { name: "placeholder", type: "string", description: "Editor placeholder text", default: "Write your feedback here..." },
+      { name: "buttonText", type: "string", description: "Submit button text", default: "Send" },
+      { name: "buttonLoadingText", type: "string", description: "Loading state button text", default: "Sending..." },
+      { name: "cancelText", type: "string", description: "Cancel button text", default: "Cancel" },
+      { name: "addImageText", type: "string", description: "Add image button text", default: "Add an Image" },
+      { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "onSubmit", type: "(content: string, images: File[]) => void", description: "Called when feedback is submitted" },
+      { name: "onAddImage", type: "() => void", description: "Called when Add Image is clicked" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "form",
+    name: "Form",
+    category: "Forms",
+    description: "Responsive form component with a 2-column grid layout. Supports text, email, password, date, phone, select, radio, checkbox, textarea, toggle, and badges inputs. Each field can span 1 or 2 columns via the `fill` property.",
+    path: "src/lib/components/ui/form/Form.svelte",
+    importPath: "Form",
+    examples: [
+      {
+        title: "Form with multiple input types",
+        href: "/form",
+        code: `import { Form } from "negodesign"
+
+<Form
+  onSubmit={(data) => console.log(data)}
+  submitText="Save"
+  inputs={[
+    { type: "text", name: "name", label: "Full Name", placeholder: "John Doe", required: true },
+    { type: "email", name: "email", label: "Email", placeholder: "john@example.com", required: true },
+    { type: "select", name: "role", label: "Role", options: [
+      { value: "ADMIN", label: "Admin" },
+      { value: "USER", label: "User" },
+    ]},
+    { type: "toggle", name: "active", label: "Active", description: "Enable this account" },
+    { type: "textarea", name: "bio", label: "Bio", placeholder: "Tell us about yourself", fill: true },
+    { type: "badges", name: "tags", label: "Tags", placeholder: "Add tags...", suggestions: ["React", "Svelte", "Vue"] },
+  ]}
+/>`,
+      },
+    ],
+    props: [
+      { name: "inputs", type: "FormInputConfig[]", description: "Required. Array of input configurations: { type, name, value?, label?, placeholder?, onChange?, disabled?, required?, fill?, options?, multiple?, rows?, description?, suggestions?, maxTags? }", required: true },
+      { name: "onSubmit", type: "(data: Record<string, string | string[] | boolean>) => void", description: "Called when the form is submitted" },
+      { name: "submitText", type: "string", description: "Submit button text", default: "Submit" },
+      { name: "submitLoadingText", type: "string", description: "Loading state button text", default: "Submitting..." },
+      { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
+      { name: "columns", type: "1 | 2", description: "Number of grid columns", default: "2" },
+      { name: "gap", type: "string", description: "Gap between fields", default: "gap-4" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-form",
+    name: "ModalForm",
+    category: "Forms",
+    description: "Form inside a modal dialog. Same API as Form with added title, subtitle, and modal controls.",
+    path: "src/lib/components/ui/modal/form/ui/ModalForm.svelte",
+    importPath: "ModalForm",
+    examples: [
+      {
+        title: "Modal Form",
+        href: "/modal",
+        code: `import { ModalForm } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalForm
+  bind:isOpen
+  title="Edit Profile"
+  subtitle="Update your personal information"
+  submitText="Save Changes"
+  inputs={[
+    { type: "text", name: "name", label: "Name", value: "John Doe", required: true },
+    { type: "email", name: "email", label: "Email", value: "john@example.com" },
+    { type: "toggle", name: "newsletter", label: "Newsletter", description: "Receive updates" },
+  ]}
+  onSubmit={(data) => console.log(data)}
+  onCancel={() => console.log("cancelled")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Modal title", required: true },
+      { name: "subtitle", type: "string", description: "Subtitle below the title" },
+      { name: "inputs", type: "FormInputConfig[]", description: "Required. Same as Form inputs", required: true },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "submitText", type: "string", description: "Submit button text", default: "Submit" },
+      { name: "submitLoadingText", type: "string", description: "Loading state button text", default: "Submitting..." },
+      { name: "cancelText", type: "string", description: "Cancel button text", default: "Cancel" },
+      { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
+      { name: "showCancel", type: "boolean", description: "Shows the cancel button", default: "true" },
+      { name: "columns", type: "1 | 2", description: "Number of grid columns", default: "2" },
+      { name: "onSubmit", type: "(data) => void", description: "Called when the form is submitted" },
+      { name: "onCancel", type: "() => void", description: "Called when Cancel is clicked" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-upload",
+    name: "ModalUpload",
+    category: "Modals",
+    description: "File upload modal with drag and drop area, file list with progress bars, status indicators (uploading/completed/failed), and retry/remove actions.",
+    path: "src/lib/components/ui/modal/upload/ui/ModalUpload.svelte",
+    importPath: "ModalUpload",
+    examples: [
+      {
+        title: "Modal Upload",
+        href: "/modal",
+        code: `import { ModalUpload } from "negodesign"
+import type { UploadFile } from "negodesign"
+
+let isOpen = $state(false);
+let files = $state<UploadFile[]>([]);
+
+<ModalUpload
+  bind:isOpen
+  bind:files
+  acceptedFormats="csv, xlsx, xls"
+  multiple
+  onFilesSelected={(f) => console.log("selected", f)}
+  onUpload={(f) => console.log("upload", f)}
+  onRemoveFile={(id) => console.log("remove", id)}
+  onDownload={() => console.log("download sample")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Modal title", default: "Upload File" },
+      { name: "accept", type: "string", description: "Accepted MIME types" },
+      { name: "acceptedFormats", type: "string", description: "Displayed accepted formats text" },
+      { name: "files", type: "UploadFile[]", description: "File list (bindable)" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "multiple", type: "boolean", description: "Allows multiple files", default: "true" },
+      { name: "maxSize", type: "number", description: "Max file size in bytes (0 = unlimited)", default: "0" },
+      { name: "isLoading", type: "boolean", description: "Upload loading state" },
+      { name: "onFilesSelected", type: "(files: File[]) => void", description: "Called when files are selected" },
+      { name: "onUpload", type: "(files: UploadFile[]) => void", description: "Called when Upload is clicked" },
+      { name: "onCancel", type: "() => void", description: "Called when Cancel is clicked" },
+      { name: "onRemoveFile", type: "(id: string) => void", description: "Called when a file is removed" },
+      { name: "onRetryFile", type: "(id: string) => void", description: "Called when retry is clicked on a failed file" },
+      { name: "onDownload", type: "() => void", description: "Called when the download sample link is clicked" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-core",
+    name: "ModalCore",
+    category: "Modals",
+    description: "Reusable base shell for all modals. Provides overlay, gradient-bordered container, header, and footer with progress bar and navigation buttons. Supports custom content and footer snippets.",
+    path: "src/lib/components/ui/modal/core/ui/ModalCore.svelte",
+    importPath: "ModalCore",
+    examples: [
+      {
+        title: "Modal Core",
+        code: `import { ModalCore } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalCore
+  bind:isOpen
+  title="Custom Modal"
+  subtitle="With custom content"
+  totalSteps={3}
+  currentStep={1}
+  showProgress
+  showBack
+  showSkip
+  onContinue={() => console.log("continue")}
+  onSkip={() => console.log("skip")}
+>
+  {#snippet content()}
+    <p>Your custom content here</p>
+  {/snippet}
+</ModalCore>`,
+      },
+    ],
+    props: [
+      { name: "isOpen", type: "boolean", description: "Required. Controls modal visibility (bindable)", required: true },
+      { name: "title", type: "string", description: "Required. Modal title", required: true },
+      { name: "subtitle", type: "string", description: "Subtitle below the title" },
+      { name: "totalSteps", type: "number", description: "Total number of steps for progress bar", default: "1" },
+      { name: "currentStep", type: "number", description: "Current step index", default: "1" },
+      { name: "showProgress", type: "boolean", description: "Shows the progress bar", default: "true" },
+      { name: "showBack", type: "boolean", description: "Shows the Back button", default: "true" },
+      { name: "showSkip", type: "boolean", description: "Shows the Skip link", default: "false" },
+      { name: "skipText", type: "string", description: "Skip link text", default: "Skip This Step" },
+      { name: "continueText", type: "string", description: "Continue button text", default: "Continue" },
+      { name: "backText", type: "string", description: "Back button text", default: "Back" },
+      { name: "onBack", type: "() => void", description: "Called when Back is clicked" },
+      { name: "onContinue", type: "() => void", description: "Called when Continue is clicked" },
+      { name: "onSkip", type: "() => void", description: "Called when Skip is clicked" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "content", type: "Snippet", description: "Custom content snippet" },
+      { name: "footer", type: "Snippet", description: "Custom footer snippet (replaces default)" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
+    slug: "modal-map",
+    name: "ModalMap",
+    category: "Modals",
+    description: "Location picker modal with a map area, search bar, address/description popup, and business location checkbox. Sixth variation of the modal system.",
+    path: "src/lib/components/ui/modal/map/ui/ModalMap.svelte",
+    importPath: "ModalMap",
+    examples: [
+      {
+        title: "Modal Map",
+        href: "/modal",
+        code: `import { ModalMap } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalMap
+  bind:isOpen
+  title="Location"
+  address="211 Throop Ave Brooklyn, New York City"
+  description="New York is served by three airports."
+  onSearch={(q) => console.log(q)}
+  onApply={(addr, desc) => console.log(addr, desc)}
+  onCancel={() => console.log("cancel")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Location popup title", default: "Location" },
+      { name: "searchPlaceholder", type: "string", description: "Search bar placeholder", default: "Search address..." },
+      { name: "address", type: "string", description: "Current address value" },
+      { name: "addressLabel", type: "string", description: "Address field label", default: "Address" },
+      { name: "description", type: "string", description: "Location description/notes" },
+      { name: "descriptionLabel", type: "string", description: "Description field label", default: "Description" },
+      { name: "editButtonText", type: "string", description: "Edit button text", default: "Edit" },
+      { name: "useLocationText", type: "string", description: "Checkbox label text", default: "Use your business location" },
+      { name: "useLocationChecked", type: "boolean", description: "Checkbox state (bindable)" },
+      { name: "cancelText", type: "string", description: "Cancel button text", default: "Cancel" },
+      { name: "applyText", type: "string", description: "Apply button text", default: "Apply" },
+      { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "onSearch", type: "(query: string) => void", description: "Called when searching an address" },
+      { name: "onEdit", type: "() => void", description: "Called when Edit is clicked" },
+      { name: "onApply", type: "(address: string, description: string) => void", description: "Called when Apply is clicked" },
+      { name: "onCancel", type: "() => void", description: "Called when Cancel is clicked" },
+      { name: "onToggleLocation", type: "(checked: boolean) => void", description: "Called when the checkbox is toggled" },
+      { name: "onClose", type: "() => void", description: "Called when the modal is closed" },
+      { name: "mapSlot", type: "Snippet", description: "Custom map content snippet" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
     slug: "footer",
     name: "Footer",
     category: "Footer",
@@ -915,6 +1415,261 @@ export const components: DocComponent[] = [
       { name: "onAddAddress", type: "() => void", description: "Called on 'add address'" },
       { name: "onChangePassword", type: "(payload) => void", description: "Called when the password is submitted" },
       { name: "userTabs", type: "ProfileUserTabsProps", description: "Tabs style: underline | pill" },
+    ],
+  },
+  {
+    slug: "tab-underline",
+    name: "TabUnderline",
+    category: "Tabs",
+    description: "Tab component with underline style. Switches content (Snippet) based on the selected tab.",
+    path: "src/lib/components/ui/tabs/ui/tab-underline.svelte",
+    importPath: "TabUnderline",
+    examples: [
+      {
+        title: "Tab Underline",
+        href: "/tab",
+        code: `import { TabUnderline } from "negodesign"
+
+<TabUnderline
+  items={[
+    { label: "Tab 1", value: "tab1" },
+    { label: "Tab 2", value: "tab2" },
+  ]}
+  contents={{
+    tab1: () => <p>Content 1</p>,
+    tab2: () => <p>Content 2</p>,
+  }}
+/>`,
+      },
+    ],
+    props: [
+      { name: "items", type: "TabProps[]", description: "Required. Tabs: { item: { label, value }, children? }", required: true },
+      { name: "contents", type: "Record<string, Snippet>", description: "Content snippets keyed by tab value" },
+      { name: "className", type: "string", description: "Extra CSS class" },
+    ],
+  },
+  {
+    slug: "not-found-empty",
+    name: "NotFoundEmpty",
+    category: "Empty States",
+    description: "Empty state with icon, title, description and an action (link or button) for when there is no content to display.",
+    path: "src/lib/components/ui/panel/NotFoundEmpty.svelte",
+    importPath: "NotFoundEmpty",
+    examples: [
+      {
+        title: "Empty State",
+        code: `import { NotFoundEmpty } from "negodesign"
+
+<NotFoundEmpty
+  title="No results found"
+  description="Try adjusting your search or filter to find what you're looking for."
+  showAction
+  actionLabel="Clear filters"
+  onAction={() => console.log("clear")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Empty state title", required: true },
+      { name: "description", type: "string", description: "Supporting text" },
+      { name: "icon", type: "IconSvgElement", description: "Icon displayed in the media area" },
+      { name: "actionHref", type: "string", description: "Action URL (renders a link)" },
+      { name: "actionLabel", type: "string", description: "Action label text" },
+      { name: "onAction", type: "() => void", description: "Called when the action is clicked" },
+      { name: "showAction", type: "boolean", description: "Shows the action" },
+      { name: "children", type: "Snippet", description: "Custom content replacing the default action" },
+    ],
+  },
+  {
+    slug: "admin-content",
+    name: "AdminContent",
+    category: "Admin Panel",
+    description: "Wrapper for admin page content. Applies padding, flex column layout and consistent gaps between sections.",
+    path: "src/lib/components/pages/admin/01/ui/AdminContent.svelte",
+    importPath: "AdminContent",
+    examples: [
+      {
+        title: "Admin Content",
+        code: `import { AdminContent } from "negodesign"
+
+<AdminContent>
+  <h1>Dashboard</h1>
+  <p>Content goes here</p>
+</AdminContent>`,
+      },
+    ],
+    props: [
+      { name: "children", type: "Snippet", description: "Required. Page content", required: true },
+    ],
+  },
+  {
+    slug: "input-email",
+    name: "InputEmail",
+    category: "Form Inputs",
+    description: "Email input field with icon and label, using InputBase. Supports two-way binding via value.",
+    path: "src/lib/components/ui/form/ui/input-email.svelte",
+    importPath: "InputEmail",
+    examples: [
+      {
+        title: "Input Email",
+        code: `import { InputEmail } from "negodesign"
+
+<InputEmail
+  label="Email"
+  placeholder="john@example.com"
+  bind:value={email}
+/>`,
+      },
+    ],
+    props: [
+      { name: "value", type: "string", description: "Bound value" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "placeholder", type: "string", description: "Placeholder text" },
+    ],
+  },
+  {
+    slug: "input-phone",
+    name: "InputPhone",
+    category: "Form Inputs",
+    description: "Phone input with country selector (code + flag) and format validation.",
+    path: "src/lib/components/ui/form/ui/input-phone.svelte",
+    importPath: "InputPhone",
+    examples: [
+      {
+        title: "Input Phone",
+        code: `import { InputPhone } from "negodesign"
+
+<InputPhone
+  label="Phone"
+  placeholder="+1 234 567 890"
+  bind:value={phone}
+/>`,
+      },
+    ],
+    props: [
+      { name: "value", type: "string", description: "Bound value" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "placeholder", type: "string", description: "Placeholder text" },
+    ],
+  },
+  {
+    slug: "input-password",
+    name: "InputPassword",
+    category: "Form Inputs",
+    description: "Password input with visibility toggle (eye icon). Supports two-way binding.",
+    path: "src/lib/components/ui/form/ui/input-password.svelte",
+    importPath: "InputPassword",
+    examples: [
+      {
+        title: "Input Password",
+        code: `import { InputPassword } from "negodesign"
+
+<InputPassword
+  label="Password"
+  placeholder="Enter your password"
+  bind:value={password}
+/>`,
+      },
+    ],
+    props: [
+      { name: "value", type: "string", description: "Bound value" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "placeholder", type: "string", description: "Placeholder text" },
+    ],
+  },
+  {
+    slug: "input-username",
+    name: "InputUsername",
+    category: "Form Inputs",
+    description: "Username input field with icon and label.",
+    path: "src/lib/components/ui/form/ui/input-username.svelte",
+    importPath: "InputUsername",
+    examples: [
+      {
+        title: "Input Username",
+        code: `import { InputUsername } from "negodesign"
+
+<InputUsername
+  label="Username"
+  placeholder="john_doe"
+  bind:value={username}
+/>`,
+      },
+    ],
+    props: [
+      { name: "value", type: "string", description: "Bound value" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "placeholder", type: "string", description: "Placeholder text" },
+    ],
+  },
+  {
+    slug: "page-forget-password",
+    name: "PageForgetPassword",
+    category: "Login / Security",
+    description: "Password recovery page with hero carousel and form card for requesting a recovery link by email.",
+    path: "src/lib/components/pages/security/forget-password/PageForgetPassword.svelte",
+    importPath: "PageForgetPassword",
+    examples: [
+      {
+        title: "Forget Password Page",
+        code: `import { PageForgetPassword } from "negodesign"
+
+<PageForgetPassword
+  title="Negodesign"
+  onSubmit={(data) => console.log(data)}
+/>`,
+        href: "/login/forget-password/01",
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Title shown in the hero/header" },
+      { name: "variant", type: "ForgetPasswordVariant", description: "Form variant" },
+      { name: "onSubmit", type: "(data) => Promise<void>", description: "Called on submit" },
+    ],
+  },
+  {
+    slug: "page-reset-password",
+    name: "PageResetPassword",
+    category: "Login / Security",
+    description: "Password reset page with hero carousel and form card for entering and confirming a new password.",
+    path: "src/lib/components/pages/security/reset-password/PageResetPassword.svelte",
+    importPath: "PageResetPassword",
+    examples: [
+      {
+        title: "Reset Password Page",
+        code: `import { PageResetPassword } from "negodesign"
+
+<PageResetPassword
+  onSubmit={(data) => console.log(data)}
+/>`,
+        href: "/login/reset-password/01",
+      },
+    ],
+    props: [
+      { name: "onSubmit", type: "(data) => Promise<void>", description: "Called on submit" },
+    ],
+  },
+  {
+    slug: "page-otp-verification",
+    name: "PageOtpVerification",
+    category: "Login / Security",
+    description: "OTP verification page with hero carousel and 6-digit code input for login or recovery validation.",
+    path: "src/lib/components/pages/security/otp-verification/PageOtpVerification.svelte",
+    importPath: "PageOtpVerification",
+    examples: [
+      {
+        title: "OTP Verification Page",
+        code: `import { PageOtpVerification } from "negodesign"
+
+<PageOtpVerification
+  onSubmit={(data) => console.log(data)}
+/>`,
+        href: "/login/otp/01",
+      },
+    ],
+    props: [
+      { name: "initialData", type: "OtpVerificationRequestDto", description: "Initial values" },
+      { name: "onSubmit", type: "(data) => Promise<void>", description: "Called when OTP is validated" },
     ],
   },
 ];

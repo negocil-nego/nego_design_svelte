@@ -153,6 +153,54 @@ import type {
     ItemGridProps
 } from "$lib/components/ui/grid/core/data/types";
 
+import type {
+    ModelGridCard,
+    ModelGridCategory,
+    ModalGridSelectionProps
+} from "$lib/components/ui/modal/grid/types";
+
+import type {
+    ModelBadge,
+    ModalBadgeSelectionProps
+} from "$lib/components/ui/modal/badge/types";
+
+import type {
+    ModelSocialShare,
+    ModalShareSelectionProps
+} from "$lib/components/ui/modal/share/types";
+
+import type {
+    ModalNotificationProps
+} from "$lib/components/ui/modal/notification/types";
+
+import type {
+    ModalFeedbackProps
+} from "$lib/components/ui/modal/feedback/types";
+
+import type {
+    ModalMapProps
+} from "$lib/components/ui/modal/map/types";
+
+import type {
+    ModalCoreProps
+} from "$lib/components/ui/modal/core/types";
+
+import type {
+    FormProps,
+    FormInputConfig,
+    FormOption
+} from "$lib/components/ui/form/types";
+
+import type {
+    ModalFormProps
+} from "$lib/components/ui/modal/form/types";
+
+import type {
+    ModalUploadProps,
+    UploadFile,
+    UploadFileStatus
+} from "$lib/components/ui/modal/upload/types";
+
 export type {
     GridProps,
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */
@@ -317,6 +365,52 @@ export type {
     ProfileUserData,
     /** Props do componente ProfileUser — página de perfil com 3 variantes. @see ProfileUserProps */
     ProfileUserProps,
+
+    /** Modelo de dados para um card seleccionável no ModalGridSelection. @see ModelGridCard */
+    ModelGridCard,
+    /** Modelo de dados para uma categoria no topo do ModalGridSelection (variante 2). @see ModelGridCategory */
+    ModelGridCategory,
+    /** Props do componente ModalGridSelection — modal de seleção em grid. @see ModalGridSelectionProps */
+    ModalGridSelectionProps,
+
+    /** Modelo de dados para um badge/pill seleccionável no ModalBadgeSelection. @see ModelBadge */
+    ModelBadge,
+    /** Props do componente ModalBadgeSelection — modal de seleção com badges/pills. @see ModalBadgeSelectionProps */
+    ModalBadgeSelectionProps,
+
+    /** Modelo de dados para uma rede social no ModalShareSelection. @see ModelSocialShare */
+    ModelSocialShare,
+    /** Props do componente ModalShareSelection — modal de partilha em redes sociais. @see ModalShareSelectionProps */
+    ModalShareSelectionProps,
+
+    /** Props do componente ModalNotification — modal de subscrição/notificação por email. @see ModalNotificationProps */
+    ModalNotificationProps,
+
+    /** Props do componente ModalFeedback — modal de feedback com editor de texto rico. @see ModalFeedbackProps */
+    ModalFeedbackProps,
+
+    /** Props do componente ModalMap — modal de seleção de localização com mapa. @see ModalMapProps */
+    ModalMapProps,
+
+    /** Props do componente Form — formulário com grid responsivo de 2 colunas. @see FormProps */
+    FormProps,
+    /** Configuração de um input dentro do Form. @see FormInputConfig */
+    FormInputConfig,
+    /** Opção para inputs do tipo select, radio ou checkbox. @see FormOption */
+    FormOption,
+
+    /** Props do componente ModalForm — formulário dentro de um modal. @see ModalFormProps */
+    ModalFormProps,
+
+    /** Props do componente ModalUpload — modal de upload de ficheiros. @see ModalUploadProps */
+    ModalUploadProps,
+    /** Modelo de dados para um ficheiro no modal de upload. @see UploadFile */
+    UploadFile,
+    /** Estado de um ficheiro no upload. @see UploadFileStatus */
+    UploadFileStatus,
+
+    /** Props do componente ModalCore — contentor base reutilizável para todos os modais. @see ModalCoreProps */
+    ModalCoreProps,
 
     /** Props do NegoDesign — componente raiz do Negodesign. */
     NegoDesignProps,

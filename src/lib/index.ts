@@ -38,10 +38,23 @@ import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import SearchInput from "$lib/components/ui/search/SearchInput.svelte";
 import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
+import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
+import CardMedia from "$lib/components/ui/card/core/media/CardMedia.svelte";
+import CardProfile from "$lib/components/ui/card/core/profile/CardProfile.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
 import ItemsSimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
 import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
+import ModalGridSelection from "$lib/components/ui/modal/grid/ui/ModalGridSelection.svelte";
+import ModalBadgeSelection from "$lib/components/ui/modal/badge/ui/ModalBadgeSelection.svelte";
+import ModalShareSelection from "$lib/components/ui/modal/share/ui/ModalShareSelection.svelte";
+import ModalNotification from "$lib/components/ui/modal/notification/ui/ModalNotification.svelte";
+import ModalFeedback from "$lib/components/ui/modal/feedback/ui/ModalFeedback.svelte";
+import ModalMap from "$lib/components/ui/modal/map/ui/ModalMap.svelte";
+import ModalForm from "$lib/components/ui/modal/form/ui/ModalForm.svelte";
+import ModalUpload from "$lib/components/ui/modal/upload/ui/ModalUpload.svelte";
+import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+import Form from "$lib/components/ui/form/Form.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -93,6 +106,147 @@ export {
      * @see GridProps
      */
     ItemsPanel,
+
+    /**
+     * Modal de seleção em grid com cards clicáveis, pagination dots e botões
+     * de navegação (Back/Continue). Primeira variação do sistema de modais.
+     * @property {string} title - Título principal do modal
+     * @property {string} subtitle - Subtítulo/descrição
+     * @property {ModelGridCard[]} cards - Lista de cards seleccionáveis
+     * @property {ModelGridCard | null} selectedCard - Card seleccionado (bindable)
+     * @property {number} totalSteps - Número total de passos (pagination dots)
+     * @property {number} currentStep - Passo actual
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(card) => void} onSelect - Callback ao seleccionar um card
+     * @property {() => void} onBack - Callback do botão Back
+     * @property {() => void} onContinue - Callback do botão Continue
+     * @see ModalGridSelectionProps
+     */
+    ModalGridSelection,
+
+    /**
+     * Contentor base reutilizável para todos os modais.
+     * Fornece overlay, container com gradiente, cabeçalho, rodapé com progress bar e navegação.
+     * Suporta snippets personalizados para conteúdo e rodapé.
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {string} title - Título principal
+     * @property {string} subtitle - Subtítulo
+     * @property {Snippet} content - Conteúdo principal
+     * @property {Snippet} footer - Rodapé personalizado
+     * @see ModalCoreProps
+     */
+    ModalCore,
+
+    /**
+     * Modal de seleção com badges/pills clicáveis, progress bar e botão Skip.
+     * Segunda variação do sistema de modais.
+     * @property {string} title - Título principal do modal
+     * @property {string} subtitle - Subtítulo/descrição
+     * @property {ModelBadge[]} badges - Lista de badges seleccionáveis
+     * @property {ModelBadge | null} selectedBadge - Badge seleccionado (bindable)
+     * @property {boolean} multiple - Permite seleção múltipla
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(badge) => void} onSelect - Callback ao seleccionar um badge
+     * @property {() => void} onContinue - Callback do botão Continue
+     * @property {() => void} onSkip - Callback do botão Skip
+     * @see ModalBadgeSelectionProps
+     */
+    ModalBadgeSelection,
+
+    /**
+     * Modal de partilha em redes sociais com ícones clicáveis e campo de copiar link.
+     * Terceira variação do sistema de modais.
+     * @property {string} title - Título principal (ex: "Share this design")
+     * @property {ModelSocialShare[]} networks - Lista de redes sociais
+     * @property {string} linkValue - URL a partilhar/copiar
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(network) => void} onShare - Callback ao clicar numa rede social
+     * @property {(link) => void} onCopy - Callback ao copiar o link
+     * @see ModalShareSelectionProps
+     */
+    ModalShareSelection,
+
+    /**
+     * Modal de subscrição/notificação por email com input e botão CTA.
+     * Quarta variação do sistema de modais.
+     * @property {string} title - Título principal
+     * @property {string} description - Texto descritivo
+     * @property {string} placeholder - Texto placeholder do input
+     * @property {string} buttonText - Texto do botão
+     * @property {boolean} isLoading - Estado de carregamento
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(email) => void} onSubmit - Callback ao submeter
+     * @see ModalNotificationProps
+     */
+    ModalNotification,
+
+    /**
+     * Modal de feedback com editor de texto rico (bold, italic, underline, listas, alinhamento)
+     * e botão de adicionar imagem. Quinta variação do sistema de modais.
+     * @property {string} title - Título principal (default: "Your Feedback")
+     * @property {string} icon - Emoji/ícone ao lado do título
+     * @property {string} placeholder - Texto placeholder do editor
+     * @property {string} buttonText - Texto do botão Send
+     * @property {boolean} isLoading - Estado de carregamento
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(content, images) => void} onSubmit - Callback ao submeter
+     * @property {() => void} onAddImage - Callback ao clicar Add Image
+     * @see ModalFeedbackProps
+     */
+    ModalFeedback,
+
+    /**
+     * Modal de seleção de localização com mapa, barra de pesquisa, popup de endereço
+     * e descrição. Sexta variação do sistema de modais.
+     * @property {string} title - Título do popup (default: "Location")
+     * @property {string} address - Endereço actual
+     * @property {string} description - Descrição da localização
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(query) => void} onSearch - Callback ao pesquisar
+     * @property {(address, description) => void} onApply - Callback ao aplicar
+     * @property {Snippet} mapSlot - Snippet personalizado para o mapa
+     * @see ModalMapProps
+     */
+    ModalMap,
+
+    /**
+     * Formulário com grid responsivo de 2 colunas.
+     * Organiza inputs (text, email, password, date, phone, select, radio, checkbox, textarea)
+     * numa grid, onde cada campo pode ocupar 1 ou 2 colunas via prop `fill`.
+     * @property {FormInputConfig[]} inputs - Configuração dos inputs
+     * @property {(data) => void} onSubmit - Callback ao submeter
+     * @property {string} submitText - Texto do botão
+     * @property {boolean} isLoading - Estado de carregamento
+     * @property {1|2} columns - Número de colunas (padrão: 2)
+     * @see FormProps
+     */
+    Form,
+
+    /**
+     * Formulário dentro de um modal. Reutiliza o componente Form com a mesma
+     * API de inputs, adicionando overlay, título e botões de navegação.
+     * @property {string} title - Título do modal
+     * @property {string} subtitle - Subtítulo do modal
+     * @property {FormInputConfig[]} inputs - Configuração dos inputs
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(data) => void} onSubmit - Callback ao submeter
+     * @property {() => void} onCancel - Callback ao cancelar
+     * @see ModalFormProps
+     */
+    ModalForm,
+
+    /**
+     * Modal de upload de ficheiros com drag and drop, lista de ficheiros
+     * com progress bar e estados (uploading/completed/failed).
+     * @property {string} title - Título do modal (default: "Upload File")
+     * @property {string} accept - Tipos MIME aceites
+     * @property {UploadFile[]} files - Lista de ficheiros (bindable)
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(files) => void} onFilesSelected - Callback ao selecionar ficheiros
+     * @property {(files) => void} onUpload - Callback ao clicar Upload
+     * @see ModalUploadProps
+     */
+    ModalUpload,
 
     /**
      * Componente raiz do Negodesign.
@@ -221,6 +375,34 @@ export {
      * @see FooterProps
      */
     Footer,
+
+    /**
+     * Hero estático com layout dividido: coluna esquerda com conteúdo
+     * e coluna direita com imagem circular.
+     * @property {string} title - Título principal
+     * @property {string} subTitle - Subtítulo
+     * @property {string} description - Descrição
+     * @property {string} image - URL da imagem
+     * @see SimpleHero
+     */
+    SimpleHero,
+
+    /**
+     * Wrapper para cards de mídia com variantes 1 (alinhado à esquerda) e 2 (centrado).
+     * Mostra logo, título, rating, tags e botões.
+     * @property {1|2} variant - Variante visual
+     * @property {CardMediaProps} - Props do card de mídia
+     * @see CardMediaProps
+     */
+    CardMedia,
+
+    /**
+     * Wrapper para cards de perfil de organização/guia, com variantes 1 e 2.
+     * @property {1|2} variant - Variante visual
+     * @property {CardProfileProps} - Props do card de perfil
+     * @see CardProfileProps
+     */
+    CardProfile,
 
     /**
      * Carousel de cards de promoção com preços antigo/novo, botão de comprar,

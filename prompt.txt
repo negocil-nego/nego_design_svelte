@@ -1,8 +1,23 @@
-Nesses componentes, são muitos semelhante cria um componente para ser reutilizados no dois lugares
--> negodesign\negodesign\src\lib\components\core\search\01\Search01.svelte
--> negodesign\negodesign\src\lib\components\core\search\02\Search02.svelte
+Iremos criar o componente Form, ModalForm
 
-Coloca o método em
--> negodesign\negodesign\src\lib\components\core\search\shared
+Que deve ser utilizado deste método
 
-Para ser reutilizado em Search01.svelte, Search02.svelte
+<Form
+ onSubmit={(data) => {}}
+ inputs={[
+    {  type: 'email', name: 'email', value: '', onChange: (v)=>{}, disabled: false, required }, //*** email, text, password, date, phone
+    {  type: 'select', value: '', onChange: (v)=>{}, disabled: false, required, multiple: false, options: [
+        { value: 'HOME', label:'Home' },
+        { value: 'PRIVADO', label:'Privado' },
+        { value: 'COMERCIAL', label:'Comercial' }
+    ] } //*** select, radio, checkbox 
+ ]}
+/>
+
+De onde o [inputs] receberas os parametros para contrução de inputs, onde deves utilizar os componentes internos
+em "src\lib\components\ui\form\ui".
+
+A diferença do Form para o ModalForm é apenas que o ModalForm como nome diz é um modal que estará em 
+"src\lib\components\ui\modal\form\ui\*"
+
+Cria os componentes de select, radio, checkbox como "src\lib\components\ui\form\ui" que serão utilizados em "Form, ModalForm"

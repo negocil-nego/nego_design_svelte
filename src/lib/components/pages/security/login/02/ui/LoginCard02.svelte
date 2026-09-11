@@ -12,7 +12,12 @@
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { LoginFormType, LoginRequestDto, LinkProps, SocialLoginItem } from "../../types";
+  import type {
+    LoginFormType,
+    LoginRequestDto,
+    LinkProps,
+    SocialLoginItem,
+  } from "../../types";
   import FormLoginUsernamePassword02 from "./FormLoginUsernamePassword02.svelte";
   import FormLoginEmailPassword02 from "./FormLoginEmailPassword02.svelte";
   import FormLoginPhonePassword02 from "./FormLoginPhonePassword02.svelte";
@@ -38,7 +43,7 @@
   }: Props = $props();
 </script>
 
-<div class="flex-1 flex flex-col justify-between h-full bg-white">
+<div class="flex-1 flex flex-col justify-between h-full">
   <nav class="flex justify-end p-5">
     <div class="flex gap-2">
       <LightSwitch />
@@ -49,7 +54,9 @@
   <div class="flex-1 flex flex-col justify-center px-8 md:px-12 pb-8">
     <div class="w-full max-w-sm mx-auto space-y-6">
       <div class="text-center space-y-2">
-        <h1 class="text-2xl font-bold text-gray-900">{$t("text.login.welcome")}</h1>
+        <h1 class="text-2xl font-bold text-gray-900">
+          {$t("text.login.welcome")}
+        </h1>
         <p class="text-sm text-gray-500">
           {$t("text.login.continue")}
         </p>
@@ -58,7 +65,11 @@
       {#if formType == "EMAIL_PASSWORD"}
         <FormLoginEmailPassword02 {onSubmit} {forgetPassword} {socialLogins} />
       {:else if formType == "USERNAME_PASSWORD"}
-        <FormLoginUsernamePassword02 {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginUsernamePassword02
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+        />
       {:else if formType == "PHONE_PASSWORD"}
         <FormLoginPhonePassword02 {onSubmit} {forgetPassword} {socialLogins} />
       {/if}
