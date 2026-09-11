@@ -1,7 +1,7 @@
 <script lang="ts">
   import CardHighlight from "$lib/components/ui/card/core/highlight/CardHighlight.svelte";
   import CarouselHeader from "../../shared/ui/CarouselHeader.svelte";
-  import CarouselSlot from "../../../panel/CarouselSlot.svelte";
+  import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
   import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { CarouselHighlightsProps } from "../types";

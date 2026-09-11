@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { InputLabelProps } from "../data/InputLabel.svelte";
+  import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import InputBase from "./input-base.svelte";
   import { t } from "$lib/i18n";
 

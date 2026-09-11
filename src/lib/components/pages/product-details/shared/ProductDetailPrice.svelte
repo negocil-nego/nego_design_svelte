@@ -11,7 +11,8 @@
 </script>
 
 <script lang="ts">
-  import CardStartPrice from "../../../core/card/promotion/CardPromotionPrice.svelte";
+  import CardPromotionPrice from "$lib/components/ui/card/core/promotion/CardPromotionPrice.svelte";
+
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 
   let {
@@ -39,6 +40,6 @@
   <Skeleton class="h-7 w-28 rounded-md" />
 {:else if formatted || oldPrice}
   <div class="flex items-end gap-3">
-    <CardStartPrice newPrice={formatted} {oldPrice} />
+    <CardPromotionPrice newPrice={formatted} {oldPrice} />
   </div>
 {/if}

@@ -11,7 +11,8 @@
 </script>
 
 <script lang="ts">
-  import CardStarRating from "../../../core/card/shared/CardStarRating.svelte";
+  import CardStarRating from "$lib/components/ui/card/core/shared/CardStarRating.svelte";
+
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 
   let {

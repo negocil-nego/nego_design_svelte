@@ -1,9 +1,9 @@
 <script lang="ts">
-  import PageLogin02 from "$lib/components/pages/security/login/02/ui/PageLogin02.svelte";
-  import { t } from "$lib/i18n";
+  import { PageLogin, t } from "$lib";
 </script>
 
-<PageLogin02
+<PageLogin
+  variant={2}
   title="Negodesign"
   formType="EMAIL_PASSWORD"
   carousel={[

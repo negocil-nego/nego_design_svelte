@@ -2,8 +2,8 @@
   import Input from "$lib/components/ui/input/input.svelte";
   import { Label } from "$lib/components/ui/label";
   import { EyeIcon, EyeOffIcon } from "@hugeicons/core-free-icons";
-  import { inputIconMap } from "../data/InputIconDefault.svelte";
-  import type { InputLabelProps } from "../data/InputLabel.svelte";
+  import { inputIconMap } from "../data/InputIconDefault.svelte.ts";
+  import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { HugeiconsIcon } from "@hugeicons/svelte";
 
   let {

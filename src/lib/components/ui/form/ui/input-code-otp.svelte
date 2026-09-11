@@ -1,6 +1,6 @@
 <script lang="ts">
   import * as InputOTP from "$lib/components/ui/input-otp/index.js";
-  import type { InputLabelProps } from "../data/InputLabel.svelte";
+  import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { Label } from "$lib/components/ui/label";
   import { t } from "$lib/i18n";
 

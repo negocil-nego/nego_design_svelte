@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import CarouselSlot from "../../../../panel/CarouselSlot.svelte";
-  import type { CarouselSlotProps } from "../../../../panel/type";
+  import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
+  import type { CarouselSlotProps } from "$lib/components/ui/panel/type";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
   import type { GridProps } from "$lib/components/ui/grid/core/data/types";

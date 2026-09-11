@@ -1,6 +1,5 @@
 <script lang="ts">
-  import PageLogin from "$lib/components/pages/security/login/01/ui/PageLogin01.svelte";
-  import { t } from "$lib/i18n";
+  import { PageLogin, t } from "$lib";
 </script>
 
 <PageLogin

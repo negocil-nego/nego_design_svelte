@@ -1,5 +1,5 @@
-import type { CardProductProps } from "../../card/types";
-import type { CarouselSlotProps } from "../../panel/type";
+import type { CardProductProps } from "$lib/components/ui/card/core/types";
+import type { CarouselSlotProps } from "$lib/components/ui/panel/type";
 import type { CarouselHeaderProps } from "../types";
 
 /**

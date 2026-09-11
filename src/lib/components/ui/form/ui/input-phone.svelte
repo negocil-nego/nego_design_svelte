@@ -1,6 +1,6 @@
 <script lang="ts">
   import { PhoneInput } from "$lib/components/ui/phone-input";
-  import type { InputLabelProps } from "../data/InputLabel.svelte";
+  import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { Label } from "$lib/components/ui/label";
   import { t } from "$lib/i18n";
 

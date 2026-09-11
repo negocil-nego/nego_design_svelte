@@ -13,8 +13,8 @@
         getSortedRowModel,
     } from "$lib/components/ui/data-table";
     import type { DataTableItem } from "../data/data-table";
-    import { resolveHeader } from "../data/resolve-header.svelte";
-    import { resolveCellBadge } from "../data/resolve-cell-badge.svelte";
+    import { resolveHeader } from "../data/resolve-header.svelte.ts";
+    import { resolveCellBadge } from "../data/resolve-cell-badge.svelte.ts";
     import {
         createDragColumn,
         createSelectColumn,

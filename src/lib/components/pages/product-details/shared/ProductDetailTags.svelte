@@ -11,7 +11,8 @@
 </script>
 
 <script lang="ts">
-  import CardTags from "../../../core/card/shared/CardTags.svelte";
+  import CardTags from "$lib/components/ui/card/core/shared/CardTags.svelte";
+
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import type { ProductDetailsTag } from "../types";
 
@@ -31,5 +32,5 @@
     {/each}
   </div>
 {:else if tags?.length}
-  <CardTags tags={tags} isWrap />
+  <CardTags {tags} isWrap />
 {/if}

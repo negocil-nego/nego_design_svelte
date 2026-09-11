@@ -1,6 +1,6 @@
 <script lang="ts">
   import CardPromotion from "$lib/components/ui/card/core/promotion/CardPromotion.svelte";
-  import CarouselSlot from "../../../panel/CarouselSlot.svelte";
+  import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
   import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { CarouselPromotionProps } from "../types";

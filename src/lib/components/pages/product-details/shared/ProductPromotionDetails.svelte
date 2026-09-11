@@ -1,5 +1,5 @@
 <script lang="ts">
-  import CardPromotionPrice from "../../../core/card/promotion/CardPromotionPrice.svelte";
+  import CardPromotionPrice from "$lib/components/ui/card/core/promotion/CardPromotionPrice.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import type { ProductPromotionDetailsProps } from "../types";
 

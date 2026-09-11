@@ -1,6 +1,6 @@
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import Menu from "../../../nav/ui/Menu.svelte";
+  import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
   import type { CarouselHeroItem, CarouselHeroProps } from "../types";
   import SimpleMenu from "$lib/components/ui/nav/ui/SimpleMenu.svelte";
   import ComplexMenu from "$lib/components/ui/nav/ui/ComplexMenu.svelte";
