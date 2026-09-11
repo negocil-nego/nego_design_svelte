@@ -16,7 +16,12 @@
   import LinkForgetPassword from "$lib/components/ui/link/link-forget-password.svelte";
   import SocialLogin from "$lib/components/ui/social-login/social-login.svelte";
   import { t } from "$lib/i18n";
-  import type { LoginRequestDto, LoginVariant, LinkProps, SocialLoginItem } from "../../types";
+  import type {
+    LoginRequestDto,
+    LoginVariant,
+    LinkProps,
+    SocialLoginItem,
+  } from "../../types";
 
   type Props = {
     variant: LoginVariant;
@@ -25,7 +30,12 @@
     socialLogins?: SocialLoginItem[];
   };
 
-  let { variant, onSubmit, forgetPassword, socialLogins = [] }: Props = $props();
+  let {
+    variant,
+    onSubmit,
+    forgetPassword,
+    socialLogins = [],
+  }: Props = $props();
   let data = $state("");
   let password = $state("");
   let rememberMe = $state(false);
@@ -60,7 +70,10 @@
       />
       {$t("label.remember.me")}
     </label>
-    <LinkForgetPassword href={forgetPassword?.url} onclick={forgetPassword?.onclick} />
+    <LinkForgetPassword
+      href={forgetPassword?.url}
+      onclick={forgetPassword?.onclick}
+    />
   </div>
 
   <button

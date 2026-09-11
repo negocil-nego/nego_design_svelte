@@ -16,7 +16,7 @@
 
   let {
     carousel,
-    varient,
+    type,
     title,
     formType = "USERNAME_PASSWORD",
     children,
@@ -50,7 +50,7 @@
 
 <main class="h-screen w-screen flex items-center justify-center">
   <div class="hidden md:flex w-7/12 h-screen">
-    <LeftHero {title} varient={varient ?? "POINTER"} items={carouselItems} />
+    <LeftHero {title} type={type ?? "POINTER"} items={carouselItems} />
   </div>
   <div class="w-full md:w-5/12 flex flex-col h-screen">
     {#if children}

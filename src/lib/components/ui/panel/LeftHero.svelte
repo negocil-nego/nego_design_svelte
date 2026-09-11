@@ -9,14 +9,13 @@
 
   type Props = {
     title?: string | Snippet;
-    variant?: "NUMBER" | "DOT";
     autoPlayInterval?: number;
   };
 
   let {
     title,
     items = [],
-    variant = "DOT",
+    type = "DOT",
     autoPlayInterval = 5000,
   }: Props & LoginCarouselProps = $props();
 
@@ -61,9 +60,7 @@
           >
             {currentItem.title}
           </div>
-          <p
-            class=" text-sm mb-6 leading-relaxed animate-fade-in duration-300"
-          >
+          <p class=" text-sm mb-6 leading-relaxed animate-fade-in duration-300">
             {currentItem.description}
           </p>
         {/key}
@@ -89,7 +86,7 @@
             ? 'opacity-100 scale-110'
             : 'opacity-50 hover:opacity-75'}"
         >
-          {#if variant === "NUMBER"}
+          {#if type === "NUMBER"}
             <span
               class="w-6 h-6 text-xs font-semibold rounded-full text-primary flex items-center justify-center"
             >

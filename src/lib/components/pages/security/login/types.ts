@@ -16,7 +16,7 @@ export interface LoginCarouselItem {
 
 export interface LoginCarouselProps {
   items: LoginCarouselItem[],
-  varient: LoginCarouselItemType
+  type: LoginCarouselItemType
 }
 
 export type LoginRequestDto = {
@@ -38,7 +38,7 @@ export type SocialLoginItem = {
 
 export type PageLoginProps = {
   carousel?: LoginCarouselItem[];
-  varient?: LoginCarouselItemType;
+  type?: LoginCarouselItemType;
   title?: string;
   children?: Snippet;
   formType?: LoginFormType;

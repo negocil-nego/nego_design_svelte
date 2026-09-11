@@ -16,7 +16,7 @@
 
   let {
     carousel,
-    variant: varient,
+    type,
     title,
     formType = "USERNAME_PASSWORD",
     children,
@@ -48,28 +48,22 @@
   const carouselItems = $derived(carousel ?? defaultCarousel);
 </script>
 
-<main
-  class="h-screen w-screen flex items-center justify-center p-4 bg-gradient-to-br from-purple-100 via-pink-50 to-blue-100"
->
-  <div
-    class="flex w-full max-w-5xl h-full bg-white/80 backdrop-blur-sm rounded-2xl shadow-2xl overflow-hidden"
-  >
-    <div class="hidden md:flex w-1/2">
-      <LeftHero {title} type={varient ?? "DOT"} items={carouselItems} />
-    </div>
-    <div class="w-full md:w-1/2 flex flex-col">
-      {#if children}
-        {@render children()}
-      {:else}
-        <AuthCard
-          {formType}
-          {onSubmit}
-          {forgetPassword}
-          {privacyPolicy}
-          {termsOfService}
-          {socialLogins}
-        />
-      {/if}
-    </div>
+<main class="h-screen w-screen flex items-center justify-center">
+  <div class="hidden md:flex w-1/2 h-screen">
+    <LeftHero {title} type={type ?? "DOT"} items={carouselItems} />
+  </div>
+  <div class="w-full md:w-1/2 flex flex-col h-screen">
+    {#if children}
+      {@render children()}
+    {:else}
+      <AuthCard
+        {formType}
+        {onSubmit}
+        {forgetPassword}
+        {privacyPolicy}
+        {termsOfService}
+        {socialLogins}
+      />
+    {/if}
   </div>
 </main>

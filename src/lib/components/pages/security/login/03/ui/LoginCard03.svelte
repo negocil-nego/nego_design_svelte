@@ -12,7 +12,12 @@
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { LoginFormType, LoginRequestDto, LinkProps, SocialLoginItem } from "../../types";
+  import type {
+    LoginFormType,
+    LoginRequestDto,
+    LinkProps,
+    SocialLoginItem,
+  } from "../../types";
   import FormLoginUsernamePassword03 from "./FormLoginUsernamePassword03.svelte";
   import FormLoginEmailPassword03 from "./FormLoginEmailPassword03.svelte";
   import FormLoginPhonePassword03 from "./FormLoginPhonePassword03.svelte";
@@ -49,10 +54,14 @@
   <div class="flex-1 flex flex-col justify-center px-8 md:px-12 pb-8">
     <div class="w-full max-w-sm mx-auto space-y-6">
       <div class="space-y-2">
-        <div class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+        <div
+          class="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center"
+        >
           <span class="text-xl font-bold text-gray-600">G</span>
         </div>
-        <h1 class="text-2xl font-bold text-gray-900">{$t("text.login.welcome")}</h1>
+        <h1 class="text-2xl font-bold text-gray-900">
+          {$t("text.login.welcome")}
+        </h1>
         <p class="text-sm text-gray-500">
           {$t("text.login.subtitle")}
         </p>
@@ -61,7 +70,11 @@
       {#if formType == "EMAIL_PASSWORD"}
         <FormLoginEmailPassword03 {onSubmit} {forgetPassword} {socialLogins} />
       {:else if formType == "USERNAME_PASSWORD"}
-        <FormLoginUsernamePassword03 {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginUsernamePassword03
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+        />
       {:else if formType == "PHONE_PASSWORD"}
         <FormLoginPhonePassword03 {onSubmit} {forgetPassword} {socialLogins} />
       {/if}
@@ -82,12 +95,20 @@
   <div class="px-8 pb-8">
     <div class="flex items-center gap-3 p-4 bg-gray-50 rounded-xl">
       <div class="flex -space-x-2">
-        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 border-2 border-white"></div>
-        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-green-400 to-green-600 border-2 border-white"></div>
-        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 border-2 border-white"></div>
+        <div
+          class="w-8 h-8 rounded-full bg-linear-to-br from-blue-400 to-blue-600 border-2 border-white"
+        ></div>
+        <div
+          class="w-8 h-8 rounded-full bg-linear-to-br from-green-400 to-green-600 border-2 border-white"
+        ></div>
+        <div
+          class="w-8 h-8 rounded-full bg-linear-to-br from-purple-400 to-purple-600 border-2 border-white"
+        ></div>
       </div>
       <div>
-        <p class="text-sm font-semibold text-gray-900">{$t("text.login.users.count")}</p>
+        <p class="text-sm font-semibold text-gray-900">
+          {$t("text.login.users.count")}
+        </p>
         <p class="text-xs text-gray-500">{$t("text.login.users.worldwide")}</p>
       </div>
     </div>

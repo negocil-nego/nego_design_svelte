@@ -38,7 +38,7 @@
 </script>
 
 <div
-  class="relative flex flex-col justify-between overflow-hidden w-full h-full text-white rounded-l-2xl"
+  class="relative flex flex-col justify-between overflow-hidden w-full h-full text-white"
 >
   {#if currentItem?.backgroundUrl}
     <div
@@ -47,9 +47,7 @@
     ></div>
     <div class="absolute inset-0 bg-black/20"></div>
   {:else}
-    <div
-      class="absolute inset-0 bg-gradient-to-br from-purple-400 via-pink-300 to-blue-300"
-    ></div>
+    <div class="absolute inset-0 bg-gradient"></div>
     <div class="absolute inset-0 bg-white/10 backdrop-blur-3xl"></div>
   {/if}
 
