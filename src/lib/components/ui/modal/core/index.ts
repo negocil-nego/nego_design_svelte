@@ -5,4 +5,4 @@ export {
 	Root as ModalCore,
 };
 
-export type { ModalCoreProps, ModelBadge, ModelGridCard, ModelSocialShare } from "./types";
+export type { ModalCoreProps, ModelBadge, ModelGridCardProps as ModelGridCard, ModelSocialShare } from "./types";

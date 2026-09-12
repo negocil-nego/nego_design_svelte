@@ -117,7 +117,7 @@
 
               <button
                 type="button"
-                class="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold bg-primary transition"
+                class="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold bg-primary text-white transition"
                 onclick={onContinue}
               >
                 {continueText}

@@ -9,7 +9,7 @@
     ModalUpload,
     ModalForm,
   } from "$lib";
-  import type { ModelGridCard } from "$lib/components/ui/modal/core/types";
+  import type { ModelGridCardProps } from "$lib/components/ui/modal/core/types";
   import type { ModelBadge } from "$lib/components/ui/modal/badge/types";
   import type { ModelSocialShare } from "$lib/components/ui/modal/share/types";
   import type { UploadFile } from "$lib/components/ui/modal/upload/types";
@@ -24,26 +24,62 @@
   let openUpload = $state(false);
   let openForm = $state(false);
 
-  let selectedGridCard = $state<ModelGridCard | null>(null);
-  let selectedGrid2Card = $state<ModelGridCard | null>(null);
+  let selectedGridCard = $state<ModelGridCardProps | null>(null);
+  let selectedGrid2Card = $state<ModelGridCardProps | null>(null);
   let selectedBadge = $state<ModelBadge | null>(null);
 
-  const gridCards: ModelGridCard[] = [
-    { title: "Student", description: "You're here to impress your teachers.", icon: "🎓" },
-    { title: "Non-profit", description: "You're here to do greater good.", icon: "🤝" },
-    { title: "Teaching", description: "You're here to empower students.", icon: "📚" },
+  const gridCards: ModelGridCardProps[] = [
+    {
+      title: "Student",
+      description: "You're here to impress your teachers.",
+      icon: "🎓",
+    },
+    {
+      title: "Non-profit",
+      description: "You're here to do greater good.",
+      icon: "🤝",
+    },
+    {
+      title: "Teaching",
+      description: "You're here to empower students.",
+      icon: "📚",
+    },
     { title: "Large Company", description: "Scale your brand.", icon: "🏢" },
-    { title: "Personal", description: "Make anything and everything.", icon: "👤" },
-    { title: "Small Business", description: "Design your brand from the ground up.", icon: "🏪" },
+    {
+      title: "Personal",
+      description: "Make anything and everything.",
+      icon: "👤",
+    },
+    {
+      title: "Small Business",
+      description: "Design your brand from the ground up.",
+      icon: "🏪",
+    },
   ];
 
-  const grid2Cards: ModelGridCard[] = [
-    { title: "Work Stuff", description: "Just the usual boring work stuff.", icon: "💼" },
-    { title: "UI/UX Design", description: "Design apps and prototypes.", icon: "🎨" },
+  const grid2Cards: ModelGridCardProps[] = [
+    {
+      title: "Work Stuff",
+      description: "Just the usual boring work stuff.",
+      icon: "💼",
+    },
+    {
+      title: "UI/UX Design",
+      description: "Design apps and prototypes.",
+      icon: "🎨",
+    },
     { title: "Finance", description: "Because I need money.", icon: "💰" },
-    { title: "Productivity", description: "Sometimes we need to be productive.", icon: "⏰" },
+    {
+      title: "Productivity",
+      description: "Sometimes we need to be productive.",
+      icon: "⏰",
+    },
     { title: "Engineering", description: "Build web apps.", icon: "⚙️" },
-    { title: "Machine Learning", description: "To do machine learning.", icon: "🤖" },
+    {
+      title: "Machine Learning",
+      description: "To do machine learning.",
+      icon: "🤖",
+    },
   ];
 
   const categories = [
@@ -65,18 +101,45 @@
 
   const socials: ModelSocialShare[] = [
     { name: "WhatsApp", img: "/img/icons8-whatsapp-48.png", color: "#25D366" },
-    { name: "Instagram", img: "/img/icons8-instagram-48.png", color: "#E4405F" },
+    {
+      name: "Instagram",
+      img: "/img/icons8-instagram-48.png",
+      color: "#E4405F",
+    },
     { name: "Facebook", img: "/img/icons8-facebook-48.png", color: "#1877F2" },
     { name: "Twitter", img: "/img/icons8-twitterx-50.png", color: "#000000" },
     { name: "LinkedIn", img: "/img/icons8-linkedin-48.png", color: "#0A66C2" },
-    { name: "Pinterest", img: "/img/icons8-pinterest-48.png", color: "#E60023" },
+    {
+      name: "Pinterest",
+      img: "/img/icons8-pinterest-48.png",
+      color: "#E60023",
+    },
     { name: "Tumblr", img: "/img/icons8-tumblr-48.png", color: "#36465D" },
   ];
 
   let uploadFiles = $state<UploadFile[]>([
-    { id: "1", name: "Company_budget.xls", size: 20971520, date: "2022-03-01", progress: 53, status: "uploading" },
-    { id: "2", name: "Registration.csv", size: 20971520, date: "2022-03-01", status: "completed" },
-    { id: "3", name: "tax_data.xlsx", size: 20971520, date: "2022-03-01", status: "failed" },
+    {
+      id: "1",
+      name: "Company_budget.xls",
+      size: 20971520,
+      date: "2022-03-01",
+      progress: 53,
+      status: "uploading",
+    },
+    {
+      id: "2",
+      name: "Registration.csv",
+      size: 20971520,
+      date: "2022-03-01",
+      status: "completed",
+    },
+    {
+      id: "3",
+      name: "tax_data.xlsx",
+      size: 20971520,
+      date: "2022-03-01",
+      status: "failed",
+    },
   ]);
 </script>
 
@@ -86,34 +149,63 @@
 
 <div class="mx-auto max-w-4xl px-4 py-10 md:px-8">
   <h1 class="text-3xl font-extrabold tracking-tight">Modals</h1>
-  <p class="mt-2 text-muted-foreground">Interactive demo of all modal components.</p>
+  <p class="mt-2 text-muted-foreground">
+    Interactive demo of all modal components.
+  </p>
 
   <div class="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openGrid = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openGrid = true)}
+    >
       Grid Selection
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openGrid2 = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openGrid2 = true)}
+    >
       Grid Selection v2
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openBadge = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openBadge = true)}
+    >
       Badge Selection
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openShare = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openShare = true)}
+    >
       Share
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openNotification = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openNotification = true)}
+    >
       Notification
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openFeedback = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openFeedback = true)}
+    >
       Feedback
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openMap = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openMap = true)}
+    >
       Map
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openUpload = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openUpload = true)}
+    >
       Upload
     </button>
-    <button class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50" onclick={() => (openForm = true)}>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50"
+      onclick={() => (openForm = true)}
+    >
       Form
     </button>
   </div>
@@ -192,7 +284,9 @@
   acceptedFormats="csv, xlsx, xls"
   onFilesSelected={(f) => console.log("Files selected:", f)}
   onUpload={(f) => console.log("Upload:", f)}
-  onRemoveFile={(id) => { uploadFiles = uploadFiles.filter((f) => f.id !== id); }}
+  onRemoveFile={(id) => {
+    uploadFiles = uploadFiles.filter((f) => f.id !== id);
+  }}
   onRetryFile={(id) => console.log("Retry:", id)}
   onDownload={() => console.log("Download sample")}
 />
@@ -203,17 +297,46 @@
   subtitle="Update your personal information"
   submitText="Save Changes"
   inputs={[
-    { type: "text", name: "name", label: "Full Name", value: "John Doe", required: true },
+    {
+      type: "text",
+      name: "name",
+      label: "Full Name",
+      value: "John Doe",
+      required: true,
+    },
     { type: "email", name: "email", label: "Email", value: "john@example.com" },
     { type: "phone", name: "phone", label: "Phone", value: "+1 234 567 890" },
-    { type: "select", name: "role", label: "Role", options: [
-      { value: "ADMIN", label: "Admin" },
-      { value: "USER", label: "User" },
-      { value: "EDITOR", label: "Editor" },
-    ]},
-    { type: "toggle", name: "active", label: "Active", description: "Enable this account" },
-    { type: "textarea", name: "bio", label: "Bio", value: "Tell us about yourself.", fill: true },
-    { type: "badges", name: "tags", label: "Tags", placeholder: "Add tags...", suggestions: ["Svelte", "React", "Vue", "Angular"], fill: true },
+    {
+      type: "select",
+      name: "role",
+      label: "Role",
+      options: [
+        { value: "ADMIN", label: "Admin" },
+        { value: "USER", label: "User" },
+        { value: "EDITOR", label: "Editor" },
+      ],
+    },
+    {
+      type: "toggle",
+      name: "active",
+      label: "Active",
+      description: "Enable this account",
+    },
+    {
+      type: "textarea",
+      name: "bio",
+      label: "Bio",
+      value: "Tell us about yourself.",
+      fill: true,
+    },
+    {
+      type: "badges",
+      name: "tags",
+      label: "Tags",
+      placeholder: "Add tags...",
+      suggestions: ["Svelte", "React", "Vue", "Angular"],
+      fill: true,
+    },
   ]}
   onSubmit={(data) => console.log("Form:", data)}
   onCancel={() => console.log("Cancel")}

@@ -64,10 +64,11 @@ export type ModelBadge = {
  * @property description - Descrição curta exibida abaixo do título.
  * @property icon - Ícone exibido no topo do card (string CSS ou HugeIcons).
  */
-export type ModelGridCard = {
+export type ModelGridCardProps = {
 	title: string;
 	description?: string;
 	icon: string | IconSvgElement;
+	url?: string;
 };
 
 /**

@@ -188,7 +188,8 @@ import type {
 } from "$lib/components/ui/modal/map/types";
 
 import type {
-    ModalCoreProps
+    ModalCoreProps,
+    ModelGridCardProps
 } from "$lib/components/ui/modal/core/types";
 
 import type {
@@ -404,6 +405,9 @@ export type {
 
     /** Props do componente ModalMap — modal de seleção de localização com mapa. @see ModalMapProps */
     ModalMapProps,
+
+    /** Props do componente grid — modelo de dados para um card seleccionável no ModalGridSelection. @see ModelGridCardProps */
+    ModelGridCardProps,
 
     /** Props do componente Form — formulário com grid responsivo de 2 colunas. @see FormProps */
     FormProps,

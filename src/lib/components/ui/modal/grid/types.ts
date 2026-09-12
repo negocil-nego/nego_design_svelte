@@ -1,7 +1,5 @@
-import type { Snippet } from "svelte";
-import type { IconSvgElement } from "@hugeicons/svelte";
-
-export type { ModelGridCard } from "$lib/components/ui/modal/core/types";
+import type { ModelGridCardProps } from "$lib/components/ui/modal/core/types";
+export type { ModelGridCardProps as ModelGridCard } from "$lib/components/ui/modal/core/types";
 
 /**
  * Modelo de dados para uma categoria/selecção no topo do modal (variante 2).
@@ -41,14 +39,14 @@ export type ModalGridSelectionProps = {
 	subtitle?: string;
 	categories?: ModelGridCategory[];
 	selectedCategory?: ModelGridCategory | null;
-	cards: import("$lib/components/ui/modal/core/types").ModelGridCard[];
-	selectedCard?: import("$lib/components/ui/modal/core/types").ModelGridCard | null;
-	selectedCards?: import("$lib/components/ui/modal/core/types").ModelGridCard[];
+	cards: ModelGridCardProps[];
+	selectedCard?: ModelGridCardProps | null;
+	selectedCards?: ModelGridCardProps[];
 	multiple?: boolean;
 	totalSteps?: number;
 	currentStep?: number;
 	isOpen?: boolean;
-	onSelect?: (card: import("$lib/components/ui/modal/core/types").ModelGridCard) => void;
+	onSelect?: (card: ModelGridCardProps) => void;
 	onSelectCategory?: (category: ModelGridCategory) => void;
 	onBack?: () => void;
 	onContinue?: () => void;
