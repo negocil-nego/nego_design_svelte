@@ -157,7 +157,14 @@ export {
      * Modal de partilha em redes sociais com ícones clicáveis e campo de copiar link.
      * Terceira variação do sistema de modais.
      * @property {string} title - Título principal (ex: "Share this design")
-     * @property {ModelSocialShare[]} networks - Lista de redes sociais
+     * @property {ModelSocialShare[]} networks - Lista de redes sociais (opcional; usa as embutidas se omitida)
+     * @property {boolean} isWhatsapp - Mostra a rede social WhatsApp
+     * @property {boolean} isInstagram - Mostra a rede social Instagram
+     * @property {boolean} isFacebook - Mostra a rede social Facebook
+     * @property {boolean} isTwitter - Mostra a rede social Twitter/X
+     * @property {boolean} isLinkedin - Mostra a rede social LinkedIn
+     * @property {boolean} isPinterest - Mostra a rede social Pinterest
+     * @property {boolean} isTumblr - Mostra a rede social Tumblr
      * @property {string} linkValue - URL a partilhar/copiar
      * @property {boolean} isOpen - Visibilidade do modal (bindable)
      * @property {(network) => void} onShare - Callback ao clicar numa rede social

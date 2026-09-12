@@ -11,7 +11,11 @@
     SidebarMenuButton,
     SidebarMenuItem,
   } from "$lib/components/ui/sidebar";
-  import { DocumentCodeIcon } from "@hugeicons/core-free-icons";
+  import {
+    AppWindowIcon,
+    DocumentCodeIcon,
+    FormIcon,
+  } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { page } from "$app/state";
   import { categories, components } from "$lib/docs/components";
@@ -59,6 +63,36 @@
             <SidebarMenuButton isActive={path === "/docs/components"}>
               {#snippet child({ props })}
                 <a href="/docs/components" {...props}><span>Components</span></a>
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroupContent>
+    </SidebarGroup>
+
+    <SidebarGroup>
+      <SidebarGroupLabel class="uppercase tracking-wider text-muted-foreground/70">
+        Live Demos
+      </SidebarGroupLabel>
+      <SidebarGroupContent>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/modal"}>
+              {#snippet child({ props })}
+                <a href="/modal" {...props} class="flex items-center gap-2">
+                  <HugeiconsIcon icon={AppWindowIcon} class="size-4" />
+                  <span>Modals</span>
+                </a>
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/form"}>
+              {#snippet child({ props })}
+                <a href="/form" {...props} class="flex items-center gap-2">
+                  <HugeiconsIcon icon={FormIcon} class="size-4" />
+                  <span>Form</span>
+                </a>
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>

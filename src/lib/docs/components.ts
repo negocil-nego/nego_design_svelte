@@ -772,7 +772,7 @@ let selected = $state(null);
     slug: "modal-share-selection",
     name: "ModalShareSelection",
     category: "Modals",
-    description: "Social share modal with network icons, copy-to-clipboard link input, and close button. Third variation of the modal system.",
+    description: "Social share modal with branded network images, copy-to-clipboard link input, and close button. Third variation of the modal system.",
     path: "src/lib/components/ui/modal/share/ui/ModalShareSelection.svelte",
     importPath: "ModalShareSelection",
     examples: [
@@ -787,12 +787,34 @@ let isOpen = $state(false);
   bind:isOpen
   title="Share this design"
   linkValue="https://example.com/design/123"
-  networks={[
-    { name: "Pinterest", icon: "nd-pinterest-icon", color: "#E60023" },
-    { name: "Twitter", icon: "nd-twitter-icon", color: "#1DA1F2" },
-    { name: "Instagram", icon: "nd-instagram-icon", color: "#E4405F" },
-    { name: "Facebook", icon: "nd-facebook-icon", color: "#1877F2" },
-  ]}
+  isWhatsapp
+  isInstagram
+  isFacebook
+  isTwitter
+  isLinkedin
+  isPinterest
+  isTumblr
+  onShare={(network) => console.log(network)}
+  onCopy={(link) => console.log(link)}
+/>`,
+      },
+      {
+        title: "Modal Share Selection — custom networks",
+        code: `import { ModalShareSelection } from "negodesign"
+import type { ModelSocialShare } from "negodesign"
+
+let isOpen = $state(false);
+
+const networks: ModelSocialShare[] = [
+  { name: "WhatsApp", img: "/img/icons8-whatsapp-48.png", color: "#25D366" },
+  { name: "Facebook", img: "/img/icons8-facebook-48.png", color: "#1877F2" },
+];
+
+<ModalShareSelection
+  bind:isOpen
+  title="Share this design"
+  linkValue="https://example.com/design/123"
+  {networks}
   onShare={(network) => console.log(network)}
   onCopy={(link) => console.log(link)}
 />`,
@@ -801,7 +823,14 @@ let isOpen = $state(false);
     props: [
       { name: "title", type: "string", description: "Required. Modal title", required: true },
       { name: "subtitle", type: "string", description: "Subtitle below the title" },
-      { name: "networks", type: "ModelSocialShare[]", description: "Required. Social networks: { name, icon, color?, url? }", required: true },
+      { name: "networks", type: "ModelSocialShare[]", description: "Custom networks: { name, icon?, img?, color?, url? }. When omitted, the built-in networks are used." },
+      { name: "isWhatsapp", type: "boolean", description: "Shows the WhatsApp network (built-in, uses /img/icons8-whatsapp-48.png)", default: "true" },
+      { name: "isInstagram", type: "boolean", description: "Shows the Instagram network", default: "true" },
+      { name: "isFacebook", type: "boolean", description: "Shows the Facebook network", default: "true" },
+      { name: "isTwitter", type: "boolean", description: "Shows the Twitter/X network", default: "true" },
+      { name: "isLinkedin", type: "boolean", description: "Shows the LinkedIn network", default: "true" },
+      { name: "isPinterest", type: "boolean", description: "Shows the Pinterest network", default: "true" },
+      { name: "isTumblr", type: "boolean", description: "Shows the Tumblr network", default: "true" },
       { name: "linkLabel", type: "string", description: "Text above the link input", default: "Or copy link" },
       { name: "linkValue", type: "string", description: "URL to share/copy" },
       { name: "copyText", type: "string", description: "Copy button text", default: "Copy" },

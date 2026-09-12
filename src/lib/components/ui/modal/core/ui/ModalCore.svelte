@@ -1,6 +1,9 @@
 <script lang="ts">
   import { cn } from "$lib/utils";
-  import { ArrowLeft01Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons";
+  import {
+    ArrowLeft01Icon,
+    ArrowRight01Icon,
+  } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import type { ModalCoreProps } from "../types";
 
@@ -31,7 +34,7 @@
   }
 
   const progressPercent = $derived(
-    totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0
+    totalSteps > 0 ? (currentStep / totalSteps) * 100 : 0,
   );
 </script>
 
@@ -48,15 +51,15 @@
 
     <div
       class={cn(
-        "relative z-10 mx-4 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-lg",
-        "before:absolute before:-inset-px before:z-[-1] before:rounded-3xl before:bg-linear-to-br before:from-primary/40 before:via-primary/10 before:to-transparent",
+        "relative z-10 mx-4 flex max-h-[90vh] w-full max-w-3xl flex-col overflow-hidden rounded-3xl border border-border shadow-lg bg-background",
+        "before:absolute before:-inset-px before:z-[-1] before:rounded-3xl",
         "animate-in fade-in zoom-in-95 duration-200",
-        className
+        className,
       )}
     >
       <!-- Header -->
       <div class="px-8 pt-8">
-        <h2 class="text-2xl font-extrabold tracking-tight md:text-3xl">
+        <h2 class="text-2xl font-semibold tracking-tight">
           {title}
         </h2>
         {#if subtitle}
@@ -79,9 +82,9 @@
       {:else}
         <div class="border-t border-border px-8 py-5">
           {#if showProgress}
-            <div class="mb-5 h-1.5 w-full overflow-hidden rounded-full bg-muted">
+            <div class="mb-5 h-1.5 w-full overflow-hidden rounded-full">
               <div
-                class="h-full rounded-full bg-linear-to-r from-primary to-primary/70 transition-all duration-300"
+                class="h-full rounded-full transition-all duration-300"
                 style="width: {progressPercent}%"
               ></div>
             </div>
@@ -104,7 +107,7 @@
               {#if showBack && currentStep > 1}
                 <button
                   type="button"
-                  class="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition hover:bg-muted"
+                  class="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition"
                   onclick={onBack}
                 >
                   <HugeiconsIcon icon={ArrowLeft01Icon} class="size-4" />
@@ -114,7 +117,7 @@
 
               <button
                 type="button"
-                class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:bg-primary/90"
+                class="inline-flex items-center gap-2 rounded-full px-6 py-2.5 text-sm font-semibold bg-primary transition"
                 onclick={onContinue}
               >
                 {continueText}

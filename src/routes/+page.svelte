@@ -14,6 +14,8 @@
     Link01Icon,
     Rocket01Icon,
     ComponentIcon,
+    AppWindowIcon,
+    FormIcon,
   } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
 
@@ -97,6 +99,20 @@
         { href: "/grid/simple", label: "Simple Grid" },
         { href: "/grid/panel", label: "Panel Grid" },
       ],
+    },
+    {
+      id: "modals",
+      title: "Modals",
+      icon: AppWindowIcon,
+      description: "Overlay dialogs for selection, share, notification and more.",
+      routes: [{ href: "/modal", label: "Modals — all variants" }],
+    },
+    {
+      id: "forms",
+      title: "Forms",
+      icon: FormIcon,
+      description: "Responsive forms supporting every input type.",
+      routes: [{ href: "/form", label: "Form — 2-column grid" }],
     },
     {
       id: "footer",
@@ -248,6 +264,7 @@
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="border-t border-border px-6 py-8">
     <p class="text-center text-sm text-muted-foreground">
       NegoDesign — Svelte 5 component library. Browse the
