@@ -140,7 +140,14 @@
       title: "Login / Security",
       icon: User03Icon,
       description: "Authentication pages with hero carousel.",
-      routes: [{ href: "/login/admin/01", label: "Login — Admin 01" }],
+      routes: [
+        { href: "/login/admin/01", label: "Login — Variant 01 (grid pattern)" },
+        { href: "/login/admin/01", label: "Login — Variant 02 (hero image)" },
+        { href: "/login/admin/01", label: "Login — Variant 03 (glass morphism)" },
+        { href: "/register/admin/01", label: "Register — Variant 01 (grid pattern)" },
+        { href: "/register/admin/01", label: "Register — Variant 02 (hero image)" },
+        { href: "/register/admin/01", label: "Register — Variant 03 (glass morphism)" },
+      ],
     },
     {
       id: "pages",

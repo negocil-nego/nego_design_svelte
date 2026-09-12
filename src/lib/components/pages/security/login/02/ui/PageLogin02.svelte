@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import AuthCard from "./LoginCard02.svelte";
-  import LeftHero from "./LeftHero02.svelte";
+  import PageAuth02 from "$lib/components/pages/security/auth/PageAuth02.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "$lib/i18n";
 
@@ -48,22 +48,17 @@
   const carouselItems = $derived(carousel ?? defaultCarousel);
 </script>
 
-<main class="h-screen w-screen flex items-center justify-center">
-  <div class="hidden md:flex w-7/12 h-screen">
-    <LeftHero {title} type={type ?? "POINTER"} items={carouselItems} />
-  </div>
-  <div class="w-full md:w-5/12 flex flex-col h-screen">
-    {#if children}
-      {@render children()}
-    {:else}
-      <AuthCard
-        {formType}
-        {onSubmit}
-        {forgetPassword}
-        {privacyPolicy}
-        {termsOfService}
-        {socialLogins}
-      />
-    {/if}
-  </div>
-</main>
+<PageAuth02 {title} {type} carousel={carouselItems}>
+  {#if children}
+    {@render children()}
+  {:else}
+    <AuthCard
+      {formType}
+      {onSubmit}
+      {forgetPassword}
+      {privacyPolicy}
+      {termsOfService}
+      {socialLogins}
+    />
+  {/if}
+</PageAuth02>

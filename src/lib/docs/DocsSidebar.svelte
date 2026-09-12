@@ -15,6 +15,8 @@
     AppWindowIcon,
     DocumentCodeIcon,
     FormIcon,
+    Login01Icon,
+    UserAdd01Icon,
   } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { page } from "$app/state";
@@ -25,6 +27,15 @@
   }
 
   const path = $derived(page.url.pathname);
+
+  const authDemos = [
+    { href: "/login/admin/01", label: "Login — Variant 01", icon: Login01Icon },
+    { href: "/login/admin/01", label: "Login — Variant 02", icon: Login01Icon },
+    { href: "/login/admin/01", label: "Login — Variant 03", icon: Login01Icon },
+    { href: "/register/admin/01", label: "Register — Variant 01", icon: UserAdd01Icon },
+    { href: "/register/admin/01", label: "Register — Variant 02", icon: UserAdd01Icon },
+    { href: "/register/admin/01", label: "Register — Variant 03", icon: UserAdd01Icon },
+  ];
 </script>
 
 <Sidebar collapsible="icon">
@@ -96,6 +107,18 @@
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
+          {#each authDemos as demo}
+            <SidebarMenuItem>
+              <SidebarMenuButton isActive={path === demo.href}>
+                {#snippet child({ props })}
+                  <a href={demo.href} {...props} class="flex items-center gap-2">
+                    <HugeiconsIcon icon={demo.icon} class="size-4" />
+                    <span>{demo.label}</span>
+                  </a>
+                {/snippet}
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          {/each}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

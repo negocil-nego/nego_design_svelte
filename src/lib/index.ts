@@ -36,6 +36,7 @@ import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile
 import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
+import PageRegister from "./components/pages/security/register/PageRegister.svelte";
 import SearchInput from "$lib/components/ui/search/SearchInput.svelte";
 import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
 import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
@@ -483,6 +484,15 @@ export {
      * @see PageLoginProps
      */
     PageLogin,
+
+    /**
+     * Página de registo completa com carousel hero ao fundo e card de autenticação
+     * com múltiplas variantes (email, username, telefone) e campos configuráveis.
+     * @property {RegisterFormFields} fields - Campos a exibir no formulário
+     * @property {RegisterRequestDto} initialData - Valores iniciais do formulário
+     * @see PageRegisterProps
+     */
+    PageRegister,
 
     /**
      * Página de recuperação de senha com hero carousel e card de solicitação

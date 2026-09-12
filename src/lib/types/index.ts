@@ -7,8 +7,14 @@ import type {
     LoginVariant,
     LoginRequestDto,
     LinkProps,
-    PageLoginProps
+    PageLoginProps,
 } from "../components/pages/security/login/types";
+
+import type {
+    RegisterFormFields,
+    RegisterRequestDto,
+    PageRegisterProps
+} from "../components/pages/security/register/types";
 
 import type {
     ForgetPasswordVariant,
@@ -331,6 +337,13 @@ export type {
     LinkProps,
     /** Props do componente PageLogin. @see PageLoginProps */
     PageLoginProps,
+
+    /** Campos configuráveis do formulário de registo. @see RegisterFormFields */
+    RegisterFormFields,
+    /** Dados submetidos no formulário de registo. @see RegisterRequestDto */
+    RegisterRequestDto,
+    /** Props do componente PageRegister. @see PageRegisterProps */
+    PageRegisterProps,
 
     /** Variante do formulário de recuperação de senha. @see ForgetPasswordVariant */
     ForgetPasswordVariant,

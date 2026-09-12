@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import AuthCard from "./LoginCard.svelte";
-  import LeftHero from "$lib/components/ui/panel/LeftHero.svelte";
+  import PageAuth01 from "$lib/components/pages/security/auth/PageAuth01.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "$lib/i18n";
 
@@ -48,42 +48,17 @@
   const carouselItems = $derived(carousel ?? defaultCarousel);
 </script>
 
-<main class="h-screen w-screen flex items-center">
-  <svg width="0" height="0" class="absolute">
-    <defs>
-      <clipPath id="grid-curve-clip" clipPathUnits="objectBoundingBox">
-        <path d="M0.35,0 L1,0 C0.85,0.3 1,0.6 0.4,1 L1,1 Z" />
-      </clipPath>
-    </defs>
-  </svg>
-  <div class="hidden md:block md:w-8/12">
-    <LeftHero {title} type={type ?? "POINTER"} items={carouselItems} />
-  </div>
-  <div class="w-full md:px-0 md:w-4/12 border-gray-900">
-    {#if children}
-      {@render children()}
-    {:else}
-      <AuthCard
-        {formType}
-        {onSubmit}
-        {forgetPassword}
-        {privacyPolicy}
-        {termsOfService}
-        {socialLogins}
-      />
-    {/if}
-  </div>
-</main>
-
-<style>
-  :global(.grid-pattern) {
-    background-size: 40px 40px;
-    background-image: linear-gradient(
-        to right,
-        rgba(0, 0, 0, 0.1) 1px,
-        transparent 1px
-      ),
-      linear-gradient(to bottom, rgba(0, 0, 0, 0.1) 1px, transparent 1px);
-    clip-path: url(#grid-curve-clip);
-  }
-</style>
+<PageAuth01 {title} {type} carousel={carouselItems}>
+  {#if children}
+    {@render children()}
+  {:else}
+    <AuthCard
+      {formType}
+      {onSubmit}
+      {forgetPassword}
+      {privacyPolicy}
+      {termsOfService}
+      {socialLogins}
+    />
+  {/if}
+</PageAuth01>

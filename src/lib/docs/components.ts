@@ -1317,6 +1317,63 @@ let isOpen = $state(false);
     ],
   },
   {
+    slug: "page-register",
+    name: "PageRegister",
+    category: "Login / Security",
+    description: "Register page in a split layout: hero carousel and authentication card with configurable fields (name, email, password, phone, birthday, gender).",
+    path: "src/lib/components/pages/security/register/PageRegister.svelte",
+    importPath: "PageRegister",
+    examples: [
+      {
+        title: "Register Page — All Fields",
+        code: `import { PageRegister } from "negodesign"
+
+<PageRegister
+  title="Negodesign"
+  fields={{
+    isName: true,
+    isEmail: true,
+    isPassword: true,
+    isConfirmPassword: true,
+    isBirthday: true,
+    isGender: true,
+    isPhone: true,
+  }}
+  onSubmit={(data) => console.log(data)}
+/>`,
+        href: "/register/admin/01",
+      },
+      {
+        title: "Register Page — Minimal (email + password)",
+        code: `import { PageRegister } from "negodesign"
+
+<PageRegister
+  variant={2}
+  title="Negodesign"
+  fields={{
+    isEmail: true,
+    isPassword: true,
+    isConfirmPassword: true,
+  }}
+  onSubmit={(data) => console.log(data)}
+/>`,
+      },
+    ],
+    props: [
+      { name: "variant", type: "1 | 2 | 3", description: "Layout variant (1: grid pattern, 2: hero image, 3: glass morphism)", default: "1" },
+      { name: "title", type: "string", description: "Title shown in the hero/header" },
+      { name: "fields", type: "RegisterFormFields", description: "Fields to show: { isName?, isEmail?, isPassword?, isConfirmPassword?, isBirthday?, isGender?, isPhone? }" },
+      { name: "carousel", type: "RegisterCarouselItem[]", description: "Hero slides: { title, description, buttonText, buttonUrl? }" },
+      { name: "type", type: "'NUMBER' | 'DOT' | 'POINTER'", description: "Carousel indicator style" },
+      { name: "children", type: "Snippet", description: "Custom content replacing the register card" },
+      { name: "onSubmit", type: "(RegisterRequestDto) => void", description: "Called on submit: { name?, email, password?, confirmPassword?, birthday?, gender?, phone? }" },
+      { name: "login", type: "LinkProps", description: "Link to login page" },
+      { name: "privacyPolicy", type: "LinkProps", description: "Privacy policy link" },
+      { name: "termsOfService", type: "LinkProps", description: "Terms of service link" },
+      { name: "socialLogins", type: "SocialLoginItem[]", description: "Social login providers: { provider, icon?, label?, onclick? }" },
+    ],
+  },
+  {
     slug: "company-profile",
     name: "CompanyProfile",
     category: "Full Pages",
