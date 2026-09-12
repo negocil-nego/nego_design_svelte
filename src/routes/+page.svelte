@@ -42,6 +42,17 @@
       ],
     },
     {
+      id: "sections",
+      title: "Sections",
+      icon: Album01Icon,
+      description: "Reusable section layouts with titles, descriptions, grids and images.",
+      routes: [
+        { href: "/section/01", label: "Section01 — Cards with navigation" },
+        { href: "/section/02", label: "Section02 — Image + features grid" },
+        { href: "/section/03", label: "Section03 — Value propositions" },
+      ],
+    },
+    {
       id: "banners",
       title: "Banners",
       icon: Album01Icon,

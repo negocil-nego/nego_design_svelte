@@ -27,6 +27,7 @@ export interface DocComponent {
 export const categories = [
   "Navigation",
   "Hero",
+  "Sections",
   "Banners",
   "Cards",
   "Carousels",
@@ -1670,6 +1671,132 @@ let isOpen = $state(false);
     props: [
       { name: "initialData", type: "OtpVerificationRequestDto", description: "Initial values" },
       { name: "onSubmit", type: "(data) => Promise<void>", description: "Called when OTP is validated" },
+    ],
+  },
+  {
+    slug: "section-01",
+    name: "Section01",
+    category: "Sections",
+    description: "Section with a large title, description, navigation arrows, and a horizontal row of selectable cards with icons. Ideal for showcasing business sectors or service categories.",
+    path: "src/lib/components/ui/section/Section01.svelte",
+    importPath: "Section01",
+    examples: [
+      {
+        title: "Tailored Logistics Cards",
+        code: `import { Section01 } from "negodesign"
+import {
+  ShoppingBag01Icon,
+  FactoryIcon,
+  Stethoscope02Icon,
+  ComputerNetworkIcon,
+} from "@hugeicons/core-free-icons";
+
+<Section01
+  title="Tailored Logistics for Every Business"
+  description="At /XION, we understand that every industry has unique logistics challenges."
+  items={[
+    { id: "1", icon: ShoppingBag01Icon, title: "Retail & E-commerce", description: "Streamline your fulfillment process." },
+    { id: "2", icon: FactoryIcon, title: "Manufacturing", description: "Optimize your supply chain.", isActive: true },
+    { id: "3", icon: Stethoscope02Icon, title: "Healthcare & Pharmacy", description: "Ensure the safe delivery of products." },
+    { id: "4", icon: ComputerNetworkIcon, title: "Technology & Electronics", description: "Handle high-value, sensitive products." },
+  ]}
+  onSelect={(id) => console.log(id)}
+  onPrev={() => console.log("prev")}
+  onNext={() => console.log("next")}
+/>`,
+        href: "/section/01",
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Section title", required: true },
+      { name: "description", type: "string", description: "Description text on the right side" },
+      { name: "items", type: "SectionCardItem[]", description: "Cards to display: { id?, icon, title, description?, isActive? }" },
+      { name: "selectedKey", type: "string | number", description: "Currently selected card key" },
+      { name: "titleClass", type: "string", description: "Title CSS class" },
+      { name: "descriptionClass", type: "string", description: "Description CSS class" },
+      { name: "className", type: "string", description: "Section container CSS class" },
+      { name: "onSelect", type: "(id: string | number) => void", description: "Called when a card is clicked" },
+      { name: "onPrev", type: "() => void", description: "Called when the left arrow is clicked" },
+      { name: "onNext", type: "() => void", description: "Called when the right arrow is clicked" },
+    ],
+  },
+  {
+    slug: "section-02",
+    name: "Section02",
+    category: "Sections",
+    description: "Split section with title and image on the left, description and a 2x2 feature grid on the right. Each feature can have a 'Learn More' link.",
+    path: "src/lib/components/ui/section/Section02.svelte",
+    importPath: "Section02",
+    examples: [
+      {
+        title: "Innovation Features Section",
+        code: `import { Section02 } from "negodesign"
+
+<Section02
+  title="Innovation that Moves Your Business"
+  description="We leverage the latest technology to improve the way we manage your shipments."
+  image="/images/container.jpg"
+  imageAlt="Shipping container"
+  features={[
+    { title: "Real-Time Tracking", description: "Stay up-to-date with your shipments from pick-up to delivery.", link: "/tracking", linkLabel: "Learn More" },
+    { title: "Data Analytics", description: "Gain insights into your supply chain.", link: "/analytics" },
+    { title: "Automated Updates", description: "Receive timely notifications about your shipments.", link: "/updates" },
+    { title: "Secure Portal", description: "Access your account anytime with our secure online portal.", link: "/portal" },
+  ]}
+/>`,
+        href: "/section/02",
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Section title", required: true },
+      { name: "description", type: "string", description: "Description text above the features" },
+      { name: "image", type: "string", description: "Image URL displayed on the left" },
+      { name: "imageAlt", type: "string", description: "Image alt text" },
+      { name: "features", type: "SectionFeatureItem[]", description: "Feature items: { title, description?, link?, linkLabel? }" },
+      { name: "titleClass", type: "string", description: "Title CSS class" },
+      { name: "descriptionClass", type: "string", description: "Description CSS class" },
+      { name: "className", type: "string", description: "Section container CSS class" },
+      { name: "imageClass", type: "string", description: "Image CSS class" },
+    ],
+  },
+  {
+    slug: "section-03",
+    name: "Section03",
+    category: "Sections",
+    description: "Full-width section with a large title, description, and a 4-column feature grid with icons. Perfect for highlighting key value propositions or company strengths.",
+    path: "src/lib/components/ui/section/Section03.svelte",
+    importPath: "Section03",
+    examples: [
+      {
+        title: "Solutions Section",
+        code: `import { Section03 } from "negodesign"
+import {
+  Globe01Icon,
+  CustomServiceIcon,
+  ArtificialIntelligence02Icon,
+  Award01Icon,
+} from "@hugeicons/core-free-icons";
+
+<Section03
+  title="We specialize in providing reliable and efficient solutions"
+  description="Whether you need to streamline your supply chain, improve delivery times, or expand your reach globally, we're here to help you achieve your goals with precision and speed."
+  items={[
+    { id: "1", icon: Globe01Icon, title: "Global Reach", description: "With a network, we ensure that your business can reach new markets effortlessly." },
+    { id: "2", icon: CustomServiceIcon, title: "Custom Solutions", description: "We don't believe in a one-size-fits-all. We design logistics solutions tailored to your business needs." },
+    { id: "3", icon: ArtificialIntelligence02Icon, title: "Technology-Driven", description: "Our cutting-edge technology enables real-time tracking, data analytics, and seamless coordination." },
+    { id: "4", icon: Award01Icon, title: "Proven Expertise", description: "With over 10 years in the logistics industry, we have mastered the art of moving goods efficiently." },
+  ]}
+/>`,
+        href: "/section/03",
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Required. Section title", required: true },
+      { name: "description", type: "string", description: "Description text on the right" },
+      { name: "items", type: "SectionCardItem[]", description: "Feature items: { id?, icon, title, description? }" },
+      { name: "titleClass", type: "string", description: "Title CSS class" },
+      { name: "descriptionClass", type: "string", description: "Description CSS class" },
+      { name: "className", type: "string", description: "Section container CSS class" },
     ],
   },
 ];
