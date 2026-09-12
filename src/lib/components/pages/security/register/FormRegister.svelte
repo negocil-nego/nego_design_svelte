@@ -57,8 +57,8 @@
     <div class="space-y-1">
       <InputBase
         type="text"
-        label={$t("input.name.label") ?? "Name"}
-        placeholder={$t("input.name.placeholder") ?? "Your name"}
+        label={$t("input.name.label")}
+        placeholder={$t("input.name.placeholder")}
         isLabel
         isIcon
         bind:value={name}
@@ -82,8 +82,8 @@
     <div class="space-y-1">
       <InputBase
         type="date"
-        label={$t("input.birthday.label") ?? "Birthday"}
-        placeholder={$t("input.birthday.placeholder") ?? "Your birthday"}
+        label={$t("input.birthday.label")}
+        placeholder={$t("input.birthday.placeholder")}
         isLabel
         isIcon
         bind:value={birthday}
@@ -95,8 +95,8 @@
     <div class="space-y-1">
       <InputBase
         type="text"
-        label={$t("input.gender.label") ?? "Gender"}
-        placeholder={$t("input.gender.placeholder") ?? "Your gender"}
+        label={$t("input.gender.label")}
+        placeholder={$t("input.gender.placeholder")}
         isLabel
         isIcon
         bind:value={gender}
