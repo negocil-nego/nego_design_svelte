@@ -10,7 +10,11 @@
 
 <script lang="ts">
   import FormLogin from "./FormLogin.svelte";
-  import type { LoginRequestDto, LinkProps, SocialLoginItem } from "../../types";
+  import type {
+    LoginRequestDto,
+    LinkProps,
+    SocialLoginItem,
+  } from "../../types";
 
   type Props = {
     onSubmit?: (credential: LoginRequestDto) => void;
@@ -18,9 +22,25 @@
     socialLogins?: SocialLoginItem[];
     inputLabelClass?: string;
     inputClass?: string;
+    textClass?: string;
   };
 
-  let { onSubmit, forgetPassword, socialLogins = [], inputLabelClass, inputClass }: Props = $props();
+  let {
+    onSubmit,
+    forgetPassword,
+    socialLogins = [],
+    inputLabelClass,
+    inputClass,
+    textClass,
+  }: Props = $props();
 </script>
 
-<FormLogin variant="USERNAME" {onSubmit} {forgetPassword} {socialLogins} {inputLabelClass} {inputClass} />
+<FormLogin
+  variant="USERNAME"
+  {onSubmit}
+  {forgetPassword}
+  {socialLogins}
+  {inputLabelClass}
+  {inputClass}
+  {textClass}
+/>

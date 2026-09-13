@@ -13,10 +13,9 @@
 
   const cols = (): string => {
     const len = items?.length ?? 0;
-    if (len > 10) return "md:grid-cols-3 lg:grid-cols-4";
-    if (len > 5) return "md:grid-cols-3";
-    if (len % 3 == 0) return "md:grid-cols-3";
-    if (len % 2 == 0) return "md:grid-cols-2";
+    if (len > 5) return "grid-cols-1 md:grid-cols-3";
+    if (len % 3 == 0) return "grid-cols-1 md:grid-cols-3";
+    if (len % 2 == 0) return "grid-cols-1 md:grid-cols-2";
     return "grid-cols-1";
   };
 

@@ -8,6 +8,7 @@ export interface TabItem {
     label: string
     /** Valor único identificador da aba */
     value: string
+    className?: string
 }
 
 /**

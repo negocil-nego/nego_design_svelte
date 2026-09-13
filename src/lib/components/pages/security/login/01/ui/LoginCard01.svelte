@@ -36,6 +36,7 @@
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
     socialLogins?: SocialLoginItem[];
+    textClass?: string;
   };
 
   let {
@@ -46,6 +47,7 @@
     privacyPolicy,
     termsOfService,
     socialLogins = [],
+    textClass,
   }: Props = $props();
 </script>
 
@@ -61,18 +63,26 @@
   </nav>
 
   <div
-    class="p-5 h-full border-t-2 bg-background md:border-none rounded-tl-[35px] rounded-tr-[35px]"
+    class="p-5 h-full border-t-2 md:border-none rounded-tl-[35px] rounded-tr-[35px]"
   >
     <TabUnderline
       items={[
         {
-          item: { label: $t("label.login"), value: "login" },
+          item: {
+            label: $t("label.login"),
+            value: "login",
+            className: "text-white",
+          },
           children: loginSnippet,
         },
         ...(register
           ? [
               {
-                item: { label: $t("label.register"), value: "register" },
+                item: {
+                  label: $t("label.register"),
+                  value: "register",
+                  className: "text-white",
+                },
                 children: registerSnippet,
               },
             ]
@@ -88,6 +98,7 @@
           {socialLogins}
           inputLabelClass="text-white"
           inputClass="text-white/90 placeholder:text-white/50"
+          textClass="text-white"
         />
       {:else if formType == "USERNAME_PASSWORD"}
         <FormLoginUsernamePassword
@@ -96,6 +107,7 @@
           {socialLogins}
           inputLabelClass="text-white"
           inputClass="text-white/90 placeholder:text-white/50"
+          textClass="text-white"
         />
       {:else if formType == "PHONE_PASSWORD"}
         <FormLoginPhonePassword
@@ -104,6 +116,7 @@
           {socialLogins}
           inputLabelClass="text-white"
           inputClass="text-white/90 placeholder:text-white/50"
+          textClass="text-white"
         />
       {/if}
     {/snippet}
@@ -116,9 +129,7 @@
   </div>
 
   <!-- Footer Terms -->
-  <div
-    class="text-[11px] text-slate-400 py-2 flex justify-center gap-2 bg-background"
-  >
+  <div class="text-[11px] text-white py-2 flex justify-center gap-2">
     <LinkPrivacyPolity
       href={privacyPolicy?.url}
       onclick={privacyPolicy?.onclick}

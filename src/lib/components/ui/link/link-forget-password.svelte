@@ -4,9 +4,9 @@
 
   type Props = HTMLAnchorAttributes;
 
-  let { ...restProps }: Props = $props();
+  let { class: className, ...restProps }: Props = $props();
 </script>
 
-<a {...restProps} class="text-xs text-slate-500 hover:text-slate-800 z-10">
+<a {...restProps} class="text-xs z-10 {className}">
   {$t("link.forget.password")}!
 </a>

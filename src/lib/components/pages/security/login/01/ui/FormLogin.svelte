@@ -17,7 +17,12 @@
   import LinkForgetPassword from "$lib/components/ui/link/link-forget-password.svelte";
   import SocialLogin from "$lib/components/ui/social-login/social-login.svelte";
   import { t } from "$lib/i18n";
-  import type { LoginRequestDto, LoginVariant, LinkProps, SocialLoginItem } from "../../types";
+  import type {
+    LoginRequestDto,
+    LoginVariant,
+    LinkProps,
+    SocialLoginItem,
+  } from "../../types";
 
   type Props = {
     variant: LoginVariant;
@@ -26,9 +31,18 @@
     socialLogins?: SocialLoginItem[];
     inputLabelClass?: string;
     inputClass?: string;
+    textClass?: string;
   };
 
-  let { variant, onSubmit, forgetPassword, socialLogins = [], inputLabelClass, inputClass }: Props = $props();
+  let {
+    variant,
+    onSubmit,
+    forgetPassword,
+    socialLogins = [],
+    inputLabelClass,
+    inputClass,
+    textClass,
+  }: Props = $props();
   let data = $state("");
   let password = $state("");
 
@@ -39,21 +53,33 @@
 </script>
 
 <form class="w-full space-y-4" onsubmit={handleSubmit}>
-  <p class="text-[13px] py-3">{$t("text.login")}</p>
+  <p class="text-[13px] py-3 {textClass}">{$t("text.login")}</p>
 
   <div class="space-y-1">
     {#if variant === "EMAIL"}
-      <InputEmail labelClass={inputLabelClass} inputClass={inputClass} bind:value={data} />
+      <InputEmail labelClass={inputLabelClass} {inputClass} bind:value={data} />
     {:else if variant === "USERNAME"}
-      <InputUsername labelClass={inputLabelClass} inputClass={inputClass} bind:value={data} />
+      <InputUsername
+        labelClass={inputLabelClass}
+        {inputClass}
+        bind:value={data}
+      />
     {:else if variant === "PHONE"}
-      <InputPhone labelClass={inputLabelClass} inputClass={inputClass} bind:value={data} />
+      <InputPhone labelClass={inputLabelClass} {inputClass} bind:value={data} />
     {/if}
   </div>
 
   <div class="space-y-1 relative">
-    <InputPassword labelClass={inputLabelClass} inputClass={inputClass} bind:value={password} />
-    <LinkForgetPassword href={forgetPassword?.url} onclick={forgetPassword?.onclick} />
+    <InputPassword
+      labelClass={inputLabelClass}
+      {inputClass}
+      bind:value={password}
+    />
+    <LinkForgetPassword
+      href={forgetPassword?.url}
+      onclick={forgetPassword?.onclick}
+      class={textClass}
+    />
   </div>
 
   <div class="flex flex-col gap-1">

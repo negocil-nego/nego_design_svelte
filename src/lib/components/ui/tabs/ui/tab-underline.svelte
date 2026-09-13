@@ -32,7 +32,11 @@
           value={it.item.value}
           class="text-lg md:text-base"
         >
-          {it.item.label}
+          {#if it.item.className}
+            <span class={it.item.className}>{it.item.label} </span>
+          {:else}
+            {it.item.label}
+          {/if}
         </UnderlineTabs.Trigger>
       {/each}
     </UnderlineTabs.List>

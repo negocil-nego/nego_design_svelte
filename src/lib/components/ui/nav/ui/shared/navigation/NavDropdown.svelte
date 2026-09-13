@@ -79,7 +79,8 @@
 
 	{#if open && children}
 		<div
-			class="absolute left-0 top-full z-50 md:z-100 mt-1.5 w-max rounded-2xl bg-popover p-2.5 pr-3 overflow-hidden text-popover-foreground shadow-2xl ring-1 ring-foreground/5"
+			style="z-index: 9999;"
+			class="absolute left-0 top-full mt-1.5 w-max rounded-2xl bg-popover p-2.5 pr-3 overflow-hidden text-popover-foreground shadow-2xl ring-1 ring-foreground/5"
 		>
 			{@render children()}
 		</div>
