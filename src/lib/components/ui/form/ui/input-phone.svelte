@@ -7,6 +7,8 @@
   /** Phone input field with icon and label. */
   let {
     label,
+    labelClass,
+    inputClass,
     isLabel,
     placeholder,
     value = $bindable(""),
@@ -16,18 +18,20 @@
 {#if isLabel}
   <div class="flex flex-col gap-3 w-full">
     {#if label}
-      <Label>{label}</Label>
+      <Label class={labelClass}>{label}</Label>
     {:else}
-      <Label>{$t("input.email-or-phone.label")}</Label>
+      <Label class={labelClass}>{$t("input.phone.label")}</Label>
     {/if}
     <PhoneInput
-      placeholder={placeholder || $t("input.email-or-phone.placeholder")}
+      class={inputClass}
+      placeholder={placeholder || $t("input.phone.placeholder")}
       bind:value
     />
   </div>
 {:else}
   <PhoneInput
-    placeholder={placeholder || $t("input.email-or-phone.placeholder")}
+    class={inputClass}
+    placeholder={placeholder || $t("input.phone.placeholder")}
     bind:value
   />
 {/if}

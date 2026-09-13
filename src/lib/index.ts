@@ -7,6 +7,8 @@ import InputPassword from "./components/ui/form/ui/input-password.svelte";
 import InputCodeOtp from "./components/ui/form/ui/input-code-otp.svelte";
 import InputPhone from "./components/ui/form/ui/input-phone.svelte";
 import InputEmail from "./components/ui/form/ui/input-email.svelte";
+import InputCalendar from "./components/ui/form/ui/input-calendar.svelte";
+import InputCalendarInterval from "./components/ui/form/ui/input-calendar-interval.svelte";
 import DataTableCore from "./components/ui/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/ui/sidebar/core/MenuBarSidebar.svelte";
 import AdminContent from "./components/pages/admin/01/ui/AdminContent.svelte";
@@ -651,6 +653,29 @@ export {
      * @see InputLabelProps
      */
     InputUsername,
+
+    /**
+     * Campo de input de data com calendário popover reutilizável (seletores de mês e ano).
+     * Abre um card de calendário ao clicar; o valor é vinculado como string ISO `yyyy-mm-dd`
+     * e exibido no formato localizado.
+     * @property {string} value - Valor da data no formato ISO (yyyy-mm-dd, vinculável)
+     * @property {string} label - Rótulo personalizado do campo
+     * @property {string} placeholder - Texto de exemplo do campo
+     * @property {string} min - Data mínima aceite (ISO)
+     * @property {string} max - Data máxima aceite (ISO)
+     * @see InputLabelProps
+     */
+    InputCalendar,
+
+    /**
+     * Campo de input de intervalo de datas com calendário popover reutilizável.
+     * Garante sempre que a data de início é menor ou igual à data final.
+     * @property {string} startValue - Data de início (ISO yyyy-mm-dd, vinculável)
+     * @property {string} endValue - Data final (ISO yyyy-mm-dd, vinculável)
+     * @property {string} label - Rótulo personalizado do campo
+     * @see InputLabelProps
+     */
+    InputCalendarInterval,
 
     /**
      * Campo de input para confirmação de senha. Integra-se com InputPassword

@@ -17,6 +17,13 @@ export default {
     "input.name.placeholder": "Enter your name",
     "input.birthday.label": "Birthday",
     "input.birthday.placeholder": "Select your birthday",
+    "input.date.label": "Date",
+    "input.date.placeholder": "Select the date",
+    "input.date.interval.label": "Period",
+    "input.date.start.label": "Start",
+    "input.date.start.placeholder": "Start date",
+    "input.date.end.label": "End",
+    "input.date.end.placeholder": "End date",
     "input.gender.label": "Gender",
     "input.gender.placeholder": "Select your gender",
 

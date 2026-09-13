@@ -2,6 +2,8 @@
   import InputPasswordConfirm from "$lib/components/ui/form/ui/input-password-confirm.svelte";
   import InputPassword from "$lib/components/ui/form/ui/input-password.svelte";
   import InputEmail from "$lib/components/ui/form/ui/input-email.svelte";
+  import InputSelect from "$lib/components/ui/form/ui/input-select.svelte";
+  import InputCalendar from "$lib/components/ui/form/ui/input-calendar.svelte";
   import InputBase from "$lib/components/ui/form/ui/input-base.svelte";
   import InputPhone from "$lib/components/ui/form/ui/input-phone.svelte";
   import ButtonLogin from "$lib/components/ui/button/ButtonLogin.svelte";
@@ -11,11 +13,17 @@
   type Props = {
     fields?: RegisterFormFields;
     onSubmit?: (data: RegisterRequestDto) => void;
+    inputLabelClass?: string;
+    inputClass?: string;
+    placeholderClass?: string;
   };
 
   let {
     fields = {},
     onSubmit,
+    inputLabelClass,
+    inputClass,
+    placeholderClass,
   }: Props = $props();
 
   let name = $state("");
@@ -51,8 +59,6 @@
 </script>
 
 <form class="space-y-4" onsubmit={handleSubmit}>
-  <p class="text-[13px] py-3">{$t("text.register")}</p>
-
   {#if isName}
     <div class="space-y-1">
       <InputBase
@@ -61,6 +67,8 @@
         placeholder={$t("input.name.placeholder")}
         isLabel
         isIcon
+        labelClass={inputLabelClass}
+        {inputClass}
         bind:value={name}
       />
     </div>
@@ -68,24 +76,33 @@
 
   {#if isEmail}
     <div class="space-y-1">
-      <InputEmail bind:value={email} />
+      <InputEmail
+        labelClass={inputLabelClass}
+        {inputClass}
+        bind:value={email}
+      />
     </div>
   {/if}
 
   {#if isPhone}
     <div class="space-y-1">
-      <InputPhone bind:value={phone} />
+      <InputPhone
+        labelClass={inputLabelClass}
+        {inputClass}
+        bind:value={phone}
+        isLabel
+      />
     </div>
   {/if}
 
   {#if isBirthday}
     <div class="space-y-1">
-      <InputBase
-        type="date"
+      <InputCalendar
         label={$t("input.birthday.label")}
         placeholder={$t("input.birthday.placeholder")}
-        isLabel
-        isIcon
+        labelClass={inputLabelClass}
+        {placeholderClass}
+        {inputClass}
         bind:value={birthday}
       />
     </div>
@@ -93,12 +110,13 @@
 
   {#if isGender}
     <div class="space-y-1">
-      <InputBase
-        type="text"
+      <InputSelect
         label={$t("input.gender.label")}
         placeholder={$t("input.gender.placeholder")}
-        isLabel
-        isIcon
+        options={{ MALE: "Masculino", FEMALE: "Feminino" }}
+        labelClass={inputLabelClass}
+        {placeholderClass}
+        {inputClass}
         bind:value={gender}
       />
     </div>
@@ -106,13 +124,21 @@
 
   {#if isPassword}
     <div class="space-y-1">
-      <InputPassword bind:value={password} />
+      <InputPassword
+        labelClass={inputLabelClass}
+        {inputClass}
+        bind:value={password}
+      />
     </div>
   {/if}
 
   {#if isConfirmPassword}
     <div class="space-y-1">
-      <InputPasswordConfirm bind:value={confirmPassword} />
+      <InputPasswordConfirm
+        labelClass={inputLabelClass}
+        {inputClass}
+        bind:value={confirmPassword}
+      />
     </div>
   {/if}
 

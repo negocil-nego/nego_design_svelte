@@ -9,10 +9,10 @@
 </script>
 
 <script lang="ts">
-  import AuthCard from "./RegisterCard.svelte";
+  import RegisterCard01 from "./RegisterCard01.svelte";
   import PageAuth01 from "$lib/components/pages/security/auth/PageAuth01.svelte";
-  import type { PageRegisterProps } from "../types";
   import { t } from "$lib/i18n";
+  import type { PageRegisterProps } from "$lib/types";
 
   let {
     carousel,
@@ -30,18 +30,30 @@
   const defaultCarousel = $derived([
     {
       buttonText: $t("label.next"),
-      title: $t("carousel.register.slide1.title") ?? $t("carousel.login.slide1.title"),
-      description: $t("carousel.register.slide1.description") ?? $t("carousel.login.slide1.description"),
+      title:
+        $t("carousel.register.slide1.title") ??
+        $t("carousel.login.slide1.title"),
+      description:
+        $t("carousel.register.slide1.description") ??
+        $t("carousel.login.slide1.description"),
     },
     {
       buttonText: $t("label.next"),
-      title: $t("carousel.register.slide2.title") ?? $t("carousel.login.slide2.title"),
-      description: $t("carousel.register.slide2.description") ?? $t("carousel.login.slide2.description"),
+      title:
+        $t("carousel.register.slide2.title") ??
+        $t("carousel.login.slide2.title"),
+      description:
+        $t("carousel.register.slide2.description") ??
+        $t("carousel.login.slide2.description"),
     },
     {
       buttonText: $t("label.next"),
-      title: $t("carousel.register.slide3.title") ?? $t("carousel.login.slide3.title"),
-      description: $t("carousel.register.slide3.description") ?? $t("carousel.login.slide3.description"),
+      title:
+        $t("carousel.register.slide3.title") ??
+        $t("carousel.login.slide3.title"),
+      description:
+        $t("carousel.register.slide3.description") ??
+        $t("carousel.login.slide3.description"),
     },
   ]);
 
@@ -52,7 +64,7 @@
   {#if children}
     {@render children()}
   {:else}
-    <AuthCard
+    <RegisterCard01
       {fields}
       {onSubmit}
       {login}

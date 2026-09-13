@@ -18,7 +18,12 @@
   import type { Snippet } from "svelte";
   import { LightSwitch } from "$lib/components/ui/light-switch";
   import { t } from "$lib/i18n";
-  import type { LoginFormType, LoginRequestDto, LinkProps, SocialLoginItem } from "../../types";
+  import type {
+    LoginFormType,
+    LoginRequestDto,
+    LinkProps,
+    SocialLoginItem,
+  } from "../../types";
   import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
@@ -77,11 +82,29 @@
 
     {#snippet loginSnippet()}
       {#if formType == "EMAIL_PASSWORD"}
-        <FormLoginEmailPassword {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginEmailPassword
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          inputLabelClass="text-white"
+          inputClass="text-white/90 placeholder:text-white/50"
+        />
       {:else if formType == "USERNAME_PASSWORD"}
-        <FormLoginUsernamePassword {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginUsernamePassword
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          inputLabelClass="text-white"
+          inputClass="text-white/90 placeholder:text-white/50"
+        />
       {:else if formType == "PHONE_PASSWORD"}
-        <FormLoginPhonePassword {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginPhonePassword
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          inputLabelClass="text-white"
+          inputClass="text-white/90 placeholder:text-white/50"
+        />
       {/if}
     {/snippet}
 

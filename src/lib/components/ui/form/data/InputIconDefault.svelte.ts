@@ -5,6 +5,7 @@ import {
   Search01Icon,
   SmartPhone01Icon,
   File01Icon,
+  Calendar01Icon,
   Url,
 } from "@hugeicons/core-free-icons";
 import type { IconSvgElement } from "@hugeicons/svelte";
@@ -16,4 +17,5 @@ export const inputIconMap: Partial<Record<HTMLInputTypeAttribute, IconSvgElement
   tel: SmartPhone01Icon,
   url: Url,
   file: File01Icon,
+  date: Calendar01Icon,
 };

@@ -1690,6 +1690,83 @@ let isOpen = $state(false);
     ],
   },
   {
+    slug: "input-calendar",
+    name: "InputCalendar",
+    category: "Form Inputs",
+    description:
+      "Date input with a reusable popover calendar (month and year selectors). Opens a calendar card on click; the value is bound as an ISO `yyyy-mm-dd` string and displayed in the localized format.",
+    path: "src/lib/components/ui/form/ui/input-calendar.svelte",
+    importPath: "InputCalendar",
+    examples: [
+      {
+        title: "Input Calendar",
+        href: "/input-calendar",
+        code: `import { InputCalendar } from "negodesign"
+
+<script lang="ts">
+  let birthDate = $state("");
+</script>
+
+<InputCalendar
+  label="Birth date"
+  placeholder="dd/mm/yyyy"
+  bind:value={birthDate}
+/>`,
+      },
+    ],
+    props: [
+      { name: "value", type: "string", description: "Bound value as ISO yyyy-mm-dd" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "placeholder", type: "string", description: "Placeholder text" },
+      { name: "labelClass", type: "string", description: "Label CSS class" },
+      { name: "inputClass", type: "string", description: "Trigger CSS class" },
+      { name: "isLabel", type: "boolean", description: "Renders the label wrapper", default: "true" },
+      { name: "isIcon", type: "boolean", description: "Shows the calendar icon on the left", default: "true" },
+      { name: "placeholderClass", type: "string", description: "Trigger text CSS class" },
+      { name: "min", type: "string", description: "Minimum accepted date (ISO yyyy-mm-dd)" },
+      { name: "max", type: "string", description: "Maximum accepted date (ISO yyyy-mm-dd)" },
+      { name: "disabled", type: "boolean", description: "Disables the trigger", default: "false" },
+    ],
+  },
+  {
+    slug: "input-calendar-interval",
+    name: "InputCalendarInterval",
+    category: "Form Inputs",
+    description:
+      "Date range input built on the same reusable calendar card as InputCalendar. The popover opens two calendars (start and end) side by side on desktop and stacked on mobile, and always guarantees the start date is less than or equal to the end date.",
+    path: "src/lib/components/ui/form/ui/input-calendar-interval.svelte",
+    importPath: "InputCalendarInterval",
+    examples: [
+      {
+        title: "Input Calendar Interval",
+        href: "/input-calendar-interval",
+        code: `import { InputCalendarInterval } from "negodesign"
+
+<script lang="ts">
+  let startDate = $state("");
+  let endDate = $state("");
+</script>
+
+<InputCalendarInterval
+  label="Travel period"
+  bind:startValue={startDate}
+  bind:endValue={endDate}
+/>`,
+      },
+    ],
+    props: [
+      { name: "startValue", type: "string", description: "Bound start date as ISO yyyy-mm-dd" },
+      { name: "endValue", type: "string", description: "Bound end date as ISO yyyy-mm-dd" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "isLabel", type: "boolean", description: "Renders the label wrapper", default: "true" },
+      { name: "isIcon", type: "boolean", description: "Shows the calendar icon on the left", default: "true" },
+      { name: "labelClass", type: "string", description: "Label CSS class" },
+      { name: "inputClass", type: "string", description: "Trigger CSS class" },
+      { name: "placeholder", type: "string", description: "Placeholder text when empty" },
+      { name: "disabled", type: "boolean", description: "Disables the trigger", default: "false" },
+    ],
+  },
+  {
     slug: "page-forget-password",
     name: "PageForgetPassword",
     category: "Login / Security",

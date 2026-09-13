@@ -1,194 +1,246 @@
 <script lang="ts">
+  import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { Label } from "$lib/components/ui/label";
-  import { cn } from "$lib/utils";
-  import type { InputLabelProps } from "../data/InputLabel.svelte";
+  import { HugeiconsIcon } from "@hugeicons/svelte";
+  import { ChevronDownIcon, Search01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
+  import { cn } from "$lib/utils.js";
 
   type SelectOption = { value: string; label: string };
+  type SelectOptions = SelectOption[] | Record<string, string>;
+
+  type Props = InputLabelProps & {
+    options?: SelectOptions;
+    disabled?: boolean;
+  };
 
   let {
     label,
-    isLabel = false,
+    labelClass,
+    inputClass,
+    isLabel = true,
+    isIcon = false,
+    placeholder,
+    options = {},
     value = $bindable(""),
     disabled = false,
-    required = false,
-    placeholder = "Select an option",
-    options = [],
-    multiple = false,
-    class: className,
-    ...restProps
-  }: InputLabelProps & {
-    value?: string | string[];
-    options?: SelectOption[];
-    multiple?: boolean;
-    placeholder?: string;
-    disabled?: boolean;
-    required?: boolean;
-    class?: string;
-  } = $props();
+  }: Props = $props();
 
-  let isOpen = $state(false);
-  let selectRef = $state<HTMLDivElement | null>(null);
+  const optionList = $derived(
+    Array.isArray(options)
+      ? options.map((o) => (typeof o === "string" ? { value: o, label: o } : o))
+      : Object.entries(options).map(([value, label]) => ({ value, label })),
+  );
 
-  function handleSelect(option: SelectOption) {
-    if (multiple) {
-      const arr = Array.isArray(value) ? value : [];
-      const idx = arr.indexOf(option.value);
-      if (idx >= 0) {
-        value = arr.filter((v) => v !== option.value);
-      } else {
-        value = [...arr, option.value];
-      }
-    } else {
-      value = option.value;
-      isOpen = false;
-    }
+  let query = $state("");
+  let open = $state(false);
+
+  const selectedLabel = $derived(
+    optionList.find((o) => o.value === value)?.label ?? "",
+  );
+
+  const filteredOptions = $derived.by(() => {
+    const q = query.trim().toLocaleLowerCase();
+    if (!q) return optionList;
+    return optionList.filter(
+      (o) =>
+        o.label.toLocaleLowerCase().includes(q) ||
+        o.value.toLocaleLowerCase().includes(q),
+    );
+  });
+
+  function handleFocus() {
+    if (disabled) return;
+    open = true;
+    query = selectedLabel;
   }
 
-  function isSelected(option: SelectOption): boolean {
-    if (multiple) {
-      return Array.isArray(value) && value.includes(option.value);
-    }
-    return value === option.value;
+  function handleInput() {
+    open = true;
   }
 
-  function getDisplayText(): string {
-    if (multiple) {
-      const arr = Array.isArray(value) ? value : [];
-      if (arr.length === 0) return placeholder;
-      return arr
-        .map((v) => options.find((o) => o.value === v)?.label ?? v)
-        .join(", ");
-    }
-    return options.find((o) => o.value === value)?.label ?? placeholder;
+  function selectOption(option: SelectOption) {
+    value = option.value;
+    query = option.label;
+    open = false;
   }
 
-  function handleClickOutside(e: MouseEvent) {
-    if (selectRef && !selectRef.contains(e.target as Node)) {
-      isOpen = false;
-    }
+  function clearSelection() {
+    value = "";
+    query = "";
+    open = false;
   }
+
+  function handleBlur(e: FocusEvent) {
+    query = selectedLabel;
+  }
+
+  const inputClasses = $derived(
+    cn(
+      "h-9 w-full min-w-0 rounded-md border bg-transparent py-1 text-base shadow-xs",
+      "transition-colors outline-none md:text-sm cursor-text",
+      "border-input dark:bg-input/30 text-foreground placeholder:text-muted-foreground",
+      "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-3",
+      "disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50",
+      "pr-9",
+      isIcon ? "pl-9" : "pl-2.5",
+      inputClass,
+    ),
+  );
 </script>
 
-<svelte:window onclick={handleClickOutside} />
-
 {#if isLabel}
-  <div class="flex w-full flex-col gap-3">
+  <div class="flex flex-col gap-3 w-full">
     {#if label}
-      <Label>{label}</Label>
+      <Label class={labelClass}>{label}</Label>
     {/if}
-    <div bind:this={selectRef} class={cn("relative", className)}>
-      <button
-        type="button"
-        {disabled}
-        class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-card px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-        onclick={() => (isOpen = !isOpen)}
-      >
-        <span class={cn(!value && "text-muted-foreground")}>
-          {getDisplayText()}
-        </span>
-        <svg
-          class={cn("size-4 shrink-0 opacity-50 transition-transform", isOpen && "rotate-180")}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="m6 9 6 6 6-6" />
-        </svg>
-      </button>
 
-      {#if isOpen}
-        <div class="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border border-border bg-card shadow-md">
-          {#each options as option (option.value)}
-            <button
-              type="button"
-              class={cn(
-                "flex w-full items-center px-3 py-2 text-sm transition-colors hover:bg-muted",
-                isSelected(option) && "bg-muted font-medium"
-              )}
-              onclick={() => handleSelect(option)}
-            >
-              {#if multiple}
-                <span
-                  class={cn(
-                    "mr-2 flex size-4 items-center justify-center rounded border",
-                    isSelected(option)
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-input"
-                  )}
-                >
-                  {#if isSelected(option)}
-                    <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                      <path d="M20 6 9 17l-5-5" />
-                    </svg>
-                  {/if}
-                </span>
-              {/if}
-              {option.label}
-            </button>
-          {/each}
+    <div class="relative">
+      {#if isIcon && !disabled}
+        <span
+          class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
+        >
+          <HugeiconsIcon icon={Search01Icon} size={16} strokeWidth={1.5} />
+        </span>
+      {/if}
+
+      {#if !disabled && value}
+        <button
+          type="button"
+          aria-label="clear"
+          class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center cursor-pointer z-10 text-slate-400 hover:text-slate-600"
+          onmousedown={(e) => e.preventDefault()}
+          onclick={clearSelection}
+        >
+          <HugeiconsIcon icon={Cancel01Icon} size={16} strokeWidth={1.5} />
+        </button>
+      {:else}
+        <span
+          class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
+        >
+          <HugeiconsIcon icon={ChevronDownIcon} size={16} strokeWidth={1.5} />
+        </span>
+      {/if}
+
+      <input
+        type="text"
+        class={inputClasses}
+        placeholder={placeholder}
+        {disabled}
+        bind:value={query}
+        onfocus={handleFocus}
+        oninput={handleInput}
+        onblur={handleBlur}
+        onkeydown={(e) => {
+          if (e.key === "Escape") open = false;
+          if (e.key === "Enter") open = false;
+        }}
+      />
+
+      {#if open && !disabled}
+        <div
+          role="listbox"
+          tabindex="-1"
+          class="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-y-auto rounded-md border bg-popover p-1 shadow-md"
+          onmousedown={(e) => e.preventDefault()}
+        >
+          {#if filteredOptions.length === 0}
+            <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
+              {placeholder}
+            </div>
+          {:else}
+            {#each filteredOptions as option, i (option.value)}
+              <button
+                type="button"
+                role="option"
+                aria-selected={option.value === value}
+                class={cn(
+                  "block w-full rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
+                  option.value === value
+                    ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
+                    : "text-foreground",
+                )}
+                onclick={() => selectOption(option)}
+              >
+                {option.label}
+              </button>
+            {/each}
+          {/if}
         </div>
       {/if}
     </div>
   </div>
 {:else}
-  <div bind:this={selectRef} class={cn("relative", className)}>
-    <button
-      type="button"
-      {disabled}
-      class="flex h-10 w-full items-center justify-between rounded-md border border-input bg-card px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-      onclick={() => (isOpen = !isOpen)}
-    >
-      <span class={cn(!value && "text-muted-foreground")}>
-        {getDisplayText()}
-      </span>
-      <svg
-        class={cn("size-4 shrink-0 opacity-50 transition-transform", isOpen && "rotate-180")}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+  <div class="relative">
+    {#if isIcon && !disabled}
+      <span
+        class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
       >
-        <path d="m6 9 6 6 6-6" />
-      </svg>
-    </button>
+        <HugeiconsIcon icon={Search01Icon} size={16} strokeWidth={1.5} />
+      </span>
+    {/if}
 
-    {#if isOpen}
-      <div class="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border border-border bg-card shadow-md">
-        {#each options as option (option.value)}
-          <button
-            type="button"
-            class={cn(
-              "flex w-full items-center px-3 py-2 text-sm transition-colors hover:bg-muted",
-              isSelected(option) && "bg-muted font-medium"
-            )}
-            onclick={() => handleSelect(option)}
-          >
-            {#if multiple}
-              <span
-                class={cn(
-                  "mr-2 flex size-4 items-center justify-center rounded border",
-                  isSelected(option)
-                    ? "border-primary bg-primary text-primary-foreground"
-                    : "border-input"
-                )}
-              >
-                {#if isSelected(option)}
-                  <svg class="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
-                    <path d="M20 6 9 17l-5-5" />
-                  </svg>
-                {/if}
-              </span>
-            {/if}
-            {option.label}
-          </button>
-        {/each}
+    {#if !disabled && value}
+      <button
+        type="button"
+        aria-label="clear"
+        class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center cursor-pointer z-10 text-slate-400 hover:text-slate-600"
+        onmousedown={(e) => e.preventDefault()}
+        onclick={clearSelection}
+      >
+        <HugeiconsIcon icon={Cancel01Icon} size={16} strokeWidth={1.5} />
+      </button>
+    {:else}
+      <span
+        class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
+      >
+        <HugeiconsIcon icon={ChevronDownIcon} size={16} strokeWidth={1.5} />
+      </span>
+    {/if}
+
+    <input
+      type="text"
+      class={inputClasses}
+      placeholder={placeholder}
+      {disabled}
+      bind:value={query}
+      onfocus={handleFocus}
+      oninput={handleInput}
+      onblur={handleBlur}
+      onkeydown={(e) => {
+        if (e.key === "Escape") open = false;
+        if (e.key === "Enter") open = false;
+      }}
+    />
+
+    {#if open && !disabled}
+      <div
+        role="listbox"
+        tabindex="-1"
+        class="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-y-auto rounded-md border bg-popover p-1 shadow-md"
+        onmousedown={(e) => e.preventDefault()}
+      >
+        {#if filteredOptions.length === 0}
+          <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
+            {placeholder}
+          </div>
+        {:else}
+          {#each filteredOptions as option, i (option.value)}
+            <button
+              type="button"
+              role="option"
+              aria-selected={option.value === value}
+              class={cn(
+                "block w-full rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
+                option.value === value
+                  ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
+                  : "text-foreground",
+              )}
+              onclick={() => selectOption(option)}
+            >
+              {option.label}
+            </button>
+          {/each}
+        {/if}
       </div>
     {/if}
   </div>

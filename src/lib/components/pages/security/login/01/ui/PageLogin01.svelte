@@ -9,7 +9,7 @@
 </script>
 
 <script lang="ts">
-  import AuthCard from "./LoginCard.svelte";
+  import LoginCard01 from "./LoginCard01.svelte";
   import PageAuth01 from "$lib/components/pages/security/auth/PageAuth01.svelte";
   import type { PageLoginProps } from "../../types";
   import { t } from "$lib/i18n";
@@ -52,7 +52,7 @@
   {#if children}
     {@render children()}
   {:else}
-    <AuthCard
+    <LoginCard01
       {formType}
       {onSubmit}
       {forgetPassword}

@@ -16,9 +16,11 @@
     onSubmit?: (credential: LoginRequestDto) => void;
     forgetPassword?: LinkProps;
     socialLogins?: SocialLoginItem[];
+    inputLabelClass?: string;
+    inputClass?: string;
   };
 
-  let { onSubmit, forgetPassword, socialLogins = [] }: Props = $props();
+  let { onSubmit, forgetPassword, socialLogins = [], inputLabelClass, inputClass }: Props = $props();
 </script>
 
-<FormLogin variant="PHONE" {onSubmit} {forgetPassword} {socialLogins} />
+<FormLogin variant="PHONE" {onSubmit} {forgetPassword} {socialLogins} {inputLabelClass} {inputClass} />

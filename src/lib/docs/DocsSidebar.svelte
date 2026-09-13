@@ -11,13 +11,7 @@
     SidebarMenuButton,
     SidebarMenuItem,
   } from "$lib/components/ui/sidebar";
-  import {
-    AppWindowIcon,
-    DocumentCodeIcon,
-    FormIcon,
-    Login01Icon,
-    UserAdd01Icon,
-  } from "@hugeicons/core-free-icons";
+  import { DocumentCodeIcon } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { page } from "$app/state";
   import { categories, components } from "$lib/docs/components";
@@ -27,15 +21,6 @@
   }
 
   const path = $derived(page.url.pathname);
-
-  const authDemos = [
-    { href: "/login/admin/01", label: "Login — Variant 01", icon: Login01Icon },
-    { href: "/login/admin/01", label: "Login — Variant 02", icon: Login01Icon },
-    { href: "/login/admin/01", label: "Login — Variant 03", icon: Login01Icon },
-    { href: "/register/admin/01", label: "Register — Variant 01", icon: UserAdd01Icon },
-    { href: "/register/admin/01", label: "Register — Variant 02", icon: UserAdd01Icon },
-    { href: "/register/admin/01", label: "Register — Variant 03", icon: UserAdd01Icon },
-  ];
 </script>
 
 <Sidebar collapsible="icon">
@@ -43,7 +28,9 @@
     <SidebarMenu>
       <SidebarMenuItem>
         <a href="/docs" class="flex items-center gap-2 px-3 py-1">
-          <span class="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+          <span
+            class="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground"
+          >
             <HugeiconsIcon icon={DocumentCodeIcon} class="size-4" />
           </span>
           <span class="text-sm font-semibold">NegoDesign</span>
@@ -66,59 +53,20 @@
           <SidebarMenuItem>
             <SidebarMenuButton isActive={path === "/docs/installation"}>
               {#snippet child({ props })}
-                <a href="/docs/installation" {...props}><span>Installation</span></a>
+                <a href="/docs/installation" {...props}
+                  ><span>Installation</span></a
+                >
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
             <SidebarMenuButton isActive={path === "/docs/components"}>
               {#snippet child({ props })}
-                <a href="/docs/components" {...props}><span>Components</span></a>
+                <a href="/docs/components" {...props}><span>Components</span></a
+                >
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
-        </SidebarMenu>
-      </SidebarGroupContent>
-    </SidebarGroup>
-
-    <SidebarGroup>
-      <SidebarGroupLabel class="uppercase tracking-wider text-muted-foreground/70">
-        Live Demos
-      </SidebarGroupLabel>
-      <SidebarGroupContent>
-        <SidebarMenu>
-          <SidebarMenuItem>
-            <SidebarMenuButton isActive={path === "/modal"}>
-              {#snippet child({ props })}
-                <a href="/modal" {...props} class="flex items-center gap-2">
-                  <HugeiconsIcon icon={AppWindowIcon} class="size-4" />
-                  <span>Modals</span>
-                </a>
-              {/snippet}
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          <SidebarMenuItem>
-            <SidebarMenuButton isActive={path === "/form"}>
-              {#snippet child({ props })}
-                <a href="/form" {...props} class="flex items-center gap-2">
-                  <HugeiconsIcon icon={FormIcon} class="size-4" />
-                  <span>Form</span>
-                </a>
-              {/snippet}
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-          {#each authDemos as demo}
-            <SidebarMenuItem>
-              <SidebarMenuButton isActive={path === demo.href}>
-                {#snippet child({ props })}
-                  <a href={demo.href} {...props} class="flex items-center gap-2">
-                    <HugeiconsIcon icon={demo.icon} class="size-4" />
-                    <span>{demo.label}</span>
-                  </a>
-                {/snippet}
-              </SidebarMenuButton>
-            </SidebarMenuItem>
-          {/each}
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>
@@ -127,7 +75,9 @@
       {@const list = componentList(category)}
       {#if list.length > 0}
         <SidebarGroup>
-          <SidebarGroupLabel class="uppercase tracking-wider text-muted-foreground/70">
+          <SidebarGroupLabel
+            class="uppercase tracking-wider text-muted-foreground/70"
+          >
             {category}
           </SidebarGroupLabel>
           <SidebarGroupContent>
@@ -136,7 +86,9 @@
                 <SidebarMenuItem>
                   <SidebarMenuButton isActive={path === `/docs/${comp.slug}`}>
                     {#snippet child({ props })}
-                      <a href={`/docs/${comp.slug}`} {...props}><span>{comp.name}</span></a>
+                      <a href={`/docs/${comp.slug}`} {...props}
+                        ><span>{comp.name}</span></a
+                      >
                     {/snippet}
                   </SidebarMenuButton>
                 </SidebarMenuItem>

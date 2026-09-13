@@ -24,9 +24,11 @@
     onSubmit?: (credential: LoginRequestDto) => void;
     forgetPassword?: LinkProps;
     socialLogins?: SocialLoginItem[];
+    inputLabelClass?: string;
+    inputClass?: string;
   };
 
-  let { variant, onSubmit, forgetPassword, socialLogins = [] }: Props = $props();
+  let { variant, onSubmit, forgetPassword, socialLogins = [], inputLabelClass, inputClass }: Props = $props();
   let data = $state("");
   let password = $state("");
 
@@ -41,16 +43,16 @@
 
   <div class="space-y-1">
     {#if variant === "EMAIL"}
-      <InputEmail bind:value={data} />
+      <InputEmail labelClass={inputLabelClass} inputClass={inputClass} bind:value={data} />
     {:else if variant === "USERNAME"}
-      <InputUsername bind:value={data} />
+      <InputUsername labelClass={inputLabelClass} inputClass={inputClass} bind:value={data} />
     {:else if variant === "PHONE"}
-      <InputPhone bind:value={data} />
+      <InputPhone labelClass={inputLabelClass} inputClass={inputClass} bind:value={data} />
     {/if}
   </div>
 
   <div class="space-y-1 relative">
-    <InputPassword bind:value={password} />
+    <InputPassword labelClass={inputLabelClass} inputClass={inputClass} bind:value={password} />
     <LinkForgetPassword href={forgetPassword?.url} onclick={forgetPassword?.onclick} />
   </div>
 

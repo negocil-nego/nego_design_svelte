@@ -8,6 +8,8 @@
 
   let {
     label,
+    labelClass,
+    inputClass,
     isIcon,
     isLabel,
     value = $bindable(""),
@@ -45,7 +47,7 @@
     {/if}
 
     <Input
-      class="{isIcon && currentIcon ? 'pl-9' : ''} {isPassword ? 'pr-9' : ''}"
+      class="{isIcon && currentIcon ? 'pl-9' : ''} {isPassword ? 'pr-9' : ''} {inputClass ?? ''}"
       bind:value
       {...restProps}
       type={inputType}
@@ -72,7 +74,7 @@
 {#if isLabel}
   <div class="flex flex-col gap-3 w-full">
     {#if label}
-      <Label>{label}</Label>
+      <Label class={labelClass}>{label}</Label>
     {/if}
     {@render renderInput()}
   </div>

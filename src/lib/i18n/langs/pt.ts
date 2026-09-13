@@ -17,6 +17,13 @@ export default {
     "input.name.placeholder": "Digite o seu nome",
     "input.birthday.label": "Data de nascimento",
     "input.birthday.placeholder": "Selecione a sua data de nascimento",
+    "input.date.label": "Data",
+    "input.date.placeholder": "Selecione a data",
+    "input.date.interval.label": "Período",
+    "input.date.start.label": "Início",
+    "input.date.start.placeholder": "Data de início",
+    "input.date.end.label": "Fim",
+    "input.date.end.placeholder": "Data de fim",
     "input.gender.label": "Género",
     "input.gender.placeholder": "Selecione o seu género",
 

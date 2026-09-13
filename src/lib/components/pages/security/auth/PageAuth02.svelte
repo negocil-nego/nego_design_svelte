@@ -11,33 +11,28 @@
   import LeftHero from "$lib/components/pages/security/login/02/ui/LeftHero02.svelte";
 
   type CarouselItem = {
-    title: string
-    description: string
-    buttonText: string
-    buttonUrl?: string
-    backgroundUrl?: string
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonUrl?: string;
+    backgroundUrl?: string;
   };
 
   type Props = {
-    title?: string
-    type?: "NUMBER" | "DOT" | "POINTER"
-    carousel?: CarouselItem[]
-    children?: Snippet
+    title?: string;
+    type?: "NUMBER" | "DOT" | "POINTER";
+    carousel?: CarouselItem[];
+    children?: Snippet;
   };
 
-  let {
-    title,
-    type,
-    carousel = [],
-    children,
-  }: Props = $props();
+  let { title, type, carousel = [], children }: Props = $props();
 </script>
 
 <main class="h-screen w-screen flex items-center justify-center">
   <div class="hidden md:flex w-7/12 h-screen">
     <LeftHero {title} type={type ?? "POINTER"} items={carousel} />
   </div>
-  <div class="w-full md:w-5/12 flex flex-col h-screen">
+  <div class="w-full md:w-5/12 flex flex-col h-screen overflow-y-auto">
     {#if children}
       {@render children()}
     {/if}

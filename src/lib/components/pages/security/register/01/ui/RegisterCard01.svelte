@@ -44,7 +44,7 @@
   }: Props = $props();
 </script>
 
-<div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
+<div class="flex-1 flex flex-col justify-between h-screen">
   <nav class="flex justify-between p-5 md:bg-transparent">
     <div>
       <ButtonBack />
@@ -56,15 +56,21 @@
   </nav>
 
   <div
-    class="p-5 h-full border-t-2 bg-background md:border-none rounded-tl-[35px] rounded-tr-[35px]"
+    class="p-5 h-full border-t-2 md:border-none rounded-tl-[35px] rounded-tr-[35px]"
   >
-    <div class="space-y-6">
-      <div>
-        <h1 class="text-2xl font-bold">{$t("label.register")}</h1>
-        <p class="text-sm text-muted-foreground">{$t("text.register")}</p>
+    <div class="space-y-4">
+      <div class="space-y-1">
+        <h1 class="text-2xl font-bold text-white">{$t("label.register")}</h1>
+        <p class="text-sm text-white/90">{$t("text.register")}</p>
       </div>
 
-      <FormRegister {fields} {onSubmit} />
+      <FormRegister
+        {fields}
+        {onSubmit}
+        inputLabelClass="text-white"
+        inputClass="text-white/90 placeholder:text-white/50"
+        placeholderClass="text-white/50"
+      />
 
       {#if socialLogins.length > 0}
         <SocialLogin items={socialLogins} />
@@ -75,26 +81,24 @@
         <a
           href={login?.url ?? "/login"}
           onclick={login?.onclick}
-          class="font-semibold text-primary hover:underline"
+          class="font-semibold hover:underline"
         >
           {$t("text.login.sign-in")}
         </a>
       </p>
     </div>
-  </div>
 
-  <!-- Footer Terms -->
-  <div
-    class="text-[11px] text-slate-400 py-2 flex justify-center gap-2 bg-background"
-  >
-    <LinkPrivacyPolity
-      href={privacyPolicy?.url}
-      onclick={privacyPolicy?.onclick}
-    />
-    <LabelOr />
-    <LinkTermsOfService
-      href={termsOfService?.url}
-      onclick={termsOfService?.onclick}
-    />
+    <!-- Footer Terms -->
+    <div class="text-[11px] flex justify-center gap-2 relative my-3 pb-5">
+      <LinkPrivacyPolity
+        href={privacyPolicy?.url}
+        onclick={privacyPolicy?.onclick}
+      />
+      <LabelOr />
+      <LinkTermsOfService
+        href={termsOfService?.url}
+        onclick={termsOfService?.onclick}
+      />
+    </div>
   </div>
 </div>

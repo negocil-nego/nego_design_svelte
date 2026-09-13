@@ -39,7 +39,7 @@
 </script>
 
 <div
-  class="relative flex flex-col justify-between overflow-hidden h-screen p-8 bg-gradient text-white"
+  class="relative flex flex-col justify-between overflow-hidden h-screen p-8"
 >
   <div class="flex items-center gap-2">
     <div class="font-bold text-xl tracking-wider flex items-center gap-2">
@@ -101,7 +101,7 @@
   </section>
 
   <aside
-    class="hidden z-50 lg:block lg:absolute lg:right-0 lg:-bottom-3 lg:w-105 lg:h-105"
+    class="hidden z-50 lg:absolute lg:right-0 lg:-bottom-3 lg:w-105 lg:h-105"
   >
     <img
       src={Logo}
