@@ -32,6 +32,7 @@
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
     socialLogins?: SocialLoginItem[];
+    isLoading?: boolean;
   };
 
   let {
@@ -41,6 +42,7 @@
     privacyPolicy,
     termsOfService,
     socialLogins = [],
+    isLoading,
   }: Props = $props();
 </script>
 
@@ -67,6 +69,7 @@
       <FormRegister
         {fields}
         {onSubmit}
+        {isLoading}
         inputLabelClass="text-white"
         inputClass="text-white/90 placeholder:text-white/50"
         placeholderClass="text-white/50"

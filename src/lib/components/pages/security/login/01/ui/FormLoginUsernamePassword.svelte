@@ -23,6 +23,7 @@
     inputLabelClass?: string;
     inputClass?: string;
     textClass?: string;
+    isLoading?: boolean;
   };
 
   let {
@@ -32,6 +33,7 @@
     inputLabelClass,
     inputClass,
     textClass,
+    isLoading,
   }: Props = $props();
 </script>
 
@@ -40,6 +42,7 @@
   {onSubmit}
   {forgetPassword}
   {socialLogins}
+  {isLoading}
   {inputLabelClass}
   {inputClass}
   {textClass}

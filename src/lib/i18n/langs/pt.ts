@@ -75,8 +75,10 @@ export default {
     "label.promotion": "Promoções",
     "label.promotion.description": "Promoções imperdiveis",
     "label.highlight": "Destaques",
-    "label.highlight.description": "Destaques da nossa plataforma",
     "label.buy": "Compra",
+    "label.submit": "Submeter",
+    "label.submitting": "A submeter...",
+    "label.cancel": "Cancelar",
 
     "text.login.welcome": "Bem-vindo de Volta!",
     "text.login.subtitle": "Inicie sessão para aceder à sua caixa de entrada unificada",

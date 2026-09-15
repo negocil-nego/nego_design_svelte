@@ -199,7 +199,10 @@ import type {
 } from "$lib/components/ui/form/types";
 
 import type {
-    ModalFormProps
+    ModalFormProps,
+    ModalFormEmailOrPhoneProps,
+    ModalFormEmailOrPhoneSubmitData,
+    ModalFormEmailOrPhoneType
 } from "$lib/components/ui/modal/form/types";
 
 import type {
@@ -418,6 +421,10 @@ export type {
 
     /** Props do componente ModalForm — formulário dentro de um modal. @see ModalFormProps */
     ModalFormProps,
+    /** Props do componente ModalFormEmailOrPhone — formulário em modal para envio de OTP por email ou telefone. @see ModalFormEmailOrPhoneProps */
+    ModalFormEmailOrPhoneProps,
+    ModalFormEmailOrPhoneSubmitData,
+    ModalFormEmailOrPhoneType,
 
     /** Props do componente ModalUpload — modal de upload de ficheiros. @see ModalUploadProps */
     ModalUploadProps,

@@ -30,6 +30,7 @@
     socialLogins?: SocialLoginItem[];
     inputLabelClass?: string;
     inputClass?: string;
+    isLoading?: boolean;
   };
 
   let {
@@ -39,6 +40,7 @@
     socialLogins = [],
     inputLabelClass,
     inputClass,
+    isLoading = false,
   }: Props = $props();
   let data = $state("");
   let password = $state("");
@@ -82,7 +84,8 @@
 
   <button
     type="submit"
-    class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold transition-colors hover:opacity-90"
+    disabled={isLoading}
+    class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold transition-colors hover:opacity-90 disabled:pointer-events-none disabled:opacity-50"
   >
     {$t("label.login")}
   </button>

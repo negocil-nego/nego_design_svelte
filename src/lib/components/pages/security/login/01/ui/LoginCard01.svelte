@@ -37,6 +37,7 @@
     termsOfService?: LinkProps;
     socialLogins?: SocialLoginItem[];
     textClass?: string;
+    isLoading?: boolean;
   };
 
   let {
@@ -48,6 +49,7 @@
     termsOfService,
     socialLogins = [],
     textClass,
+    isLoading,
   }: Props = $props();
 </script>
 
@@ -96,6 +98,7 @@
           {onSubmit}
           {forgetPassword}
           {socialLogins}
+          {isLoading}
           inputLabelClass="text-white"
           inputClass="text-white/90 placeholder:text-white/50"
           textClass="text-white"
@@ -105,6 +108,7 @@
           {onSubmit}
           {forgetPassword}
           {socialLogins}
+          {isLoading}
           inputLabelClass="text-white"
           inputClass="text-white/90 placeholder:text-white/50"
           textClass="text-white"
@@ -114,6 +118,7 @@
           {onSubmit}
           {forgetPassword}
           {socialLogins}
+          {isLoading}
           inputLabelClass="text-white"
           inputClass="text-white/90 placeholder:text-white/50"
           textClass="text-white"

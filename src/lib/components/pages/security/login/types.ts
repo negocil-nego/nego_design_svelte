@@ -47,4 +47,5 @@ export type PageLoginProps = {
   privacyPolicy?: LinkProps;
   termsOfService?: LinkProps;
   socialLogins?: SocialLoginItem[];
+  isLoading?: boolean;
 };

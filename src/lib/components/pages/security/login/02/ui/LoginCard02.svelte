@@ -30,6 +30,7 @@
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
     socialLogins?: SocialLoginItem[];
+    isLoading?: boolean;
   };
 
   let {
@@ -40,6 +41,7 @@
     privacyPolicy,
     termsOfService,
     socialLogins = [],
+    isLoading,
   }: Props = $props();
 </script>
 
@@ -63,15 +65,26 @@
       </div>
 
       {#if formType == "EMAIL_PASSWORD"}
-        <FormLoginEmailPassword02 {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginEmailPassword02
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          {isLoading}
+        />
       {:else if formType == "USERNAME_PASSWORD"}
         <FormLoginUsernamePassword02
           {onSubmit}
           {forgetPassword}
           {socialLogins}
+          {isLoading}
         />
       {:else if formType == "PHONE_PASSWORD"}
-        <FormLoginPhonePassword02 {onSubmit} {forgetPassword} {socialLogins} />
+        <FormLoginPhonePassword02
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          {isLoading}
+        />
       {/if}
 
       <p class="text-center text-sm text-gray-600">

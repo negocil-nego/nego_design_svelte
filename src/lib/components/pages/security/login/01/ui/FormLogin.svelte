@@ -32,6 +32,7 @@
     inputLabelClass?: string;
     inputClass?: string;
     textClass?: string;
+    isLoading?: boolean;
   };
 
   let {
@@ -42,6 +43,7 @@
     inputLabelClass,
     inputClass,
     textClass,
+    isLoading = false,
   }: Props = $props();
   let data = $state("");
   let password = $state("");
@@ -83,7 +85,7 @@
   </div>
 
   <div class="flex flex-col gap-1">
-    <ButtonLogin type="submit" />
+    <ButtonLogin type="submit" {isLoading} />
     <SocialLogin items={socialLogins} />
   </div>
 </form>

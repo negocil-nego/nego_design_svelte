@@ -55,4 +55,5 @@ export type PageRegisterProps = {
   privacyPolicy?: LinkProps
   termsOfService?: LinkProps
   socialLogins?: SocialLoginItem[]
+  isLoading?: boolean
 }

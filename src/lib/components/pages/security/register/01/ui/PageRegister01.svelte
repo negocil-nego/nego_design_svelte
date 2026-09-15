@@ -25,6 +25,7 @@
     privacyPolicy,
     termsOfService,
     socialLogins = [],
+    isLoading,
   }: PageRegisterProps = $props();
 
   const defaultCarousel = $derived([
@@ -71,6 +72,7 @@
       {privacyPolicy}
       {termsOfService}
       {socialLogins}
+      {isLoading}
     />
   {/if}
 </PageAuth01>

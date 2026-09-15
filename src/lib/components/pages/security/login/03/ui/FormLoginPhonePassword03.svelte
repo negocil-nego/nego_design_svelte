@@ -18,9 +18,10 @@
     socialLogins?: SocialLoginItem[];
     inputLabelClass?: string;
     inputClass?: string;
+    isLoading?: boolean;
   };
 
-  let { onSubmit, forgetPassword, socialLogins = [], inputLabelClass, inputClass }: Props = $props();
+  let { onSubmit, forgetPassword, socialLogins = [], inputLabelClass, inputClass, isLoading }: Props = $props();
 </script>
 
-<FormLogin03 variant="PHONE" {onSubmit} {forgetPassword} {socialLogins} {inputLabelClass} {inputClass} />
+<FormLogin03 variant="PHONE" {onSubmit} {forgetPassword} {socialLogins} {inputLabelClass} {inputClass} {isLoading} />

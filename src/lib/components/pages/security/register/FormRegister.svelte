@@ -16,6 +16,7 @@
     inputLabelClass?: string;
     inputClass?: string;
     placeholderClass?: string;
+    isLoading?: boolean;
   };
 
   let {
@@ -24,6 +25,7 @@
     inputLabelClass,
     inputClass,
     placeholderClass,
+    isLoading = false,
   }: Props = $props();
 
   let name = $state("");
@@ -142,5 +144,5 @@
     </div>
   {/if}
 
-  <ButtonLogin />
+  <ButtonLogin type="submit" disabled={isLoading} />
 </form>

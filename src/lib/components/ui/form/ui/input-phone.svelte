@@ -12,6 +12,8 @@
     isLabel,
     placeholder,
     value = $bindable(""),
+    disabled = false,
+    ...restProps
   }: InputLabelProps = $props();
 </script>
 
@@ -26,6 +28,8 @@
       class={inputClass}
       placeholder={placeholder || $t("input.phone.placeholder")}
       bind:value
+      {disabled}
+      {...restProps}
     />
   </div>
 {:else}
@@ -33,5 +37,7 @@
     class={inputClass}
     placeholder={placeholder || $t("input.phone.placeholder")}
     bind:value
+    {disabled}
+    {...restProps}
   />
 {/if}

@@ -8,6 +8,7 @@
     ModalMap,
     ModalUpload,
     ModalForm,
+    ModalFormEmailOrPhone,
   } from "$lib";
   import type { ModelGridCardProps } from "$lib/components/ui/modal/core/types";
   import type { ModelBadge } from "$lib/components/ui/modal/badge/types";
@@ -23,6 +24,8 @@
   let openMap = $state(false);
   let openUpload = $state(false);
   let openForm = $state(false);
+  let openOtpBoth = $state(false);
+  let openOtpNone = $state(false);
 
   let selectedGridCard = $state<ModelGridCardProps | null>(null);
   let selectedGrid2Card = $state<ModelGridCardProps | null>(null);
@@ -208,6 +211,18 @@
     >
       Form
     </button>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50 text-primary"
+      onclick={() => (openOtpBoth = true)}
+    >
+      Email or Phone (Preset)
+    </button>
+    <button
+      class="rounded-lg border border-border bg-card px-4 py-3 text-sm font-semibold transition hover:border-primary/50 text-primary"
+      onclick={() => (openOtpNone = true)}
+    >
+      Email or Phone (Single)
+    </button>
   </div>
 </div>
 
@@ -340,4 +355,18 @@
   ]}
   onSubmit={(data) => console.log("Form:", data)}
   onCancel={() => console.log("Cancel")}
+/>
+
+<ModalFormEmailOrPhone
+  bind:isOpen={openOtpBoth}
+  email="user@example.com"
+  phone="+244 923 456 789"
+  onSubmit={(data) => console.log("OTP Both:", data)}
+  onCancel={() => console.log("OTP Both Cancel")}
+/>
+
+<ModalFormEmailOrPhone
+  bind:isOpen={openOtpNone}
+  onSubmit={(data) => console.log("OTP None:", data)}
+  onCancel={() => console.log("OTP None Cancel")}
 />

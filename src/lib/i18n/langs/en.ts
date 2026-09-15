@@ -75,8 +75,10 @@ export default {
     "label.promotion": "Promotions",
     "label.promotion.description": "Promotions imperdiveis",
     "label.highlight": "Highlights",
-    "label.highlight.description": "Highlights da nossa plataforma",
     "label.buy": "Buy",
+    "label.submit": "Submit",
+    "label.submitting": "Submitting...",
+    "label.cancel": "Cancel",
 
     "text.login.welcome": "Welcome Back!",
     "text.login.subtitle": "Sign in to access your unified inbox",

@@ -6,10 +6,14 @@
   import { Login02Icon } from "@hugeicons/core-free-icons";
   import { HugeiconsIcon } from "@hugeicons/svelte";
 
-  let { ...restProps }: ButtonProps = $props();
+  let { isLoading, ...restProps }: ButtonProps = $props();
 </script>
 
-<Button class="w-full flex items-center gap-2" {...restProps}>
+<Button
+  class="w-full flex items-center gap-2"
+  {...restProps}
+  disabled={isLoading}
+>
   <HugeiconsIcon icon={Login02Icon} size={16} />
   {$t("label.login")}
 </Button>

@@ -2,6 +2,7 @@
   import { cn } from "$lib/utils";
   import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import Form from "$lib/components/ui/form/Form.svelte";
+  import { t } from "$lib/i18n";
   import type { ModalFormProps } from "../types";
 
   let {
@@ -9,9 +10,9 @@
     subtitle,
     inputs = [],
     isOpen = $bindable(false),
-    submitText = "Submit",
-    submitLoadingText = "Submitting...",
-    cancelText = "Cancel",
+    submitText,
+    submitLoadingText,
+    cancelText,
     isLoading = false,
     showCancel = true,
     columns = 2,
@@ -20,6 +21,10 @@
     onClose,
     class: className,
   }: ModalFormProps = $props();
+
+  const finalSubmitText = $derived(submitText ?? $t("label.submit") ?? "Submit");
+  const finalSubmitLoadingText = $derived(submitLoadingText ?? $t("label.submitting") ?? "Submitting...");
+  const finalCancelText = $derived(cancelText ?? $t("label.cancel") ?? "Cancel");
 
   function handleSubmit(data: Record<string, string | string[] | boolean>) {
     onSubmit?.(data);
@@ -44,8 +49,8 @@
     <Form
       {inputs}
       {columns}
-      {submitText}
-      {submitLoadingText}
+      submitText={finalSubmitText}
+      submitLoadingText={finalSubmitLoadingText}
       {isLoading}
       onSubmit={handleSubmit}
     />
@@ -59,7 +64,7 @@
           class="rounded-lg border border-border px-5 py-2.5 text-sm font-semibold transition hover:bg-muted"
           onclick={handleCancel}
         >
-          {cancelText}
+          {finalCancelText}
         </button>
       </div>
     {/if}

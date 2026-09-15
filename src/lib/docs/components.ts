@@ -1009,6 +1009,46 @@ let isOpen = $state(false);
     ],
   },
   {
+    slug: "modal-form-email-or-phone",
+    name: "ModalFormEmailOrPhone",
+    category: "Forms",
+    description: "Modal form for sending OTP verification codes via email or phone. Supports pre-set email/phone with mutual selection and disabling, or single combined input.",
+    path: "src/lib/components/ui/modal/form/ui/ModalFormEmailOrPhone.svelte",
+    importPath: "ModalFormEmailOrPhone",
+    examples: [
+      {
+        title: "Modal Form Email or Phone",
+        href: "/modal",
+        code: `import { ModalFormEmailOrPhone } from "negodesign"
+
+let isOpen = $state(false);
+
+<ModalFormEmailOrPhone
+  bind:isOpen
+  email="user@example.com"
+  phone="+244 923 456 789"
+  onSubmit={(data) => console.log(data)}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Modal title" },
+      { name: "subtitle", type: "string", description: "Modal subtitle" },
+      { name: "email", type: "string", description: "Pre-set email address" },
+      { name: "phone", type: "string", description: "Pre-set phone number" },
+      { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
+      { name: "submitText", type: "string", description: "Submit button text" },
+      { name: "submitLoadingText", type: "string", description: "Loading state button text", default: "A enviar..." },
+      { name: "cancelText", type: "string", description: "Cancel button text", default: "Cancelar" },
+      { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
+      { name: "showCancel", type: "boolean", description: "Shows the cancel button", default: "true" },
+      { name: "onSubmit", type: "(data: ModalFormEmailOrPhoneSubmitData) => void", description: "Called when form is submitted" },
+      { name: "onCancel", type: "() => void", description: "Called when Cancel is clicked" },
+      { name: "onClose", type: "() => void", description: "Called when modal is closed" },
+      { name: "class", type: "string", description: "Extra container CSS class" },
+    ],
+  },
+  {
     slug: "modal-upload",
     name: "ModalUpload",
     category: "Modals",

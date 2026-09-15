@@ -28,6 +28,7 @@
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
     socialLogins?: SocialLoginItem[];
+    isLoading?: boolean;
   };
 
   let {
@@ -37,6 +38,7 @@
     privacyPolicy,
     termsOfService,
     socialLogins = [],
+    isLoading,
   }: Props = $props();
 </script>
 
@@ -62,7 +64,7 @@
         </p>
       </div>
 
-      <FormRegister {fields} {onSubmit} />
+      <FormRegister {fields} {onSubmit} {isLoading} />
 
       {#if socialLogins.length > 0}
         <SocialLogin items={socialLogins} />

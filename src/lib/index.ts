@@ -55,6 +55,7 @@ import ModalNotification from "$lib/components/ui/modal/notification/ui/ModalNot
 import ModalFeedback from "$lib/components/ui/modal/feedback/ui/ModalFeedback.svelte";
 import ModalMap from "$lib/components/ui/modal/map/ui/ModalMap.svelte";
 import ModalForm from "$lib/components/ui/modal/form/ui/ModalForm.svelte";
+import ModalFormEmailOrPhone from "$lib/components/ui/modal/form/ui/ModalFormEmailOrPhone.svelte";
 import ModalUpload from "$lib/components/ui/modal/upload/ui/ModalUpload.svelte";
 import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
 import Form from "$lib/components/ui/form/Form.svelte";
@@ -244,6 +245,18 @@ export {
      * @see ModalFormProps
      */
     ModalForm,
+
+    /**
+     * Modal de envio de código OTP por Email ou Telefone.
+     * Suporta email/telefone pré-definidos com selecção e desactivação mútua,
+     * ou input combinado quando nenhum é fornecido.
+     * @property {string} email - Email pré-existente
+     * @property {string} phone - Telefone pré-existente
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {(data) => void} onSubmit - Callback com o canal e valor escolhido
+     * @see ModalFormEmailOrPhoneProps
+     */
+    ModalFormEmailOrPhone,
 
     /**
      * Modal de upload de ficheiros com drag and drop, lista de ficheiros
