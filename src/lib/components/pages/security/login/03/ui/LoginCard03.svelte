@@ -19,6 +19,7 @@
     SocialLoginItem,
   } from "../../types";
   import FormLoginUsernamePassword03 from "./FormLoginUsernamePassword03.svelte";
+  import FormLoginUsernameOrEmailPassword03 from "./FormLoginUsernameOrEmailPassword03.svelte";
   import FormLoginEmailPassword03 from "./FormLoginEmailPassword03.svelte";
   import FormLoginPhonePassword03 from "./FormLoginPhonePassword03.svelte";
 
@@ -76,6 +77,13 @@
         />
       {:else if formType == "USERNAME_PASSWORD"}
         <FormLoginUsernamePassword03
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          {isLoading}
+        />
+      {:else if formType == "USERNAME_OR_EMAIL_PASSWORD"}
+        <FormLoginUsernameOrEmailPassword03
           {onSubmit}
           {forgetPassword}
           {socialLogins}

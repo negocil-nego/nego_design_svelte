@@ -4,6 +4,7 @@ import type {
 } from "$lib/components/pages/product-details/types";
 
 import type {
+    LoginFormType,
     LoginVariant,
     LoginRequestDto,
     LinkProps,
@@ -333,6 +334,8 @@ export type {
     /** Props do AdminContent — wrapper de conteúdo para páginas admin. @see AdminContentProps */
     AdminContentProps,
 
+    /** Tipo de formulário de login no PageLogin. @see LoginFormType */
+    LoginFormType,
     /** Dados necessários para autenticação de um utilizador. @see LoginRequestDto */
     LoginRequestDto,
     /** Tipo de formulário de login. @see LoginVariant */

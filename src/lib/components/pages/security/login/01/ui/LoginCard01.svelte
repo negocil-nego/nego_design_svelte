@@ -26,6 +26,7 @@
   } from "../../types";
   import FormLoginEmailPassword from "./FormLoginEmailPassword.svelte";
   import FormLoginUsernamePassword from "./FormLoginUsernamePassword.svelte";
+  import FormLoginUsernameOrEmailPassword from "./FormLoginUsernameOrEmailPassword.svelte";
   import FormLoginPhonePassword from "./FormLoginPhonePassword.svelte";
 
   type Props = {
@@ -105,6 +106,16 @@
         />
       {:else if formType == "USERNAME_PASSWORD"}
         <FormLoginUsernamePassword
+          {onSubmit}
+          {forgetPassword}
+          {socialLogins}
+          {isLoading}
+          inputLabelClass="text-white"
+          inputClass="text-white/90 placeholder:text-white/50"
+          textClass="text-white"
+        />
+      {:else if formType == "USERNAME_OR_EMAIL_PASSWORD"}
+        <FormLoginUsernameOrEmailPassword
           {onSubmit}
           {forgetPassword}
           {socialLogins}

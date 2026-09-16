@@ -1346,7 +1346,7 @@ let isOpen = $state(false);
     ],
     props: [
       { name: "title", type: "string", description: "Title shown in the hero/header" },
-      { name: "formType", type: "'EMAIL_PASSWORD' | 'PHONE_PASSWORD' | 'USERNAME_PASSWORD'", description: "Form type", default: "USERNAME_PASSWORD" },
+      { name: "formType", type: "'EMAIL_PASSWORD' | 'PHONE_PASSWORD' | 'USERNAME_PASSWORD' | 'USERNAME_OR_EMAIL_PASSWORD'", description: "Form type", default: "USERNAME_PASSWORD" },
       { name: "carousel", type: "LoginCarouselItem[]", description: "Hero slides: { title, description, buttonText, buttonUrl? }" },
       { name: "varient", type: "'NUMBER' | 'DOT' | 'POINTER'", description: "Carousel indicator style" },
       { name: "children", type: "Snippet", description: "Custom content replacing the login card" },
@@ -1720,6 +1720,31 @@ let isOpen = $state(false);
   label="Username"
   placeholder="john_doe"
   bind:value={username}
+/>`,
+      },
+    ],
+    props: [
+      { name: "value", type: "string", description: "Bound value" },
+      { name: "label", type: "string", description: "Field label" },
+      { name: "placeholder", type: "string", description: "Placeholder text" },
+    ],
+  },
+  {
+    slug: "input-username-or-email",
+    name: "InputUsernameOrEmail",
+    category: "Form Inputs",
+    description: "Username or email input field with icon and label.",
+    path: "src/lib/components/ui/form/ui/input-username-or-email.svelte",
+    importPath: "InputUsernameOrEmail",
+    examples: [
+      {
+        title: "Input Username or Email",
+        code: `import { InputUsernameOrEmail } from "negodesign"
+
+<InputUsernameOrEmail
+  label="Username or Email"
+  placeholder="john_doe or john@example.com"
+  bind:value={identifier}
 />`,
       },
     ],

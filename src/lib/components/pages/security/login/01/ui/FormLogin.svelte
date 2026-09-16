@@ -11,6 +11,7 @@
 <script lang="ts">
   import InputEmail from "$lib/components/ui/form/ui/input-email.svelte";
   import InputUsername from "$lib/components/ui/form/ui/input-username.svelte";
+  import InputUsernameOrEmail from "$lib/components/ui/form/ui/input-username-or-email.svelte";
   import InputPhone from "$lib/components/ui/form/ui/input-phone.svelte";
   import InputPassword from "$lib/components/ui/form/ui/input-password.svelte";
   import ButtonLogin from "$lib/components/ui/button/ButtonLogin.svelte";
@@ -62,6 +63,12 @@
       <InputEmail labelClass={inputLabelClass} {inputClass} bind:value={data} />
     {:else if variant === "USERNAME"}
       <InputUsername
+        labelClass={inputLabelClass}
+        {inputClass}
+        bind:value={data}
+      />
+    {:else if variant === "USERNAME_OR_EMAIL"}
+      <InputUsernameOrEmail
         labelClass={inputLabelClass}
         {inputClass}
         bind:value={data}

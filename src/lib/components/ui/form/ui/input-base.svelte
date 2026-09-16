@@ -47,7 +47,9 @@
     {/if}
 
     <Input
-      class="{isIcon && currentIcon ? 'pl-9' : ''} {isPassword ? 'pr-9' : ''} {inputClass ?? ''}"
+      class="{isIcon && currentIcon ? 'pl-9' : ''} {isPassword
+        ? 'pr-9'
+        : ''} {inputClass ?? ''}"
       bind:value
       {...restProps}
       type={inputType}

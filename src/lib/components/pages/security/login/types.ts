@@ -1,9 +1,9 @@
 import type { Snippet } from "svelte"
 import type { IconSvgElement } from "@hugeicons/svelte"
 
-export type LoginFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSWORD"
+export type LoginFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSWORD" | "USERNAME_OR_EMAIL_PASSWORD"
 export type LoginCarouselItemType = "NUMBER" | "DOT" | "POINTER"
-export type LoginVariant = "EMAIL" | "USERNAME" | "PHONE"
+export type LoginVariant = "EMAIL" | "USERNAME" | "PHONE" | "USERNAME_OR_EMAIL"
 export type SocialProvider = "GOOGLE" | "FACEBOOK" | "LINKEDIN"
 
 export interface LoginCarouselItem {

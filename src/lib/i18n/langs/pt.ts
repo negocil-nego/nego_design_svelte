@@ -7,6 +7,8 @@ export default {
     "input.phone.placeholder": "Digite o seu telefone",
     "input.email-or-phone.label": "Email ou Telefone",
     "input.email-or-phone.placeholder": "Digite o seu email ou telefone",
+    "input.username-or-email.label": "Nome de utilizador ou Email",
+    "input.username-or-email.placeholder": "Digite o seu nome de utilizador ou email",
     "input.otp.label": "Código de Verificação",
     "input.otp.placeholder": "Digite o código",
     "input.password.label": "Senha",

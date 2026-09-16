@@ -2,6 +2,7 @@ import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
 
 import InputPasswordConfirm from "./components/ui/form/ui/input-password-confirm.svelte";
 import InputEmailOrPhone from "./components/ui/form/ui/input-email-or-phone.svelte";
+import InputUsernameOrEmail from "./components/ui/form/ui/input-username-or-email.svelte";
 import InputUsername from "./components/ui/form/ui/input-username.svelte";
 import InputPassword from "./components/ui/form/ui/input-password.svelte";
 import InputCodeOtp from "./components/ui/form/ui/input-code-otp.svelte";
@@ -666,6 +667,15 @@ export {
      * @see InputLabelProps
      */
     InputUsername,
+
+    /**
+     * Campo de input híbrido que aceita nome de utilizador ou email.
+     * @property {string} value - Valor vinculado do input
+     * @property {string} label - Rótulo personalizado do campo
+     * @property {string} placeholder - Texto de exemplo do campo
+     * @see InputLabelProps
+     */
+    InputUsernameOrEmail,
 
     /**
      * Campo de input de data com calendário popover reutilizável (seletores de mês e ano).
