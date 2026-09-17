@@ -47,7 +47,7 @@
       { label: "Tradutores", url: "#", icon: ConversationIcon },
     ],
     isLanguageSwitcher: false,
-    isLightSwitch: false,
+    isThemeSwitch: false,
     buttonClass: "text-white",
     onclickButtonLogin: () => alert("login"),
     onclickButtonRegister: () => alert("register"),

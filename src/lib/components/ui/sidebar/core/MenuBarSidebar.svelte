@@ -2,33 +2,12 @@
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import type { ComponentProps } from "svelte";
 
-  import type { NavUserSidebarProps } from "./data/nav-user-sidebar";
-  import type {
-    NavMenuItem,
-    NavMenuSidebarProps,
-  } from "./data/nav-menu-sidebar";
-  import type { Snippet } from "svelte";
   import NavMenuTopBarSidebar from "./ui/navbar/NavMenuTopBarSidebar.svelte";
   import NavMenuBottomSidebar from "./ui/navbar/NavMenuBottomSidebar.svelte";
   import NavMenuBarSidebar from "./ui/navbar/NavMenuBarSidebar.svelte";
   import NavUserSidebar from "./ui/navbar/NavUserSidebar.svelte";
   import { t } from "$lib/i18n";
-
-  /**
-   * Navigation sidebar with menus, user, and buttons.
-   * @property {NavMenuSidebar[]} menusButtons - Footer buttons (e.g., logout)
-   * @property {NavMenuItem[]} menus - Main navigation items
-   * @property {NavUserSidebarItem} user - Logged-in user data
-   * @property {Snippet} footer - Snippet customizado do footer
-   * @property {Snippet} header - Snippet customizado do header
-   */
-  type Props = {
-    menusButtons?: NavMenuSidebarProps[];
-    menus: NavMenuItem[];
-    user: NavUserSidebarProps;
-    footer?: Snippet;
-    header?: Snippet;
-  };
+  import type { MenuBarSidebarProps } from "./types";
 
   let {
     ref = $bindable(null),
@@ -39,7 +18,7 @@
     footer,
     header,
     ...restProps
-  }: ComponentProps<typeof Sidebar.Root> & Props = $props();
+  }: ComponentProps<typeof Sidebar.Root> & MenuBarSidebarProps = $props();
 </script>
 
 <Sidebar.Root bind:ref {collapsible} {...restProps}>

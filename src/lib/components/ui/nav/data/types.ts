@@ -71,7 +71,7 @@ export type MenuProps = IMenuProps & {
     navMenuButton?: NavMenuButtonProps
     isBorder?: boolean
     /** Exibe o interruptor de tema (claro/escuro) */
-    isLightSwitch?: boolean
+    isThemeSwitch?: boolean
     /** Exibe o seletor de idioma */
     isLanguageSwitcher?: boolean
 }

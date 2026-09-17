@@ -1,6 +1,6 @@
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
-  import LightSwitch from "$lib/components/ui/light-switch/light-switch.svelte";
+  import ThemeSwitch from "$lib/components/ui/theme-switch/theme-switch.svelte";
   import { Separator } from "$lib/components/ui/separator/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import type { Snippet } from "svelte";
@@ -37,7 +37,7 @@
       <div class="pr-5">
         <div class="flex gap-3">
           <LanguageSwitcher />
-          <LightSwitch />
+          <ThemeSwitch />
         </div>
       </div>
     </header>

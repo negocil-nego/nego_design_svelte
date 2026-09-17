@@ -21,6 +21,57 @@ import "negodesign/styles/fonts.css"; // optional, if you ship the default fonts
 // Tailwind v4 is not required, but heavily recommended
 import "@tailwindcss/vite";`;
 
+  const adminSectionCode = `<script lang="ts">
+  import { AdminSection } from "negodesign";
+  import {
+    DashboardSquare01Icon,
+    Money01Icon,
+    Analytics01Icon,
+  } from "@hugeicons/core-free-icons";
+
+  let selectedKey = $state<string | number>("overview");</script>
+
+<AdminSection
+  title="Dashboard"
+  description="Monitor the key metrics of your business."
+  bind:selectedKey
+  onSelect={(id) => console.log("menu", id)}
+  onCardClick={(id) => console.log("card", id)}
+  menuItems={[
+    { id: "overview", title: "Overview", icon: DashboardSquare01Icon },
+    { id: "revenue", title: "Revenue", icon: Money01Icon },
+    { id: "analytics", title: "Analytics", icon: Analytics01Icon },
+  ]}
+  cards={[
+    {
+      id: 1,
+      menuId: "overview",
+      icon: Money01Icon,
+      value: "$84k",
+      title: "Gross revenue",
+      description: "Last 30 days",
+    },
+    {
+      id: 2,
+      menuId: "analytics",
+      icon: Analytics01Icon,
+      value: "12.4k",
+      title: "Total visits",
+      description: "+8% vs last week",
+    },
+  ]}
+/>`;
+
+  const adminUserSectionCode = `import { AdminUserSection } from "negodesign"
+
+<AdminUserSection
+  name="Sedrac"
+  email="slcsedrac@gmail.com"
+  avatarUrl="https://github.com/octocat.png"
+  onProfile={() => console.log("profile")}
+  onSettings={() => console.log("settings")}
+/>`;
+
   const features = [
     {
       icon: PaintBoardIcon,
@@ -159,6 +210,47 @@ import "@tailwindcss/vite";`;
           <p class="mt-1 text-sm text-muted-foreground">{feature.description}</p>
         </div>
       {/each}
+    </div>
+  </section>
+
+  <section class="mt-16">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: AdminSection</h2>
+      <a
+        href="/docs/admin-section"
+        class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
+      >
+        Docs
+        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+      </a>
+      <a
+        href="/admin/section"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      A section for admin areas with a background container, a top navigation bar
+      (brand + menu tabs), a logged-in user avatar and a responsive grid of cards.
+      Define the menu with
+      <code class="rounded bg-muted px-1 py-0.5">menuItems</code> and the cards
+      with <code class="rounded bg-muted px-1 py-0.5">cards</code>. Cards can be
+      filtered per menu via <code class="rounded bg-muted px-1 py-0.5">menuId</code>.
+      The avatar uses <a
+        href="/docs/admin-user-section"
+        class="font-medium text-primary underline underline-offset-4"
+        >AdminUserSection</a
+      >, which opens a profile dropdown on hover.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">AdminSection</h3>
+      <CodeBlock code={adminSectionCode} title="AdminSection.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">AdminUserSection</h3>
+      <CodeBlock code={adminUserSectionCode} title="AdminUserSection.svelte" />
     </div>
   </section>
 

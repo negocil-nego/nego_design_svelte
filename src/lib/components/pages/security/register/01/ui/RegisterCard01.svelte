@@ -14,7 +14,7 @@
   import LinkPrivacyPolity from "$lib/components/ui/link/link-privacy-polity.svelte";
   import ButtonBack from "$lib/components/ui/button/ButtonBack.svelte";
   import LabelOr from "$lib/components/ui/label/core/LabelOr.svelte";
-  import { LightSwitch } from "$lib/components/ui/light-switch";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import { t } from "$lib/i18n";
   import type {
     RegisterFormFields,
@@ -52,7 +52,7 @@
       <ButtonBack />
     </div>
     <div class="flex gap-2">
-      <LightSwitch />
+      <ThemeSwitch />
       <LanguageSwitcher />
     </div>
   </nav>

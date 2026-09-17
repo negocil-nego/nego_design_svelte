@@ -12,7 +12,7 @@
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import ButtonBack from "$lib/components/ui/button/ButtonBack.svelte";
   import type { Snippet } from "svelte";
-  import { LightSwitch } from "$lib/components/ui/light-switch";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import { t } from "$lib/i18n";
   import type { OtpVerificationRequestDto } from "../../types";
   import FormOtpVerification from "./FormOtpVerification.svelte";
@@ -33,7 +33,7 @@
       <ButtonBack />
     </div>
     <div class="flex gap-2">
-      <LightSwitch />
+      <ThemeSwitch />
       <LanguageSwitcher />
     </div>
   </nav>

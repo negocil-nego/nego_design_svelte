@@ -1,23 +1,13 @@
-Iremos criar o componente Form, ModalForm
+Iremos criar o componente que esta na imagem "image/image-1.png"
 
-Que deve ser utilizado deste método
+Onde terás que definer propriedade para construção de "menu"
+Propriedade para construção dos cards.
 
-<Form
- onSubmit={(data) => {}}
- inputs={[
-    {  type: 'email', name: 'email', value: '', onChange: (v)=>{}, disabled: false, required }, //*** email, text, password, date, phone
-    {  type: 'select', value: '', onChange: (v)=>{}, disabled: false, required, multiple: false, options: [
-        { value: 'HOME', label:'Home' },
-        { value: 'PRIVADO', label:'Privado' },
-        { value: 'COMERCIAL', label:'Comercial' }
-    ] } //*** select, radio, checkbox 
- ]}
-/>
+Este componente podes criar ele em src/lib/components/pages/admin/shared/section
 
-De onde o [inputs] receberas os parametros para contrução de inputs, onde deves utilizar os componentes internos
-em "src\lib\components\ui\form\ui".
-
-A diferença do Form para o ModalForm é apenas que o ModalForm como nome diz é um modal que estará em 
-"src\lib\components\ui\modal\form\ui\*"
-
-Cria os componentes de select, radio, checkbox como "src\lib\components\ui\form\ui" que serão utilizados em "Form, ModalForm"
+E deves fazer a documentação deste novo componente
+na página "src/routes/docs/+page.svelte"
+e actualizar o "src/lib/docs/DocsSidebar.svelte"
+não esquecer de criar um exemplo de como cria uma página de demo que demostra o exemplo
+de utilização do componente "src/routes/(group)" 
+pode ficar em "src/routes/(group)/admin/section"

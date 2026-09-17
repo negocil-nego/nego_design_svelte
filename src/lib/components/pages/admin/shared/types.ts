@@ -1,3 +1,4 @@
+import type { MenuBarSidebarProps } from "$lib/types";
 import type { Snippet } from "svelte";
 
 /**

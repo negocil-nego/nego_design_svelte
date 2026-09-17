@@ -10,7 +10,7 @@
 
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
-  import { LightSwitch } from "$lib/components/ui/light-switch";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import { t } from "$lib/i18n";
   import type {
     RegisterFormFields,
@@ -45,7 +45,7 @@
 <div class="flex-1 flex flex-col justify-between h-full">
   <nav class="flex justify-end p-5">
     <div class="flex gap-2">
-      <LightSwitch />
+      <ThemeSwitch />
       <LanguageSwitcher />
     </div>
   </nav>

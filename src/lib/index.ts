@@ -12,8 +12,6 @@ import InputCalendar from "./components/ui/form/ui/input-calendar.svelte";
 import InputCalendarInterval from "./components/ui/form/ui/input-calendar-interval.svelte";
 import DataTableCore from "./components/ui/datatable/ui/DataTableCore.svelte";
 import MenuBarSidebar from "./components/ui/sidebar/core/MenuBarSidebar.svelte";
-import AdminContent from "./components/pages/admin/01/ui/AdminContent.svelte";
-import AdminPanel from "./components/pages/admin/01/ui/AdminPanel.svelte";
 import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
 import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
 import CtaCardImageBanner from "$lib/components/ui/banner/CtaCardImageBanner.svelte";
@@ -61,6 +59,12 @@ import ModalUpload from "$lib/components/ui/modal/upload/ui/ModalUpload.svelte";
 import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
 import Form from "$lib/components/ui/form/Form.svelte";
 
+import AdminSidebar from "$lib/components/pages/admin/sidebar/AdminSidebar.svelte";
+import AdminContent from "$lib/components/pages/admin/shared/AdminContent.svelte";
+import AdminPanel from "$lib/components/pages/admin/shared/AdminPanel.svelte";
+import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
+import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
+
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
 /** Lista de idiomas disponíveis. Atualizado automaticamente. */
@@ -76,6 +80,29 @@ export { getLocales } from "./i18n/config";
 
 export {
     /**
+     * Secção administrativa com fundo, menu de navegação (tabs) e grade de cards.
+     * Supõe um bloco de menu em cima e cards abaixo dentro de um container com background.
+     * @property {AdminSectionMenuItem[]} menuItems - Itens do menu (título, ícone, caption, ativo)
+     * @property {AdminSectionCard[]} cards - Cards a exibir (título, valor, descrição, ícone)
+     * @property {string | number} selectedKey - Id do menu ativo (bindable)
+     * @property {(id) => void} onSelect - Callback ao clicar num item do menu
+     * @property {(id) => void} onCardClick - Callback ao clicar num card
+     * @see AdminSectionProps
+     */
+    AdminSection,
+
+    /**
+     * Avatar do utilizador logado com dropdown de perfil que abre no hover.
+     * Quase idêntico ao bloco NavUserSidebar, mas em avatar único para usar
+     * na barra da AdminSection.
+     * @property {NavUserSidebarProps} user - Dados do utilizador (nome, email, avatar, ações, logout)
+     * @property {() => void} onProfile - Callback ao clicar em "Perfil"
+     * @property {() => void} onSettings - Callback ao clicar em "Definições"
+     * @see AdminUserSectionProps
+     */
+    AdminUserSection,
+
+    /**
      * Barra de navegação responsiva que alterna entre as variantes Simples
      * (links) e Complexa (menus) consoante o dispositivo (mobile ou desktop).
      * Inclui logo, botões de ação, light switch e language switcher.
@@ -83,7 +110,7 @@ export {
      * @property {MenuVarientProps} navMenu - Variante de navegação (Simples ou Complexa)
      * @property {NavMenuButtonProps} navMenuButton - Botão de ação (login/registo)
      * @property {boolean} isBorder - Exibe borda inferior no menu
-     * @property {boolean} isLightSwitch - Exibe o interruptor de tema (claro/escuro)
+     * @property {boolean} isThemeSwitch - Exibe o interruptor de tema (claro/escuro)
      * @property {boolean} isLanguageSwitcher - Exibe o seletor de idioma
      * @see MenuProps
      */
@@ -606,6 +633,8 @@ export {
      * @see AdminContentProps
      */
     AdminContent,
+
+    AdminSidebar,
 
     /**
      * Campo de input para email com validação, ícone e label integrados.

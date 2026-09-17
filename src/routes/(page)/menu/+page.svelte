@@ -4,7 +4,7 @@
 
 <div class="mx-auto">
   <Menu
-    isLightSwitch
+    isThemeSwitch
     isLanguageSwitcher
     logo={{ label: "Negoturismo" }}
     navMenuButton={{

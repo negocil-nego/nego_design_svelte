@@ -113,7 +113,17 @@ import type {
 import type {
     AdminPanelProps,
     AdminContentProps
-} from "$lib/components/pages/admin/01/ui/types";
+} from "$lib/components/pages/admin/shared/types";
+
+import type {
+    AdminSectionProps,
+    AdminSectionMenuItem,
+    AdminSectionCard
+} from "$lib/components/pages/admin/shared/section/types";
+
+import type {
+    AdminUserSectionProps
+} from "$lib/components/pages/admin/shared/section/types";
 
 import type {
     ProfileUserProps,
@@ -211,8 +221,11 @@ import type {
     UploadFile,
     UploadFileStatus
 } from "$lib/components/ui/modal/upload/types";
+import type { AdminSidebarProps } from "$lib/components/pages/admin/sidebar/types";
 
 export type {
+    AdminSidebarProps,
+
     GridProps,
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */
     NavMenuLinksProps,
@@ -333,6 +346,16 @@ export type {
     AdminPanelProps,
     /** Props do AdminContent — wrapper de conteúdo para páginas admin. @see AdminContentProps */
     AdminContentProps,
+
+    /** Props do AdminSection — secção admin com fundo, menu (tabs) e grade de cards. @see AdminSectionProps */
+    AdminSectionProps,
+    /** Item do menu de navegação da AdminSection. @see AdminSectionMenuItem */
+    AdminSectionMenuItem,
+    /** Card exibido na grade da AdminSection. @see AdminSectionCard */
+    AdminSectionCard,
+
+    /** Props do AdminUserSection — avatar do utilizador com dropdown de perfil no hover. @see AdminUserSectionProps */
+    AdminUserSectionProps,
 
     /** Tipo de formulário de login no PageLogin. @see LoginFormType */
     LoginFormType,

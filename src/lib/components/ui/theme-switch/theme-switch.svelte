@@ -1,7 +1,7 @@
 <script lang="ts" module>
   import type { ButtonSize } from "$lib/components/ui/button/button.svelte";
 
-  export type LightSwitchProps = {
+  export type ThemeSwitchProps = {
     variant?: "outline" | "ghost";
     size?: ButtonSize;
   };
@@ -13,7 +13,7 @@
   import { toggleMode } from "$lib/theme.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
 
-  let { variant = "outline", size = "default" }: LightSwitchProps = $props();
+  let { variant = "outline", size = "default" }: ThemeSwitchProps = $props();
 
   const sizeMap = {
     default: "icon",

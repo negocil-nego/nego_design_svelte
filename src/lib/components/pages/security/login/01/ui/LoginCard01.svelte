@@ -16,7 +16,7 @@
   import ButtonBack from "$lib/components/ui/button/ButtonBack.svelte";
   import LabelOr from "$lib/components/ui/label/core/LabelOr.svelte";
   import type { Snippet } from "svelte";
-  import { LightSwitch } from "$lib/components/ui/light-switch";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import { t } from "$lib/i18n";
   import type {
     LoginFormType,
@@ -60,7 +60,7 @@
       <ButtonBack />
     </div>
     <div class="flex gap-2">
-      <LightSwitch />
+      <ThemeSwitch />
       <LanguageSwitcher />
     </div>
   </nav>

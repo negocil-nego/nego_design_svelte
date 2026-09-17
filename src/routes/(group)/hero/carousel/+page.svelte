@@ -7,7 +7,7 @@
     titleClass="md:text-2xl lg:text-4px md:my-2 mt-2"
     descriptionClass="text-xs md:text-lg md:w-4/5 mt-4 mb-2 text-white"
     menusProps={{
-        isLightSwitch: true,
+        isThemeSwitch: true,
         isLanguageSwitcher: true,
         logo: { label: "Negoturismo" },
         navMenuButton: {

@@ -1,6 +1,6 @@
 <script lang="ts">
   import { LanguageSwitcher } from "$lib/components/ui/language-switcher";
-  import { LightSwitch } from "$lib/components/ui/light-switch";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import type { ComplexMenuProps, SimpleMenuProps } from "$lib/types";
   import ComplexMenu from "./ComplexMenu.svelte";
@@ -16,17 +16,21 @@
     navMenu,
     isBorder,
     navMenuButton,
-    isLightSwitch,
+    isThemeSwitch,
     isLanguageSwitcher,
   }: MenuProps & {
     navMenu: MenuVarientProps;
   } = $props();
 
-  function isLinks(item: MenuVarientProps | undefined): item is SimpleMenuProps {
+  function isLinks(
+    item: MenuVarientProps | undefined,
+  ): item is SimpleMenuProps {
     return item !== undefined && "links" in item;
   }
 
-  function isMenu(item: MenuVarientProps | undefined): item is ComplexMenuProps {
+  function isMenu(
+    item: MenuVarientProps | undefined,
+  ): item is ComplexMenuProps {
     return item !== undefined && "menus" in item;
   }
 
@@ -35,8 +39,8 @@
 
 {#snippet actionButtons()}
   <div class="flex items-center gap-2">
-    {#if isLightSwitch}
-      <LightSwitch />
+    {#if isThemeSwitch}
+      <ThemeSwitch />
     {/if}
     {#if isLanguageSwitcher}
       <LanguageSwitcher />

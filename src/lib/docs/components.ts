@@ -47,7 +47,7 @@ const navButtonExample = `import { Menu } from "negodesign"
 
 <Menu
   isBorder
-  isLightSwitch
+  isThemeSwitch
   isLanguageSwitcher
   logo={{ label: "Negoturismo" }}
   navMenuButton={{
@@ -80,7 +80,7 @@ export const components: DocComponent[] = [
       { name: "navMenu", type: "MenuVarientProps", description: "Required. Navigation content (SimpleMenuProps or ComplexMenuProps)", required: true },
       { name: "isBorder", type: "boolean", description: "Adds a bottom border to the bar", default: "false" },
       { name: "navMenuButton", type: "NavMenuButtonProps", description: "Action buttons: textButtonLogin, textButtonRegister, onclickButtonLogin, onclickButtonRegister, buttonClass" },
-      { name: "isLightSwitch", type: "boolean", description: "Shows the light/dark theme toggle", default: "false" },
+      { name: "isThemeSwitch", type: "boolean", description: "Shows the light/dark theme toggle", default: "false" },
       { name: "isLanguageSwitcher", type: "boolean", description: "Shows the language selector", default: "false" },
     ],
   },
@@ -165,7 +165,7 @@ export const components: DocComponent[] = [
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     links: [{ label: "Accommodation", url: "#", icon: Hotel01Icon }],
     isLanguageSwitcher: false,
-    isLightSwitch: false,
+    isThemeSwitch: false,
   }}
   items={[
     {
@@ -1319,6 +1319,91 @@ let isOpen = $state(false);
       { name: "footer", type: "Snippet", description: "Custom footer snippet" },
       { name: "header", type: "Snippet", description: "Custom header snippet" },
       { name: "collapsible", type: "string", description: "Collapse mode", default: "icon" },
+    ],
+  },
+  {
+    slug: "admin-section",
+    name: "AdminSection",
+    category: "Admin Panel",
+    description: "Admin section with a background container, a top navigation bar (brand, menu tabs), a logged-in user avatar, and a responsive grid of cards that can be filtered per menu item.",
+    path: "src/lib/components/pages/admin/shared/section/AdminSection.svelte",
+    importPath: "AdminSection",
+    examples: [
+      {
+        title: "Admin Section",
+        code: `import { AdminSection } from "negodesign"
+import { DashboardSquare01Icon, Money01Icon, Analytics01Icon } from "@hugeicons/core-free-icons"
+
+let selectedKey = $state<string | number>("overview");
+
+<AdminSection
+  title="Dashboard"
+  user={{ user: { name: "Sedrac", email: "slcsedrac@gmail.com" } }}
+  bind:selectedKey
+  onSelect={(id) => console.log("menu", id)}
+  onCardClick={(id) => console.log("card", id)}
+  menuItems={[
+    { id: "overview", title: "Overview", icon: DashboardSquare01Icon },
+    { id: "revenue", title: "Revenue", icon: Money01Icon },
+    { id: "analytics", title: "Analytics", icon: Analytics01Icon },
+  ]}
+  cards={[
+    { id: 1, menuId: "overview", icon: Money01Icon, value: "12.4k", title: "Total visits", description: "+8% vs last week" },
+    { id: 2, menuId: "revenue", icon: Analytics01Icon, value: "$84k", title: "Gross revenue", description: "Last 30 days" },
+  ]}
+/>`,
+        href: "/admin/section",
+      },
+    ],
+    props: [
+      { name: "user", type: "NavUserSidebarProps", description: "Required. Logged-in user: { user: { name, email, avatar? }, actions?, onLogout? }", required: true },
+      { name: "menuItems", type: "AdminSectionMenuItem[]", description: "Menu tabs: { id, title, caption?, icon?, isActive? }. Clicking calls onSelect with the id." },
+      { name: "cards", type: "AdminSectionCard[]", description: "Cards shown below the menu: { id, title, value?, description?, icon?, menuId? }. Cards without menuId are always visible." },
+      { name: "title", type: "string", description: "Section title (also used as aria-label for the menu)" },
+      { name: "description", type: "string", description: "Supporting text below the title" },
+      { name: "selectedKey", type: "string | number", description: "Active menu id (bindable). Falls back to isActive, then the first item" },
+      { name: "className", type: "string", description: "Extra container CSS class (background div)" },
+      { name: "menuClass", type: "string", description: "Extra CSS class for the menu bar" },
+      { name: "cardClass", type: "string", description: "Extra CSS class for each card" },
+      { name: "gridClass", type: "string", description: "Extra CSS class for the cards grid" },
+      { name: "onSelect", type: "(id: string | number) => void", description: "Called when a menu item is clicked" },
+      { name: "onCardClick", type: "(id: string | number) => void", description: "Called when a card is clicked" },
+    ],
+  },
+  {
+    slug: "admin-user-section",
+    name: "AdminUserSection",
+    category: "Admin Panel",
+    description: "Avatar of the logged-in user with a profile dropdown opened on hover, almost identical to the NavUserSidebar block.",
+    path: "src/lib/components/pages/admin/shared/section/AdminUserSection.svelte",
+    importPath: "AdminUserSection",
+    examples: [
+      {
+        title: "Admin User Section",
+        code: `import { AdminUserSection } from "negodesign"
+
+<AdminUserSection
+  user={{
+    user: {
+      name: "Sedrac",
+      email: "slcsedrac@gmail.com",
+      avatar: "https://github.com/octocat.png",
+    },
+    onLogout: () => console.log("logout"),
+  }}
+  onProfile={() => console.log("profile")}
+  onSettings={() => console.log("settings")}
+/>`,
+        href: "/admin/section",
+      },
+    ],
+    props: [
+      { name: "user", type: "NavUserSidebarProps", description: "Required. Logged-in user: { user: { name, email, avatar? }, actions?, onLogout? }", required: true },
+      { name: "onProfile", type: "() => void", description: "Called when the Profile option is clicked" },
+      { name: "onSettings", type: "() => void", description: "Called when the Settings option is clicked" },
+      { name: "className", type: "string", description: "Extra CSS class for the dropdown container" },
+      { name: "triggerClass", type: "string", description: "Extra CSS class for the avatar trigger" },
+      { name: "avatarClass", type: "string", description: "Extra CSS class for the avatar" },
     ],
   },
   {

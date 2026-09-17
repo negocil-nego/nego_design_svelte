@@ -5,19 +5,19 @@
   import { cn } from "$lib/utils.js";
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { Menu } from "@hugeicons/core-free-icons";
-  import LightSwitch from "$lib/components/ui/light-switch/light-switch.svelte";
+  import ThemeSwitch from "$lib/components/ui/theme-switch/theme-switch.svelte";
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { t } from "$lib/i18n";
   import type { Snippet } from "svelte";
 
   type Props = {
     navMenuButton?: NavMenuButtonProps;
-    isLightSwitch?: boolean;
+    isThemeSwitch?: boolean;
     isLanguageSwitcher?: boolean;
     children: Snippet;
   };
 
-  const { navMenuButton, isLightSwitch, isLanguageSwitcher, children }: Props =
+  const { navMenuButton, isThemeSwitch, isLanguageSwitcher, children }: Props =
     $props();
 </script>
 
@@ -42,7 +42,7 @@
       </div>
       <Drawer.Footer>
         <div class="flex justify-center gap-5 py-5">
-          <LightSwitch />
+          <ThemeSwitch />
           <LanguageSwitcher />
         </div>
         <Drawer.Close class={buttonVariants({ variant: "outline" })}>

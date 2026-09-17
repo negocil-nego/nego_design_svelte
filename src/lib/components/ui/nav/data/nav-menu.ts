@@ -95,7 +95,7 @@ export interface SimpleMenuProps extends IMenuProps {
     /** Lista de links de navegação */
     links: NavMenuLinksProps[]
     /** Exibe o interruptor de tema (claro/escuro) */
-    isLightSwitch?: boolean
+    isThemeSwitch?: boolean
     /** Exibe o seletor de idioma */
     isLanguageSwitcher?: boolean
     /** Callback ao clicar no botão Login */
