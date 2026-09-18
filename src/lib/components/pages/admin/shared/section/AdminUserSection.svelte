@@ -58,10 +58,10 @@
             class="rounded-full outline-none transition hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring {triggerClass}"
         >
             <Avatar.Root
-                class="size-9 rounded-full ring-2 ring-background {avatarClass}"
+                class="rounded-full w-9 h-9 ring-2 ring-background {avatarClass}"
             >
                 {#if avatarUrl}
-                    <Avatar.Image src={avatarUrl} alt={name} />
+                    <Avatar.Image src={avatarUrl} alt={name} class="" />
                 {/if}
                 <Avatar.Fallback
                     class="rounded-full bg-primary font-medium text-primary-foreground"

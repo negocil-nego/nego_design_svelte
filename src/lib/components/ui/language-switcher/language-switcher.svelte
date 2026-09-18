@@ -2,10 +2,6 @@
   export type LanguageSwitcherProps = {
     /** Dropdown alignment */
     align?: "start" | "center" | "end";
-
-    /** Button variant */
-    variant?: "outline" | "ghost";
-
     class?: string;
   };
 </script>
@@ -14,27 +10,21 @@
   import { HugeiconsIcon } from "@hugeicons/svelte";
   import { GlobalIcon } from "@hugeicons/core-free-icons";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
-  import { buttonVariants } from "$lib/components/ui/button";
   import { t, locale, locales } from "$lib/i18n";
   import { cn } from "$lib/utils.js";
 
-  let {
-    align = "end",
-    variant = "outline",
-    class: className,
-  }: LanguageSwitcherProps = $props();
+  let { align = "end", class: className }: LanguageSwitcherProps = $props();
 </script>
 
 <DropdownMenu.Root>
   <DropdownMenu.Trigger
     class={cn(
-      buttonVariants({ variant, size: "icon" }),
+      "rounded-full bg-input h-10 w-10 flex items-center justify-center",
       className,
-      "rounded-full bg-input",
     )}
     aria-label="Change language"
   >
-    <HugeiconsIcon icon={GlobalIcon} class="size-4" />
+    <HugeiconsIcon icon={GlobalIcon} />
     <span class="sr-only">Change language</span>
   </DropdownMenu.Trigger>
   <DropdownMenu.Content {align}>

@@ -1,4 +1,6 @@
+import type { ImageLogoProps } from "$lib/components/ui/image/types";
 import type { IconSvgElement } from "@hugeicons/svelte";
+import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
 
 /**
  * Item do menu de navegação da AdminSection.
@@ -34,6 +36,7 @@ export interface AdminSectionCard {
     value?: string | number;
     /** Menu ao qual este card pertence (id do `AdminSectionMenuItem`) */
     menuId?: string | number;
+    iconClass?: string;
 }
 
 /**
@@ -67,11 +70,11 @@ export interface AdminUserSectionProps {
  */
 export interface AdminSectionProps {
     /** Título da secção */
-    title?: string;
+    logo?: ImageLogoProps;
     /** Dados do usuário logado */
     user: AdminUserSectionProps;
     /** Itens do menu de navegação (tabs) */
-    menuItems?: AdminSectionMenuItem[];
+    menuItems?: NavMenuLinksProps[];
     /** Cards exibidos na grade abaixo do menu */
     cards?: AdminSectionCard[];
     /** Id do item de menu ativo (controlado pelo utilizador; bindable) */
@@ -88,4 +91,15 @@ export interface AdminSectionProps {
     onSelect?: (id: string | number) => void;
     /** Callback chamado quando um card é clicado, recebendo o `id` */
     onCardClick?: (id: string | number) => void;
+}
+
+/**
+ * Props do componente AdminUserSectionMobile — avatar do utilizador em
+ * menu móvel (drawer) com links de navegação.
+ */
+export interface AdminUserSectionMobileProps {
+    /** Dados do usuário logado */
+    user: AdminUserSectionProps;
+    /** Links de navegação exibidos no menu móvel */
+    menuItems?: NavMenuLinksProps[];
 }

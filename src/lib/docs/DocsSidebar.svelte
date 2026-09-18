@@ -75,6 +75,22 @@
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs#admin-tabs"}>
+              {#snippet child({ props })}
+                <a href="/docs#admin-tabs" {...props}><span>AdminTabs</span></a>
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs/admin-security-tab"}>
+              {#snippet child({ props })}
+                <a href="/docs/admin-security-tab" {...props}
+                  ><span>AdminSecurityTab</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

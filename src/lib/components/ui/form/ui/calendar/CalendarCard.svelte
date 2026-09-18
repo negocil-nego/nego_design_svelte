@@ -41,7 +41,7 @@
 
   const triggerClass = $derived(
     cn(
-      "h-9 w-full min-w-0 rounded-md border bg-transparent py-1 text-base shadow-xs",
+      "h-9 w-full min-w-0 rounded-md border py-1 text-base shadow-xs bg-white",
       "transition-colors outline-none md:text-sm cursor-pointer",
       "border-input dark:bg-input/30 text-foreground",
       "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-3",
@@ -59,7 +59,7 @@
     <span
       class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
     >
-      <HugeiconsIcon icon={icon} size={16} strokeWidth={1.5} />
+      <HugeiconsIcon {icon} size={16} strokeWidth={1.5} />
     </span>
   {/if}
 
@@ -77,14 +77,7 @@
     {#if content}
       {@render content()}
     {:else}
-      <Calendar
-        {value}
-        {rangeStart}
-        {rangeEnd}
-        {min}
-        {max}
-        {onselect}
-      />
+      <Calendar {value} {rangeStart} {rangeEnd} {min} {max} {onselect} />
     {/if}
   </PopoverContent>
 </Popover>

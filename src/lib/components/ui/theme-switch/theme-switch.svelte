@@ -2,48 +2,33 @@
   import type { ButtonSize } from "$lib/components/ui/button/button.svelte";
 
   export type ThemeSwitchProps = {
-    variant?: "outline" | "ghost";
-    size?: ButtonSize;
+    class?: string;
   };
 </script>
 
 <script lang="ts">
   import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { Sun01Icon, Moon01Icon } from "@hugeicons/core-free-icons";
+  import { Sun01Icon, Moon02Icon } from "@hugeicons/core-free-icons";
   import { toggleMode } from "$lib/theme.svelte";
-  import Button from "$lib/components/ui/button/button.svelte";
 
-  let { variant = "outline", size = "default" }: ThemeSwitchProps = $props();
-
-  const sizeMap = {
-    default: "icon",
-    xs: "icon-xs",
-    sm: "icon-sm",
-    lg: "icon-lg",
-    icon: "icon",
-    "icon-xs": "icon-xs",
-    "icon-sm": "icon-sm",
-    "icon-lg": "icon-lg",
-  };
+  let { class: className }: ThemeSwitchProps = $props();
 
   function handleClick() {
     toggleMode();
   }
 </script>
 
-<Button
+<button
   onclick={handleClick}
-  {variant}
-  size={sizeMap[size] as ButtonSize}
-  class="relative rounded-full bg-input"
+  class="rounded-full bg-input h-10 w-10 flex items-center justify-center {className}"
 >
   <HugeiconsIcon
     icon={Sun01Icon}
     class="scale-100 rotate-0 transition-all! dark:scale-0 dark:-rotate-90"
   />
   <HugeiconsIcon
-    icon={Moon01Icon}
+    icon={Moon02Icon}
     class="absolute scale-0 rotate-90 transition-all! dark:scale-100 dark:rotate-0"
   />
   <span class="sr-only">Toggle theme</span>
-</Button>
+</button>

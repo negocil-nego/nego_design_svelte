@@ -1,5 +1,4 @@
 import type { CompanyProfileData } from "./types";
-import ImgPlaceholder from "$lib/assets/placeholder-image.png";
 import VideoPlaceholder from "$lib/assets/lonely-404.mp4";
 
 export const defaultCompanyProfileData: CompanyProfileData = {

@@ -924,7 +924,7 @@ let isOpen = $state(false);
     slug: "form",
     name: "Form",
     category: "Forms",
-    description: "Responsive form component with a 2-column grid layout. Supports text, email, password, date, phone, select, radio, checkbox, textarea, toggle, and badges inputs. Each field can span 1 or 2 columns via the `fill` property.",
+    description: "Responsive form component with a 2-column grid layout. Supports text, email, password, date (opens the input-calendar picker), date-interval (double calendar with startName/endName), phone, select, radio, checkbox, textarea, toggle, badges, location, OTP code and submit-button inputs. Each field can span 1 or 2 columns via the `fill` property. The submit button can be aligned left (`start`) or right (`end`).",
     path: "src/lib/components/ui/form/Form.svelte",
     importPath: "Form",
     examples: [
@@ -958,6 +958,7 @@ let isOpen = $state(false);
       { name: "isLoading", type: "boolean", description: "Loading state", default: "false" },
       { name: "columns", type: "1 | 2", description: "Number of grid columns", default: "2" },
       { name: "gap", type: "string", description: "Gap between fields", default: "gap-4" },
+      { name: "submitAlign", type: "'start' | 'end'", description: "Alignment of the submit button (start = left, end = right)", default: "end" },
       { name: "class", type: "string", description: "Extra container CSS class" },
     ],
   },
@@ -1404,6 +1405,46 @@ let selectedKey = $state<string | number>("overview");
       { name: "className", type: "string", description: "Extra CSS class for the dropdown container" },
       { name: "triggerClass", type: "string", description: "Extra CSS class for the avatar trigger" },
       { name: "avatarClass", type: "string", description: "Extra CSS class for the avatar" },
+    ],
+  },
+  {
+    slug: "admin-security-tab",
+    name: "AdminSecurityTab",
+    category: "Admin Panel",
+    description: "Security tab with 4 AdminIt sections, each wrapping its own Form: change password, change email and change phone (both with OTP verification), and a danger section split in two AdminIt blocks — deactivate account (default button) and delete account (destructive button, uses the new 'submit' input). All submit buttons are left-aligned via submitAlign.",
+    path: "src/lib/components/pages/admin/shared/tabs/AdminSecurityTab.svelte",
+    importPath: "AdminSecurityTab",
+    examples: [
+      {
+        title: "Admin Security Tab",
+        href: "/admin/tabs",
+        code: `import { AdminSecurityTab } from "negodesign"
+
+let isLoadingPassword = $state(false);
+
+<AdminSecurityTab
+  isLoadingPassword={isLoadingPassword}
+  onSubmitPassword={(d) => console.log("password", d)}
+  onSubmitEmail={(d) => console.log("email", d)}
+  onSubmitPhone={(d) => console.log("phone", d)}
+  onSubmitDanger={(d) => console.log("danger", d)}
+/>`,
+      },
+    ],
+    props: [
+      { name: "slotclass", type: "string", description: "CSS class of the content column in each AdminIt", default: "w-full md:w-3/5" },
+      { name: "isLoadingPassword", type: "boolean", description: "Loading state of the change-password form", default: "false" },
+      { name: "isLoadingEmail", type: "boolean", description: "Loading state of the change-email form", default: "false" },
+      { name: "isLoadingPhone", type: "boolean", description: "Loading state of the change-phone form", default: "false" },
+      { name: "isLoadingDanger", type: "boolean", description: "Loading state of the danger-section form", default: "false" },
+      { name: "onSubmitPassword", type: "(data) => void", description: "Called when the change-password form is submitted" },
+      { name: "onSubmitEmail", type: "(data) => void", description: "Called when the change-email form is submitted" },
+      { name: "onSubmitPhone", type: "(data) => void", description: "Called when the change-phone form is submitted" },
+      { name: "onSubmitDanger", type: "(data) => void", description: "Called when the danger-section form is submitted" },
+      { name: "valuesPassword", type: "Record<string, string | string[] | boolean>", description: "Default values for the change-password form" },
+      { name: "valuesEmail", type: "Record<string, string | string[] | boolean>", description: "Default values for the change-email form" },
+      { name: "valuesPhone", type: "Record<string, string | string[] | boolean>", description: "Default values for the change-phone form" },
+      { name: "valuesDanger", type: "Record<string, string | string[] | boolean>", description: "Default values for the danger-section form" },
     ],
   },
   {

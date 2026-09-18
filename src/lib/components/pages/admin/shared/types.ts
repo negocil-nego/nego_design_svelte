@@ -22,3 +22,11 @@ export interface AdminContentProps {
     /** Snippet com o conteúdo interno da página */
     children?: Snippet;
 }
+
+export interface AdminItProps {
+    title?: string
+    slotclass?: string
+    className?: string
+    description?: string
+    children: Snippet;
+}

@@ -2,6 +2,7 @@ import type { HTMLInputTypeAttribute } from "svelte/elements";
 
 export interface InputLabelProps {
     type?: HTMLInputTypeAttribute;
+    onClick?: () => void;
     isLabel?: boolean;
     isIcon?: boolean;
     label?: string;

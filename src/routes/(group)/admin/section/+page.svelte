@@ -1,15 +1,14 @@
 <script lang="ts">
     import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
-    import type {
-        AdminSectionMenuItem,
-        AdminSectionCard,
-    } from "$lib/components/pages/admin/shared/section/types";
+    import AdminUserSectionMobile from "$lib/components/pages/admin/shared/section/AdminUserSectionMobile.svelte";
+    import type { AdminSectionCard } from "$lib/components/pages/admin/shared/section/types";
+    import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
+    import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
     import {
         Analytics01Icon,
         DashboardSquare01Icon,
         Money01Icon,
         Payment01Icon,
-        PieChartIcon,
         ShoppingBasket01Icon,
         UserMultipleIcon,
         Wallet01Icon,
@@ -25,10 +24,25 @@
         onSettings: () => console.log("settings"),
     };
 
-    const menuItems: AdminSectionMenuItem[] = [
-        { id: "overview", title: "Overview", icon: DashboardSquare01Icon },
-        { id: "revenue", title: "Revenue", icon: Money01Icon },
-        { id: "analytics", title: "Analytics", icon: Analytics01Icon },
+    const menuItems: NavMenuLinksProps[] = [
+        {
+            key: "overview",
+            label: "Overview",
+            url: "#overview",
+            icon: DashboardSquare01Icon,
+        },
+        {
+            key: "revenue",
+            label: "Revenue",
+            url: "#revenue",
+            icon: Money01Icon,
+        },
+        {
+            key: "analytics",
+            label: "Analytics",
+            url: "#analytics",
+            icon: Analytics01Icon,
+        },
     ];
 
     const cards: AdminSectionCard[] = [
@@ -38,7 +52,7 @@
             icon: UserMultipleIcon,
             value: "2.450",
             title: "Total clients",
-            description: "+12% vs previous month",
+            iconClass: "bg-red-900/70 rounded-full! text-white",
         },
         {
             id: 2,
@@ -46,7 +60,7 @@
             icon: ShoppingBasket01Icon,
             value: "8.320",
             title: "Orders",
-            description: "340 awaiting fulfilment",
+            iconClass: "bg-lime-900/70 rounded-full! text-white",
         },
         {
             id: 3,
@@ -54,7 +68,7 @@
             icon: Wallet01Icon,
             value: "$84.120",
             title: "Gross revenue",
-            description: "Last 30 days",
+            iconClass: "bg-yellow-900/70 rounded-full! text-white",
         },
         {
             id: 4,
@@ -62,23 +76,7 @@
             icon: Payment01Icon,
             value: "2.140",
             title: "Payments",
-            description: "99.2% success rate",
-        },
-        {
-            id: 5,
-            menuId: "analytics",
-            icon: PieChartIcon,
-            value: "64%",
-            title: "Conversion rate",
-            description: "+8% vs last week",
-        },
-        {
-            id: 6,
-            menuId: "analytics",
-            icon: Analytics01Icon,
-            value: "18.9k",
-            title: "Total visits",
-            description: "Peak at 4 PM daily",
+            iconClass: "bg-purple-900/70 rounded-full! text-white",
         },
     ];
 
@@ -87,14 +85,41 @@
     }
 </script>
 
-<div class="p-3">
+<div class="space-y-5 p-3">
     <AdminSection
-        title="Dashboard"
+        logo={{
+            src: "https://plus.unsplash.com/premium_photo-1789200609644-cbcd8711dae2?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            textClass: "text-white font-bold ml-1 text-lg",
+            text: "Negodesign",
+        }}
         {user}
         {menuItems}
         {cards}
         {selectedKey}
         onSelect={handleSelect}
         onCardClick={(id) => console.log("card", id)}
+    />
+    <AdminTabs
+        profileTab={{
+            valuesUser: {
+                firstName: "Sedrac",
+                lastName: "SLC",
+                email: "slcsedrac@gmail.com",
+                phone: "+244 923 456 789",
+            },
+            valuesAddress: {
+                streetNumber: "12",
+                neighborhood: "Maculusso",
+                state: "Luanda",
+            },
+            valuesSocial: {
+                whatsapp: "https://wa.me/244923456789",
+                instagram: "https://instagram.com/sedrac.slc",
+            },
+            onSubmitUser: (data) => console.log("profile", data),
+            onSubmitAddress: (data) => console.log("address", data),
+            onSubmitSocial: (data) => console.log("social", data),
+        }}
+        securityTab={{}}
     />
 </div>

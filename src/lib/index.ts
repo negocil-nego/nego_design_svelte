@@ -64,6 +64,9 @@ import AdminContent from "$lib/components/pages/admin/shared/AdminContent.svelte
 import AdminPanel from "$lib/components/pages/admin/shared/AdminPanel.svelte";
 import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
 import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
+import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
+import AdminProfileTab from "$lib/components/pages/admin/shared/tabs/AdminProfileTab.svelte";
+import AdminSecurityTab from "$lib/components/pages/admin/shared/tabs/AdminSecurityTab.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -101,6 +104,38 @@ export {
      * @see AdminUserSectionProps
      */
     AdminUserSection,
+
+    /**
+     * Sistema de abas (underline) para a área administrativa. Agrupa os separadores
+     * de Perfil e Segurança, cada um opcional (renderiza apenas os que recebem props).
+     * @property {AdminProfileTabProps} profileTab - Props da aba Perfil (opcional)
+     * @property {AdminSecurityTabProps} securityTab - Props da aba Segurança (opcional)
+     * @see AdminTabsProps
+     */
+    AdminTabs,
+
+    /**
+     * Aba de perfil do utilizador composta por 3 secções AdminIt, cada uma com o
+     * seu próprio Form, isLoading e onSubmit:
+     * 1. Dados pessoais (primeiro nome, sobrenome, email, telefone, nascimento e bio).
+     * 2. Morada (número da rua, bairro, estado/província e geolocalização).
+     * 3. Redes sociais (WhatsApp, Facebook, LinkedIn, TikTok e Instagram).
+     * @property {AdminProfileTabProps} props - Props da aba Perfil
+     * @see AdminProfileTabProps
+     */
+    AdminProfileTab,
+
+    /**
+     * Aba de segurança com 4 secções AdminIt, cada uma com o próprio Form:
+     * 1. Alterar a senha (senha atual, nova senha e confirmação).
+     * 2. Alterar a email (senha atual, nova email e código OTP de confirmação).
+     * 3. Alterar a telefone (senha atual, novo telefone e código OTP de confirmação).
+     * 4. Secção de perigo (desativar ou eliminar a conta, exigindo a senha atual).
+     * Todos os botões de submit estão alinhados à esquerda (início).
+     * @property {AdminSecurityTabProps} props - Props da aba Segurança
+     * @see AdminSecurityTabProps
+     */
+    AdminSecurityTab,
 
     /**
      * Barra de navegação responsiva que alterna entre as variantes Simples

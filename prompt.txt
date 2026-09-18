@@ -1,13 +1,35 @@
-Iremos criar o componente que esta na imagem "image/image-1.png"
+Irás cria os componente se baseando no AdminTab para ser usado em AdminTabs
 
-Onde terás que definer propriedade para construção de "menu"
-Propriedade para construção dos cards.
+AdminSecurityTab
+Terás 4 secções de AdminIt
 
-Este componente podes criar ele em src/lib/components/pages/admin/shared/section
+Primeira "alterar a senha"
+->Form terá senha actual, nova senha, confirmação de senha, 
 
-E deves fazer a documentação deste novo componente
+Segundo "alterar a email"
+->Form terá senha actual, nova email
+
+Terceiro "alterar a phone"
+->Form terá senha actual, nova phone,
+
+Quarta "Secção de perigo"
+->Form terá desativar a conta, eliminar a conta, para qualquer opção deve 
+pedir a senha actual
+
+Informa que no AdminIt (Segundo, Terceiro) terá um processo de verificação de otp para confirmar a troca da operção
+
+Em todos Form (import { Form } from "$lib";, que vem deste import) que estão em 
+"src/lib/components/pages/admin/shared/tabs", faça que o botção de submit 
+esteja alinahdo a esquerda o melhor no inicio
+
+Para esses componentes transforma em AdminIt no "src/lib/components/pages/admin/shared/tabs/AdminProfileTab.svelte"
+src/lib/components/pages/admin/shared/tabs/AdminAddressTab.svelte
+src/lib/components/pages/admin/shared/tabs/AdminSocialNetworkTab.svelte
+de modo que terei que depois irás eliminar os mesmo componentes porque serão o AdminIt em AdminProfileTab
+
+E deves fazer a documentação dos novos componentes
 na página "src/routes/docs/+page.svelte"
 e actualizar o "src/lib/docs/DocsSidebar.svelte"
 não esquecer de criar um exemplo de como cria uma página de demo que demostra o exemplo
 de utilização do componente "src/routes/(group)" 
-pode ficar em "src/routes/(group)/admin/section"
+pode ficar em "src/routes/(group)/admin/tabs"

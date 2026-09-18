@@ -76,23 +76,13 @@
     {#if label}
       <Label class={labelClass}>{label}</Label>
     {/if}
-
-    <CalendarCard
-      bind:open
-      value={selectedDate}
-      min={minDate}
-      max={maxDate}
-      {isIcon}
-      {inputClass}
-      {disabled}
-      onselect={handleSelect}
-    >
-      <span class={placeholderClasses}>
-        {displayValue || placeholder || $t("input.date.placeholder")}
-      </span>
-    </CalendarCard>
+    {@render calendarCard()}
   </div>
 {:else}
+  {@render calendarCard()}
+{/if}
+
+{#snippet calendarCard()}
   <CalendarCard
     bind:open
     value={selectedDate}
@@ -107,4 +97,4 @@
       {displayValue || placeholder || $t("input.date.placeholder")}
     </span>
   </CalendarCard>
-{/if}
+{/snippet}

@@ -29,7 +29,7 @@ import "@tailwindcss/vite";`;
     Analytics01Icon,
   } from "@hugeicons/core-free-icons";
 
-  let selectedKey = $state<string | number>("overview");</script>
+  let selectedKey = $state<string | number>("overview");${"</" + "script>"}
 
 <AdminSection
   title="Dashboard"
@@ -70,6 +70,93 @@ import "@tailwindcss/vite";`;
   avatarUrl="https://github.com/octocat.png"
   onProfile={() => console.log("profile")}
   onSettings={() => console.log("settings")}
+/>`;
+
+  const adminTabsCode = `<script lang="ts">
+  import { AdminTabs } from "negodesign";
+
+  const profileValues = {
+    firstName: "Sedrac",
+    lastName: "SLC",
+    email: "slcsedrac@gmail.com",
+    phone: "+244 923 456 789",
+    birthDate: "1995-06-15",
+    bio: "Developer and travel enthusiast.",
+  };
+
+  const addressValues = {
+    streetNumber: "12",
+    neighborhood: "Maculusso",
+    state: "Luanda",
+    latitude: "-8.839988",
+    longitude: "13.289437",
+  };
+
+  const socialValues = {
+    whatsapp: "https://wa.me/244923456789",
+    facebook: "https://facebook.com/sedrac.slc",
+    linkedin: "https://linkedin.com/in/sedrac-slc",
+    tiktok: "https://tiktok.com/@sedrac.slc",
+    instagram: "https://instagram.com/sedrac.slc",
+  };
+${"</" + "script>"}
+
+<AdminTabs
+  profileTab={{
+    valuesUser: profileValues,
+    valuesAddress: addressValues,
+    valuesSocial: socialValues,
+    onSubmitUser: (d) => console.log("user", d),
+    onSubmitAddress: (d) => console.log("address", d),
+    onSubmitSocial: (d) => console.log("social", d),
+  }}
+  securityTab={{
+    onSubmitPassword: (d) => console.log("password", d),
+    onSubmitEmail: (d) => console.log("email", d),
+    onSubmitPhone: (d) => console.log("phone", d),
+    onSubmitDanger: (d) => console.log("danger", d),
+  }}
+/>`;
+
+  const adminSecurityTabCode = `<script lang="ts">
+  import { AdminSecurityTab } from "negodesign";
+
+  let isLoadingPassword = $state(false);
+  let isLoadingEmail = $state(false);
+  let isLoadingPhone = $state(false);
+  let isLoadingDanger = $state(false);
+${"</" + "script>"}
+
+<AdminSecurityTab
+  isLoadingPassword={isLoadingPassword}
+  isLoadingEmail={isLoadingEmail}
+  isLoadingPhone={isLoadingPhone}
+  isLoadingDanger={isLoadingDanger}
+  onSubmitPassword={(d) => { isLoadingPassword = true; console.log(d); }}
+  onSubmitEmail={(d) => { isLoadingEmail = true; console.log(d); }}
+  onSubmitPhone={(d) => { isLoadingPhone = true; console.log(d); }}
+  onSubmitDanger={(d) => { isLoadingDanger = true; console.log(d); }}
+/>`;
+
+  const locationInputCode = `<Form
+  onSubmit={(data) => console.log(data)}
+  inputs={[
+    { type: "text", name: "streetNumber", label: $t("label.streetNumber") },
+    { type: "text", name: "neighborhood", label: $t("label.neighborhood") },
+    { type: "text", name: "state", label: $t("label.state") },
+    {
+      type: "location",
+      name: "location",
+      label: $t("label.location"),
+      latitudeName: "latitude",
+      longitudeName: "longitude",
+      locationText: $t("label.location.get"),
+      locationLoadingText: $t("label.location.getting"),
+      fill: true,
+    },
+    { type: "text", name: "latitude", label: $t("label.latitude") },
+    { type: "text", name: "longitude", label: $t("label.longitude") },
+  ]}
 />`;
 
   const features = [
@@ -251,6 +338,129 @@ import "@tailwindcss/vite";`;
     <div class="mt-4 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">AdminUserSection</h3>
       <CodeBlock code={adminUserSectionCode} title="AdminUserSection.svelte" />
+    </div>
+  </section>
+
+  <section id="admin-tabs" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: AdminTabs</h2>
+      <a
+        href="/admin/tabs"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Sistema de abas (underline) para a área administrativa. Cada aba
+      (<code class="rounded bg-muted px-1 py-0.5">AdminProfileTab</code> e
+      <code class="rounded bg-muted px-1 py-0.5">AdminSecurityTab</code>)
+      envolve o seu
+      <a
+        href="/docs/form"
+        class="font-medium text-primary underline underline-offset-4"
+        >Form</a
+      >
+      num <code class="rounded bg-muted px-1 py-0.5">AdminIt</code>. Passa as
+      props da aba que queres exibir; as abas omitidas não são renderizadas.
+    </p>
+    <p class="mt-2 text-sm text-muted-foreground">
+      O <code class="rounded bg-muted px-1 py-0.5">AdminProfileTab</code> agrupa
+      3 secções
+      <code class="rounded bg-muted px-1 py-0.5">AdminIt</code> (dados pessoais,
+      morada e redes sociais); a secção de morada usa o novo tipo de input
+      <code class="rounded bg-muted px-1 py-0.5">"location"</code> do
+      <a
+        href="/docs/form"
+        class="font-medium text-primary underline underline-offset-4"
+        >Form</a
+      >: um botão que obtém a localização actual do navegador (geolocalização)
+      e preenche automaticamente os campos
+      <code class="rounded bg-muted px-1 py-0.5">latitude</code> /
+      <code class="rounded bg-muted px-1 py-0.5">longitude</code> definidos por
+      <code class="rounded bg-muted px-1 py-0.5">latitudeName</code> /
+      <code class="rounded bg-muted px-1 py-0.5">longitudeName</code>.
+      Todas as secções alinham o botão de submissão à esquerda através da prop
+      <code class="rounded bg-muted px-1 py-0.5">submitAlign="start"</code> do
+      <a
+        href="/docs/form"
+        class="font-medium text-primary underline underline-offset-4"
+        >Form</a
+      >.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">AdminTabs</h3>
+      <CodeBlock code={adminTabsCode} title="AdminTabs.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">Form — input "location"</h3>
+      <CodeBlock code={locationInputCode} title="location" />
+    </div>
+  </section>
+
+  <section id="admin-security-tab" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: AdminSecurityTab</h2>
+      <a
+        href="/admin/tabs"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Aba de Segurança com <b>4 secções</b>, cada uma num
+      <code class="rounded bg-muted px-1 py-0.5">AdminIt</code> independente:
+    </p>
+    <ul class="mt-2 list-disc space-y-1 pl-5 text-sm text-muted-foreground">
+      <li>
+        <b>Alterar a senha</b> — Form com senha actual, nova senha e confirmação
+        de senha.
+      </li>
+      <li>
+        <b>Alterar a email</b> — Form com senha actual e nova email, com
+        <b>processo de verificação OTP</b> para confirmar a troca.
+      </li>
+      <li>
+        <b>Alterar a telefone</b> — Form com senha actual e novo telefone, com
+        <b>processo de verificação OTP</b> para confirmar a troca.
+      </li>
+      <li>
+        <b>Secção de perigo</b> — dois
+        <code class="rounded bg-muted px-1 py-0.5">AdminIt</code> independentes:
+        <b>Desativar a conta</b> (acao reversivel) e
+        <b>Eliminar a conta</b> (acao permanente); ambos exigem a senha actual.
+      </li>
+    </ul>
+    <p class="mt-2 text-sm text-muted-foreground">
+      As secções de email e telefone usam o novo tipo de input
+      <code class="rounded bg-muted px-1 py-0.5">"otp"</code> do
+      <a
+        href="/docs/form"
+        class="font-medium text-primary underline underline-offset-4"
+        >Form</a
+      >
+      (caixas de código de verificação). Já a secção de perigo usa o novo tipo
+      de input <code class="rounded bg-muted px-1 py-0.5">"submit"</code>: um
+      botão de submissão (componente
+      <code class="rounded bg-muted px-1 py-0.5">InputSubmit</code>) colocado
+      dentro de <code class="rounded bg-muted px-1 py-0.5">inputs</code>, com
+      o texto do botão definido por
+      <code class="rounded bg-muted px-1 py-0.5">label</code>, com
+      <code class="rounded bg-muted px-1 py-0.5">variant</code>
+      (<code class="rounded bg-muted px-1 py-0.5">destructive</code> para
+      eliminar) e <code class="rounded bg-muted px-1 py-0.5">loadingText</code>.
+      Cada Form tem o seu próprio
+      <code class="rounded bg-muted px-1 py-0.5">isLoading</code> e
+      <code class="rounded bg-muted px-1 py-0.5">onSubmit</code>, e os demais
+      botões de submit são alinhados à esquerda com
+      <code class="rounded bg-muted px-1 py-0.5">submitAlign="start"</code>.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">AdminSecurityTab</h3>
+      <CodeBlock code={adminSecurityTabCode} title="AdminSecurityTab.svelte" />
     </div>
   </section>
 

@@ -1,3 +1,5 @@
+import type { ButtonVariant } from "$lib/components/ui/button";
+
 /**
  * Opção para inputs do tipo select, radio ou checkbox.
  * @property value - Valor identificador da opção.
@@ -14,12 +16,16 @@ export type FormOption = {
  *
  * Tipos suportados:
  * - `'text'` | `'email'` | `'password'` | `'date'` | `'phone'` — inputs de texto
+ * - `'submit'` — botão de submissão (usa a variante do Button)
  * - `'select'` — dropdown/select com opções
+ * - `'date-interval'` — intervalo de datas (calendário duplo, usa `startName`/`endName`)
  * - `'radio'` — grupo de radio buttons
  * - `'checkbox'` — grupo de checkboxes
  * - `'textarea'` — área de texto
  * - `'toggle'` — interruptor on/off
  * - `'badges'` — input de tags/badges com sugestões
+ * - `'location'` — botão que obtém a localização atual (geolocalização)
+ * - `'otp'` — código de verificação one-time (caixas de dígitos)
  *
  * @property type - Tipo do input.
  * @property name - Nome do campo (usado como chave no objeto de dados).
@@ -36,25 +42,42 @@ export type FormOption = {
  * @property description - Texto descritivo (apenas toggle).
  * @property suggestions - Sugestões de tags (apenas badges).
  * @property maxTags - Número máximo de tags (apenas badges, 0 = ilimitado).
+ * @property latitudeName - Nome do campo que recebe a latitude (apenas location).
+ * @property longitudeName - Nome do campo que recebe a longitude (apenas location).
+ * @property locationText - Texto do botão de localização (apenas location).
+ * @property locationLoadingText - Texto do botão durante a obtenção (apenas location).
+ * @property length - Número de caixas do código OTP (apenas otp).
+ * @property separator - Separa o código OTP em grupos visualmente (apenas otp).
+ * @property loadingText - Texto exibido enquanto carrega (apenas submit).
+ * @property variant - Variante do `Button` — default | outline | secondary | ghost | destructive | link (apenas submit).
+ * @property min - Data mínima aceite em formato ISO (apenas date).
+ * @property max - Data máxima aceite em formato ISO (apenas date).
+ * @property startName - Nome do campo que recebe a data inicial (apenas date-interval).
+ * @property endName - Nome do campo que recebe a data final (apenas date-interval).
  */
 export type FormInputConfig = {
 	type:
-		| "text"
-		| "email"
-		| "password"
-		| "date"
-		| "phone"
-		| "select"
-		| "radio"
-		| "checkbox"
-		| "textarea"
-		| "toggle"
-		| "badges";
+	| "text"
+	| "submit"
+	| "email"
+	| "password"
+	| "date"
+	| "date-interval"
+	| "phone"
+	| "select"
+	| "radio"
+	| "checkbox"
+	| "textarea"
+	| "toggle"
+	| "badges"
+	| "location"
+	| "otp";
 	name: string;
 	value?: string | string[] | boolean;
-	label?: string;
+	label?: string | undefined;
 	placeholder?: string;
 	onChange?: (value: string | string[] | boolean) => void;
+	onClick?: () => void;
 	disabled?: boolean;
 	required?: boolean;
 	fill?: boolean;
@@ -64,6 +87,18 @@ export type FormInputConfig = {
 	description?: string;
 	suggestions?: string[];
 	maxTags?: number;
+	latitudeName?: string;
+	longitudeName?: string;
+	locationText?: string;
+	locationLoadingText?: string;
+	length?: number;
+	separator?: boolean;
+	loadingText?: string;
+	variant?: ButtonVariant;
+	min?: string;
+	max?: string;
+	startName?: string;
+	endName?: string;
 };
 
 /**
@@ -77,6 +112,7 @@ export type FormInputConfig = {
  * @property isLoading - Estado de carregamento.
  * @property columns - Número de colunas da grid (padrão: 2).
  * @property gap - Espaçamento entre os campos.
+ * @property submitAlign - Alinhamento do botão de submissão (start: esquerda, end: direita).
  * @property class - Classe CSS extra no container.
  */
 export type FormProps = {
@@ -85,7 +121,9 @@ export type FormProps = {
 	submitText?: string;
 	submitLoadingText?: string;
 	isLoading?: boolean;
+	isButton?: boolean;
 	columns?: 1 | 2;
 	gap?: string;
+	submitAlign?: "start" | "end";
 	class?: string;
 };

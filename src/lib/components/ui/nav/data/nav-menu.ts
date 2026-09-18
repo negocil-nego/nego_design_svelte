@@ -43,6 +43,7 @@ export interface NavMenuLinksProps {
     label: string
     /** Ícone SVG opcional antes do label */
     icon?: IconSvgElement
+    isAcive?: boolean
     /** Callback ao clicar no link */
     onclick?: () => void
 }

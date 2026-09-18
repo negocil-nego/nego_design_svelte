@@ -16,7 +16,13 @@
 	}: HTMLAttributes<HTMLDivElement> & {
 		ref?: HTMLDivElement | null;
 		align?: "start" | "center" | "end";
-		side?: "top" | "right" | "bottom" | "left" | "inline-start" | "inline-end";
+		side?:
+			| "top"
+			| "right"
+			| "bottom"
+			| "left"
+			| "inline-start"
+			| "inline-end";
 		sideOffset?: number;
 		portalProps?: Record<string, unknown>;
 		class?: string;
@@ -57,9 +63,15 @@
 
 	let positionClasses = $derived.by(() => {
 		const horizontal =
-			side === "right" || side === "left" || side === "inline-start" || side === "inline-end";
+			side === "right" ||
+			side === "left" ||
+			side === "inline-start" ||
+			side === "inline-end";
 		if (horizontal) {
-			const sideClass = side === "left" || side === "inline-start" ? "right-full" : "left-full";
+			const sideClass =
+				side === "left" || side === "inline-start"
+					? "right-full"
+					: "left-full";
 			const alignClass =
 				align === "end"
 					? "bottom-0"
@@ -74,7 +86,11 @@
 		}
 		const sideClass = side === "top" ? "bottom-full" : "top-full";
 		const alignClass =
-			align === "end" ? "end-0" : align === "center" ? "start-1/2 -translate-x-1/2" : "start-0";
+			align === "end"
+				? "end-0"
+				: align === "center"
+					? "start-1/2 -translate-x-1/2"
+					: "start-0";
 		const margin =
 			side === "top"
 				? `margin-bottom: ${sideOffset + 4}px`
@@ -95,7 +111,7 @@
 		data-state={store.open ? "open" : "closed"}
 		style={contentStyle}
 		class={cn(
-			"absolute z-50 min-w-48 overflow-x-hidden overflow-y-auto rounded-2xl p-1 shadow-2xl ring-1 ring-foreground/5 bg-popover text-popover-foreground outline-none animate-zoom-in",
+			"absolute z-50 min-w-48 overflow-x-hidden overflow-y-auto rounded-sm p-1 shadow-2xl ring-1 ring-foreground/5 bg-popover text-popover-foreground outline-none animate-zoom-in",
 			positionClasses.sideClass,
 			positionClasses.alignClass,
 			className,
