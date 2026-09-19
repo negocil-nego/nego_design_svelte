@@ -1,6 +1,6 @@
 {
 	"name": "negodesign",
-	"version": "0.0.83",
+	"version": "0.0.84",
 	"type": "module",
 	"license": "MIT",
 	"sideEffects": [
@@ -51,7 +51,8 @@
 	},
 	"dependencies": {
 		"@hugeicons/core-free-icons": "^4.2.3",
-		"@hugeicons/svelte": "^1.1.4"
+		"@hugeicons/svelte": "^1.1.4",
+		"@lottiefiles/dotlottie-svelte": "^0.10.15"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",

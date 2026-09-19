@@ -2,6 +2,7 @@
   import { t } from "$lib/i18n";
   import PageStatus from "../PageStatus.svelte";
   import type { PageStatusProps } from "../types";
+  import LottieBlocked from "$lib/assets/lottie/blocked.lottie";
 
   let {
     onAction,
@@ -23,6 +24,7 @@
   subtitle={$t("status.blocked.subtitle")}
   description={$t("status.blocked.description")}
   buttonText={$t("status.blocked.button")}
+  imageUrl={LottieBlocked}
   {onAction}
   {actionHref}
   {className}
