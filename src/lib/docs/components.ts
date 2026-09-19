@@ -2153,6 +2153,74 @@ import {
       { name: "className", type: "string", description: "Section container CSS class" },
     ],
   },
+  {
+    slug: "page-status",
+    name: "PageStatus",
+    category: "Full Pages",
+    description:
+      "Full-page status component with icon, title, subtitle, description and action button. Supports two variants: pending (amber) and blocked (red). Texts are internationalized via i18n.",
+    path: "src/lib/components/pages/status/PageStatus.svelte",
+    importPath: "PageStatus",
+    examples: [
+      {
+        title: "Pending Status",
+        code: `<script lang="ts">
+  import { PageStatusPending } from "negodesign";
+${"</" + "script>"}
+
+<PageStatusPending
+  onAction={() => console.log("done")}
+/>`,
+        href: "/admin/tabs/status",
+      },
+      {
+        title: "Blocked Status",
+        code: `<script lang="ts">
+  import { PageStatusBlocked } from "negodesign";
+${"</" + "script>"}
+
+<PageStatusBlocked
+  onAction={() => console.log("done")}
+/>`,
+      },
+      {
+        title: "Custom Texts",
+        code: `<script lang="ts">
+  import { PageStatus } from "negodesign";
+${"</" + "script>"}
+
+<PageStatus
+  title="Processing"
+  subtitle="Your payment is being verified"
+  description="This may take a few minutes."
+  buttonText="Continue"
+  titleColor="text-amber-500"
+  bgColor="bg-amber-500/10"
+  iconBg="bg-amber-500"
+  iconColor="text-white"
+  buttonBg="bg-primary"
+  buttonTextColor="text-primary-foreground"
+  onAction={() => console.log("continue")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Title text" },
+      { name: "subtitle", type: "string", description: "Custom subtitle. Overrides i18n default" },
+      { name: "description", type: "string", description: "Custom description. Overrides i18n default" },
+      { name: "buttonText", type: "string", description: "Custom button text. Overrides i18n default" },
+      { name: "onAction", type: "() => void", description: "Callback when the action button is clicked" },
+      { name: "actionHref", type: "string", description: "URL for the action button (renders a link instead)" },
+      { name: "icon", type: "IconSvgElement", description: "Custom icon replacing the default smartphone icon" },
+      { name: "titleColor", type: "string", description: "Title CSS class (e.g. \"text-amber-500\", \"text-blue-600\")" },
+      { name: "bgColor", type: "string", description: "Icon circle background CSS class (e.g. \"bg-amber-500/10\")" },
+      { name: "iconBg", type: "string", description: "Alert badge background CSS class (e.g. \"bg-amber-500\")" },
+      { name: "iconColor", type: "string", description: "Alert badge icon color CSS class (e.g. \"text-white\")" },
+      { name: "buttonBg", type: "string", description: "Button background CSS class (e.g. \"bg-primary\", \"bg-amber-500\")" },
+      { name: "buttonTextColor", type: "string", description: "Button text color CSS class (e.g. \"text-primary-foreground\")" },
+      { name: "className", type: "string", description: "Additional CSS class for the container" },
+    ],
+  },
 ];
 
 export function getComponent(slug: string): DocComponent | undefined {

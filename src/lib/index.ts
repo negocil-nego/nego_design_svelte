@@ -23,6 +23,9 @@ import ProfileUser from "./components/pages/profile-user/ProfileUser.svelte";
 import PageOtpVerification from "./components/pages/security/otp-verification/PageOtpVerification.svelte";
 import PageForgetPassword from "./components/pages/security/forget-password/PageForgetPassword.svelte";
 import PageResetPassword from "./components/pages/security/reset-password/PageResetPassword.svelte";
+import PageStatus from "./components/pages/status/PageStatus.svelte";
+import PageStatusBlocked from "./components/pages/status/blocked/PageStatusBlocked.svelte";
+import PageStatusPending from "./components/pages/status/pending/PageStatusPending.svelte";
 import TabUnderline from "$lib/components/ui/tabs/ui/tab-underline.svelte";
 import CarouselGridPromotion from "$lib/components/ui/carousel/core/grid/promotion/ui/CarouselGridPromotion.svelte";
 import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
@@ -588,6 +591,39 @@ export {
      * @see PageResetPasswordProps
      */
     PageResetPassword,
+
+    /**
+     * Página de estado genérica com ícone, título, subtítulo, descrição e botão de ação.
+     * @property {string} title - Título
+     * @property {string} subtitle - Subtítulo
+     * @property {string} description - Descrição
+     * @property {string} buttonText - Texto do botão
+     * @property {() => void} onAction - Callback ao clicar no botão
+     * @property {string} actionHref - Link de destino do botão
+     * @property {IconSvgElement} icon - Ícone personalizado
+     * @property {string} titleColor - Classe CSS da cor do título
+     * @property {string} bgColor - Classe CSS de fundo do círculo do ícone
+     * @property {string} iconBg - Classe CSS de fundo do badge de alerta
+     * @property {string} iconColor - Classe CSS da cor do ícone de alerta
+     * @property {string} buttonBg - Classe CSS de fundo do botão
+     * @property {string} buttonTextColor - Classe CSS da cor do texto do botão
+     * @see PageStatusProps
+     */
+    PageStatus,
+
+    /**
+     * Página de estado "Blocked" — wrapper do PageStatus com variante "blocked".
+     * Exibe título vermelho e textos de bloqueio. Suporta as mesmas props do PageStatus.
+     * @see PageStatusProps
+     */
+    PageStatusBlocked,
+
+    /**
+     * Página de estado "Pending" — wrapper do PageStatus com variante "pending".
+     * Exibe título âmbar e textos de pendência. Suporta as mesmas props do PageStatus.
+     * @see PageStatusProps
+     */
+    PageStatusPending,
 
     /**
      * Página de política de privacidade ou termos de utilização com sidebar,

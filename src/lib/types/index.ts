@@ -118,7 +118,7 @@ import type {
 import type {
     AdminSectionProps,
     AdminSectionMenuItem,
-    AdminSectionCard
+    AdminSectionCardProps
 } from "$lib/components/pages/admin/shared/section/types";
 
 import type {
@@ -154,6 +154,10 @@ import type {
     BreadcrumbItem,
     TocItem
 } from "$lib/components/pages/privacy-policy-or-terms-of-use/types";
+
+import type {
+    PageStatusProps,
+} from "$lib/components/pages/status/types";
 
 import type { InputLabelProps } from "$lib/components/ui/form/data/InputLabel.svelte";
 import type { NegoDesignProps } from "$lib/components/types";
@@ -351,8 +355,8 @@ export type {
     AdminSectionProps,
     /** Item do menu de navegação da AdminSection. @see AdminSectionMenuItem */
     AdminSectionMenuItem,
-    /** Card exibido na grade da AdminSection. @see AdminSectionCard */
-    AdminSectionCard,
+    /** Card exibido na grade da AdminSection. @see AdminSectionCardProps */
+    AdminSectionCardProps,
 
     /** Props do AdminUserSection — avatar do utilizador com dropdown de perfil no hover. @see AdminUserSectionProps */
     AdminUserSectionProps,
@@ -497,4 +501,7 @@ export type {
     TocItem,
     /** Props do componente PrivacyPolicyOrTermsOfUse. @see PrivacyPolicyOrTermsOfUseProps */
     PrivacyPolicyOrTermsOfUseProps,
+
+    /** Props do componente PageStatus — página de estado com ícone, título e botão. @see PageStatusProps */
+    PageStatusProps,
 }

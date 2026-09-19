@@ -22,9 +22,15 @@
     class: className,
   }: ModalFormProps = $props();
 
-  const finalSubmitText = $derived(submitText ?? $t("label.submit") ?? "Submit");
-  const finalSubmitLoadingText = $derived(submitLoadingText ?? $t("label.submitting") ?? "Submitting...");
-  const finalCancelText = $derived(cancelText ?? $t("label.cancel") ?? "Cancel");
+  const finalSubmitText = $derived(
+    submitText ?? $t("label.submit") ?? "Submit",
+  );
+  const finalSubmitLoadingText = $derived(
+    submitLoadingText ?? $t("label.submitting") ?? "Submitting...",
+  );
+  const finalCancelText = $derived(
+    cancelText ?? $t("label.cancel") ?? "Cancel",
+  );
 
   function handleSubmit(data: Record<string, string | string[] | boolean>) {
     onSubmit?.(data);

@@ -335,6 +335,15 @@ export default {
     "empty.support": "Need help?",
     "empty.contact_support": "Contact support",
 
+    "status.pending.title": "Pending",
+    "status.pending.subtitle": "Your request is being processed",
+    "status.pending.description": "This page will be automatically redirected or click the button below.",
+    "status.pending.button": "Done",
+    "status.blocked.title": "Blocked",
+    "status.blocked.subtitle": "Your access has been restricted",
+    "status.blocked.description": "Please contact support to resolve this issue or click the button below.",
+    "status.blocked.button": "Done",
+
     "language.en": "English",
     "language.pt": "Portuguese"
 };

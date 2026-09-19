@@ -25,7 +25,7 @@ export interface AdminSectionMenuItem {
  * Opcionalmente pode ser associado a um item do menu via `menuId`;
  * cards sem `menuId` ficam sempre visíveis em qualquer menu ativo.
  */
-export interface AdminSectionCard {
+export interface AdminSectionCardProps {
     /** Identificador único do card (usado no callback `onCardClick`) */
     id?: string | number;
     /** Ícone do card — classe CSS (string) ou componente Hugeicons (IconSvgElement) */
@@ -76,7 +76,7 @@ export interface AdminSectionProps {
     /** Itens do menu de navegação (tabs) */
     menuItems?: NavMenuLinksProps[];
     /** Cards exibidos na grade abaixo do menu */
-    cards?: AdminSectionCard[];
+    cards?: AdminSectionCardProps[];
     /** Id do item de menu ativo (controlado pelo utilizador; bindable) */
     selectedKey?: string | number;
     /** Classe CSS adicional do container (div com fundo) */

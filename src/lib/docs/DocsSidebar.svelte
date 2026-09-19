@@ -91,6 +91,15 @@
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs/page-status"}>
+              {#snippet child({ props })}
+                <a href="/docs/page-status" {...props}
+                  ><span>PageStatus</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

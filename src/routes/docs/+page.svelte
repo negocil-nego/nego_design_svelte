@@ -138,6 +138,40 @@ ${"</" + "script>"}
   onSubmitDanger={(d) => { isLoadingDanger = true; console.log(d); }}
 />`;
 
+  const pageStatusPendingCode = `<script lang="ts">
+  import { PageStatusPending } from "negodesign";
+${"</" + "script>"}
+
+<PageStatusPending
+  onAction={() => console.log("done")}
+/>`;
+
+  const pageStatusBlockedCode = `<script lang="ts">
+  import { PageStatusBlocked } from "negodesign";
+${"</" + "script>"}
+
+<PageStatusBlocked
+  onAction={() => console.log("done")}
+/>`;
+
+  const pageStatusCode = `<script lang="ts">
+  import { PageStatus } from "negodesign";
+${"</" + "script>"}
+
+<PageStatus
+  title="Processing"
+  subtitle="Your payment is being verified"
+  description="This may take a few minutes."
+  buttonText="Continue"
+  titleColor="text-amber-500"
+  bgColor="bg-amber-500/10"
+  iconBg="bg-amber-500"
+  iconColor="text-white"
+  buttonBg="bg-primary"
+  buttonTextColor="text-primary-foreground"
+  onAction={() => console.log("continue")}
+/>`;
+
   const locationInputCode = `<Form
   onSubmit={(data) => console.log(data)}
   inputs={[
@@ -461,6 +495,54 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">AdminSecurityTab</h3>
       <CodeBlock code={adminSecurityTabCode} title="AdminSecurityTab.svelte" />
+    </div>
+  </section>
+
+  <section id="page-status" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: PageStatus</h2>
+      <a
+        href="/docs/page-status"
+        class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
+      >
+        Docs
+        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+      </a>
+      <a
+        href="/admin/tabs/status"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Página de estado completa com ícone, título, subtítulo, descrição e botão
+      de ação. Suporta duas variantes:
+      <code class="rounded bg-muted px-1 py-0.5">"pending"</code> (âmbar) e
+      <code class="rounded bg-muted px-1 py-0.5">"blocked"</code> (vermelho).
+      Os textos são internacionalizados via i18n e podem ser sobrescritos por
+      props.
+    </p>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Use
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code> e
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code> como
+      wrappers prontos a usar, ou
+      <code class="rounded bg-muted px-1 py-0.5">PageStatus</code> directamente
+      para controlo total da variante.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">PageStatusPending</h3>
+      <CodeBlock code={pageStatusPendingCode} title="PageStatusPending.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">PageStatusBlocked</h3>
+      <CodeBlock code={pageStatusBlockedCode} title="PageStatusBlocked.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">PageStatus — Custom</h3>
+      <CodeBlock code={pageStatusCode} title="PageStatus.svelte" />
     </div>
   </section>
 

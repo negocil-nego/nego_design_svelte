@@ -3,6 +3,6 @@ export { default as AdminUserSection } from "./AdminUserSection.svelte";
 export type {
     AdminSectionProps,
     AdminSectionMenuItem,
-    AdminSectionCard,
+    AdminSectionCardProps as AdminSectionCard,
     AdminUserSectionProps,
 } from "./types";
