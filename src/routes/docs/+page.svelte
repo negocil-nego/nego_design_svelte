@@ -154,6 +154,14 @@ ${"</" + "script>"}
   onAction={() => console.log("done")}
 />`;
 
+  const pageStatusRecoveringCode = `<script lang="ts">
+  import { PageStatusRecovering } from "negodesign";
+${"</" + "script>"}
+
+<PageStatusRecovering
+  onAction={() => console.log("back to login")}
+/>`;
+
   const pageStatusCode = `<script lang="ts">
   import { PageStatus } from "negodesign";
 ${"</" + "script>"}
@@ -539,6 +547,10 @@ ${"</" + "script>"}
     <div class="mt-4 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">PageStatusBlocked</h3>
       <CodeBlock code={pageStatusBlockedCode} title="PageStatusBlocked.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">PageStatusRecovering</h3>
+      <CodeBlock code={pageStatusRecoveringCode} title="PageStatusRecovering.svelte" />
     </div>
     <div class="mt-4 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">PageStatus — Custom</h3>

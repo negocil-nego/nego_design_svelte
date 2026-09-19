@@ -6,6 +6,7 @@
     AlertCircleIcon,
   } from "@hugeicons/core-free-icons";
   import type { PageStatusProps } from "./types";
+  import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 
   let {
     title = "",
@@ -23,6 +24,7 @@
     iconColor = "",
     buttonBg = "",
     buttonTextColor = "",
+    emailPhoneWhatsapp,
     children,
   }: PageStatusProps = $props();
 </script>
@@ -69,6 +71,10 @@
 
     {#if children}
       <div class="mt-4">{children()}</div>
+    {/if}
+
+    {#if emailPhoneWhatsapp}
+      <CardEmailPhoneWhatsapp {...emailPhoneWhatsapp} />
     {/if}
 
     <div class="mt-6">

@@ -343,6 +343,14 @@ export default {
     "status.blocked.subtitle": "Your access has been restricted",
     "status.blocked.description": "Please contact support to resolve this issue or click the button below.",
     "status.blocked.button": "Done",
+    "status.recovering.title": "Recovering Password",
+    "status.recovering.subtitle": "We're working on resetting your password",
+    "status.recovering.description": "Check your email for the recovery link. If you don't see it, check your spam folder or request a new link.",
+    "status.recovering.button": "Back to Login",
+
+    "card.otp.email.subtitle": "Receive the code by email",
+    "card.otp.phone.subtitle": "Receive the code by SMS",
+    "card.otp.whatsapp.subtitle": "Receive the code on WhatsApp",
 
     "language.en": "English",
     "language.pt": "Portuguese"

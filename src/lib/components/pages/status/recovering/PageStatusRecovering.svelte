@@ -8,9 +8,9 @@
     actionHref,
     className = "",
     icon,
-    titleColor = "text-red-500",
-    bgColor = "bg-red-500/10",
-    iconBg = "bg-red-500",
+    titleColor = "text-blue-500",
+    bgColor = "bg-blue-500/10",
+    iconBg = "bg-blue-500",
     iconColor = "text-white",
     buttonBg = "bg-primary",
     buttonTextColor = "text-primary-foreground",
@@ -19,10 +19,10 @@
 </script>
 
 <PageStatus
-  title={$t("status.blocked.title")}
-  subtitle={$t("status.blocked.subtitle")}
-  description={$t("status.blocked.description")}
-  buttonText={$t("status.blocked.button")}
+  title={$t("status.recovering.title")}
+  subtitle={$t("status.recovering.subtitle")}
+  description={$t("status.recovering.description")}
+  buttonText={$t("status.recovering.button")}
   {onAction}
   {actionHref}
   {className}

@@ -159,6 +159,12 @@ import type {
     PageStatusProps,
 } from "$lib/components/pages/status/types";
 
+import type {
+    CardMethod,
+    CardEmailPhoneWhatsappItem,
+    CardEmailPhoneWhatsappProps,
+} from "$lib/components/ui/card/varients/types";
+
 import type { InputLabelProps } from "$lib/components/ui/form/data/InputLabel.svelte";
 import type { NegoDesignProps } from "$lib/components/types";
 import type { CarouselGridPromotionProps } from "$lib/components/ui/carousel/core/grid/promotion/types";
@@ -504,4 +510,11 @@ export type {
 
     /** Props do componente PageStatus — página de estado com ícone, título e botão. @see PageStatusProps */
     PageStatusProps,
+
+    /** Método de recepção do código OTP. @see CardMethod */
+    CardMethod,
+    /** Item de opção no CardEmailPhoneWhatsapp. @see CardEmailPhoneWhatsappItem */
+    CardEmailPhoneWhatsappItem,
+    /** Props do CardEmailPhoneWhatsapp — card de seleção de método OTP. @see CardEmailPhoneWhatsappProps */
+    CardEmailPhoneWhatsappProps,
 }

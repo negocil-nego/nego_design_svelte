@@ -2184,6 +2184,16 @@ ${"</" + "script>"}
 />`,
       },
       {
+        title: "Recovering Status",
+        code: `<script lang="ts">
+  import { PageStatusRecovering } from "negodesign";
+${"</" + "script>"}
+
+<PageStatusRecovering
+  onAction={() => console.log("back to login")}
+/>`,
+      },
+      {
         title: "Custom Texts",
         code: `<script lang="ts">
   import { PageStatus } from "negodesign";

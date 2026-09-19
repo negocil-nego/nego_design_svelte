@@ -343,6 +343,14 @@ export default {
     "status.blocked.subtitle": "O seu acesso foi restrito",
     "status.blocked.description": "Por favor, contacte o suporte para resolver este problema ou clique no botão abaixo.",
     "status.blocked.button": "Concluído",
+    "status.recovering.title": "Recuperar Senha",
+    "status.recovering.subtitle": "Estamos a processar a recuperação da sua senha",
+    "status.recovering.description": "Verifique o seu email para o link de recuperação. Se não o encontrar, verifique a pasta de spam ou solicite um novo link.",
+    "status.recovering.button": "Voltar ao Login",
+
+    "card.otp.email.subtitle": "Receber o código por email",
+    "card.otp.phone.subtitle": "Receber o código por SMS",
+    "card.otp.whatsapp.subtitle": "Receber o código no WhatsApp",
 
     "language.en": "Inglês",
     "language.pt": "Português"

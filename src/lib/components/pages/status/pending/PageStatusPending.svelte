@@ -2,7 +2,6 @@
   import { t } from "$lib/i18n";
   import PageStatus from "../PageStatus.svelte";
   import type { PageStatusProps } from "../types";
-  import LottiePending from "$lib/assets/lottie/pending.lottie";
 
   let {
     onAction,
@@ -24,7 +23,6 @@
   subtitle={$t("status.pending.subtitle")}
   description={$t("status.pending.description")}
   buttonText={$t("status.pending.button")}
-  imageUrl={LottiePending}
   {onAction}
   {actionHref}
   {className}

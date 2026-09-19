@@ -26,6 +26,7 @@ import PageResetPassword from "./components/pages/security/reset-password/PageRe
 import PageStatus from "./components/pages/status/PageStatus.svelte";
 import PageStatusBlocked from "./components/pages/status/blocked/PageStatusBlocked.svelte";
 import PageStatusPending from "./components/pages/status/pending/PageStatusPending.svelte";
+import PageStatusRecovering from "./components/pages/status/recovering/PageStatusRecovering.svelte";
 import TabUnderline from "$lib/components/ui/tabs/ui/tab-underline.svelte";
 import CarouselGridPromotion from "$lib/components/ui/carousel/core/grid/promotion/ui/CarouselGridPromotion.svelte";
 import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
@@ -46,6 +47,7 @@ import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
 import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
 import CardMedia from "$lib/components/ui/card/core/media/CardMedia.svelte";
 import CardProfile from "$lib/components/ui/card/core/profile/CardProfile.svelte";
+import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
 import ItemsSimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
@@ -494,6 +496,17 @@ export {
     CardProfile,
 
     /**
+     * Card de seleção de método OTP (email, telefone, WhatsApp).
+     * Apresenta opções clicáveis para o utilizador escolher como receber o código de verificação.
+     * @property {CardEmailPhoneWhatsappItem[]} items - Lista de opções
+     * @property {CardMethod[]} visible - Opções visíveis (filtradas)
+     * @property {CardMethod} selected - Item seleccionado (bindable)
+     * @property {(method) => void} onSelect - Callback ao seleccionar
+     * @see CardEmailPhoneWhatsappProps
+     */
+    CardEmailPhoneWhatsapp,
+
+    /**
      * Carousel de cards de promoção com preços antigo/novo, botão de comprar,
      * favoritar e adicionar ao carrinho.
      * @property {CardPromotionProps[]} items - Cards de promoção
@@ -624,6 +637,13 @@ export {
      * @see PageStatusProps
      */
     PageStatusPending,
+
+    /**
+     * Página de estado "Recovering" — wrapper do PageStatus para recuperação de senha.
+     * Exibe título azul e textos de recuperação. Suporta as mesmas props do PageStatus.
+     * @see PageStatusProps
+     */
+    PageStatusRecovering,
 
     /**
      * Página de política de privacidade ou termos de utilização com sidebar,
