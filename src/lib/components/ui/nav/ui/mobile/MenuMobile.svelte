@@ -1,8 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import type { NavMenuButtonProps } from "../../data/nav-menu";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { Menu } from "@hugeicons/core-free-icons";
-  import type { Snippet } from "svelte";
+      import type { Snippet } from "svelte";
   import MenuTriggerMobile from "./MenuTriggerMobile.svelte";
 
   type Props = {
@@ -17,6 +16,6 @@
 
 <MenuTriggerMobile {...restProps}>
   {#snippet trigger()}
-    <HugeiconsIcon icon={Menu} />
+    <ImageHugeicons icon="menu-07" />
   {/snippet}
 </MenuTriggerMobile>

@@ -1,4 +1,4 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 export type { CarouselBadgeProps } from "./badge/type";
 export type { CarouselHeroItem, CarouselHeroProps } from "./hero/types";
@@ -17,7 +17,7 @@ export interface ItemCarousel {
     /** URL de navegação opcional */
     link?: string,
     /** Ícone SVG opcional do item */
-    icon?: IconSvgElement | string,
+    icon?: HugeiconsIconName | string,
     /** Indica se o item está ativo/selecionado */
     isActive?: boolean,
     /** Callback acionado ao clicar no item */

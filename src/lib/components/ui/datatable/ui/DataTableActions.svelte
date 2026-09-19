@@ -1,10 +1,9 @@
 <script lang="ts" generics="T">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     import type { CellContext } from "$lib/components/ui/data-table";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
     import Button from "$lib/components/ui/button/button.svelte";
-    import { MoreHorizontalIcon } from "@hugeicons/core-free-icons";
-    import { HugeiconsIcon } from "@hugeicons/svelte";
-
+        
     let { row }: CellContext<T, unknown> = $props();
 </script>
 
@@ -12,7 +11,7 @@
     <DropdownMenu.Trigger>
         {#snippet child({ props })}
             <Button {...props} variant="ghost" class="size-8 p-0">
-                <HugeiconsIcon icon={MoreHorizontalIcon} class="size-4" />
+                <ImageHugeicons icon="more-horizontal" class="size-4" />
                 <span class="sr-only">Open menu</span>
             </Button>
         {/snippet}

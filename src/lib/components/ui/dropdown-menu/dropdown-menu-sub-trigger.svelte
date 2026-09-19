@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-	import { cn } from "$lib/utils.js";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+			import { cn } from "$lib/utils.js";
 	import { getDropdownMenuSubContext } from "./dropdown-menu-context.svelte.js";
 	import type { Snippet } from "svelte";
 	import type { HTMLButtonAttributes } from "svelte/elements";
@@ -54,5 +53,5 @@
 	{...restProps}
 >
 	{@render children?.()}
-	<HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} class="ms-auto size-3.5" />
+	<ImageHugeicons icon="arrow-right-01" class="ms-auto size-3.5" />
 </button>

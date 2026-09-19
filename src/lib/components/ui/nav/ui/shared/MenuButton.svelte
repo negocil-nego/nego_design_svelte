@@ -1,8 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
   import type { NavMenuButtonProps } from "../../data/nav-menu";
-  import { Login03Icon, User03Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/svelte";
-  import { Button } from "$lib/components/ui/button/index.js";
+      import { Button } from "$lib/components/ui/button/index.js";
   import { t } from "$lib/i18n";
 
   let {
@@ -17,14 +17,14 @@
 {#if onclickButtonRegister}
   {@render actionButtons({
     text: textButtonRegister || $t("label.register"),
-    icon: User03Icon,
+    icon: "user",
     onclick: onclickButtonRegister,
   })}
 {/if}
 {#if onclickButtonLogin}
   {@render actionButtons({
     text: textButtonLogin || $t("label.login"),
-    icon: Login03Icon,
+    icon: "login-02",
     onclick: onclickButtonLogin,
   })}
 {/if}
@@ -35,7 +35,7 @@
   onclick,
 }: Readonly<{
   text: string;
-  icon: IconSvgElement;
+  icon: HugeiconsIconName;
   onclick: () => void;
 }>)}
   <Button
@@ -45,7 +45,7 @@
   >
     <div>{text}</div>
     <div class="border p-2 rounded-full bg-white dark:bg-background mr-0">
-      <HugeiconsIcon {icon} />
+      <ImageHugeicons {icon} />
     </div>
   </Button>
 {/snippet}

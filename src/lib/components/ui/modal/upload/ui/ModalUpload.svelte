@@ -1,13 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import {
-    Cancel01Icon,
-    Delete02Icon,
-    ArrowDown01Icon,
-    RefreshIcon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+      import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type { ModalUploadProps, UploadFile } from "../types";
 
   let {
@@ -134,7 +128,7 @@
       />
 
       <div class="mb-3 flex size-12 items-center justify-center rounded-full bg-muted">
-        <HugeiconsIcon icon={ArrowDown01Icon} class="size-6 text-muted-foreground" />
+        <ImageHugeicons icon="arrow-down-01" class="size-6 text-muted-foreground" />
       </div>
 
       <p class="text-sm text-foreground">
@@ -214,7 +208,7 @@
                     onclick={() => onRetryFile(file.id)}
                     title="Retry"
                   >
-                    <HugeiconsIcon icon={RefreshIcon} class="size-4" />
+                    <ImageHugeicons icon="refresh" class="size-4" />
                   </button>
                 {/if}
                 {#if onRemoveFile}
@@ -224,7 +218,7 @@
                     onclick={() => onRemoveFile(file.id)}
                     title="Remove"
                   >
-                    <HugeiconsIcon icon={Delete02Icon} class="size-4" />
+                    <ImageHugeicons icon="delete-02" class="size-4" />
                   </button>
                 {/if}
               </div>

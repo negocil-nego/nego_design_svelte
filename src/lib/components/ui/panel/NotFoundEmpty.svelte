@@ -1,14 +1,13 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Empty from "$lib/components/ui/empty/index.js";
   import { t } from "$lib/i18n";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { Search01Icon } from "@hugeicons/core-free-icons";
-  import type { NotFoundEmptyProps } from "./type";
+      import type { NotFoundEmptyProps } from "./type";
 
   let {
     title,
     description,
-    icon = Search01Icon,
+    icon = "search-01",
     className = "",
     actionHref = "#/",
     actionLabel,
@@ -25,7 +24,7 @@
   <Empty.Header>
     {#if icon}
       <Empty.Media variant="icon">
-        <HugeiconsIcon {icon} class="size-6 text-muted-foreground" />
+        <ImageHugeicons {icon} class="size-6 text-muted-foreground" />
       </Empty.Media>
     {/if}
     <Empty.Title class="text-base font-semibold">

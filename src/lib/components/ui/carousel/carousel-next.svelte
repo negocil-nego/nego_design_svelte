@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { HugeiconsIcon } from "@hugeicons/svelte"
-	import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
-	import { Button, type Props } from "$lib/components/ui/button/index.js";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+			import { Button, type Props } from "$lib/components/ui/button/index.js";
 	import { cn } from "$lib/utils.js";
 	import { getEmblaContext } from "./context.js";
 	import type { WithoutChildren } from "$lib/utils.js";
@@ -35,6 +34,6 @@
 	bind:ref
 	{...restProps}
 >
-	<HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2}  />
+	<ImageHugeicons icon="arrow-right-01" />
 	<span class="sr-only">Next slide</span>
 </Button>

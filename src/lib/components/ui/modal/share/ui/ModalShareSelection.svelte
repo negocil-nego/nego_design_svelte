@@ -1,7 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+    import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type { ModalShareSelectionProps, ModelSocialShare } from "../types";
 
   const defaultNetworks: ModelSocialShare[] = [
@@ -111,11 +111,7 @@
                     style={network.color ? `color: ${network.color}` : ""}
                   ></i>
                 {:else if network.icon}
-                  <HugeiconsIcon
-                    icon={network.icon}
-                    class="size-6 transition-colors"
-                    style={network.color ? `color: ${network.color}` : ""}
-                  />
+                  <ImageHugeicons icon={network.icon} class="size-6 transition-colors" style={network.color ? `color: ${network.color}` : ""} />
                 {/if}
               {/snippet}
               {@render icon()}

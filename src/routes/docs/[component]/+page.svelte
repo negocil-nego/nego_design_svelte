@@ -1,8 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { page } from "$app/state";
-  import { ArrowRight02Icon, FileCodeIcon, Link01Icon, FileEmpty01Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import DocsHeader from "$lib/docs/DocsHeader.svelte";
+      import DocsHeader from "$lib/docs/DocsHeader.svelte";
   import CodeBlock from "$lib/docs/CodeBlock.svelte";
   import ApiTable from "$lib/docs/ApiTable.svelte";
   import { getComponent, type DocComponent } from "$lib/docs/components";
@@ -35,7 +34,7 @@
 <div class="mx-auto w-full max-w-3xl px-4 py-10 md:px-8">
   {#if !component}
     <div class="rounded-xl border border-border bg-card p-10 text-center">
-      <HugeiconsIcon icon={FileEmpty01Icon} class="mx-auto size-10 text-muted-foreground" />
+      <ImageHugeicons icon="file-01" class="mx-auto size-10 text-muted-foreground" />
       <h1 class="mt-4 text-xl font-bold">Component not found</h1>
       <p class="mt-2 text-sm text-muted-foreground">
         <code class="rounded bg-muted px-1 py-0.5">{slug}</code> is not documented yet.
@@ -45,13 +44,13 @@
         class="mt-6 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground"
       >
         Browse components
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-4" />
+        <ImageHugeicons icon="arrow-right-01" class="size-4" />
       </a>
     </div>
   {:else}
     <div class="flex flex-wrap items-center gap-2">
       <span class="inline-flex items-center gap-1.5 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary">
-        <HugeiconsIcon icon={FileCodeIcon} class="size-4" />
+        <ImageHugeicons icon="file-code" class="size-4" />
         {component.category}
       </span>
       <code class="rounded bg-muted px-2 py-1 text-xs text-muted-foreground">{component.path}</code>
@@ -77,7 +76,7 @@
             href={component.examples[0].href}
             class="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-5 py-2 text-sm font-semibold transition hover:border-primary/50 hover:bg-muted"
           >
-            <HugeiconsIcon icon={Link01Icon} class="size-4" />
+            <ImageHugeicons icon="link-01" class="size-4" />
             Open live demo
           </a>
         {/if}

@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { ArrowRight02Icon } from "@hugeicons/core-free-icons";
-  import type { CarouselHeaderProps } from "../../types";
+      import type { CarouselHeaderProps } from "../../types";
   import type { Snippet } from "svelte";
 
   type Props = {
@@ -48,7 +47,7 @@
               onclick={onButtonViewAll}
             >
               {$t("label.view.full")}
-              <HugeiconsIcon icon={ArrowRight02Icon} />
+              <ImageHugeicons icon="arrow-right-01" />
             </Button>
           </div>
         {/if}

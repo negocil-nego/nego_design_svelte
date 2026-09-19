@@ -25,10 +25,9 @@
 </script>
 
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	import { cn } from "$lib/utils.js";
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { GlobalIcon } from "@hugeicons/core-free-icons";
-	import type { CountryCode } from "./types";
+			import type { CountryCode } from "./types";
 
 	interface Props {
 		selected?: CountryCode | null;
@@ -63,11 +62,7 @@
 </script>
 
 <div class="relative flex shrink-0 items-center">
-	<HugeiconsIcon
-		icon={GlobalIcon}
-		strokeWidth={2}
-		class="text-muted-foreground pointer-events-none absolute left-2.5 size-4"
-	/>
+	<ImageHugeicons icon="global" class="text-muted-foreground pointer-events-none absolute left-2.5 size-4" />
 	<select
 		value={selected ?? ""}
 		onchange={handleChange}

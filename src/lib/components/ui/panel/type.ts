@@ -1,6 +1,6 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { CarouselPlugins } from "$lib/components/ui/carousel/context";
 import type { Snippet } from "svelte";
-import type { IconSvgElement } from "@hugeicons/svelte";
 
 /**
  * Props do NotFoundEmpty — estado vazio com ícone, título, descrição
@@ -12,7 +12,7 @@ export type NotFoundEmptyProps = {
     /** Descrição/apoio do estado vazio. Padrão: tradução de "empty.description" */
     description?: string;
     /** Ícone exibido na área de media. Padrão: ícone de busca */
-    icon?: IconSvgElement;
+    icon?: HugeiconsIconName;
     /** Classe CSS adicional para o container */
     className?: string;
     /** URL de destino da ação (link) quando não há onAction */

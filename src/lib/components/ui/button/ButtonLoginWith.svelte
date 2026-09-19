@@ -1,29 +1,25 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
   import Button, {
     type ButtonProps,
   } from "$lib/components/ui/button/button.svelte";
-  import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/svelte";
-  import { t } from "$lib/i18n";
-  import {
-    GoogleIcon,
-    Facebook01Icon as Facebook,
-    Linkedin01Icon as Linkedin,
-  } from "@hugeicons/core-free-icons";
-  import type { Snippet } from "svelte";
+    import { t } from "$lib/i18n";
+    import type { Snippet } from "svelte";
 
   type IconDefault = "GOOGLE" | "FACEBOOK" | "LINKEDLN";
 
   type Props = {
-    icon?: IconSvgElement | IconDefault | Snippet;
+    icon?: HugeiconsIconName | IconDefault | Snippet;
     label?: string;
   };
 
   let { icon, label, ...restProps }: Props & ButtonProps = $props();
 
-  const defaultIconMap: Record<IconDefault, IconSvgElement> = {
-    GOOGLE: GoogleIcon,
-    FACEBOOK: Facebook,
-    LINKEDLN: Linkedin,
+  const defaultIconMap: Record<IconDefault, HugeiconsIconName> = {
+    GOOGLE: "google",
+    FACEBOOK: "facebook-01",
+    LINKEDLN: "linkedin-01",
   };
 
   const defaultLabelMap: Record<IconDefault, string> = {
@@ -50,7 +46,7 @@
     {#if typeof resolvedIcon === "function"}
       {@render resolvedIcon()}
     {:else}
-      <HugeiconsIcon icon={resolvedIcon} size={16} />
+      <ImageHugeicons icon={resolvedIcon} width={16} height={16} />
     {/if}
   {/if}
   {$t("label.login.with", { name: resolvedLabel })}

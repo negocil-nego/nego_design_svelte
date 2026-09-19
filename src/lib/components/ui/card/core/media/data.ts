@@ -1,4 +1,3 @@
-import { GlobalIcon, MapPin, NecklaceIcon } from "@hugeicons/core-free-icons";
 import type { CardMediaProps } from "../types";
 
 const items: CardMediaProps[] = [
@@ -14,15 +13,15 @@ const items: CardMediaProps[] = [
         isFavorite: true,
         tags: [
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Luanda',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Kilamba',
             },
             {
-                icon: NecklaceIcon,
+                icon: "necklace",
                 text: 'Rua 19',
             },
         ],
@@ -38,19 +37,19 @@ const items: CardMediaProps[] = [
         videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
         tags: [
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Benguela',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Catumbela',
             },
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Luanda',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Kilamba',
             },
         ],
@@ -67,11 +66,11 @@ const items: CardMediaProps[] = [
         isFavorite: true,
         tags: [
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Huíla',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Huíla',
             },
         ],
@@ -88,19 +87,19 @@ const items: CardMediaProps[] = [
         tags: [
 
             {
-                icon: NecklaceIcon,
+                icon: "necklace",
                 text: 'Rua 19',
             },
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Luanda',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Kilamba',
             },
             {
-                icon: NecklaceIcon,
+                icon: "necklace",
                 text: 'Rua 19',
             },
         ]

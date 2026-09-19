@@ -50,8 +50,6 @@
 		"svelte": "^5.0.0"
 	},
 	"dependencies": {
-		"@hugeicons/core-free-icons": "^4.2.3",
-		"@hugeicons/svelte": "^1.1.4",
 		"@lottiefiles/dotlottie-svelte": "^0.10.15"
 	},
 	"devDependencies": {

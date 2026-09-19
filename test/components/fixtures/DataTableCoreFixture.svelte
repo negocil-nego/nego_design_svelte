@@ -1,5 +1,5 @@
 <script lang="ts">
-	import DataTableCore from '$lib/components/core/datatable/ui/DataTableCore.svelte';
+	import DataTableCore from '$lib/components/ui/datatable/ui/DataTableCore.svelte';
 
 	type Row = { id: number; name: string; email: string; status: string };
 

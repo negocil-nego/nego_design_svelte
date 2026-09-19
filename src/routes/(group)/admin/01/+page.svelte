@@ -2,17 +2,7 @@
     import AdminPanel from "$lib/components/pages/admin/shared/AdminPanel.svelte";
     import MenuBarSidebar from "$lib/components/ui/sidebar/core/MenuBarSidebar.svelte";
     import { t } from "$lib/i18n";
-    import {
-        Folder01FreeIcons,
-        GlobalEditingIcon,
-        HelpCircleFreeIcons,
-        Home01FreeIcons,
-        ManagerFreeIcons,
-        Phone,
-        Setting06FreeIcons,
-        UserSearch01FreeIcons,
-    } from "@hugeicons/core-free-icons";
-</script>
+    </script>
 
 <AdminPanel>
     {#snippet appsidebar()}
@@ -24,33 +14,33 @@
                 },
             }}
             menus={[
-                { icon: Home01FreeIcons, title: $t("label.home"), url: "#" },
+                { icon: "home-01", title: $t("label.home"), url: "#" },
                 {
-                    icon: UserSearch01FreeIcons,
+                    icon: "user-search-01",
                     title: $t("label.users"),
                     url: "#",
                 },
                 {
-                    icon: ManagerFreeIcons,
+                    icon: "manager",
                     title: $t("label.manager"),
                     submenus: [
                         {
-                            icon: GlobalEditingIcon,
+                            icon: "global-editing",
                             title: $t("label.folder"),
                             url: "#",
                         },
                         {
-                            icon: Folder01FreeIcons,
+                            icon: "folder-01",
                             title: $t("label.file"),
                             url: "#",
                         },
-                        { icon: Phone, title: $t("label.account"), url: "#" },
+                        { icon: "smart-phone-02", title: $t("label.account"), url: "#" },
                     ],
                 },
             ]}
             menusButtons={[
-                { icon: HelpCircleFreeIcons, title: $t("label.help") },
-                { icon: Setting06FreeIcons, title: $t("label.settings") },
+                { icon: "help-circle", title: $t("label.help") },
+                { icon: "setting-07", title: $t("label.settings") },
             ]}
         />
     {/snippet}

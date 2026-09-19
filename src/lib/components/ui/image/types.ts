@@ -4,3 +4,12 @@ export interface ImageLogoProps {
     text?: string
     textClass?: string
 }
+
+export interface ImageHugeiconsProps {
+    icon: string
+    class?: string
+    alt?: string
+    width?: number
+    height?: number
+    [key: string]: unknown
+}

@@ -1,10 +1,10 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 export interface SectionCardItem {
     id?: string | number;
     title: string;
     description?: string;
-    icon: string | IconSvgElement;
+    icon: string | HugeiconsIconName;
     isActive?: boolean;
 }
 

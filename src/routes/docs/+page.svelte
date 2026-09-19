@@ -1,15 +1,6 @@
 <script lang="ts">
-  import {
-    FrameIcon,
-    LanguageCircleIcon,
-    Moon01Icon,
-    PaintBoardIcon,
-    Rocket01Icon,
-    SquareLock02Icon,
-    ArrowRight02Icon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import DocsHeader from "$lib/docs/DocsHeader.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import DocsHeader from "$lib/docs/DocsHeader.svelte";
   import CodeBlock from "$lib/docs/CodeBlock.svelte";
 
   const installCode = `npm install negodesign`;
@@ -203,37 +194,37 @@ ${"</" + "script>"}
 
   const features = [
     {
-      icon: PaintBoardIcon,
+      icon: "sparkles",
       title: "Copy-paste components",
       description:
         "Reusable, dependency-free components under your control. Use them as a package or copy the source.",
     },
     {
-      icon: FrameIcon,
+      icon: "app-window",
       title: "Build on Svelte 5",
       description:
         "Runes-based components with snippets, bindable props and reactive state — no deprecated legacy APIs.",
     },
     {
-      icon: Rocket01Icon,
+      icon: "rocket-01",
       title: "Tailwind CSS ready",
       description:
         "Powered by Tailwind CSS v4 utilities and the shadcn design language, so it fits any brand instantly.",
     },
     {
-      icon: LanguageCircleIcon,
+      icon: "global",
       title: "i18n first",
       description:
         "Built-in language switcher and translation helpers for building truly multilingual products.",
     },
     {
-      icon: Moon01Icon,
+      icon: "moon-02",
       title: "Dark mode",
       description:
         "Light switch and theme-aware classes out of the box, with CSS variables you can override.",
     },
     {
-      icon: SquareLock02Icon,
+      icon: "lock-password",
       title: "Pages, not just widgets",
       description:
         "Complete, production-ready pages: login, admin panel, company profile, product details, and more.",
@@ -256,7 +247,7 @@ ${"</" + "script>"}
     <span
       class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
     >
-      <HugeiconsIcon icon={PaintBoardIcon} class="size-4" />
+      <ImageHugeicons icon="sparkles" class="size-4" />
       NegoDesign
     </span>
     <h1 class="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
@@ -275,7 +266,7 @@ ${"</" + "script>"}
         href="/docs/installation"
         class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
       >
-        <HugeiconsIcon icon={Rocket01Icon} class="size-4" />
+        <ImageHugeicons icon="rocket-01" class="size-4" />
         Get started
       </a>
       <a
@@ -283,7 +274,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold transition hover:bg-muted"
       >
         Browse components
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-4" />
+        <ImageHugeicons icon="arrow-right-01" class="size-4" />
       </a>
     </div>
 
@@ -298,7 +289,7 @@ ${"</" + "script>"}
       </div>
       <div class="rounded-xl border border-border bg-muted/40 p-5 md:col-span-3">
         <div class="flex items-center gap-2 text-sm font-medium">
-          <HugeiconsIcon icon={PaintBoardIcon} class="size-4 text-primary" />
+          <ImageHugeicons icon="sparkles" class="size-4 text-primary" />
           Copy-paste friendly
         </div>
         <p class="mt-2 text-sm text-muted-foreground">
@@ -326,14 +317,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
       >
         View all
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-4" />
+        <ImageHugeicons icon="arrow-right-01" class="size-4" />
       </a>
     </div>
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
       {#each features as feature (feature.title)}
         <div class="rounded-xl border border-border bg-card p-5 transition hover:border-primary/40">
           <span class="flex size-10 items-center justify-center rounded-lg bg-primary/10 text-primary">
-            <HugeiconsIcon icon={feature.icon} class="size-5" />
+            <ImageHugeicons icon={feature.icon} class="size-5" />
           </span>
           <h3 class="mt-4 text-sm font-semibold">{feature.title}</h3>
           <p class="mt-1 text-sm text-muted-foreground">{feature.description}</p>
@@ -350,14 +341,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
       >
         Docs
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
       <a
         href="/admin/section"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -391,7 +382,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -449,7 +440,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -514,14 +505,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
       >
         Docs
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
       <a
         href="/admin/tabs/status"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <HugeiconsIcon icon={ArrowRight02Icon} class="size-3" />
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">

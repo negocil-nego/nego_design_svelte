@@ -1,43 +1,37 @@
 <script lang="ts">
-  import {
-    Coffee03Icon,
-    Money01Icon,
-    PhoneCall,
-    TestTube02Icon,
-  } from "@hugeicons/core-free-icons";
-  import SimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
+    import SimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
 </script>
 
 <SimpleGrid
   isLoading
   items={[
     {
-      icon: Coffee03Icon,
+      icon: "sparkles",
       title: "Café",
       description: "Café com leite e pão de queijo para começar bem o dia",
     },
     {
-      icon: Money01Icon,
+      icon: "money-01",
       title: "Computador",
       description: "Computador com internet para trabalhar",
     },
     {
-      icon: PhoneCall,
+      icon: "smart-phone-02",
       title: "Telefone",
       description: "Telefone com internet para trabalhar",
     },
     {
-      icon: TestTube02Icon,
+      icon: "component",
       title: "Teste",
       description: "Teste com internet para trabalhar",
     },
     {
-      icon: TestTube02Icon,
+      icon: "component",
       title: "Teste",
       description: "Teste com internet para trabalhar",
     },
     {
-      icon: TestTube02Icon,
+      icon: "component",
       title: "Teste",
       description: "Teste com internet para trabalhar",
     },

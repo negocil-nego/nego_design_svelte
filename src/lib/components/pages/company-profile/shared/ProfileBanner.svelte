@@ -13,23 +13,13 @@
 </script>
 
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   import type { ProfileBannerData, ProfileBannerTag } from "../types";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { onDestroy } from "svelte";
-  import {
-    Calendar01FreeIcons,
-    Copy,
-    DashboardBrowsingIcon,
-    Email,
-    Link01FreeIcons,
-    MapPin,
-    Share,
-    WhatsappIcon,
-  } from "@hugeicons/core-free-icons";
-
+    import { onDestroy } from "svelte";
+  
   const AUTOPLAY_MS = 8000;
 
   let {
@@ -90,19 +80,19 @@
 
   // Ações do header (topo direito) — evita repetir markup de botão
   const headerActions = $derived([
-    { icon: Copy, label: "Copiar link", onclick: () => onCopyLink?.(id) },
-    { icon: Share, label: "Partilhar", onclick: () => onShare?.(id) },
+    { icon: "copy", label: "Copiar link", onclick: () => onCopyLink?.(id) },
+    { icon: "share-01", label: "Partilhar", onclick: () => onShare?.(id) },
   ]);
 
   const contactActions = $derived([
     {
-      icon: Email,
+      icon: "mail-01",
       label: "Email",
       iconClass: "text-red-500",
       onclick: () => onEmail?.(id),
     },
     {
-      icon: WhatsappIcon,
+      icon: "whatsapp",
       label: "Whatsapp",
       iconClass: "text-green-500",
       onclick: () => onWhatsapp?.(id),
@@ -113,15 +103,15 @@
     {
       title: "Categoria",
       description: data.category,
-      icon: DashboardBrowsingIcon,
+      icon: "dashboard-browsing",
     },
-    { title: "Endereço", description: data.address, icon: MapPin },
+    { title: "Endereço", description: data.address, icon: "map-pinned" },
     {
       title: "Anos de Atuação",
       description: data.yearFounded,
-      icon: Calendar01FreeIcons,
+      icon: "calendar-03",
     },
-    { title: "Website", description: data.website, icon: Link01FreeIcons },
+    { title: "Website", description: data.website, icon: "link-01" },
   ]);
 </script>
 
@@ -187,7 +177,7 @@
             aria-label={action.label}
             onclick={action.onclick}
           >
-            <HugeiconsIcon icon={action.icon} />
+            <ImageHugeicons icon={action.icon} />
           </Button>
         {/each}
       </div>
@@ -224,7 +214,7 @@
           onclick={action.onclick}
           class="bg-white cursor-pointer"
         >
-          <HugeiconsIcon icon={action.icon} class={action.iconClass} />
+          <ImageHugeicons icon={action.icon} class={action.iconClass} />
           {action.label}
         </Button>
       {/each}
@@ -262,7 +252,7 @@
 })}
   <div class="flex flex-col gap-2 items-center">
     <h3 class="text-md font-semibold flex gap-2 items-center">
-      <HugeiconsIcon {icon} size={15} />
+      <ImageHugeicons {icon} width={15} height={15} />
       {title}
     </h3>
     <p class="text-md text-gray-400">{description ?? "---"}</p>

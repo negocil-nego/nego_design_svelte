@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveCell } from '../../../src/lib/components/core/datatable/data/resolve-cell.svelte';
+import { resolveCell } from '../../../src/lib/components/ui/datatable/data/resolve-cell.svelte.ts';
 import { RenderSnippetConfig } from '../../../src/lib/components/ui/data-table/render-helpers';
 import type { CellContext, Table } from '../../../src/lib/components/ui/data-table';
 

@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { Mail01Icon, WhatsappIcon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { CardPhoneOrWhatsappProps } from "../types";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import type { CardPhoneOrWhatsappProps } from "../types";
 
   let {
     id,
@@ -24,7 +23,7 @@
         : ''} {buttonClass} {btnEmailClass}"
       onclick={() => onEmailClick?.(id)}
     >
-      <HugeiconsIcon icon={Mail01Icon} size={20} />
+      <ImageHugeicons icon="mail-01" width={20} height={20} />
       <span>Email</span>
     </button>
   {/if}
@@ -38,7 +37,7 @@
         : ''} {buttonClass} {btnWhatsappClass}"
       onclick={() => onWhatsappClick?.(id)}
     >
-      <HugeiconsIcon icon={WhatsappIcon} size={20} />
+      <ImageHugeicons icon="whatsapp" width={20} height={20} />
       <span>Whatsapp</span>
     </button>
   {/if}

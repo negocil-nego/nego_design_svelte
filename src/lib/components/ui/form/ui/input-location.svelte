@@ -1,8 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Label } from "$lib/components/ui/label";
-  import { LoaderPinwheelIcon, Location01Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-
+    
   type Coordinates = {
     latitude: number;
     longitude: number;
@@ -69,21 +68,10 @@
       class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10 disabled:cursor-not-allowed disabled:opacity-50"
     >
       {#if isLoading}
-        <HugeiconsIcon
-          icon={LoaderPinwheelIcon}
-          size={16}
-          color="currentColor"
-          strokeWidth={1.5}
-          class="animate-spin"
-        />
+        <ImageHugeicons icon="loader-pinwheel" width={16} height={16} color="currentColor" class="animate-spin" />
         {locationLoadingText}
       {:else}
-        <HugeiconsIcon
-          icon={Location01Icon}
-          size={16}
-          color="currentColor"
-          strokeWidth={1.5}
-        />
+        <ImageHugeicons icon="location-01" width={16} height={16} color="currentColor" />
         {locationText}
       {/if}
     </button>
@@ -102,21 +90,10 @@
     class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10 disabled:cursor-not-allowed disabled:opacity-50"
   >
     {#if isLoading}
-      <HugeiconsIcon
-        icon={LoaderPinwheelIcon}
-        size={16}
-        color="currentColor"
-        strokeWidth={1.5}
-        class="animate-spin"
-      />
+      <ImageHugeicons icon="loader-pinwheel" width={16} height={16} color="currentColor" class="animate-spin" />
       {locationLoadingText}
     {:else}
-      <HugeiconsIcon
-        icon={Location01Icon}
-        size={16}
-        color="currentColor"
-        strokeWidth={1.5}
-      />
+      <ImageHugeicons icon="location-01" width={16} height={16} color="currentColor" />
       {locationText}
     {/if}
   </button>

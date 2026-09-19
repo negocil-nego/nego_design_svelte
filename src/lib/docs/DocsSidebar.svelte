@@ -1,4 +1,5 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import {
     Sidebar,
     SidebarContent,
@@ -11,9 +12,7 @@
     SidebarMenuButton,
     SidebarMenuItem,
   } from "$lib/components/ui/sidebar";
-  import { DocumentCodeIcon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { page } from "$app/state";
+      import { page } from "$app/state";
   import { categories, components } from "$lib/docs/components";
 
   function componentList(category: string) {
@@ -31,7 +30,7 @@
           <span
             class="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground"
           >
-            <HugeiconsIcon icon={DocumentCodeIcon} class="size-4" />
+            <ImageHugeicons icon="document-code" class="size-4" />
           </span>
           <span class="text-sm font-semibold">NegoDesign</span>
         </a>

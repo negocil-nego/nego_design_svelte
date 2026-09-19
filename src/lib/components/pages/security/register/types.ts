@@ -1,5 +1,5 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { Snippet } from "svelte"
-import type { IconSvgElement } from "@hugeicons/svelte"
 
 export type RegisterCarouselItemType = "NUMBER" | "DOT" | "POINTER"
 export type SocialProvider = "GOOGLE" | "FACEBOOK" | "LINKEDIN"
@@ -19,7 +19,7 @@ export type LinkProps = {
 
 export type SocialLoginItem = {
   provider: SocialProvider
-  icon?: IconSvgElement
+  icon?: HugeiconsIconName
   label?: string
   onclick?: () => void
 }

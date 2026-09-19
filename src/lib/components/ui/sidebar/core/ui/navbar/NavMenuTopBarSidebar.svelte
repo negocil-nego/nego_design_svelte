@@ -1,11 +1,10 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
 	import * as Sidebar from "$lib/components/ui/sidebar/index.js";
 	import { useSidebar } from "$lib/components/ui/sidebar/index.js";
 	import type { NavTopBarSidebarItem } from "../../data/nav-top-bar-sidebar";
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { UnfoldMoreIcon } from "@hugeicons/core-free-icons";
-
+		
 	let { content, dropdownMenu }: NavTopBarSidebarItem = $props();
 	const sidebar = useSidebar();
 </script>
@@ -36,10 +35,7 @@
 							>
 						</div>
 						{#if dropdownMenu}
-							<HugeiconsIcon
-								icon={UnfoldMoreIcon}
-								class="ms-auto"
-							/>
+							<ImageHugeicons icon="unfold-more" class="ms-auto" />
 						{/if}
 					</Sidebar.MenuButton>
 				{/snippet}

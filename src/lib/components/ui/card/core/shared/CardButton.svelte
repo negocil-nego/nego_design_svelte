@@ -1,11 +1,12 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
   import { Button } from "$lib/components/ui/button/index.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import { HugeiconsIcon, type IconSvgElement } from "@hugeicons/svelte";
-
+  
   type CardButtonProps = {
     id: string | number;
-    icon?: IconSvgElement | string;
+    icon?: HugeiconsIconName;
     isFlex?: boolean;
     className?: string;
     text: string;
@@ -31,12 +32,8 @@
 {:else}
   <Button class="bg-gradient flex-1 {className}" onclick={() => onClick(id)}>
     {#if icon}
-      {#if typeof icon === "string"}
-        <i class={icon}></i>
-      {:else}
-        <HugeiconsIcon {icon} />
+        <ImageHugeicons icon={icon} />
       {/if}
-    {/if}
     <span>{text}</span>
   </Button>
 {/if}

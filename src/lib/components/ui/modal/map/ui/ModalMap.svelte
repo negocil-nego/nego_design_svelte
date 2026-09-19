@@ -1,8 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import { Search01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+      import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type { ModalMapProps } from "../types";
 
   let {
@@ -88,7 +87,7 @@
         <!-- Search Bar -->
         <div class="absolute left-4 right-4 top-4">
           <div class="flex items-center gap-2 rounded-xl border border-border bg-card shadow-lg">
-            <HugeiconsIcon icon={Search01Icon} class="ml-3 size-4 text-muted-foreground" />
+            <ImageHugeicons icon="search-01" class="ml-3 size-4 text-muted-foreground" />
             <input
               type="text"
               bind:value={searchQuery}
@@ -108,7 +107,7 @@
               class="text-muted-foreground transition hover:text-foreground"
               onclick={() => (isOpen = false)}
             >
-              <HugeiconsIcon icon={Cancel01Icon} class="size-4" />
+              <ImageHugeicons icon="cancel-01" class="size-4" />
             </button>
           </div>
 

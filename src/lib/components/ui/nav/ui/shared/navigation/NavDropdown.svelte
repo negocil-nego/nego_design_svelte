@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
-	import type { Snippet } from "svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+			import type { Snippet } from "svelte";
 
 	let {
 		label,
@@ -66,14 +65,9 @@
 	>
 		{label}
 		{#if children}
-			<HugeiconsIcon
-				icon={ArrowDown01Icon}
-				strokeWidth={2}
-				class={`relative top-px ml-1 size-3 transition-transform duration-300 ${
+			<ImageHugeicons icon="arrow-down-01" class={`relative top-px ml-1 size-3 transition-transform duration-300 ${
 					open ? "rotate-180" : ""
-				}`}
-				aria-hidden="true"
-			/>
+				}`} aria-hidden="true" />
 		{/if}
 	</button>
 

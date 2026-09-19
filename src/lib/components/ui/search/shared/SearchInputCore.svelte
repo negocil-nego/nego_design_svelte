@@ -7,9 +7,8 @@
 </script>
 
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { Search01Icon } from "@hugeicons/core-free-icons";
-  import Button from "$lib/components/ui/button/button.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import Button from "$lib/components/ui/button/button.svelte";
   import { Separator } from "$lib/components/ui/separator/index";
   import { t } from "$lib/i18n";
   import type { SearchInputProps } from "../types";
@@ -31,13 +30,7 @@
   >
     <div class="flex items-center gap-2 py-1 px-2 w-full md:min-h-15">
       <div class="items-center gap-2 hidden md:flex">
-        <HugeiconsIcon
-          icon={Search01Icon}
-          size={20}
-          color="currentColor"
-          strokeWidth={1.5}
-          class={iconClass}
-        />
+        <ImageHugeicons icon="search-01" width={20} height={20} color="currentColor" class={iconClass} />
       </div>
       <input
         type="search"
@@ -52,12 +45,7 @@
           onclick={() => onSubmit?.(value)}
           class={`flex justify-center items-center cursor-pointer ${buttonClass}`}
         >
-          <HugeiconsIcon
-            icon={Search01Icon}
-            size={15}
-            color="currentColor"
-            strokeWidth={2}
-          />
+          <ImageHugeicons icon="search-01" width={15} height={15} color="currentColor" />
           <span class="hidden md:block">{$t("label.search")}</span>
         </Button>
       </div>

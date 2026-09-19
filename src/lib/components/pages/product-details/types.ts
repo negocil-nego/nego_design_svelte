@@ -1,7 +1,7 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 export interface ProductDetailsFeatureProps {
-  icon?: IconSvgElement | string;
+  icon?: HugeiconsIconName | string;
   label: string;
 }
 
@@ -23,7 +23,7 @@ export interface ProductDetailsBreadcrumbItem {
  */
 export interface ProductDetailsTag {
   /** Ícone opcional exibido antes do texto da tag. */
-  icon?: IconSvgElement;
+  icon?: HugeiconsIconName;
   /** Texto principal da tag (ex: "Luanda", "5 Estrelas"). */
   text: string;
 }

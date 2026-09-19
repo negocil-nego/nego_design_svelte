@@ -1,8 +1,7 @@
 <script lang="ts">
-    import { GripVerticalIcon } from "@hugeicons/core-free-icons";
-    import { HugeiconsIcon } from "@hugeicons/svelte";
-</script>
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+        </script>
 
 <button class="cursor-grab opacity-60 hover:opacity-100 w-min">
-    <HugeiconsIcon icon={GripVerticalIcon} class="size-4" />
+    <ImageHugeicons icon="grip-vertical" class="size-4" />
 </button>

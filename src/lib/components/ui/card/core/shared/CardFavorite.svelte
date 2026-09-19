@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import { HeartAddIcon, HeartRemoveIcon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-
+    
   type Props = {
     id: string | number;
     isFavorite: boolean;
@@ -21,13 +20,13 @@
     class="w-8 h-8 rounded-full bg-[#ce2356]"
     onclick={() => onFavoriteClick!(id)}
   >
-    <HugeiconsIcon icon={HeartRemoveIcon} />
+    <ImageHugeicons icon="heart-remove" />
   </Button>
 {:else}
   <Button
     class="w-8 h-8 rounded-full bg-[#808080]"
     onclick={() => onFavoriteClick!(id)}
   >
-    <HugeiconsIcon icon={HeartAddIcon} />
+    <ImageHugeicons icon="heart-add" />
   </Button>
 {/if}

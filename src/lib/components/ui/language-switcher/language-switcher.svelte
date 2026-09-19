@@ -7,9 +7,8 @@
 </script>
 
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { GlobalIcon } from "@hugeicons/core-free-icons";
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
   import { t, locale, locales } from "$lib/i18n";
   import { cn } from "$lib/utils.js";
 
@@ -24,7 +23,7 @@
     )}
     aria-label="Change language"
   >
-    <HugeiconsIcon icon={GlobalIcon} />
+    <ImageHugeicons icon="global" />
     <span class="sr-only">Change language</span>
   </DropdownMenu.Trigger>
   <DropdownMenu.Content {align}>

@@ -3,8 +3,7 @@
    * Card component with a title and content.
    * @component
    */
-  import { InformationCircleIcon, UserIcon } from "@hugeicons/core-free-icons";
-  import { t } from "$lib/i18n";
+    import { t } from "$lib/i18n";
   import type { CardProfileProps } from "../../types";
   import CardStarRating from "../../shared/CardStarRating.svelte";
   import CardTags from "../../shared/CardTags.svelte";
@@ -116,7 +115,7 @@
         {#if onButtonProfile}
           <CardButton
             {id}
-            icon={UserIcon}
+            icon="user"
             className={buttonProfileClass}
             text={$t("label.view.profile")}
             onClick={onButtonProfile}

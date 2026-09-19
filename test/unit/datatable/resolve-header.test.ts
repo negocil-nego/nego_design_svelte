@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveHeader } from '../../../src/lib/components/core/datatable/data/resolve-header.svelte';
+import { resolveHeader } from '../../../src/lib/components/ui/datatable/data/resolve-header.svelte.ts';
 import { RenderSnippetConfig } from '../../../src/lib/components/ui/data-table/render-helpers';
 import type { HeaderContext, Table } from '../../../src/lib/components/ui/data-table';
 

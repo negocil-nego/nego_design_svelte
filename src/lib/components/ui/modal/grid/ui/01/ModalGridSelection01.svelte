@@ -1,7 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+    import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type { ModalGridSelectionProps, ModelGridCard } from "../../types";
 
   let {
@@ -63,10 +63,7 @@
           {#if typeof card.icon === "string"}
             <i class="{card.icon} text-4xl text-muted-foreground md:text-5xl"></i>
           {:else}
-            <HugeiconsIcon
-              icon={card.icon}
-              class="size-10 text-muted-foreground md:size-12"
-            />
+            <ImageHugeicons icon={card.icon} class="size-10 text-muted-foreground md:size-12" />
           {/if}
 
           <p class="text-sm font-bold md:text-base">{card.title}</p>

@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { Message01Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import TruncatableText from "./TruncatableText.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import TruncatableText from "./TruncatableText.svelte";
   import { t } from "$lib/i18n";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 
@@ -28,7 +27,7 @@
   {#if isDescriptionLabel}
     <div class="mb-1 text-[14px] md:text-[15px] flex items-center gap-1">
       {#if isDescriptionIcon}
-        <HugeiconsIcon icon={Message01Icon} class="h-4 w-4" />
+        <ImageHugeicons icon="message-01" class="h-4 w-4" />
       {/if}
       <div>{$t("label.description")}</div>
     </div>

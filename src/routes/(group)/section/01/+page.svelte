@@ -1,25 +1,20 @@
 <script lang="ts">
   import Section01 from "$lib/components/ui/section/Section01.svelte";
   import type { SectionCardItem } from "$lib/components/ui/section/types";
-  import {
-    ShoppingBag01Icon,
-    FactoryIcon,
-    Stethoscope02Icon,
-  } from "@hugeicons/core-free-icons";
-
+  
   let selectedKey = $state<string | number>("2");
 
   const items: SectionCardItem[] = [
     {
       id: "1",
-      icon: ShoppingBag01Icon,
+      icon: "shopping-basket-01",
       title: "Retail & E-commerce",
       description:
         "Streamline your fulfillment process, reduce delivery times, and improve customer satisfaction.",
     },
     {
       id: "2",
-      icon: FactoryIcon,
+      icon: "app-window",
       title: "Manufacturing",
       description:
         "Optimize your supply chain, from raw materials to finished goods, with efficient transportation and services.",
@@ -27,14 +22,14 @@
     },
     {
       id: "3",
-      icon: Stethoscope02Icon,
+      icon: "help-circle",
       title: "Healthcare & Pharmacy",
       description:
         "Ensure the safe, timely delivery of temperature-sensitive products and critical shipments.",
     },
     {
       id: "4",
-      icon: Stethoscope02Icon,
+      icon: "help-circle",
       title: "Technology & Electronics",
       description:
         "Handle high-value, sensitive products with care, ensuring fast, secure delivery across global markets.",

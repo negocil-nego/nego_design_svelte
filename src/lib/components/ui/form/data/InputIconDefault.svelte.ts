@@ -1,21 +1,12 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { HTMLInputTypeAttribute } from "svelte/elements";
-import {
-  Mail01Icon,
-  LockPasswordIcon,
-  Search01Icon,
-  SmartPhone01Icon,
-  File01Icon,
-  Calendar01Icon,
-  Url,
-} from "@hugeicons/core-free-icons";
-import type { IconSvgElement } from "@hugeicons/svelte";
 
-export const inputIconMap: Partial<Record<HTMLInputTypeAttribute, IconSvgElement>> = {
-  email: Mail01Icon,
-  password: LockPasswordIcon,
-  search: Search01Icon,
-  tel: SmartPhone01Icon,
-  url: Url,
-  file: File01Icon,
-  date: Calendar01Icon,
+export const inputIconMap: Partial<Record<HTMLInputTypeAttribute, HugeiconsIconName>> = {
+  email: "mail-01",
+  password: "lock-password",
+  search: "search-01",
+  tel: "smart-phone-02",
+  url: "link-01",
+  file: "file-01",
+  date: "calendar-03",
 };

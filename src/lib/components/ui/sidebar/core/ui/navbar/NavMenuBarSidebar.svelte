@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Collapsible from "$lib/components/ui/collapsible/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-  import { ChevronRightIcon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type {
+      import type {
     NavMenuAndSubmenuSidebarProps,
     NavMenuItem,
     NavMenuSidebarProps,
@@ -39,13 +38,10 @@
             {#snippet child({ props })}
               <Sidebar.MenuButton {...props} tooltipContent={item.title}>
                 {#if item.icon}
-                  <HugeiconsIcon icon={item.icon} />
+                  <ImageHugeicons icon={item.icon} />
                 {/if}
                 <span>{item.title}</span>
-                <HugeiconsIcon
-                  icon={ChevronRightIcon}
-                  class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
-                />
+                <ImageHugeicons icon="chevron-right" class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
               </Sidebar.MenuButton>
             {/snippet}
           </Collapsible.Trigger>
@@ -73,7 +69,7 @@
         {#snippet child({ props })}
           <a href={item.url} {...props}>
             {#if item.icon}
-              <HugeiconsIcon icon={item.icon} />
+              <ImageHugeicons icon={item.icon} />
             {/if}
             <span>{item.title}</span>
           </a>

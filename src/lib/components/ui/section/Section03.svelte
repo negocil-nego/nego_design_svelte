@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { Section03Props } from "./types";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import type { Section03Props } from "./types";
 
   let {
     title,
@@ -38,7 +38,7 @@
             {#if typeof item.icon === "string"}
               <i class="text-3xl {item.icon}"></i>
             {:else}
-              <HugeiconsIcon icon={item.icon} class="size-8" />
+              <ImageHugeicons icon={item.icon} class="size-8" />
             {/if}
           </div>
           <h3 class="text-lg font-bold">{item.title}</h3>

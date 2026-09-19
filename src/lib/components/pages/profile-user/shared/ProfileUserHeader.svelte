@@ -7,13 +7,8 @@
 </script>
 
 <script lang="ts">
-  import {
-    BadgeCheckIcon,
-    Mail01Icon,
-    UserIcon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import Avatar from "$lib/components/ui/avatar/avatar.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import Avatar from "$lib/components/ui/avatar/avatar.svelte";
   import AvatarImage from "$lib/components/ui/avatar/avatar-image.svelte";
   import Badge from "$lib/components/ui/badge/badge.svelte";
   import Button from "$lib/components/ui/button/button.svelte";
@@ -64,7 +59,7 @@
                 variant="secondary"
                 class="bg-white/20 text-white hover:bg-white/30"
               >
-                <HugeiconsIcon icon={BadgeCheckIcon} />
+                <ImageHugeicons icon="badge-check" />
                 {data.status ?? statusDefault}
               </Badge>
             </div>
@@ -73,12 +68,12 @@
             </p>
             <div class="flex items-center gap-4 text-sm text-white/80">
               <span class="flex items-center gap-1.5">
-                <HugeiconsIcon icon={Mail01Icon} class="size-4" />
+                <ImageHugeicons icon="mail-01" class="size-4" />
                 {data.email}
               </span>
               {#if data.phone}
                 <span class="flex items-center gap-1.5">
-                  <HugeiconsIcon icon={UserIcon} class="size-4" />
+                  <ImageHugeicons icon="user" class="size-4" />
                   {data.phone}
                 </span>
               {/if}

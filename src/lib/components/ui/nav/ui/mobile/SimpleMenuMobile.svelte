@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import type { NavMenuLinksProps } from "../../data/nav-menu";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { Login03Icon, User03Icon } from "@hugeicons/core-free-icons";
-  import MenuLinks from "../shared/MenuLinks.svelte";
+      import MenuLinks from "../shared/MenuLinks.svelte";
   import MenuMobile from "./MenuMobile.svelte";
   import { t } from "$lib/i18n";
 
@@ -27,13 +26,13 @@
     <section>
       {#if onclickButtonRegister}
         <Button variant="outline" onclick={onclickButtonRegister}>
-          <HugeiconsIcon icon={User03Icon} />
+          <ImageHugeicons icon="user" />
           {$t("label.register")}
         </Button>
       {/if}
       {#if onclickButtonLogin}
         <Button variant="outline" onclick={onclickButtonLogin}>
-          <HugeiconsIcon icon={Login03Icon} />
+          <ImageHugeicons icon="login-02" />
           {$t("label.login")}
         </Button>
       {/if}

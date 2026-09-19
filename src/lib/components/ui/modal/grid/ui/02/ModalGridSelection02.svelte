@@ -1,8 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
-  import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+      import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type {
     ModalGridSelectionProps,
     ModelGridCard,
@@ -118,7 +117,7 @@
             {#if typeof card.icon === "string"}
               <i class="{card.icon} text-lg"></i>
             {:else}
-              <HugeiconsIcon icon={card.icon} class="size-5" />
+              <ImageHugeicons icon={card.icon} class="size-5" />
             {/if}
           </div>
 
@@ -134,10 +133,7 @@
 
           <!-- Checkmark -->
           {#if selected}
-            <HugeiconsIcon
-              icon={CheckmarkCircle02Icon}
-              class="size-5 shrink-0 text-primary"
-            />
+            <ImageHugeicons icon="checkmark-circle-02" class="size-5 shrink-0 text-primary" />
           {/if}
         </button>
       {/each}

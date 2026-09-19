@@ -1,14 +1,13 @@
 <script lang="ts">
-  import { CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { t } from "$lib/i18n";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import { t } from "$lib/i18n";
   import type {
     CardEmailPhoneWhatsappProps,
     CardEmailPhoneWhatsappItem,
     CardMethod,
   } from "./types";
   import WhatsAppImage from "$lib/assets/social/icons8-whatsapp-96.png";
-  import PhoneImage from "$lib/assets/social/icons8-telefone-96.png";
+  import PhoneImage from "$lib/assets/social/icons8-phone-96.png";
   import MailImage from "$lib/assets/social/icons8-gmail-96.png";
 
   let {
@@ -67,11 +66,7 @@
           ? 'bg-primary text-primary-foreground'
           : 'bg-muted text-muted-foreground'}"
       >
-        {#if typeof item.imageUrl === "string"}
-          <img src={item.imageUrl} alt={item.title} class="size-5" />
-        {:else}
-          <HugeiconsIcon icon={item.imageUrl!} class="size-5" />
-        {/if}
+        <img src={item.imageUrl} alt={item.title} class="size-5" />
       </div>
 
       <div class="min-w-0 flex-1">
@@ -87,10 +82,7 @@
       </div>
 
       {#if isSelected}
-        <HugeiconsIcon
-          icon={CheckmarkCircle02Icon}
-          class="size-5 shrink-0 text-primary"
-        />
+        <ImageHugeicons icon="checkmark-circle-02" class="size-5 shrink-0 text-primary" />
       {/if}
     </button>
   {/each}

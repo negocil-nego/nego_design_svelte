@@ -1,15 +1,10 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import { useSidebar } from "$lib/components/ui/sidebar/index.js";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import {
-    UnfoldMoreIcon,
-    Logout01Icon,
-    SparklesIcon,
-  } from "@hugeicons/core-free-icons";
-  import { t } from "$lib/i18n";
+      import { t } from "$lib/i18n";
   import type { NavUserSidebarProps } from "$lib/types";
 
   let { user: userLogged }: { user: NavUserSidebarProps } = $props();
@@ -38,7 +33,7 @@
               <span class="truncate font-medium">{userLogged.user.name}</span>
               <span class="truncate text-xs">{userLogged.user.email}</span>
             </div>
-            <HugeiconsIcon icon={UnfoldMoreIcon} size={16} class="ms-auto" />
+            <ImageHugeicons icon="unfold-more" width={16} height={16} class="ms-auto" />
           </Sidebar.MenuButton>
         {/snippet}
       </DropdownMenu.Trigger>
@@ -66,7 +61,7 @@
         <DropdownMenu.Separator />
         <DropdownMenu.Group>
           <DropdownMenu.Item>
-            <HugeiconsIcon icon={SparklesIcon} size={16} />
+            <ImageHugeicons icon="sparkles" width={16} height={16} />
             Upgrade to Pro
           </DropdownMenu.Item>
         </DropdownMenu.Group>
@@ -76,7 +71,7 @@
           <DropdownMenu.Group>
             {#each userLogged.actions as action (action.label)}
               <DropdownMenu.Item onclick={action.onclick}>
-                <HugeiconsIcon icon={action.icon} size={16} />
+                <ImageHugeicons icon={action.icon} width={16} height={16} />
                 {action.label}
               </DropdownMenu.Item>
             {/each}
@@ -85,7 +80,7 @@
 
         <DropdownMenu.Separator />
         <DropdownMenu.Item onclick={userLogged?.onLogout}>
-          <HugeiconsIcon icon={Logout01Icon} size={16} />
+          <ImageHugeicons icon="logout-01" width={16} height={16} />
           {$t("label.logout")}
         </DropdownMenu.Item>
       </DropdownMenu.Content>

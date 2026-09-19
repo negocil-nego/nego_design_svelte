@@ -1,11 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import {
-    ArrowLeft01Icon,
-    ArrowRight01Icon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { ModalCoreProps } from "../types";
+      import type { ModalCoreProps } from "../types";
 
   let {
     isOpen = $bindable(false),
@@ -110,7 +106,7 @@
                   class="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition"
                   onclick={onBack}
                 >
-                  <HugeiconsIcon icon={ArrowLeft01Icon} class="size-4" />
+                  <ImageHugeicons icon="arrow-left-01" class="size-4" />
                   {backText}
                 </button>
               {/if}
@@ -121,7 +117,7 @@
                 onclick={onContinue}
               >
                 {continueText}
-                <HugeiconsIcon icon={ArrowRight01Icon} class="size-4" />
+                <ImageHugeicons icon="arrow-right-01" class="size-4" />
               </button>
             </div>
           </div>

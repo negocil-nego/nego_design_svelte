@@ -1,4 +1,3 @@
-import { GlobalIcon, MapPin, NecklaceIcon } from "@hugeicons/core-free-icons";
 import type { CardProfileProps } from "../types";
 
 const items: CardProfileProps[] = [
@@ -14,15 +13,15 @@ const items: CardProfileProps[] = [
         videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Luanda',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Kilamba',
             },
             {
-                icon: NecklaceIcon,
+                icon: "necklace",
                 text: 'Rua 19',
             },
         ],
@@ -38,19 +37,19 @@ const items: CardProfileProps[] = [
         videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Benguela',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Catumbela',
             },
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Luanda',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Kilamba',
             },
         ],
@@ -67,11 +66,11 @@ const items: CardProfileProps[] = [
         videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Huíla',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Huíla',
             },
         ],
@@ -88,19 +87,19 @@ const items: CardProfileProps[] = [
         tags: [
 
             {
-                icon: NecklaceIcon,
+                icon: "necklace",
                 text: 'Rua 19',
             },
             {
-                icon: GlobalIcon,
+                icon: "global",
                 text: 'Luanda',
             },
             {
-                icon: MapPin,
+                icon: "map-pinned",
                 text: 'Kilamba',
             },
             {
-                icon: NecklaceIcon,
+                icon: "necklace",
                 text: 'Rua 19',
             },
         ]

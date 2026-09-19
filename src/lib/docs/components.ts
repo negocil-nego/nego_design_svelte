@@ -72,7 +72,7 @@ export const components: DocComponent[] = [
     category: "Navigation",
     description:
       "Responsive navigation bar that automatically switches between the Simple (links) and Complex (mega menu) variants based on the device.",
-    path: "src/lib/components/core/nav/ui/Menu.svelte",
+    path: "src/lib/components/ui/nav/ui/Menu.svelte",
     importPath: "Menu",
     examples: [{ title: "Navigation Menu", code: navButtonExample, href: "/menu" }],
     props: [
@@ -89,7 +89,7 @@ export const components: DocComponent[] = [
     name: "SearchInput",
     category: "Navigation",
     description: "Search field with two visual variants: 1 (full border) and 2 (underline only).",
-    path: "src/lib/components/core/search/SearchInput.svelte",
+    path: "src/lib/components/ui/search/SearchInput.svelte",
     importPath: "SearchInput",
     examples: [
       {
@@ -117,7 +117,7 @@ export const components: DocComponent[] = [
     name: "SimpleHero",
     category: "Hero",
     description: "Static hero in a split layout: left column with content and right column with a circular image.",
-    path: "src/lib/components/core/hero/SimpleHero.svelte",
+    path: "src/lib/components/ui/hero/SimpleHero.svelte",
     importPath: "SimpleHero",
     examples: [
       {
@@ -151,7 +151,7 @@ export const components: DocComponent[] = [
     name: "CarouselHero",
     category: "Hero",
     description: "Fullscreen background hero with a crossfade slide carousel, dark overlay, and overlaid navigation menu.",
-    path: "src/lib/components/core/carousel/hero/ui/CarouselHero.svelte",
+    path: "src/lib/components/ui/carousel/hero/ui/CarouselHero.svelte",
     importPath: "CarouselHero",
     examples: [
       {
@@ -198,7 +198,7 @@ export const components: DocComponent[] = [
     name: "CtaCardImageBanner",
     category: "Banners",
     description: "CTA banner with a featured image on a gradient background and up to two buttons.",
-    path: "src/lib/components/core/banner/CtaCardImageBanner.svelte",
+    path: "src/lib/components/ui/banner/CtaCardImageBanner.svelte",
     importPath: "CtaCardImageBanner",
     examples: [
       {
@@ -236,7 +236,7 @@ export const components: DocComponent[] = [
     name: "NotificationBanner",
     category: "Banners",
     description: "Thin dismissible notification strip with optional strong text, description, CTA, and close button.",
-    path: "src/lib/components/core/banner/NotificationBanner.svelte",
+    path: "src/lib/components/ui/banner/NotificationBanner.svelte",
     importPath: "NotificationBanner",
     examples: [
       {
@@ -269,7 +269,7 @@ export const components: DocComponent[] = [
     name: "AdCardBanner",
     category: "Banners",
     description: "Ad card with a colored side strip and a two-part title with a CTA button.",
-    path: "src/lib/components/core/banner/AdCardBanner.svelte",
+    path: "src/lib/components/ui/banner/AdCardBanner.svelte",
     importPath: "AdCardBanner",
     examples: [
       {
@@ -302,7 +302,7 @@ export const components: DocComponent[] = [
     name: "CtaCardBanner",
     category: "Banners",
     description: "'Get in touch' style CTA banner with decorative rings and up to two pill buttons.",
-    path: "src/lib/components/core/banner/CtaCardBanner.svelte",
+    path: "src/lib/components/ui/banner/CtaCardBanner.svelte",
     importPath: "CtaCardBanner",
     examples: [
       {
@@ -336,7 +336,7 @@ export const components: DocComponent[] = [
     name: "CardMedia",
     category: "Cards",
     description: "Wrapper for media cards with variants 1 (left-aligned) and 2 (centered). Shows logo, title, rating, tags, and buttons.",
-    path: "src/lib/components/core/card/media/CardMedia.svelte",
+    path: "src/lib/components/ui/card/media/CardMedia.svelte",
     importPath: "CardMedia",
     examples: [
       {
@@ -383,7 +383,7 @@ export const components: DocComponent[] = [
     name: "CardProfile",
     category: "Cards",
     description: "Wrapper for organization/guide profile cards, with variants 1 and 2.",
-    path: "src/lib/components/core/card/profile/CardProfile.svelte",
+    path: "src/lib/components/ui/card/profile/CardProfile.svelte",
     importPath: "CardProfile",
     examples: [
       {
@@ -424,7 +424,7 @@ export const components: DocComponent[] = [
     name: "CarouselBadge",
     category: "Carousels",
     description: "Selectable row of badges/categories with navigation, active state, and skeletons.",
-    path: "src/lib/components/core/carousel/badge/ui/CarouselBadge.svelte",
+    path: "src/lib/components/ui/carousel/badge/ui/CarouselBadge.svelte",
     importPath: "CarouselBadge",
     examples: [
       {
@@ -465,7 +465,7 @@ export const components: DocComponent[] = [
     name: "CarouselHighlights",
     category: "Carousels",
     description: "Horizontal carousel of highlight cards with a header, autoplay, and empty/loading states.",
-    path: "src/lib/components/core/carousel/highlights/ui/CarouselHighlights.svelte",
+    path: "src/lib/components/ui/carousel/highlights/ui/CarouselHighlights.svelte",
     importPath: "CarouselHighlights",
     examples: [
       {
@@ -503,7 +503,7 @@ export const components: DocComponent[] = [
     name: "CarouselPromotion",
     category: "Carousels",
     description: "Horizontal carousel of promotion cards with old/new prices and buy/shop/favorite buttons.",
-    path: "src/lib/components/core/carousel/promotion/ui/CarouselPromotion.svelte",
+    path: "src/lib/components/ui/carousel/promotion/ui/CarouselPromotion.svelte",
     importPath: "CarouselPromotion",
     examples: [
       {
@@ -539,7 +539,7 @@ export const components: DocComponent[] = [
     name: "CarouselGrid",
     category: "Carousels",
     description: "Family of responsive grids (Media, Product, Profile, Promotion) using CSS grid on desktop and a carousel on mobile.",
-    path: "src/lib/components/core/carousel/grid/",
+    path: "src/lib/components/ui/carousel/grid/",
     importPath: "CarouselGridMedia | CarouselGridProduct | CarouselGridProfile | CarouselGridPromotion",
     examples: [
       {
@@ -578,7 +578,7 @@ export const components: DocComponent[] = [
     name: "ItemsSimpleGrid",
     category: "Item Grid",
     description: "Responsive grid of items (icon + title + description) with dynamic columns.",
-    path: "src/lib/components/core/grid/ui/ItemsSimpleGrid.svelte",
+    path: "src/lib/components/ui/grid/ui/ItemsSimpleGrid.svelte",
     importPath: "ItemsSimpleGrid",
     examples: [
       {
@@ -609,7 +609,7 @@ export const components: DocComponent[] = [
     name: "ItemsPanel",
     category: "Item Grid",
     description: "Item panel/switch that renders in a grid or inline carousel with selection state.",
-    path: "src/lib/components/core/grid/ui/ItemsPanel.svelte",
+    path: "src/lib/components/ui/grid/ui/ItemsPanel.svelte",
     importPath: "ItemsPanel",
     examples: [
       {
@@ -1205,7 +1205,7 @@ let isOpen = $state(false);
     name: "Footer",
     category: "Footer",
     description: "Footer wrapper with link columns, newsletter, social media, and copyright.",
-    path: "src/lib/components/core/footer/ui/Footer.svelte",
+    path: "src/lib/components/ui/footer/ui/Footer.svelte",
     importPath: "Footer",
     examples: [
       {
@@ -1271,7 +1271,7 @@ let isOpen = $state(false);
     name: "DataTableCore",
     category: "Admin Panel",
     description: "Generic data table (TanStack Table) with headers, badges, drag-and-drop, selection, filters, and pagination.",
-    path: "src/lib/components/core/datatable/ui/DataTableCore.svelte",
+    path: "src/lib/components/ui/datatable/ui/DataTableCore.svelte",
     importPath: "DataTableCore",
     examples: [
       {
@@ -1284,7 +1284,7 @@ let isOpen = $state(false);
   columnFilter="name"
   actions={RowActions}
 />`,
-        href: "/datatable/01",
+        href: "/admin/01",
       },
     ],
     props: [
@@ -1299,7 +1299,7 @@ let isOpen = $state(false);
     name: "MenuBarSidebar",
     category: "Admin Panel",
     description: "Navigation sidebar used inside AdminPanel with submenus, footer buttons, and a signed-in user card.",
-    path: "src/lib/components/core/sidebar/MenuBarSidebar.svelte",
+    path: "src/lib/components/ui/sidebar/MenuBarSidebar.svelte",
     importPath: "MenuBarSidebar",
     examples: [
       {

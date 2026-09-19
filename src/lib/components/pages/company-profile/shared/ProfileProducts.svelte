@@ -12,11 +12,10 @@
 </script>
 
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
   import type { ProfileProductsData } from "../types";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { PackageIcon } from "@hugeicons/core-free-icons";
-  import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
+      import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
 
   let {
     data,
@@ -35,7 +34,7 @@
 
 <div class="bg-gray-50 dark:bg-background p-4 md:p-6 rounded-lg {className}">
   <h2 class="mb-4 flex items-center gap-2 text-lg font-bold">
-    <HugeiconsIcon icon={PackageIcon} class="size-5" />
+    <ImageHugeicons icon="package" class="size-5" />
     {data?.title ?? "Produtos"}
   </h2>
 

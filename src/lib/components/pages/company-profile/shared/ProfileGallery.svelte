@@ -12,12 +12,11 @@
 </script>
 
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import type { ProfileGalleryData, ProfileImage } from "../types";
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { GalleryThumbnailsFreeIcons } from "@hugeicons/core-free-icons";
-
+    
   let {
     data,
     isLoading = false,
@@ -106,7 +105,7 @@
 
 <div class="bg-gray-50 dark:bg-background p-4 md:p-6 {className}">
   <h2 class="mb-4 flex items-center gap-2 text-lg font-bold">
-    <HugeiconsIcon icon={GalleryThumbnailsFreeIcons} />
+    <ImageHugeicons icon="gallery-thumbnails" />
     {data.title ?? "Galeria"}
   </h2>
 

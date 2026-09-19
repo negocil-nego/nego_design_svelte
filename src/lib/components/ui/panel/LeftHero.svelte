@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-  import type { LoginCarouselProps } from "$lib/components/pages/security/login/types";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import type { LoginCarouselProps } from "$lib/components/pages/security/login/types";
   import type { Snippet } from "svelte";
   import Button from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
@@ -69,7 +68,7 @@
           class="inline-flex items-center gap-2 text-sm font-semibold bg-primary"
         >
           {currentItem.buttonText}
-          <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
+          <ImageHugeicons icon="arrow-right-01" width={16} height={16} />
         </Button>
       {/if}
     </div>

@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { NavMenuLinksProps } from "../../data/nav-menu";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import type { NavMenuLinksProps } from "../../data/nav-menu";
 
   type Props = {
     links: NavMenuLinksProps[];
@@ -31,7 +31,7 @@
         href={item.url ?? item.href ?? "#"}
       >
         {#if item.icon}
-          <HugeiconsIcon icon={item.icon} size={15} />
+          <ImageHugeicons icon={item.icon} width={15} height={15} />
         {/if}
         {item.label}
       </a>

@@ -1,12 +1,6 @@
 <script lang="ts">
   import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
-  import {
-    BedDoubleIcon,
-    DashboardCircleIcon,
-    Hotel01Icon,
-    Hotel02Icon,
-  } from "@hugeicons/core-free-icons";
-</script>
+  </script>
 
 <div class="relative flex justify-center mt-10">
   <CarouselBadge
@@ -17,11 +11,11 @@
       {
         label: "Todos",
         value: "hospegadem",
-        icon: DashboardCircleIcon,
+        icon: "dashboard-circle-add",
       },
-      { label: "Hotel", value: "hotel", icon: Hotel01Icon },
-      { label: "Hospedaria", value: "hospedaria", icon: Hotel02Icon },
-      { label: "Pensão", value: "pensao", icon: BedDoubleIcon },
+      { label: "Hotel", value: "hotel", icon: "bed-double" },
+      { label: "Hospedaria", value: "hospedaria", icon: "bed-double" },
+      { label: "Pensão", value: "pensao", icon: "bed-double" },
     ]}
     itemStyle="INLINE"
     showButton={true}

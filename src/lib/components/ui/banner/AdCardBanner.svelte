@@ -1,9 +1,8 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import Button from "$lib/components/ui/button/button.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import Button from "$lib/components/ui/button/button.svelte";
   import type { BannerProps } from "./types";
-  import { AdvertisimentIcon } from "@hugeicons/core-free-icons";
-
+  
   let {
     tagText,
     titleHighlight,
@@ -30,12 +29,7 @@
       class="flex w-28 shrink-0 flex-col justify-center gap-1 {tagBgClass ||
         'bg-blue-400'} px-3 py-2 sm:w-32"
     >
-      <HugeiconsIcon
-        icon={AdvertisimentIcon}
-        size={30}
-        color="#ffffff"
-        strokeWidth={1}
-      />
+      <ImageHugeicons icon="advertisiment" width={30} height={30} color="#ffffff" />
       <p
         class={`text-sm leading-tight font-bold ${tagTextClass || "text-[#dce9e7]"}`}
       >

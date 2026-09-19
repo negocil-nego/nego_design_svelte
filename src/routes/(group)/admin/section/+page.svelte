@@ -4,16 +4,7 @@
   import type { AdminSectionCardProps } from "$lib/components/pages/admin/shared/section/types";
   import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
   import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
-  import {
-    Analytics01Icon,
-    DashboardSquare01Icon,
-    Money01Icon,
-    Payment01Icon,
-    ShoppingBasket01Icon,
-    UserMultipleIcon,
-    Wallet01Icon,
-  } from "@hugeicons/core-free-icons";
-
+  
   let selectedKey = $state<string | number>("overview");
 
   const user = {
@@ -29,19 +20,19 @@
       key: "overview",
       label: "Overview",
       url: "#overview",
-      icon: DashboardSquare01Icon,
+      icon: "dashboard-square-01",
     },
     {
       key: "revenue",
       label: "Revenue",
       url: "#revenue",
-      icon: Money01Icon,
+      icon: "money-01",
     },
     {
       key: "analytics",
       label: "Analytics",
       url: "#analytics",
-      icon: Analytics01Icon,
+      icon: "analytics-01",
     },
   ];
 
@@ -49,7 +40,7 @@
     {
       id: 1,
       menuId: "overview",
-      icon: UserMultipleIcon,
+      icon: "user-multiple",
       value: "2.450",
       title: "Total clients",
       iconClass: "bg-red-900/70 rounded-full! text-white",
@@ -57,7 +48,7 @@
     {
       id: 2,
       menuId: "overview",
-      icon: ShoppingBasket01Icon,
+      icon: "shopping-basket-01",
       value: "8.320",
       title: "Orders",
       iconClass: "bg-lime-900/70 rounded-full! text-white",
@@ -65,7 +56,7 @@
     {
       id: 3,
       menuId: "revenue",
-      icon: Wallet01Icon,
+      icon: "wallet-01",
       value: "$84.120",
       title: "Gross revenue",
       iconClass: "bg-yellow-900/70 rounded-full! text-white",
@@ -73,7 +64,7 @@
     {
       id: 4,
       menuId: "revenue",
-      icon: Payment01Icon,
+      icon: "payment-01",
       value: "2.140",
       title: "Payments",
       iconClass: "bg-purple-900/70 rounded-full! text-white",

@@ -1,4 +1,4 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 /**
  * Props de uma tag individual usada nos cards.
@@ -6,7 +6,7 @@ import type { IconSvgElement } from "@hugeicons/svelte";
  */
 export interface CardTagsProps {
     /** Ícone opcional exibido antes do texto da tag */
-    icon?: IconSvgElement
+    icon?: HugeiconsIconName
     /** Texto exibido na tag */
     text: string
 }

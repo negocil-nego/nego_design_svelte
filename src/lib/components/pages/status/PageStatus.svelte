@@ -1,11 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { DotLottieSvelte } from "@lottiefiles/dotlottie-svelte";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import {
-    SmartPhone02Icon,
-    AlertCircleIcon,
-  } from "@hugeicons/core-free-icons";
-  import type { PageStatusProps } from "./types";
+      import type { PageStatusProps } from "./types";
   import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 
   let {
@@ -44,15 +40,12 @@
         <span
           class="flex size-32 items-center justify-center rounded-full {bgColor} sm:size-40"
         >
-          <HugeiconsIcon
-            icon={icon ?? SmartPhone02Icon}
-            class="size-16 text-foreground sm:size-20"
-          />
+          <ImageHugeicons icon={icon ?? "smart-phone-02"} class="size-16 text-foreground sm:size-20" />
         </span>
         <span
           class="absolute -bottom-1 right-2 flex size-8 items-center justify-center rounded-full {iconBg} shadow-md sm:-bottom-2 sm:right-0 sm:size-10"
         >
-          <HugeiconsIcon icon={AlertCircleIcon} class="size-5 {iconColor}" />
+          <ImageHugeicons icon="alert-circle" class="size-5 {iconColor}" />
         </span>
       {/if}
     </div>

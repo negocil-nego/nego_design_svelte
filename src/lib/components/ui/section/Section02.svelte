@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { ArrowRight01Icon } from "@hugeicons/core-free-icons";
-  import type { Section02Props } from "./types";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import type { Section02Props } from "./types";
 
   let {
     title,
@@ -56,7 +55,7 @@
                   class="inline-flex items-center gap-2 text-sm font-semibold mt-2 hover:opacity-80 transition-opacity"
                 >
                   {feature.linkLabel ?? "Learn More"}
-                  <HugeiconsIcon icon={ArrowRight01Icon} class="size-4" />
+                  <ImageHugeicons icon="arrow-right-01" class="size-4" />
                 </a>
               {/if}
             </div>

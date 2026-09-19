@@ -1,4 +1,3 @@
-import { GlobalIcon, MapPin, NecklaceIcon } from "@hugeicons/core-free-icons";
 import type { CardProductProps } from "../types";
 
 const items: CardProductProps[] = [
@@ -15,9 +14,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: GlobalIcon, text: "Luanda" },
-      { icon: MapPin, text: "Ilha do Cabo" },
-      { icon: NecklaceIcon, text: "Frente ao Mar" },
+      { icon: "global", text: "Luanda" },
+      { icon: "map-pinned", text: "Ilha do Cabo" },
+      { icon: "necklace", text: "Frente ao Mar" },
     ],
   },
   {
@@ -34,9 +33,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: GlobalIcon, text: "Luanda" },
-      { icon: MapPin, text: "Miramar" },
-      { icon: NecklaceIcon, text: "Executivo" },
+      { icon: "global", text: "Luanda" },
+      { icon: "map-pinned", text: "Miramar" },
+      { icon: "necklace", text: "Executivo" },
     ],
   },
   {
@@ -53,9 +52,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: GlobalIcon, text: "Benguela" },
-      { icon: MapPin, text: "Baía Farta" },
-      { icon: NecklaceIcon, text: "Spa & Lazer" },
+      { icon: "global", text: "Benguela" },
+      { icon: "map-pinned", text: "Baía Farta" },
+      { icon: "necklace", text: "Spa & Lazer" },
     ],
   },
   {
@@ -72,9 +71,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: GlobalIcon, text: "Huambo" },
-      { icon: MapPin, text: "Centro" },
-      { icon: NecklaceIcon, text: "Urbano" },
+      { icon: "global", text: "Huambo" },
+      { icon: "map-pinned", text: "Centro" },
+      { icon: "necklace", text: "Urbano" },
     ],
   },
   {
@@ -91,9 +90,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: GlobalIcon, text: "Namibe" },
-      { icon: MapPin, text: "Praia Amélia" },
-      { icon: NecklaceIcon, text: "Boutique" },
+      { icon: "global", text: "Namibe" },
+      { icon: "map-pinned", text: "Praia Amélia" },
+      { icon: "necklace", text: "Boutique" },
     ],
   },
 ];

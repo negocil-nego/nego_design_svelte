@@ -11,15 +11,10 @@
 </script>
 
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import {
-    HeartAddIcon,
-    HeartRemoveIcon,
-    ShoppingCartAdd01Icon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-
+    
   let {
     id,
     buttonBuyText = "Comprar",
@@ -63,7 +58,7 @@
         onFavorite?.(id);
       }}
     >
-      <HugeiconsIcon icon={isFavorite ? HeartRemoveIcon : HeartAddIcon} />
+      <ImageHugeicons icon={isFavorite ? "heart-remove" : "heart-add"} />
     </Button>
 
     <Button
@@ -76,7 +71,7 @@
         onCart?.(id);
       }}
     >
-      <HugeiconsIcon icon={ShoppingCartAdd01Icon} />
+      <ImageHugeicons icon="shopping-cart-add-01" />
     </Button>
   </div>
 {/if}

@@ -1,8 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { locale } from "$lib/i18n";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { ChevronLeftIcon, ChevronRightIcon } from "@hugeicons/core-free-icons";
-  import { cn } from "$lib/utils.js";
+      import { cn } from "$lib/utils.js";
   import MonthSelect from "./MonthSelect.svelte";
   import YearSelect from "./YearSelect.svelte";
   import DaysGrid from "./DaysGrid.svelte";
@@ -140,7 +139,7 @@
       class="rounded p-1.5 transition-colors hover:bg-muted"
       onclick={prevMonth}
     >
-      <HugeiconsIcon icon={ChevronLeftIcon} size={16} strokeWidth={1.5} />
+      <ImageHugeicons icon="chevron-left" width={16} height={16} />
     </button>
 
     <div class="relative flex-1">
@@ -174,7 +173,7 @@
       class="rounded p-1.5 transition-colors hover:bg-muted"
       onclick={nextMonth}
     >
-      <HugeiconsIcon icon={ChevronRightIcon} size={16} strokeWidth={1.5} />
+      <ImageHugeicons icon="chevron-right" width={16} height={16} />
     </button>
   </div>
 

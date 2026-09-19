@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { Label } from "$lib/components/ui/label";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { ChevronDownIcon, Search01Icon, Cancel01Icon } from "@hugeicons/core-free-icons";
-  import { cn } from "$lib/utils.js";
+      import { cn } from "$lib/utils.js";
 
   type SelectOption = { value: string; label: string };
   type SelectOptions = SelectOption[] | Record<string, string>;
@@ -99,7 +98,7 @@
         <span
           class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
         >
-          <HugeiconsIcon icon={Search01Icon} size={16} strokeWidth={1.5} />
+          <ImageHugeicons icon="search-01" width={16} height={16} />
         </span>
       {/if}
 
@@ -111,13 +110,13 @@
           onmousedown={(e) => e.preventDefault()}
           onclick={clearSelection}
         >
-          <HugeiconsIcon icon={Cancel01Icon} size={16} strokeWidth={1.5} />
+          <ImageHugeicons icon="cancel-01" width={16} height={16} />
         </button>
       {:else}
         <span
           class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
         >
-          <HugeiconsIcon icon={ChevronDownIcon} size={16} strokeWidth={1.5} />
+          <ImageHugeicons icon="chevron-down" width={16} height={16} />
         </span>
       {/if}
 
@@ -175,7 +174,7 @@
       <span
         class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
       >
-        <HugeiconsIcon icon={Search01Icon} size={16} strokeWidth={1.5} />
+        <ImageHugeicons icon="search-01" width={16} height={16} />
       </span>
     {/if}
 
@@ -187,13 +186,13 @@
         onmousedown={(e) => e.preventDefault()}
         onclick={clearSelection}
       >
-        <HugeiconsIcon icon={Cancel01Icon} size={16} strokeWidth={1.5} />
+        <ImageHugeicons icon="cancel-01" width={16} height={16} />
       </button>
     {:else}
       <span
         class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
       >
-        <HugeiconsIcon icon={ChevronDownIcon} size={16} strokeWidth={1.5} />
+        <ImageHugeicons icon="chevron-down" width={16} height={16} />
       </span>
     {/if}
 

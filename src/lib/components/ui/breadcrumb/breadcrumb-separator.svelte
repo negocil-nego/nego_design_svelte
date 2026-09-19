@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	import { cn, type WithElementRef } from "$lib/utils.js";
 	import type { HTMLLiAttributes } from "svelte/elements";
-	import { HugeiconsIcon } from "@hugeicons/svelte"
-	import { ArrowRight01Icon } from '@hugeicons/core-free-icons';
-
+		
 	let {
 		ref = $bindable(null),
 		class: className,
@@ -23,6 +22,6 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2}  />
+		<ImageHugeicons icon="arrow-right-01" />
 	{/if}
 </li>

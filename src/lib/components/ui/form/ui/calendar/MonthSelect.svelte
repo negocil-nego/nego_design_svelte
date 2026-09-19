@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { ChevronDownIcon } from "@hugeicons/core-free-icons";
-  import { cn } from "$lib/utils.js";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import { cn } from "$lib/utils.js";
 
   type Props = {
     months: string[];
@@ -21,7 +20,7 @@
   onclick={onToggle}
 >
   <span>{months[month]}</span>
-  <HugeiconsIcon icon={ChevronDownIcon} size={14} strokeWidth={1.5} />
+  <ImageHugeicons icon="chevron-down" width={14} height={14} />
 </button>
 
 {#if open}

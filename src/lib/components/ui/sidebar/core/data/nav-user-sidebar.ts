@@ -1,4 +1,4 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 /**
  * Props do bloco de usuário logado na sidebar.
@@ -20,7 +20,7 @@ export interface NavUserSidebarProps {
         /** Texto exibido na ação */
         label: string;
         /** Ícone SVG da ação */
-        icon: IconSvgElement;
+        icon: HugeiconsIconName;
         /** Callback acionado ao clicar na ação */
         onclick?: () => void;
     }[];

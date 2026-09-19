@@ -1,5 +1,5 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { Snippet } from "svelte";
-import type { IconSvgElement } from "@hugeicons/svelte";
 
 /**
  * Props do componente ModalCore — contentor base reutilizável para todos os modais.
@@ -54,7 +54,7 @@ export type ModalCoreProps = {
 export type ModelBadge = {
 	label: string;
 	value: string;
-	icon?: string | IconSvgElement;
+	icon?: string | HugeiconsIconName;
 };
 
 /**
@@ -67,7 +67,7 @@ export type ModelBadge = {
 export type ModelGridCardProps = {
 	title: string;
 	description?: string;
-	icon: string | IconSvgElement;
+	icon: string | HugeiconsIconName;
 	url?: string;
 };
 
@@ -82,7 +82,7 @@ export type ModelGridCardProps = {
  */
 export type ModelSocialShare = {
 	name: string;
-	icon?: string | IconSvgElement;
+	icon?: string | HugeiconsIconName;
 	img?: string;
 	color?: string;
 	url?: string;

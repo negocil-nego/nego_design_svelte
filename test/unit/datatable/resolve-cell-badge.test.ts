@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { resolveCellBadge } from '../../../src/lib/components/core/datatable/data/resolve-cell-badge.svelte';
+import { resolveCellBadge } from '../../../src/lib/components/ui/datatable/data/resolve-cell-badge.svelte.ts';
 import {
 	RenderComponentConfig,
 	RenderSnippetConfig,

@@ -1,9 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Label } from "$lib/components/ui/label";
   import { cn } from "$lib/utils";
-  import { Cancel01Icon } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-
+    
   let {
     label,
     isLabel = false,
@@ -108,7 +107,7 @@
             class="ml-0.5 rounded-full p-0.5 transition-colors hover:bg-destructive/10 hover:text-destructive"
             onclick={(e) => { e.stopPropagation(); removeTag(tag); }}
           >
-            <HugeiconsIcon icon={Cancel01Icon} class="size-3" />
+            <ImageHugeicons icon="cancel-01" class="size-3" />
           </button>
         </span>
       {/each}
@@ -170,7 +169,7 @@
           class="ml-0.5 rounded-full p-0.5 transition-colors hover:bg-destructive/10 hover:text-destructive"
           onclick={(e) => { e.stopPropagation(); removeTag(tag); }}
         >
-          <HugeiconsIcon icon={Cancel01Icon} class="size-3" />
+          <ImageHugeicons icon="cancel-01" class="size-3" />
         </button>
       </span>
     {/each}

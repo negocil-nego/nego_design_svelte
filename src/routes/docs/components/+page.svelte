@@ -1,10 +1,6 @@
 <script lang="ts">
-  import {
-    ArrowRight02Icon,
-    ComponentIcon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import DocsHeader from "$lib/docs/DocsHeader.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import DocsHeader from "$lib/docs/DocsHeader.svelte";
   import { categories, components, getComponentsByCategory } from "$lib/docs/components";
 
   function componentCount(category: string): number {
@@ -48,10 +44,7 @@
               >
                 <div class="flex items-center justify-between gap-2">
                   <h3 class="font-semibold text-foreground">{comp.name}</h3>
-                  <HugeiconsIcon
-                    icon={ArrowRight02Icon}
-                    class="size-4 shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary"
-                  />
+                  <ImageHugeicons icon="arrow-right-01" class="size-4 shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary" />
                 </div>
                 <p class="mt-2 line-clamp-3 text-sm text-muted-foreground">{comp.description}</p>
                 <code class="mt-4 block truncate rounded bg-muted px-2 py-1 text-xs text-muted-foreground">

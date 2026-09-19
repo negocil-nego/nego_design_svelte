@@ -1,4 +1,4 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 export interface ItemGridProps {
     id?: string | number;
@@ -9,7 +9,7 @@ export interface ItemGridProps {
     titleClass?: string;
     itemClassName?: string;
     descriptionClass?: string;
-    icon: string | IconSvgElement;
+    icon: string | HugeiconsIconName;
     onClick?: (id: string | number) => void
 }
 

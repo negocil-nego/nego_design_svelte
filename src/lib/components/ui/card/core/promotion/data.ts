@@ -1,4 +1,3 @@
-import { GlobalIcon, MapPin, NecklaceIcon } from "@hugeicons/core-free-icons";
 import type { CardPromotionProps } from "../types";
 
 const items: CardPromotionProps[] = [
@@ -15,9 +14,9 @@ const items: CardPromotionProps[] = [
         onClickShop: (id: string | number) => alert(`Shop ${id}`),
         isCart: true,
         tags: [
-            { icon: GlobalIcon, text: 'Luanda', },
-            { icon: MapPin, text: 'Kilamba', },
-            { icon: NecklaceIcon, text: 'Rua 19', },
+            { icon: "global", text: 'Luanda', },
+            { icon: "map-pinned", text: 'Kilamba', },
+            { icon: "necklace", text: 'Rua 19', },
         ]
     },
     {
@@ -32,9 +31,9 @@ const items: CardPromotionProps[] = [
         onClickShop: (id: string | number) => alert(`Shop ${id}`),
         isCart: true,
         tags: [
-            { icon: GlobalIcon, text: 'Luanda', },
-            { icon: MapPin, text: 'Kilamba', },
-            { icon: NecklaceIcon, text: 'Rua 19', },
+            { icon: "global", text: 'Luanda', },
+            { icon: "map-pinned", text: 'Kilamba', },
+            { icon: "necklace", text: 'Rua 19', },
         ]
     },
     {
@@ -50,9 +49,9 @@ const items: CardPromotionProps[] = [
         onClickShop: (id: string | number) => alert(`Shop ${id}`),
         isCart: true,
         tags: [
-            { icon: GlobalIcon, text: 'Luanda', },
-            { icon: MapPin, text: 'Kilamba', },
-            { icon: NecklaceIcon, text: 'Rua 19', },
+            { icon: "global", text: 'Luanda', },
+            { icon: "map-pinned", text: 'Kilamba', },
+            { icon: "necklace", text: 'Rua 19', },
         ]
     },
     {
@@ -67,9 +66,9 @@ const items: CardPromotionProps[] = [
         onClickShop: (id: string | number) => alert(`Shop ${id}`),
         isCart: true,
         tags: [
-            { icon: GlobalIcon, text: 'Luanda', },
-            { icon: MapPin, text: 'Kilamba', },
-            { icon: NecklaceIcon, text: 'Rua 19', },
+            { icon: "global", text: 'Luanda', },
+            { icon: "map-pinned", text: 'Kilamba', },
+            { icon: "necklace", text: 'Rua 19', },
         ]
     },
     {
@@ -85,9 +84,9 @@ const items: CardPromotionProps[] = [
         onClickShop: (id: string | number) => alert(`Shop ${id}`),
         isCart: true,
         tags: [
-            { icon: GlobalIcon, text: 'Luanda', },
-            { icon: MapPin, text: 'Kilamba', },
-            { icon: NecklaceIcon, text: 'Rua 19', },
+            { icon: "global", text: 'Luanda', },
+            { icon: "map-pinned", text: 'Kilamba', },
+            { icon: "necklace", text: 'Rua 19', },
         ]
     },
 ];

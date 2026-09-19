@@ -1,7 +1,7 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { cn } from "$lib/utils";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+    import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type { ModalBadgeSelectionProps, ModelBadge } from "../types";
 
   let {
@@ -76,7 +76,7 @@
             {#if typeof badge.icon === "string"}
               <i class="{badge.icon} text-sm"></i>
             {:else}
-              <HugeiconsIcon icon={badge.icon} class="size-4" />
+              <ImageHugeicons icon={badge.icon} class="size-4" />
             {/if}
           {/if}
           {badge.label}

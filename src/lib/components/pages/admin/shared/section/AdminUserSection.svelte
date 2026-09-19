@@ -1,13 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     import * as Avatar from "$lib/components/ui/avatar/index.js";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-    import { HugeiconsIcon } from "@hugeicons/svelte";
-    import {
-        Logout01Icon,
-        ProfileIcon,
-        Setting06Icon,
-    } from "@hugeicons/core-free-icons";
-    import { t } from "$lib/i18n";
+            import { t } from "$lib/i18n";
     import type { AdminUserSectionProps } from "./types";
 
     let {
@@ -100,18 +95,18 @@
 
             <DropdownMenu.Group>
                 <DropdownMenu.Item onclick={onProfile}>
-                    <HugeiconsIcon icon={ProfileIcon} size={16} />
+                    <ImageHugeicons icon="profile-02" width={16} height={16} />
                     {$t("label.profile")}
                 </DropdownMenu.Item>
                 <DropdownMenu.Item onclick={onSettings}>
-                    <HugeiconsIcon icon={Setting06Icon} size={16} />
+                    <ImageHugeicons icon="setting-07" width={16} height={16} />
                     {$t("label.settings")}
                 </DropdownMenu.Item>
             </DropdownMenu.Group>
 
             <DropdownMenu.Separator />
             <DropdownMenu.Item onclick={onLogout}>
-                <HugeiconsIcon icon={Logout01Icon} size={16} />
+                <ImageHugeicons icon="logout-01" width={16} height={16} />
                 {$t("label.logout")}
             </DropdownMenu.Item>
         </DropdownMenu.Content>

@@ -1,10 +1,9 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
   import { useSidebar } from "$lib/components/ui/sidebar/index.js";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import { PlusSignIcon, UnfoldMoreIcon } from "@hugeicons/core-free-icons";
-
+    
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let { teams }: { teams: { name: string; logo: any; plan: string }[] } =
     $props();
@@ -35,7 +34,7 @@
               </span>
               <span class="truncate text-xs">{activeTeam.plan}</span>
             </div>
-            <HugeiconsIcon icon={UnfoldMoreIcon} class="ms-auto" />
+            <ImageHugeicons icon="unfold-more" class="ms-auto" />
           </Sidebar.MenuButton>
         {/snippet}
       </DropdownMenu.Trigger>
@@ -67,7 +66,7 @@
           <div
             class="flex size-6 items-center justify-center rounded-md border bg-transparent"
           >
-            <HugeiconsIcon icon={PlusSignIcon} class="size-4" />
+            <ImageHugeicons icon="plus-sign" class="size-4" />
           </div>
           <div class="text-muted-foreground font-medium">Add team</div>
         </DropdownMenu.Item>

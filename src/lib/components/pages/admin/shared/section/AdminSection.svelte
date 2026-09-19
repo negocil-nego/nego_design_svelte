@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { AdminSectionProps } from "./types";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import type { AdminSectionProps } from "./types";
   import AdminUserSection from "./AdminUserSection.svelte";
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import ThemeSwitch from "$lib/components/ui/theme-switch/theme-switch.svelte";
@@ -101,7 +101,7 @@
             {#if typeof card.icon === "string"}
               <i class="text-xl {card.icon}"></i>
             {:else}
-              <HugeiconsIcon icon={card.icon} class="size-5" />
+              <ImageHugeicons icon={card.icon} class="size-5" />
             {/if}
           </span>
         {/if}

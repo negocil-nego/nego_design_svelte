@@ -1,17 +1,12 @@
 <!-- CardMedia.svelte -->
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   /**
    * Image thumbnail with hover-to-play video, lazy loading,
    * duration badge, video indicator, and optional maximize overlay.
    * @component
    */
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import {
-    Maximize01Icon,
-    Cancel01Icon,
-    VideoReplayIcon,
-  } from "@hugeicons/core-free-icons";
-  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+      import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   import VideoPlaceholder from "$lib/assets/lonely-404.mp4";
 
@@ -98,12 +93,7 @@
     }}
     aria-label="Maximizar"
   >
-    <HugeiconsIcon
-      icon={Maximize01Icon}
-      size={16}
-      color="currentColor"
-      strokeWidth={1.5}
-    />
+    <ImageHugeicons icon="maximize-screen" width={16} height={16} color="currentColor" />
   </button>
 {/snippet}
 
@@ -159,12 +149,7 @@
           <div
             class="flex h-11 w-11 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm"
           >
-            <HugeiconsIcon
-              icon={VideoReplayIcon}
-              size={22}
-              color="white"
-              strokeWidth={1.5}
-            />
+            <ImageHugeicons icon="video-replay" width={22} height={22} color="white" />
           </div>
         </div>
         {#if duration}
@@ -201,12 +186,7 @@
             onclick={() => (isMaximized = false)}
             aria-label="Fechar"
           >
-            <HugeiconsIcon
-              icon={Cancel01Icon}
-              size={20}
-              color="currentColor"
-              strokeWidth={1.5}
-            />
+            <ImageHugeicons icon="cancel-01" width={20} height={20} color="currentColor" />
           </button>
 
           {#if videoUrl && showVideo}

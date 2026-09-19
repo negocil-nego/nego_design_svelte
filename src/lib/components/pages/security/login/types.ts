@@ -1,5 +1,5 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { Snippet } from "svelte"
-import type { IconSvgElement } from "@hugeicons/svelte"
 
 export type LoginFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSWORD" | "USERNAME_OR_EMAIL_PASSWORD"
 export type LoginCarouselItemType = "NUMBER" | "DOT" | "POINTER"
@@ -31,7 +31,7 @@ export type LinkProps = {
 
 export type SocialLoginItem = {
   provider: SocialProvider
-  icon?: IconSvgElement
+  icon?: HugeiconsIconName
   label?: string
   onclick?: () => void
 }

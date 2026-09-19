@@ -1,13 +1,6 @@
 <script lang="ts">
   import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
-  import {
-    Home01Icon,
-    Hotel01Icon,
-    AirplaneTakeOff02Icon,
-    ConversationIcon,
-    User02Icon,
-  } from "@hugeicons/core-free-icons";
-</script>
+  </script>
 
 <div class="mx-auto">
   <Menu
@@ -23,26 +16,26 @@
     }}
     navMenu={{
       links: [
-        { label: "Página inicial", url: "/", icon: Home01Icon },
+        { label: "Página inicial", url: "/", icon: "home-01" },
         {
           label: "Hospedagem",
           url: "/organization/accommodation",
-          icon: Hotel01Icon,
+          icon: "bed-double",
         },
         {
           label: "Restaurantes",
           url: "/organization/restaurants",
-          icon: AirplaneTakeOff02Icon,
+          icon: "rocket-01",
         },
         {
           label: "Turismo",
           url: "/organization/tourism",
-          icon: ConversationIcon,
+          icon: "message-01",
         },
         {
           label: "Intérprete",
           url: "/interpreter",
-          icon: User02Icon,
+          icon: "user",
         },
       ],
     }}

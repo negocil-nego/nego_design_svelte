@@ -1,8 +1,8 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { CarouselBadgeProps } from "$lib/components/ui/carousel/core/types.js";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+    import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
 
   const {
@@ -56,10 +56,7 @@
   {:else if typeof item.icon === "string"}
     <i class={`${item.icon} ${iconClass || DEFAULT_IMG_OR_ICON_CLASS}`}></i>
   {:else if item.icon}
-    <HugeiconsIcon
-      icon={item.icon}
-      class={iconClass || DEFAULT_IMG_OR_ICON_CLASS}
-    />
+    <ImageHugeicons icon={item.icon} class={iconClass || DEFAULT_IMG_OR_ICON_CLASS} />
   {/if}
 {/snippet}
 

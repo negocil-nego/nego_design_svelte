@@ -7,9 +7,8 @@
 </script>
 
 <script lang="ts">
-	import { MapPin, PlusSignIcon } from "@hugeicons/core-free-icons";
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import Badge from "$lib/components/ui/badge/badge.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+			import Badge from "$lib/components/ui/badge/badge.svelte";
 	import Button from "$lib/components/ui/button/button.svelte";
 	import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 	import { cn } from "$lib/utils.js";
@@ -38,7 +37,7 @@
 	<div class="mb-6 flex items-center justify-between">
 		<h3 class="text-lg font-semibold">{title}</h3>
 		<Button variant="ghost" size="sm" onclick={onAddAddress}>
-			<HugeiconsIcon icon={PlusSignIcon} class="size-4" />
+			<ImageHugeicons icon="plus-sign" class="size-4" />
 			{addLabel}
 		</Button>
 	</div>
@@ -66,7 +65,7 @@
 					</div>
 					<div class="flex flex-col gap-1 text-sm text-muted-foreground">
 						<p class="flex items-start gap-1.5">
-							<HugeiconsIcon icon={MapPin} class="mt-0.5 size-4 shrink-0" />
+							<ImageHugeicons icon="map-pinned" class="mt-0.5 size-4 shrink-0" />
 							{address.street}
 							{#if address.apartment}, {address.apartment}{/if}
 						</p>

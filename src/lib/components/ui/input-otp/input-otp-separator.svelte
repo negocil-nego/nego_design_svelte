@@ -1,10 +1,9 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 	import type { WithElementRef } from "$lib/utils.js";
 	import { cn } from "$lib/utils.js";
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { MinusSignIcon } from "@hugeicons/core-free-icons";
-
+		
 	let {
 		ref = $bindable(null),
 		class: className,
@@ -23,6 +22,6 @@
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<HugeiconsIcon icon={MinusSignIcon} strokeWidth={2} />
+		<ImageHugeicons icon="minus-sign" />
 	{/if}
 </div>

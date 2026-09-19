@@ -1,11 +1,6 @@
 <script>
   import { CarouselHero } from "$lib";
-  import {
-    AirplaneTakeOff02Icon,
-    ConversationIcon,
-    Hotel01Icon,
-  } from "@hugeicons/core-free-icons";
-</script>
+  </script>
 
 <CarouselHero
   items={[
@@ -42,9 +37,9 @@
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     linkClass: "text-white",
     links: [
-      { label: "Hospedagem", url: "#", icon: Hotel01Icon },
-      { label: "Voos", url: "#", icon: AirplaneTakeOff02Icon },
-      { label: "Tradutores", url: "#", icon: ConversationIcon },
+      { label: "Hospedagem", url: "#", icon: "bed-double" },
+      { label: "Voos", url: "#", icon: "rocket-01" },
+      { label: "Tradutores", url: "#", icon: "message-01" },
     ],
     isLanguageSwitcher: false,
     isThemeSwitch: false,

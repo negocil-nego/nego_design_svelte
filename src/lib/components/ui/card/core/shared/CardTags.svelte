@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import type { CardTagsProps } from "../types";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import type { CardTagsProps } from "../types";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import * as Popover from "$lib/components/ui/popover"; // adjust path to your setup
 
@@ -31,7 +31,7 @@
       : ''} {clasName}"
   >
     {#if tag.icon}
-      <HugeiconsIcon icon={tag.icon} class="mr-0.5 h-3.75 w-3.75 shrink-0" />
+      <ImageHugeicons icon={tag.icon} class="mr-0.5 h-3.75 w-3.75 shrink-0" />
     {/if}
     <div class="whitespace-nowrap">{tag.text}</div>
   </div>

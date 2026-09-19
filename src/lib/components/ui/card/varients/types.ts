@@ -1,5 +1,3 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
-
 export type CardMethod = "email" | "phone" | "whatsapp";
 
 export type CardEmailPhoneWhatsappItem = {
@@ -7,7 +5,7 @@ export type CardEmailPhoneWhatsappItem = {
     title: string;
     subtitle?: string;
     value?: string;
-    imageUrl?: string | IconSvgElement;
+    imageUrl?: string;
 };
 
 export type CardEmailPhoneWhatsappProps = {

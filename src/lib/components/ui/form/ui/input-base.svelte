@@ -1,11 +1,10 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import Input from "$lib/components/ui/input/input.svelte";
   import { Label } from "$lib/components/ui/label";
-  import { EyeIcon, EyeOffIcon } from "@hugeicons/core-free-icons";
-  import { inputIconMap } from "../data/InputIconDefault.svelte.ts";
+    import { inputIconMap } from "../data/InputIconDefault.svelte.ts";
   import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-
+  
   let {
     label,
     labelClass,
@@ -37,12 +36,7 @@
   <div class="flex items-center relative w-full">
     {#if isIcon && currentIcon}
       <span class="absolute left-3 flex items-center pointer-events-none">
-        <HugeiconsIcon
-          icon={currentIcon}
-          size={16}
-          color="#94a3b8"
-          strokeWidth={1.5}
-        />
+        <ImageHugeicons icon={currentIcon} width={16} height={16} color="#94a3b8" />
       </span>
     {/if}
 
@@ -62,12 +56,7 @@
         class="absolute right-3 flex items-center cursor-pointer z-10 text-slate-400 hover:text-slate-600 focus:outline-none"
         aria-label={showPassword ? "Ocultar senha" : "Ver senha"}
       >
-        <HugeiconsIcon
-          icon={showPassword ? EyeOffIcon : EyeIcon}
-          size={16}
-          color="#94a3b8"
-          strokeWidth={1.5}
-        />
+        <ImageHugeicons icon={showPassword ? "eye-off" : "eye"} width={16} height={16} color="#94a3b8" />
       </button>
     {/if}
   </div>

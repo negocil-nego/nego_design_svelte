@@ -1,4 +1,4 @@
-import type { IconSvgElement } from "@hugeicons/svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { CardProductProps } from "$lib/components/ui/card/core/types";
 
 /**
@@ -143,5 +143,5 @@ export interface CompanyProfileProps {
 export interface ProfileBannerTag {
   label: string;
   value: string;
-  icon?: string | IconSvgElement;
+  icon?: string | HugeiconsIconName;
 }

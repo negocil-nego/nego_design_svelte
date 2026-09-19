@@ -1,5 +1,5 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { ImageLogoProps } from "$lib/components/ui/image/types";
-import type { IconSvgElement } from "@hugeicons/svelte";
 import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
 
 /**
@@ -15,7 +15,7 @@ export interface AdminSectionMenuItem {
     /** Texto curto exibido ao lado do título (ex.: quantidade) */
     caption?: string;
     /** Ícone do item — URL de classe CSS (string) ou componente Hugeicons (IconSvgElement) */
-    icon?: string | IconSvgElement;
+    icon?: string | HugeiconsIconName;
     /** Define este item como selecionado por padrão quando `selectedKey` não é passado */
     isActive?: boolean;
 }
@@ -29,7 +29,7 @@ export interface AdminSectionCardProps {
     /** Identificador único do card (usado no callback `onCardClick`) */
     id?: string | number;
     /** Ícone do card — classe CSS (string) ou componente Hugeicons (IconSvgElement) */
-    icon?: string | IconSvgElement;
+    icon?: string | HugeiconsIconName;
     /** Título do card */
     title: string;
     /** Valor principal do card (ex.: número, moeda, percentagem) */

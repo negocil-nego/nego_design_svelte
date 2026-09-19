@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { Tick02Icon } from "@hugeicons/core-free-icons";
-	import { cn } from "$lib/utils.js";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+			import { cn } from "$lib/utils.js";
 	import { getDropdownMenuRadioGroupContext } from "./dropdown-menu-context.svelte.js";
 	import type { Snippet } from "svelte";
 	import type { HTMLButtonAttributes } from "svelte/elements";
@@ -64,7 +63,7 @@
 		data-slot="dropdown-menu-radio-item-indicator"
 	>
 		{#if isChecked}
-			<HugeiconsIcon icon={Tick02Icon} strokeWidth={2} class="size-4" />
+			<ImageHugeicons icon="tick-02" class="size-4" />
 		{/if}
 	</span>
 	{@render children?.()}

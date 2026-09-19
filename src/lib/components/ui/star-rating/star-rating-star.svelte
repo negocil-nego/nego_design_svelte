@@ -1,10 +1,9 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	import { cn } from "$lib/utils.js";
 	import type { StarRatingStarProps } from "./types";
 	import { useStarRatingContext } from "./star-rating.svelte";
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { StarHalfIcon, StarIcon } from "@hugeicons/core-free-icons";
-
+		
 	let { index, class: className, state: _state }: StarRatingStarProps = $props();
 
 	const rating = useStarRatingContext();
@@ -51,17 +50,9 @@
 >
 	<div class="relative size-full">
 		{#if isPartial}
-			<HugeiconsIcon
-				icon={StarHalfIcon}
-				strokeWidth={2}
-				class={cn("absolute top-0 left-0 size-full transition-all", iconClass)}
-			/>
+			<ImageHugeicons icon="star-half" class={cn("absolute top-0 left-0 size-full transition-all", iconClass)} />
 		{:else}
-			<HugeiconsIcon
-				icon={StarIcon}
-				strokeWidth={2}
-				class={cn("size-full transition-all", iconClass)}
-			/>
+			<ImageHugeicons icon="star" class={cn("size-full transition-all", iconClass)} />
 		{/if}
 	</div>
 </span>

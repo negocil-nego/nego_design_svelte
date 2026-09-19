@@ -1,4 +1,4 @@
-import type { IconSvgElement } from "@hugeicons/svelte"
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
 /**
  * Props do logotipo no NavMenu.
@@ -42,7 +42,7 @@ export interface NavMenuLinksProps {
     /** Texto exibido no link */
     label: string
     /** Ícone SVG opcional antes do label */
-    icon?: IconSvgElement
+    icon?: HugeiconsIconName
     isAcive?: boolean
     /** Callback ao clicar no link */
     onclick?: () => void
@@ -62,7 +62,7 @@ export interface NavMenuActionsProps {
     /** Classe CSS adicional */
     className?: string
     /** Ícone SVG opcional */
-    icon?: IconSvgElement
+    icon?: HugeiconsIconName
     /** Callback ao clicar na ação */
     onclick?: () => void
 }

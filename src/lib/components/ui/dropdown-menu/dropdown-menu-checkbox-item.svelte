@@ -1,7 +1,6 @@
 <script lang="ts">
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { MinusSignIcon, Tick02Icon } from "@hugeicons/core-free-icons";
-	import { cn } from "$lib/utils.js";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+			import { cn } from "$lib/utils.js";
 	import type { Snippet } from "svelte";
 	import type { HTMLButtonAttributes } from "svelte/elements";
 
@@ -61,9 +60,9 @@
 		data-slot="dropdown-menu-checkbox-item-indicator"
 	>
 		{#if indeterminate}
-			<HugeiconsIcon icon={MinusSignIcon} strokeWidth={2} class="size-4" />
+			<ImageHugeicons icon="minus-sign" class="size-4" />
 		{:else if checked}
-			<HugeiconsIcon icon={Tick02Icon} strokeWidth={2} class="size-4" />
+			<ImageHugeicons icon="tick-02" class="size-4" />
 		{/if}
 	</span>
 	{@render children?.()}

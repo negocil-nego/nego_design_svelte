@@ -1,5 +1,5 @@
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 import type { CardEmailPhoneWhatsappProps } from "$lib/types";
-import type { IconSvgElement } from "@hugeicons/svelte";
 import type { Snippet } from "svelte";
 
 export type PageStatusProps = {
@@ -16,7 +16,7 @@ export type PageStatusProps = {
     titleColor?: string;
     buttonText?: string;
     description?: string;
-    icon?: IconSvgElement;
+    icon?: HugeiconsIconName;
     onAction?: () => void;
     buttonTextColor?: string;
     emailPhoneWhatsapp?: CardEmailPhoneWhatsappProps;

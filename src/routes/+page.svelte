@@ -1,29 +1,11 @@
 <script lang="ts">
-  import {
-    DocumentCodeIcon,
-    Menu01Icon,
-    Presentation02Icon,
-    Album01Icon,
-    FileCodeIcon,
-    DashboardCircleAddIcon,
-    Settings02Icon,
-    User03Icon,
-    Logout02Icon,
-    GridTableIcon,
-    ArrowRight02Icon,
-    Link01Icon,
-    Rocket01Icon,
-    ComponentIcon,
-    AppWindowIcon,
-    FormIcon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    
   const categories = [
     {
       id: "navigation",
       title: "Navigation",
-      icon: Menu01Icon,
+      icon: "menu-07",
       description: "Menus, navigation bars, headers and search.",
       routes: [
         { href: "/menu", label: "Menu — Complex (mega menu)" },
@@ -34,7 +16,7 @@
     {
       id: "hero",
       title: "Hero",
-      icon: Presentation02Icon,
+      icon: "presentation-02",
       description: "Page heroes, static or fullscreen carousel.",
       routes: [
         { href: "/hero", label: "Simple Hero" },
@@ -46,7 +28,7 @@
     {
       id: "sections",
       title: "Sections",
-      icon: Album01Icon,
+      icon: "album-01",
       description: "Reusable section layouts with titles, descriptions, grids and images.",
       routes: [
         { href: "/section/01", label: "Section01 — Cards with navigation" },
@@ -57,7 +39,7 @@
     {
       id: "banners",
       title: "Banners",
-      icon: Album01Icon,
+      icon: "album-01",
       description: "Campaign, ad and call-to-action banners.",
       routes: [
         { href: "/banner", label: "CTA & Notification Banners" },
@@ -68,7 +50,7 @@
     {
       id: "cards",
       title: "Cards",
-      icon: Link01Icon,
+      icon: "link-01",
       description: "Media, profile, product and promotion cards.",
       routes: [
         { href: "/card/media", label: "Card Media — variant 2" },
@@ -78,7 +60,7 @@
     {
       id: "carousels",
       title: "Carousels",
-      icon: DashboardCircleAddIcon,
+      icon: "dashboard-circle-add",
       description: "Badges, highlights, promotions and responsive grids.",
       routes: [
         { href: "/carousel/badge", label: "Badge Carousel" },
@@ -93,7 +75,7 @@
     {
       id: "grid",
       title: "Item Grid",
-      icon: GridTableIcon,
+      icon: "grid-table",
       description: "Simple and panel item grids.",
       routes: [
         { href: "/grid/simple", label: "Simple Grid" },
@@ -103,21 +85,21 @@
     {
       id: "modals",
       title: "Modals",
-      icon: AppWindowIcon,
+      icon: "app-window",
       description: "Overlay dialogs for selection, share, notification and more.",
       routes: [{ href: "/modal", label: "Modals — all variants" }],
     },
     {
       id: "forms",
       title: "Forms",
-      icon: FormIcon,
+      icon: "form",
       description: "Responsive forms supporting every input type.",
       routes: [{ href: "/form", label: "Form — 2-column grid" }],
     },
     {
       id: "footer",
       title: "Footer",
-      icon: Logout02Icon,
+      icon: "logout-01",
       description: "Footers with columns, newsletter and social links.",
       routes: [
         { href: "/footer", label: "Footer — default" },
@@ -128,17 +110,16 @@
     {
       id: "admin",
       title: "Admin Panel & Table",
-      icon: Settings02Icon,
+      icon: "setting-07",
       description: "Admin shell, sidebar and data table.",
       routes: [
         { href: "/admin/01", label: "Admin Panel 01" },
-        { href: "/datatable/01", label: "DataTable 01" },
       ],
     },
     {
       id: "login",
       title: "Login / Security",
-      icon: User03Icon,
+      icon: "user",
       description: "Authentication pages with hero carousel.",
       routes: [
         { href: "/login/admin/01", label: "Login — Variant 01 (grid pattern)" },
@@ -152,7 +133,7 @@
     {
       id: "pages",
       title: "Full Pages",
-      icon: FileCodeIcon,
+      icon: "file-code",
       description: "Ready-to-use, production-style pages.",
       routes: [
         { href: "/company-profile", label: "Company Profile" },
@@ -187,7 +168,7 @@
       <span
         class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
       >
-        <HugeiconsIcon icon={Rocket01Icon} class="size-4" />
+        <ImageHugeicons icon="rocket-01" class="size-4" />
         Svelte 5 • Tailwind CSS • shadcn style
       </span>
       <h1 class="mt-5 text-4xl font-extrabold tracking-tight md:text-6xl">
@@ -203,21 +184,21 @@
           href="/docs"
           class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
         >
-          <HugeiconsIcon icon={DocumentCodeIcon} class="size-4" />
+          <ImageHugeicons icon="document-code" class="size-4" />
           Read the docs
         </a>
         <a
           href="/docs/components"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold transition hover:bg-muted"
         >
-          <HugeiconsIcon icon={ComponentIcon} class="size-4" />
+          <ImageHugeicons icon="component" class="size-4" />
           Browse components
         </a>
         <a
           href="#demos"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold transition hover:bg-muted"
         >
-          <HugeiconsIcon icon={Link01Icon} class="size-4" />
+          <ImageHugeicons icon="link-01" class="size-4" />
           {totalDemos} live demos
         </a>
       </div>
@@ -239,7 +220,7 @@
             <span
               class="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary"
             >
-              <HugeiconsIcon icon={category.icon} class="size-6" />
+              <ImageHugeicons icon={category.icon} class="size-6" />
             </span>
             <div>
               <h3 class="text-xl font-bold">{category.title}</h3>
@@ -252,7 +233,7 @@
               class="ms-auto hidden items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-sm font-medium transition hover:bg-muted sm:inline-flex"
             >
               Docs
-              <HugeiconsIcon icon={ArrowRight02Icon} class="size-4" />
+              <ImageHugeicons icon="arrow-right-01" class="size-4" />
             </a>
           </header>
           <div class="flex flex-wrap gap-2 p-6">
@@ -261,7 +242,7 @@
                 href={route.href}
                 class="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-sm font-medium transition hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
               >
-                <HugeiconsIcon icon={Link01Icon} class="size-3.5" />
+                <ImageHugeicons icon="link-01" class="size-3.5" />
                 {route.label}
               </a>
             {/each}

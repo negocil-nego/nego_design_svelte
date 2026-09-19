@@ -2,8 +2,8 @@ import { describe, expect, it } from 'vitest';
 import {
 	createDragColumn,
 	createSelectColumn,
-} from '../../../src/lib/components/core/datatable/data/columns-create';
-import type DataTableCheckbox from '../../../src/lib/components/core/datatable/ui/DataTableCheckbox.svelte';
+} from '../../../src/lib/components/ui/datatable/data/columns-create';
+import type DataTableCheckbox from '../../../src/lib/components/ui/datatable/ui/DataTableCheckbox.svelte';
 import type {
 	CellContext,
 	HeaderContext,

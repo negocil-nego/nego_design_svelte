@@ -5,14 +5,14 @@ import {
 	isItems,
 	isItem,
 	isList,
-} from '../../../src/lib/components/core/nav/data/complex-menu-utils';
+} from '../../../src/lib/components/ui/nav/data/complex-menu-utils';
 import type {
 	NavigationMenuItemCardProps,
 	NavigationMenuItemGridProps,
 	NavigationMenuItemListProps,
 	NavigationMenuItemProps,
 	NavigationMenuItemsProps,
-} from '../../../src/lib/components/core/nav/data/types';
+} from '../../../src/lib/components/ui/nav/data/types';
 
 const card: NavigationMenuItemCardProps = {
 	header: { label: 'Title', description: 'Description' },

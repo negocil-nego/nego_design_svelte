@@ -1,10 +1,9 @@
 <script lang="ts" generics="T">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     import Button from "$lib/components/ui/button/button.svelte";
     import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
     import { Input } from "$lib/components/ui/input/index.js";
-    import { ArrowDown01Icon } from "@hugeicons/core-free-icons";
-    import { HugeiconsIcon } from "@hugeicons/svelte";
-    import type { Table } from "$lib/components/ui/data-table";
+            import type { Table } from "$lib/components/ui/data-table";
 
     type Props = {
         table: Table<T>;
@@ -34,10 +33,7 @@
         <DropdownMenu.Trigger>
             {#snippet child({ props })}
                 <Button {...props} variant="outline" class="ms-auto">
-                    Columns <HugeiconsIcon
-                        icon={ArrowDown01Icon}
-                        class="ms-2 size-4"
-                    />
+                    Columns <ImageHugeicons icon="arrow-down-01" class="ms-2 size-4" />
                 </Button>
             {/snippet}
         </DropdownMenu.Trigger>

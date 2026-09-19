@@ -1,11 +1,9 @@
 <script lang="ts">
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	import type { Snippet } from "svelte";
 	import type { HTMLButtonAttributes } from "svelte/elements";
 	import { cn } from "$lib/utils.js";
-	import { HugeiconsIcon } from "@hugeicons/svelte";
-	import { Tick02Icon } from "@hugeicons/core-free-icons";
-	import { MinusSignIcon } from "@hugeicons/core-free-icons";
-
+			
 	type CheckboxState = boolean | "indeterminate";
 
 	let {
@@ -74,9 +72,9 @@
 			class="[&>svg]:size-3.5 grid place-content-center text-current transition-none"
 		>
 			{#if isChecked}
-				<HugeiconsIcon icon={Tick02Icon} strokeWidth={2} />
+				<ImageHugeicons icon="tick-02" />
 			{:else if isIndeterminate}
-				<HugeiconsIcon icon={MinusSignIcon} strokeWidth={2} />
+				<ImageHugeicons icon="minus-sign" />
 			{/if}
 		</div>
 	{/if}

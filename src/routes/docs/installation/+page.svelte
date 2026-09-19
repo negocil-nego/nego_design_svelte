@@ -1,12 +1,6 @@
 <script lang="ts">
-  import {
-    ArrowRight02Icon,
-    PackageIcon,
-    PaintBoardIcon,
-    ComputerTerminal01Icon,
-  } from "@hugeicons/core-free-icons";
-  import { HugeiconsIcon } from "@hugeicons/svelte";
-  import DocsHeader from "$lib/docs/DocsHeader.svelte";
+import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+      import DocsHeader from "$lib/docs/DocsHeader.svelte";
   import CodeBlock from "$lib/docs/CodeBlock.svelte";
 
   const installCode = `npm install negodesign`;
@@ -74,7 +68,7 @@ ${"</" + "script>"}
 
   <section class="mt-10">
     <h2 class="flex items-center gap-2 text-xl font-bold">
-      <HugeiconsIcon icon={PackageIcon} class="size-5 text-primary" />
+      <ImageHugeicons icon="package" class="size-5 text-primary" />
       Install the package
     </h2>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -87,7 +81,7 @@ ${"</" + "script>"}
 
   <section class="mt-10">
     <h2 class="flex items-center gap-2 text-xl font-bold">
-      <HugeiconsIcon icon={PaintBoardIcon} class="size-5 text-primary" />
+      <ImageHugeicons icon="sparkles" class="size-5 text-primary" />
       Set up Tailwind CSS v4
     </h2>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -103,7 +97,7 @@ ${"</" + "script>"}
 
   <section class="mt-10">
     <h2 class="flex items-center gap-2 text-xl font-bold">
-      <HugeiconsIcon icon={ComputerTerminal01Icon} class="size-5 text-primary" />
+      <ImageHugeicons icon="app-window" class="size-5 text-primary" />
       Use a component
     </h2>
     <div class="mt-4">
@@ -140,7 +134,7 @@ ${"</" + "script>"}
       class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
     >
       Browse components
-      <HugeiconsIcon icon={ArrowRight02Icon} class="size-4" />
+      <ImageHugeicons icon="arrow-right-01" class="size-4" />
     </a>
   </div>
 </div>
