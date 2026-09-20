@@ -29,7 +29,7 @@ ${"</" + "script>"}
   const usageCode = `<!-- src/routes/+page.svelte -->
 <script lang="ts">
   import { Menu } from "negodesign";
-  import { Home01Icon } from "@hugeicons/core-free-icons";
+  import { Home01Icon } from "@hugeicons/" + "core-free-icons"; // npm i @hugeicons/core-free-icons
 
   const links = [
     { label: "Home", url: "/", icon: Home01Icon },

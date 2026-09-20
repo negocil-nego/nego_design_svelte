@@ -1,10 +1,6 @@
-Irás cria os componente se baseando no AdminTab para ser usado em AdminTabs
 
-AdminSecurityTab
-Terás 4 secções de AdminIt
-npm install @lottiefiles/dotlottie-svelte
 
-E deves fazer a documentação dos novos componentes
+E deves fazer a documentação dos novos componentes que estão em "src/lib/components/pages/status"
 na página "src/routes/docs/+page.svelte"
 e actualizar o "src/lib/docs/DocsSidebar.svelte"
 não esquecer de criar um exemplo de como cria uma página de demo que demostra o exemplo

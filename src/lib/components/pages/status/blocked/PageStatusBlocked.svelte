@@ -2,16 +2,13 @@
   import { t } from "$lib/i18n";
   import PageStatus from "../PageStatus.svelte";
   import type { PageStatusProps } from "../types";
+  import BlockedIcon from "$lib/assets/hand.png";
 
   let {
     onAction,
     actionHref,
     className = "",
-    icon,
     titleColor = "text-red-500",
-    bgColor = "bg-red-500/10",
-    iconBg = "bg-red-500",
-    iconColor = "text-white",
     buttonBg = "bg-primary",
     buttonTextColor = "text-primary-foreground",
     ...restProps
@@ -26,12 +23,12 @@
   {onAction}
   {actionHref}
   {className}
-  {icon}
   {titleColor}
-  {bgColor}
-  {iconBg}
-  {iconColor}
   {buttonBg}
   {buttonTextColor}
   {...restProps}
-/>
+>
+  {#snippet imgSlot()}
+    <img src={BlockedIcon} alt="" class="size-16 text-foreground sm:size-32" />
+  {/snippet}
+</PageStatus>

@@ -2,16 +2,13 @@
   import { t } from "$lib/i18n";
   import PageStatus from "../PageStatus.svelte";
   import type { PageStatusProps } from "../types";
+  import InsuranceIcon from "$lib/assets/insurance.png";
 
   let {
     onAction,
     actionHref,
     className = "",
-    icon,
     titleColor = "text-blue-500",
-    bgColor = "bg-blue-500/10",
-    iconBg = "bg-blue-500",
-    iconColor = "text-white",
     buttonBg = "bg-primary",
     buttonTextColor = "text-primary-foreground",
     ...restProps
@@ -26,12 +23,16 @@
   {onAction}
   {actionHref}
   {className}
-  {icon}
   {titleColor}
-  {bgColor}
-  {iconBg}
-  {iconColor}
   {buttonBg}
   {buttonTextColor}
   {...restProps}
-/>
+>
+  {#snippet imgSlot()}
+    <img
+      src={InsuranceIcon}
+      alt=""
+      class="size-16 text-foreground sm:size-32"
+    />
+  {/snippet}
+</PageStatus>

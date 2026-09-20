@@ -19,6 +19,14 @@ export default defineConfig({
 			adapter: adapter()
 		})
 	],
+	build: {
+		rollupOptions: {
+			external: ['@tailwindcss/oxide-linux-x64-gnu']
+		}
+	},
+	optimizeDeps: {
+		exclude: ['@tailwindcss/oxide', '@tailwindcss/oxide-linux-x64-gnu']
+	},
 	test: {
 		expect: { requireAssertions: true },
 		projects: [

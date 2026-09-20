@@ -1,6 +1,6 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import { t } from "$lib/i18n";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import { t } from "$lib/i18n";
   import type {
     CardEmailPhoneWhatsappProps,
     CardEmailPhoneWhatsappItem,
@@ -51,12 +51,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   }
 </script>
 
-<div class="space-y-3 {className}">
+<div class="flex flex-col md:flex-row gap-5 my-2 md:my-4 {className}">
   {#each resolvedItems as item (item.id)}
     {@const isSelected = selected === item.id}
     <button
       type="button"
-      class="relative flex w-full items-center gap-4 rounded-2xl border p-4 text-left transition {isSelected
+      class="relative flex w-full items-center gap-4 rounded-xl border p-4 text-left transition cursor-pointer {isSelected
         ? 'border-primary bg-primary/5 ring-2 ring-primary/20'
         : 'border-border bg-card hover:bg-muted/50'}"
       onclick={() => handleSelect(item.id)}
@@ -82,7 +82,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       </div>
 
       {#if isSelected}
-        <ImageHugeicons icon="checkmark-circle-02" class="size-5 shrink-0 text-primary" />
+        <ImageHugeicons
+          icon="checkmark-circle-02"
+          class="size-5 shrink-0 text-primary"
+        />
       {/if}
     </button>
   {/each}

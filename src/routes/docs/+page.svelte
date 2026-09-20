@@ -6,8 +6,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   const installCode = `npm install negodesign`;
 
   const cssCode = `// app.css or +layout.svelte
-import "negodesign/styles.css";
-import "negodesign/styles/fonts.css"; // optional, if you ship the default fonts
+import "negodesign/styles.css"; // includes the default fonts
 
 // Tailwind v4 is not required, but heavily recommended
 import "@tailwindcss/vite";`;
@@ -18,7 +17,7 @@ import "@tailwindcss/vite";`;
     DashboardSquare01Icon,
     Money01Icon,
     Analytics01Icon,
-  } from "@hugeicons/core-free-icons";
+  } from "@hugeicons/" + "core-free-icons"; // npm i @hugeicons/core-free-icons
 
   let selectedKey = $state<string | number>("overview");${"</" + "script>"}
 
@@ -169,6 +168,35 @@ ${"</" + "script>"}
   buttonBg="bg-primary"
   buttonTextColor="text-primary-foreground"
   onAction={() => console.log("continue")}
+/>`;
+
+  const pageStatusAdvancedCode = `<script lang="ts">
+  import { PageStatus } from "negodesign";
+${"</" + "script>"}
+
+<PageStatus
+  title="Pagamento em processamento"
+  subtitle="Estamos a verificar o seu pagamento"
+  description="Isto pode demorar alguns minutos."
+  buttonText="Continuar"
+  imageUrl="/media/pending.lottie"
+  titleColor="text-amber-500"
+  bgColor="bg-amber-500/10"
+  iconBg="bg-amber-500"
+  iconColor="text-white"
+  buttonBg="bg-primary"
+  buttonTextColor="text-primary-foreground"
+  actionHref="/dashboard"
+  emailPhoneWhatsapp={{
+    visible: ["email", "phone"],
+    onSelect: (method) => console.log(method),
+  }}
+>
+  {#snippet children()}
+    <p class="mt-4 text-sm text-muted-foreground">
+      Tens alguma dúvida? Fala connosco durante o horário útil.
+    </p>
+  {/snippet}
 />`;
 
   const locationInputCode = `<Form
@@ -508,7 +536,7 @@ ${"</" + "script>"}
         <ImageHugeicons icon="arrow-right-01" class="size-3" />
       </a>
       <a
-        href="/admin/tabs/status"
+        href="/status"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
@@ -516,20 +544,35 @@ ${"</" + "script>"}
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
-      Página de estado completa com ícone, título, subtítulo, descrição e botão
-      de ação. Suporta duas variantes:
-      <code class="rounded bg-muted px-1 py-0.5">"pending"</code> (âmbar) e
-      <code class="rounded bg-muted px-1 py-0.5">"blocked"</code> (vermelho).
-      Os textos são internacionalizados via i18n e podem ser sobrescritos por
-      props.
+      Página de estado completa com ícone (estático ou animação
+      <code class="rounded bg-muted px-1 py-0.5">.lottie</code>), título,
+      subtítulo, descrição, card de contactos opcional e botão de ação. Existem
+      três variantes prontas a usar:
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code>
+      (âmbar),
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code>
+      (vermelho) e
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusRecovering</code>
+      (azul). Os textos de cada variante são internacionalizados via i18n e
+      podem ser sobrescritos por props.
     </p>
     <p class="mt-2 text-sm text-muted-foreground">
-      Use
-      <code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code> e
-      <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code> como
-      wrappers prontos a usar, ou
-      <code class="rounded bg-muted px-1 py-0.5">PageStatus</code> directamente
-      para controlo total da variante.
+      Usa os wrappers prontos a usar
+      (<code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code>,
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code> e
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusRecovering</code>)
+      ou o <code class="rounded bg-muted px-1 py-0.5">PageStatus</code> base
+      para controlo total da variante. Todos aceitam
+      <code class="rounded bg-muted px-1 py-0.5">imageUrl</code> (imagem estática
+      ou animação <code class="rounded bg-muted px-1 py-0.5">.lottie</code> que
+      substitui o ícone),
+      <code class="rounded bg-muted px-1 py-0.5">emailPhoneWhatsapp</code>
+      (card de contactos
+      <code class="rounded bg-muted px-1 py-0.5">CardEmailPhoneWhatsapp</code>),
+      o snippet <code class="rounded bg-muted px-1 py-0.5">children</code>,
+      <code class="rounded bg-muted px-1 py-0.5">actionHref</code> (botão
+      renderizado como link) e <code class="rounded bg-muted px-1 py-0.5">onAction</code>
+      (callback do botão).
     </p>
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">PageStatusPending</h3>
@@ -546,6 +589,10 @@ ${"</" + "script>"}
     <div class="mt-4 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">PageStatus — Custom</h3>
       <CodeBlock code={pageStatusCode} title="PageStatus.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">PageStatus — Animation, contact & content</h3>
+      <CodeBlock code={pageStatusAdvancedCode} title="PageStatus.svelte" />
     </div>
   </section>
 

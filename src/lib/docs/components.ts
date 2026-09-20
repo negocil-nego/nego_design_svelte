@@ -2158,7 +2158,7 @@ import {
     name: "PageStatus",
     category: "Full Pages",
     description:
-      "Full-page status component with icon, title, subtitle, description and action button. Supports two variants: pending (amber) and blocked (red). Texts are internationalized via i18n.",
+      "Full-page status component with icon (static image or .lottie animation), title, subtitle, description, optional contact card and action button. Ships with three ready-to-use variants: pending (amber), blocked (red) and recovering (blue). Texts are internationalized via i18n.",
     path: "src/lib/components/pages/status/PageStatus.svelte",
     importPath: "PageStatus",
     examples: [
@@ -2171,7 +2171,7 @@ ${"</" + "script>"}
 <PageStatusPending
   onAction={() => console.log("done")}
 />`,
-        href: "/admin/tabs/status",
+        href: "/status",
       },
       {
         title: "Blocked Status",
@@ -2213,21 +2213,55 @@ ${"</" + "script>"}
   onAction={() => console.log("continue")}
 />`,
       },
+      {
+        title: "Animation, Contact & Custom Content",
+        code: `<script lang="ts">
+  import { PageStatus } from "negodesign";
+${"</" + "script>"}
+
+<PageStatus
+  title="Pagamento em processamento"
+  subtitle="Estamos a verificar o seu pagamento"
+  description="Isto pode demorar alguns minutos."
+  buttonText="Continuar"
+  imageUrl="/media/pending.lottie"
+  titleColor="text-amber-500"
+  bgColor="bg-amber-500/10"
+  iconBg="bg-amber-500"
+  iconColor="text-white"
+  buttonBg="bg-primary"
+  buttonTextColor="text-primary-foreground"
+  actionHref="/dashboard"
+  emailPhoneWhatsapp={{
+    visible: ["email", "phone"],
+    onSelect: (method) => console.log(method),
+  }}
+>
+  {#snippet children()}
+    <p class="mt-4 text-sm text-muted-foreground">
+      Tens alguma dúvida? Fala connosco durante o horário útil.
+    </p>
+  {/snippet}
+/>`,
+      },
     ],
     props: [
       { name: "title", type: "string", description: "Title text" },
-      { name: "subtitle", type: "string", description: "Custom subtitle. Overrides i18n default" },
-      { name: "description", type: "string", description: "Custom description. Overrides i18n default" },
-      { name: "buttonText", type: "string", description: "Custom button text. Overrides i18n default" },
+      { name: "subtitle", type: "string", description: "Subtitle shown below the title" },
+      { name: "description", type: "string", description: "Supporting description text" },
+      { name: "buttonText", type: "string", description: "Action button label" },
       { name: "onAction", type: "() => void", description: "Callback when the action button is clicked" },
       { name: "actionHref", type: "string", description: "URL for the action button (renders a link instead)" },
-      { name: "icon", type: "IconSvgElement", description: "Custom icon replacing the default smartphone icon" },
+      { name: "imageUrl", type: "string", description: "URL of a static image or a .lottie animation. When set, it replaces the default icon and renders a DotLottie player for .lottie files" },
+      { name: "icon", type: "HugeiconsIconName", description: "Hugeicons icon name replacing the default smartphone icon" },
       { name: "titleColor", type: "string", description: "Title CSS class (e.g. \"text-amber-500\", \"text-blue-600\")" },
       { name: "bgColor", type: "string", description: "Icon circle background CSS class (e.g. \"bg-amber-500/10\")" },
       { name: "iconBg", type: "string", description: "Alert badge background CSS class (e.g. \"bg-amber-500\")" },
       { name: "iconColor", type: "string", description: "Alert badge icon color CSS class (e.g. \"text-white\")" },
       { name: "buttonBg", type: "string", description: "Button background CSS class (e.g. \"bg-primary\", \"bg-amber-500\")" },
       { name: "buttonTextColor", type: "string", description: "Button text color CSS class (e.g. \"text-primary-foreground\")" },
+      { name: "emailPhoneWhatsapp", type: "CardEmailPhoneWhatsappProps", description: "Renders a CardEmailPhoneWhatsapp contact-method card below the description: { items?, visible?, selected?, onSelect?, className? }" },
+      { name: "children", type: "Snippet", description: "Custom content (Snippet) rendered between the description and the contact card" },
       { name: "className", type: "string", description: "Additional CSS class for the container" },
     ],
   },

@@ -3,9 +3,10 @@
         PageStatus,
         PageStatusPending,
         PageStatusBlocked,
+        PageStatusRecovering,
     } from "$lib";
 
-    let activeDemo = $state<"pending" | "blocked" | "custom">("pending");
+    let activeDemo = $state<"pending" | "blocked" | "recovering" | "custom">("pending");
 
     function handleDone() {
         console.log("action clicked");
@@ -17,7 +18,7 @@
     <title>Status Page Demo | NegoDesign</title>
     <meta
         name="description"
-        content="Live demo of PageStatus, PageStatusPending and PageStatusBlocked components."
+        content="Live demo of PageStatus, PageStatusPending, PageStatusBlocked and PageStatusRecovering components."
     />
 </svelte:head>
 
@@ -29,7 +30,8 @@
         <p class="mt-2 text-sm text-muted-foreground">
             Demonstração dos componentes
             <code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code>,
-            <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code>
+            <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code>,
+            <code class="rounded bg-muted px-1 py-0.5">PageStatusRecovering</code>
             e
             <code class="rounded bg-muted px-1 py-0.5">PageStatus</code>
             com variantes personalizadas. Clique no botão para ver o callback
@@ -37,7 +39,7 @@
         </p>
     </header>
 
-    <div class="flex gap-2 px-1">
+    <div class="flex flex-wrap gap-2 px-1">
         <button
             type="button"
             onclick={() => (activeDemo = "pending")}
@@ -60,6 +62,16 @@
         </button>
         <button
             type="button"
+            onclick={() => (activeDemo = "recovering")}
+            class="rounded-lg px-4 py-2 text-sm font-medium transition {activeDemo ===
+            'recovering'
+                ? 'bg-primary text-primary-foreground'
+                : 'bg-muted text-muted-foreground hover:bg-muted/80'}"
+        >
+            Recovering
+        </button>
+        <button
+            type="button"
             onclick={() => (activeDemo = "custom")}
             class="rounded-lg px-4 py-2 text-sm font-medium transition {activeDemo ===
             'custom'
@@ -75,6 +87,8 @@
             <PageStatusPending onAction={handleDone} />
         {:else if activeDemo === "blocked"}
             <PageStatusBlocked onAction={handleDone} />
+        {:else if activeDemo === "recovering"}
+            <PageStatusRecovering onAction={handleDone} />
         {:else}
             <PageStatus
                 title="Processing"

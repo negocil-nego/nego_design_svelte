@@ -1,23 +1,20 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-  import { DotLottieSvelte } from "@lottiefiles/dotlottie-svelte";
-      import type { PageStatusProps } from "./types";
+  import type { PageStatusProps } from "./types";
   import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
+  import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
+  import { ThemeSwitch } from "$lib/components/ui/theme-switch";
+  import Button from "$lib/components/ui/button/button.svelte";
 
   let {
     title = "",
-    imageUrl = "",
     subtitle = "",
     description = "",
     buttonText = "",
+    imgSlot,
     onAction,
     actionHref,
     className = "",
-    icon,
     titleColor = "",
-    bgColor = "",
-    iconBg = "",
-    iconColor = "",
     buttonBg = "",
     buttonTextColor = "",
     emailPhoneWhatsapp,
@@ -28,25 +25,14 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 <div
   class="flex min-h-svh flex-col items-center justify-center px-4 py-10 {className}"
 >
+  <div class="absolute top-5 right-5 flex gap-3">
+    <ThemeSwitch />
+    <LanguageSwitcher />
+  </div>
   <div class="flex flex-col items-center text-center">
     <div class="relative">
-      {#if imageUrl}
-        {#if imageUrl.includes(".lottie")}
-          <DotLottieSvelte src={imageUrl} loop autoplay />
-        {:else}
-          <img src={imageUrl} alt="" />
-        {/if}
-      {:else}
-        <span
-          class="flex size-32 items-center justify-center rounded-full {bgColor} sm:size-40"
-        >
-          <ImageHugeicons icon={icon ?? "smart-phone-02"} class="size-16 text-foreground sm:size-20" />
-        </span>
-        <span
-          class="absolute -bottom-1 right-2 flex size-8 items-center justify-center rounded-full {iconBg} shadow-md sm:-bottom-2 sm:right-0 sm:size-10"
-        >
-          <ImageHugeicons icon="alert-circle" class="size-5 {iconColor}" />
-        </span>
+      {#if imgSlot}
+        {@render imgSlot()}
       {/if}
     </div>
 
@@ -58,19 +44,19 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       {subtitle}
     </p>
 
-    <p class="mt-2 max-w-md text-xs text-muted-foreground sm:text-sm">
+    <p class="max-w-md text-xs text-muted-foreground sm:text-sm my-5">
       {description}
     </p>
 
     {#if children}
-      <div class="mt-4">{children()}</div>
+      <div>{@render children()}</div>
     {/if}
 
     {#if emailPhoneWhatsapp}
       <CardEmailPhoneWhatsapp {...emailPhoneWhatsapp} />
     {/if}
 
-    <div class="mt-6">
+    <div>
       {#if actionHref}
         <a
           href={actionHref}
@@ -79,13 +65,13 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           {buttonText}
         </a>
       {:else if onAction}
-        <button
+        <Button
           type="button"
           onclick={onAction}
-          class="inline-flex items-center justify-center rounded-lg {buttonBg} px-8 py-3 text-sm font-semibold {buttonTextColor} transition hover:opacity-90"
+          class="md:min-w-75 lg:min-w-100 bg-gradient mx-2 px-8 py-3 font-semibold {buttonTextColor} transition hover:opacity-90"
         >
           {buttonText}
-        </button>
+        </Button>
       {/if}
     </div>
   </div>

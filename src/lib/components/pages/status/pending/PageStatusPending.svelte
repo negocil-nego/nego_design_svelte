@@ -2,16 +2,13 @@
   import { t } from "$lib/i18n";
   import PageStatus from "../PageStatus.svelte";
   import type { PageStatusProps } from "../types";
+  import LoadIcon from "$lib/assets/load.png";
 
   let {
     onAction,
     actionHref,
     className = "",
-    icon,
     titleColor = "text-amber-500",
-    bgColor = "bg-amber-500/10",
-    iconBg = "bg-amber-500",
-    iconColor = "text-white",
     buttonBg = "bg-primary",
     buttonTextColor = "text-primary-foreground",
     ...restProps
@@ -26,12 +23,12 @@
   {onAction}
   {actionHref}
   {className}
-  {icon}
   {titleColor}
-  {bgColor}
-  {iconBg}
-  {iconColor}
   {buttonBg}
   {buttonTextColor}
   {...restProps}
-/>
+>
+  {#snippet imgSlot()}
+    <img src={LoadIcon} alt="" class="size-16 text-foreground sm:size-32" />
+  {/snippet}
+</PageStatus>
