@@ -157,6 +157,7 @@ import type {
 
 import type {
     PageStatusProps,
+    PageLoadingProps,
 } from "$lib/components/pages/status/types";
 
 import type {
@@ -510,6 +511,9 @@ export type {
 
     /** Props do componente PageStatus — página de estado com ícone, título e botão. @see PageStatusProps */
     PageStatusProps,
+
+    /** Props do componente PageLoading — página de carregamento com spinner e barra de progresso opcional. @see PageLoadingProps */
+    PageLoadingProps,
 
     /** Método de recepção do código OTP. @see CardMethod */
     CardMethod,

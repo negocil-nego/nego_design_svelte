@@ -2158,7 +2158,7 @@ import {
     name: "PageStatus",
     category: "Full Pages",
     description:
-      "Full-page status component with icon (static image or .lottie animation), title, subtitle, description, optional contact card and action button. Ships with three ready-to-use variants: pending (amber), blocked (red) and recovering (blue). Texts are internationalized via i18n.",
+      "Full-page status component with image (static image or animation via the imgSlot snippet), title, subtitle, description, optional contact card and action button. Ships with three ready-to-use variants: pending (amber), blocked (red) and recovering (blue). Texts are internationalized via i18n.",
     path: "src/lib/components/pages/status/PageStatus.svelte",
     importPath: "PageStatus",
     examples: [
@@ -2205,16 +2205,17 @@ ${"</" + "script>"}
   description="This may take a few minutes."
   buttonText="Continue"
   titleColor="text-amber-500"
-  bgColor="bg-amber-500/10"
-  iconBg="bg-amber-500"
-  iconColor="text-white"
   buttonBg="bg-primary"
   buttonTextColor="text-primary-foreground"
   onAction={() => console.log("continue")}
-/>`,
+>
+  {#snippet imgSlot()}
+    <img src="/media/payment.png" alt="" class="size-16 sm:size-32" />
+  {/snippet}
+</PageStatus>`,
       },
       {
-        title: "Animation, Contact & Custom Content",
+        title: "Image, Contact & Custom Content",
         code: `<script lang="ts">
   import { PageStatus } from "negodesign";
 ${"</" + "script>"}
@@ -2224,11 +2225,7 @@ ${"</" + "script>"}
   subtitle="Estamos a verificar o seu pagamento"
   description="Isto pode demorar alguns minutos."
   buttonText="Continuar"
-  imageUrl="/media/pending.lottie"
   titleColor="text-amber-500"
-  bgColor="bg-amber-500/10"
-  iconBg="bg-amber-500"
-  iconColor="text-white"
   buttonBg="bg-primary"
   buttonTextColor="text-primary-foreground"
   actionHref="/dashboard"
@@ -2237,12 +2234,15 @@ ${"</" + "script>"}
     onSelect: (method) => console.log(method),
   }}
 >
+  {#snippet imgSlot()}
+    <img src="/media/fx.png" alt="" class="size-16 sm:size-32" />
+  {/snippet}
   {#snippet children()}
     <p class="mt-4 text-sm text-muted-foreground">
       Tens alguma dúvida? Fala connosco durante o horário útil.
     </p>
   {/snippet}
-/>`,
+</PageStatus>`,
       },
     ],
     props: [
@@ -2252,15 +2252,58 @@ ${"</" + "script>"}
       { name: "buttonText", type: "string", description: "Action button label" },
       { name: "onAction", type: "() => void", description: "Callback when the action button is clicked" },
       { name: "actionHref", type: "string", description: "URL for the action button (renders a link instead)" },
-      { name: "imageUrl", type: "string", description: "URL of a static image or a .lottie animation. When set, it replaces the default icon and renders a DotLottie player for .lottie files" },
-      { name: "icon", type: "HugeiconsIconName", description: "Hugeicons icon name replacing the default smartphone icon" },
+      { name: "imgSlot", type: "Snippet", description: "Snippet rendered in the image area. Replaces the default icon with an image, icon or animation" },
       { name: "titleColor", type: "string", description: "Title CSS class (e.g. \"text-amber-500\", \"text-blue-600\")" },
-      { name: "bgColor", type: "string", description: "Icon circle background CSS class (e.g. \"bg-amber-500/10\")" },
-      { name: "iconBg", type: "string", description: "Alert badge background CSS class (e.g. \"bg-amber-500\")" },
-      { name: "iconColor", type: "string", description: "Alert badge icon color CSS class (e.g. \"text-white\")" },
       { name: "buttonBg", type: "string", description: "Button background CSS class (e.g. \"bg-primary\", \"bg-amber-500\")" },
       { name: "buttonTextColor", type: "string", description: "Button text color CSS class (e.g. \"text-primary-foreground\")" },
       { name: "emailPhoneWhatsapp", type: "CardEmailPhoneWhatsappProps", description: "Renders a CardEmailPhoneWhatsapp contact-method card below the description: { items?, visible?, selected?, onSelect?, className? }" },
+      { name: "children", type: "Snippet", description: "Custom content (Snippet) rendered between the description and the contact card" },
+      { name: "className", type: "string", description: "Additional CSS class for the container" },
+    ],
+  },
+  {
+    slug: "page-loading",
+    name: "PageLoading",
+    category: "Full Pages",
+    description:
+      "Full-page loading component with animated spinner and internationalized texts. Accepts an optional progress (0-100) that renders a progress bar below the spinner. Supports the same props as PageStatus.",
+    path: "src/lib/components/pages/status/loading/PageLoading.svelte",
+    importPath: "PageLoading",
+    examples: [
+      {
+        title: "Basic Loading",
+        code: `<script lang="ts">
+  import { PageLoading } from "negodesign";
+${"</" + "script>"}
+
+<PageLoading />`,
+        href: "/loading",
+      },
+      {
+        title: "Loading with Progress & Action",
+        code: `<script lang="ts">
+  import { PageLoading } from "negodesign";
+${"</" + "script>"}
+
+<PageLoading
+  progress={40}
+  onAction={() => console.log("done")}
+/>`,
+      },
+    ],
+    props: [
+      { name: "progress", type: "number", description: "Progress percentage (0-100). When set, renders a progress bar and percentage below the spinner" },
+      { name: "title", type: "string", description: "Overrides the internationalized title text" },
+      { name: "subtitle", type: "string", description: "Overrides the internationalized subtitle" },
+      { name: "description", type: "string", description: "Overrides the internationalized description" },
+      { name: "buttonText", type: "string", description: "Action button label" },
+      { name: "onAction", type: "() => void", description: "Callback when the action button is clicked" },
+      { name: "actionHref", type: "string", description: "URL for the action button (renders a link instead)" },
+      { name: "imgSlot", type: "Snippet", description: "Snippet rendered in the image area, replacing the default spinner" },
+      { name: "titleColor", type: "string", description: "Title CSS class (e.g. \"text-primary\", \"text-blue-600\")" },
+      { name: "buttonBg", type: "string", description: "Button background CSS class (e.g. \"bg-primary\")" },
+      { name: "buttonTextColor", type: "string", description: "Button text color CSS class" },
+      { name: "emailPhoneWhatsapp", type: "CardEmailPhoneWhatsappProps", description: "Renders a CardEmailPhoneWhatsapp contact-method card below the description" },
       { name: "children", type: "Snippet", description: "Custom content (Snippet) rendered between the description and the contact card" },
       { name: "className", type: "string", description: "Additional CSS class for the container" },
     ],

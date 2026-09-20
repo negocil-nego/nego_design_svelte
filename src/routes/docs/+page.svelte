@@ -162,13 +162,14 @@ ${"</" + "script>"}
   description="This may take a few minutes."
   buttonText="Continue"
   titleColor="text-amber-500"
-  bgColor="bg-amber-500/10"
-  iconBg="bg-amber-500"
-  iconColor="text-white"
   buttonBg="bg-primary"
   buttonTextColor="text-primary-foreground"
   onAction={() => console.log("continue")}
-/>`;
+>
+  {#snippet imgSlot()}
+    <img src="/media/payment.png" alt="" class="size-16 sm:size-32" />
+  {/snippet}
+</PageStatus>`;
 
   const pageStatusAdvancedCode = `<script lang="ts">
   import { PageStatus } from "negodesign";
@@ -179,11 +180,7 @@ ${"</" + "script>"}
   subtitle="Estamos a verificar o seu pagamento"
   description="Isto pode demorar alguns minutos."
   buttonText="Continuar"
-  imageUrl="/media/pending.lottie"
   titleColor="text-amber-500"
-  bgColor="bg-amber-500/10"
-  iconBg="bg-amber-500"
-  iconColor="text-white"
   buttonBg="bg-primary"
   buttonTextColor="text-primary-foreground"
   actionHref="/dashboard"
@@ -192,12 +189,21 @@ ${"</" + "script>"}
     onSelect: (method) => console.log(method),
   }}
 >
+  {#snippet imgSlot()}
+    <img src="/media/fx.png" alt="" class="size-16 sm:size-32" />
+  {/snippet}
   {#snippet children()}
     <p class="mt-4 text-sm text-muted-foreground">
       Tens alguma dúvida? Fala connosco durante o horário útil.
     </p>
   {/snippet}
-/>`;
+</PageStatus>`;
+
+  const pageLoadingCode = `<script lang="ts">
+  import { PageLoading } from "negodesign";
+${"</" + "script>"}
+
+<PageLoading progress={40} />`;
 
   const locationInputCode = `<Form
   onSubmit={(data) => console.log(data)}
@@ -544,28 +550,31 @@ ${"</" + "script>"}
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
-      Página de estado completa com ícone (estático ou animação
-      <code class="rounded bg-muted px-1 py-0.5">.lottie</code>), título,
+      Página de estado completa com imagem (estática ou animação via snippet
+      <code class="rounded bg-muted px-1 py-0.5">imgSlot</code>), título,
       subtítulo, descrição, card de contactos opcional e botão de ação. Existem
       três variantes prontas a usar:
       <code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code>
       (âmbar),
       <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code>
-      (vermelho) e
+      (vermelho),
       <code class="rounded bg-muted px-1 py-0.5">PageStatusRecovering</code>
-      (azul). Os textos de cada variante são internacionalizados via i18n e
-      podem ser sobrescritos por props.
+      (azul) e
+      <code class="rounded bg-muted px-1 py-0.5">PageLoading</code>
+      (carregamento, com barra de progresso opcional). Os textos de cada
+      variante são internacionalizados via i18n e podem ser sobrescritos por
+      props.
     </p>
     <p class="mt-2 text-sm text-muted-foreground">
       Usa os wrappers prontos a usar
       (<code class="rounded bg-muted px-1 py-0.5">PageStatusPending</code>,
-      <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code> e
-      <code class="rounded bg-muted px-1 py-0.5">PageStatusRecovering</code>)
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusBlocked</code>,
+      <code class="rounded bg-muted px-1 py-0.5">PageStatusRecovering</code> e
+      <code class="rounded bg-muted px-1 py-0.5">PageLoading</code>)
       ou o <code class="rounded bg-muted px-1 py-0.5">PageStatus</code> base
-      para controlo total da variante. Todos aceitam
-      <code class="rounded bg-muted px-1 py-0.5">imageUrl</code> (imagem estática
-      ou animação <code class="rounded bg-muted px-1 py-0.5">.lottie</code> que
-      substitui o ícone),
+      para controlo total da variante. Todos aceitam o snippet
+      <code class="rounded bg-muted px-1 py-0.5">imgSlot</code>
+      (imagem, ícone ou animação que substitui o default),
       <code class="rounded bg-muted px-1 py-0.5">emailPhoneWhatsapp</code>
       (card de contactos
       <code class="rounded bg-muted px-1 py-0.5">CardEmailPhoneWhatsapp</code>),
@@ -593,6 +602,10 @@ ${"</" + "script>"}
     <div class="mt-4 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">PageStatus — Animation, contact & content</h3>
       <CodeBlock code={pageStatusAdvancedCode} title="PageStatus.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">PageLoading — loading page with progress</h3>
+      <CodeBlock code={pageLoadingCode} title="PageLoading.svelte" />
     </div>
   </section>
 

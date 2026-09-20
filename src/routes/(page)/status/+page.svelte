@@ -94,4 +94,24 @@
             </a>
         {/each}
     </div>
+
+    <a
+        href="/status/documentation"
+        class="group flex items-center justify-between rounded-xl border border-border bg-card p-5 transition hover:border-primary/50 hover:bg-muted/40"
+    >
+        <span>
+            <span class="inline-flex items-center gap-2 font-semibold text-foreground">
+                <ImageHugeicons icon="document-code" class="size-5 text-primary" />
+                Documentação — PageLoading
+            </span>
+            <span class="mt-1 block text-sm text-muted-foreground">
+                Demo interativa, exemplos de código, tabela de props e variantes
+                do componente de carregamento.
+            </span>
+        </span>
+        <ImageHugeicons
+            icon="arrow-right-01"
+            class="size-4 shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary"
+        />
+    </a>
 </div>

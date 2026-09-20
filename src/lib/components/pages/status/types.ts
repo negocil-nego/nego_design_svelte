@@ -16,3 +16,8 @@ export type PageStatusProps = {
     buttonTextColor?: string;
     emailPhoneWhatsapp?: CardEmailPhoneWhatsappProps;
 };
+
+export type PageLoadingProps = PageStatusProps & {
+    /** Valor de progresso em percentagem (0-100). Quando definido, exibe uma barra de progresso abaixo do ícone. */
+    progress?: number;
+};

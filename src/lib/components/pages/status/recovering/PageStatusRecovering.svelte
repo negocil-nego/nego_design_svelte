@@ -32,7 +32,7 @@
     <img
       src={InsuranceIcon}
       alt=""
-      class="size-16 text-foreground sm:size-32"
+      class="size-16 text-foreground sm:size-24"
     />
   {/snippet}
 </PageStatus>

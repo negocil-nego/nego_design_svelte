@@ -347,6 +347,10 @@ export default {
     "status.recovering.subtitle": "Estamos a processar a recuperação da sua senha",
     "status.recovering.description": "Verifique o seu email para o link de recuperação. Se não o encontrar, verifique a pasta de spam ou solicite um novo link.",
     "status.recovering.button": "Voltar ao Login",
+    "status.loading.title": "A Carregar",
+    "status.loading.subtitle": "Os seus dados estão a ser preparados",
+    "status.loading.description": "Por favor, aguarde um momento. Não feche nem atualize esta página.",
+    "status.loading.button": "A Carregar",
 
     "card.otp.email.subtitle": "Receber o código por email",
     "card.otp.phone.subtitle": "Receber o código por SMS",

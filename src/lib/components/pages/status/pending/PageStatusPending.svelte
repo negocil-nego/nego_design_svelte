@@ -29,6 +29,6 @@
   {...restProps}
 >
   {#snippet imgSlot()}
-    <img src={LoadIcon} alt="" class="size-16 text-foreground sm:size-32" />
+    <img src={LoadIcon} alt="" class="size-16 text-foreground sm:size-24" />
   {/snippet}
 </PageStatus>

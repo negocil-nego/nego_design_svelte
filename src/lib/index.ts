@@ -27,6 +27,7 @@ import PageStatus from "./components/pages/status/PageStatus.svelte";
 import PageStatusBlocked from "./components/pages/status/blocked/PageStatusBlocked.svelte";
 import PageStatusPending from "./components/pages/status/pending/PageStatusPending.svelte";
 import PageStatusRecovering from "./components/pages/status/recovering/PageStatusRecovering.svelte";
+import PageLoading from "./components/pages/status/loading/PageLoading.svelte";
 import TabUnderline from "$lib/components/ui/tabs/ui/tab-underline.svelte";
 import CarouselGridPromotion from "$lib/components/ui/carousel/core/grid/promotion/ui/CarouselGridPromotion.svelte";
 import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
@@ -644,6 +645,14 @@ export {
      * @see PageStatusProps
      */
     PageStatusRecovering,
+
+    /**
+     * Página de carregamento — wrapper do PageStatus com variante "loading".
+     * Exibe um spinner animado e textos de carregamento. Suporta as mesmas props
+     * do PageStatus, além de `progress` (0-100) para exibir uma barra de progresso.
+     * @see PageStatusProps
+     */
+    PageLoading,
 
     /**
      * Página de política de privacidade ou termos de utilização com sidebar,

@@ -24,11 +24,7 @@
     subtitle="Estamos a verificar o seu pagamento"
     description="Isto pode demorar alguns minutos. Será notificado assim que o processo terminar."
     buttonText="Continuar"
-    imageUrl="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
     titleColor="text-amber-500"
-    bgColor="bg-amber-500/10"
-    iconBg="bg-amber-500"
-    iconColor="text-white"
     buttonBg="bg-primary"
     buttonTextColor="text-primary-foreground"
     actionHref="/status"
@@ -38,6 +34,13 @@
     }}
     onAction={() => console.log("continue")}
 >
+    {#snippet imgSlot()}
+        <img
+            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=600&auto=format&fit=crop"
+            alt=""
+            class="size-16 rounded-2xl object-cover text-foreground sm:size-32"
+        />
+    {/snippet}
     {#snippet children()}
         <p class="mt-2 max-w-md text-xs text-muted-foreground">
             Tens alguma dúvida? Fala connosco pelo email ou telefone durante o

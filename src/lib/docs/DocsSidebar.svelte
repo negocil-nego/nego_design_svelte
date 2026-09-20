@@ -99,6 +99,15 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs/page-loading"}>
+              {#snippet child({ props })}
+                <a href="/docs/page-loading" {...props}
+                  ><span>PageLoading</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

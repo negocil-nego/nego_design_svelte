@@ -347,6 +347,10 @@ export default {
     "status.recovering.subtitle": "We're working on resetting your password",
     "status.recovering.description": "Check your email for the recovery link. If you don't see it, check your spam folder or request a new link.",
     "status.recovering.button": "Back to Login",
+    "status.loading.title": "Loading",
+    "status.loading.subtitle": "Your data is being prepared",
+    "status.loading.description": "Please wait a moment. Do not close or refresh this page.",
+    "status.loading.button": "Loading",
 
     "card.otp.email.subtitle": "Receive the code by email",
     "card.otp.phone.subtitle": "Receive the code by SMS",
