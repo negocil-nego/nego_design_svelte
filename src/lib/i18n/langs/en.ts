@@ -357,5 +357,25 @@ export default {
     "card.otp.whatsapp.subtitle": "Receive the code on WhatsApp",
 
     "language.en": "English",
-    "language.pt": "Portuguese"
+    "language.pt": "Portuguese",
+
+    "search.input.placeholder": "Where are you going?",
+    "search.checkin.label": "Check-in/check-out",
+    "search.checkin.default": "Check-in - Check-out",
+    "search.checkin.start": "Check-in",
+    "search.checkin.end": "Check-out",
+    "search.guests.label": "Guests and rooms",
+    "search.guests.guest": "{{count}} guest",
+    "search.guests.guests": "{{count}} guests",
+    "search.guests.room": "{{count}} room",
+    "search.guests.rooms": "{{count}} rooms",
+    "search.guests.adults": "Adults",
+    "search.guests.adults.age": "Age 13+",
+    "search.guests.children": "Children",
+    "search.guests.children.age": "Age 0-12",
+    "search.guests.rooms.label": "Rooms",
+    "search.guests.rooms.accommodation": "Accommodation",
+    "search.guests.pets": "Pets allowed",
+    "search.guests.pets.description": "Select to see stays that allow pets",
+    "search.input.empty": "No results found"
 };

@@ -205,6 +205,16 @@ ${"</" + "script>"}
 
 <PageLoading progress={40} />`;
 
+  const searchHostingerCode = `<script lang="ts">
+  import SearchHostingerInput from "negodesign/search/varients/SearchHostingerInput";
+${"</" + "script>"}
+
+<SearchHostingerInput
+  bind:value={searchValue}
+  onchange={(v) => console.log("changed", v)}
+  onSubmit={(v) => console.log("submitted", v)}
+/>`;
+
   const locationInputCode = `<Form
   onSubmit={(data) => console.log(data)}
   inputs={[
@@ -606,6 +616,31 @@ ${"</" + "script>"}
     <div class="mt-4 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">PageLoading — loading page with progress</h3>
       <CodeBlock code={pageLoadingCode} title="PageLoading.svelte" />
+    </div>
+  </section>
+
+  <section id="search-hostinger" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">SearchHostingerInput</h2>
+      <a
+        href="/search-hostinger"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Campo de busca estilo Hostinger com input de texto, seletor de datas
+      (<code class="rounded bg-muted px-1 py-0.5">InputCalendarInterval</code>),
+      seletor de hóspedes/quartos
+      (<code class="rounded bg-muted px-1 py-0.5">PopoverGuestsAndRooms</code>)
+      e botão de pesquisa. No mobile, os seletores de data e hóspedes são
+      ocultados automaticamente.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">SearchHostingerInput</h3>
+      <CodeBlock code={searchHostingerCode} title="SearchHostingerInput.svelte" />
     </div>
   </section>
 

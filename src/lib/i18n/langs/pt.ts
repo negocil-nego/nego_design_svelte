@@ -357,5 +357,25 @@ export default {
     "card.otp.whatsapp.subtitle": "Receber o código no WhatsApp",
 
     "language.en": "Inglês",
-    "language.pt": "Português"
+    "language.pt": "Português",
+
+    "search.input.placeholder": "Para onde você vai?",
+    "search.checkin.label": "Entrada/saída",
+    "search.checkin.default": "Entrada - Saída",
+    "search.checkin.start": "Entrada",
+    "search.checkin.end": "Saída",
+    "search.guests.label": "Hóspedes e quartos",
+    "search.guests.guest": "{{count}} hóspede",
+    "search.guests.guests": "{{count}} hóspedes",
+    "search.guests.room": "{{count}} quarto",
+    "search.guests.rooms": "{{count}} quartos",
+    "search.guests.adults": "Adultos",
+    "search.guests.adults.age": "Idade 13+",
+    "search.guests.children": "Crianças",
+    "search.guests.children.age": "Idade 0-12",
+    "search.guests.rooms.label": "Quartos",
+    "search.guests.rooms.accommodation": "Acomodação",
+    "search.guests.pets": "Aceita animais",
+    "search.guests.pets.description": "Selecione para ver estadias que aceitam animais",
+    "search.input.empty": "Nenhum resultado encontrado"
 };

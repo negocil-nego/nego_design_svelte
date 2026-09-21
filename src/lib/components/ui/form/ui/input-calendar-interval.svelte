@@ -14,6 +14,7 @@
     placeholder?: string;
     startValue?: string;
     endValue?: string;
+    contentClass?: string;
   };
 
   let {
@@ -24,6 +25,7 @@
     inputClass,
     disabled = false,
     placeholder,
+    contentClass,
     startValue = $bindable(""),
     endValue = $bindable(""),
   }: Props = $props();
@@ -105,15 +107,21 @@
 
   const startYear = $derived(startDate?.getFullYear());
   const startMonth = $derived(startDate?.getMonth());
-  const endYear = $derived(endDate?.getFullYear() ?? startYear ?? today.getFullYear());
-  const endMonth = $derived(endDate?.getMonth() ?? startMonth ?? today.getMonth());
+  const endYear = $derived(
+    endDate?.getFullYear() ?? startYear ?? today.getFullYear(),
+  );
+  const endMonth = $derived(
+    endDate?.getMonth() ?? startMonth ?? today.getMonth(),
+  );
 
   const placeholderClasses = $derived(
     cn("truncate", !startDate && !endDate && "text-muted-foreground"),
   );
 
   const calendarLabelClass = $derived(
-    cn("px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground"),
+    cn(
+      "px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground",
+    ),
   );
 </script>
 
@@ -136,7 +144,7 @@
   >
     {#snippet content()}
       <div
-        class="grid max-h-[26rem] gap-2 overflow-y-auto p-2 md:max-h-none md:grid-cols-2 md:overflow-visible"
+        class="grid max-h-104 gap-2 overflow-y-auto p-2 md:max-h-none md:grid-cols-2 md:overflow-visible w-full"
       >
         <div class="flex flex-col gap-1">
           <span class={calendarLabelClass}>

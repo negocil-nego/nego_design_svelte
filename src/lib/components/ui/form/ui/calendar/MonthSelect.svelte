@@ -1,6 +1,5 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import { cn } from "$lib/utils.js";
+  import { cn } from "$lib/utils.js";
 
   type Props = {
     months: string[];
@@ -16,11 +15,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 <button
   type="button"
   data-month-picker
-  class="flex h-8 w-full items-center justify-between gap-1 rounded px-2 text-sm font-medium capitalize transition-colors hover:bg-muted"
+  class="flex h-8 w-full items-center justify-between gap-1 rounded px-2 text-sm font-medium capitalize transition-colors hover:bg-muted border"
   onclick={onToggle}
 >
   <span>{months[month]}</span>
-  <ImageHugeicons icon="chevron-down" width={14} height={14} />
 </button>
 
 {#if open}

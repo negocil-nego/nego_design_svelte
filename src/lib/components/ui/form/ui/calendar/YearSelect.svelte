@@ -1,6 +1,6 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import { cn } from "$lib/utils.js";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import { cn } from "$lib/utils.js";
 
   type Props = {
     years: number[];
@@ -49,14 +49,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   $effect(() => {
     if (!open) return;
     const el = yearListRef;
-    const selected = el?.querySelector<HTMLElement>(
-      `[data-year="${year}"]`,
-    );
+    const selected = el?.querySelector<HTMLElement>(`[data-year="${year}"]`);
     selected?.scrollIntoView({ block: "nearest" });
   });
 </script>
 
-<div class="flex h-8 items-center rounded px-1">
+<div class="flex h-8 items-center rounded px-1 border">
   <input
     bind:this={yearInputRef}
     type="text"
@@ -73,13 +71,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     }}
     class="w-full min-w-0 rounded-md border border-transparent bg-transparent px-1 py-1 text-center text-sm font-medium outline-none transition-colors focus:border-ring focus:ring-2 focus:ring-ring/50"
   />
-  <button
-    type="button"
-    class="rounded p-0.5 transition-colors hover:bg-muted"
-    onclick={onToggle}
-  >
-    <ImageHugeicons icon="chevron-down" width={14} height={14} />
-  </button>
 </div>
 
 {#if open}
