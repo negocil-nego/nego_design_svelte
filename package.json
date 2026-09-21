@@ -1,6 +1,6 @@
 {
 	"name": "negodesign",
-	"version": "0.0.86",
+	"version": "0.0.88",
 	"type": "module",
 	"license": "MIT",
 	"sideEffects": [
@@ -35,7 +35,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"package": "svelte-kit sync && svelte-package && tailwindcss -i ./src/lib/styles/globals.css -o ./dist/globals.css",
+		"generate:hugeicons": "node scripts/generate-hugeicons.mjs",
+		"package": "npm run generate:hugeicons && svelte-kit sync && svelte-package && tailwindcss -i ./src/lib/styles/globals.css -o ./dist/globals.css",
 		"prepublishOnly": "npm run package",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",

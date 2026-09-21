@@ -1,7 +1,7 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
-        import type { Snippet } from "svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+  import type { Snippet } from "svelte";
   import { Popover, PopoverTrigger, PopoverContent } from "../../../popover";
   import Calendar from "./Calendar.svelte";
   import { cn } from "$lib/utils.js";
@@ -40,7 +40,7 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
 
   const triggerClass = $derived(
     cn(
-      "h-9 w-full min-w-0 rounded-md border py-1 text-base shadow-xs bg-white",
+      "h-9 w-full min-w-0 rounded-md border py-1 text-base shadow-xs bg-transparent",
       "transition-colors outline-none md:text-sm cursor-pointer",
       "border-input dark:bg-input/30 text-foreground",
       "focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-3",

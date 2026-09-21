@@ -9,6 +9,7 @@
     textClass,
     subTextClass,
     hoverClass,
+    isLoading = false,
   }: NavigationMenuItemGridProps = $props();
 
   const cols = (): string => {
@@ -22,7 +23,7 @@
   const gridCols = $derived(cols());
 </script>
 
-<NavDropdown {label} {hoverClass}>
+<NavDropdown {label} {hoverClass} {isLoading}>
   {#if items}
     <ul
       class={`grid w-75 gap-2 p-2 sm:w-100 md:w-125 lg:min-w-150 max-h-75 overflow-y-auto ${gridCols}`}

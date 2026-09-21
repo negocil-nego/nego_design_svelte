@@ -13,7 +13,7 @@
   import NavigationMenuItemList from "./shared/navigation/NavigationMenuItemList.svelte";
   import NavigationMenuItems from "./shared/navigation/NavigationMenuItems.svelte";
 
-  let { menus, textClass, subTextClass, hoverClass }: ComplexMenuProps =
+  let { menus, textClass, subTextClass, hoverClass, isLoading = false }: ComplexMenuProps =
     $props();
 </script>
 
@@ -27,6 +27,7 @@
         {textClass}
         {subTextClass}
         {hoverClass}
+        {isLoading}
       />
     {:else if isGrid(link)}
       <NavigationMenuItemGrid
@@ -34,6 +35,7 @@
         {textClass}
         {subTextClass}
         {hoverClass}
+        {isLoading}
       />
     {:else if isList(link)}
       <NavigationMenuItemList
@@ -41,11 +43,12 @@
         {textClass}
         {subTextClass}
         {hoverClass}
+        {isLoading}
       />
     {:else if isItems(link)}
-      <NavigationMenuItems {...link} {textClass} {hoverClass} />
+      <NavigationMenuItems {...link} {textClass} {hoverClass} {isLoading} />
     {:else if isItem(link)}
-      <NavigationMenuItem {...link} {textClass} {hoverClass} />
+      <NavigationMenuItem {...link} {textClass} {hoverClass} {isLoading} />
     {/if}
   {/each}
 </ul>

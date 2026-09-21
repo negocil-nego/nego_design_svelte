@@ -7,8 +7,8 @@
 </script>
 
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import * as DropdownMenu from "$lib/components/ui/dropdown-menu";
   import { t, locale, locales } from "$lib/i18n";
   import { cn } from "$lib/utils.js";
 
@@ -18,7 +18,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 <DropdownMenu.Root>
   <DropdownMenu.Trigger
     class={cn(
-      "rounded-full bg-input h-10 w-10 flex items-center justify-center",
+      "rounded-full bg-input h-10 w-10 dark:bg-white flex items-center justify-center",
       className,
     )}
     aria-label="Change language"
