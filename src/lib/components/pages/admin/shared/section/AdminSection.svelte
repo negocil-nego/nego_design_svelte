@@ -1,6 +1,6 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-    import type { AdminSectionProps } from "./types";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import type { AdminSectionProps } from "./types";
   import AdminUserSection from "./AdminUserSection.svelte";
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import ThemeSwitch from "$lib/components/ui/theme-switch/theme-switch.svelte";
@@ -14,23 +14,11 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     user,
     menuItems = [],
     cards = [],
-    selectedKey = $bindable(),
     className,
-    menuClass,
     cardClass,
     gridClass,
-    onSelect,
     onCardClick,
   }: AdminSectionProps = $props();
-
-  const activeKey = $derived<string | number | undefined>(
-    selectedKey ?? menuItems[0]?.key ?? menuItems[0]?.label,
-  );
-
-  function handleMenuSelect(id: string | number) {
-    selectedKey = id;
-    onSelect?.(id);
-  }
 
   const responsive = useDevice();
 </script>
@@ -48,9 +36,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       {#if menuItems.length > 0}
         <MenuLinks links={menuItems} linkClass="text-white" />
       {/if}
-      <div
-        class="hidden gap-2 md:gap-2.5 items-center justify-center hidden md:flex"
-      >
+      <div class="hidden gap-2 md:gap-2.5 items-center justify-center md:flex">
         <ThemeSwitch
           class="bg-transparent border border-white text-white p-2"
         />

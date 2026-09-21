@@ -28,10 +28,15 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     class: className,
   }: ModalFormEmailOrPhoneProps = $props();
 
-  let userEmail = $state(email ?? "");
-  let userPhone = $state(phone ?? "");
+  let userEmail = $state("");
+  let userPhone = $state("");
   let emailOrPhone = $state("");
   let channel = $state<ModalFormEmailOrPhoneType>("EMAIL_OR_PHONE");
+
+  $effect(() => {
+    userEmail = email ?? "";
+    userPhone = phone ?? "";
+  });
 
   const hasPreset = $derived(Boolean(email || phone));
   const isValid = $derived(

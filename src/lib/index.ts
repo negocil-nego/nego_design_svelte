@@ -44,10 +44,14 @@ import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import PageRegister from "./components/pages/security/register/PageRegister.svelte";
 import SearchInput from "$lib/components/ui/search/SearchInput.svelte";
+import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
 import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
 import CardMedia from "$lib/components/ui/card/core/media/CardMedia.svelte";
 import CardProfile from "$lib/components/ui/card/core/profile/CardProfile.svelte";
+import CardHighlight from "$lib/components/ui/card/core/highlight/CardHighlight.svelte";
+import CardPromotion from "$lib/components/ui/card/core/promotion/CardPromotion.svelte";
+import CardProduct from "$lib/components/ui/card/core/product/CardProduct.svelte";
 import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
@@ -434,6 +438,18 @@ export {
     SearchInput,
 
     /**
+     * Barra de busca estilo Hostinger com InputCommand, calendário de check-in/out
+     * e seletor de hóspedes/quartos. Responsivo — no mobile esconde os seletores.
+     * @property {string} value - Valor do input (bindable)
+     * @property {CommandGroup[]} groups - Grupos de sugestões para o InputCommand
+     * @property {(value: string) => void} onchange - Callback ao alterar o valor
+     * @property {(value: string) => void} onSubmit - Callback ao submeter a busca
+     * @property {(item: CommandItem) => void} onSelect - Callback ao selecionar um item
+     * @see SearchHostingerInputProps
+     */
+    SearchHostingerInput,
+
+    /**
      * Página de perfil da empresa com informações detalhadas, descrição,
      * galeria, localização e contactos.
      * @see CompanyProfileProps
@@ -495,6 +511,29 @@ export {
      * @see CardProfileProps
      */
     CardProfile,
+
+    /**
+     * Card de destaque com imagem, logo, tags e botão de ação.
+     * @property {1|2} varient - Variante visual
+     * @property {CardHighlightProps} - Props do card de destaque
+     * @see CardHighlightProps
+     */
+    CardHighlight,
+
+    /**
+     * Card de promoção com preço antigo/novo, botão de comprar, favoritar e carrinho.
+     * @property {CardPromotionProps} - Props do card de promoção
+     * @see CardPromotionProps
+     */
+    CardPromotion,
+
+    /**
+     * Card de produto com preço, rating e botão de comprar. Variantes 1 e 2.
+     * @property {1|2} variant - Variante visual
+     * @property {CardProductProps} - Props do card de produto
+     * @see CardProductProps
+     */
+    CardProduct,
 
     /**
      * Card de seleção de método OTP (email, telefone, WhatsApp).

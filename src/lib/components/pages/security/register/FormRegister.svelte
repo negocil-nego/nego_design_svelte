@@ -36,15 +36,13 @@
   let gender = $state("");
   let phone = $state("");
 
-  const {
-    isName = false,
-    isEmail = true,
-    isPassword = true,
-    isConfirmPassword = true,
-    isBirthday = false,
-    isGender = false,
-    isPhone = false,
-  } = fields;
+  const isName = $derived(fields.isName ?? false);
+  const isEmail = $derived(fields.isEmail ?? true);
+  const isPassword = $derived(fields.isPassword ?? true);
+  const isConfirmPassword = $derived(fields.isConfirmPassword ?? true);
+  const isBirthday = $derived(fields.isBirthday ?? false);
+  const isGender = $derived(fields.isGender ?? false);
+  const isPhone = $derived(fields.isPhone ?? false);
 
   function handleSubmit(e: Event) {
     e.preventDefault();

@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
 
 /**
  * Grupo/categoria de menus na sidebar (ex: "Gestão", "Relatórios").

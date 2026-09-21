@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
 import type { Snippet } from "svelte"
 
 export type LoginFormType = "EMAIL_PASSWORD" | "PHONE_PASSWORD" | "USERNAME_PASSWORD" | "USERNAME_OR_EMAIL_PASSWORD"

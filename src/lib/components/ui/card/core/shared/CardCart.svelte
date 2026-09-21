@@ -1,8 +1,8 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-    
+
   type Props = {
     id: string | number;
     isCart: boolean;
@@ -20,13 +20,13 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     class="w-8 h-8 rounded-full bg-[#1d63be]"
     onclick={() => onCartClick!(id)}
   >
-    <ImageHugeicons icon="shopping-cart-remove-01" />
+    <ImageHugeicons icon="shopping-cart-remove-01" class="dark:text-white" />
   </Button>
 {:else}
   <Button
     class="w-8 h-8 rounded-full bg-[#808080]"
     onclick={() => onCartClick!(id)}
   >
-    <ImageHugeicons icon="shopping-cart-add-01" />
+    <ImageHugeicons icon="shopping-cart-add-01" class="dark:text-white" />
   </Button>
 {/if}

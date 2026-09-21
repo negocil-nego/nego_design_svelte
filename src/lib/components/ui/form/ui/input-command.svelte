@@ -6,7 +6,7 @@
   import PopoverContent from "../../popover/popover-content.svelte";
   import ImageHugeicons from "../../image/ImageHugeicons.svelte";
   import type { Snippet } from "svelte";
-  import type { HugeiconsIconName } from "../../image/hugeicons";
+  import type { HugeiconsIconName } from "../../image/hugeicons-icons";
 
   export type CommandGroup = {
     label: string;
@@ -62,8 +62,6 @@
       .filter((group) => group.items.length > 0);
   });
 
-  const hasResults = $derived(filteredGroups.length > 0);
-
   function handleSelect(item: CommandItem) {
     value = item.label;
     open = false;
@@ -112,13 +110,14 @@
         class="text-sm py-3 px-0 w-full border-none outline-none focus:outline-none focus:ring-0 focus:border-transparent bg-transparent text-foreground placeholder:text-muted-foreground"
         role="combobox"
         aria-expanded={open}
+        aria-controls="command-listbox"
         aria-autocomplete="list"
       />
     </div>
   </PopoverTrigger>
 
-  <PopoverContent align="start" side="bottom" class="w-full p-0 min-w-[300px]">
-    <div class="max-h-80 overflow-y-auto">
+  <PopoverContent align="start" side="bottom" class="w-full p-0 min-w-75">
+    <div id="command-listbox" class="max-h-80 overflow-y-auto" role="listbox">
       {#if filteredGroups.length > 0}
         {#each filteredGroups as group (group.label)}
           <div class="px-2 py-1.5">
@@ -150,7 +149,7 @@
           </div>
         {/each}
       {:else if query}
-        <div class="px-4 py-6 text-center text-sm text-muted-foreground">
+        <div class="px-4 py-6 text-center text-sm dark:text-white">
           {emptyMessage || $t("search.input.empty")}
         </div>
       {/if}

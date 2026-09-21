@@ -97,6 +97,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         disabled && "cursor-not-allowed opacity-50"
       )}
       onclick={() => !disabled && document.getElementById(`badges-input-${label}`)?.focus()}
+      onkeydown={() => {}}
     >
       {#each value as tag (tag)}
         <span class="inline-flex items-center gap-1 rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-medium text-foreground">
@@ -159,6 +160,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       className
     )}
     onclick={() => !disabled && document.getElementById(`badges-input-${label}`)?.focus()}
+    onkeydown={() => {}}
   >
     {#each value as tag (tag)}
       <span class="inline-flex items-center gap-1 rounded-full border border-border bg-muted px-2.5 py-0.5 text-xs font-medium text-foreground">

@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
 import type { CarouselPlugins } from "$lib/components/ui/carousel/context";
 import type { Snippet } from "svelte";
 

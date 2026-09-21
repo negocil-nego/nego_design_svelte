@@ -215,6 +215,55 @@ ${"</" + "script>"}
   onSubmit={(v) => console.log("submitted", v)}
 />`;
 
+  const cardHighlightCode = `<script lang="ts">
+  import { CardHighlight } from "negodesign";
+${"</" + "script>"}
+
+<CardHighlight
+  varient={1}
+  id={1}
+  title="Hotel Presidente"
+  content="Hotel 5 estrelas no centro da cidade."
+  imageUrl="/images/hotel.jpg"
+  tags={[{ text: "Premium" }]}
+  buttonText="Ver detalhes"
+  onClickBtn={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`;
+
+  const cardPromotionCode = `<script lang="ts">
+  import { CardPromotion } from "negodesign";
+${"</" + "script>"}
+
+<CardPromotion
+  id={1}
+  title="Pacote Lua de Mel"
+  content="7 noites em Fernando de Noronha."
+  imageUrl="/images/resort.jpg"
+  oldPrice="450.000 Kz"
+  newPrice="320.000 Kz"
+  buttonBuyText="Comprar agora"
+  onClickBuy={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`;
+
+  const cardProductCode = `<script lang="ts">
+  import { CardProduct } from "negodesign";
+${"</" + "script>"}
+
+<CardProduct
+  variant={1}
+  id={1}
+  title="Camiseta NegoDesign"
+  content="Camiseta 100% algodão."
+  imageUrl="/images/shirt.jpg"
+  price="25.000 Kz"
+  rating={4}
+  buttonBuyText="Adicionar ao carrinho"
+  onClickBuy={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`;
+
   const locationInputCode = `<Form
   onSubmit={(data) => console.log(data)}
   inputs={[
@@ -641,6 +690,47 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">SearchHostingerInput</h3>
       <CodeBlock code={searchHostingerCode} title="SearchHostingerInput.svelte" />
+    </div>
+  </section>
+
+  <section id="cards" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">Cards</h2>
+      <a
+        href="/card/highlight"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Componentes de card para exibir organizações, produtos e promoções.
+      Cada card suporta variantes visuais, estado de loading, tags e callbacks de ação.
+    </p>
+
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CardHighlight</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Card de destaque com imagem, logo, tags e botão de ação. Variantes 1 e 2.
+      </p>
+      <CodeBlock code={cardHighlightCode} title="CardHighlight.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CardPromotion</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Card de promoção com preço antigo/novo, botão de comprar, favoritar e carrinho.
+      </p>
+      <CodeBlock code={cardPromotionCode} title="CardPromotion.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CardProduct</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Card de produto com preço, rating e botão de comprar. Variantes 1 e 2.
+      </p>
+      <CodeBlock code={cardProductCode} title="CardProduct.svelte" />
     </div>
   </section>
 

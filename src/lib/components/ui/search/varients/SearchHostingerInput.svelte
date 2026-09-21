@@ -5,14 +5,7 @@
   import InputCommand from "../../form/ui/input-command.svelte";
   import type { CommandGroup } from "../../form/ui/input-command.svelte";
   import { locale, t } from "$lib/i18n";
-
-  type Props = {
-    value?: string;
-    groups?: CommandGroup[];
-    onchange?: (value: string) => void;
-    onSubmit?: (value: string) => void;
-    onSelect?: (item: { id: string; label: string }) => void;
-  };
+  import type { SearchHostingerInputProps } from "../types";
 
   let {
     value = $bindable(""),
@@ -20,7 +13,7 @@
     onchange,
     onSubmit,
     onSelect,
-  }: Props = $props();
+  }: SearchHostingerInputProps = $props();
   const responsive = useDevice();
 
   let openCalendar = $state(false);

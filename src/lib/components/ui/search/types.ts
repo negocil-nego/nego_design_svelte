@@ -1,28 +1,14 @@
-/**
- * Props base para o componente de input de busca.
- */
-export interface SearchItemProps {
-    /** Callback acionado ao submeter a busca (enter ou clique no botão) */
-    onSubmit?: (q: string) => void;
-    /** Classe CSS personalizada para o botão de busca */
-    buttonClass?: string;
-    /** Placeholder exibido no campo de input */
-    placeholder?: string;
-    /** Classe CSS personalizada para o campo de input */
-    inputClass?: string;
-    /** Classe CSS personalizada para o ícone de busca */
-    iconClass?: string;
-}
+import type { CommandGroup, CommandItem } from "$lib/components/ui/form/ui/input-command.svelte";
 
-/**
- * Props do SearchInput — input de busca completo com duas variantes visuais.
- * @extends SearchItemProps
- */
-export interface SearchInputProps extends SearchItemProps {
-    /**
-     * Variante visual do input de busca.
-     * 1 = borda completa ao redor;
-     * 2 = apenas borda inferior (underline style).
-     */
-    variant?: 1 | 2;
-}
+export type SearchHostingerInputProps = {
+  /** Valor do input de busca (bindable) */
+  value?: string;
+  /** Grupos de sugestões para o InputCommand */
+  groups?: CommandGroup[];
+  /** Callback ao alterar o valor do input */
+  onchange?: (value: string) => void;
+  /** Callback ao submeter a busca (Enter ou botão) */
+  onSubmit?: (value: string) => void;
+  /** Callback ao selecionar um item do InputCommand */
+  onSelect?: (item: CommandItem) => void;
+};

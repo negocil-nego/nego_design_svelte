@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
 import type { HTMLInputTypeAttribute } from "svelte/elements";
 
 export const inputIconMap: Partial<Record<HTMLInputTypeAttribute, HugeiconsIconName>> = {

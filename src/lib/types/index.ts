@@ -93,7 +93,8 @@ import type { TabUnderlineProps } from "$lib/components/ui/tabs/types";
 
 import type {
     SearchItemProps,
-    SearchInputProps
+    SearchInputProps,
+    SearchHostingerInputProps
 } from "$lib/components/ui/search/types";
 
 import type {
@@ -335,6 +336,8 @@ export type {
     SearchItemProps,
     /** Props do SearchInput — input de busca com 2 variantes visuais. @see SearchInputProps */
     SearchInputProps,
+    /** Props do SearchHostingerInput — barra de busca estilo Hostinger com calendário e hóspedes. @see SearchHostingerInputProps */
+    SearchHostingerInputProps,
 
     /** Item de link individual exibido numa coluna do footer. @see FooterLinkItem */
     FooterLinkItem,
