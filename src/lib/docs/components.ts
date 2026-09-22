@@ -477,7 +477,9 @@ export const components: DocComponent[] = [
   headerProps={{
     title: "Highlights",
     description: "The best organizations",
-    onButtonViewAll: () => {},
+  }}
+  slotProps={{
+    onMoreViewClick: () => {},
   }}
   items={highlights}
   onClickBtn={(id) => console.log(id)}
@@ -489,8 +491,8 @@ export const components: DocComponent[] = [
     props: [
       { name: "items", type: "CardHighlightProps[]", description: "Required. Highlight card data", required: true },
       { name: "varient", type: "1 | 2", description: "Card visual variant (note: prop spelled 'varient')" },
-      { name: "headerProps", type: "CarouselHeaderProps", description: "Header config (title, description, classes, onButtonViewAll)" },
-      { name: "slotProps", type: "CarouselSlotProps", description: "Slot config (buttons, position)" },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Header config (title, description, classes)" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Slot config (buttons, position, onMoreViewClick)" },
       { name: "isLoading", type: "boolean", description: "Shows skeletons" },
       { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the description" },
       { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the description" },
@@ -514,7 +516,9 @@ export const components: DocComponent[] = [
   items={promotions}
   headerProps={{
     title: "Promotions",
-    onButtonViewAll: () => {},
+  }}
+  slotProps={{
+    onMoreViewClick: () => {},
   }}
   onClickBuy={(id) => console.log(id)}
   onClickShop={(id) => console.log(id)}
@@ -550,7 +554,9 @@ export const components: DocComponent[] = [
   items={media}
   headerProps={{
     title: "Explore",
-    onButtonViewAll: () => {},
+  }}
+  slotProps={{
+    onMoreViewClick: () => {},
   }}
   onFavoriteClick={(id) => console.log(id)}
 />`,

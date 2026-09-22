@@ -90,7 +90,7 @@
 
 {#if selected}
   <header
-    class="w-full relative flex flex-col justify-center items-center h-75 md:h-100 overflow-hidden {className}"
+    class="w-full relative z-10 flex flex-col justify-center items-center h-75 md:h-100 {className}"
   >
     {#each layers as bg, i (`layer-${i}`)}
       {@const src = bg || (i === 0 ? initialImage : "")}
@@ -132,6 +132,7 @@
 
       <section
         class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4 {sectionClass}"
+        style="z-index: 999;"
       >
         {#key selected.title}
           <div
@@ -155,7 +156,11 @@
         {/key}
 
         {#if children}
-          {@render children()}
+          <div class="relative w-full flex justify-center items-center" style="z-index: 999;">
+            <div class="w-full flex justify-center items-center" style="z-index: 999;">
+              {@render children()}
+            </div>
+          </div>
         {/if}
       </section>
     </div>

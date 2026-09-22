@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { generatePopoverId, setPopoverContext, type PopoverStore } from "./popover-context.svelte.js";
+	import { cn } from "$lib/utils.js";
 	import type { Snippet } from "svelte";
 	import type { HTMLAttributes } from "svelte/elements";
 
@@ -7,12 +8,14 @@
 		open = $bindable<boolean>(),
 		defaultOpen = false,
 		onOpenChange,
+		class: className,
 		children,
 		...restProps
 	}: HTMLAttributes<HTMLDivElement> & {
 		open?: boolean;
 		defaultOpen?: boolean;
-		onOpenChange?: (open: boolean) => void;
+		onOpenChange?: (value: boolean) => void;
+		class?: string;
 		children?: Snippet;
 	} = $props();
 
@@ -49,6 +52,6 @@
 	setPopoverContext(store);
 </script>
 
-<div class="relative" {...restProps}>
+<div class={cn("relative", className)} {...restProps}>
 	{@render children?.()}
 </div>

@@ -77,8 +77,9 @@ import AdminPanel from "$lib/components/pages/admin/shared/AdminPanel.svelte";
 import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
 import AdminProfileTab from "$lib/components/pages/admin/shared/tabs/AdminProfileTab.svelte";
 import AdminSecurityTab from "$lib/components/pages/admin/shared/tabs/AdminSecurityTab.svelte";
-import type { AdminSection, AdminUserSection } from "./components/pages/admin/shared/section";
-import { AdminUserProfile } from "./components/pages/admin/shared/profile";
+import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
+import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
+import AdminUserProfile from "$lib/components/pages/admin/shared/profile/AdminUserProfile.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -147,7 +148,7 @@ export {
      * @property {AdminSecurityTabProps} props - Props da aba Segurança
      * @see AdminSecurityTabProps
      */
-     AdminSecurityTab,
+    AdminSecurityTab,
 
     /**
      * Perfil do utilizador administrativo com avatar, nome, badge, descricao,

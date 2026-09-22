@@ -39,8 +39,6 @@ export interface CarouselHeaderProps {
     descriptionClass?: string,
     /** Classe CSS adicional para o container do header */
     containerClass?: string,
-    /** Callback ao clicar no botão "Ver tudo" */
-    onButtonViewAll?: () => void,
     /** Posição dos botões anterior/próximo */
     positionButtonPreviousAndNext?: "center" | "top_right";
     /** Exibe borda inferior no header */

@@ -5,6 +5,9 @@
   import PopoverTrigger from "../../popover/popover-trigger.svelte";
   import PopoverContent from "../../popover/popover-content.svelte";
   import ImageHugeicons from "../../image/ImageHugeicons.svelte";
+  import Empty from "../../empty/empty.svelte";
+  import EmptyTitle from "../../empty/empty-title.svelte";
+  import EmptyDescription from "../../empty/empty-description.svelte";
   import type { Snippet } from "svelte";
   import type { HugeiconsIconName } from "../../image/hugeicons-icons";
 
@@ -90,7 +93,7 @@
   }
 </script>
 
-<Popover bind:open>
+<Popover bind:open class="w-full">
   <PopoverTrigger class={cn("w-full", className)}>
     <div class="flex items-center gap-2 w-full">
       <ImageHugeicons
@@ -107,7 +110,7 @@
         onkeydown={handleKeydown}
         onfocus={handleFocus}
         placeholder={placeholder || $t("search.input.placeholder")}
-        class="text-sm py-3 px-0 w-full border-none outline-none focus:outline-none focus:ring-0 focus:border-transparent bg-transparent text-foreground placeholder:text-muted-foreground"
+        class="flex-1 bg-transparent text-sm py-3 px-0 border-none outline-none focus:outline-none focus:ring-0 focus:border-transparent text-foreground placeholder:text-muted-foreground"
         role="combobox"
         aria-expanded={open}
         aria-controls="command-listbox"
@@ -119,44 +122,60 @@
   <PopoverContent
     align="start"
     side="bottom"
-    class="w-full p-0 min-w-75 z-999!"
+    class="w-full p-0"
+    style="z-index: 999;"
   >
-    <div id="command-listbox" class="max-h-80 overflow-y-auto" role="listbox">
-      {#if filteredGroups.length > 0}
-        {#each filteredGroups as group (group.label)}
-          <div class="px-2 py-1.5">
-            <div class="px-2 py-1 text-xs font-medium text-muted-foreground">
-              {group.label}
+    {#if children}
+      {children()}
+    {:else}
+      <div id="command-listbox" class="max-h-80 overflow-y-auto" role="listbox">
+        {#if filteredGroups.length > 0}
+          {#each filteredGroups as group (group.label)}
+            <div class="px-2 py-1.5">
+              <div class="px-2 py-1 text-xs font-medium text-muted-foreground">
+                {group.label}
+              </div>
+              {#each group.items as item (item.id)}
+                <button
+                  type="button"
+                  onclick={() => handleSelect(item)}
+                  class="flex items-center gap-2 w-full px-2 py-1.5 text-sm rounded-md hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors text-left"
+                >
+                  {#if item.icon}
+                    <ImageHugeicons
+                      icon={item.icon}
+                      width={16}
+                      height={16}
+                      color="currentColor"
+                    />
+                  {/if}
+                  <span class="flex-1">{item.label}</span>
+                  {#if item.shortcut}
+                    <span class="text-xs text-muted-foreground font-mono">
+                      {item.shortcut}
+                    </span>
+                  {/if}
+                </button>
+              {/each}
             </div>
-            {#each group.items as item (item.id)}
-              <button
-                type="button"
-                onclick={() => handleSelect(item)}
-                class="flex items-center gap-2 w-full px-2 py-1.5 text-sm rounded-md hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors text-left"
-              >
-                {#if item.icon}
-                  <ImageHugeicons
-                    icon={item.icon}
-                    width={16}
-                    height={16}
-                    color="currentColor"
-                  />
-                {/if}
-                <span class="flex-1">{item.label}</span>
-                {#if item.shortcut}
-                  <span class="text-xs text-muted-foreground font-mono">
-                    {item.shortcut}
-                  </span>
-                {/if}
-              </button>
-            {/each}
-          </div>
-        {/each}
-      {:else if query}
-        <div class="px-4 py-6 text-center text-sm dark:text-white">
-          {emptyMessage || $t("search.input.empty")}
-        </div>
-      {/if}
-    </div>
+          {/each}
+        {:else if query}
+          <Empty class="py-8">
+            <div class="rounded-full bg-muted p-3 mb-3">
+              <ImageHugeicons icon="search-01" width={24} height={24} class="text-muted-foreground" />
+            </div>
+            <EmptyTitle class="text-sm">{$t("search.input.no_results")}</EmptyTitle>
+            <EmptyDescription class="text-xs">{$t("search.input.try_another")}</EmptyDescription>
+          </Empty>
+        {:else}
+          <Empty class="py-8">
+            <div class="rounded-full bg-muted p-3 mb-3">
+              <ImageHugeicons icon="search-01" width={24} height={24} class="text-muted-foreground" />
+            </div>
+            <EmptyTitle class="text-sm">{$t("search.input.type_to_search")}</EmptyTitle>
+          </Empty>
+        {/if}
+      </div>
+    {/if}
   </PopoverContent>
 </Popover>

@@ -10,10 +10,10 @@
       title: "Destaques",
       description: "Confira os destaques que preparamos para você",
       containerClass: "bg-blue-50 dark:bg-gray-800",
-      onButtonViewAll: () => console.log("click"),
     }}
     slotProps={{
       buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
+      onMoreViewClick: () => console.log("click"),
     }}
     varient={2}
     onClickBtn={(id: string | number) => console.log("click", id)}

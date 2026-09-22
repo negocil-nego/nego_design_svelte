@@ -377,5 +377,8 @@ export default {
     "search.guests.rooms.accommodation": "Accommodation",
     "search.guests.pets": "Pets allowed",
     "search.guests.pets.description": "Select to see stays that allow pets",
-    "search.input.empty": "No results found"
+    "search.input.empty": "No results found",
+    "search.input.no_results": "No results found",
+    "search.input.try_another": "Try searching with other terms",
+    "search.input.type_to_search": "Type to search"
 };

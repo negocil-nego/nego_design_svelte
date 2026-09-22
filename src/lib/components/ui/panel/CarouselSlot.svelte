@@ -10,6 +10,7 @@
     isBorderBottom = false,
     containerClass = "w-full",
     plugins = [],
+    onMoreViewClick,
     children,
   }: CarouselSlotProps = $props();
 
@@ -30,6 +31,17 @@
       {@render children?.()}
     </Carousel.Content>
     {#if positionButtonPreviousAndNext == "center" && !responsive.isMobile}
+      {#if onMoreViewClick}
+        <div class="absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20">
+          <button
+            type="button"
+            onclick={onMoreViewClick}
+            class={styleTopCenter}
+          >
+            <span class="px-2 py-1 text-sm font-medium">Ver mais</span>
+          </button>
+        </div>
+      {/if}
       {#if isButtonPreviousAndNext}
         <Carousel.Previous
           class={`-left-8 ${styleCenter} ${buttonPreviousAndNextClass}`}
@@ -40,18 +52,25 @@
       {/if}
     {/if}
     {#if positionButtonPreviousAndNext == "top_right" || responsive.isMobile}
-      {#if isButtonPreviousAndNext}
-        <div
-          class="absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20"
-        >
+      <div class="flex items-center justify-end gap-2 absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20">
+        {#if onMoreViewClick}
+          <button
+            type="button"
+            onclick={onMoreViewClick}
+            class={styleTopCenter}
+          >
+            <span class="px-2 py-1 text-sm font-medium">Ver mais</span>
+          </button>
+        {/if}
+        {#if isButtonPreviousAndNext}
           <Carousel.Previous
             class={`${styleTopCenter} ${buttonPreviousAndNextClass}`}
           />
           <Carousel.Next
-            class={`start-0 ${styleTopCenter} ${buttonPreviousAndNextClass}`}
+            class={`${styleTopCenter} ${buttonPreviousAndNextClass}`}
           />
-        </div>
-      {/if}
+        {/if}
+      </div>
     {/if}
   </Carousel.Root>
 </div>

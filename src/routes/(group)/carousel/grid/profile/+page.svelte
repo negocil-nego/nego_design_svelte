@@ -14,10 +14,10 @@
     title: "Promoções imperdiveis",
     description: "Confira as promoções imperdiveis que preparamos para você",
     containerClass: "bg-gray-50 dark:bg-gray-800",
-    onButtonViewAll: () => console.log("click"),
   }}
   slotProps={{
     buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
     positionButtonPreviousAndNext: "center",
+    onMoreViewClick: () => console.log("click"),
   }}
 />

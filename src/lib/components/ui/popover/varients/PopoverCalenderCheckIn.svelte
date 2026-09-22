@@ -1,8 +1,9 @@
 <script lang="ts">
+  import Popover from "../popover.svelte";
+  import PopoverTrigger from "../popover-trigger.svelte";
   import PopoverContent from "../popover-content.svelte";
   import { Calendar } from "../../form/ui/calendar";
-  import Popover from "../popover.svelte";
-  import { t } from "$lib/i18n";
+  import { t, locale } from "$lib/i18n";
 
   type Props = {
     open?: boolean;
@@ -15,6 +16,8 @@
     startValue = $bindable(""),
     endValue = $bindable(""),
   }: Props = $props();
+
+  const today = new Date();
 
   function parseISO(dateStr: string): Date | undefined {
     const match = dateStr.match(/^(\d{4})-(\d{2})-(\d{2})$/);
@@ -30,19 +33,20 @@
   }
 
   function isBeforeDay(a: Date, b: Date): boolean {
-    return (
-      a.getFullYear() < b.getFullYear() ||
-      (a.getFullYear() === b.getFullYear() && a.getMonth() < b.getMonth()) ||
-      (a.getFullYear() === b.getFullYear() &&
-        a.getMonth() === b.getMonth() &&
-        a.getDate() < b.getDate())
-    );
+    return a.getTime() < b.getTime();
   }
 
   let startDate = $derived(startValue ? parseISO(startValue) : undefined);
   let endDate = $derived(endValue ? parseISO(endValue) : undefined);
 
-  const today = new Date();
+  const startYear = $derived(startDate?.getFullYear());
+  const startMonth = $derived(startDate?.getMonth());
+  const endYear = $derived(
+    endDate?.getFullYear() ?? startYear ?? today.getFullYear(),
+  );
+  const endMonth = $derived(
+    endDate?.getMonth() ?? startMonth ?? today.getMonth(),
+  );
 
   function selectStart(date: Date) {
     if (endDate && isBeforeDay(endDate, date)) {
@@ -67,21 +71,45 @@
     }
   });
 
-  const startYear = $derived(startDate?.getFullYear());
-  const startMonth = $derived(startDate?.getMonth());
-  const endYear = $derived(
-    endDate?.getFullYear() ?? startYear ?? today.getFullYear(),
-  );
-  const endMonth = $derived(
-    endDate?.getMonth() ?? startMonth ?? today.getMonth(),
-  );
+  const i18nLocale = $derived($locale === "pt" ? "pt-PT" : "en-US");
+
+  function formatShort(date: Date): string {
+    return new Intl.DateTimeFormat(i18nLocale, {
+      day: "numeric",
+      month: "short",
+    }).format(date);
+  }
+
+  const dateLabel = $derived.by(() => {
+    if (startDate && endDate) {
+      return `${formatShort(startDate)} - ${formatShort(endDate)}`;
+    }
+    if (startDate) {
+      return `${formatShort(startDate)} - ...`;
+    }
+    return $t("search.checkin.default");
+  });
 
   const calendarLabelClass =
     "px-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground";
 </script>
 
 <Popover {open}>
-  <PopoverContent align="start" side="bottom" class="w-auto p-0 z-999!">
+  <PopoverTrigger
+    class="flex flex-col items-start gap-0.5 cursor-pointer px-3 py-2 rounded-xltransition text-left"
+  >
+    <span class="text-[11px] text-muted-foreground leading-tight">
+      {$t("search.checkin.label")}
+    </span>
+    <span class="text-sm font-semibold text-foreground leading-tight">
+      {dateLabel}
+    </span>
+  </PopoverTrigger>
+  <PopoverContent
+    align="start"
+    side="bottom"
+    class="w-full md:w-150 p-0 z-999!"
+  >
     <div
       class="grid max-h-104 gap-2 overflow-y-auto p-2 md:max-h-none md:grid-cols-2 md:overflow-visible w-full"
     >
@@ -96,7 +124,6 @@
           onselect={selectStart}
         />
       </div>
-
       <div class="flex flex-col gap-1">
         <span class={calendarLabelClass}>{$t("search.checkin.end")}</span>
         <Calendar

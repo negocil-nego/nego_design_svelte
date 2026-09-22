@@ -377,5 +377,8 @@ export default {
     "search.guests.rooms.accommodation": "Acomodação",
     "search.guests.pets": "Aceita animais",
     "search.guests.pets.description": "Selecione para ver estadias que aceitam animais",
-    "search.input.empty": "Nenhum resultado encontrado"
+    "search.input.empty": "Nenhum resultado encontrado",
+    "search.input.no_results": "Nenhum resultado encontrado",
+    "search.input.try_another": "Tente pesquisar com outros termos",
+    "search.input.type_to_search": "Digite para pesquisar"
 };

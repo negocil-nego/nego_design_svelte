@@ -9,11 +9,11 @@
     title: "Promoções imperdiveis",
     description: "Confira as promoções imperdiveis que preparamos para você",
     containerClass: "bg-gray-50 dark:bg-gray-800",
-    onButtonViewAll: () => console.log("click"),
   }}
   slotProps={{
     buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
     positionButtonPreviousAndNext: "center",
+    onMoreViewClick: () => console.log("click"),
   }}
   onFavoriteClick={(id: string | number) => console.log("click", id)}
   onButtonProfile={(id: string | number) => console.log("click", id)}

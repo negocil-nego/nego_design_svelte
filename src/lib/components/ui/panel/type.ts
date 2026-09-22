@@ -44,6 +44,8 @@ export type CarouselSlotProps = {
     containerClass?: string;
     /** Plugins do carousel (ex: autoplay, loop) */
     plugins?: CarouselPlugins;
+    /** Callback ao clicar no botão "Ver mais" */
+    onMoreViewClick?: () => void;
     /** Snippet de conteúdo customizado renderizado dentro do slot */
     children?: Snippet;
 };

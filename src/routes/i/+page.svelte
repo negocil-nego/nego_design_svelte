@@ -1,5 +1,6 @@
-<script lang="ts">
+<script>
   import { CarouselHero } from "$lib";
+  import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 </script>
 
 <CarouselHero
@@ -47,4 +48,13 @@
     onclickButtonLogin: () => alert("login"),
     onclickButtonRegister: () => alert("register"),
   }}
-/>
+>
+  <div
+    class="w-11/12 md:w-225 lg:w-11/12 mt-3 mb-10 space-y-2 flex flex-col items-center justify-center"
+    style="z-index: 999;"
+  >
+    <div class="px-2 md:px-0 md:w-8/12" style="z-index: 999;">
+      <SearchHostingerInput />
+    </div>
+  </div>
+</CarouselHero>
