@@ -91,6 +91,15 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs" && page.url.hash === "#admin-user-profile"}>
+              {#snippet child({ props })}
+                <a href="/docs#admin-user-profile" {...props}
+                  ><span>AdminUserProfile</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
             <SidebarMenuButton isActive={path === "/docs/page-status"}>
               {#snippet child({ props })}
                 <a href="/docs/page-status" {...props}

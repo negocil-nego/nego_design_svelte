@@ -21,7 +21,9 @@
 
   const hasDarkWhite = $derived(
     className?.includes("dark:text-white") ||
-      className?.includes("dark:text-white!"),
+      className?.includes("dark:text-white!") ||
+      className?.includes("text-white") ||
+      className?.includes("text-white!"),
   );
 
   const imgClasses = $derived(

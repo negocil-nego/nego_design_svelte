@@ -1,10 +1,9 @@
 <script lang="ts">
   import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
-  import AdminUserSectionMobile from "$lib/components/pages/admin/shared/section/AdminUserSectionMobile.svelte";
   import type { AdminSectionCardProps } from "$lib/components/pages/admin/shared/section/types";
   import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
   import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
-  
+
   let selectedKey = $state<string | number>("overview");
 
   const user = {
@@ -88,7 +87,7 @@
     {cards}
     {selectedKey}
     onSelect={handleSelect}
-    onCardClick={(id) => console.log("card", id)}
+    onCardClick={(id: unknown) => console.log("card", id)}
   />
   <AdminTabs
     profileTab={{

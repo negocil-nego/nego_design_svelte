@@ -112,6 +112,11 @@ import type {
 } from "$lib/components/ui/datatable/data/data-table";
 
 import type {
+    BarChartProps,
+    BarChartItem
+} from "$lib/components/ui/charts/data/types";
+
+import type {
     AdminPanelProps,
     AdminContentProps
 } from "$lib/components/pages/admin/shared/types";
@@ -125,6 +130,12 @@ import type {
 import type {
     AdminUserSectionProps
 } from "$lib/components/pages/admin/shared/section/types";
+
+import type {
+    AdminUserProfileProps,
+    AdminUserProfileStat,
+    AdminUserProfileBadge,
+} from "$lib/components/pages/admin/shared/profile/types";
 
 import type {
     ProfileUserProps,
@@ -356,6 +367,11 @@ export type {
     /** Alias de DataTableItem<T> — props do componente DataTableCore. @template T Tipo dos itens. @see DataTableCoreProps */
     DataTableCoreProps,
 
+    /** Item de dados do gráfico de barras (label + value). @see BarChartItem */
+    BarChartItem,
+    /** Props do componente BarChart — gráfico de barras SVG responsivo. @see BarChartProps */
+    BarChartProps,
+
     /** Props do AdminPanel — layout principal de administração com sidebar/header/conteúdo. @see AdminPanelProps */
     AdminPanelProps,
     /** Props do AdminContent — wrapper de conteúdo para páginas admin. @see AdminContentProps */
@@ -370,6 +386,13 @@ export type {
 
     /** Props do AdminUserSection — avatar do utilizador com dropdown de perfil no hover. @see AdminUserSectionProps */
     AdminUserSectionProps,
+
+    /** Props do AdminUserProfile — perfil do utilizador admin com avatar, badge, stats e badges. @see AdminUserProfileProps */
+    AdminUserProfileProps,
+    /** Estatistica do AdminUserProfile (label + value). @see AdminUserProfileStat */
+    AdminUserProfileStat,
+    /** Badge colorido do AdminUserProfile (value + color). @see AdminUserProfileBadge */
+    AdminUserProfileBadge,
 
     /** Tipo de formulário de login no PageLogin. @see LoginFormType */
     LoginFormType,

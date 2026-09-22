@@ -1,13 +1,13 @@
 <script lang="ts">
-  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import IconRender from "$lib/components/ui/image/IconRender.svelte";
   import type { AdminSectionProps } from "./types";
   import AdminUserSection from "./AdminUserSection.svelte";
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import ThemeSwitch from "$lib/components/ui/theme-switch/theme-switch.svelte";
   import ImageLogo from "$lib/components/ui/image/ImageLogo.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
-  import AdminUserSectionMobile from "./AdminUserSectionMobile.svelte";
   import MenuLinks from "$lib/components/ui/nav/ui/shared/MenuLinks.svelte";
+  import AdminUserSectionMobile from "./AdminUserSectionMobile.svelte";
 
   let {
     logo,
@@ -75,7 +75,9 @@
     >
       <span class="text-sm font-semibold text-white">{card.title}</span>
       <div class="flex items-center justify-between w-full">
-        {#if card.value !== undefined}
+        {#if card.isLoading}
+          <span class="h-7 w-20 animate-pulse rounded bg-white/30"></span>
+        {:else if card.value !== undefined}
           <span class="text-2xl font-bold tracking-tight text-white"
             >{card.value}</span
           >
@@ -84,11 +86,7 @@
           <span
             class="flex size-11 items-center justify-center rounded-lg bg-primary/50 text-primary {card.iconClass}"
           >
-            {#if typeof card.icon === "string"}
-              <i class="text-xl {card.icon}"></i>
-            {:else}
-              <ImageHugeicons icon={card.icon} class="size-5" />
-            {/if}
+            <IconRender icon={card.icon} class="size-5" />
           </span>
         {/if}
       </div>

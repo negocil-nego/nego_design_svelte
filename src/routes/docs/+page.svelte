@@ -128,6 +128,41 @@ ${"</" + "script>"}
   onSubmitDanger={(d) => { isLoadingDanger = true; console.log(d); }}
 />`;
 
+  const adminUserProfileCode = `<script lang="ts">
+  import { AdminUserProfile } from "negodesign";
+${"</" + "script>"}
+
+<AdminUserProfile
+  name="Sedrac SLC"
+  description="Developer and travel enthusiast."
+  avatarUrl="https://github.com/octocat.png"
+  badge="Pro"
+  stats={[
+    { label: "Posts", value: 124 },
+    { label: "Followers", value: "4.2k" },
+    { label: "Following", value: 312 },
+  ]}
+  badges={[
+    { value: 1, color: "#3b82f6" },
+    { value: 2, color: "#ef4444" },
+    { value: 3, color: "#10b981" },
+  ]}
+  followLabel="Follow"
+  contactLabel="Get in touch"
+  onFollow={() => console.log("follow")}
+  onContact={() => console.log("contact")}
+/>`;
+
+  const adminUserProfileMinimalCode = `<script lang="ts">
+  import { AdminUserProfile } from "negodesign";
+${"</" + "script>"}
+
+<AdminUserProfile
+  name="Ana Silva"
+  description="Designer e fotografa."
+  badge="Admin"
+/>`;
+
   const pageStatusPendingCode = `<script lang="ts">
   import { PageStatusPending } from "negodesign";
 ${"</" + "script>"}
@@ -587,6 +622,35 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">AdminSecurityTab</h3>
       <CodeBlock code={adminSecurityTabCode} title="AdminSecurityTab.svelte" />
+    </div>
+  </section>
+
+  <section id="admin-user-profile" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: AdminUserProfile</h2>
+      <a
+        href="/admin/profile"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Componente de perfil do utilizador para areas administrativas. Exibe
+      avatar (imagem ou iniciais automaticas), nome, badge, descricao,
+      estatisticas (posts, seguidores, etc.) e badges coloridos. Suporta
+      botoes de acao <code class="rounded bg-muted px-1 py-0.5">onFollow</code> e
+      <code class="rounded bg-muted px-1 py-0.5">onContact</code> com labels
+      personalizaveis.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">AdminUserProfile — Completo</h3>
+      <CodeBlock code={adminUserProfileCode} title="AdminUserProfile.svelte" />
+    </div>
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">AdminUserProfile — Minimal</h3>
+      <CodeBlock code={adminUserProfileMinimalCode} title="AdminUserProfile.svelte" />
     </div>
   </section>
 

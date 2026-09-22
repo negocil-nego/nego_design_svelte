@@ -1,9 +1,9 @@
 <script lang="ts">
-  import type { AdminUserSectionMobileProps } from "./types";
   import { t } from "$lib/i18n";
   import MenuTriggerMobile from "$lib/components/ui/nav/ui/mobile/MenuTriggerMobile.svelte";
   import AdminUserSection from "./AdminUserSection.svelte";
   import MenuLinks from "$lib/components/ui/nav/ui/shared/MenuLinks.svelte";
+  import type { AdminUserSectionMobileProps } from "./types";
 
   const { user, menuItems = [] }: AdminUserSectionMobileProps = $props();
 </script>

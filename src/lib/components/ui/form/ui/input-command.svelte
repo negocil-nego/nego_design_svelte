@@ -116,7 +116,11 @@
     </div>
   </PopoverTrigger>
 
-  <PopoverContent align="start" side="bottom" class="w-full p-0 min-w-75">
+  <PopoverContent
+    align="start"
+    side="bottom"
+    class="w-full p-0 min-w-75 z-999!"
+  >
     <div id="command-listbox" class="max-h-80 overflow-y-auto" role="listbox">
       {#if filteredGroups.length > 0}
         {#each filteredGroups as group (group.label)}

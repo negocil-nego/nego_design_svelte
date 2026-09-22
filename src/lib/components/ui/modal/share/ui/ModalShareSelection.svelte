@@ -1,5 +1,5 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import IconRender from "$lib/components/ui/image/IconRender.svelte";
   import { cn } from "$lib/utils";
     import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
   import type { ModalShareSelectionProps, ModelSocialShare } from "../types";
@@ -105,13 +105,8 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                     class="size-7 object-contain transition-transform duration-200 group-hover:scale-110"
                     loading="lazy"
                   />
-                {:else if typeof network.icon === "string"}
-                  <i
-                    class="{network.icon} text-2xl transition-colors"
-                    style={network.color ? `color: ${network.color}` : ""}
-                  ></i>
                 {:else if network.icon}
-                  <ImageHugeicons icon={network.icon} class="size-6 transition-colors" style={network.color ? `color: ${network.color}` : ""} />
+                  <IconRender icon={network.icon} class="size-6 transition-colors" style={network.color ? `color: ${network.color}` : ""} />
                 {/if}
               {/snippet}
               {@render icon()}

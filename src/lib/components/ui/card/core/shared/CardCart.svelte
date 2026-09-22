@@ -1,7 +1,7 @@
 <script lang="ts">
-  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import IconRender from "$lib/components/ui/image/IconRender.svelte";
 
   type Props = {
     id: string | number;
@@ -17,16 +17,16 @@
   <Skeleton class="w-8 h-8 rounded-full" />
 {:else if isCart}
   <Button
-    class="w-8 h-8 rounded-full bg-[#1d63be]"
+    class="w-8 h-8 rounded-full bg-gradient"
     onclick={() => onCartClick!(id)}
   >
-    <ImageHugeicons icon="shopping-cart-remove-01" class="dark:text-white" />
+    <IconRender icon="shopping-cart-remove-01" class="text-white" />
   </Button>
 {:else}
   <Button
     class="w-8 h-8 rounded-full bg-[#808080]"
     onclick={() => onCartClick!(id)}
   >
-    <ImageHugeicons icon="shopping-cart-add-01" class="dark:text-white" />
+    <IconRender icon="shopping-cart-add-01" class="text-white" />
   </Button>
 {/if}

@@ -37,6 +37,8 @@ export interface AdminSectionCardProps {
     /** Menu ao qual este card pertence (id do `AdminSectionMenuItem`) */
     menuId?: string | number;
     iconClass?: string;
+    /** Indica se o card está em estado de carregamento */
+    isLoading?: boolean;
 }
 
 /**

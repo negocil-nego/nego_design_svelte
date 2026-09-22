@@ -81,7 +81,7 @@
 </script>
 
 <Popover {open}>
-  <PopoverContent align="start" side="bottom" class="w-auto p-0">
+  <PopoverContent align="start" side="bottom" class="w-auto p-0 z-999!">
     <div
       class="grid max-h-104 gap-2 overflow-y-auto p-2 md:max-h-none md:grid-cols-2 md:overflow-visible w-full"
     >

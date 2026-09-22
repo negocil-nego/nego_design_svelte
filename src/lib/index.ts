@@ -11,6 +11,8 @@ import InputEmail from "./components/ui/form/ui/input-email.svelte";
 import InputCalendar from "./components/ui/form/ui/input-calendar.svelte";
 import InputCalendarInterval from "./components/ui/form/ui/input-calendar-interval.svelte";
 import DataTableCore from "./components/ui/datatable/ui/DataTableCore.svelte";
+import BarChart from "./components/ui/charts/ui/BarChart.svelte";
+import IconRender from "./components/ui/image/IconRender.svelte";
 import MenuBarSidebar from "./components/ui/sidebar/core/MenuBarSidebar.svelte";
 import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
 import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
@@ -72,11 +74,11 @@ import Form from "$lib/components/ui/form/Form.svelte";
 import AdminSidebar from "$lib/components/pages/admin/sidebar/AdminSidebar.svelte";
 import AdminContent from "$lib/components/pages/admin/shared/AdminContent.svelte";
 import AdminPanel from "$lib/components/pages/admin/shared/AdminPanel.svelte";
-import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
-import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
 import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
 import AdminProfileTab from "$lib/components/pages/admin/shared/tabs/AdminProfileTab.svelte";
 import AdminSecurityTab from "$lib/components/pages/admin/shared/tabs/AdminSecurityTab.svelte";
+import type { AdminSection, AdminUserSection } from "./components/pages/admin/shared/section";
+import { AdminUserProfile } from "./components/pages/admin/shared/profile";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -145,7 +147,24 @@ export {
      * @property {AdminSecurityTabProps} props - Props da aba Segurança
      * @see AdminSecurityTabProps
      */
-    AdminSecurityTab,
+     AdminSecurityTab,
+
+    /**
+     * Perfil do utilizador administrativo com avatar, nome, badge, descricao,
+     * estatisticas e badges coloridos. Suporta botoes de accao Follow e Contact.
+     * @property {string} name - Nome do utilizador
+     * @property {string} description - Descricao do utilizador
+     * @property {string} avatarUrl - URL da imagem de avatar
+     * @property {string} badge - Texto do badge ao lado do nome
+     * @property {AdminUserProfileStat[]} stats - Estatisticas (label + value)
+     * @property {AdminUserProfileBadge[]} badges - Badges coloridos (value + color)
+     * @property {string} followLabel - Texto do botao Follow
+     * @property {string} contactLabel - Texto do botao Contact
+     * @property {() => void} onFollow - Callback ao clicar Follow
+     * @property {() => void} onContact - Callback ao clicar Contact
+     * @see AdminUserProfileProps
+     */
+    AdminUserProfile,
 
     /**
      * Barra de navegação responsiva que alterna entre as variantes Simples
@@ -741,6 +760,25 @@ export {
      * @see DataTableCoreProps
      */
     DataTableCore,
+
+    /**
+     * Gráfico de barras SVG responsivo com eixos, gridlines e labels.
+     * @property {BarChartItem[]} data - Dados do gráfico (label + value)
+     * @property {string} title - Título do gráfico
+     * @property {string} description - Descrição/subtítulo
+     * @property {string} barColor - Cor das barras
+     * @property {number} height - Altura do SVG
+     * @see BarChartProps
+     */
+    BarChart,
+
+    /**
+     * Renderizador de ícones que valida automaticamente se a chave é do Hugeicons
+     * e usa ImageHugeicons, caso contrário usa a tag <i> com classes CSS.
+     * @property {string | HugeiconsIconName} icon - Chave do ícone ou classe CSS
+     * @property {string} class - Classes CSS adicionais
+     */
+    IconRender,
 
     /**
      * Sidebar de navegação administrativa com menu colapsável, cabeçalho customizável,

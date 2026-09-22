@@ -1,8 +1,8 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { CarouselBadgeProps } from "$lib/components/ui/carousel/core/types.js";
-    import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
 
   const {
@@ -56,7 +56,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   {:else if typeof item.icon === "string"}
     <i class={`${item.icon} ${iconClass || DEFAULT_IMG_OR_ICON_CLASS}`}></i>
   {:else if item.icon}
-    <ImageHugeicons icon={item.icon} class={iconClass || DEFAULT_IMG_OR_ICON_CLASS} />
+    <ImageHugeicons
+      icon={item.icon}
+      class={iconClass || DEFAULT_IMG_OR_ICON_CLASS}
+    />
   {/if}
 {/snippet}
 
@@ -97,7 +100,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     </Carousel.Content>
     {#if showButton}
       {@const navClass =
-        "absolute -translate-y-1/2 z-50 bg-blue-700! text-white! cursor-pointer"}
+        "absolute -translate-y-1/2 z-50 bg-gradient text-white! cursor-pointer"}
       <Carousel.Previous class="-left-8 {navClass} {TOP_NAV} {btnNavClass}" />
       <Carousel.Next class="-right-8 {navClass} {TOP_NAV} {btnNavClass}" />
     {/if}
