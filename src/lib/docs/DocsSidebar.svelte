@@ -135,6 +135,24 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               {/snippet}
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs" && page.url.hash === "#stores"}>
+              {#snippet child({ props })}
+                <a href="/docs#stores" {...props}
+                  ><span>Stores</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/stores"}>
+              {#snippet child({ props })}
+                <a href="/stores" {...props}
+                  ><span>Stores Demo</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
         </SidebarMenu>
       </SidebarGroupContent>
     </SidebarGroup>

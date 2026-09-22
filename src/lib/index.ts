@@ -18,6 +18,7 @@ import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
 import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
 import CtaCardImageBanner from "$lib/components/ui/banner/CtaCardImageBanner.svelte";
 import NotificationBanner from "$lib/components/ui/banner/NotificationBanner.svelte";
+import NotificationBannerAuth from "$lib/components/ui/banner/NotificationBannerAuth.svelte";
 
 import PrivacyPolicyOrTermsOfUse from "./components/pages/privacy-policy-or-terms-of-use/PrivacyPolicyOrTermsOfUse.svelte";
 import ProductDetails from "./components/pages/product-details/ProductDetails.svelte";
@@ -69,6 +70,8 @@ import ModalForm from "$lib/components/ui/modal/form/ui/ModalForm.svelte";
 import ModalFormEmailOrPhone from "$lib/components/ui/modal/form/ui/ModalFormEmailOrPhone.svelte";
 import ModalUpload from "$lib/components/ui/modal/upload/ui/ModalUpload.svelte";
 import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+import ModalOtp from "$lib/components/ui/modal/otp/ui/ModalOtp.svelte";
+import ModalLogin from "$lib/components/ui/modal/login/ui/ModalLogin.svelte";
 import Form from "$lib/components/ui/form/Form.svelte";
 
 import AdminSidebar from "$lib/components/pages/admin/sidebar/AdminSidebar.svelte";
@@ -91,6 +94,36 @@ export { t } from "./i18n";
 export { getMergedTranslations } from "./i18n/config";
 /** Retorna a lista de idiomas disponíveis. */
 export { getLocales } from "./i18n/config";
+
+/** Store global do modal OTP. Também disponível via `negodesign/store`. */
+export { otpStore, openOtp, closeOtp } from "./store";
+
+/** Store global do modal de login. Também disponível via `negodesign/store`. */
+export { loginStore, openLogin, closeLogin } from "./store";
+
+/** Store base do banner (supressão + countdown). Também disponível via `negodesign/store`. */
+export {
+    banner,
+    countdown,
+    countdownLabel,
+    isBannerSuppressed,
+    startCountdown,
+    stopCountdown,
+    suppressBanner,
+    releaseBanner,
+    setBannerSuppressed,
+} from "./store";
+
+/** Store do NotificationBanner de autenticação. Escuta otpStore e loginStore. */
+export {
+    authBannerKind,
+    authBannerVisible,
+    authBannerStrongText,
+    authBannerDescription,
+    authBannerCtaText,
+    authBannerAction,
+    authBannerDismiss,
+} from "./store";
 
 
 
@@ -233,6 +266,39 @@ export {
      * @see ModalCoreProps
      */
     ModalCore,
+
+    /**
+     * Modal de verificação OTP que abre globalmente em toda a aplicação.
+     * Controlado pelo `otpStore`: use `openOtp(...)` para abrir e
+     * `closeOtp()` para fechar. Montado automaticamente pelo NegoDesign.
+     * @property {string} title - Título exibido no cabeçalho do modal
+     * @property {string} subtitle - Subtítulo exibido abaixo do título
+     * @property {number} otpLength - Quantidade de caixas do código (padrão: 6)
+     * @property {boolean} isLoading - Estado de carregamento do botão
+     * @property {(code: string) => void} onSubmit - Chamado ao submeter o código
+     * @property {() => void} onClose - Chamado ao fechar o modal
+     * @see ModalOtpProps
+     */
+    ModalOtp,
+
+    /**
+     * Modal de autenticação que abre globalmente em toda a aplicação.
+     * Controlado pelo `loginStore`: use `openLogin(...)` para abrir e
+     * `closeLogin()` para fechar. Baseado no PageLogin01/LoginCard01.
+     * Montado automaticamente pelo NegoDesign.
+     * @property {string} title - Título exibido no cabeçalho do modal
+     * @property {string} subtitle - Subtítulo exibido abaixo do título
+     * @property {LoginFormType} formType - Variante do formulário de login
+     * @property {boolean} isLoading - Estado de carregamento do botão
+     * @property {LinkProps} forgetPassword - Link "esqueci a senha"
+     * @property {LinkProps} privacyPolicy - Link da política de privacidade
+     * @property {LinkProps} termsOfService - Link dos termos de utilização
+     * @property {SocialLoginItem[]} socialLogins - Redes sociais para login social
+     * @property {(credential: LoginRequestDto) => void} onSubmit - Chamado ao submeter
+     * @property {() => void} onClose - Chamado ao fechar o modal
+     * @see ModalLoginProps
+     */
+    ModalLogin,
 
     /**
      * Modal de seleção com badges/pills clicáveis, progress bar e botão Skip.
@@ -432,6 +498,15 @@ export {
      * @see NotificationBannerProps
      */
     NotificationBanner,
+
+    /**
+     * Banner de autenticação que escuta o `otpStore` e o `loginStore`.
+     * Quando `isOpenBanner` é `true` apresenta um botão para abrir o
+     * ModalOtp (com countdown do tempo restante) ou o ModalLogin.
+     * Montado automaticamente pelo NegoDesign.
+     * @see NotificationBannerAuthProps
+     */
+    NotificationBannerAuth,
 
     /**
      * Estado vazio (empty state) com ícone, título, descrição e uma ação

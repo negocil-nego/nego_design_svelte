@@ -320,6 +320,71 @@ ${"</" + "script>"}
   ]}
 />`;
 
+  const storeOtpCode = `<script lang="ts">
+  import { openOtp, closeOtp, otpStore } from "negodesign/store";
+${"</" + "script>"}
+
+<button onclick={() => openOtp({ minutes: 5, isOpenBanner: true })}>
+  Verify OTP
+</button>
+
+<button onclick={() => closeOtp()}>Close</button>
+
+{#if otpStore.open}
+  <p>The OTP modal is open.</p>
+{/if}`;
+
+  const storeLoginCode = `<script lang="ts">
+  import { openLogin, closeLogin, loginStore } from "negodesign/store";
+${"</" + "script>"}
+
+<button onclick={() => openLogin({ formType: "EMAIL_PASSWORD", isOpenBanner: true })}>
+  Sign in
+</button>
+
+<button onclick={() => closeLogin()}>Close</button>
+
+{#if loginStore.open}
+  <p>The login modal is open.</p>
+{/if}`;
+
+  const storeBannerCode = `<script lang="ts">
+  import { suppressBanner, releaseBanner } from "negodesign/store";
+${"</" + "script>"}
+
+// Hide the auth banner on this page only
+onMount(() => {
+  suppressBanner();
+  return () => releaseBanner();
+});
+
+// Or force it directly
+setBannerSuppressed(true);`;
+
+  const notificationBannerAuthCode = `<script lang="ts">
+  import { NotificationBannerAuth } from "negodesign";
+${"</" + "script>"}
+
+<NotificationBannerAuth />
+<!-- Mounted once, globally — typically inside NegoDesign -->`;
+
+  const authBannerStoreCode = `<script lang="ts">
+  import {
+    authBannerKind,
+    authBannerVisible,
+    authBannerCtaText,
+    authBannerAction,
+    authBannerDismiss,
+  } from "negodesign/store";
+${"</" + "script>"}
+
+{#if authBannerVisible}
+  <button onclick={() => authBannerAction()}>{authBannerCtaText}</button>
+  <button onclick={() => authBannerDismiss()}>Dismiss</button>
+{/if}
+
+<!-- authBannerKind --> "otp" | "login" | null`;
+
   const features = [
     {
       icon: "sparkles",
@@ -795,6 +860,108 @@ ${"</" + "script>"}
         Card de produto com preço, rating e botão de comprar. Variantes 1 e 2.
       </p>
       <CodeBlock code={cardProductCode} title="CardProduct.svelte" />
+    </div>
+  </section>
+
+  <section id="stores" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">Stores (global state)</h2>
+      <a
+        href="/docs#stores"
+        class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
+      >
+        Docs
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+      <a
+        href="/stores"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      The library ships reactive stores that control the global
+      <code class="rounded bg-muted px-1 py-0.5">ModalOtp</code>,
+      <code class="rounded bg-muted px-1 py-0.5">ModalLogin</code> and the
+      <code class="rounded bg-muted px-1 py-0.5">NotificationBannerAuth</code>
+      component. They are mounted once inside
+      <code class="rounded bg-muted px-1 py-0.5">NegoDesign</code>, so any part
+      of your app can open them by calling a helper — no component tree needed.
+      Import them from the
+      <code class="rounded bg-muted px-1 py-0.5">negodesign/store</code>
+      package entry:
+    </p>
+
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">otpStore — openOtp / closeOtp</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Controls the OTP verification modal. Pass
+        <code class="rounded bg-muted px-1 py-0.5">minutes</code> to start a
+        countdown (the modal closes when it expires) and
+        <code class="rounded bg-muted px-1 py-0.5">isOpenBanner: true</code> to
+        also show the auth banner.
+      </p>
+      <CodeBlock code={storeOtpCode} title="otp-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">loginStore — openLogin / closeLogin</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Controls the login modal. Supports every
+        <code class="rounded bg-muted px-1 py-0.5">formType</code> of the login
+        page variants and optional social logins / links.
+      </p>
+      <CodeBlock code={storeLoginCode} title="login-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">banner-store — suppression & countdown</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Shared state used by the auth banner: a suppression counter (hide the
+        banner on specific pages, e.g. an OTP confirm screen) and a generic
+        countdown with a formatted
+        <code class="rounded bg-muted px-1 py-0.5">countdownLabel</code>
+        (mm:ss). Use
+        <code class="rounded bg-muted px-1 py-0.5">suppressBanner()</code> /
+        <code class="rounded bg-muted px-1 py-0.5">releaseBanner()</code> in
+        <code class="rounded bg-muted px-1 py-0.5">onMount</code> /
+        <code class="rounded bg-muted px-1 py-0.5">onDestroy</code> to scope the
+        banner to one page.
+      </p>
+      <CodeBlock code={storeBannerCode} title="banner-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">NotificationBannerAuth — plug & play banner</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Reads the otp/login stores automatically: when
+        <code class="rounded bg-muted px-1 py-0.5">isOpenBanner</code> is
+        <code class="rounded bg-muted px-1 py-0.5">true</code> (and its modal is
+        closed, and the banner is not suppressed) it renders a
+        <code class="rounded bg-muted px-1 py-0.5">NotificationBanner</code>
+        with a CTA that opens the matching modal and an OTP countdown when
+        applicable. Already mounted inside
+        <code class="rounded bg-muted px-1 py-0.5">NegoDesign</code> – add it
+        manually only if you are not using it.
+      </p>
+      <CodeBlock code={notificationBannerAuthCode} title="NotificationBannerAuth.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">notification-banner-store — derived state</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Exposes the derived state consumed by the banner component
+        (<code class="rounded bg-muted px-1 py-0.5">authBannerKind</code>,
+        <code class="rounded bg-muted px-1 py-0.5">authBannerVisible</code>,
+        <code class="rounded bg-muted px-1 py-0.5">authBannerCtaText</code>,
+        etc.), plus the actions
+        <code class="rounded bg-muted px-1 py-0.5">authBannerAction()</code> and
+        <code class="rounded bg-muted px-1 py-0.5">authBannerDismiss()</code>.
+        This is useful when building a custom banner.
+      </p>
+      <CodeBlock code={authBannerStoreCode} title="notification-banner-store.svelte.ts" />
     </div>
   </section>
 

@@ -227,6 +227,14 @@ import type {
 } from "$lib/components/ui/modal/core/types";
 
 import type {
+    ModalOtpProps
+} from "$lib/components/ui/modal/otp/types";
+
+import type {
+    ModalLoginProps
+} from "$lib/components/ui/modal/login/types";
+
+import type {
     FormProps,
     FormInputConfig,
     FormOption
@@ -498,6 +506,10 @@ export type {
 
     /** Props do componente ModalCore — contentor base reutilizável para todos os modais. @see ModalCoreProps */
     ModalCoreProps,
+    /** Props do componente ModalOtp — modal de verificação OTP global via otpStore. @see ModalOtpProps */
+    ModalOtpProps,
+    /** Props do componente ModalLogin — modal de autenticação global via loginStore. @see ModalLoginProps */
+    ModalLoginProps,
 
     /** Props do NegoDesign — componente raiz do Negodesign. */
     NegoDesignProps,
