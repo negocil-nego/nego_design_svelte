@@ -1,7 +1,6 @@
 @import "tailwindcss";
 @import "@fontsource-variable/figtree";
 @import "./hgi-stroke-rounded.css";
-@import "./flag-icons.min.css";
 @import "./animate.min.css";
 
 @custom-variant dark (&:is(.dark *));
