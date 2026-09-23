@@ -9,3 +9,5 @@ export type {
 	DetailedValue,
 	TelInputOptions
 } from './types';
+
+export { COUNTRIES } from '$lib/components/ui/image/flag-map';

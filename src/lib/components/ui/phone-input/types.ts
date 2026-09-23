@@ -1,11 +1,6 @@
 export type CountryCode = string;
 
-export type Country = {
-	id: string;
-	iso2: string;
-	name: string;
-	dialCode: string;
-};
+export type { Country } from "$lib/components/ui/image/flag-map";
 
 export type DetailedValue = {
 	country: Country | null;

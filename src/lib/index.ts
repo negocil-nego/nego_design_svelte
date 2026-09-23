@@ -14,6 +14,7 @@ import DataTableCore from "./components/ui/datatable/ui/DataTableCore.svelte";
 import BarChart from "./components/ui/charts/ui/BarChart.svelte";
 import IconRender from "./components/ui/image/IconRender.svelte";
 import ImageSvgAnimate from "./components/ui/image/ImageSvgAnimate.svelte";
+import ImageFlag from "./components/ui/image/ImageFlag.svelte";
 import MenuBarSidebar from "./components/ui/sidebar/core/MenuBarSidebar.svelte";
 import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
 import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
@@ -123,6 +124,22 @@ export {
     getAuthBannerCtaText,
     authBannerAction,
     authBannerDismiss,
+} from "./stores";
+
+/** Store de idioma — gere a língua da aplicação de forma reativa. */
+export {
+    languageStore,
+    languagesStore,
+    languageFlagStore,
+    setLanguage,
+} from "./stores";
+
+/** Store de tema — gere o tema (light/dark) da aplicação de forma reativa. */
+export {
+    themeStore,
+    isDarkStore,
+    toggleTheme,
+    setTheme,
 } from "./stores";
 
 
@@ -854,6 +871,14 @@ export {
      * @property {string} class - Classes CSS adicionais
      */
     ImageSvgAnimate,
+
+    /**
+     * Componente que renderiza a imagem da bandeira de um país a partir do código ISO.
+     * Funciona como ImageHugeicons — passe a key (código ISO do país) e ele renderiza a bandeira.
+     * @property {string} country - Código ISO do país (ex: "br", "pt", "us")
+     * @property {string} class - Classes CSS adicionais
+     */
+    ImageFlag,
 
     /**
      * Sidebar de navegação administrativa com menu colapsável, cabeçalho customizável,

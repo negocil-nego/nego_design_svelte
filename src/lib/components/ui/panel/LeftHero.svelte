@@ -2,8 +2,6 @@
   import type { LoginCarouselProps } from "$lib/components/pages/security/login/types";
   import type { Snippet } from "svelte";
   import { t } from "$lib/i18n";
-  import Button from "$lib/components/ui/button/button.svelte";
-  import IconRender from "../image/IconRender.svelte";
   import Logo from "$lib/assets/login-01-admin.webp";
 
   type Props = {
@@ -63,18 +61,6 @@
             {currentItem.description}
           </p>
         {/key}
-        <Button
-          variant="outline"
-          class="inline-flex items-center gap-2 text-sm font-semibold bg-primary"
-        >
-          {currentItem.buttonText}
-          <IconRender
-            icon="arrow-right-01"
-            class="text-white"
-            width={16}
-            height={16}
-          />
-        </Button>
       {/if}
     </div>
 
@@ -97,7 +83,7 @@
               {i + 1}
             </span>
           {:else}
-            <span class="w-2 h-2 rounded-full bg-white"></span>
+            <span class="w-2 h-2 rounded-full bg-gradient dark:bg-white"></span>
           {/if}
         </button>
       {/each}

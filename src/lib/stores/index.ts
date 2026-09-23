@@ -26,3 +26,17 @@ export {
 	setBannerSuppressed as setAuthBannerSuppressed,
 } from "./notification-banner-store.svelte";
 export type { AuthBannerKind } from "./notification-banner-store.svelte";
+export {
+	languageStore,
+	languagesStore,
+	languageFlagStore,
+	setLanguage,
+	useT,
+} from "./language-store.svelte";
+export {
+	themeStore,
+	isDarkStore,
+	toggleTheme,
+	setTheme,
+	applyTheme,
+} from "./theme-store.svelte";

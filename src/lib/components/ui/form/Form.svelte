@@ -12,6 +12,7 @@
   import InputSubmit from "./ui/input-submit.svelte";
   import InputCalendar from "./ui/input-calendar.svelte";
   import InputCalendarInterval from "./ui/input-calendar-interval.svelte";
+  import { PhoneInput } from "$lib/components/ui/phone-input";
   import type { FormProps, FormInputConfig } from "./types";
 
   let {
@@ -244,9 +245,23 @@
             (v) => handleSelectChange(input.endName ?? `${input.name}End`, v)
           }
         />
+      {:else if input.type === "phone"}
+        <div class="flex flex-col gap-3 w-full">
+          {#if input.label}
+            <label class="text-sm font-medium">{input.label}</label>
+          {/if}
+          <PhoneInput
+            placeholder={input.placeholder}
+            disabled={input.disabled ?? false}
+            bind:value={
+              () => formValues[input.name] as string,
+              (v) => handleSelectChange(input.name, v)
+            }
+          />
+        </div>
       {:else}
         <InputBase
-          type={input.type === "phone" ? "tel" : input.type}
+          type={input.type}
           label={input.label}
           isLabel
           isIcon

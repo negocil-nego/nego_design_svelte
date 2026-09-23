@@ -41,6 +41,7 @@ export const categories = [
   "Admin Panel",
   "Login / Security",
   "Full Pages",
+  "Image",
 ] as const;
 
 const navButtonExample = `import { Menu } from "negodesign"
@@ -2284,6 +2285,39 @@ ${"</" + "script>"}
       { name: "emailPhoneWhatsapp", type: "CardEmailPhoneWhatsappProps", description: "Renders a CardEmailPhoneWhatsapp contact-method card below the description" },
       { name: "children", type: "Snippet", description: "Custom content (Snippet) rendered between the description and the contact card" },
       { name: "className", type: "string", description: "Additional CSS class for the container" },
+    ],
+  },
+  {
+    slug: "image-flag",
+    name: "ImageFlag",
+    category: "Image",
+    description: "Renders a country flag image from a ISO code. Works like ImageHugeicons — pass a key (country ISO code) and it renders the flag SVG.",
+    path: "src/lib/components/ui/image/ImageFlag.svelte",
+    importPath: "ImageFlag",
+    examples: [
+      {
+        title: "Basic Usage",
+        code: `import { ImageFlag } from "negodesign"
+
+<ImageFlag country="br" />
+<ImageFlag country="pt" class="size-6 rounded-full" />`,
+      },
+      {
+        title: "With Language Flag Map",
+        description: "Pass a language code and it resolves to the representative country flag.",
+        code: `import { ImageFlag } from "negodesign"
+
+<!-- "en" resolves to "gb" (UK flag) -->
+<ImageFlag country="en" />
+
+<!-- "pt" resolves to "pt" (Portugal flag) -->
+<ImageFlag country="pt" />`,
+      },
+    ],
+    props: [
+      { name: "country", type: "string", description: "ISO country code (e.g. \"br\", \"pt\", \"us\") or language code", required: true },
+      { name: "class", type: "string", description: "Additional CSS classes" },
+      { name: "alt", type: "string", description: "Alt text for the image (defaults to country code uppercase)" },
     ],
   },
 ];

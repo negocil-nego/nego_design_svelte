@@ -1,10 +1,10 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import Button, {
     type ButtonProps,
   } from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
-    
+  import IconRender from "../image/IconRender.svelte";
+
   let { isLoading, ...restProps }: ButtonProps = $props();
 </script>
 
@@ -13,6 +13,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   {...restProps}
   disabled={isLoading}
 >
-  <ImageHugeicons icon="login-02" width={16} height={16} />
+  <IconRender icon="login-02" width={16} height={16} class="text-white" />
   {$t("label.login")}
 </Button>

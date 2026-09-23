@@ -49,4 +49,5 @@ export type PageLoginProps = {
   termsOfService?: LinkProps;
   socialLogins?: SocialLoginItem[];
   isLoading?: boolean;
+  iconLinkButtonClass?: string;
 };
