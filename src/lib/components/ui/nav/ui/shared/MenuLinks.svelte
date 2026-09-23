@@ -1,24 +1,16 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-    import type { NavMenuLinksProps } from "../../data/nav-menu";
-
-  type Props = {
-    links: NavMenuLinksProps[];
-    linkClass?: string;
-    groupClass?: string;
-    menuKey?: string;
-    activeClass?: string;
-    orientation?: "horizontal" | "vertical";
-  };
+  import IconRender from "$lib/components/ui/image/IconRender.svelte";
+  import type { MenuLinksProps } from "./type";
 
   let {
     links,
     linkClass,
     groupClass,
+    iconClass,
     menuKey,
     activeClass = "bg-gradient text-white",
     orientation,
-  }: Props = $props();
+  }: MenuLinksProps = $props();
 </script>
 
 <ul
@@ -31,7 +23,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         href={item.url ?? item.href ?? "#"}
       >
         {#if item.icon}
-          <ImageHugeicons icon={item.icon} width={15} height={15} />
+          <IconRender
+            icon={item.icon}
+            class={iconClass}
+            width={15}
+            height={15}
+          />
         {/if}
         {item.label}
       </a>

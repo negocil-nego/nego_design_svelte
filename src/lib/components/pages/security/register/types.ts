@@ -51,6 +51,7 @@ export type PageRegisterProps = {
   children?: Snippet
   fields?: RegisterFormFields
   onSubmit?: (data: RegisterRequestDto) => void
+  onButtonBack?: () => void
   login?: LinkProps
   privacyPolicy?: LinkProps
   termsOfService?: LinkProps

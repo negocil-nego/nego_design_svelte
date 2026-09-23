@@ -21,6 +21,7 @@
     fields,
     children,
     onSubmit,
+    onButtonBack,
     login,
     privacyPolicy,
     termsOfService,
@@ -68,6 +69,7 @@
     <RegisterCard01
       {fields}
       {onSubmit}
+      {onButtonBack}
       {login}
       {privacyPolicy}
       {termsOfService}

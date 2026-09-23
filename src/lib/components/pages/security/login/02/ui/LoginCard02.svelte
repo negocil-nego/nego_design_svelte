@@ -10,6 +10,7 @@
 
 <script lang="ts">
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
+  import ButtonBack from "$lib/components/ui/button/ButtonBack.svelte";
   import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import { t } from "$lib/i18n";
   import type {
@@ -26,6 +27,7 @@
   type Props = {
     formType?: LoginFormType;
     onSubmit?: (credential: LoginRequestDto) => void;
+    onButtonBack?: () => void;
     register?: LinkProps;
     forgetPassword?: LinkProps;
     privacyPolicy?: LinkProps;
@@ -37,6 +39,7 @@
   let {
     formType,
     onSubmit,
+    onButtonBack,
     register,
     forgetPassword,
     privacyPolicy,
@@ -47,7 +50,12 @@
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-full">
-  <nav class="flex justify-end p-5">
+  <nav class="flex justify-between p-5">
+    <div>
+      {#if onButtonBack}
+        <ButtonBack onclick={onButtonBack} />
+      {/if}
+    </div>
     <div class="flex gap-2">
       <ThemeSwitch />
       <LanguageSwitcher />

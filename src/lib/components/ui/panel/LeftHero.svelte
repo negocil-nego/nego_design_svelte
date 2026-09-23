@@ -1,9 +1,9 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import type { LoginCarouselProps } from "$lib/components/pages/security/login/types";
+  import type { LoginCarouselProps } from "$lib/components/pages/security/login/types";
   import type { Snippet } from "svelte";
-  import Button from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
+  import Button from "$lib/components/ui/button/button.svelte";
+  import IconRender from "../image/IconRender.svelte";
   import Logo from "$lib/assets/login-01-admin.webp";
 
   type Props = {
@@ -68,7 +68,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           class="inline-flex items-center gap-2 text-sm font-semibold bg-primary"
         >
           {currentItem.buttonText}
-          <ImageHugeicons icon="arrow-right-01" width={16} height={16} />
+          <IconRender
+            icon="arrow-right-01"
+            class="text-white"
+            width={16}
+            height={16}
+          />
         </Button>
       {/if}
     </div>

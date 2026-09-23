@@ -6,9 +6,13 @@
   let {
     icon,
     class: className = "",
+    width,
+    height,
   }: {
     icon: string | HugeiconsIconName;
     class?: string;
+    width?: number;
+    height?: number;
   } = $props();
 
   const isHugeiconsKey = $derived(
@@ -17,9 +21,9 @@
 </script>
 
 {#if isHugeiconsKey}
-  <ImageHugeicons {icon} class={className} />
+  <ImageHugeicons {icon} {width} {height} class={className} />
 {:else if typeof icon === "string"}
   <i class="{icon} {className}"></i>
 {:else}
-  <ImageHugeicons {icon} class={className} />
+  <ImageHugeicons {icon} {width} {height} class={className} />
 {/if}

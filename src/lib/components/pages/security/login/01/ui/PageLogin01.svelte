@@ -21,6 +21,7 @@
     formType = "USERNAME_PASSWORD",
     children,
     onSubmit,
+    onButtonBack,
     forgetPassword,
     privacyPolicy,
     termsOfService,
@@ -56,6 +57,7 @@
     <LoginCard01
       {formType}
       {onSubmit}
+      {onButtonBack}
       {forgetPassword}
       {privacyPolicy}
       {termsOfService}

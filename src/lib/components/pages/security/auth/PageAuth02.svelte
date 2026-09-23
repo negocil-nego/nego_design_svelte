@@ -8,7 +8,7 @@
 
 <script lang="ts">
   import type { Snippet } from "svelte";
-  import LeftHero from "$lib/components/pages/security/login/02/ui/LeftHero02.svelte";
+  import LeftHero02 from "$lib/components/pages/security/login/02/ui/LeftHero02.svelte";
 
   type CarouselItem = {
     title: string;
@@ -30,7 +30,7 @@
 
 <main class="h-screen w-screen flex items-center justify-center">
   <div class="hidden md:flex w-7/12 h-screen">
-    <LeftHero {title} type={type ?? "POINTER"} items={carousel} />
+    <LeftHero02 {title} type={type ?? "POINTER"} items={carousel} />
   </div>
   <div class="w-full md:w-5/12 flex flex-col h-screen overflow-y-auto">
     {#if children}

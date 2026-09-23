@@ -28,6 +28,7 @@
   type Props = {
     fields?: RegisterFormFields;
     onSubmit?: (data: RegisterRequestDto) => void;
+    onButtonBack?: () => void;
     login?: LinkProps;
     privacyPolicy?: LinkProps;
     termsOfService?: LinkProps;
@@ -38,6 +39,7 @@
   let {
     fields,
     onSubmit,
+    onButtonBack,
     login,
     privacyPolicy,
     termsOfService,
@@ -49,7 +51,9 @@
 <div class="flex-1 flex flex-col justify-between h-screen">
   <nav class="flex justify-between p-5 md:bg-transparent">
     <div>
-      <ButtonBack />
+      {#if onButtonBack}
+        <ButtonBack onclick={onButtonBack} />
+      {/if}
     </div>
     <div class="flex gap-2">
       <ThemeSwitch />

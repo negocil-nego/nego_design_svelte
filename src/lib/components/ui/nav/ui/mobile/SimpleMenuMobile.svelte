@@ -1,18 +1,16 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
-  import type { NavMenuLinksProps } from "../../data/nav-menu";
-      import MenuLinks from "../shared/MenuLinks.svelte";
+  import MenuLinks from "../shared/MenuLinks.svelte";
   import MenuMobile from "./MenuMobile.svelte";
   import { t } from "$lib/i18n";
+  import type { SimpleMenuMobileProps } from "./types";
 
-  type Props = {
-    links: NavMenuLinksProps[];
-    onclickButtonLogin?: () => void;
-    onclickButtonRegister?: () => void;
-  };
-
-  const { links, onclickButtonLogin, onclickButtonRegister }: Props = $props();
+  const {
+    links,
+    onclickButtonLogin,
+    onclickButtonRegister,
+  }: SimpleMenuMobileProps = $props();
 </script>
 
 <MenuMobile>

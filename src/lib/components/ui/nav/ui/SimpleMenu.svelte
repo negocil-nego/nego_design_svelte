@@ -7,8 +7,16 @@
 
 {#if restProps.align === "LINK_INTO_ACTIONS"}
   <div class="flex items-center gap-2 w-full">
-    <MenuLinks {...restProps} orientation="vertical" />
+    <MenuLinks
+      {...restProps}
+      orientation="vertical"
+      iconClass={restProps.iconLinkClass}
+    />
   </div>
 {:else}
-  <MenuLinks {...restProps} orientation="horizontal" />
+  <MenuLinks
+    {...restProps}
+    orientation="horizontal"
+    iconClass={restProps.iconLinkClass}
+  />
 {/if}

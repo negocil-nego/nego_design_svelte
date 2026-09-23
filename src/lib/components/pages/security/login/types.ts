@@ -43,6 +43,7 @@ export type PageLoginProps = {
   children?: Snippet;
   formType?: LoginFormType;
   onSubmit?: (credential: LoginRequestDto) => void;
+  onButtonBack?: () => void;
   forgetPassword?: LinkProps;
   privacyPolicy?: LinkProps;
   termsOfService?: LinkProps;

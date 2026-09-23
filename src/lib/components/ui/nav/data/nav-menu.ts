@@ -95,6 +95,8 @@ export type IMenuProps = {
 export interface SimpleMenuProps extends IMenuProps {
     /** Lista de links de navegação */
     links: NavMenuLinksProps[]
+    /** Classe CSS personalizada para cada link */
+    iconLinkClass?: string
     /** Exibe o interruptor de tema (claro/escuro) */
     isThemeSwitch?: boolean
     /** Exibe o seletor de idioma */

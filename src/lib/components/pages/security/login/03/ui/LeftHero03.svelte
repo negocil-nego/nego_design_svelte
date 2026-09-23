@@ -1,9 +1,9 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import type { Snippet } from "svelte";
+  import type { Snippet } from "svelte";
   import type { LoginCarouselProps } from "../../types";
   import Button from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
+  import IconRender from "$lib/components/ui/image/IconRender.svelte";
 
   type Props = {
     title?: string | Snippet;
@@ -80,7 +80,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           class="inline-flex items-center gap-2 text-sm font-semibold bg-primary"
         >
           {currentItem.buttonText}
-          <ImageHugeicons icon="arrow-right-01" width={16} height={16} />
+          <IconRender
+            icon="arrow-right-01"
+            class="text-white"
+            width={16}
+            height={16}
+          />
         </Button>
       {/if}
     </div>

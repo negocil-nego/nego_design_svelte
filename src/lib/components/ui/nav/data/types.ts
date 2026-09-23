@@ -68,6 +68,7 @@ export type ComplexMenuProps = IMenuProps & {
     subTextClass?: string;
     hoverClass?: string;
     isLoading?: boolean;
+    iconLinkClass?: string;
 }
 
 export type MenuVarientProps = ComplexMenuProps | SimpleMenuProps;
@@ -76,6 +77,7 @@ export type MenuProps = IMenuProps & {
     logo?: NavMenuLogoProps
     navMenuButton?: NavMenuButtonProps
     isBorder?: boolean
+    iconLinkClass?: string
     /** Exibe o interruptor de tema (claro/escuro) */
     isThemeSwitch?: boolean
     /** Exibe o seletor de idioma */

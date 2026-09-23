@@ -1,9 +1,9 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import type { Snippet } from "svelte";
+  import type { Snippet } from "svelte";
   import type { LoginCarouselProps } from "../../types";
   import Button from "$lib/components/ui/button/button.svelte";
   import { t } from "$lib/i18n";
+  import IconRender from "$lib/components/ui/image/IconRender.svelte";
 
   type Props = {
     title?: string | Snippet;
@@ -13,7 +13,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   let {
     title,
     items = [],
-    varient = "DOT",
+    type = "DOT",
     autoPlayInterval = 5000,
   }: Props & LoginCarouselProps = $props();
 
@@ -77,7 +77,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           class="inline-flex items-center gap-2 text-sm font-semibold bg-primary"
         >
           {currentItem.buttonText}
-          <ImageHugeicons icon="arrow-right-01" width={16} height={16} />
+          <IconRender
+            icon="arrow-right-01"
+            class="text-white"
+            width={16}
+            height={16}
+          />
         </Button>
       {/if}
     </div>
@@ -94,7 +99,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             ? 'opacity-100 scale-110'
             : 'opacity-50 hover:opacity-75'}"
         >
-          {#if varient === "NUMBER"}
+          {#if type === "NUMBER"}
             <span
               class="w-6 h-6 text-xs font-semibold rounded-full text-primary flex items-center justify-center"
             >

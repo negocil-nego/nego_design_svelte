@@ -32,6 +32,7 @@
   type Props = {
     formType?: LoginFormType;
     onSubmit?: (credential: LoginRequestDto) => void;
+    onButtonBack?: () => void;
     register?: Snippet;
     forgetPassword?: LinkProps;
     privacyPolicy?: LinkProps;
@@ -44,6 +45,7 @@
   let {
     formType,
     onSubmit,
+    onButtonBack,
     register,
     forgetPassword,
     privacyPolicy,
@@ -57,7 +59,9 @@
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
   <nav class="flex justify-between p-5 md:bg-transparent">
     <div>
-      <ButtonBack />
+      {#if onButtonBack}
+        <ButtonBack onclick={onButtonBack} />
+      {/if}
     </div>
     <div class="flex gap-2">
       <ThemeSwitch />

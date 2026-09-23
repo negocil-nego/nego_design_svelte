@@ -1,5 +1,12 @@
 import type { Snippet } from "svelte";
-import type { NavMenuButtonProps } from "../../data/nav-menu";
+import type { NavMenuButtonProps, NavMenuLinksProps } from "../../data/nav-menu";
+
+export type SimpleMenuMobileProps = {
+    links: NavMenuLinksProps[];
+    iconLinkClass?: string;
+    onclickButtonLogin?: () => void;
+    onclickButtonRegister?: () => void;
+}
 
 export type MenuTriggerMobileProps = {
     navMenuButton?: NavMenuButtonProps;
