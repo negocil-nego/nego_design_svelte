@@ -1,4 +1,5 @@
 import type { CardEmailPhoneWhatsappProps } from "$lib/types";
+import type { SvgAnimateKey } from "$lib/components/ui/image/svg-map";
 import type { Snippet } from "svelte";
 
 export type PageStatusProps = {
@@ -6,6 +7,7 @@ export type PageStatusProps = {
     buttonBg?: string;
     subtitle?: string;
     className?: string;
+    svgKey?: SvgAnimateKey;
     imgSlot?: Snippet;
     children?: Snippet;
     actionHref?: string;

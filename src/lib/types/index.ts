@@ -92,8 +92,6 @@ import type {
 import type { TabUnderlineProps } from "$lib/components/ui/tabs/types";
 
 import type {
-    SearchItemProps,
-    SearchInputProps,
     SearchHostingerInputProps
 } from "$lib/components/ui/search/types";
 
@@ -351,10 +349,6 @@ export type {
     /** Props do componente TabUnderline — abas com estilo underline. @see TabUnderlineProps */
     TabUnderlineProps,
 
-    /** Props base para o componente de input de busca. @see SearchItemProps */
-    SearchItemProps,
-    /** Props do SearchInput — input de busca com 2 variantes visuais. @see SearchInputProps */
-    SearchInputProps,
     /** Props do SearchHostingerInput — barra de busca estilo Hostinger com calendário e hóspedes. @see SearchHostingerInputProps */
     SearchHostingerInputProps,
 

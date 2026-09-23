@@ -78,7 +78,7 @@
         isBorderInline
       />
     </div>
-    <div class="w-[900px]">
+    <div>
       <ItemsPanel
         variant={2}
         style="inline"

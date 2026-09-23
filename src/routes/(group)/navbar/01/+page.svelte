@@ -1,8 +1,7 @@
 <script lang="ts">
   import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
   import NavMenu from "$lib/components/ui/nav/ui/SimpleMenu.svelte";
-  import SearchInput from "$lib/components/ui/search/SearchInput.svelte";
-  </script>
+</script>
 
 <div
   class="flex flex-col justify-center items-center gap-2 md:gap-5 bg-gradient pb-5 border-b"
@@ -21,12 +20,6 @@
     ]}
     onclickButtonLogin={() => alert("login")}
     onclickButtonRegister={() => alert("register")}
-  />
-  <SearchInput
-    variant={1}
-    onSubmit={(q) => {
-      alert(q);
-    }}
   />
 </div>
 <div class="relative">

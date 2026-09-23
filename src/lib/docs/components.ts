@@ -85,34 +85,6 @@ export const components: DocComponent[] = [
     ],
   },
   {
-    slug: "search-input",
-    name: "SearchInput",
-    category: "Navigation",
-    description: "Search field with two visual variants: 1 (full border) and 2 (underline only).",
-    path: "src/lib/components/ui/search/SearchInput.svelte",
-    importPath: "SearchInput",
-    examples: [
-      {
-        title: "Search Field",
-        code: `import { SearchInput } from "negodesign"
-
-<SearchInput
-  variant={1}
-  placeholder="Search..."
-  onSubmit={(q) => console.log(q)}
-/>`,
-      },
-    ],
-    props: [
-      { name: "variant", type: "1 | 2", description: "Visual variant", default: "1" },
-      { name: "onSubmit", type: "(q: string) => void", description: "Called when the search is submitted" },
-      { name: "placeholder", type: "string", description: "Input placeholder text", default: "Search" },
-      { name: "buttonClass", type: "string", description: "Button CSS class" },
-      { name: "inputClass", type: "string", description: "Input CSS class" },
-      { name: "iconClass", type: "string", description: "Icon CSS class" },
-    ],
-  },
-  {
     slug: "simple-hero",
     name: "SimpleHero",
     category: "Hero",

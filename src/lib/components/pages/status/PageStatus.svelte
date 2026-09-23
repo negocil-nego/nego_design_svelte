@@ -4,12 +4,14 @@
   import LanguageSwitcher from "$lib/components/ui/language-switcher/language-switcher.svelte";
   import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import Button from "$lib/components/ui/button/button.svelte";
+  import ImageSvgAnimate from "$lib/components/ui/image/ImageSvgAnimate.svelte";
 
   let {
     title = "",
     subtitle = "",
     description = "",
     buttonText = "",
+    svgKey,
     imgSlot,
     onAction,
     actionHref,
@@ -31,7 +33,9 @@
   </div>
   <div class="flex flex-col items-center text-center">
     <div class="relative">
-      {#if imgSlot}
+      {#if svgKey}
+        <ImageSvgAnimate key={svgKey} class="size-32 sm:size-40" />
+      {:else if imgSlot}
         {@render imgSlot()}
       {/if}
     </div>

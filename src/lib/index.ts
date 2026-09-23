@@ -13,6 +13,7 @@ import InputCalendarInterval from "./components/ui/form/ui/input-calendar-interv
 import DataTableCore from "./components/ui/datatable/ui/DataTableCore.svelte";
 import BarChart from "./components/ui/charts/ui/BarChart.svelte";
 import IconRender from "./components/ui/image/IconRender.svelte";
+import ImageSvgAnimate from "./components/ui/image/ImageSvgAnimate.svelte";
 import MenuBarSidebar from "./components/ui/sidebar/core/MenuBarSidebar.svelte";
 import AdCardBanner from "$lib/components/ui/banner/AdCardBanner.svelte";
 import CtaCardBanner from "$lib/components/ui/banner/CtaCardBanner.svelte";
@@ -46,7 +47,6 @@ import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import PageRegister from "./components/pages/security/register/PageRegister.svelte";
-import SearchInput from "$lib/components/ui/search/SearchInput.svelte";
 import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
 import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
@@ -524,15 +524,6 @@ export {
     NotFoundEmpty,
 
     /**
-     * Campo de input de busca com 2 variantes visuais (borda completa ou underline).
-     * Inclui botão de submissão e callback onSubmit.
-     * @property {1|2} variant - Variante visual (1: borda completa, 2: underline)
-     * @property {(value) => void} onSubmit - Chamado ao submeter a busca
-     * @see SearchInputProps
-     */
-    SearchInput,
-
-    /**
      * Barra de busca estilo Hostinger com InputCommand, calendário de check-in/out
      * e seletor de hóspedes/quartos. Responsivo — no mobile esconde os seletores.
      * @property {string} value - Valor do input (bindable)
@@ -857,6 +848,14 @@ export {
     IconRender,
 
     /**
+     * Componente que renderiza SVGs animados inline a partir de uma chave.
+     * Os SVGs são importados de $lib/assets/svg/ e preservam as animações.
+     * @property {SvgAnimateKey} key - Chave do SVG a exibir
+     * @property {string} class - Classes CSS adicionais
+     */
+    ImageSvgAnimate,
+
+    /**
      * Sidebar de navegação administrativa com menu colapsável, cabeçalho customizável,
      * lista de menus/submenus, botões do rodapé e bloco de utilizador logado.
      * @property {NavMenuItem[]} menus - Itens de navegação principal (com ou sem submenus)
@@ -992,3 +991,5 @@ export {
      */
     InputPasswordConfirm
 }
+
+export type { SvgAnimateKey } from "./components/ui/image/svg-map";
