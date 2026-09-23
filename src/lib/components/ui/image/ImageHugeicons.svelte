@@ -53,7 +53,7 @@
 {/if}
 
 <style>
-  :global(html.dark) .hugeicons-dark-white {
+  :global(.hugeicons-dark-white) {
     filter: brightness(0) invert(1) !important;
   }
 </style>

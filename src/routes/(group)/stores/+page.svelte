@@ -6,14 +6,14 @@
     closeLogin,
     otpStore,
     loginStore,
-    countdownLabel,
-    isBannerSuppressed,
-    authBannerKind,
-    authBannerVisible,
+    getCountdownLabel,
+    getIsBannerSuppressed,
+    getAuthBannerKind,
+    getAuthBannerVisible,
     suppressBanner,
     releaseBanner,
     setBannerSuppressed,
-  } from "$lib/store";
+  } from "$lib/stores";
 </script>
 
 <svelte:head>
@@ -112,9 +112,9 @@
       </button>
       <button
         class="rounded-lg border border-border bg-background px-4 py-2 text-sm font-semibold transition hover:border-primary/50 hover:text-primary"
-        onclick={() => setBannerSuppressed(!isBannerSuppressed)}
+        onclick={() => setBannerSuppressed(!getIsBannerSuppressed())}
       >
-        setBannerSuppressed(!{isBannerSuppressed})
+        setBannerSuppressed(!{getIsBannerSuppressed()})
       </button>
     </div>
   </div>
@@ -129,20 +129,20 @@
       <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{String(loginStore.open)}</code>
     </div>
     <div>
-      <span class="font-semibold text-muted-foreground">authBannerVisible:</span>
-      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{String(authBannerVisible)}</code>
+      <span class="font-semibold text-muted-foreground">getAuthBannerVisible():</span>
+      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{String(getAuthBannerVisible())}</code>
     </div>
     <div>
-      <span class="font-semibold text-muted-foreground">authBannerKind:</span>
-      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{authBannerKind ?? "null"}</code>
+      <span class="font-semibold text-muted-foreground">getAuthBannerKind():</span>
+      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{getAuthBannerKind() ?? "null"}</code>
     </div>
     <div>
-      <span class="font-semibold text-muted-foreground">countdownLabel:</span>
-      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{countdownLabel}</code>
+      <span class="font-semibold text-muted-foreground">getCountdownLabel():</span>
+      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{getCountdownLabel()}</code>
     </div>
     <div>
-      <span class="font-semibold text-muted-foreground">isBannerSuppressed:</span>
-      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{String(isBannerSuppressed)}</code>
+      <span class="font-semibold text-muted-foreground">getIsBannerSuppressed():</span>
+      <code class="ms-2 rounded bg-muted px-1.5 py-0.5">{String(getIsBannerSuppressed())}</code>
     </div>
   </div>
 </div>

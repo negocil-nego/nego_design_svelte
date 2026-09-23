@@ -5,8 +5,8 @@ export type { LoginStore, LoginStoreConfig } from "./login-store.svelte";
 export {
 	banner,
 	countdown,
-	countdownLabel,
-	isBannerSuppressed,
+	getCountdownLabel,
+	getIsBannerSuppressed,
 	startCountdown,
 	stopCountdown,
 	suppressBanner,
@@ -14,11 +14,11 @@ export {
 	setBannerSuppressed,
 } from "./banner-store.svelte";
 export {
-	authBannerKind,
-	authBannerVisible,
-	authBannerStrongText,
-	authBannerDescription,
-	authBannerCtaText,
+	getAuthBannerKind,
+	getAuthBannerVisible,
+	getAuthBannerStrongText,
+	getAuthBannerDescription,
+	getAuthBannerCtaText,
 	authBannerAction,
 	authBannerDismiss,
 	suppressBanner as suppressAuthBanner,

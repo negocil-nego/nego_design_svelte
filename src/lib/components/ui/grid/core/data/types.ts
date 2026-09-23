@@ -20,5 +20,6 @@ export interface GridProps {
     variant?: 1 | 2;
     isLoading?: boolean;
     selectedKey?: string | number;
+    autoPlay?: boolean;
     onClick?: (id: string | number) => void
 }

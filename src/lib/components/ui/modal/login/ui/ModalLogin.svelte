@@ -19,7 +19,7 @@
   import LinkTermsOfService from "$lib/components/ui/link/link-terms-of-service.svelte";
   import LabelOr from "$lib/components/ui/label/core/LabelOr.svelte";
   import { t } from "$lib/i18n";
-  import { closeLogin, loginStore } from "$lib/store";
+  import { closeLogin, loginStore } from "$lib/stores";
   import type { LoginRequestDto } from "$lib/components/pages/security/login/types";
   import type { ModalLoginProps } from "../types";
 

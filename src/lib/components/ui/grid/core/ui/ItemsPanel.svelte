@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { GridProps } from "../data/types";
-  import PanelCarousel from "./ItemsPanelCarousel.svelte";
-  import PanelGrid from "./ItemsPanelGrid.svelte";
+  import ItemsPanelCarousel from "./ItemsPanelCarousel.svelte";
+  import ItemsPanelGrid from "./ItemsPanelGrid.svelte";
 
   let {
     style = "grid",
@@ -20,7 +20,7 @@
 </script>
 
 {#if style == "inline"}
-  <PanelCarousel {...restProps} {selectedKey} onClick={selectItem} />
+  <ItemsPanelCarousel {...restProps} {selectedKey} onClick={selectItem} />
 {:else}
-  <PanelGrid {...restProps} {selectedKey} onClick={selectItem} />
+  <ItemsPanelGrid {...restProps} {selectedKey} onClick={selectItem} />
 {/if}

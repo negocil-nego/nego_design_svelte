@@ -18,6 +18,7 @@
   {@render actionButtons({
     text: textButtonRegister || $t("label.register"),
     icon: "user",
+    type: "register",
     onclick: onclickButtonRegister,
   })}
 {/if}
@@ -25,27 +26,33 @@
   {@render actionButtons({
     text: textButtonLogin || $t("label.login"),
     icon: "login-02",
+    type: "login",
     onclick: onclickButtonLogin,
   })}
 {/if}
 
 {#snippet actionButtons({
   text,
+  type,
   icon,
   onclick,
 }: Readonly<{
   text: string;
+  type: "login" | "register";
   icon: HugeiconsIconName;
   onclick: () => void;
 }>)}
   <Button
     {onclick}
     variant="outline"
-    class="flex justify-between items-center gap-3 rounded-full! border p-5 cursor-pointer md:text-md relative dark:bg-slate-900"
+    class={`flex justify-between items-center gap-3 rounded-full! p-5 cursor-pointer md:text-md relative 
+    ${type === "login" ? "bg-gradient text-white dark:bg-slate-900" : ""}
+    ${type === "register" ? "bg-gray-300!  dark:bg-slate-800!" : ""}
+    `}
   >
     <div class="min-w-32.5">{text}</div>
-    <div class="border p-1 rounded-full bg-white absolute right-1">
-      <ImageHugeicons {icon} />
+    <div class="border p-1.5 rounded-full bg-white absolute right-1">
+      <ImageHugeicons {icon} width={20} height={20} />
     </div>
   </Button>
 {/snippet}

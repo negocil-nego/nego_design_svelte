@@ -1,13 +1,13 @@
 <script lang="ts">
   import NotificationBanner from "$lib/components/ui/banner/NotificationBanner.svelte";
   import {
-    authBannerCtaText,
+    getAuthBannerCtaText,
     authBannerAction,
-    authBannerDescription,
+    getAuthBannerDescription,
     authBannerDismiss,
-    authBannerStrongText,
-    authBannerVisible,
-  } from "$lib/store";
+    getAuthBannerStrongText,
+    getAuthBannerVisible,
+  } from "$lib/stores";
   import type { NotificationBannerProps } from "$lib/components/ui/banner/types";
 
   type Props = Pick<NotificationBannerProps, "bgClass" | "textClass" | "ctaClass" | "class"> & {
@@ -26,12 +26,12 @@
     class: className,
   }: Props = $props();
 
-  const finalStrongText = $derived(strongText ?? authBannerStrongText);
-  const finalDescription = $derived(description ?? authBannerDescription);
-  const finalCtaText = $derived(ctaText ?? authBannerCtaText);
+  const finalStrongText = $derived(strongText ?? getAuthBannerStrongText());
+  const finalDescription = $derived(description ?? getAuthBannerDescription());
+  const finalCtaText = $derived(ctaText ?? getAuthBannerCtaText());
 </script>
 
-{#if authBannerVisible}
+{#if getAuthBannerVisible()}
   <NotificationBanner
     strongText={finalStrongText ?? undefined}
     description={finalDescription}

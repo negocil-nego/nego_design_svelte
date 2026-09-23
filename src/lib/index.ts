@@ -96,34 +96,34 @@ export { getMergedTranslations } from "./i18n/config";
 export { getLocales } from "./i18n/config";
 
 /** Store global do modal OTP. Também disponível via `negodesign/store`. */
-export { otpStore, openOtp, closeOtp } from "./store";
+export { otpStore, openOtp, closeOtp } from "./stores";
 
 /** Store global do modal de login. Também disponível via `negodesign/store`. */
-export { loginStore, openLogin, closeLogin } from "./store";
+export { loginStore, openLogin, closeLogin } from "./stores";
 
 /** Store base do banner (supressão + countdown). Também disponível via `negodesign/store`. */
 export {
     banner,
     countdown,
-    countdownLabel,
-    isBannerSuppressed,
+    getCountdownLabel,
+    getIsBannerSuppressed,
     startCountdown,
     stopCountdown,
     suppressBanner,
     releaseBanner,
     setBannerSuppressed,
-} from "./store";
+} from "./stores";
 
 /** Store do NotificationBanner de autenticação. Escuta otpStore e loginStore. */
 export {
-    authBannerKind,
-    authBannerVisible,
-    authBannerStrongText,
-    authBannerDescription,
-    authBannerCtaText,
+    getAuthBannerKind,
+    getAuthBannerVisible,
+    getAuthBannerStrongText,
+    getAuthBannerDescription,
+    getAuthBannerCtaText,
     authBannerAction,
     authBannerDismiss,
-} from "./store";
+} from "./stores";
 
 
 

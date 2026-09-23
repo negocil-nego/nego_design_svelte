@@ -1,5 +1,7 @@
-<script>
+<script lang="ts">
   import { CarouselHero } from "$lib";
+  import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
+  import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
   import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 </script>
 
@@ -55,6 +57,66 @@
   >
     <div class="px-2 md:px-0 md:w-8/12" style="z-index: 999;">
       <SearchHostingerInput />
+    </div>
+    <div>
+      <CarouselBadge
+        orientation="horizontal"
+        iconClass="size-6"
+        onClick={(value: string | number) => console.log(value)}
+        items={[
+          {
+            label: "Todos",
+            value: "hospegadem",
+            icon: "dashboard-circle-add",
+          },
+          { label: "Hotel", value: "hotel", icon: "bed-double" },
+          { label: "Hospedaria", value: "hospedaria", icon: "bed-double" },
+          { label: "Pensão", value: "pensao", icon: "bed-double" },
+        ]}
+        itemStyle="INLINE"
+        showButton={true}
+        isBorderInline
+      />
+    </div>
+    <div class="w-[900px]">
+      <ItemsPanel
+        variant={2}
+        style="inline"
+        itemClassName="bg-amber-50 border-none"
+        items={[
+          {
+            icon: "sparkles",
+            title: "Café",
+            description:
+              "Café com leite e pão de queijo para começar bem o dia",
+          },
+          {
+            icon: "money-01",
+            title: "Computador",
+            description: "Computador com internet para trabalhar",
+          },
+          {
+            icon: "smart-phone-02",
+            title: "Telefone",
+            description: "Telefone com internet para trabalhar",
+          },
+          {
+            icon: "component",
+            title: "Teste",
+            description: "Teste com internet para trabalhar",
+          },
+          {
+            icon: "component",
+            title: "Teste",
+            description: "Teste com internet para trabalhar",
+          },
+          {
+            icon: "component",
+            title: "Teste",
+            description: "Teste com internet para trabalhar",
+          },
+        ]}
+      />
     </div>
   </div>
 </CarouselHero>

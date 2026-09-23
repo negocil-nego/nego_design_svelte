@@ -13,7 +13,7 @@
   import Button from "$lib/components/ui/button/button.svelte";
   import * as InputOTP from "$lib/components/ui/input-otp/index.js";
   import { t } from "$lib/i18n";
-  import { closeOtp, otpStore } from "$lib/store";
+  import { closeOtp, otpStore } from "$lib/stores";
   import type { ModalOtpProps } from "../types";
 
   let {

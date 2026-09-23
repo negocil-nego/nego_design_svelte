@@ -21,13 +21,15 @@ export const countdown = $state({
  * Rótulo formatado do tempo restante (mm:ss).
  * @example "04:32"
  */
-export const countdownLabel = $derived.by(() => {
+export function getCountdownLabel(): string {
 	const minutes = Math.floor(countdown.remaining / 60);
 	const seconds = countdown.remaining % 60;
 	return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-});
+}
 
-export const isBannerSuppressed = $derived(banner.suppressed > 0);
+export function getIsBannerSuppressed(): boolean {
+	return banner.suppressed > 0;
+}
 
 let timer: ReturnType<typeof setInterval> | undefined;
 let expired: (() => void) | undefined;

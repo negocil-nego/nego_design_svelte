@@ -922,7 +922,7 @@ ${"</" + "script>"}
         Shared state used by the auth banner: a suppression counter (hide the
         banner on specific pages, e.g. an OTP confirm screen) and a generic
         countdown with a formatted
-        <code class="rounded bg-muted px-1 py-0.5">countdownLabel</code>
+        <code class="rounded bg-muted px-1 py-0.5">getCountdownLabel()</code>
         (mm:ss). Use
         <code class="rounded bg-muted px-1 py-0.5">suppressBanner()</code> /
         <code class="rounded bg-muted px-1 py-0.5">releaseBanner()</code> in
