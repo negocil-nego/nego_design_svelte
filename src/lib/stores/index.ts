@@ -34,8 +34,8 @@ export {
 	useT,
 } from "./language-store.svelte";
 export {
-	themeStore,
-	isDarkStore,
+	getTheme,
+	isDark,
 	toggleTheme,
 	setTheme,
 	applyTheme,

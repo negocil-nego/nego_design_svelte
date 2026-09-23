@@ -134,10 +134,10 @@ export {
     setLanguage,
 } from "./stores";
 
-/** Store de tema — gere o tema (light/dark) da aplicação de forma reativa. */
+/** Store de tema — gere o tema (light/dark) da aplicação. */
 export {
-    themeStore,
-    isDarkStore,
+    getTheme,
+    isDark,
     toggleTheme,
     setTheme,
 } from "./stores";

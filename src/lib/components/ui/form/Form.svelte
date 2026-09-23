@@ -211,7 +211,7 @@
       {:else if input.type === "submit"}
         <InputSubmit
           label={input.label ?? "Submit"}
-          isLoading={isLoading}
+          {isLoading}
           loadingText={input.loadingText}
           disabled={input.disabled ?? false}
           variant={input.variant}
@@ -248,7 +248,7 @@
       {:else if input.type === "phone"}
         <div class="flex flex-col gap-3 w-full">
           {#if input.label}
-            <label class="text-sm font-medium">{input.label}</label>
+            <label class="text-sm font-medium" for="phone">{input.label}</label>
           {/if}
           <PhoneInput
             placeholder={input.placeholder}

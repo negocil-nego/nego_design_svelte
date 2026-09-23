@@ -1,4 +1,16 @@
 export default {
+    "language.en": "English",
+    "language.pt": "Portuguese",
+    "language.es": "Español",
+    "language.fr": "Français",
+    "language.de": "Deutsch",
+    "language.it": "Italiano",
+    "language.ja": "日本語",
+    "language.ko": "한국어",
+    "language.zh": "中文",
+    "language.ru": "Русский",
+    "language.ar": "العربية",
+
     "input.email.label": "Email",
     "input.email.placeholder": "Enter your email",
     "input.username.label": "Username",
@@ -356,8 +368,6 @@ export default {
     "card.otp.phone.subtitle": "Receive the code by SMS",
     "card.otp.whatsapp.subtitle": "Receive the code on WhatsApp",
 
-    "language.en": "English",
-    "language.pt": "Portuguese",
 
     "search.input.placeholder": "Where are you going?",
     "search.checkin.label": "Check-in/check-out",

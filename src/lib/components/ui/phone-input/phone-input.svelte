@@ -139,6 +139,7 @@
     />
   </div>
   <input
+    id="phone"
     type="tel"
     {name}
     bind:this={el}
