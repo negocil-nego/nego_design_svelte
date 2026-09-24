@@ -142,6 +142,13 @@ export {
     setTheme,
 } from "./stores";
 
+/** Store global do modal de status (erro/sucesso). Escute `statusStore.open` para controlar a visibilidade. */
+export {
+    statusStore,
+    openStatus,
+    closeStatus,
+} from "./stores";
+
 
 
 export {
