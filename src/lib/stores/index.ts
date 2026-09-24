@@ -2,6 +2,8 @@ export { otpStore, openOtp, closeOtp } from "./otp-store.svelte";
 export type { OtpStore, OtpStoreConfig } from "./otp-store.svelte";
 export { loginStore, openLogin, closeLogin } from "./login-store.svelte";
 export type { LoginStore, LoginStoreConfig } from "./login-store.svelte";
+export { statusStore, openStatus, closeStatus } from "./status-store.svelte";
+export type { StatusStore, StatusStoreConfig, ProblemDetails, ModalStatusType } from "./status-store.svelte";
 export {
 	banner,
 	countdown,

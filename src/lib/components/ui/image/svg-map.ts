@@ -7,6 +7,7 @@ import messagePhone from "../../../assets/svg/message-phone.svg?raw";
 import passportTravel from "../../../assets/svg/passport-travel.svg?raw";
 import rejected from "../../../assets/svg/rejected.svg?raw";
 import traveler from "../../../assets/svg/traveler.svg?raw";
+import success from "../../../assets/svg/success.svg?raw";
 
 export const svgMap = {
 	"404-animation": animation404,
@@ -16,6 +17,7 @@ export const svgMap = {
 	"loading-travel": loadingTravel,
 	"message-phone": messagePhone,
 	"passport-travel": passportTravel,
+	success,
 	rejected,
 	traveler,
 } as const;
