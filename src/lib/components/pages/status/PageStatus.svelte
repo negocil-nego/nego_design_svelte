@@ -21,6 +21,7 @@
     buttonTextColor = "",
     emailPhoneWhatsapp,
     children,
+    isLoading = false,
   }: PageStatusProps = $props();
 </script>
 
@@ -57,7 +58,7 @@
     {/if}
 
     {#if emailPhoneWhatsapp}
-      <CardEmailPhoneWhatsapp {...emailPhoneWhatsapp} />
+      <CardEmailPhoneWhatsapp {...emailPhoneWhatsapp} {isLoading} />
     {/if}
 
     <div>
@@ -72,7 +73,8 @@
         <Button
           type="button"
           onclick={onAction}
-          class="md:min-w-75 lg:min-w-100 bg-gradient mx-2 px-8 py-3 font-semibold {buttonTextColor} transition hover:opacity-90"
+          disabled={isLoading}
+          class="md:min-w-75 lg:min-w-100 bg-gradient mx-2 px-8 py-3 font-semibold {buttonTextColor} transition {isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'} md:mt-3 xl:mt-5"
         >
           {buttonText}
         </Button>

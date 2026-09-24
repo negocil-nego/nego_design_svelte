@@ -17,6 +17,7 @@ export type PageStatusProps = {
     onAction?: () => void;
     buttonTextColor?: string;
     emailPhoneWhatsapp?: CardEmailPhoneWhatsappProps;
+    isLoading?: boolean;
 };
 
 export type PageLoadingProps = PageStatusProps & {

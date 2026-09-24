@@ -19,4 +19,6 @@ export type CardEmailPhoneWhatsappProps = {
     onSelect?: (method: CardMethod) => void;
     /** Classe CSS adicional do container. */
     className?: string;
+    /** Indica se está em estado de carregamento. Quando true, desactiva as opções. */
+    isLoading?: boolean;
 };

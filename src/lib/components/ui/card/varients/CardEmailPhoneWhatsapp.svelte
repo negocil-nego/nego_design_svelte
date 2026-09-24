@@ -16,6 +16,7 @@
     selected = $bindable<CardMethod | undefined>(),
     onSelect,
     className = "",
+    isLoading = false,
   }: CardEmailPhoneWhatsappProps = $props();
 
   const defaultItems: CardEmailPhoneWhatsappItem[] = [
@@ -56,7 +57,8 @@
     {@const isSelected = selected === item.id}
     <button
       type="button"
-      class="relative flex w-full items-center gap-4 rounded-xl border p-4 text-left transition cursor-pointer {isSelected
+      disabled={isLoading}
+      class="relative flex w-full items-center gap-4 rounded-xl border p-4 text-left transition {isLoading ? 'cursor-not-allowed opacity-50' : 'cursor-pointer'} {isSelected
         ? 'border-primary bg-primary/5 ring-2 ring-primary/20'
         : 'border-border bg-card hover:bg-muted/50'}"
       onclick={() => handleSelect(item.id)}
