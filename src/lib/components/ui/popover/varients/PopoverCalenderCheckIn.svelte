@@ -105,11 +105,7 @@
       {dateLabel}
     </span>
   </PopoverTrigger>
-  <PopoverContent
-    align="start"
-    side="bottom"
-    class="w-full md:w-150 p-0 z-999!"
-  >
+  <PopoverContent align="start" side="bottom" class="w-full md:w-150 p-0 z-100">
     <div
       class="grid max-h-104 gap-2 overflow-y-auto p-2 md:max-h-none md:grid-cols-2 md:overflow-visible w-full"
     >

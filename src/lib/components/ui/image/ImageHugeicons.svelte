@@ -21,9 +21,11 @@
 
   const hasDarkWhite = $derived(
     className?.includes("dark:text-white") ||
-      className?.includes("dark:text-white!") ||
-      className?.includes("text-white") ||
-      className?.includes("text-white!"),
+      className?.includes("dark:text-white!"),
+  );
+
+  const hasWhite = $derived(
+    className?.includes("text-white") || className?.includes("text-white!"),
   );
 
   const imgClasses = $derived(
@@ -44,7 +46,11 @@
   <img
     src={iconSrc}
     alt={alt ?? icon}
-    class={cn(imgClasses, hasDarkWhite && "hugeicons-dark-white")}
+    class={cn(
+      imgClasses,
+      hasDarkWhite && "hugeicons-dark-white",
+      hasWhite && "hugeicons-white",
+    )}
     draggable={false}
     {width}
     {height}
@@ -53,7 +59,11 @@
 {/if}
 
 <style>
-  :global(.hugeicons-dark-white) {
+  :global(html.dark) .hugeicons-dark-white {
     filter: brightness(0) invert(1) !important;
+  }
+
+  :global(.hugeicons-white) {
+    filter: brightness(1) invert(0) !important;
   }
 </style>

@@ -100,7 +100,7 @@
         icon="search-01"
         width={22}
         height={22}
-        class="dark:text-white"
+        class="text-dark dark:text-white"
       />
       <input
         bind:this={inputRef}
@@ -123,7 +123,7 @@
     align="start"
     side="bottom"
     class="w-full p-0"
-    style="z-index: 999;"
+    style="z-index: 100;"
   >
     {#if children}
       {children()}
@@ -162,17 +162,33 @@
         {:else if query}
           <Empty class="py-8">
             <div class="rounded-full bg-muted p-3 mb-3">
-              <ImageHugeicons icon="search-01" width={24} height={24} class="text-muted-foreground" />
+              <ImageHugeicons
+                icon="search-01"
+                width={24}
+                height={24}
+                class="text-muted-foreground"
+              />
             </div>
-            <EmptyTitle class="text-sm">{$t("search.input.no_results")}</EmptyTitle>
-            <EmptyDescription class="text-xs">{$t("search.input.try_another")}</EmptyDescription>
+            <EmptyTitle class="text-sm"
+              >{$t("search.input.no_results")}</EmptyTitle
+            >
+            <EmptyDescription class="text-xs"
+              >{$t("search.input.try_another")}</EmptyDescription
+            >
           </Empty>
         {:else}
           <Empty class="py-8">
             <div class="rounded-full bg-muted p-3 mb-3">
-              <ImageHugeicons icon="search-01" width={24} height={24} class="text-muted-foreground" />
+              <ImageHugeicons
+                icon="search-01"
+                width={24}
+                height={24}
+                class="text-muted-foreground"
+              />
             </div>
-            <EmptyTitle class="text-sm">{$t("search.input.type_to_search")}</EmptyTitle>
+            <EmptyTitle class="text-sm"
+              >{$t("search.input.type_to_search")}</EmptyTitle
+            >
           </Empty>
         {/if}
       </div>

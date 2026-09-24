@@ -6,6 +6,7 @@
 </script>
 
 <CarouselHero
+  className="lg:h-100"
   items={[
     {
       title: "Encontre a hospedagem ideal",
@@ -36,6 +37,23 @@
         "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?auto=format&fit=crop&w=1600&q=80",
     },
   ]}
+  menusProps={{
+    isThemeSwitch: true,
+    isLanguageSwitcher: true,
+    logo: {
+      label: "Negoturismo",
+      className: "text-white",
+      url: "/negoturismo_icone_aviao.svg",
+    },
+    navMenuButton: {
+      textButtonLogin: "Entrar",
+      textButtonRegister: "Registrar",
+      onclickButtonLogin: () => {},
+      onclickButtonRegister: () => {},
+      buttonClass: "bg-primary text-white",
+    },
+    groupClass: "text-white",
+  }}
   simpleMenu={{
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     linkClass: "text-white",
@@ -44,79 +62,13 @@
       { label: "Voos", url: "#", icon: "rocket-01" },
       { label: "Tradutores", url: "#", icon: "message-01" },
     ],
-    isLanguageSwitcher: false,
-    isThemeSwitch: false,
-    buttonClass: "text-white",
-    onclickButtonLogin: () => alert("login"),
-    onclickButtonRegister: () => alert("register"),
   }}
 >
   <div
     class="w-11/12 md:w-225 lg:w-11/12 mt-3 mb-10 space-y-2 flex flex-col items-center justify-center"
-    style="z-index: 999;"
   >
-    <div class="px-2 md:px-0 md:w-8/12" style="z-index: 999;">
+    <div class="px-2 md:px-0 md:w-8/12">
       <SearchHostingerInput />
-    </div>
-    <div>
-      <CarouselBadge
-        orientation="horizontal"
-        iconClass="size-6"
-        onClick={(value: string | number) => console.log(value)}
-        items={[
-          {
-            label: "Todos",
-            value: "hospegadem",
-            icon: "dashboard-circle-add",
-          },
-          { label: "Hotel", value: "hotel", icon: "bed-double" },
-          { label: "Hospedaria", value: "hospedaria", icon: "bed-double" },
-          { label: "Pensão", value: "pensao", icon: "bed-double" },
-        ]}
-        itemStyle="INLINE"
-        showButton={true}
-        isBorderInline
-      />
-    </div>
-    <div>
-      <ItemsPanel
-        variant={2}
-        style="inline"
-        itemClassName="bg-amber-50 border-none"
-        items={[
-          {
-            icon: "sparkles",
-            title: "Café",
-            description:
-              "Café com leite e pão de queijo para começar bem o dia",
-          },
-          {
-            icon: "money-01",
-            title: "Computador",
-            description: "Computador com internet para trabalhar",
-          },
-          {
-            icon: "smart-phone-02",
-            title: "Telefone",
-            description: "Telefone com internet para trabalhar",
-          },
-          {
-            icon: "component",
-            title: "Teste",
-            description: "Teste com internet para trabalhar",
-          },
-          {
-            icon: "component",
-            title: "Teste",
-            description: "Teste com internet para trabalhar",
-          },
-          {
-            icon: "component",
-            title: "Teste",
-            description: "Teste com internet para trabalhar",
-          },
-        ]}
-      />
     </div>
   </div>
 </CarouselHero>

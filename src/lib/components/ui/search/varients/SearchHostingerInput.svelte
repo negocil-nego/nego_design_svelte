@@ -25,7 +25,7 @@
 
 <div class="w-full md:flex md:flex-col justify-end items-end gap-2 relative">
   <div
-    class="flex items-center gap-2 px-2 w-full py-3 rounded-2xl z-10 bg-gray-100 dark:bg-slate-900 relative"
+    class="flex items-center gap-2 px-2 w-full py-3 rounded-2xl bg-gray-100 dark:bg-slate-900 relative"
   >
     <div class="flex flex-1 items-center gap-1">
       <InputCommand

@@ -132,7 +132,7 @@
 
       <section
         class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4 {sectionClass}"
-        style="z-index: 999;"
+        style="z-index: 100;"
       >
         {#key selected.title}
           <div
@@ -156,8 +156,8 @@
         {/key}
 
         {#if children}
-          <div class="relative w-full flex justify-center items-center" style="z-index: 999;">
-            <div class="w-full flex justify-center items-center" style="z-index: 999;">
+          <div class="relative w-full flex justify-center items-center">
+            <div class="w-full flex justify-center items-center">
               {@render children()}
             </div>
           </div>
