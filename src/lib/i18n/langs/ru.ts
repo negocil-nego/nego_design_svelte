@@ -62,6 +62,7 @@ export default {
     "label.forget-password": "Забыли пароль",
     "label.reset-password": "Сбросить пароль",
     "label.otp-verification": "Проверить код",
+    "label.request.new.otp": "Запросить новый OTP",
     "label.home": "Главная",
     "label.manager": "Менеджер",
     "label.folder": "Папка",

@@ -62,6 +62,7 @@ export default {
     "label.forget-password": "비밀번호 찾기",
     "label.reset-password": "비밀번호 재설정",
     "label.otp-verification": "코드 확인",
+    "label.request.new.otp": "새 OTP 요청",
     "label.home": "홈",
     "label.manager": "매니저",
     "label.folder": "폴더",

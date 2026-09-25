@@ -63,6 +63,7 @@ export default {
     "label.forget-password": "نسيت كلمة المرور",
     "label.reset-password": "إعادة تعيين كلمة المرور",
     "label.otp-verification": "تحقق من الرمز",
+    "label.request.new.otp": "طلب OTP جديد",
     "label.home": "الرئيسية",
     "label.manager": "المدير",
     "label.folder": "مجلد",

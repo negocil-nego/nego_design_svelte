@@ -62,6 +62,7 @@ export default {
     "label.forget-password": "パスワードを忘れた",
     "label.reset-password": "パスワードをリセット",
     "label.otp-verification": "コードを確認",
+    "label.request.new.otp": "新しいOTPをリクエスト",
     "label.home": "ホーム",
     "label.manager": "マネージャー",
     "label.folder": "フォルダ",

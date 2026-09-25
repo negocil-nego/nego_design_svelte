@@ -62,6 +62,7 @@ export default {
     "label.forget-password": "Forgot Password",
     "label.reset-password": "Reset Password",
     "label.otp-verification": "Verify Code",
+    "label.request.new.otp": "Request new OTP",
     "label.home": "Home",
     "label.manager": "Manager",
     "label.folder": "Folder",

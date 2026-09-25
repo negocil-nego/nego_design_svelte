@@ -62,6 +62,7 @@ export default {
     "label.forget-password": "忘记密码",
     "label.reset-password": "重置密码",
     "label.otp-verification": "验证代码",
+    "label.request.new.otp": "请求新OTP",
     "label.home": "首页",
     "label.manager": "经理",
     "label.folder": "文件夹",

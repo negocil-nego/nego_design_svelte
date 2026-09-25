@@ -17,6 +17,8 @@
     children,
     formType,
     onSubmit,
+    onButtonBack,
+    onButtonOtp,
   }: PageForgetPasswordProps = $props();
 
   const defaultCarousel = $derived([
@@ -48,14 +50,14 @@
       </clipPath>
     </defs>
   </svg>
-  <div class="hidden md:block md:w-8/12">
+  <div class="hidden md:block md:w-8/12 dark:bg-slate-800">
     <LeftHero {title} type={varient ?? "POINTER"} items={carouselItems} />
   </div>
   <div class="w-full md:px-0 md:w-4/12 border-gray-900">
     {#if children}
       {@render children()}
     {:else}
-      <ForgetPasswordCard {formType} {onSubmit} />
+      <ForgetPasswordCard {formType} {onSubmit} {onButtonBack} {onButtonOtp} />
     {/if}
   </div>
 </main>

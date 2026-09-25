@@ -14,5 +14,15 @@ export type PageForgetPasswordProps = {
   title?: string;
   children?: Snippet;
   formType?: ForgetPasswordVariant;
+  onButtonBack?: () => void;
+  onButtonOtp?: () => void;
   onSubmit?: (request: ForgetPasswordRequestDto) => void;
+};
+
+export type ForgetPasswordCardProps = {
+  formType?: ForgetPasswordVariant;
+  onButtonBack?: () => void;
+  onButtonOtp?: () => void;
+  onSubmit?: (request: ForgetPasswordRequestDto) => void;
+  children?: Snippet;
 };
