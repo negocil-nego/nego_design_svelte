@@ -180,6 +180,8 @@ import type { InputLabelProps } from "$lib/components/ui/form/data/InputLabel.sv
 import type { NegoDesignProps } from "$lib/components/types";
 import type { CarouselGridPromotionProps } from "$lib/components/ui/carousel/core/grid/promotion/types";
 import type { CarouselGridProductProps } from "$lib/components/ui/carousel/core/grid/product/types";
+import type { CarouselMediaProps } from "$lib/components/ui/carousel/core/media/types";
+import type { CarouselProfileProps } from "$lib/components/ui/carousel/core/profile/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
 import type {
     MenuProps,
@@ -326,6 +328,10 @@ export type {
     CarouselHighlightsProps,
     /** Props do CarouselPromotion — carousel de cards de promoção com preços. @see CarouselPromotionProps */
     CarouselPromotionProps,
+    /** Props do CarouselMedia — carousel de cards de mídia (fotos/vídeos). @see CarouselMediaProps */
+    CarouselMediaProps,
+    /** Props do CarouselProfile — carousel de cards de perfil (organizações/guias). @see CarouselProfileProps */
+    CarouselProfileProps,
     /** Props do CarouselGridPromotion — grid de cards de produto em promoção. @see CarouselGridPromotionProps */
     CarouselGridPromotionProps,
     /** Props do CarouselGridProduct — grid de cards de produto @see CarouselGridProductProps */

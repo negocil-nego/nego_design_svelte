@@ -118,6 +118,8 @@ export default {
     "label.linkedin": "LinkedIn",
     "label.instagram": "Instagram",
     "label.tiktok": "TikTok",
+    "label.error": "خطأ",
+    "label.success": "نجاح",
 
     "admin.profile.title": "بيانات المستخدم",
     "admin.profile.description": "منطقة مخصصة لإدارة ملفك الشخصي. تحقق من بيانات تسجيلك، وحدّث معلومات الاتصال الخاصة بك، واحتفظ بسجلاتك محدثة لتلقي إشعارات مهمة وضمان دعم سريع ومخصص.",

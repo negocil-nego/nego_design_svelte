@@ -12,11 +12,9 @@
   }}
   slotProps={{
     buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
-    positionButtonPreviousAndNext: "center",
+    positionButtonPreviousAndNext: "top_right",
     onMoreViewClick: () => console.log("click"),
   }}
   onFavoriteClick={(id: string | number) => console.log("click", id)}
   onButtonProfile={(id: string | number) => console.log("click", id)}
-  isImageButtonMaximized
-  isVideoButtonMaximized
 />

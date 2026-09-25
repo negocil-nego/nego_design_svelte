@@ -320,6 +320,48 @@ ${"</" + "script>"}
   ]}
 />`;
 
+  const carouselMediaCode = `<script lang="ts">
+  import { CarouselMedia } from "negodesign";
+  import items from "negodesign/card/core/media/data";
+${"</" + "script>"}
+
+<CarouselMedia
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Media Gallery",
+    description: "Browse our photos and videos",
+  }}
+  slotProps={{
+    onMoreViewClick: () => console.log("view more"),
+  }}
+  isImageButtonMaximized
+  isVideoButtonMaximized
+  onFavoriteClick={(id) => console.log(id)}
+  onButtonProfile={(id) => console.log(id)}
+  onButtonDetails={(id) => console.log(id)}
+/>`;
+
+  const carouselProfileCode = `<script lang="ts">
+  import { CarouselProfile } from "negodesign";
+  import items from "negodesign/card/core/profile/data";
+${"</" + "script>"}
+
+<CarouselProfile
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Our Guides",
+    description: "Meet our trusted travel guides",
+  }}
+  slotProps={{
+    onMoreViewClick: () => console.log("view more"),
+  }}
+  onFavoriteClick={(id) => console.log(id)}
+  onButtonProfile={(id) => console.log(id)}
+  onButtonDetails={(id) => console.log(id)}
+/>`;
+
   const storeOtpCode = `<script lang="ts">
   import { openOtp, closeOtp, otpStore } from "negodesign/store";
 ${"</" + "script>"}
@@ -384,6 +426,65 @@ ${"</" + "script>"}
 {/if}
 
 <!-- authBannerKind --> "otp" | "login" | null`;
+
+  const storeLanguageCode = `<script lang="ts">
+  import {
+    languageStore,
+    languagesStore,
+    languageFlagStore,
+    setLanguage,
+  } from "negodesign/store";
+${"</" + "script>"}
+
+<p>Current language: {$languageStore}</p>
+<p>Flag: {languageFlagStore}</p>
+
+{#each $languagesStore as lang}
+  <button onclick={() => setLanguage(lang)}>{lang}</button>
+{/each}`;
+
+  const storeStatusCode = `<script lang="ts">
+  import { openStatus, closeStatus, statusStore } from "negodesign/store";
+${"</" + "script>"}
+
+<button onclick={() => openStatus({
+  status: "SUCCESS",
+  title: "Operation completed",
+  data: "Your changes were saved successfully.",
+})}>
+  Open Success
+</button>
+
+<button onclick={() => openStatus({
+  status: "ERROR",
+  title: "Something went wrong",
+  data: { detail: "Failed to save", status: 500, title: "Server Error" },
+})}>
+  Open Error
+</button>
+
+<button onclick={() => closeStatus()}>Close</button>
+
+{#if statusStore.open}
+  <p>Status modal is open.</p>
+{/if}`;
+
+  const storeThemeCode = `<script lang="ts">
+  import {
+    getTheme,
+    isDark,
+    toggleTheme,
+    setTheme,
+    applyTheme,
+  } from "negodesign/store";
+${"</" + "script>"}
+
+<p>Current theme: {getTheme()}</p>
+<p>Is dark: {isDark()}</p>
+
+<button onclick={() => toggleTheme()}>Toggle theme</button>
+<button onclick={() => setTheme("dark")}>Set dark</button>
+<button onclick={() => setTheme("light")}>Set light</button>`;
 
   const features = [
     {
@@ -863,6 +964,52 @@ ${"</" + "script>"}
     </div>
   </section>
 
+  <section id="carousel-media" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">CarouselMedia</h2>
+      <a
+        href="/carousel/media"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Carousel horizontal de cards de mídia (fotos/vídeos) com header, autoplay,
+      empty state e loading skeleton. Utiliza o
+      <code class="rounded bg-muted px-1 py-0.5">CardMedia</code> como item interno.
+      Suporta duas variantes visuais (1 = alinhado à esquerda, 2 = centrado).
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CarouselMedia</h3>
+      <CodeBlock code={carouselMediaCode} title="CarouselMedia.svelte" />
+    </div>
+  </section>
+
+  <section id="carousel-profile" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">CarouselProfile</h2>
+      <a
+        href="/carousel/profile"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Carousel horizontal de cards de perfil (organizações/guias) com header, autoplay,
+      empty state e loading skeleton. Utiliza o
+      <code class="rounded bg-muted px-1 py-0.5">CardProfile</code> como item interno.
+      Suporta duas variantes visuais.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CarouselProfile</h3>
+      <CodeBlock code={carouselProfileCode} title="CarouselProfile.svelte" />
+    </div>
+  </section>
+
   <section id="stores" class="mt-16 scroll-mt-6">
     <div class="flex items-center gap-2">
       <h2 class="text-2xl font-bold">Stores (global state)</h2>
@@ -962,6 +1109,42 @@ ${"</" + "script>"}
         This is useful when building a custom banner.
       </p>
       <CodeBlock code={authBannerStoreCode} title="notification-banner-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">languageStore — idioma da aplicação</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Store reactiva para o idioma actual. Expõe
+        <code class="rounded bg-muted px-1 py-0.5">languageStore</code> (idioma actual),
+        <code class="rounded bg-muted px-1 py-0.5">languagesStore</code> (lista de idiomas disponíveis),
+        <code class="rounded bg-muted px-1 py-0.5">languageFlagStore</code> (bandeira do idioma) e
+        <code class="rounded bg-muted px-1 py-0.5">setLanguage(lang)</code> para alterar.
+      </p>
+      <CodeBlock code={storeLanguageCode} title="language-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">statusStore — openStatus / closeStatus</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Controla o modal de status global. Aceita
+        <code class="rounded bg-muted px-1 py-0.5">status</code> (<code class="rounded bg-muted px-1 py-0.5">"SUCCESS"</code> ou
+        <code class="rounded bg-muted px-1 py-0.5">"ERROR"</code>),
+        <code class="rounded bg-muted px-1 py-0.5">data</code> (string, <code class="rounded bg-muted px-1 py-0.5">ProblemDetails</code> ou <code class="rounded bg-muted px-1 py-0.5">Error</code>)
+        e callbacks <code class="rounded bg-muted px-1 py-0.5">onClose</code>.
+      </p>
+      <CodeBlock code={storeStatusCode} title="status-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">themeStore — toggleTheme / setTheme</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Store para controlar o tema (light/dark). Expõe
+        <code class="rounded bg-muted px-1 py-0.5">toggleTheme()</code>,
+        <code class="rounded bg-muted px-1 py-0.5">setTheme("dark" | "light")</code>,
+        <code class="rounded bg-muted px-1 py-0.5">getTheme()</code> e
+        <code class="rounded bg-muted px-1 py-0.5">isDark()</code>.
+      </p>
+      <CodeBlock code={storeThemeCode} title="theme-store.svelte.ts" />
     </div>
   </section>
 

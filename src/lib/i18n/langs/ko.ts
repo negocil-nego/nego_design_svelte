@@ -117,6 +117,8 @@ export default {
     "label.linkedin": "LinkedIn",
     "label.instagram": "Instagram",
     "label.tiktok": "TikTok",
+    "label.error": "오류",
+    "label.success": "성공",
 
     "admin.profile.title": "사용자 데이터",
     "admin.profile.description": "개인 프로필 관리 전용 영역입니다. 등록 데이터를 확인하고, 연락처 정보를 업데이트하고, 중요한 알림을 받고 빠르고 맞춤화된 지원을 보장하기 위해 기록을 최신 상태로 유지하세요.",

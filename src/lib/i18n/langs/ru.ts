@@ -117,6 +117,8 @@ export default {
     "label.linkedin": "LinkedIn",
     "label.instagram": "Instagram",
     "label.tiktok": "TikTok",
+    "label.error": "Ошибка",
+    "label.success": "Успех",
 
     "admin.profile.title": "Данные пользователя",
     "admin.profile.description": "Область, посвящённая управлению вашим личным профилем. Проверяйте данные регистрации, обновляйте контактную информацию и поддерживайте записи в актуальном состоянии для получения важных уведомлений и обеспечения быстрой персональной поддержки.",

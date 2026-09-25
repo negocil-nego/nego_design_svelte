@@ -117,6 +117,8 @@ export default {
     "label.linkedin": "LinkedIn",
     "label.instagram": "Instagram",
     "label.tiktok": "TikTok",
+    "label.error": "Erro",
+    "label.success": "Sucesso",
 
     "admin.profile.title": "Dados do utilizador",
     "admin.profile.description": "Área dedicada à gestão do seu perfil pessoal. Consulte os seus dados cadastrais, altere informações de contato e mantenha os seus registros atualizados para receber notificações importantes e assegurar um atendimento rápido e personalizado.",

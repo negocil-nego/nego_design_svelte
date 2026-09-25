@@ -40,6 +40,8 @@ import CarouselGridProfile from "$lib/components/ui/carousel/core/grid/profile/u
 import CarouselHighlights from "$lib/components/ui/carousel/core/highlights/ui/CarouselHighlights.svelte";
 import CarouselGridMedia from "$lib/components/ui/carousel/core/grid/media/ui/CarouselGridMedia.svelte";
 import CarouselPromotion from "$lib/components/ui/carousel/core/promotion/ui/CarouselPromotion.svelte";
+import CarouselMedia from "$lib/components/ui/carousel/core/media/ui/CarouselMedia.svelte";
+import CarouselProfile from "$lib/components/ui/carousel/core/profile/ui/CarouselProfile.svelte";
 import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 
@@ -664,6 +666,28 @@ export {
      * @see CarouselPromotionProps
      */
     CarouselPromotion,
+
+    /**
+     * Carousel horizontal de cards de mídia (fotos/vídeos) com header, autoplay,
+     * empty state e loading skeleton. Utiliza o CardMedia como item interno.
+     * @property {CardMediaProps[]} items - Cards de mídia
+     * @property {CarouselHeaderProps} headerProps - Cabeçalho do carousel
+     * @property {CarouselSlotProps} slotProps - Configuração do slot
+     * @property {1|2} variant - Variante visual do card
+     * @see CarouselMediaProps
+     */
+    CarouselMedia,
+
+    /**
+     * Carousel horizontal de cards de perfil (organizações/guias) com header, autoplay,
+     * empty state e loading skeleton. Utiliza o CardProfile como item interno.
+     * @property {CardProfileProps[]} items - Cards de perfil
+     * @property {CarouselHeaderProps} headerProps - Cabeçalho do carousel
+     * @property {CarouselSlotProps} slotProps - Configuração do slot
+     * @property {1|2} variant - Variante visual do card
+     * @see CarouselProfileProps
+     */
+    CarouselProfile,
 
     /**
      * Carousel de cards de destaque para organizações, serviços ou locais em evidência.

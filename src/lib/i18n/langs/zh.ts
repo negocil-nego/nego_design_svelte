@@ -117,6 +117,8 @@ export default {
     "label.linkedin": "LinkedIn",
     "label.instagram": "Instagram",
     "label.tiktok": "TikTok",
+    "label.error": "错误",
+    "label.success": "成功",
 
     "admin.profile.title": "用户数据",
     "admin.profile.description": "专门用于管理您的个人资料的区域。检查您的注册数据，更新您的联系信息，并保持您的记录最新，以接收重要通知并确保快速、个性化的支持。",

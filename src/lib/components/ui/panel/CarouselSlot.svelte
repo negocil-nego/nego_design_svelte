@@ -1,6 +1,7 @@
 <script lang="ts">
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import { useDevice } from "$lib/hooks/responsive.svelte";
+  import { t } from "$lib/i18n";
   import type { CarouselSlotProps } from "./type";
 
   const {
@@ -32,13 +33,17 @@
     </Carousel.Content>
     {#if positionButtonPreviousAndNext == "center" && !responsive.isMobile}
       {#if onMoreViewClick}
-        <div class="absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20">
+        <div
+          class="absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20"
+        >
           <button
             type="button"
             onclick={onMoreViewClick}
             class={styleTopCenter}
           >
-            <span class="px-2 py-1 text-sm font-medium">Ver mais</span>
+            <span class="px-2 py-1 text-sm font-medium"
+              >{$t("label.view.full")}</span
+            >
           </button>
         </div>
       {/if}
@@ -52,14 +57,18 @@
       {/if}
     {/if}
     {#if positionButtonPreviousAndNext == "top_right" || responsive.isMobile}
-      <div class="flex items-center justify-end gap-2 absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20">
+      <div
+        class="flex items-center justify-end gap-2 absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20"
+      >
         {#if onMoreViewClick}
           <button
             type="button"
             onclick={onMoreViewClick}
             class={styleTopCenter}
           >
-            <span class="px-2 py-1 text-sm font-medium">Ver mais</span>
+            <span class="px-2 py-1 text-sm font-medium"
+              >{$t("label.view.full")}</span
+            >
           </button>
         {/if}
         {#if isButtonPreviousAndNext}
