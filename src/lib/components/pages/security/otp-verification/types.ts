@@ -11,5 +11,7 @@ export type PageOtpVerificationProps = {
   title?: string;
   children?: Snippet;
   otpLength?: number;
+  onButtonBack?: () => void;
+  onButtonOtp?: () => void;
   onSubmit?: (request: OtpVerificationRequestDto) => void;
 };

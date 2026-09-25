@@ -27,7 +27,11 @@
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
-  <nav class="flex justify-between p-5 md:bg-transparent">
+  <nav
+    class="flex {onButtonBack
+      ? 'justify-between'
+      : 'justify-end'} p-5 md:bg-transparent"
+  >
     {#if onButtonBack}
       <div>
         <ButtonBack onclick={onButtonBack} />

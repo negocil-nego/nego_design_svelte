@@ -20,18 +20,25 @@
 
   type Props = {
     otpLength?: number;
+    onButtonBack?: () => void;
+    onButtonOtp?: () => void;
     onSubmit?: (request: OtpVerificationRequestDto) => void;
     children?: Snippet;
   };
 
-  let { otpLength, onSubmit, children }: Props = $props();
+  let { otpLength, onSubmit, onButtonBack, onButtonOtp, children }: Props =
+    $props();
 </script>
 
 <div class="flex-1 flex flex-col justify-between h-screen bg-gradient-right">
-  <nav class="flex justify-between p-5 md:bg-transparent">
-    <div>
-      <ButtonBack />
-    </div>
+  <nav
+    class="flex {onButtonBack ? 'justify-between' : 'justify-end'} p-5 md:bg-transparent"
+  >
+    {#if onButtonBack}
+      <div>
+        <ButtonBack onclick={onButtonBack} />
+      </div>
+    {/if}
     <div class="flex gap-2">
       <ThemeSwitch />
       <LanguageSwitcher />
@@ -56,6 +63,16 @@
       {@render children()}
     {:else}
       <FormOtpVerification {otpLength} {onSubmit} />
+    {/if}
+
+    {#if onButtonOtp}
+      <button
+        type="button"
+        onclick={onButtonOtp}
+        class="mt-4 w-full text-center text-sm font-medium text-primary hover:underline cursor-pointer"
+      >
+        {$t("label.request.new.otp")}
+      </button>
     {/if}
   </div>
 </div>
