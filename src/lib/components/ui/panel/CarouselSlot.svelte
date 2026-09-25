@@ -15,7 +15,9 @@
     children,
   }: CarouselSlotProps = $props();
 
-  const styleTopCenter = "bg-blue-700! text-white! cursor-pointer!";
+  const styleTopButtomMoreCenter =
+    "border-1 bg-white dark:bg-background rounded-full p-2";
+  const styleTopCenter = "bg-gradient text-white! cursor-pointer!";
   const styleCenter =
     "absolute top-1/2 -translate-y-1/2 mt-0.5 md:mr-0 z-50 bg-blue-700! text-white! cursor-pointer!";
 
@@ -39,7 +41,7 @@
           <button
             type="button"
             onclick={onMoreViewClick}
-            class={styleTopCenter}
+            class={styleTopButtomMoreCenter}
           >
             <span class="px-2 py-1 text-sm font-medium"
               >{$t("label.view.full")}</span
@@ -58,13 +60,13 @@
     {/if}
     {#if positionButtonPreviousAndNext == "top_right" || responsive.isMobile}
       <div
-        class="flex items-center justify-end gap-2 absolute -top-5 md:-top-10 right-8 md:right-10 lg:right-12 z-20"
+        class="flex items-center justify-end gap-2 absolute -top-5 md:-top-20 right-8 md:right-10 lg:right-12 z-20"
       >
         {#if onMoreViewClick}
           <button
             type="button"
             onclick={onMoreViewClick}
-            class={styleTopCenter}
+            class={styleTopButtomMoreCenter}
           >
             <span class="px-2 py-1 text-sm font-medium"
               >{$t("label.view.full")}</span

@@ -64,6 +64,6 @@
   }
 
   :global(.hugeicons-white) {
-    filter: brightness(1) invert(0) !important;
+    filter: brightness(0) invert(1) !important;
   }
 </style>

@@ -3,7 +3,7 @@
    * Card component with a title and content.
    * @component
    */
-    import { t } from "$lib/i18n";
+  import { t } from "$lib/i18n";
   import type { CardMediaProps } from "../../types";
   import CardStarRating from "../../shared/CardStarRating.svelte";
   import CardTags from "../../shared/CardTags.svelte";
@@ -13,6 +13,7 @@
   import CardFavorite from "../../shared/CardFavorite.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import CardLogo from "../../shared/CardLogo.svelte";
+  import CardTitle from "../../shared/CardTitle.svelte";
   let {
     id,
     tags,
@@ -52,11 +53,7 @@
         <CardLogo {logo} {isLoading} />
       </div>
       <div class="flex flex-col justify-center items-center">
-        {#if title}
-          <div class="text-center font-bold text-lg">{title}</div>
-        {:else if isLoading}
-          <Skeleton class="w-40 h-5 rounded-lg bg-gray-400 mb-0.5" />
-        {/if}
+        <CardTitle {title} {isLoading} />
 
         {#if startNumber}
           <CardStarRating {startNumber} {startMax} {isLoading} />

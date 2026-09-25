@@ -37,7 +37,7 @@
   {#if isTruncated}
     <Popover.Root>
       <Popover.Trigger
-        class="absolute bottom-0 right-0 bg-background pl-1 text-[11px] font-medium text-primary underline underline-offset-2 cursor-pointer"
+        class="absolute bottom-1.5 right-0 bg-background  pl-1 text-[11px] font-medium text-primary underline underline-offset-2 cursor-pointer"
       >
         {$t("label.view.full")}
       </Popover.Trigger>

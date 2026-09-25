@@ -14,6 +14,7 @@
     }}
     slotProps={{
       buttonPreviousAndNextClass: "bg-white dark:bg-gray-800",
+      positionButtonPreviousAndNext: "top_right",
       onMoreViewClick: () => console.log("click"),
     }}
     isDescriptionIcon

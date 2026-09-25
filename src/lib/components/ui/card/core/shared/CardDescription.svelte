@@ -1,6 +1,6 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-      import TruncatableText from "./TruncatableText.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import TruncatableText from "./TruncatableText.svelte";
   import { t } from "$lib/i18n";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
 
@@ -35,6 +35,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   <TruncatableText
     text={content}
     {lines}
-    class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50 mt-3 my-2 h-[65px] mb-1"
+    class="text-justify text-[13px] md:text-[14px] text-gray-800  dark:text-gray-50  my-2 h-[65px] mb-1"
   />
 {/if}
