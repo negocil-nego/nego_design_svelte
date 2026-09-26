@@ -5,6 +5,7 @@
   import { ThemeSwitch } from "$lib/components/ui/theme-switch";
   import Button from "$lib/components/ui/button/button.svelte";
   import ImageSvgAnimate from "$lib/components/ui/image/ImageSvgAnimate.svelte";
+  import ButtonBack from "$lib/components/ui/button/ButtonBack.svelte";
 
   let {
     title = "",
@@ -14,6 +15,7 @@
     svgKey,
     imgSlot,
     onAction,
+    onButtonBack,
     actionHref,
     className = "",
     titleColor = "",
@@ -28,6 +30,11 @@
 <div
   class="flex min-h-svh flex-col items-center justify-center px-4 py-10 {className}"
 >
+  {#if onButtonBack}
+    <div class="absolute top-5 left-5">
+      <ButtonBack onclick={onButtonBack} isLabel />
+    </div>
+  {/if}
   <div class="absolute top-5 right-5 flex gap-3">
     <ThemeSwitch />
     <LanguageSwitcher />
@@ -74,7 +81,9 @@
           type="button"
           onclick={onAction}
           disabled={isLoading}
-          class="md:min-w-75 lg:min-w-100 bg-gradient mx-2 px-8 py-3 font-semibold {buttonTextColor} transition {isLoading ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'} md:mt-3 xl:mt-5"
+          class="md:min-w-75 lg:min-w-100 bg-gradient mx-2 px-8 py-3 font-semibold {buttonTextColor} transition {isLoading
+            ? 'opacity-50 cursor-not-allowed'
+            : 'hover:opacity-90'} md:mt-3 xl:mt-5"
         >
           {buttonText}
         </Button>

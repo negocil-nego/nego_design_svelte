@@ -4,7 +4,12 @@
   import { t } from "$lib/i18n";
   import type { ButtonProps } from "$lib/components/ui/button";
 
-  let { ...restProps }: ButtonProps = $props();
+  let {
+    isLabel = false,
+    ...restProps
+  }: ButtonProps & {
+    isLabel?: boolean;
+  } = $props();
 </script>
 
 <Button
@@ -13,5 +18,9 @@
   {...restProps}
 >
   <ImageHugeicons icon="arrow-left-01" width={16} height={16} />
-  <span class="sr-only">{$t("label.back")}</span>
+  {#if isLabel}
+    <span>{$t("label.back")}</span>
+  {:else}
+    <span class="sr-only">{$t("label.back")}</span>
+  {/if}
 </Button>

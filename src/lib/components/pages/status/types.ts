@@ -15,6 +15,7 @@ export type PageStatusProps = {
     buttonText?: string;
     description?: string;
     onAction?: () => void;
+    onButtonBack?: () => void;
     buttonTextColor?: string;
     emailPhoneWhatsapp?: CardEmailPhoneWhatsappProps;
     isLoading?: boolean;
