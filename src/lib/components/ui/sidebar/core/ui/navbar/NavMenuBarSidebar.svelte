@@ -38,13 +38,11 @@
             {#snippet child({ props })}
               <Sidebar.MenuButton {...props} tooltipContent={item.title}>
                 {#if item.icon}
-                  <ImageHugeicons icon={item.icon} width={10} height={10} />
+                  <ImageHugeicons icon={item.icon} />
                 {/if}
                 <span>{item.title}</span>
                 <ImageHugeicons
                   icon="chevron-right"
-                  width={10}
-                  height={10}
                   class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
                 />
               </Sidebar.MenuButton>

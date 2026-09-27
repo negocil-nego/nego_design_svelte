@@ -7,8 +7,8 @@
     icon,
     class: className = "",
     alt,
-    width = 30,
-    height = 30,
+    width = 20,
+    height = 20,
     ...rest
   }: {
     icon: HugeiconsIconName | string;
