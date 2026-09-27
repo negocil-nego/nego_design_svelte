@@ -55,6 +55,9 @@ export default {
     "label.help": "帮助",
     "label.settings": "设置",
     "label.panel": "面板",
+    "label.dashboard": "仪表板",
+    "label.payment": "支付",
+
     "label.administrative": "管理",
     "label.platform": "平台",
     "label.authentication": "身份验证",

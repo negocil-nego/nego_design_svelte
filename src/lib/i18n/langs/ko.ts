@@ -55,6 +55,9 @@ export default {
     "label.help": "도움말",
     "label.settings": "설정",
     "label.panel": "패널",
+    "label.dashboard": "대시보드",
+    "label.payment": "결제",
+
     "label.administrative": "관리",
     "label.platform": "플랫폼",
     "label.authentication": "인증",

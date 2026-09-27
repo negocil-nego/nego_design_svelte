@@ -55,6 +55,9 @@ export default {
     "label.help": "Help",
     "label.settings": "Settings",
     "label.panel": "Panel",
+    "label.dashboard": "Dashboard",
+    "label.payment": "Payment",
+
     "label.administrative": "Administrative",
     "label.platform": "Platform",
     "label.authentication": "Authentication",

@@ -55,6 +55,9 @@ export default {
     "label.help": "ヘルプ",
     "label.settings": "設定",
     "label.panel": "パネル",
+    "label.dashboard": "ダッシュボード",
+    "label.payment": "支払い",
+
     "label.administrative": "管理",
     "label.platform": "プラットフォーム",
     "label.authentication": "認証",

@@ -56,6 +56,9 @@ export default {
     "label.help": "مساعدة",
     "label.settings": "الإعدادات",
     "label.panel": "لوحة التحكم",
+    "label.dashboard": "لوحة التحكم",
+    "label.payment": "الدفع",
+
     "label.administrative": "إداري",
     "label.platform": "المنصة",
     "label.authentication": "المصادقة",
