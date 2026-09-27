@@ -1,6 +1,6 @@
 <script lang="ts">
   import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
-  import type { AdminSectionCardProps } from "$lib/components/pages/admin/shared/section/types";
+  import type { AdminSectionCardItProps } from "$lib/components/pages/admin/shared/section/types";
   import AdminTabs from "$lib/components/pages/admin/shared/tabs/AdminTabs.svelte";
   import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
 
@@ -35,7 +35,7 @@
     },
   ];
 
-  const cards: AdminSectionCardProps[] = [
+  const cards: AdminSectionCardItProps[] = [
     {
       id: 1,
       menuId: "overview",

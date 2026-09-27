@@ -486,6 +486,110 @@ ${"</" + "script>"}
 <button onclick={() => setTheme("dark")}>Set dark</button>
 <button onclick={() => setTheme("light")}>Set light</button>`;
 
+  const storeUserCode = `<script lang="ts">
+  import {
+    userStore,
+    setUser,
+    updateUser,
+    clearUser,
+    isLoggedIn,
+  } from "negodesign/store";
+${"</" + "script>"}
+
+// Login: dados + callbacks do AdminUserSection num único User
+setUser({
+  id: "1",
+  name: "Sedrac SLC",
+  email: "slcsedrac@gmail.com",
+  avatarUrl: "https://github.com/octocat.png",
+  onProfile: () => goto("/perfil"),
+  onSettings: () => goto("/definicoes"),
+  onLogout: () => clearUser(),
+});
+
+// Avatar ou nome carregados mais tarde
+updateUser({ avatarUrl: "/avatars/1.png" });
+
+{#if isLoggedIn()}
+  <p>Bem-vindo, {userStore.user?.name}</p>
+{/if}
+
+<button onclick={() => clearUser()}>Terminar sessão</button>`;
+
+  const authFlowCode = `<script lang="ts">
+  import {
+    setAuth,
+    setToken,
+    getToken,
+    getExpiresAt,
+    isTokenExpired,
+    isAuthenticated,
+    getAuthorizationHeader,
+    setLoading,
+    logout,
+  } from "negodesign";
+${"</" + "script>"}
+
+// Depois de um login/registo bem-sucedido
+setAuth(response.data.token, response.data.expiresAt, user);
+
+// O token fica disponivel para a aplicacao
+getToken();                 // string | null
+getExpiresAt();             // ISO string | null
+isAuthenticated();          // token presente e nao expirado
+isTokenExpired();           // a expiracao ja passou?
+getAuthorizationHeader();   // "Bearer <token>"
+
+// Cabeçalho no pedido
+axios.get("/users/me", { headers: { Authorization: getAuthorizationHeader()! } });
+
+// Estado de carregamento
+setLoading(true);
+
+// Terminar sessao (utilizador + token)
+logout();`;
+
+  const menuUserStoreCode = `<script lang="ts">
+  import { Menu } from "negodesign";
+${"</" + "script>"}
+
+<!-- SimpleMenu, ComplexMenu, SimpleMenuMobile, ComplexMenuMobile e MenuButton
+     escutam o userStore: com sessão iniciada os botões Login/Registar
+     desaparecem e aparece o AdminUserSection — sem props de utilizador. -->
+<Menu
+  logo={{ label: "NegoDesign" }}
+  navMenuButton={{
+    onclickButtonLogin: () => openLogin(),
+    onclickButtonRegister: () => console.log("register"),
+  }}
+  navMenu={{
+    links: [
+      { label: "Home", url: "/" },
+      { label: "Docs", url: "/docs" },
+    ],
+  }}
+/>`;
+
+  const navUserSectionCode = `<script lang="ts">
+  import { setUser } from "negodesign/store";
+${"</" + "script>"}
+
+<!-- O AdminUserSection lê o userStore directamente. -->
+<button
+  onclick={() =>
+    setUser(
+      { name: "Sedrac", email: "slcsedrac@gmail.com" },
+      // onProfile / onSettings / onLogout são opcionais:
+      // a opção só aparece quando o callback está preenchido.
+    )}
+>
+  Entrar
+</button>
+
+<!-- Só "Perfil" aparece; "Definições" fica oculta e o separador
+     é removido. Para esconder o AdminUserSection num menu isolado:
+     showUserSection: false -->`;
+
   const features = [
     {
       icon: "sparkles",
@@ -1145,6 +1249,115 @@ ${"</" + "script>"}
         <code class="rounded bg-muted px-1 py-0.5">isDark()</code>.
       </p>
       <CodeBlock code={storeThemeCode} title="theme-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">userStore — utilizador logado</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Uma única estrutura guarda o utilizador logado e a configuração do
+        <code class="rounded bg-muted px-1 py-0.5">AdminUserSection</code>:
+        <code class="rounded bg-muted px-1 py-0.5">User &#123; id?, name?, email?, avatarUrl?, onProfile?, onSettings?, onLogout? &#125;</code>.
+        Os callbacks são opcionais — o
+        <code class="rounded bg-muted px-1 py-0.5">AdminUserSection</code> só mostra
+        a opção "Perfil" / "Definições" quando o respectivo callback está
+        preenchido. Expõe
+        <code class="rounded bg-muted px-1 py-0.5">setUser(user)</code>,
+        <code class="rounded bg-muted px-1 py-0.5">updateUser(partial)</code>,
+        <code class="rounded bg-muted px-1 py-0.5">clearUser()</code> e os helpers
+        <code class="rounded bg-muted px-1 py-0.5">getUser()</code>,
+        <code class="rounded bg-muted px-1 py-0.5">isLoggedIn()</code>,
+        <code class="rounded bg-muted px-1 py-0.5">getUserName()</code> e
+        <code class="rounded bg-muted px-1 py-0.5">getUserEmail()</code>.
+      </p>
+      <CodeBlock code={storeUserCode} title="user-store.svelte.ts" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">userStore — fluxo de autenticação</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        A mesma store guarda o token JWT do utilizador autenticado:
+        <code class="rounded bg-muted px-1 py-0.5">setAuth(token, expiresAt, user)</code>
+        (ou
+        <code class="rounded bg-muted px-1 py-0.5">setToken</code> /
+        <code class="rounded bg-muted px-1 py-0.5">updateUser</code> em separado),
+        <code class="rounded bg-muted px-1 py-0.5">getToken</code>,
+        <code class="rounded bg-muted px-1 py-0.5">getExpiresAt</code>,
+        <code class="rounded bg-muted px-1 py-0.5">isTokenExpired</code>,
+        <code class="rounded bg-muted px-1 py-0.5">isAuthenticated</code>,
+        <code class="rounded bg-muted px-1 py-0.5">getAuthorizationHeader</code> e
+        <code class="rounded bg-muted px-1 py-0.5">setLoading</code>. Tudo é
+        persistido em <code class="rounded bg-muted px-1 py-0.5">localStorage</code>
+        e <code class="rounded bg-muted px-1 py-0.5">logout()</code> limpa
+        utilizador + token. A store não trata de axios nem de rotas: os
+        interceptors e os redireccionamentos pertencem à aplicação.
+      </p>
+      <CodeBlock code={authFlowCode} title="fluxo de autenticação" />
+    </div>
+  </section>
+
+  <section id="menu-user-store" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: userStore nos menus</h2>
+      <a
+        href="/docs#menu-user-store"
+        class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
+      >
+        Docs
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+      <a
+        href="/admin/tabs/menu"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Os componentes
+      <code class="rounded bg-muted px-1 py-0.5">SimpleMenu</code>,
+      <code class="rounded bg-muted px-1 py-0.5">ComplexMenu</code>,
+      <code class="rounded bg-muted px-1 py-0.5">SimpleMenuMobile</code> e
+      <code class="rounded bg-muted px-1 py-0.5">ComplexMenuMobile</code> escutam
+      o novo store
+      <code class="rounded bg-muted px-1 py-0.5">user-store.svelte.ts</code>, que
+      guarda a informação do utilizador logado
+      (<code class="rounded bg-muted px-1 py-0.5">User &#123; id?, name?, email? &#125;</code>).
+      Assim que existir um utilizador, o componente
+      <code class="rounded bg-muted px-1 py-0.5">MenuButton</code> — que recebe as
+      props <code class="rounded bg-muted px-1 py-0.5">NavMenuButtonProps</code> —
+      substitui os botões
+      <code class="rounded bg-muted px-1 py-0.5">onclickButtonLogin</code> e
+      <code class="rounded bg-muted px-1 py-0.5">onclickButtonRegister</code> pelo
+      <code class="rounded bg-muted px-1 py-0.5">AdminUserSection</code>. Basta
+      chamar <code class="rounded bg-muted px-1 py-0.5">setUser()</code> depois do
+      login e todos os menus da aplicação reagem sozinhos.
+    </p>
+
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">Menu + userStore</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Nenhuma prop nova é necessária: o
+        <code class="rounded bg-muted px-1 py-0.5">AdminUserSection</code> escuta o
+        <code class="rounded bg-muted px-1 py-0.5">userStore</code> e herda nome,
+        email, avatar e callbacks do utilizador logado.
+      </p>
+      <CodeBlock code={menuUserStoreCode} title="Menu.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">Opções condicionais</h3>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Todos os menus escutam a mesma store, por isso um único
+        <code class="rounded bg-muted px-1 py-0.5">setUser()</code> /
+        <code class="rounded bg-muted px-1 py-0.5">clearUser()</code> actualiza o
+        desktop e o mobile ao mesmo tempo. Por omissão "Terminar sessão" chama
+        <code class="rounded bg-muted px-1 py-0.5">clearUser()</code>, e para
+        esconder o <code class="rounded bg-muted px-1 py-0.5">AdminUserSection</code>
+        num menu isolado passe
+        <code class="rounded bg-muted px-1 py-0.5">showUserSection: false</code>.
+      </p>
+      <CodeBlock code={navUserSectionCode} title="AdminUserSection via userStore" />
     </div>
   </section>
 

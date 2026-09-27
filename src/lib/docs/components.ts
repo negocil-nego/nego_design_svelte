@@ -1354,7 +1354,7 @@ let selectedKey = $state<string | number>("overview");
     slug: "admin-user-section",
     name: "AdminUserSection",
     category: "Admin Panel",
-    description: "Avatar of the logged-in user with a profile dropdown opened on hover, almost identical to the NavUserSidebar block.",
+    description: "Avatar of the logged-in user with a profile dropdown opened on hover. Reads name, email, avatar and callbacks from the userStore; the Profile/Settings options are only rendered when their callback is defined.",
     path: "src/lib/components/pages/admin/shared/section/AdminUserSection.svelte",
     importPath: "AdminUserSection",
     examples: [
@@ -1362,25 +1362,28 @@ let selectedKey = $state<string | number>("overview");
         title: "Admin User Section",
         code: `import { AdminUserSection } from "negodesign"
 
+<!-- Zero props: everything comes from the userStore -->
+<AdminUserSection />
+
+<!-- Or override any value per instance -->
 <AdminUserSection
-  user={{
-    user: {
-      name: "Sedrac",
-      email: "slcsedrac@gmail.com",
-      avatar: "https://github.com/octocat.png",
-    },
-    onLogout: () => console.log("logout"),
-  }}
+  name="Sedrac"
+  email="slcsedrac@gmail.com"
+  avatarUrl="https://github.com/octocat.png"
   onProfile={() => console.log("profile")}
   onSettings={() => console.log("settings")}
+  onLogout={() => console.log("logout")}
 />`,
         href: "/admin/section",
       },
     ],
     props: [
-      { name: "user", type: "NavUserSidebarProps", description: "Required. Logged-in user: { user: { name, email, avatar? }, actions?, onLogout? }", required: true },
-      { name: "onProfile", type: "() => void", description: "Called when the Profile option is clicked" },
-      { name: "onSettings", type: "() => void", description: "Called when the Settings option is clicked" },
+      { name: "name", type: "string", description: "Full name. Falls back to userStore.user.name" },
+      { name: "email", type: "string", description: "Email. Falls back to userStore.user.email" },
+      { name: "avatarUrl", type: "string", description: "Avatar image URL. Falls back to userStore.user.avatarUrl" },
+      { name: "onProfile", type: "() => void", description: "Called when the Profile option is clicked. Falls back to userStore.user.onProfile — the option is hidden when undefined" },
+      { name: "onSettings", type: "() => void", description: "Called when the Settings option is clicked. Falls back to userStore.user.onSettings — the option is hidden when undefined" },
+      { name: "onLogout", type: "() => void", description: "Called when Logout is clicked. Falls back to userStore.user.onLogout, then to clearUser()" },
       { name: "className", type: "string", description: "Extra CSS class for the dropdown container" },
       { name: "triggerClass", type: "string", description: "Extra CSS class for the avatar trigger" },
       { name: "avatarClass", type: "string", description: "Extra CSS class for the avatar" },

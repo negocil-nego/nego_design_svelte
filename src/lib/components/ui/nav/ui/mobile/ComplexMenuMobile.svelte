@@ -14,11 +14,18 @@
     isItems,
     isItem,
   } from "../../data/complex-menu-utils";
+  import { isLoggedIn } from "$lib/stores";
   import CollapsibleNavMenu from "../shared/CollapsibleNavMenu.svelte";
   import NavMenuItem from "../shared/NavMenuItem.svelte";
+  import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
   import MenuMobile from "./MenuMobile.svelte";
 
-  let { menus: links }: ComplexMenuProps = $props();
+  let {
+    menus: links,
+    showUserSection = true,
+  }: ComplexMenuProps = $props();
+
+  const isLogged = $derived(isLoggedIn());
 </script>
 
 {#snippet headerSnippet(
@@ -36,6 +43,11 @@
 {/snippet}
 
 <MenuMobile>
+  {#if showUserSection && isLogged}
+    <div class="mt-5 mb-4">
+      <AdminUserSection />
+    </div>
+  {/if}
   <div class="flex flex-col gap-1">
     {#each links as link, i (i)}
       {#if isCard(link)}

@@ -6,6 +6,11 @@ export type SimpleMenuMobileProps = {
     iconLinkClass?: string;
     onclickButtonLogin?: () => void;
     onclickButtonRegister?: () => void;
+    /**
+     * Exibe o `AdminUserSection` no drawer quando o `userStore` tem um
+     * utilizador logado. Por omissão é `true`.
+     */
+    showUserSection?: boolean;
 }
 
 export type MenuTriggerMobileProps = {

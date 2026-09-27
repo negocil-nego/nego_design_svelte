@@ -25,7 +25,7 @@ export interface AdminSectionMenuItem {
  * Opcionalmente pode ser associado a um item do menu via `menuId`;
  * cards sem `menuId` ficam sempre visíveis em qualquer menu ativo.
  */
-export interface AdminSectionCardProps {
+export interface AdminSectionCardItProps {
     /** Identificador único do card (usado no callback `onCardClick`) */
     id?: string | number;
     /** Ícone do card — classe CSS (string) ou componente Hugeicons (IconSvgElement) */
@@ -44,19 +44,23 @@ export interface AdminSectionCardProps {
 /**
  * Props do componente AdminUserSection — avatar do utilizador logado com
  * dropdown de perfil que abre no hover (quase idêntico ao NavUserSidebar).
+ *
+ * Quando omitidos, os dados e callbacks vêm do `userStore`. As opções
+ * "Perfil" e "Definições" só são apresentadas quando o respectivo callback
+ * está configurado (por prop ou no `userStore`).
  */
 export interface AdminUserSectionProps {
-    /** Nome completo do utilizador */
-    name: string;
-    /** Email do utilizador */
-    email: string;
+    /** Nome completo do utilizador (por omissão, `userStore.user.name`) */
+    name?: string;
+    /** Email do utilizador (por omissão, `userStore.user.email`) */
+    email?: string;
     /** URL da imagem de perfil/avatar (opcional) */
     avatarUrl?: string;
-    /** Callback acionado ao clicar na opção "Perfil" */
+    /** Callback acionado ao clicar na opção "Perfil" (por omissão, `userStore.user.onProfile`) */
     onProfile?: () => void;
-    /** Callback acionado ao clicar na opção "Definições" */
+    /** Callback acionado ao clicar na opção "Definições" (por omissão, `userStore.user.onSettings`) */
     onSettings?: () => void;
-    /** Callback acionado ao clicar na opção "Terminar sessão" */
+    /** Callback acionado ao clicar na opção "Terminar sessão" (por omissão, `clearUser()`) */
     onLogout?: () => void;
     /** Classe CSS adicional do container do dropdown */
     className?: string;
@@ -73,12 +77,12 @@ export interface AdminUserSectionProps {
 export interface AdminSectionProps {
     /** Título da secção */
     logo?: ImageLogoProps;
-    /** Dados do usuário logado */
-    user: AdminUserSectionProps;
+    /** Dados do usuário logado (por omissão, vêm do `userStore`) */
+    user?: AdminUserSectionProps;
     /** Itens do menu de navegação (tabs) */
     menuItems?: NavMenuLinksProps[];
     /** Cards exibidos na grade abaixo do menu */
-    cards?: AdminSectionCardProps[];
+    cards?: AdminSectionCardItProps[];
     /** Id do item de menu ativo (controlado pelo utilizador; bindable) */
     selectedKey?: string | number;
     /** Classe CSS adicional do container (div com fundo) */
@@ -96,12 +100,34 @@ export interface AdminSectionProps {
 }
 
 /**
+ * Props do componente AdminSection — secção administrativa com fundo,
+ * menu de navegação (tabs) e grade de cards.
+ */
+export interface AdminSectionCardsProps {
+    /** Cards exibidos na grade abaixo do menu */
+    cards?: AdminSectionCardItProps[];
+    /** Id do item de menu ativo (controlado pelo utilizador; bindable) */
+    selectedKey?: string | number;
+    /** Classe CSS adicional do container (div com fundo) */
+    className?: string;
+    /** Classe CSS adicional de cada card */
+    cardClass?: string;
+    /** Classe CSS adicional da grade de cards */
+    gridClass?: string;
+    /** Callback chamado quando um item do menu é clicado, recebendo o `id` */
+    onSelect?: (id: string | number) => void;
+    /** Callback chamado quando um card é clicado, recebendo o `id` */
+    onCardClick?: (id: string | number) => void;
+}
+
+
+/**
  * Props do componente AdminUserSectionMobile — avatar do utilizador em
  * menu móvel (drawer) com links de navegação.
  */
 export interface AdminUserSectionMobileProps {
-    /** Dados do usuário logado */
-    user: AdminUserSectionProps;
+    /** Dados do usuário logado (por omissão, vêm do `userStore`) */
+    user?: AdminUserSectionProps;
     /** Links de navegação exibidos no menu móvel */
     menuItems?: NavMenuLinksProps[];
 }

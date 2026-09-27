@@ -5,7 +5,7 @@
   import MenuLinks from "$lib/components/ui/nav/ui/shared/MenuLinks.svelte";
   import type { AdminUserSectionMobileProps } from "./types";
 
-  const { user, menuItems = [] }: AdminUserSectionMobileProps = $props();
+  const { user = {}, menuItems = [] }: AdminUserSectionMobileProps = $props();
 </script>
 
 <MenuTriggerMobile triggerClass="bg-transparent">

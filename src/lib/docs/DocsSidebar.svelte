@@ -163,10 +163,28 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             </SidebarMenuButton>
           </SidebarMenuItem>
           <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/docs" && page.url.hash === "#menu-user-store"}>
+              {#snippet child({ props })}
+                <a href="/docs#menu-user-store" {...props}
+                  ><span>userStore (menus)</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
             <SidebarMenuButton isActive={path === "/stores"}>
               {#snippet child({ props })}
                 <a href="/stores" {...props}
                   ><span>Stores Demo</span></a
+                >
+              {/snippet}
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive={path === "/admin/tabs/menu"}>
+              {#snippet child({ props })}
+                <a href="/admin/tabs/menu" {...props}
+                  ><span>Menu + userStore Demo</span></a
                 >
               {/snippet}
             </SidebarMenuButton>

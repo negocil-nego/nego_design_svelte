@@ -85,6 +85,7 @@ import AdminProfileTab from "$lib/components/pages/admin/shared/tabs/AdminProfil
 import AdminSecurityTab from "$lib/components/pages/admin/shared/tabs/AdminSecurityTab.svelte";
 import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
 import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
+import AdminSectionCards from "$lib/components/pages/admin/shared/section/AdminSectionCards.svelte";
 import AdminUserProfile from "$lib/components/pages/admin/shared/profile/AdminUserProfile.svelte";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
@@ -151,6 +152,36 @@ export {
     closeStatus,
 } from "./stores";
 
+/**
+ * Store global do utilizador autenticado: guarda os dados do utilizador e o
+ * token JWT (persistidos em `localStorage`).
+ *
+ * Quando existe um utilizador, os menus (`SimpleMenu`, `ComplexMenu`,
+ * `SimpleMenuMobile`, `ComplexMenuMobile`) e o `MenuButton` escondem os botões
+ * de Login/Registar e mostram o `AdminUserSection`.
+ */
+export {
+    userStore,
+    setUser,
+    updateUser,
+    clearUser,
+    logoutUser,
+    logout,
+    setAuth,
+    setToken,
+    getToken,
+    getExpiresAt,
+    isTokenExpired,
+    isAuthenticated,
+    getAuthorizationHeader,
+    setLoading,
+    getUser,
+    isLoggedIn,
+    getUserName,
+    getUserEmail,
+    getUserAvatarUrl,
+} from "./stores";
+
 
 
 export {
@@ -165,6 +196,17 @@ export {
      * @see AdminSectionProps
      */
     AdminSection,
+
+    /**
+     * Secção administrativa com fundo, menu de navegação (tabs) e grade de cards.
+     * Supõe um bloco de menu em cima e cards abaixo dentro de um container com background.
+     * @property {AdminSectionCard[]} cards - Cards a exibir (título, valor, descrição, ícone)
+     * @property {string | number} selectedKey - Id do menu ativo (bindable)
+     * @property {(id) => void} onSelect - Callback ao clicar num item do menu
+     * @property {(id) => void} onCardClick - Callback ao clicar num card
+     * @see AdminSectionProps
+     */
+    AdminSectionCards,
 
     /**
      * Avatar do utilizador logado com dropdown de perfil que abre no hover.

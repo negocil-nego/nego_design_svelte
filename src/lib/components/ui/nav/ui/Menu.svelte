@@ -67,10 +67,10 @@
       <ComplexMenuMobile {...navMenu} />
     {/if}
   {:else if isLinks(navMenu)}
-    <SimpleMenu {...navMenu} />
+    <SimpleMenu {...navMenu} showUserSection={!navMenuButton} />
     {@render actionButtons()}
   {:else if isMenu(navMenu)}
-    <ComplexMenu {...navMenu} />
+    <ComplexMenu {...navMenu} showUserSection={!navMenuButton} />
     {@render actionButtons()}
   {/if}
 </nav>

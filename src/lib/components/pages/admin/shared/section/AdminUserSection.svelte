@@ -3,6 +3,7 @@
   import * as Avatar from "$lib/components/ui/avatar/index.js";
   import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
   import { t } from "$lib/i18n";
+  import { clearUser, userStore } from "$lib/stores";
   import type { AdminUserSectionProps } from "./types";
 
   let {
@@ -20,8 +21,17 @@
   let open = $state(false);
   let leaveTimer: ReturnType<typeof setTimeout> | undefined;
 
+  const user = $derived(userStore.user);
+
+  const userName = $derived(name ?? user?.name ?? "");
+  const userEmail = $derived(email ?? user?.email ?? "");
+  const userAvatarUrl = $derived(avatarUrl ?? user?.avatarUrl);
+  const handleProfile = $derived(onProfile ?? user?.onProfile);
+  const handleSettings = $derived(onSettings ?? user?.onSettings);
+  const handleLogout = $derived(onLogout ?? user?.onLogout ?? clearUser);
+
   const initials = $derived(
-    name
+    userName
       .split(" ")
       .filter(Boolean)
       .slice(0, 2)
@@ -55,8 +65,8 @@
       <Avatar.Root
         class="rounded-full w-9 h-9 ring-2 ring-background {avatarClass}"
       >
-        {#if avatarUrl}
-          <Avatar.Image src={avatarUrl} alt={name} class="" />
+        {#if userAvatarUrl}
+          <Avatar.Image src={userAvatarUrl} alt={userName} class="" />
         {/if}
         <Avatar.Fallback
           class="rounded-full bg-primary font-medium text-primary-foreground"
@@ -75,8 +85,8 @@
       <DropdownMenu.Label class="p-0 font-normal">
         <div class="flex items-center gap-2 px-1 py-1.5 text-sm">
           <Avatar.Root class="size-9 rounded-full">
-            {#if avatarUrl}
-              <Avatar.Image src={avatarUrl} alt={name} />
+            {#if userAvatarUrl}
+              <Avatar.Image src={userAvatarUrl} alt={userName} />
             {/if}
             <Avatar.Fallback
               class="rounded-full bg-primary font-medium text-primary-foreground"
@@ -85,27 +95,34 @@
             </Avatar.Fallback>
           </Avatar.Root>
           <div class="grid flex-1 text-start">
-            <span class="truncate font-medium">{name}</span>
-            <span class="truncate text-xs">{email}</span>
+            <span class="truncate font-medium">{userName}</span>
+            <span class="truncate text-xs">{userEmail}</span>
           </div>
         </div>
       </DropdownMenu.Label>
 
       <DropdownMenu.Separator />
 
-      <DropdownMenu.Group>
-        <DropdownMenu.Item onclick={onProfile}>
-          <ImageHugeicons icon="profile-02" width={16} height={16} />
-          {$t("label.profile")}
-        </DropdownMenu.Item>
-        <DropdownMenu.Item onclick={onSettings}>
-          <ImageHugeicons icon="setting-07" width={16} height={16} />
-          {$t("label.settings")}
-        </DropdownMenu.Item>
-      </DropdownMenu.Group>
+      {#if handleProfile || handleSettings}
+        <DropdownMenu.Group>
+          {#if handleProfile}
+            <DropdownMenu.Item onclick={handleProfile}>
+              <ImageHugeicons icon="profile-02" width={16} height={16} />
+              {$t("label.profile")}
+            </DropdownMenu.Item>
+          {/if}
+          {#if handleSettings}
+            <DropdownMenu.Item onclick={handleSettings}>
+              <ImageHugeicons icon="setting-07" width={16} height={16} />
+              {$t("label.settings")}
+            </DropdownMenu.Item>
+          {/if}
+        </DropdownMenu.Group>
 
-      <DropdownMenu.Separator />
-      <DropdownMenu.Item onclick={onLogout}>
+        <DropdownMenu.Separator />
+      {/if}
+
+      <DropdownMenu.Item onclick={handleLogout}>
         <ImageHugeicons icon="logout-01" width={16} height={16} />
         {$t("label.logout")}
       </DropdownMenu.Item>

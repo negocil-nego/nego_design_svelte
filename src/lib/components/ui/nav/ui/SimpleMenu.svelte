@@ -1,8 +1,13 @@
 <script lang="ts">
+  import { isLoggedIn } from "$lib/stores";
   import type { SimpleMenuProps } from "../data/nav-menu";
   import MenuLinks from "./shared/MenuLinks.svelte";
+  import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
 
   let { ...restProps }: SimpleMenuProps = $props();
+
+  const showUserSection = $derived(restProps.showUserSection !== false);
+  const isLogged = $derived(isLoggedIn());
 </script>
 
 {#if restProps.align === "LINK_INTO_ACTIONS"}
@@ -19,4 +24,8 @@
     orientation="horizontal"
     iconClass={restProps.iconLinkClass}
   />
+{/if}
+
+{#if showUserSection && isLogged}
+  <AdminUserSection className="ms-auto" />
 {/if}

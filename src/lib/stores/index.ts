@@ -41,4 +41,25 @@ export {
 	toggleTheme,
 	setTheme,
 	applyTheme,
-} from "./theme-store.svelte";
+} from "./theme-store.svelte";export {
+	userStore,
+	setUser,
+	updateUser,
+	clearUser,
+	logoutUser,
+	logout,
+	setAuth,
+	setToken,
+	getToken,
+	getExpiresAt,
+	isTokenExpired,
+	isAuthenticated,
+	getAuthorizationHeader,
+	setLoading,
+	getUser,
+	isLoggedIn,
+	getUserName,
+	getUserEmail,
+	getUserAvatarUrl,
+} from "./user-store.svelte";
+export type { User, UserStore } from "./user-store.svelte";

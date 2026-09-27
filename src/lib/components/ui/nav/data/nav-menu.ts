@@ -1,7 +1,11 @@
 import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
 
 /**
- * Props do logotipo no NavMenu.
+ * Props dos botões de acção do NavMenu (Login / Registar).
+ *
+ * Quando o `userStore` tem um utilizador logado, o `MenuButton` esconde
+ * `onclickButtonLogin` / `onclickButtonRegister` e apresenta o
+ * `AdminUserSection` alimentado pela própria store — sem props adicionais.
  */
 export interface NavMenuButtonProps {
     buttonClass?: string
@@ -86,6 +90,12 @@ export type IMenuProps = {
     actions?: NavMenuActionsProps[]
     /** Alinhamento dos links e das ações */
     align?: 'LINK_SEPARATED_ACTIONS' | 'LINK_INTO_ACTIONS'
+    /**
+     * Exibe o `AdminUserSection` quando o `userStore` tem um utilizador logado.
+     * Por omissão é `true` — o `Menu` usa `false` no desktop porque o
+     * `MenuButton` (NavMenuButtonProps) já apresenta o utilizador.
+     */
+    showUserSection?: boolean
 }
 
 /**

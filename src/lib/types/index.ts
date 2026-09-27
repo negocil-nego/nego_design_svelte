@@ -122,12 +122,18 @@ import type {
 import type {
     AdminSectionProps,
     AdminSectionMenuItem,
-    AdminSectionCardProps
+    AdminSectionCardItProps,
+    AdminSectionCardsProps
 } from "$lib/components/pages/admin/shared/section/types";
 
 import type {
     AdminUserSectionProps
 } from "$lib/components/pages/admin/shared/section/types";
+
+import type {
+    User,
+    UserStore
+} from "$lib/stores/user-store.svelte";
 
 import type {
     AdminUserProfileProps,
@@ -256,6 +262,7 @@ import type { AdminSidebarProps } from "$lib/components/pages/admin/sidebar/type
 
 export type {
     AdminSidebarProps,
+    AdminSectionCardsProps,
 
     GridProps,
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */
@@ -389,11 +396,16 @@ export type {
     AdminSectionProps,
     /** Item do menu de navegação da AdminSection. @see AdminSectionMenuItem */
     AdminSectionMenuItem,
-    /** Card exibido na grade da AdminSection. @see AdminSectionCardProps */
-    AdminSectionCardProps,
+    /** Card exibido na grade da AdminSection. @see AdminSectionCardItProps */
+    AdminSectionCardItProps as AdminSectionCardProps,
 
     /** Props do AdminUserSection — avatar do utilizador com dropdown de perfil no hover. @see AdminUserSectionProps */
     AdminUserSectionProps,
+
+    /** Utilizador autenticado guardado no `userStore` (dados + callbacks do AdminUserSection). @see User */
+    User,
+    /** Store global do utilizador autenticado (utilizador + token JWT). @see UserStore */
+    UserStore,
 
     /** Props do AdminUserProfile — perfil do utilizador admin com avatar, badge, stats e badges. @see AdminUserProfileProps */
     AdminUserProfileProps,

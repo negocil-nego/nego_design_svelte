@@ -1,27 +1,20 @@
-Tens o svg de bandeiras dos páises em "src\lib\assets\flags"
+Nos components SimpleMenuMobile,  ComplexMenuMobile, SimpleMenu, ComplexMenu
 
-E deves criar uma função renderizar a imagem da bandeira em
-src\lib\components\ui\phone-input\phone-input.svelte
-src\lib\components\ui\language-switcher
+devem escutar o novo store user-store.svelte.ts que irás criar de novo que irá serve para guardar
+a informação do utilizador logado tendo a estrutura
+User { id: string?, name?: string, email?: string;  }
 
-ne modo que Tenho ImageFlag como componente que irá funcionar conforme o ImageHugeicons, ImageSvgAnimate,
-onde posso passar uma key que o código iso do país para ele renderizar a imagem da bandeira.
-O ImageFlag terá opção dimension tendo o valor "1x1", "4x3", por default será "4x3"
-como esta na pasta o src\lib\assets\flags
-
-Neste componente para ele deves colocar as bandeiras com base a línguas oficial dos paises que tens em 
-src\lib\assets\flags, como exemplo, br(Brasil), ao(Angola), pt(Portugal) como falam as mesma língua oficial que o português
-posso deixar apenas uma bandeira de Portugual que o pais é mais conhecido, em pt(Portugal) na língua,
-a mesma analogia para os países que falam a mesma língua deves aplicar esta lógica
-src\lib\components\ui\language-switcher
-
-Também irás criar um novo store em "src\lib\stores" o store languageStore de modo que se língua mudar o store 
-atualiza na aplicação toda, ou seja, o store irá mudar a língua e o svelte vai atualiza a aplicação.
-
-Também irás criar um novo store em "src\lib\stores" o store themeStore para informa na aplicação que tema 
-mudou "src\lib\components\ui\theme-switch".
-
-os novos stores irás colocar os arquivos deves exportar no arquivo "src\lib\stores\index.ts".
+E o componente que trabalha com a (export interface NavMenuButtonProps {
+    buttonClass?: string
+    textButtonLogin?: string
+    textButtonRegister?: string
+    /** Callback ao clicar no botão Login */
+    onclickButtonLogin?: () => void
+    /** Callback ao clicar no botão Registar */
+    onclickButtonRegister?: () => void
+}) deves fazer que quando "user-store.svelte.ts", informa que tem um utilizador e deves usar
+o componente AdminUserSection, para apresentar o utilizador logado, fazer desaparecer os butões
+onclickButtonLogin, onclickButtonRegister
 
 E deves fazer a documentação dos novos componentes na página "src/routes/docs/+page.svelte"
 e actualizar o "src/lib/docs/DocsSidebar.svelte"

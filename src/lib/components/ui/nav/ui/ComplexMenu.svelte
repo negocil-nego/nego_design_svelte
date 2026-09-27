@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { isLoggedIn } from "$lib/stores";
   import type { ComplexMenuProps } from "../data/types";
   import {
     isCard,
@@ -12,9 +13,18 @@
   import NavigationMenuItem from "./shared/navigation/NavigationMenuItem.svelte";
   import NavigationMenuItemList from "./shared/navigation/NavigationMenuItemList.svelte";
   import NavigationMenuItems from "./shared/navigation/NavigationMenuItems.svelte";
+  import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUserSection.svelte";
 
-  let { menus, textClass, subTextClass, hoverClass, isLoading = false }: ComplexMenuProps =
-    $props();
+  let {
+    menus,
+    textClass,
+    subTextClass,
+    hoverClass,
+    isLoading = false,
+    showUserSection = true,
+  }: ComplexMenuProps = $props();
+
+  const isLogged = $derived(isLoggedIn());
 </script>
 
 <ul
@@ -52,3 +62,7 @@
     {/if}
   {/each}
 </ul>
+
+{#if showUserSection && isLogged}
+  <AdminUserSection className="ms-auto" />
+{/if}
