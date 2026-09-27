@@ -3,7 +3,7 @@ import { renderComponent, renderSnippet } from "$lib/components/ui/data-table"
 import { createRawSnippet } from "svelte"
 import { SvelteMap } from "svelte/reactivity"
 import { Badge } from "$lib/components/ui/badge"
-import { resolveCell } from "./resolve-cell.svelte"
+import { resolveCell, type ConfigCell } from "./resolve-cell.svelte"
 
 type BadgeConfig = {
     className?: string
@@ -11,12 +11,22 @@ type BadgeConfig = {
     label?: string
 }
 
+/**
+ * Renderizador de célula com suporte a badges.
+ *
+ * A chave do valor na linha vem do `cell` quando é string e, caso contrário,
+ * do `fallbackKey` (o `accessorKey` da coluna) — assim uma coluna pode
+ * definir apenas `{ accessorKey: "status", badge: [...] }` ou usar
+ * `cell: null` sem perder os badges.
+ */
 export function resolveCellBadge<T>(
-    configCell: string | ((context: CellContext<T, unknown>) => unknown),
+    configCell?: ConfigCell<T>,
     badge?: BadgeConfig[],
+    fallbackKey?: string,
 ): (context: CellContext<T, unknown>) => unknown {
-    if (typeof configCell === "string" && badge && badge.length > 0) {
-        const key = configCell;
+    const key = typeof configCell === "string" ? configCell : fallbackKey;
+
+    if (key && badge && badge.length > 0) {
         const badgeMap = new SvelteMap(badge.map((b) => [b.value, b]));
 
         return ({ row }: CellContext<T, unknown>) => {
@@ -44,5 +54,5 @@ export function resolveCellBadge<T>(
         };
     }
 
-    return resolveCell(configCell);
+    return resolveCell(configCell, fallbackKey);
 }

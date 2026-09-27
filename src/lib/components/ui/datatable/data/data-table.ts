@@ -15,8 +15,8 @@ export interface DataTableItem<T = unknown> {
         accessorKey: string
         /** Cabeçalho da coluna: string estática ou função que renderiza componente customizado */
         header: string | ((context: HeaderContext<T, unknown>) => unknown)
-        /** Conteúdo da célula: string (valor simples) ou função que renderiza componente customizado */
-        cell: string | ((context: CellContext<T, unknown>) => unknown)
+        /** Conteúdo da célula: string (chave do valor) ou função que renderiza componente customizado. Aceita `null`/`undefined` para renderizar o valor bruto ou usar `badge` */
+        cell?: string | ((context: CellContext<T, unknown>) => unknown) | null
         /** Habilita/desabilita ordenação nesta coluna */
         enableSorting?: boolean
         /** Habilita/desabilita ocultação da coluna */

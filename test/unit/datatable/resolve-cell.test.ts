@@ -24,4 +24,20 @@ describe('resolveCell', () => {
 		const resolver = resolveCell<{ name: string }>(custom);
 		expect(resolver).toBe(custom);
 	});
+
+	it('uses the fallback key when the cell is null', () => {
+		const resolver = resolveCell<{ name: string }>(null, 'name');
+		const result = resolver(ctx);
+
+		expect(result).toBeInstanceOf(RenderSnippetConfig);
+		expect((result as RenderSnippetConfig<{ value: string }>).params.value).toBe('nego');
+	});
+
+	it('falls back to the column value when the cell and the key are empty', () => {
+		const resolver = resolveCell<{ name: string }>(null);
+		const result = resolver({ ...ctx, getValue: () => 'nego' });
+
+		expect(result).toBeInstanceOf(RenderSnippetConfig);
+		expect((result as RenderSnippetConfig<{ value: string }>).params.value).toBe('nego');
+	});
 });

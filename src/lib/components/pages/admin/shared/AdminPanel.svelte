@@ -41,6 +41,8 @@
         </div>
       </div>
     </header>
-    {@render content?.()}
+    <div class="p-2">
+      {@render content?.()}
+    </div>
   </Sidebar.Inset>
 </Sidebar.Provider>

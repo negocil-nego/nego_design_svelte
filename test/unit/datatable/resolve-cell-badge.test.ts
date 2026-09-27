@@ -54,4 +54,23 @@ describe('resolveCellBadge', () => {
 		const resolver = resolveCellBadge<{ status: string }>('status');
 		expect(resolver(makeCtx('active'))).toBeInstanceOf(RenderSnippetConfig);
 	});
+
+	it('matches badges using the fallback key when the cell is null', () => {
+		const resolver = resolveCellBadge<{ status: string }>(null, badgeConfig, 'status');
+		const result = resolver(makeCtx('active'));
+
+		expect(result).toBeInstanceOf(RenderComponentConfig);
+		const config = result as RenderComponentConfig<typeof Badge>;
+		expect(config.component).toBe(Badge);
+		expect(config.props.class).toBe('bg-green-500');
+	});
+
+	it('renders the column value when neither the cell nor a key are provided', () => {
+		const resolver = resolveCellBadge<{ status: string }>(null);
+		const ctx = { ...makeCtx('active'), getValue: () => 'active' };
+		const result = resolver(ctx);
+
+		expect(result).toBeInstanceOf(RenderSnippetConfig);
+		expect((result as RenderSnippetConfig<{ value: string }>).params.value).toBe('active');
+	});
 });

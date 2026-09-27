@@ -1,8 +1,8 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Collapsible from "$lib/components/ui/collapsible/index.js";
   import * as Sidebar from "$lib/components/ui/sidebar/index.js";
-      import type {
+  import type {
     NavMenuAndSubmenuSidebarProps,
     NavMenuItem,
     NavMenuSidebarProps,
@@ -38,10 +38,15 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             {#snippet child({ props })}
               <Sidebar.MenuButton {...props} tooltipContent={item.title}>
                 {#if item.icon}
-                  <ImageHugeicons icon={item.icon} />
+                  <ImageHugeicons icon={item.icon} width={10} height={10} />
                 {/if}
                 <span>{item.title}</span>
-                <ImageHugeicons icon="chevron-right" class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                <ImageHugeicons
+                  icon="chevron-right"
+                  width={10}
+                  height={10}
+                  class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
+                />
               </Sidebar.MenuButton>
             {/snippet}
           </Collapsible.Trigger>

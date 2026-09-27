@@ -26,6 +26,7 @@
     import DataTableListFilter from "./DataTableListFilter.svelte";
     import DataTableContent from "./DataTableContent.svelte";
     import DataTableListPagination from "./DataTableListPagination.svelte";
+    import { resolveCell } from "../data/resolve-cell.svelte.ts";
 
     /**
      * Generic data table with pagination, sorting, and filtering.
@@ -34,7 +35,12 @@
      * @property {Component} actions - Per-row actions component
      * @property {T[]} items - Table data
      */
-    let { config, columnFilter, actions, items = [] }: DataTableItem<T> = $props();
+    let {
+        config,
+        columnFilter,
+        actions,
+        items = [],
+    }: DataTableItem<T> = $props();
 
     let columns: ColumnDef<T>[] = $derived([
         createDragColumn<T>(),
@@ -42,17 +48,22 @@
         ...config.map((it) => ({
             accessorKey: it.accessorKey,
             header: resolveHeader(it.header),
-            cell: resolveCellBadge(it.cell, it.badge),
+            cell: it.cell
+                ? resolveCell(it.cell)
+                : resolveCellBadge(it.cell, it.badge, it.accessorKey),
             enableSorting: it.enableSorting,
             enableHiding: it.enableHiding,
         })),
         ...(actions
-            ? [{
-                  id: "actions",
-                  cell: (ctx: CellContext<T, unknown>) => renderComponent(actions, ctx as unknown),
-                  enableSorting: false,
-                  enableHiding: false,
-              } satisfies ColumnDef<T>]
+            ? [
+                  {
+                      id: "actions",
+                      cell: (ctx: CellContext<T, unknown>) =>
+                          renderComponent(actions, ctx as unknown),
+                      enableSorting: false,
+                      enableHiding: false,
+                  } satisfies ColumnDef<T>,
+              ]
             : []),
     ]);
 
@@ -101,7 +112,8 @@
             onSortingChange: (
                 updater: SortingState | ((arg0: SortingState) => SortingState),
             ) => {
-                sorting = typeof updater === "function" ? updater(sorting) : updater;
+                sorting =
+                    typeof updater === "function" ? updater(sorting) : updater;
                 return sorting;
             },
             onColumnFiltersChange: (
