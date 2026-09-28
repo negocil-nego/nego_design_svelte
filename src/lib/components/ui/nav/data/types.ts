@@ -6,6 +6,7 @@ export type ListItemProps = HTMLAttributes<HTMLAnchorElement> & {
     href: string;
     content: string;
     icon?: string;
+    image?: string | null;
 }
 
 export type NavigationMenuItemProps = {

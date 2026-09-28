@@ -26,7 +26,7 @@
 <NavDropdown {label} {hoverClass} {isLoading}>
   {#if items}
     <ul
-      class={`grid w-75 gap-2 p-2 sm:w-100 md:w-125 lg:min-w-150 max-h-75 overflow-y-auto ${gridCols}`}
+      class={`grid w-75 gap-2 p-2 sm:p-3 xl:p-4 md:w-100 lg:min-w-150 max-h-75 overflow-y-auto ${gridCols}`}
     >
       {#each items as item, i (i)}
         <MenuListItem {...item} {textClass} {subTextClass} />
