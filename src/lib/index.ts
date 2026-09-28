@@ -42,6 +42,7 @@ import CarouselGridMedia from "$lib/components/ui/carousel/core/grid/media/ui/Ca
 import CarouselPromotion from "$lib/components/ui/carousel/core/promotion/ui/CarouselPromotion.svelte";
 import CarouselMedia from "$lib/components/ui/carousel/core/media/ui/CarouselMedia.svelte";
 import CarouselProfile from "$lib/components/ui/carousel/core/profile/ui/CarouselProfile.svelte";
+import CarouselProduct from "$lib/components/ui/carousel/core/product/ui/CarouselProduct.svelte";
 import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 
@@ -719,6 +720,17 @@ export {
      * @see CarouselMediaProps
      */
     CarouselMedia,
+
+    /**
+     * Carousel horizontal de cards de produtos com header, autoplay,
+     * empty state e loading skeleton. Utiliza o CardProduct como item interno.
+     * @property {CardProductProps[]} items - Cards de produtos
+     * @property {CarouselHeaderProps} headerProps - Cabeçalho do carousel
+     * @property {CarouselSlotProps} slotProps - Configuração do slot
+     * @property {1|2} variant - Variante visual do card
+     * @see CarouselProductProps
+     */
+    CarouselProduct,
 
     /**
      * Carousel horizontal de cards de perfil (organizações/guias) com header, autoplay,

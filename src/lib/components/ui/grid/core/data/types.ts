@@ -10,6 +10,7 @@ export interface ItemGridProps {
     itemClassName?: string;
     descriptionClass?: string;
     icon: string | HugeiconsIconName;
+    image?: string | null;
     onClick?: (id: string | number) => void
 }
 

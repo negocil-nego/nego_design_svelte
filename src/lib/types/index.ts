@@ -259,6 +259,7 @@ import type {
     UploadFileStatus
 } from "$lib/components/ui/modal/upload/types";
 import type { AdminSidebarProps } from "$lib/components/pages/admin/sidebar/types";
+import type { CarouselProductProps } from "$lib/components/ui/carousel/core/product/types";
 
 export type {
     AdminSidebarProps,
@@ -337,6 +338,8 @@ export type {
     CarouselPromotionProps,
     /** Props do CarouselMedia — carousel de cards de mídia (fotos/vídeos). @see CarouselMediaProps */
     CarouselMediaProps,
+    /** Props do CarouselProduct — carousel de cards de produto. @see CarouselProductProps */
+    CarouselProductProps,
     /** Props do CarouselProfile — carousel de cards de perfil (organizações/guias). @see CarouselProfileProps */
     CarouselProfileProps,
     /** Props do CarouselGridPromotion — grid de cards de produto em promoção. @see CarouselGridPromotionProps */

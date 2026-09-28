@@ -14,17 +14,41 @@
     titleClass,
     itemClassName,
     descriptionClass,
+    image,
     onClick,
   }: ItemGridProps = $props();
+
+  const hasImage = $derived(!!image);
 </script>
 
 <button
   onclick={() => {
     if (id && onClick) onClick(id);
   }}
-  class="flex flex-col justify-center items-center gap-2 border rounded-lg p-2 cursor-pointer {itemClassName}"
+  class="relative overflow-hidden flex flex-col justify-center items-center gap-2 border rounded-lg p-2 cursor-pointer {itemClassName}"
 >
-  <IconRenderGrid {icon} {iconClass} {isLoading} />
-  <TitleGrid {titleClass} {title} {isLoading} />
-  <DescriptionGrid {descriptionClass} {description} {isLoading} />
+  {#if hasImage}
+    <div
+      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+      style="background-image: url('{image}')"
+    ></div>
+    <div
+      class="absolute inset-0 bg-black/40 shadow-[inset_0_0_24px_rgba(0,0,0,0.6)]"
+    ></div>
+  {/if}
+  <div
+    class="relative z-10 flex flex-col justify-center items-center gap-2 w-full {hasImage
+      ? 'text-white'
+      : ''}"
+  >
+    <IconRenderGrid {icon} {iconClass} {isLoading} />
+    <TitleGrid {titleClass} {title} {isLoading} />
+    <DescriptionGrid
+      descriptionClass={hasImage
+        ? `text-white/90! ${descriptionClass ?? ""}`
+        : descriptionClass}
+      {description}
+      {isLoading}
+    />
+  </div>
 </button>
