@@ -63,7 +63,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 		data-slot="dropdown-menu-radio-item-indicator"
 	>
 		{#if isChecked}
-			<ImageHugeicons icon="tick-02" class="size-4" />
+			<ImageHugeicons icon="Tick02Icon" class="size-4" />
 		{/if}
 	</span>
 	{@render children?.()}

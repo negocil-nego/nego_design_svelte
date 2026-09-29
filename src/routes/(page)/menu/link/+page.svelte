@@ -16,26 +16,26 @@
     }}
     navMenu={{
       links: [
-        { label: "Página inicial", url: "/", icon: "home-01" },
+        { label: "Página inicial", url: "/", icon: "Home01Icon" },
         {
           label: "Hospedagem",
           url: "/organization/accommodation",
-          icon: "bed-double",
+          icon: "BedDoubleIcon",
         },
         {
           label: "Restaurantes",
           url: "/organization/restaurants",
-          icon: "rocket-01",
+          icon: "Rocket01Icon",
         },
         {
           label: "Turismo",
           url: "/organization/tourism",
-          icon: "message-01",
+          icon: "Message01Icon",
         },
         {
           label: "Intérprete",
           url: "/interpreter",
-          icon: "user",
+          icon: "UserIcon",
         },
       ],
     }}

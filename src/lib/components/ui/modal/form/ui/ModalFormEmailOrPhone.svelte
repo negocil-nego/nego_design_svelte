@@ -10,6 +10,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     ModalFormEmailOrPhoneProps,
     ModalFormEmailOrPhoneType,
   } from "../types";
+  import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 
   let {
     title,
@@ -105,7 +106,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         />
       {:else}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {#each [{ type: "EMAIL" as const, label: $t("input.email.label") ?? "Email", val: email, icon: "mail-01" }, { type: "PHONE" as const, label: $t("input.phone.label") ?? "Telefone", val: phone, icon: "smart-phone-02" }] as item (item.type)}
+          {#each [{ type: "EMAIL" as const, label: $t("input.email.label") ?? "Email", val: email, icon: "Mail01Icon" as HugeiconsIconName }, { type: "PHONE" as const, label: $t("input.phone.label") ?? "Telefone", val: phone, icon: "SmartPhone02Icon" as HugeiconsIconName }] as item (item.type)}
             {@const isSelected = channel === item.type}
             <button
               type="button"
@@ -120,10 +121,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                     ? 'bg-primary text-primary-foreground'
                     : 'bg-muted text-muted-foreground'}"
                 >
-                  <ImageHugeicons icon={item.icon} width={18} height={18} />
+                  <ImageHugeicons icon={item.icon} class="size-4.5" />
                 </div>
                 {#if isSelected}
-                  <ImageHugeicons icon="checkmark-circle-02" class="size-5 text-primary" />
+                  <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-5 text-primary" />
                 {/if}
               </div>
               <span class="mt-2 text-sm font-semibold">{item.label}</span>
@@ -176,7 +177,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             ></span>
             {finalLoadingText}
           {:else}
-            <ImageHugeicons icon="login-02" width={16} height={16} />
+            <ImageHugeicons icon="Login02Icon" class="size-4" />
             {finalSubmitText}
           {/if}
         </Button>

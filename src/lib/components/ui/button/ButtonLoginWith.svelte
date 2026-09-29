@@ -1,6 +1,6 @@
 <script lang="ts">
 import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
   import Button, {
     type ButtonProps,
   } from "$lib/components/ui/button/button.svelte";
@@ -17,9 +17,9 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
   let { icon, label, ...restProps }: Props & ButtonProps = $props();
 
   const defaultIconMap: Record<IconDefault, HugeiconsIconName> = {
-    GOOGLE: "google",
-    FACEBOOK: "facebook-01",
-    LINKEDLN: "linkedin-01",
+    GOOGLE: "GoogleIcon",
+    FACEBOOK: "Facebook01Icon",
+    LINKEDLN: "Linkedin01Icon",
   };
 
   const defaultLabelMap: Record<IconDefault, string> = {
@@ -46,7 +46,7 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
     {#if typeof resolvedIcon === "function"}
       {@render resolvedIcon()}
     {:else}
-      <ImageHugeicons icon={resolvedIcon} width={16} height={16} />
+      <ImageHugeicons icon={resolvedIcon} class="size-4" />
     {/if}
   {/if}
   {$t("label.login.with", { name: resolvedLabel })}

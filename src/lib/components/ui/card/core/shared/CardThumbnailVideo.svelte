@@ -93,7 +93,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     }}
     aria-label="Maximizar"
   >
-    <ImageHugeicons icon="maximize-screen" width={16} height={16} color="currentColor" />
+    <ImageHugeicons icon="MaximizeScreenIcon" class="size-4 text-current" />
   </button>
 {/snippet}
 
@@ -149,7 +149,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <div
             class="flex h-11 w-11 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm"
           >
-            <ImageHugeicons icon="video-replay" width={22} height={22} color="white" />
+            <ImageHugeicons icon="VideoReplayIcon" class="size-5.5 text-white" />
           </div>
         </div>
         {#if duration}
@@ -186,7 +186,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             onclick={() => (isMaximized = false)}
             aria-label="Fechar"
           >
-            <ImageHugeicons icon="cancel-01" width={20} height={20} color="currentColor" />
+            <ImageHugeicons icon="Cancel01Icon" class="size-5 text-current" />
           </button>
 
           {#if videoUrl && showVideo}

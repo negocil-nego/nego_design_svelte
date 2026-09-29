@@ -35,7 +35,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 							>
 						</div>
 						{#if dropdownMenu}
-							<ImageHugeicons icon="unfold-more" class="ms-auto" />
+							<ImageHugeicons icon="UnfoldMoreIcon" class="ms-auto" />
 						{/if}
 					</Sidebar.MenuButton>
 				{/snippet}

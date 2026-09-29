@@ -33,7 +33,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         <DropdownMenu.Trigger>
             {#snippet child({ props })}
                 <Button {...props} variant="outline" class="ms-auto">
-                    Columns <ImageHugeicons icon="arrow-down-01" class="ms-2 size-4" />
+                    Columns <ImageHugeicons icon="ArrowDown01Icon" class="ms-2 size-4" />
                 </Button>
             {/snippet}
         </DropdownMenu.Trigger>

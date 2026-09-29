@@ -59,7 +59,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                 variant="secondary"
                 class="bg-white/20 text-white hover:bg-white/30"
               >
-                <ImageHugeicons icon="badge-check" />
+                <ImageHugeicons icon="BadgeCheckIcon" />
                 {data.status ?? statusDefault}
               </Badge>
             </div>
@@ -68,12 +68,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             </p>
             <div class="flex items-center gap-4 text-sm text-white/80">
               <span class="flex items-center gap-1.5">
-                <ImageHugeicons icon="mail-01" class="size-4" />
+                <ImageHugeicons icon="Mail01Icon" class="size-4" />
                 {data.email}
               </span>
               {#if data.phone}
                 <span class="flex items-center gap-1.5">
-                  <ImageHugeicons icon="user" class="size-4" />
+                  <ImageHugeicons icon="UserIcon" class="size-4" />
                   {data.phone}
                 </span>
               {/if}

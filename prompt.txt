@@ -1,23 +1,14 @@
-Nos components SimpleMenuMobile,  ComplexMenuMobile, SimpleMenu, ComplexMenu
+Irás eliminar a pasta de assets "src/lib/assets/hugeicons"
+e o componente "src/lib/components/ui/image/ImageHugeicons.svelte"
+de  modo que irás criar um objecto 
+IconData{ className: string, code: string}
+de modo que terás uma lista IconData
+como exemplo
 
-devem escutar o novo store user-store.svelte.ts que irás criar de novo que irá serve para guardar
-a informação do utilizador logado tendo a estrutura
-User { id: string?, name?: string, email?: string;  }
+export items: IconData = [
+    { className: "hgi hgi-stroke hgi-rounded hgi-first-bracket", code: "FirstBracketIcon" },
+    .....
+]
 
-E o componente que trabalha com a (export interface NavMenuButtonProps {
-    buttonClass?: string
-    textButtonLogin?: string
-    textButtonRegister?: string
-    /** Callback ao clicar no botão Login */
-    onclickButtonLogin?: () => void
-    /** Callback ao clicar no botão Registar */
-    onclickButtonRegister?: () => void
-}) deves fazer que quando "user-store.svelte.ts", informa que tem um utilizador e deves usar
-o componente AdminUserSection, para apresentar o utilizador logado, fazer desaparecer os butões
-onclickButtonLogin, onclickButtonRegister
-
-E deves fazer a documentação dos novos componentes na página "src/routes/docs/+page.svelte"
-e actualizar o "src/lib/docs/DocsSidebar.svelte"
-não esquecer de criar um exemplo de como cria uma página de demo que demostra o exemplo
-de utilização do componente "src/routes/(group)" 
-pode ficar em "src/routes/(group)/admin/tabs"
+deves fazer isso para todos icones que estão no arquivo css "/icons.css" de modo ImageHugeicons
+"icon: HugeiconsIconName | string;" o HugeiconsIconName seja o code em "items"

@@ -140,10 +140,7 @@
                     <span
                         class="flex size-16 items-center justify-center rounded-full bg-amber-500/10 sm:size-32"
                     >
-                        <ImageHugeicons
-                            icon="wallet-01"
-                            class="size-8 text-amber-500 sm:size-12"
-                        />
+                        <ImageHugeicons icon="Wallet01Icon" class="size-8 text-amber-500 sm:size-12" />
                     </span>
                 {/snippet}
             </PageStatus>

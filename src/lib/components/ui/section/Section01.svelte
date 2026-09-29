@@ -35,7 +35,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             onclick={onPrev}
             class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:bg-gray-200 transition-colors"
           >
-            <ImageHugeicons icon="arrow-left-01" class="size-5" />
+            <ImageHugeicons icon="ArrowLeft01Icon" class="size-5" />
           </button>
           <div class="flex-1 h-0.5">
             <div class="h-full bg-black w-1/3"></div>
@@ -44,7 +44,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             onclick={onNext}
             class="flex items-center justify-center w-10 h-10 rounded-full border border-gray-300 hover:bg-gray-200 transition-colors"
           >
-            <ImageHugeicons icon="arrow-right-01" class="size-5" />
+            <ImageHugeicons icon="ArrowRight01Icon" class="size-5" />
           </button>
         </div>
       </div>

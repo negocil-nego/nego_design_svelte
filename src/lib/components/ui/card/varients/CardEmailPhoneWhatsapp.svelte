@@ -84,10 +84,7 @@
       </div>
 
       {#if isSelected}
-        <ImageHugeicons
-          icon="checkmark-circle-02"
-          class="size-5 shrink-0 text-primary"
-        />
+        <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-5 shrink-0 text-primary" />
       {/if}
     </button>
   {/each}

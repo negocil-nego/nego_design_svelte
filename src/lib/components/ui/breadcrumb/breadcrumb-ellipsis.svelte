@@ -18,6 +18,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	class={cn("size-5 [&>svg]:size-4 flex items-center justify-center", className)}
 	{...restProps}
 >
-	<ImageHugeicons icon="more-horizontal-circle-01" />
+	<ImageHugeicons icon="MoreHorizontalCircle01Icon" />
 	<span class="sr-only">More</span>
 </span>

@@ -105,7 +105,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 
 <div class="bg-gray-50 dark:bg-background p-4 md:p-6 {className}">
   <h2 class="mb-4 flex items-center gap-2 text-lg font-bold">
-    <ImageHugeicons icon="gallery-thumbnails" />
+    <ImageHugeicons icon="GalleryThumbnailsIcon" />
     {data.title ?? "Galeria"}
   </h2>
 

@@ -68,10 +68,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10 disabled:cursor-not-allowed disabled:opacity-50"
     >
       {#if isLoading}
-        <ImageHugeicons icon="loader-pinwheel" width={16} height={16} color="currentColor" class="animate-spin" />
+        <ImageHugeicons icon="LoaderPinwheelIcon" class="animate-spin size-4 text-current" />
         {locationLoadingText}
       {:else}
-        <ImageHugeicons icon="location-01" width={16} height={16} color="currentColor" />
+        <ImageHugeicons icon="Location01Icon" class="size-4 text-current" />
         {locationText}
       {/if}
     </button>
@@ -90,10 +90,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     class="inline-flex w-full items-center justify-center gap-2 rounded-lg border border-dashed border-primary/50 bg-primary/5 px-6 py-3 text-sm font-semibold text-primary transition hover:bg-primary/10 disabled:cursor-not-allowed disabled:opacity-50"
   >
     {#if isLoading}
-      <ImageHugeicons icon="loader-pinwheel" width={16} height={16} color="currentColor" class="animate-spin" />
+      <ImageHugeicons icon="LoaderPinwheelIcon" class="animate-spin size-4 text-current" />
       {locationLoadingText}
     {:else}
-      <ImageHugeicons icon="location-01" width={16} height={16} color="currentColor" />
+      <ImageHugeicons icon="Location01Icon" class="size-4 text-current" />
       {locationText}
     {/if}
   </button>

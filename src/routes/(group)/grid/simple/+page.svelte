@@ -6,32 +6,32 @@
   isLoading
   items={[
     {
-      icon: "sparkles",
+      icon: "SparklesIcon",
       title: "Café",
       description: "Café com leite e pão de queijo para começar bem o dia",
     },
     {
-      icon: "money-01",
+      icon: "Money01Icon",
       title: "Computador",
       description: "Computador com internet para trabalhar",
     },
     {
-      icon: "smart-phone-02",
+      icon: "SmartPhone02Icon",
       title: "Telefone",
       description: "Telefone com internet para trabalhar",
     },
     {
-      icon: "component",
+      icon: "ComponentIcon",
       title: "Teste",
       description: "Teste com internet para trabalhar",
     },
     {
-      icon: "component",
+      icon: "ComponentIcon",
       title: "Teste",
       description: "Teste com internet para trabalhar",
     },
     {
-      icon: "component",
+      icon: "ComponentIcon",
       title: "Teste",
       description: "Teste com internet para trabalhar",
     },

@@ -1,5 +1,6 @@
 <script lang="ts">
 import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
       import DocsHeader from "$lib/docs/DocsHeader.svelte";
   import CodeBlock from "$lib/docs/CodeBlock.svelte";
 
@@ -13,12 +14,6 @@ import "@tailwindcss/vite";`;
 
   const adminSectionCode = `<script lang="ts">
   import { AdminSection } from "negodesign";
-  import {
-    DashboardSquare01Icon,
-    Money01Icon,
-    Analytics01Icon,
-  } from "@hugeicons/" + "core-free-icons"; // npm i @hugeicons/core-free-icons
-
   let selectedKey = $state<string | number>("overview");${"</" + "script>"}
 
 <AdminSection
@@ -28,15 +23,15 @@ import "@tailwindcss/vite";`;
   onSelect={(id) => console.log("menu", id)}
   onCardClick={(id) => console.log("card", id)}
   menuItems={[
-    { id: "overview", title: "Overview", icon: DashboardSquare01Icon },
-    { id: "revenue", title: "Revenue", icon: Money01Icon },
-    { id: "analytics", title: "Analytics", icon: Analytics01Icon },
+    { id: "overview", title: "Overview", icon: "DashboardSquare01Icon" },
+    { id: "revenue", title: "Revenue", icon: "Money01Icon" },
+    { id: "analytics", title: "Analytics", icon: "Analytics01Icon" },
   ]}
   cards={[
     {
       id: 1,
       menuId: "overview",
-      icon: Money01Icon,
+      icon: "Money01Icon",
       value: "$84k",
       title: "Gross revenue",
       description: "Last 30 days",
@@ -44,7 +39,7 @@ import "@tailwindcss/vite";`;
     {
       id: 2,
       menuId: "analytics",
-      icon: Analytics01Icon,
+      icon: "Analytics01Icon",
       value: "12.4k",
       title: "Total visits",
       description: "+8% vs last week",
@@ -592,42 +587,42 @@ ${"</" + "script>"}
 
   const features = [
     {
-      icon: "sparkles",
+      icon: "SparklesIcon",
       title: "Copy-paste components",
       description:
         "Reusable, dependency-free components under your control. Use them as a package or copy the source.",
     },
     {
-      icon: "app-window",
+      icon: "AppWindowIcon",
       title: "Build on Svelte 5",
       description:
         "Runes-based components with snippets, bindable props and reactive state — no deprecated legacy APIs.",
     },
     {
-      icon: "rocket-01",
+      icon: "Rocket01Icon",
       title: "Tailwind CSS ready",
       description:
         "Powered by Tailwind CSS v4 utilities and the shadcn design language, so it fits any brand instantly.",
     },
     {
-      icon: "global",
+      icon: "GlobalIcon",
       title: "i18n first",
       description:
         "Built-in language switcher and translation helpers for building truly multilingual products.",
     },
     {
-      icon: "moon-02",
+      icon: "Moon02Icon",
       title: "Dark mode",
       description:
         "Light switch and theme-aware classes out of the box, with CSS variables you can override.",
     },
     {
-      icon: "lock-password",
+      icon: "LockPasswordIcon",
       title: "Pages, not just widgets",
       description:
         "Complete, production-ready pages: login, admin panel, company profile, product details, and more.",
     },
-  ];
+  ] satisfies { icon: HugeiconsIconName; title: string; description: string }[];
 </script>
 
 <svelte:head>
@@ -645,7 +640,7 @@ ${"</" + "script>"}
     <span
       class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
     >
-      <ImageHugeicons icon="sparkles" class="size-4" />
+      <ImageHugeicons icon="SparklesIcon" class="size-4" />
       NegoDesign
     </span>
     <h1 class="mt-4 text-3xl font-extrabold tracking-tight md:text-5xl">
@@ -664,7 +659,7 @@ ${"</" + "script>"}
         href="/docs/installation"
         class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
       >
-        <ImageHugeicons icon="rocket-01" class="size-4" />
+        <ImageHugeicons icon="Rocket01Icon" class="size-4" />
         Get started
       </a>
       <a
@@ -672,7 +667,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold transition hover:bg-muted"
       >
         Browse components
-        <ImageHugeicons icon="arrow-right-01" class="size-4" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
       </a>
     </div>
 
@@ -687,7 +682,7 @@ ${"</" + "script>"}
       </div>
       <div class="rounded-xl border border-border bg-muted/40 p-5 md:col-span-3">
         <div class="flex items-center gap-2 text-sm font-medium">
-          <ImageHugeicons icon="sparkles" class="size-4 text-primary" />
+          <ImageHugeicons icon="SparklesIcon" class="size-4 text-primary" />
           Copy-paste friendly
         </div>
         <p class="mt-2 text-sm text-muted-foreground">
@@ -715,7 +710,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
       >
         View all
-        <ImageHugeicons icon="arrow-right-01" class="size-4" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
       </a>
     </div>
     <div class="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -739,14 +734,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
       >
         Docs
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
       <a
         href="/admin/section"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -780,7 +775,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -838,7 +833,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -903,7 +898,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -932,14 +927,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
       >
         Docs
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
       <a
         href="/status"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -1010,7 +1005,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -1035,7 +1030,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -1076,7 +1071,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -1099,7 +1094,7 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -1122,14 +1117,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
       >
         Docs
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
       <a
         href="/stores"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -1303,14 +1298,14 @@ ${"</" + "script>"}
         class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary hover:bg-primary/20"
       >
         Docs
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
       <a
         href="/admin/tabs/menu"
         class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
       >
         Live demo
-        <ImageHugeicons icon="arrow-right-01" class="size-3" />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
       </a>
     </div>
     <p class="mt-2 text-sm text-muted-foreground">

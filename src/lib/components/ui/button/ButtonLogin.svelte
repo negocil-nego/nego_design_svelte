@@ -13,6 +13,6 @@
   {...restProps}
   disabled={isLoading}
 >
-  <IconRender icon="login-02" width={16} height={16} class="text-white" />
+  <IconRender icon="Login02Icon" class="size-4 text-white" />
   {$t("label.login")}
 </Button>

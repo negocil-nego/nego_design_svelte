@@ -36,7 +36,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   <div class="flex items-center relative w-full">
     {#if isIcon && currentIcon}
       <span class="absolute left-3 flex items-center pointer-events-none">
-        <ImageHugeicons icon={currentIcon} width={16} height={16} color="#94a3b8" />
+        <ImageHugeicons icon={currentIcon} class="size-4 text-slate-400" />
       </span>
     {/if}
 
@@ -56,7 +56,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         class="absolute right-3 flex items-center cursor-pointer z-10 text-slate-400 hover:text-slate-600 focus:outline-none"
         aria-label={showPassword ? "Ocultar senha" : "Ver senha"}
       >
-        <ImageHugeicons icon={showPassword ? "eye-off" : "eye"} width={16} height={16} color="#94a3b8" />
+        <ImageHugeicons icon={showPassword ? "EyeOffIcon" : "EyeIcon"} class="size-4 text-slate-400" />
       </button>
     {/if}
   </div>

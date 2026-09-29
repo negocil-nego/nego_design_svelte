@@ -30,7 +30,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <span
             class="flex size-7 items-center justify-center rounded-lg bg-primary text-primary-foreground"
           >
-            <ImageHugeicons icon="document-code" class="size-4" />
+            <ImageHugeicons icon="DocumentCodeIcon" class="size-4" />
           </span>
           <span class="text-sm font-semibold">NegoDesign</span>
         </a>

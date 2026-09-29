@@ -1,6 +1,6 @@
 <script lang="ts">
   import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-  import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+  import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
   import type { Snippet } from "svelte";
   import { Popover, PopoverTrigger, PopoverContent } from "../../../popover";
   import Calendar from "./Calendar.svelte";
@@ -31,7 +31,7 @@
     max,
     disabled = false,
     isIcon = true,
-    icon = "calendar-03",
+    icon = "Calendar03Icon",
     inputClass,
     onselect,
     children,
@@ -58,7 +58,7 @@
     <span
       class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
     >
-      <ImageHugeicons {icon} width={16} height={16} />
+      <ImageHugeicons {icon} class="size-4" />
     </span>
   {/if}
 
@@ -69,7 +69,7 @@
   <span
     class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
   >
-    <ImageHugeicons icon="calendar-03" width={16} height={16} />
+    <ImageHugeicons icon="Calendar03Icon" class="size-4" />
   </span>
 
   <PopoverContent align="start" side="bottom" class="w-auto p-0">

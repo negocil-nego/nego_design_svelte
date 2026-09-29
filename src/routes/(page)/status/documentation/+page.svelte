@@ -2,6 +2,7 @@
     import CodeBlock from "$lib/docs/CodeBlock.svelte";
     import { PageLoading } from "$lib";
     import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 
     let progress = $state(40);
 
@@ -121,30 +122,30 @@ ${"</" + "script>"}
             title: "Pending",
             badgeClass: "bg-amber-500/10 border-amber-500/30",
             textClass: "text-amber-500",
-            icon: "loader-pinwheel",
+            icon: "LoaderPinwheelIcon",
         },
         {
             href: "/status/blocked",
             title: "Blocked",
             badgeClass: "bg-red-500/10 border-red-500/30",
             textClass: "text-red-500",
-            icon: "cancel-01",
+            icon: "Cancel01Icon",
         },
         {
             href: "/status/recovering",
             title: "Recovering",
             badgeClass: "bg-blue-500/10 border-blue-500/30",
             textClass: "text-blue-500",
-            icon: "refresh",
+            icon: "RefreshIcon",
         },
         {
             href: "/status/custom",
             title: "Custom",
             badgeClass: "bg-primary/10 border-primary/30",
             textClass: "text-primary",
-            icon: "setting-07",
+            icon: "Setting07Icon",
         },
-    ];
+    ] satisfies { href: string; title: string; icon: HugeiconsIconName; textClass: string; badgeClass: string; description?: string }[];
 </script>
 
 <svelte:head>
@@ -159,7 +160,7 @@ ${"</" + "script>"}
     href="/status"
     class="fixed left-4 top-4 z-50 inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3 py-1.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
 >
-    <ImageHugeicons icon="arrow-left-01" class="size-3" />
+    <ImageHugeicons icon="ArrowLeft01Icon" class="size-3" />
     Status
 </a>
 
@@ -174,7 +175,7 @@ ${"</" + "script>"}
                 class="inline-flex items-center gap-1 rounded-full border border-primary/30 bg-primary/10 px-3 py-0.5 text-xs font-semibold text-primary transition hover:bg-primary/20"
             >
                 Live demo
-                <ImageHugeicons icon="arrow-right-01" class="size-3" />
+                <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
             </a>
         </div>
         <p class="mt-2 text-sm text-muted-foreground">
@@ -303,10 +304,7 @@ ${"</" + "script>"}
                     <span
                         class="inline-flex size-10 items-center justify-center rounded-lg {variant.badgeClass}"
                     >
-                        <ImageHugeicons
-                            icon={variant.icon}
-                            class="size-5 {variant.textClass}"
-                        />
+                        <ImageHugeicons icon={variant.icon} class="size-5 {variant.textClass}" />
                     </span>
                     <h3 class="mt-3 font-semibold {variant.textClass}">
                         {variant.title}
@@ -315,10 +313,7 @@ ${"</" + "script>"}
                         class="mt-2 inline-flex items-center gap-1 text-sm font-medium {variant.textClass}"
                     >
                         Ver demo
-                        <ImageHugeicons
-                            icon="arrow-right-01"
-                            class="size-4 transition group-hover:translate-x-1"
-                        />
+                        <ImageHugeicons icon="ArrowRight01Icon" class="size-4 transition group-hover:translate-x-1" />
                     </span>
                 </a>
             {/each}

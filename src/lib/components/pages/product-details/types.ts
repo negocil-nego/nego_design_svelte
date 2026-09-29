@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 
 export interface ProductDetailsFeatureProps {
   icon?: HugeiconsIconName | string;

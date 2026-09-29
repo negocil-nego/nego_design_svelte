@@ -1,6 +1,6 @@
 <script lang="ts">
 import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
       import { t } from "$lib/i18n";
   import Separator from "$lib/components/ui/separator/separator.svelte";
   import type { SocialLoginItem, SocialProvider } from "$lib/components/pages/security/login/types";
@@ -20,9 +20,9 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
   }: Props = $props();
 
   const defaultIcons: Record<SocialProvider, HugeiconsIconName> = {
-    GOOGLE: "google",
-    FACEBOOK: "facebook-01",
-    LINKEDIN: "linkedin-01",
+    GOOGLE: "GoogleIcon",
+    FACEBOOK: "Facebook01Icon",
+    LINKEDIN: "Linkedin01Icon",
   };
 
   const defaultLabels: Record<SocialProvider, string> = {
@@ -55,7 +55,7 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
           class="flex items-center justify-center w-10 h-10 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition-colors"
           aria-label={item.label ?? defaultLabels[item.provider]}
         >
-          <ImageHugeicons icon={item.icon ?? defaultIcons[item.provider]} width={18} height={18} />
+          <ImageHugeicons icon={item.icon ?? defaultIcons[item.provider]} class="size-4.5" />
         </button>
       {:else}
         <button
@@ -63,7 +63,7 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons";
           onclick={item.onclick}
           class="flex items-center justify-center gap-2 flex-1 px-4 py-2.5 rounded-lg border border-gray-200 bg-white hover:bg-gray-50 transition-colors text-sm font-medium text-gray-700"
         >
-          <ImageHugeicons icon={item.icon ?? defaultIcons[item.provider]} width={18} height={18} />
+          <ImageHugeicons icon={item.icon ?? defaultIcons[item.provider]} class="size-4.5" />
           {#if variant === "default"}
             <span>{item.label ?? defaultLabels[item.provider]}</span>
           {/if}

@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 
 /**
  * Props dos botões de acção do NavMenu (Login / Registar).

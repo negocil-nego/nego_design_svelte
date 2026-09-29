@@ -107,13 +107,13 @@
         <DropdownMenu.Group>
           {#if handleProfile}
             <DropdownMenu.Item onclick={handleProfile}>
-              <ImageHugeicons icon="profile-02" width={16} height={16} />
+              <ImageHugeicons icon="Profile02Icon" class="size-4" />
               {$t("label.profile")}
             </DropdownMenu.Item>
           {/if}
           {#if handleSettings}
             <DropdownMenu.Item onclick={handleSettings}>
-              <ImageHugeicons icon="setting-07" width={16} height={16} />
+              <ImageHugeicons icon="Setting07Icon" class="size-4" />
               {$t("label.settings")}
             </DropdownMenu.Item>
           {/if}
@@ -123,7 +123,7 @@
       {/if}
 
       <DropdownMenu.Item onclick={handleLogout}>
-        <ImageHugeicons icon="logout-01" width={16} height={16} />
+        <ImageHugeicons icon="Logout01Icon" class="size-4" />
         {$t("label.logout")}
       </DropdownMenu.Item>
     </DropdownMenu.Content>

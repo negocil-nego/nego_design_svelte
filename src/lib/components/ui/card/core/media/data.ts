@@ -13,15 +13,15 @@ const items: CardMediaProps[] = [
         isFavorite: true,
         tags: [
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Luanda',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Kilamba',
             },
             {
-                icon: "necklace",
+                icon: "NecklaceIcon",
                 text: 'Rua 19',
             },
         ],
@@ -37,19 +37,19 @@ const items: CardMediaProps[] = [
         videoUrl: 'https://www.w3schools.com/html/mov_bbb.mp4',
         tags: [
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Benguela',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Catumbela',
             },
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Luanda',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Kilamba',
             },
         ],
@@ -66,11 +66,11 @@ const items: CardMediaProps[] = [
         isFavorite: true,
         tags: [
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Huíla',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Huíla',
             },
         ],
@@ -87,19 +87,19 @@ const items: CardMediaProps[] = [
         tags: [
 
             {
-                icon: "necklace",
+                icon: "NecklaceIcon",
                 text: 'Rua 19',
             },
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Luanda',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Kilamba',
             },
             {
-                icon: "necklace",
+                icon: "NecklaceIcon",
                 text: 'Rua 19',
             },
         ]

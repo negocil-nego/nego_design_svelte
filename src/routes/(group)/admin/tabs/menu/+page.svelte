@@ -12,6 +12,7 @@
     import ComplexMenu from "$lib/components/ui/nav/ui/ComplexMenu.svelte";
     import SimpleMenuMobile from "$lib/components/ui/nav/ui/mobile/SimpleMenuMobile.svelte";
     import ComplexMenuMobile from "$lib/components/ui/nav/ui/mobile/ComplexMenuMobile.svelte";
+    import type { NavMenuLinksProps } from "$lib/components/ui/nav/data/nav-menu";
 
     const demoUser: User = {
         id: "usr_01",
@@ -23,10 +24,10 @@
         onLogout: () => clearUser(),
     };
 
-    const links = [
-        { label: "Hospedagem", href: "/admin/tabs/menu", icon: "bed-double" },
-        { label: "Voos", href: "/admin/tabs/menu", icon: "rocket-01" },
-        { label: "Tradutores", href: "/admin/tabs/menu", icon: "message-01" },
+    const links: NavMenuLinksProps[] = [
+        { label: "Hospedagem", href: "/admin/tabs/menu", icon: "BedDoubleIcon" },
+        { label: "Voos", href: "/admin/tabs/menu", icon: "Rocket01Icon" },
+        { label: "Tradutores", href: "/admin/tabs/menu", icon: "Message01Icon" },
     ];
 
     const menus = [

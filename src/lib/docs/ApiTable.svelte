@@ -21,7 +21,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <td class="px-3 py-2 font-mono text-xs font-medium text-primary">
             {prop.name}
             {#if prop.required}
-              <ImageHugeicons icon="checkmark-circle-02" class="inline size-3 text-destructive" />
+              <ImageHugeicons icon="CheckmarkCircle02Icon" class="inline size-3 text-destructive" />
             {/if}
           </td>
           <td class="px-3 py-2 font-mono text-xs text-muted-foreground">{prop.type}</td>

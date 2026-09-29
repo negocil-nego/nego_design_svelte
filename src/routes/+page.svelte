@@ -1,11 +1,12 @@
 <script lang="ts">
 import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
     
   const categories = [
     {
       id: "navigation",
       title: "Navigation",
-      icon: "menu-07",
+      icon: "Menu07Icon",
       description: "Menus, navigation bars, headers and search.",
       routes: [
         { href: "/menu", label: "Menu — Complex (mega menu)" },
@@ -16,7 +17,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "hero",
       title: "Hero",
-      icon: "presentation-02",
+      icon: "Presentation02Icon",
       description: "Page heroes, static or fullscreen carousel.",
       routes: [
         { href: "/hero", label: "Simple Hero" },
@@ -28,7 +29,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "sections",
       title: "Sections",
-      icon: "album-01",
+      icon: "Album01Icon",
       description: "Reusable section layouts with titles, descriptions, grids and images.",
       routes: [
         { href: "/section/01", label: "Section01 — Cards with navigation" },
@@ -39,7 +40,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "banners",
       title: "Banners",
-      icon: "album-01",
+      icon: "Album01Icon",
       description: "Campaign, ad and call-to-action banners.",
       routes: [
         { href: "/banner", label: "CTA & Notification Banners" },
@@ -50,7 +51,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "cards",
       title: "Cards",
-      icon: "link-01",
+      icon: "Link01Icon",
       description: "Media, profile, product and promotion cards.",
       routes: [
         { href: "/card/media", label: "Card Media — variant 2" },
@@ -60,7 +61,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "carousels",
       title: "Carousels",
-      icon: "dashboard-circle-add",
+      icon: "DashboardCircleAddIcon",
       description: "Badges, highlights, promotions and responsive grids.",
       routes: [
         { href: "/carousel/badge", label: "Badge Carousel" },
@@ -75,7 +76,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "grid",
       title: "Item Grid",
-      icon: "grid-table",
+      icon: "GridTableIcon",
       description: "Simple and panel item grids.",
       routes: [
         { href: "/grid/simple", label: "Simple Grid" },
@@ -85,21 +86,21 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "modals",
       title: "Modals",
-      icon: "app-window",
+      icon: "AppWindowIcon",
       description: "Overlay dialogs for selection, share, notification and more.",
       routes: [{ href: "/modal", label: "Modals — all variants" }],
     },
     {
       id: "forms",
       title: "Forms",
-      icon: "form",
+      icon: "FormIcon",
       description: "Responsive forms supporting every input type.",
       routes: [{ href: "/form", label: "Form — 2-column grid" }],
     },
     {
       id: "footer",
       title: "Footer",
-      icon: "logout-01",
+      icon: "Logout01Icon",
       description: "Footers with columns, newsletter and social links.",
       routes: [
         { href: "/footer", label: "Footer — default" },
@@ -110,7 +111,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "admin",
       title: "Admin Panel & Table",
-      icon: "setting-07",
+      icon: "Setting07Icon",
       description: "Admin shell, sidebar and data table.",
       routes: [
         { href: "/admin/01", label: "Admin Panel 01" },
@@ -119,7 +120,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "login",
       title: "Login / Security",
-      icon: "user",
+      icon: "UserIcon",
       description: "Authentication pages with hero carousel.",
       routes: [
         { href: "/login/admin/01", label: "Login — Variant 01 (grid pattern)" },
@@ -133,7 +134,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       id: "pages",
       title: "Full Pages",
-      icon: "file-code",
+      icon: "FileCodeIcon",
       description: "Ready-to-use, production-style pages.",
       routes: [
         { href: "/company-profile", label: "Company Profile" },
@@ -146,7 +147,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         { href: "/profile-user/03", label: "Profile User 03" },
       ],
     },
-  ];
+  ] satisfies { id: string; title: string; icon: HugeiconsIconName; description: string; routes: { href: string; label: string }[] }[];
 
   const totalDemos = categories.reduce((sum, c) => sum + c.routes.length, 0);
 </script>
@@ -168,7 +169,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       <span
         class="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1 text-xs font-semibold uppercase tracking-wider text-primary"
       >
-        <ImageHugeicons icon="rocket-01" class="size-4" />
+        <ImageHugeicons icon="Rocket01Icon" class="size-4" />
         Svelte 5 • Tailwind CSS • shadcn style
       </span>
       <h1 class="mt-5 text-4xl font-extrabold tracking-tight md:text-6xl">
@@ -184,21 +185,21 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           href="/docs"
           class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-2.5 text-sm font-semibold text-primary-foreground transition hover:opacity-90"
         >
-          <ImageHugeicons icon="document-code" class="size-4" />
+          <ImageHugeicons icon="DocumentCodeIcon" class="size-4" />
           Read the docs
         </a>
         <a
           href="/docs/components"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold transition hover:bg-muted"
         >
-          <ImageHugeicons icon="component" class="size-4" />
+          <ImageHugeicons icon="ComponentIcon" class="size-4" />
           Browse components
         </a>
         <a
           href="#demos"
           class="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-2.5 text-sm font-semibold transition hover:bg-muted"
         >
-          <ImageHugeicons icon="link-01" class="size-4" />
+          <ImageHugeicons icon="Link01Icon" class="size-4" />
           {totalDemos} live demos
         </a>
       </div>
@@ -233,7 +234,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               class="ms-auto hidden items-center gap-1 rounded-lg border border-border px-3 py-1.5 text-sm font-medium transition hover:bg-muted sm:inline-flex"
             >
               Docs
-              <ImageHugeicons icon="arrow-right-01" class="size-4" />
+              <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
             </a>
           </header>
           <div class="flex flex-wrap gap-2 p-6">
@@ -242,7 +243,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                 href={route.href}
                 class="inline-flex items-center gap-2 rounded-full border border-border bg-background px-4 py-1.5 text-sm font-medium transition hover:border-primary/50 hover:bg-primary/10 hover:text-primary"
               >
-                <ImageHugeicons icon="link-01" class="size-3.5" />
+                <ImageHugeicons icon="Link01Icon" class="size-3.5" />
                 {route.label}
               </a>
             {/each}

@@ -64,11 +64,10 @@ Or from your root layout:
 ```svelte
 <script lang="ts">
   import { Menu } from "negodesign";
-  import { Home01Icon, Hotel01Icon } from "@hugeicons/core-free-icons";
 
   const links = [
-    { label: "Home", url: "/", icon: Home01Icon },
-    { label: "Accommodation", url: "/accommodation", icon: Hotel01Icon },
+    { label: "Home", url: "/", icon: "Home01Icon" },
+    { label: "Accommodation", url: "/accommodation", icon: "Hotel01Icon" },
   ];
 </script>
 

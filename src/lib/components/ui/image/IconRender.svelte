@@ -1,29 +1,22 @@
 <script lang="ts">
-  import { hugeiconsIcons } from "$lib/components/ui/image/hugeicons-icons";
+  import { icons } from "$lib/components/ui/image/icons";
   import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-  import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
+  import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
+  import { cn } from "$lib/utils.js";
 
   let {
     icon,
     class: className = "",
-    width,
-    height,
   }: {
     icon: string | HugeiconsIconName;
     class?: string;
-    width?: number;
-    height?: number;
   } = $props();
 
-  const isHugeiconsKey = $derived(
-    typeof icon === "string" && icon in hugeiconsIcons,
-  );
+  const isHugeiconsIcon = $derived(icon in icons);
 </script>
 
-{#if isHugeiconsKey}
-  <ImageHugeicons {icon} {width} {height} class={className} />
-{:else if typeof icon === "string"}
-  <i class="{icon} {className}"></i>
+{#if isHugeiconsIcon}
+  <ImageHugeicons icon={icon as HugeiconsIconName} class={className} />
 {:else}
-  <ImageHugeicons {icon} {width} {height} class={className} />
+  <i class={cn("hgi", icon, className)}></i>
 {/if}

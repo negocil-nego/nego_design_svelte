@@ -1,3 +1,5 @@
+import type { HugeiconsIconName } from "./icons";
+
 export interface ImageLogoProps {
     src?: string
     alt?: string
@@ -6,10 +8,7 @@ export interface ImageLogoProps {
 }
 
 export interface ImageHugeiconsProps {
-    icon: string
+    icon: HugeiconsIconName
     class?: string
-    alt?: string
-    width?: number
-    height?: number
     [key: string]: unknown
 }

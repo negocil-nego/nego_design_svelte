@@ -31,6 +31,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	}}
 	{...restProps}
 >
-	<ImageHugeicons icon="sidebar-left" />
+	<ImageHugeicons icon="SidebarLeftIcon" />
 	<span class="sr-only">Toggle Sidebar</span>
 </Button>

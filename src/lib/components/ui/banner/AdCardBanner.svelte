@@ -29,7 +29,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       class="flex w-28 shrink-0 flex-col justify-center gap-1 {tagBgClass ||
         'bg-blue-400'} px-3 py-2 sm:w-32"
     >
-      <ImageHugeicons icon="advertisiment" width={30} height={30} color="#ffffff" />
+      <ImageHugeicons icon="AdvertisimentIcon" class="size-[30px] text-white" />
       <p
         class={`text-sm leading-tight font-bold ${tagTextClass || "text-[#dce9e7]"}`}
       >

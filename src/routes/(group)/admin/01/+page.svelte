@@ -14,33 +14,33 @@
                 },
             }}
             menus={[
-                { icon: "home-01", title: $t("label.home"), url: "#" },
+                { icon: "Home01Icon", title: $t("label.home"), url: "#" },
                 {
-                    icon: "user-search-01",
+                    icon: "UserSearch01Icon",
                     title: $t("label.users"),
                     url: "#",
                 },
                 {
-                    icon: "manager",
+                    icon: "ManagerIcon",
                     title: $t("label.manager"),
                     submenus: [
                         {
-                            icon: "global-editing",
+                            icon: "GlobalEditingIcon",
                             title: $t("label.folder"),
                             url: "#",
                         },
                         {
-                            icon: "folder-01",
+                            icon: "Folder01Icon",
                             title: $t("label.file"),
                             url: "#",
                         },
-                        { icon: "smart-phone-02", title: $t("label.account"), url: "#" },
+                        { icon: "SmartPhone02Icon", title: $t("label.account"), url: "#" },
                     ],
                 },
             ]}
             menusButtons={[
-                { icon: "help-circle", title: $t("label.help") },
-                { icon: "setting-07", title: $t("label.settings") },
+                { icon: "HelpCircleIcon", title: $t("label.help") },
+                { icon: "Setting07Icon", title: $t("label.settings") },
             ]}
         />
     {/snippet}

@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 
 export type { CarouselBadgeProps } from "./badge/type";
 export type { CarouselHeroItem, CarouselHeroProps } from "./hero/types";

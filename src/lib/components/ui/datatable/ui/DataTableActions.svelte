@@ -11,7 +11,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     <DropdownMenu.Trigger>
         {#snippet child({ props })}
             <Button {...props} variant="ghost" class="size-8 p-0">
-                <ImageHugeicons icon="more-horizontal" class="size-4" />
+                <ImageHugeicons icon="MoreHorizontalIcon" class="size-4" />
                 <span class="sr-only">Open menu</span>
             </Button>
         {/snippet}

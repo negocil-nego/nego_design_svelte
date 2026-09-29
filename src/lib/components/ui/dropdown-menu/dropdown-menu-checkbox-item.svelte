@@ -60,9 +60,9 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 		data-slot="dropdown-menu-checkbox-item-indicator"
 	>
 		{#if indeterminate}
-			<ImageHugeicons icon="minus-sign" class="size-4" />
+			<ImageHugeicons icon="MinusSignIcon" class="size-4" />
 		{:else if checked}
-			<ImageHugeicons icon="tick-02" class="size-4" />
+			<ImageHugeicons icon="Tick02Icon" class="size-4" />
 		{/if}
 	</span>
 	{@render children?.()}

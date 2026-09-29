@@ -19,7 +19,7 @@
       onclick={copy}
       class="inline-flex items-center gap-1.5 rounded-md px-2 py-1 text-xs text-muted-foreground transition hover:bg-muted hover:text-foreground"
     >
-      <ImageHugeicons icon="copy" class="size-3.5" />
+      <ImageHugeicons icon="CopyIcon" class="size-3.5" />
       Copy
     </button>
   </div>

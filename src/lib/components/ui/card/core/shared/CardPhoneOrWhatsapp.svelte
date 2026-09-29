@@ -23,7 +23,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         : ''} {buttonClass} {btnEmailClass}"
       onclick={() => onEmailClick?.(id)}
     >
-      <ImageHugeicons icon="mail-01" width={20} height={20} />
+      <ImageHugeicons icon="Mail01Icon" class="size-5" />
       <span>Email</span>
     </button>
   {/if}
@@ -37,7 +37,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         : ''} {buttonClass} {btnWhatsappClass}"
       onclick={() => onWhatsappClick?.(id)}
     >
-      <ImageHugeicons icon="whatsapp" width={20} height={20} />
+      <ImageHugeicons icon="WhatsappIcon" class="size-5" />
       <span>Whatsapp</span>
     </button>
   {/if}

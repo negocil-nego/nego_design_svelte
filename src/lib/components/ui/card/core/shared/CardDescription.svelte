@@ -27,7 +27,7 @@
   {#if isDescriptionLabel}
     <div class="mb-1 text-[14px] md:text-[15px] flex items-center gap-1">
       {#if isDescriptionIcon}
-        <ImageHugeicons icon="message-01" class="h-4 w-4" />
+        <ImageHugeicons icon="Message01Icon" class="size-4" />
       {/if}
       <div>{$t("label.description")}</div>
     </div>

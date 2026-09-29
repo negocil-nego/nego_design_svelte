@@ -14,9 +14,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: "global", text: "Luanda" },
-      { icon: "map-pinned", text: "Ilha do Cabo" },
-      { icon: "necklace", text: "Frente ao Mar" },
+      { icon: "GlobalIcon", text: "Luanda" },
+      { icon: "MapPinnedIcon", text: "Ilha do Cabo" },
+      { icon: "NecklaceIcon", text: "Frente ao Mar" },
     ],
   },
   {
@@ -33,9 +33,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: "global", text: "Luanda" },
-      { icon: "map-pinned", text: "Miramar" },
-      { icon: "necklace", text: "Executivo" },
+      { icon: "GlobalIcon", text: "Luanda" },
+      { icon: "MapPinnedIcon", text: "Miramar" },
+      { icon: "NecklaceIcon", text: "Executivo" },
     ],
   },
   {
@@ -52,9 +52,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: "global", text: "Benguela" },
-      { icon: "map-pinned", text: "Baía Farta" },
-      { icon: "necklace", text: "Spa & Lazer" },
+      { icon: "GlobalIcon", text: "Benguela" },
+      { icon: "MapPinnedIcon", text: "Baía Farta" },
+      { icon: "NecklaceIcon", text: "Spa & Lazer" },
     ],
   },
   {
@@ -71,9 +71,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: "global", text: "Huambo" },
-      { icon: "map-pinned", text: "Centro" },
-      { icon: "necklace", text: "Urbano" },
+      { icon: "GlobalIcon", text: "Huambo" },
+      { icon: "MapPinnedIcon", text: "Centro" },
+      { icon: "NecklaceIcon", text: "Urbano" },
     ],
   },
   {
@@ -90,9 +90,9 @@ const items: CardProductProps[] = [
     onClickShop: (id: string | number) => alert(`Adicionar ao carrinho ${id}`),
     isCart: true,
     tags: [
-      { icon: "global", text: "Namibe" },
-      { icon: "map-pinned", text: "Praia Amélia" },
-      { icon: "necklace", text: "Boutique" },
+      { icon: "GlobalIcon", text: "Namibe" },
+      { icon: "MapPinnedIcon", text: "Praia Amélia" },
+      { icon: "NecklaceIcon", text: "Boutique" },
     ],
   },
 ];

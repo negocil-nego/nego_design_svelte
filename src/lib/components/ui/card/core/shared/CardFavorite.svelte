@@ -20,13 +20,13 @@
     class="w-8 h-8 rounded-full bg-[#ce2356]"
     onclick={() => onFavoriteClick!(id)}
   >
-    <ImageHugeicons icon="heart-remove" class="dark:text-white" />
+    <ImageHugeicons icon="HeartRemoveIcon" class="dark:text-white" />
   </Button>
 {:else}
   <Button
     class="w-8 h-8 rounded-full bg-[#808080]"
     onclick={() => onFavoriteClick!(id)}
   >
-    <ImageHugeicons icon="heart-add" class="dark:text-white" />
+    <ImageHugeicons icon="HeartAddIcon" class="dark:text-white" />
   </Button>
 {/if}

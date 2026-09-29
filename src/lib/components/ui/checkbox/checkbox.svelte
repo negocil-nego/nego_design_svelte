@@ -72,9 +72,9 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 			class="[&>svg]:size-3.5 grid place-content-center text-current transition-none"
 		>
 			{#if isChecked}
-				<ImageHugeicons icon="tick-02" />
+				<ImageHugeicons icon="Tick02Icon" />
 			{:else if isIndeterminate}
-				<ImageHugeicons icon="minus-sign" />
+				<ImageHugeicons icon="MinusSignIcon" />
 			{/if}
 		</div>
 	{/if}

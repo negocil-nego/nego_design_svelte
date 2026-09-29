@@ -19,19 +19,19 @@
       key: "overview",
       label: "Overview",
       url: "#overview",
-      icon: "dashboard-square-01",
+      icon: "DashboardSquare01Icon",
     },
     {
       key: "revenue",
       label: "Revenue",
       url: "#revenue",
-      icon: "money-01",
+      icon: "Money01Icon",
     },
     {
       key: "analytics",
       label: "Analytics",
       url: "#analytics",
-      icon: "analytics-01",
+      icon: "Analytics01Icon",
     },
   ];
 
@@ -39,7 +39,7 @@
     {
       id: 1,
       menuId: "overview",
-      icon: "user-multiple",
+      icon: "UserMultipleIcon",
       value: "2.450",
       title: "Total clients",
       iconClass: "bg-red-900/70 rounded-full! text-white",
@@ -47,7 +47,7 @@
     {
       id: 2,
       menuId: "overview",
-      icon: "shopping-basket-01",
+      icon: "ShoppingBasket01Icon",
       value: "8.320",
       title: "Orders",
       iconClass: "bg-lime-900/70 rounded-full! text-white",
@@ -55,7 +55,7 @@
     {
       id: 3,
       menuId: "revenue",
-      icon: "wallet-01",
+      icon: "Wallet01Icon",
       value: "$84.120",
       title: "Gross revenue",
       iconClass: "bg-yellow-900/70 rounded-full! text-white",
@@ -63,7 +63,7 @@
     {
       id: 4,
       menuId: "revenue",
-      icon: "payment-01",
+      icon: "Payment01Icon",
       value: "2.140",
       title: "Payments",
       iconClass: "bg-purple-900/70 rounded-full! text-white",

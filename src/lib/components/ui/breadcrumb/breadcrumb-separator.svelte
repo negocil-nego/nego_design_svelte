@@ -22,6 +22,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	{#if children}
 		{@render children?.()}
 	{:else}
-		<ImageHugeicons icon="arrow-right-01" />
+		<ImageHugeicons icon="ArrowRight01Icon" />
 	{/if}
 </li>

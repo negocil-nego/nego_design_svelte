@@ -106,7 +106,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                   class="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold transition"
                   onclick={onBack}
                 >
-                  <ImageHugeicons icon="arrow-left-01" class="size-4" />
+                  <ImageHugeicons icon="ArrowLeft01Icon" class="size-4" />
                   {backText}
                 </button>
               {/if}
@@ -117,7 +117,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                 onclick={onContinue}
               >
                 {continueText}
-                <ImageHugeicons icon="arrow-right-01" class="size-4" />
+                <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
               </button>
             </div>
           </div>

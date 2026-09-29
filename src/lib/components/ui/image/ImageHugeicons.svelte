@@ -1,69 +1,32 @@
 <script lang="ts">
-  import { hugeiconsIcons } from "./hugeicons-icons";
-  import type { HugeiconsIconName } from "./hugeicons-icons";
+  import { defaultIcon, icons } from "./icons";
+  import type { HugeiconsIconName } from "./icons";
   import { cn } from "$lib/utils.js";
 
   let {
     icon,
     class: className = "",
-    alt,
-    width = 20,
-    height = 20,
     ...rest
   }: {
-    icon: HugeiconsIconName | string;
+    icon: HugeiconsIconName;
     class?: string;
-    alt?: string;
-    width?: number;
-    height?: number;
     [key: string]: unknown;
   } = $props();
 
-  const hasDarkWhite = $derived(
-    className?.includes("dark:text-white") ||
-      className?.includes("dark:text-white!"),
-  );
+  const iconClass = $derived(icons[icon] ?? icons[defaultIcon]);
 
-  const hasWhite = $derived(
-    className?.includes("text-white") || className?.includes("text-white!"),
-  );
-
-  const imgClasses = $derived(
-    cn(
-      className
-        ?.replace(/dark:text-\S+/g, "")
-        .replace(/text-\S+/g, "")
-        .trim(),
-    ),
-  );
-
-  const iconSrc = $derived(
-    hugeiconsIcons[icon as HugeiconsIconName] ?? hugeiconsIcons["alert-circle"],
-  );
+  const hasSizeClass = $derived(/(?:^|\s)(?:[\w[\].-]+:)*size-/.test(className));
 </script>
 
-{#if iconSrc}
-  <img
-    src={iconSrc}
-    alt={alt ?? icon}
-    class={cn(
-      imgClasses,
-      hasDarkWhite && "hugeicons-dark-white",
-      hasWhite && "hugeicons-white",
-    )}
-    draggable={false}
-    {width}
-    {height}
-    {...rest}
-  />
-{/if}
+<i class={cn(iconClass, hasSizeClass ? className : cn("size-5", className))} {...rest}></i>
 
 <style>
-  :global(html.dark) .hugeicons-dark-white {
-    filter: brightness(0) invert(1) !important;
+  i {
+    display: inline-block;
+    container-type: size;
   }
 
-  :global(.hugeicons-white) {
-    filter: brightness(0) invert(1) !important;
+  i::before {
+    font-size: 100cqh;
   }
 </style>

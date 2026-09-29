@@ -55,7 +55,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                   class="inline-flex items-center gap-2 text-sm font-semibold mt-2 hover:opacity-80 transition-opacity"
                 >
                   {feature.linkLabel ?? "Learn More"}
-                  <ImageHugeicons icon="arrow-right-01" class="size-4" />
+                  <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
                 </a>
               {/if}
             </div>

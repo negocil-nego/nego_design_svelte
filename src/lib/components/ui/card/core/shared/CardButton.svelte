@@ -1,7 +1,7 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
+  import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
   import IconRender from "$lib/components/ui/image/IconRender.svelte";
 
   type CardButtonProps = {

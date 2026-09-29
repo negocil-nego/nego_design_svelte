@@ -33,7 +33,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               <span class="truncate font-medium">{userLogged.user.name}</span>
               <span class="truncate text-xs">{userLogged.user.email}</span>
             </div>
-            <ImageHugeicons icon="unfold-more" width={16} height={16} class="ms-auto" />
+            <ImageHugeicons icon="UnfoldMoreIcon" class="ms-auto size-4" />
           </Sidebar.MenuButton>
         {/snippet}
       </DropdownMenu.Trigger>
@@ -61,7 +61,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         <DropdownMenu.Separator />
         <DropdownMenu.Group>
           <DropdownMenu.Item>
-            <ImageHugeicons icon="sparkles" width={16} height={16} />
+            <ImageHugeicons icon="SparklesIcon" class="size-4" />
             Upgrade to Pro
           </DropdownMenu.Item>
         </DropdownMenu.Group>
@@ -71,7 +71,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <DropdownMenu.Group>
             {#each userLogged.actions as action (action.label)}
               <DropdownMenu.Item onclick={action.onclick}>
-                <ImageHugeicons icon={action.icon} width={16} height={16} />
+                <ImageHugeicons icon={action.icon} class="size-4" />
                 {action.label}
               </DropdownMenu.Item>
             {/each}
@@ -80,7 +80,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 
         <DropdownMenu.Separator />
         <DropdownMenu.Item onclick={userLogged?.onLogout}>
-          <ImageHugeicons icon="logout-01" width={16} height={16} />
+          <ImageHugeicons icon="Logout01Icon" class="size-4" />
           {$t("label.logout")}
         </DropdownMenu.Item>
       </DropdownMenu.Content>

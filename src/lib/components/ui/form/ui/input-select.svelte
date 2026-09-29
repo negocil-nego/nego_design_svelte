@@ -98,7 +98,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         <span
           class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
         >
-          <ImageHugeicons icon="search-01" width={16} height={16} />
+          <ImageHugeicons icon="Search01Icon" class="size-4" />
         </span>
       {/if}
 
@@ -110,13 +110,13 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           onmousedown={(e) => e.preventDefault()}
           onclick={clearSelection}
         >
-          <ImageHugeicons icon="cancel-01" width={16} height={16} />
+          <ImageHugeicons icon="Cancel01Icon" class="size-4" />
         </button>
       {:else}
         <span
           class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
         >
-          <ImageHugeicons icon="chevron-down" width={16} height={16} />
+          <ImageHugeicons icon="ChevronDownIcon" class="size-4" />
         </span>
       {/if}
 
@@ -174,7 +174,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       <span
         class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
       >
-        <ImageHugeicons icon="search-01" width={16} height={16} />
+        <ImageHugeicons icon="Search01Icon" class="size-4" />
       </span>
     {/if}
 
@@ -186,13 +186,13 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         onmousedown={(e) => e.preventDefault()}
         onclick={clearSelection}
       >
-        <ImageHugeicons icon="cancel-01" width={16} height={16} />
+        <ImageHugeicons icon="Cancel01Icon" class="size-4" />
       </button>
     {:else}
       <span
         class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
       >
-        <ImageHugeicons icon="chevron-down" width={16} height={16} />
+        <ImageHugeicons icon="ChevronDownIcon" class="size-4" />
       </span>
     {/if}
 

@@ -1312,7 +1312,6 @@ let isOpen = $state(false);
       {
         title: "Admin Section",
         code: `import { AdminSection } from "negodesign"
-import { DashboardSquare01Icon, Money01Icon, Analytics01Icon } from "@hugeicons/core-free-icons"
 
 let selectedKey = $state<string | number>("overview");
 
@@ -1323,13 +1322,13 @@ let selectedKey = $state<string | number>("overview");
   onSelect={(id) => console.log("menu", id)}
   onCardClick={(id) => console.log("card", id)}
   menuItems={[
-    { id: "overview", title: "Overview", icon: DashboardSquare01Icon },
-    { id: "revenue", title: "Revenue", icon: Money01Icon },
-    { id: "analytics", title: "Analytics", icon: Analytics01Icon },
+    { id: "overview", title: "Overview", icon: "DashboardSquare01Icon" },
+    { id: "revenue", title: "Revenue", icon: "Money01Icon" },
+    { id: "analytics", title: "Analytics", icon: "Analytics01Icon" },
   ]}
   cards={[
-    { id: 1, menuId: "overview", icon: Money01Icon, value: "12.4k", title: "Total visits", description: "+8% vs last week" },
-    { id: 2, menuId: "revenue", icon: Analytics01Icon, value: "$84k", title: "Gross revenue", description: "Last 30 days" },
+    { id: 1, menuId: "overview", icon: "Money01Icon", value: "12.4k", title: "Total visits", description: "+8% vs last week" },
+    { id: 2, menuId: "revenue", icon: "Analytics01Icon", value: "$84k", title: "Gross revenue", description: "Last 30 days" },
   ]}
 />`,
         href: "/admin/section",
@@ -2020,21 +2019,15 @@ let isLoadingPassword = $state(false);
       {
         title: "Tailored Logistics Cards",
         code: `import { Section01 } from "negodesign"
-import {
-  ShoppingBag01Icon,
-  FactoryIcon,
-  Stethoscope02Icon,
-  ComputerNetworkIcon,
-} from "@hugeicons/core-free-icons";
 
 <Section01
   title="Tailored Logistics for Every Business"
   description="At /XION, we understand that every industry has unique logistics challenges."
   items={[
-    { id: "1", icon: ShoppingBag01Icon, title: "Retail & E-commerce", description: "Streamline your fulfillment process." },
-    { id: "2", icon: FactoryIcon, title: "Manufacturing", description: "Optimize your supply chain.", isActive: true },
-    { id: "3", icon: Stethoscope02Icon, title: "Healthcare & Pharmacy", description: "Ensure the safe delivery of products." },
-    { id: "4", icon: ComputerNetworkIcon, title: "Technology & Electronics", description: "Handle high-value, sensitive products." },
+    { id: "1", icon: "ShoppingBag01Icon", title: "Retail & E-commerce", description: "Streamline your fulfillment process." },
+    { id: "2", icon: "FactoryIcon", title: "Manufacturing", description: "Optimize your supply chain.", isActive: true },
+    { id: "3", icon: "Stethoscope02Icon", title: "Healthcare & Pharmacy", description: "Ensure the safe delivery of products." },
+    { id: "4", icon: "ComputerNetworkIcon", title: "Technology & Electronics", description: "Handle high-value, sensitive products." },
   ]}
   onSelect={(id) => console.log(id)}
   onPrev={() => console.log("prev")}
@@ -2106,21 +2099,15 @@ import {
       {
         title: "Solutions Section",
         code: `import { Section03 } from "negodesign"
-import {
-  Globe01Icon,
-  CustomServiceIcon,
-  ArtificialIntelligence02Icon,
-  Award01Icon,
-} from "@hugeicons/core-free-icons";
 
 <Section03
   title="We specialize in providing reliable and efficient solutions"
   description="Whether you need to streamline your supply chain, improve delivery times, or expand your reach globally, we're here to help you achieve your goals with precision and speed."
   items={[
-    { id: "1", icon: Globe01Icon, title: "Global Reach", description: "With a network, we ensure that your business can reach new markets effortlessly." },
-    { id: "2", icon: CustomServiceIcon, title: "Custom Solutions", description: "We don't believe in a one-size-fits-all. We design logistics solutions tailored to your business needs." },
-    { id: "3", icon: ArtificialIntelligence02Icon, title: "Technology-Driven", description: "Our cutting-edge technology enables real-time tracking, data analytics, and seamless coordination." },
-    { id: "4", icon: Award01Icon, title: "Proven Expertise", description: "With over 10 years in the logistics industry, we have mastered the art of moving goods efficiently." },
+    { id: "1", icon: "Globe01Icon", title: "Global Reach", description: "With a network, we ensure that your business can reach new markets effortlessly." },
+    { id: "2", icon: "CustomServiceIcon", title: "Custom Solutions", description: "We don't believe in a one-size-fits-all. We design logistics solutions tailored to your business needs." },
+    { id: "3", icon: "ArtificialIntelligence02Icon", title: "Technology-Driven", description: "Our cutting-edge technology enables real-time tracking, data analytics, and seamless coordination." },
+    { id: "4", icon: "Award01Icon", title: "Proven Expertise", description: "With over 10 years in the logistics industry, we have mastered the art of moving goods efficiently." },
   ]}
 />`,
         href: "/section/03",

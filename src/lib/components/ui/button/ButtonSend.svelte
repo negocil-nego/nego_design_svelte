@@ -9,6 +9,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 </script>
 
 <Button class="w-full flex items-center gap-2" {...restProps}>
-  <ImageHugeicons icon="login-02" width={16} height={16} />
+  <ImageHugeicons icon="Login02Icon" class="size-4" />
   {$t("label.send")}
 </Button>

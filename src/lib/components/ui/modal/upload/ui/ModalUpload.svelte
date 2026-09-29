@@ -128,7 +128,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       />
 
       <div class="mb-3 flex size-12 items-center justify-center rounded-full bg-muted">
-        <ImageHugeicons icon="arrow-down-01" class="size-6 text-muted-foreground" />
+        <ImageHugeicons icon="ArrowDown01Icon" class="size-6 text-muted-foreground" />
       </div>
 
       <p class="text-sm text-foreground">
@@ -208,7 +208,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                     onclick={() => onRetryFile(file.id)}
                     title="Retry"
                   >
-                    <ImageHugeicons icon="refresh" class="size-4" />
+                    <ImageHugeicons icon="RefreshIcon" class="size-4" />
                   </button>
                 {/if}
                 {#if onRemoveFile}
@@ -218,7 +218,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
                     onclick={() => onRemoveFile(file.id)}
                     title="Remove"
                   >
-                    <ImageHugeicons icon="delete-02" class="size-4" />
+                    <ImageHugeicons icon="Delete02Icon" class="size-4" />
                   </button>
                 {/if}
               </div>

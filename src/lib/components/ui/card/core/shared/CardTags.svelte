@@ -31,7 +31,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       : ''} {clasName}"
   >
     {#if tag.icon}
-      <ImageHugeicons icon={tag.icon} class="mr-0.5 h-3.75 w-3.75 shrink-0" />
+      <ImageHugeicons icon={tag.icon} class="mr-0.5 size-3.75 shrink-0" />
     {/if}
     <div class="whitespace-nowrap">{tag.text}</div>
   </div>

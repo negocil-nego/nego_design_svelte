@@ -17,7 +17,7 @@
   class="inline-flex items-center gap-1 text-sm text-slate-600 hover:text-slate-900 transition-colors rounded-full bg-input dark:bg-white"
   {...restProps}
 >
-  <ImageHugeicons icon="arrow-left-01" width={16} height={16} />
+  <ImageHugeicons icon="ArrowLeft01Icon" class="size-4" />
   {#if isLabel}
     <span>{$t("label.back")}</span>
   {:else}

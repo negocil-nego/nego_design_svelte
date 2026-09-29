@@ -16,6 +16,6 @@
 
 <MenuTriggerMobile {...restProps}>
   {#snippet trigger()}
-    <ImageHugeicons icon="menu-07" />
+    <ImageHugeicons icon="Menu07Icon" />
   {/snippet}
 </MenuTriggerMobile>

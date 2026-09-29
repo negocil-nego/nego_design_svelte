@@ -40,8 +40,8 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"generate:hugeicons": "node scripts/generate-hugeicons.mjs",
-		"package": "npm run generate:hugeicons && svelte-kit sync && svelte-package && tailwindcss -i ./src/lib/styles/globals.css -o ./dist/globals.css",
+		"generate:icons": "node scripts/generate-icons.mjs",
+		"package": "npm run generate:icons && svelte-kit sync && svelte-package && tailwindcss -i ./src/lib/styles/globals.css -o ./dist/globals.css",
 		"prepublishOnly": "npm run package",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",

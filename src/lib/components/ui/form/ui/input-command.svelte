@@ -9,7 +9,7 @@
   import EmptyTitle from "../../empty/empty-title.svelte";
   import EmptyDescription from "../../empty/empty-description.svelte";
   import type { Snippet } from "svelte";
-  import type { HugeiconsIconName } from "../../image/hugeicons-icons";
+  import type { HugeiconsIconName } from "../../image/icons";
 
   export type CommandGroup = {
     label: string;
@@ -96,12 +96,7 @@
 <Popover bind:open class="w-full">
   <PopoverTrigger class={cn("w-full", className)}>
     <div class="flex items-center gap-2 w-full">
-      <ImageHugeicons
-        icon="search-01"
-        width={22}
-        height={22}
-        class="text-dark dark:text-white"
-      />
+      <ImageHugeicons icon="Search01Icon" class="text-dark dark:text-white size-5.5" />
       <input
         bind:this={inputRef}
         type="text"
@@ -142,12 +137,7 @@
                   class="flex items-center gap-2 w-full px-2 py-1.5 text-sm rounded-md hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors text-left"
                 >
                   {#if item.icon}
-                    <ImageHugeicons
-                      icon={item.icon}
-                      width={16}
-                      height={16}
-                      color="currentColor"
-                    />
+                    <ImageHugeicons icon={item.icon} class="size-4 text-current" />
                   {/if}
                   <span class="flex-1">{item.label}</span>
                   {#if item.shortcut}
@@ -162,12 +152,7 @@
         {:else if query}
           <Empty class="py-8">
             <div class="rounded-full bg-muted p-3 mb-3">
-              <ImageHugeicons
-                icon="search-01"
-                width={24}
-                height={24}
-                class="text-muted-foreground"
-              />
+              <ImageHugeicons icon="Search01Icon" class="text-muted-foreground size-6" />
             </div>
             <EmptyTitle class="text-sm"
               >{$t("search.input.no_results")}</EmptyTitle
@@ -179,12 +164,7 @@
         {:else}
           <Empty class="py-8">
             <div class="rounded-full bg-muted p-3 mb-3">
-              <ImageHugeicons
-                icon="search-01"
-                width={24}
-                height={24}
-                class="text-muted-foreground"
-              />
+              <ImageHugeicons icon="Search01Icon" class="text-muted-foreground size-6" />
             </div>
             <EmptyTitle class="text-sm"
               >{$t("search.input.type_to_search")}</EmptyTitle

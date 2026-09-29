@@ -101,7 +101,7 @@
       {#if onButtonProfile}
         <CardButton
           {id}
-          icon="user"
+          icon="UserIcon"
           className={buttonProfileClass}
           text={$t("label.view.profile")}
           onClick={onButtonProfile}
@@ -114,7 +114,7 @@
       {#if onButtonDetails}
         <CardButton
           {id}
-          icon="information-circle"
+          icon="InformationCircleIcon"
           className={buttonDetailsClass}
           text={$t("label.more.details")}
           onClick={onButtonDetails}

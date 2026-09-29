@@ -139,7 +139,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       class="rounded p-1.5 transition-colors hover:bg-muted"
       onclick={prevMonth}
     >
-      <ImageHugeicons icon="chevron-left" width={16} height={16} />
+      <ImageHugeicons icon="ChevronLeftIcon" class="size-4" />
     </button>
 
     <div class="relative flex-1">
@@ -173,7 +173,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       class="rounded p-1.5 transition-colors hover:bg-muted"
       onclick={nextMonth}
     >
-      <ImageHugeicons icon="chevron-right" width={16} height={16} />
+      <ImageHugeicons icon="ChevronRightIcon" class="size-4" />
     </button>
   </div>
 

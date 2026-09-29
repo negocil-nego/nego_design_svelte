@@ -34,7 +34,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 
 <div class="bg-gray-50 dark:bg-background p-4 md:p-6 rounded-lg {className}">
   <h2 class="mb-4 flex items-center gap-2 text-lg font-bold">
-    <ImageHugeicons icon="package" class="size-5" />
+    <ImageHugeicons icon="PackageIcon" class="size-5" />
     {data?.title ?? "Produtos"}
   </h2>
 

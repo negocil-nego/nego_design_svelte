@@ -115,7 +115,7 @@
         {#if onButtonProfile}
           <CardButton
             {id}
-            icon="user"
+            icon="UserIcon"
             className={buttonProfileClass}
             text={$t("label.view.profile")}
             onClick={onButtonProfile}

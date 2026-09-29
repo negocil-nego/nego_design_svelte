@@ -29,11 +29,10 @@ ${"</" + "script>"}
   const usageCode = `<!-- src/routes/+page.svelte -->
 <script lang="ts">
   import { Menu } from "negodesign";
-  import { Home01Icon } from "@hugeicons/" + "core-free-icons"; // npm i @hugeicons/core-free-icons
 
   const links = [
-    { label: "Home", url: "/", icon: Home01Icon },
-    { label: "Accommodation", url: "/accommodation", icon: Hotel01Icon },
+    { label: "Home", url: "/", icon: "Home01Icon" },
+    { label: "Accommodation", url: "/accommodation", icon: "Hotel01Icon" },
   ];
 ${"</" + "script>"}
 
@@ -68,7 +67,7 @@ ${"</" + "script>"}
 
   <section class="mt-10">
     <h2 class="flex items-center gap-2 text-xl font-bold">
-      <ImageHugeicons icon="package" class="size-5 text-primary" />
+      <ImageHugeicons icon="PackageIcon" class="size-5 text-primary" />
       Install the package
     </h2>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -81,7 +80,7 @@ ${"</" + "script>"}
 
   <section class="mt-10">
     <h2 class="flex items-center gap-2 text-xl font-bold">
-      <ImageHugeicons icon="sparkles" class="size-5 text-primary" />
+      <ImageHugeicons icon="SparklesIcon" class="size-5 text-primary" />
       Set up Tailwind CSS v4
     </h2>
     <p class="mt-2 text-sm text-muted-foreground">
@@ -97,7 +96,7 @@ ${"</" + "script>"}
 
   <section class="mt-10">
     <h2 class="flex items-center gap-2 text-xl font-bold">
-      <ImageHugeicons icon="app-window" class="size-5 text-primary" />
+      <ImageHugeicons icon="AppWindowIcon" class="size-5 text-primary" />
       Use a component
     </h2>
     <div class="mt-4">
@@ -134,7 +133,7 @@ ${"</" + "script>"}
       class="inline-flex items-center gap-1 text-sm font-medium text-primary hover:underline"
     >
       Browse components
-      <ImageHugeicons icon="arrow-right-01" class="size-4" />
+      <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
     </a>
   </div>
 </div>

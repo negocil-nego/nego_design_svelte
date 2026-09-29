@@ -14,9 +14,9 @@
     linkClass="text-white"
     buttonClass="bg-white text-black dark:bg-black dark:text-white"
     links={[
-      { label: "Hospegadem", href: "#", icon: "bed-double" },
-      { label: "Voos", href: "#", icon: "rocket-01" },
-      { label: "Tradutores", href: "#", icon: "message-01" },
+      { label: "Hospegadem", href: "#", icon: "BedDoubleIcon" },
+      { label: "Voos", href: "#", icon: "Rocket01Icon" },
+      { label: "Tradutores", href: "#", icon: "Message01Icon" },
     ]}
     onclickButtonLogin={() => alert("login")}
     onclickButtonRegister={() => alert("register")}
@@ -28,10 +28,10 @@
     orientation="vertical"
     iconClass="size-6"
     items={[
-      { label: "Todos", value: "hospegadem", icon: "dashboard-circle-add" },
-      { label: "Hotel", value: "hotel", icon: "bed-double" },
-      { label: "Hospedaria", value: "hospedaria", icon: "bed-double" },
-      { label: "Pensão", value: "pensao", icon: "bed-double" },
+      { label: "Todos", value: "hospegadem", icon: "DashboardCircleAddIcon" },
+      { label: "Hotel", value: "hotel", icon: "BedDoubleIcon" },
+      { label: "Hospedaria", value: "hospedaria", icon: "BedDoubleIcon" },
+      { label: "Pensão", value: "pensao", icon: "BedDoubleIcon" },
     ]}
   />
 </div>

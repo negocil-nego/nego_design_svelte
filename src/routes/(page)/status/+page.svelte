@@ -1,5 +1,6 @@
 <script lang="ts">
     import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+    import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 
     const variants = [
         {
@@ -7,7 +8,7 @@
             title: "Pending",
             description:
                 "Estado pendente (âmbar): o pedido está a ser processado. Usa o wrapper PageStatusPending.",
-            icon: "loader-pinwheel",
+            icon: "LoaderPinwheelIcon",
             titleClass: "text-amber-500",
             badgeClass: "bg-amber-500/10 border-amber-500/30",
         },
@@ -16,7 +17,7 @@
             title: "Blocked",
             description:
                 "Estado bloqueado (vermelho): o acesso foi restrito. Usa o wrapper PageStatusBlocked.",
-            icon: "cancel-01",
+            icon: "Cancel01Icon",
             titleClass: "text-red-500",
             badgeClass: "bg-red-500/10 border-red-500/30",
         },
@@ -25,7 +26,7 @@
             title: "Recovering",
             description:
                 "Recuperação de senha (azul): estamos a processar a recuperação. Usa o wrapper PageStatusRecovering.",
-            icon: "refresh",
+            icon: "RefreshIcon",
             titleClass: "text-blue-500",
             badgeClass: "bg-blue-500/10 border-blue-500/30",
         },
@@ -34,11 +35,11 @@
             title: "Custom",
             description:
                 "PageStatus base com textos, imagem, card de contactos e snippet children personalizados.",
-            icon: "setting-07",
+            icon: "Setting07Icon",
             titleClass: "text-primary",
             badgeClass: "bg-primary/10 border-primary/30",
         },
-    ];
+    ] satisfies { href: string; title: string; description: string; icon: HugeiconsIconName; titleClass: string; badgeClass: string }[];
 </script>
 
 <svelte:head>
@@ -71,10 +72,7 @@
                 <span
                     class="inline-flex size-10 items-center justify-center rounded-lg {variant.badgeClass}"
                 >
-                    <ImageHugeicons
-                        icon={variant.icon}
-                        class="size-5 {variant.titleClass}"
-                    />
+                    <ImageHugeicons icon={variant.icon} class="size-5 {variant.titleClass}" />
                 </span>
                 <h2 class="mt-3 font-semibold {variant.titleClass}">
                     {variant.title}
@@ -86,10 +84,7 @@
                     class="mt-4 inline-flex items-center gap-1 text-sm font-medium {variant.titleClass}"
                 >
                     Ver demo
-                    <ImageHugeicons
-                        icon="arrow-right-01"
-                        class="size-4 transition group-hover:translate-x-1"
-                    />
+                    <ImageHugeicons icon="ArrowRight01Icon" class="size-4 transition group-hover:translate-x-1" />
                 </span>
             </a>
         {/each}
@@ -101,7 +96,7 @@
     >
         <span>
             <span class="inline-flex items-center gap-2 font-semibold text-foreground">
-                <ImageHugeicons icon="document-code" class="size-5 text-primary" />
+                <ImageHugeicons icon="DocumentCodeIcon" class="size-5 text-primary" />
                 Documentação — PageLoading
             </span>
             <span class="mt-1 block text-sm text-muted-foreground">
@@ -109,9 +104,6 @@
                 do componente de carregamento.
             </span>
         </span>
-        <ImageHugeicons
-            icon="arrow-right-01"
-            class="size-4 shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary"
-        />
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-4 shrink-0 text-muted-foreground transition group-hover:translate-x-1 group-hover:text-primary" />
     </a>
 </div>

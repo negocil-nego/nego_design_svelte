@@ -34,6 +34,6 @@
   bind:ref
   {...restProps}
 >
-  <IconRender icon="arrow-right-01" class="text-white" />
+  <IconRender icon="ArrowRight01Icon" class="text-white" />
   <span class="sr-only">Next slide</span>
 </Button>

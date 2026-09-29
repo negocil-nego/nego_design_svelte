@@ -20,13 +20,13 @@
     class="w-8 h-8 rounded-full bg-gradient"
     onclick={() => onCartClick!(id)}
   >
-    <IconRender icon="shopping-cart-remove-01" class="text-white" />
+    <IconRender icon="ShoppingCartRemove01Icon" class="text-white" />
   </Button>
 {:else}
   <Button
     class="w-8 h-8 rounded-full bg-[#808080]"
     onclick={() => onCartClick!(id)}
   >
-    <IconRender icon="shopping-cart-add-01" class="text-white" />
+    <IconRender icon="ShoppingCartAdd01Icon" class="text-white" />
   </Button>
 {/if}

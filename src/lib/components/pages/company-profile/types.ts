@@ -1,4 +1,4 @@
-import type { HugeiconsIconName } from "$lib/components/ui/image/hugeicons-icons";
+import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
 import type { CardProductProps } from "$lib/components/ui/card/core/types";
 
 /**

@@ -73,7 +73,7 @@ import { Skeleton } from "$lib/components/ui/skeleton/index.js";
 		{:else}
 			{label}
 			{#if children}
-				<ImageHugeicons icon="arrow-down-01" class={`relative top-px ml-1 size-3 transition-transform duration-300 ${
+				<ImageHugeicons icon="ArrowDown01Icon" class={`relative top-px ml-1 size-3 transition-transform duration-300 ${
 						open ? "rotate-180" : ""
 					}`} aria-hidden="true" />
 			{/if}

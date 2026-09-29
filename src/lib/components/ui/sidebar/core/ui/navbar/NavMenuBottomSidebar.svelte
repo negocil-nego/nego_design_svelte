@@ -21,7 +21,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <Sidebar.MenuButton>
             {#snippet child({ props })}
               <a href={item.url} {...props}>
-                <ImageHugeicons icon={item.icon} width={16} height={16} />
+                <ImageHugeicons icon={item.icon} class="size-4" />
                 <span>{item.title}</span>
               </a>
             {/snippet}

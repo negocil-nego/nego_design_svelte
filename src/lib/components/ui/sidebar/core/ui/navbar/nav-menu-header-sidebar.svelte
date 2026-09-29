@@ -34,7 +34,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               </span>
               <span class="truncate text-xs">{activeTeam.plan}</span>
             </div>
-            <ImageHugeicons icon="unfold-more" class="ms-auto" />
+            <ImageHugeicons icon="UnfoldMoreIcon" class="ms-auto" />
           </Sidebar.MenuButton>
         {/snippet}
       </DropdownMenu.Trigger>
@@ -66,7 +66,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <div
             class="flex size-6 items-center justify-center rounded-md border bg-transparent"
           >
-            <ImageHugeicons icon="plus-sign" class="size-4" />
+            <ImageHugeicons icon="PlusSignIcon" class="size-4" />
           </div>
           <div class="text-muted-foreground font-medium">Add team</div>
         </DropdownMenu.Item>

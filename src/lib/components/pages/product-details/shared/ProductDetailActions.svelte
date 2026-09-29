@@ -58,7 +58,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         onFavorite?.(id);
       }}
     >
-      <ImageHugeicons icon={isFavorite ? "heart-remove" : "heart-add"} />
+      <ImageHugeicons icon={isFavorite ? "HeartRemoveIcon" : "HeartAddIcon"} />
     </Button>
 
     <Button
@@ -71,7 +71,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         onCart?.(id);
       }}
     >
-      <ImageHugeicons icon="shopping-cart-add-01" />
+      <ImageHugeicons icon="ShoppingCartAdd01Icon" />
     </Button>
   </div>
 {/if}

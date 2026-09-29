@@ -7,7 +7,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   let {
     title,
     description,
-    icon = "search-01",
+    icon = "Search01Icon",
     className = "",
     actionHref = "#/",
     actionLabel,

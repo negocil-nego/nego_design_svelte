@@ -32,13 +32,13 @@
       {:else}
         {#if onclickButtonRegister}
           <Button variant="outline" onclick={onclickButtonRegister}>
-            <ImageHugeicons icon="user" />
+            <ImageHugeicons icon="UserIcon" />
             {$t("label.register")}
           </Button>
         {/if}
         {#if onclickButtonLogin}
           <Button variant="outline" onclick={onclickButtonLogin}>
-            <ImageHugeicons icon="login-02" />
+            <ImageHugeicons icon="Login02Icon" />
             {$t("label.login")}
           </Button>
         {/if}

@@ -41,10 +41,7 @@
                   <ImageHugeicons icon={item.icon} />
                 {/if}
                 <span>{item.title}</span>
-                <ImageHugeicons
-                  icon="chevron-right"
-                  class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90"
-                />
+                <ImageHugeicons icon="ChevronRightIcon" class="ms-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
               </Sidebar.MenuButton>
             {/snippet}
           </Collapsible.Trigger>

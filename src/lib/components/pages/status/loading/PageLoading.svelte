@@ -38,10 +38,7 @@
         <span
             class="flex size-32 items-center justify-center rounded-full bg-primary/10 sm:size-40"
         >
-            <ImageHugeicons
-                icon="loader-pinwheel"
-                class="size-16 animate-spin text-primary sm:size-20"
-            />
+            <ImageHugeicons icon="LoaderPinwheelIcon" class="size-16 animate-spin text-primary sm:size-20" />
         </span>
         {#if progress !== undefined}
             <div class="mx-auto mt-6 w-full max-w-60">

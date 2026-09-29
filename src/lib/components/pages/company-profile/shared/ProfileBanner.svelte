@@ -1,5 +1,4 @@
 <script lang="ts" module>
-  /* eslint-disable @typescript-eslint/no-explicit-any */
   /**
    * Banner de apresentação da empresa/fábrica: imagem de capa, logótipo,
    * nome, país, botão de contacto e faixa de estatísticas rápidas.
@@ -18,6 +17,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import { Button } from "$lib/components/ui/button/index.js";
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   import type { ProfileBannerData, ProfileBannerTag } from "../types";
+  import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
     import { onDestroy } from "svelte";
   
   const AUTOPLAY_MS = 8000;
@@ -80,19 +80,19 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 
   // Ações do header (topo direito) — evita repetir markup de botão
   const headerActions = $derived([
-    { icon: "copy", label: "Copiar link", onclick: () => onCopyLink?.(id) },
-    { icon: "share-01", label: "Partilhar", onclick: () => onShare?.(id) },
+    { icon: "CopyIcon" as HugeiconsIconName, label: "Copiar link", onclick: () => onCopyLink?.(id) },
+    { icon: "Share01Icon" as HugeiconsIconName, label: "Partilhar", onclick: () => onShare?.(id) },
   ]);
 
   const contactActions = $derived([
     {
-      icon: "mail-01",
+      icon: "Mail01Icon" as HugeiconsIconName,
       label: "Email",
       iconClass: "text-red-500",
       onclick: () => onEmail?.(id),
     },
     {
-      icon: "whatsapp",
+      icon: "WhatsappIcon" as HugeiconsIconName,
       label: "Whatsapp",
       iconClass: "text-green-500",
       onclick: () => onWhatsapp?.(id),
@@ -103,15 +103,15 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     {
       title: "Categoria",
       description: data.category,
-      icon: "dashboard-browsing",
+      icon: "DashboardBrowsingIcon" as HugeiconsIconName,
     },
-    { title: "Endereço", description: data.address, icon: "map-pinned" },
+    { title: "Endereço", description: data.address, icon: "MapPinnedIcon" as HugeiconsIconName },
     {
       title: "Anos de Atuação",
       description: data.yearFounded,
-      icon: "calendar-03",
+      icon: "Calendar03Icon" as HugeiconsIconName,
     },
-    { title: "Website", description: data.website, icon: "link-01" },
+    { title: "Website", description: data.website, icon: "Link01Icon" as HugeiconsIconName },
   ]);
 </script>
 
@@ -248,11 +248,11 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 }: {
   title: string;
   description?: string;
-  icon: any;
+  icon: HugeiconsIconName;
 })}
   <div class="flex flex-col gap-2 items-center">
     <h3 class="text-md font-semibold flex gap-2 items-center">
-      <ImageHugeicons {icon} width={15} height={15} />
+      <ImageHugeicons {icon} class="size-[15px]" />
       {title}
     </h3>
     <p class="text-md text-gray-400">{description ?? "---"}</p>

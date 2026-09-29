@@ -58,9 +58,9 @@
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     linkClass: "text-white",
     links: [
-      { label: "Hospedagem", url: "#", icon: "bed-double" },
-      { label: "Voos", url: "#", icon: "rocket-01" },
-      { label: "Tradutores", url: "#", icon: "message-01" },
+      { label: "Hospedagem", url: "#", icon: "BedDoubleIcon" },
+      { label: "Voos", url: "#", icon: "Rocket01Icon" },
+      { label: "Tradutores", url: "#", icon: "Message01Icon" },
     ],
   }}
 >

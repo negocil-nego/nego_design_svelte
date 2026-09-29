@@ -108,7 +108,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             class="ml-0.5 rounded-full p-0.5 transition-colors hover:bg-destructive/10 hover:text-destructive"
             onclick={(e) => { e.stopPropagation(); removeTag(tag); }}
           >
-            <ImageHugeicons icon="cancel-01" class="size-3" />
+            <ImageHugeicons icon="Cancel01Icon" class="size-3" />
           </button>
         </span>
       {/each}
@@ -171,7 +171,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           class="ml-0.5 rounded-full p-0.5 transition-colors hover:bg-destructive/10 hover:text-destructive"
           onclick={(e) => { e.stopPropagation(); removeTag(tag); }}
         >
-          <ImageHugeicons icon="cancel-01" class="size-3" />
+          <ImageHugeicons icon="Cancel01Icon" class="size-3" />
         </button>
       </span>
     {/each}

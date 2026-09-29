@@ -53,5 +53,5 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 	{...restProps}
 >
 	{@render children?.()}
-	<ImageHugeicons icon="arrow-right-01" class="ms-auto size-3.5" />
+	<ImageHugeicons icon="ArrowRight01Icon" class="ms-auto size-3.5" />
 </button>

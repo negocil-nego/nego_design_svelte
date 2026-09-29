@@ -55,10 +55,8 @@
   {:else if typeof item.icon === "string"}
     <i class={`${item.icon} ${iconClass || DEFAULT_IMG_OR_ICON_CLASS}`}></i>
   {:else if item.icon}
-    <ImageHugeicons
-      icon={item.icon}
-      class={iconClass || DEFAULT_IMG_OR_ICON_CLASS}
-    />
+    <ImageHugeicons icon={item.icon}
+      class={iconClass || DEFAULT_IMG_OR_ICON_CLASS} />
   {/if}
 {/snippet}
 

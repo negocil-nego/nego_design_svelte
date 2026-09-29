@@ -7,14 +7,14 @@
   const items: SectionCardItem[] = [
     {
       id: "1",
-      icon: "shopping-basket-01",
+      icon: "ShoppingBasket01Icon",
       title: "Retail & E-commerce",
       description:
         "Streamline your fulfillment process, reduce delivery times, and improve customer satisfaction.",
     },
     {
       id: "2",
-      icon: "app-window",
+      icon: "AppWindowIcon",
       title: "Manufacturing",
       description:
         "Optimize your supply chain, from raw materials to finished goods, with efficient transportation and services.",
@@ -22,14 +22,14 @@
     },
     {
       id: "3",
-      icon: "help-circle",
+      icon: "HelpCircleIcon",
       title: "Healthcare & Pharmacy",
       description:
         "Ensure the safe, timely delivery of temperature-sensitive products and critical shipments.",
     },
     {
       id: "4",
-      icon: "help-circle",
+      icon: "HelpCircleIcon",
       title: "Technology & Electronics",
       description:
         "Handle high-value, sensitive products with care, ensuring fast, secure delivery across global markets.",

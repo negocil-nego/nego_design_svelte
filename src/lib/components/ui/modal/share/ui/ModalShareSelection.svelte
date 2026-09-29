@@ -106,7 +106,7 @@ import IconRender from "$lib/components/ui/image/IconRender.svelte";
                     loading="lazy"
                   />
                 {:else if network.icon}
-                  <IconRender icon={network.icon} class="size-6 transition-colors" style={network.color ? `color: ${network.color}` : ""} />
+                  <IconRender icon={network.icon} class="size-6 transition-colors" />
                 {/if}
               {/snippet}
               {@render icon()}

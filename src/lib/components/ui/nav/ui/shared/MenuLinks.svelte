@@ -1,6 +1,7 @@
 <script lang="ts">
   import IconRender from "$lib/components/ui/image/IconRender.svelte";
   import type { MenuLinksProps } from "./type";
+  import { cn } from "$lib/utils.js";
 
   let {
     links,
@@ -23,12 +24,7 @@
         href={item.url ?? item.href ?? "#"}
       >
         {#if item.icon}
-          <IconRender
-            icon={item.icon}
-            class={iconClass}
-            width={15}
-            height={15}
-          />
+          <IconRender icon={item.icon} class={cn("size-[15px]", iconClass)} />
         {/if}
         {item.label}
       </a>

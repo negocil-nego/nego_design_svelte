@@ -13,15 +13,15 @@ const items: CardProfileProps[] = [
         videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Luanda',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Kilamba',
             },
             {
-                icon: "necklace",
+                icon: "NecklaceIcon",
                 text: 'Rua 19',
             },
         ],
@@ -37,19 +37,19 @@ const items: CardProfileProps[] = [
         videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Benguela',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Catumbela',
             },
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Luanda',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Kilamba',
             },
         ],
@@ -66,11 +66,11 @@ const items: CardProfileProps[] = [
         videoUrl: 'https://api.dicebear.com/9.x/initials/svg?seed=Hotel%20Baía%20Azul&backgroundColor=1a2420&textColor=e3b563',
         tags: [
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Huíla',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Huíla',
             },
         ],
@@ -87,19 +87,19 @@ const items: CardProfileProps[] = [
         tags: [
 
             {
-                icon: "necklace",
+                icon: "NecklaceIcon",
                 text: 'Rua 19',
             },
             {
-                icon: "global",
+                icon: "GlobalIcon",
                 text: 'Luanda',
             },
             {
-                icon: "map-pinned",
+                icon: "MapPinnedIcon",
                 text: 'Kilamba',
             },
             {
-                icon: "necklace",
+                icon: "NecklaceIcon",
                 text: 'Rua 19',
             },
         ]

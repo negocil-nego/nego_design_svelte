@@ -944,8 +944,8 @@ export {
     /**
      * Renderizador de ícones que valida automaticamente se a chave é do Hugeicons
      * e usa ImageHugeicons, caso contrário usa a tag <i> com classes CSS.
-     * @property {string | HugeiconsIconName} icon - Chave do ícone ou classe CSS
-     * @property {string} class - Classes CSS adicionais
+     * @property {string} icon - Código HugeiconsIconName (ex: "User01Icon") ou classe CSS
+     * @property {string} class - Classes CSS adicionais (ex: "size-5 text-primary")
      */
     IconRender,
 

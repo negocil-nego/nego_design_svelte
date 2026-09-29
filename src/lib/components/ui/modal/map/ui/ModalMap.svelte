@@ -87,7 +87,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         <!-- Search Bar -->
         <div class="absolute left-4 right-4 top-4">
           <div class="flex items-center gap-2 rounded-xl border border-border bg-card shadow-lg">
-            <ImageHugeicons icon="search-01" class="ml-3 size-4 text-muted-foreground" />
+            <ImageHugeicons icon="Search01Icon" class="ml-3 size-4 text-muted-foreground" />
             <input
               type="text"
               bind:value={searchQuery}
@@ -107,7 +107,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               class="text-muted-foreground transition hover:text-foreground"
               onclick={() => (isOpen = false)}
             >
-              <ImageHugeicons icon="cancel-01" class="size-4" />
+              <ImageHugeicons icon="Cancel01Icon" class="size-4" />
             </button>
           </div>
 

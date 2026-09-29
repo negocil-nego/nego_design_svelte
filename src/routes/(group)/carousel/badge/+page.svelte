@@ -11,11 +11,11 @@
       {
         label: "Todos",
         value: "hospegadem",
-        icon: "dashboard-circle-add",
+        icon: "DashboardCircleAddIcon",
       },
-      { label: "Hotel", value: "hotel", icon: "bed-double" },
-      { label: "Hospedaria", value: "hospedaria", icon: "bed-double" },
-      { label: "Pensão", value: "pensao", icon: "bed-double" },
+      { label: "Hotel", value: "hotel", icon: "BedDoubleIcon" },
+      { label: "Hospedaria", value: "hospedaria", icon: "BedDoubleIcon" },
+      { label: "Pensão", value: "pensao", icon: "BedDoubleIcon" },
     ]}
     itemStyle="INLINE"
     showButton={true}

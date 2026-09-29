@@ -40,7 +40,8 @@ export default defineConfig({
 						instances: [{ browser: 'chromium', headless: true }]
 					},
 					include: ['test/**/*.svelte.{test,spec}.{js,ts}'],
-					exclude: ['test/lib/server/**']
+					exclude: ['test/lib/server/**'],
+					setupFiles: ['./test/setup-client.ts']
 				}
 			},
 
