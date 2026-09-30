@@ -11,8 +11,10 @@
     textClass,
     subTextClass,
     class: className,
+    isLoading = false,
     ...restProps
   }: ListItemProps & {
+    isLoading?: boolean;
     textClass?: string;
     subTextClass?: string;
   } = $props();
@@ -30,23 +32,21 @@
     {...restProps}
   >
     {#if icon || hasImage}
-      <div class="flex gap-2 items-center">
+      <div class="flex flex-col gap-2 items-center">
         {#if hasImage}
           <div
-            class="relative shrink-0 size-10 overflow-hidden rounded-md bg-muted"
+            class="relative w-full aspect-video overflow-hidden rounded-md bg-muted"
           >
             <img
               src={image}
               alt={title}
-              class="size-full object-cover"
+              class="absolute inset-0 size-full object-cover"
               loading="lazy"
             />
             <div class="absolute inset-0 bg-black/30"></div>
             {#if icon}
-              <div
-                class="absolute inset-0 grid place-items-center text-white"
-              >
-                <IconRender {icon} class="size-5 md:size-6" />
+              <div class="absolute inset-0 grid place-items-center text-white">
+                <IconRender {icon} class="size-6 md:size-8" />
               </div>
             {/if}
           </div>
@@ -54,14 +54,19 @@
           <IconRender {icon} class="size-8 md:size-10 shrink-0" />
         {/if}
         <div class="min-w-0 -mt-1">
-          <div class={cn("leading-none font-medium", textClass)}>{title}</div>
+          <div class={cn("leading-none font-medium")}>{title}</div>
         </div>
       </div>
     {:else}
-      <div class={cn("leading-none font-medium", textClass)}>{title}</div>
+      <div class={cn("leading-none font-medium")}>{title}</div>
     {/if}
     {#if content}
-      <p class={cn("line-clamp-2 text-sm leading-snug text-muted-foreground", subTextClass)}>
+      <p
+        class={cn(
+          "line-clamp-2 text-sm leading-snug text-muted-foreground",
+          subTextClass,
+        )}
+      >
         {content}
       </p>
     {/if}

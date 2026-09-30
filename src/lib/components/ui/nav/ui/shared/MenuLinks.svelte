@@ -20,11 +20,11 @@
   {#each links as item (item.label)}
     <li>
       <a
-        class={`flex items-center gap-1 ${linkClass} ${item.key && menuKey === item.key ? activeClass : ""}`}
+        class={`flex justify-center items-center gap-1 ${linkClass} ${item.key && menuKey === item.key ? activeClass : ""}`}
         href={item.url ?? item.href ?? "#"}
       >
         {#if item.icon}
-          <IconRender icon={item.icon} class={cn("size-[15px]", iconClass)} />
+          <IconRender icon={item.icon} class={cn("-mt-1", iconClass)} />
         {/if}
         {item.label}
       </a>

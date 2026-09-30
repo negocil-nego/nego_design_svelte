@@ -48,18 +48,19 @@
   icon: HugeiconsIconName;
   onclick: () => void;
 }>)}
-
   <Button
     {onclick}
     variant="outline"
-    class={`flex justify-between items-center gap-3 rounded-full! p-5 cursor-pointer md:text-md relative
+    class={`flex justify-between items-center gap-3 rounded-full! p-5 cursor-pointer md:text-md relative hover:text-white
     ${buttonClass ?? ""}
-    ${type === "login" ? "bg-gradient text-white dark:bg-slate-900" : ""}
-    ${type === "register" ? "bg-gray-300!  dark:bg-slate-800!" : ""}
+    ${type === "login" ? "bg-gradient dark:bg-slate-900" : ""}
+    ${type === "register" ? "bg-transparent! border-white dark:border-none dark:bg-slate-800!" : ""}
     `}
   >
     <div class="min-w-32.5">{text}</div>
-    <div class="border p-1.5 rounded-full bg-white absolute right-1">
+    <div
+      class="absolute right-1 inset-y-0 my-auto flex size-8 items-center justify-center rounded-full border"
+    >
       <ImageHugeicons {icon} class="size-5" />
     </div>
   </Button>

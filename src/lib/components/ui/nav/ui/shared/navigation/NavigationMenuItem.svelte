@@ -3,8 +3,12 @@
   import type { NavigationMenuItemProps } from "../../../data/types";
   import NavDropdown from "./NavDropdown.svelte";
 
-  let { label, href, textClass, hoverClass, isLoading = false }: NavigationMenuItemProps =
-    $props();
+  let {
+    label,
+    href,
+    hoverClass,
+    isLoading = false,
+  }: NavigationMenuItemProps = $props();
 </script>
 
 <NavDropdown

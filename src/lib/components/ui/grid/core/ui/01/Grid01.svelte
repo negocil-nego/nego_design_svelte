@@ -35,7 +35,7 @@
       style="background-image: url('{image}')"
     ></div>
     <div
-      class="absolute inset-0 bg-black/40 shadow-[inset_0_0_24px_rgba(0,0,0,0.6)]"
+      class="absolute inset-0 bg-black/20 shadow-[inset_0_0_24px_rgba(0,0,0,0.1)]"
     ></div>
   {/if}
   <div
