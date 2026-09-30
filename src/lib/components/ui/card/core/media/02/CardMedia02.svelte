@@ -45,7 +45,7 @@
 </script>
 
 <article
-  class="border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-transparent rounded-lg p-5 space-y-1 md:space-y-3 {className}"
+  class="border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-transparent rounded-lg p-5 space-y-1 md:space-y-3 flex flex-col h-full {className}"
 >
   <div class="flex flex-col justify-center items-center w-full relative">
     <div class="flex flex-col justify-start gap-2">
@@ -54,7 +54,6 @@
       </div>
       <div class="flex flex-col justify-center items-center">
         <CardTitle {title} {isLoading} />
-
         {#if startNumber}
           <CardStarRating {startNumber} {startMax} {isLoading} />
         {:else if isLoading}
@@ -82,13 +81,15 @@
     />
   </div>
 
-  <CardThumbnailVideo
-    {imageUrl}
-    {videoUrl}
-    {isImageButtonMaximized}
-    {isVideoButtonMaximized}
-    {isLoading}
-  />
+  <div class="flex-1 w-full">
+    <CardThumbnailVideo
+      {imageUrl}
+      {videoUrl}
+      {isImageButtonMaximized}
+      {isVideoButtonMaximized}
+      {isLoading}
+    />
+  </div>
 
   {#if onButtonProfile || onButtonDetails}
     <div class="flex justify-center items-center gap-2 mt-4 w-full">

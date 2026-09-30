@@ -60,11 +60,18 @@
 >
   <div class="relative size-full">
     {#if isPartial}
-      <ImageHugeicons icon="StarHalfIcon"
-        class={cn("absolute top-0 left-0 size-full transition-all", iconClass)} />
+      <ImageHugeicons
+        icon="StarHalfIcon"
+        class={cn(
+          "absolute top-0 left-0 size-full transition-all text-sm",
+          iconClass,
+        )}
+      />
     {:else}
-      <ImageHugeicons icon="StarIcon"
-        class={cn("size-full transition-all", iconClass)} />
+      <ImageHugeicons
+        icon="StarIcon"
+        class={cn("size-full transition-all text-sm", iconClass)}
+      />
     {/if}
   </div>
 </span>

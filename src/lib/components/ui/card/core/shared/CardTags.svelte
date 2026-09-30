@@ -1,6 +1,6 @@
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
-    import type { CardTagsProps } from "../types";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import type { CardTagsProps } from "../types";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import * as Popover from "$lib/components/ui/popover"; // adjust path to your setup
 
@@ -26,12 +26,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 
 {#snippet createBadge(tag: CardTagsProps, clasName?: string)}
   <div
-    class="flex items-center h-5 shrink-0 {isTagBorderBottom
+    class="flex items-center shrink-0 gap-1 {isTagBorderBottom
       ? 'border border-gray-200 rounded-full px-2 py-1'
       : ''} {clasName}"
   >
     {#if tag.icon}
-      <ImageHugeicons icon={tag.icon} class="mr-0.5 size-3.75 shrink-0" />
+      <ImageHugeicons icon={tag.icon} class="mr-0.5 shrink-0" />
     {/if}
     <div class="whitespace-nowrap">{tag.text}</div>
   </div>
@@ -77,7 +77,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   <Popover.Trigger
     onmouseenter={() => (open = true)}
     onmouseleave={() => (open = false)}
-    class="block w-full text-left h-8"
+    class="block w-full text-left"
   >
     {@render tagsRow()}
   </Popover.Trigger>

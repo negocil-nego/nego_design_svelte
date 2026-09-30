@@ -45,7 +45,7 @@
 </script>
 
 <article
-  class="border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-transparent rounded-lg p-5 space-y-1 md:space-y-3"
+  class="border border-gray-300 dark:border-gray-700 bg-gray-100 dark:bg-transparent rounded-lg p-5 space-y-1 md:space-y-3 flex flex-col h-full"
 >
   <div class="flex justify-between items-center w-full mb-4">
     <div class="flex justify-start gap-2">
@@ -81,20 +81,26 @@
     />
   </div>
 
-  <CardTags
-    className="mt-1 mb-5"
-    tags={tags ?? []}
-    {isTagBorderBottom}
-    {isLoading}
-  />
-
-  <CardThumbnailVideo
-    {imageUrl}
-    {videoUrl}
-    {isImageButtonMaximized}
-    {isVideoButtonMaximized}
-    {isLoading}
-  />
+  {#if tags && tags.length > 0}
+    <CardTags className="mb-1" {tags} {isTagBorderBottom} {isLoading} />
+    <CardThumbnailVideo
+      {imageUrl}
+      {videoUrl}
+      {isImageButtonMaximized}
+      {isVideoButtonMaximized}
+      {isLoading}
+    />
+  {:else}
+    <div class="flex-1 w-full">
+      <CardThumbnailVideo
+        {imageUrl}
+        {videoUrl}
+        {isImageButtonMaximized}
+        {isVideoButtonMaximized}
+        {isLoading}
+      />
+    </div>
+  {/if}
 
   {#if onButtonProfile || onButtonDetails}
     <div class="flex justify-center items-center gap-2 mt-4 w-full">

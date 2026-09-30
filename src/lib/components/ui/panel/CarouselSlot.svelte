@@ -26,7 +26,7 @@
 </script>
 
 <div
-  class={`relative py-3 px-2 overflow-x-auto ${isBorderBottom ? "border-b" : ""} ${containerClass}`}
+  class={`relative py-3 px-2 ${isScrollbar ? "overflow-x-auto" : ""} ${isBorderBottom ? "border-b" : ""} ${containerClass}`}
 >
   <Carousel.Root {plugins} {isScrollbar}>
     <Carousel.Content

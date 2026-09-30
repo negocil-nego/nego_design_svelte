@@ -1,12 +1,12 @@
 <!-- CardMedia.svelte -->
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   /**
    * Image thumbnail with hover-to-play video, lazy loading,
    * duration badge, video indicator, and optional maximize overlay.
    * @component
    */
-      import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
+  import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import ImgPlaceholder from "$lib/assets/placeholder-image.png";
   import VideoPlaceholder from "$lib/assets/lonely-404.mp4";
 
@@ -103,7 +103,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   {#if imageUrl || videoUrl}
     <div
       bind:this={containerEl}
-      class="relative w-full {className}"
+      class="relative w-full flex-1 {className}"
       role="button"
       tabindex="0"
       onmouseenter={() => toggleHover(true)}
@@ -149,7 +149,10 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
           <div
             class="flex h-11 w-11 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm"
           >
-            <ImageHugeicons icon="VideoReplayIcon" class="size-5.5 text-white" />
+            <ImageHugeicons
+              icon="VideoReplayIcon"
+              class="size-5.5 text-white"
+            />
           </div>
         </div>
         {#if duration}

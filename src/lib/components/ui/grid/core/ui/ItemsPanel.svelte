@@ -7,6 +7,7 @@
     style = "grid",
     isScrollbar = false,
     onClick,
+    isShowDescription = true,
     ...restProps
   }: GridProps & {
     style?: "inline" | "grid";
@@ -27,7 +28,13 @@
     {selectedKey}
     onClick={selectItem}
     {isScrollbar}
+    {isShowDescription}
   />
 {:else}
-  <ItemsPanelGrid {...restProps} {selectedKey} onClick={selectItem} />
+  <ItemsPanelGrid
+    {...restProps}
+    {selectedKey}
+    {isShowDescription}
+    onClick={selectItem}
+  />
 {/if}

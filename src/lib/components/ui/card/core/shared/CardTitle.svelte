@@ -11,7 +11,7 @@
 </script>
 
 {#if title}
-  <div class="font-bold line-clamp-1 {className}">{title}</div>
+  <div class="font-bold line-clamp-1 text-sm {className}">{title}</div>
 {:else if isLoading}
   <Skeleton class="w-40 h-5 rounded-lg bg-gray-400 mb-0.5 {className}" />
 {/if}

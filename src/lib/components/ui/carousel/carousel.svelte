@@ -232,8 +232,10 @@
   bind:this={ref}
   data-slot="carousel"
   class={cn(
-    "relative overflow-x-auto",
-    isScrollbar ? "scrollbar-thin scrollbar-track-transparent" : "",
+    "relative",
+    isScrollbar
+      ? "overflow-x-auto scrollbar-thin scrollbar-track-transparent"
+      : "",
     className,
   )}
   role="region"

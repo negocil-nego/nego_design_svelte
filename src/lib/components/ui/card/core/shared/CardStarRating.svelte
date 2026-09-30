@@ -17,7 +17,7 @@
   <StarRating.Root max={startMax} value={startNumber} class="h-auto">
     {#snippet children({ items })}
       {#each items as item (item.index)}
-        <StarRating.Star {...item} class="py-0! my-0!" />
+        <StarRating.Star {...item} />
       {/each}
     {/snippet}
   </StarRating.Root>

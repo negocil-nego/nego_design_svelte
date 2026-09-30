@@ -29,7 +29,7 @@
       {#if isDescriptionIcon}
         <ImageHugeicons icon="Message01Icon" class="size-4" />
       {/if}
-      <div>{$t("label.description")}</div>
+      <div class="mt-2">{$t("label.description")}</div>
     </div>
   {/if}
   <TruncatableText

@@ -15,18 +15,12 @@
 
   const iconClass = $derived(icons[icon] ?? icons[defaultIcon]);
 
-  const hasSizeClass = $derived(/(?:^|\s)(?:[\w[\].-]+:)*size-/.test(className));
+  const hasSizeClass = $derived(
+    /(?:^|\s)(?:[\w[\].-]+:)*size-/.test(className),
+  );
 </script>
 
-<i class={cn(iconClass, hasSizeClass ? className : cn("size-5", className))} {...rest}></i>
-
-<style>
-  i {
-    display: inline-block;
-    container-type: size;
-  }
-
-  i::before {
-    font-size: 100cqh;
-  }
-</style>
+<i
+  class={cn(iconClass, hasSizeClass ? className : cn("size-5", className))}
+  {...rest}
+></i>

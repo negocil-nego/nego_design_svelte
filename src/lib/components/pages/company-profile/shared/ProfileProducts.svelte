@@ -12,10 +12,10 @@
 </script>
 
 <script lang="ts">
-import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import CarouselGridProduct from "$lib/components/ui/carousel/core/grid/product/ui/CarouselGridProduct.svelte";
   import type { ProfileProductsData } from "../types";
-      import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
+  import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
 
   let {
     data,
