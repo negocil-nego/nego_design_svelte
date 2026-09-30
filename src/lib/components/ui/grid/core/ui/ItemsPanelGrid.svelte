@@ -10,6 +10,7 @@
     isLoading,
     items,
     itemClassName,
+    isShowDescription,
     onClick,
     autoPlay = false,
   }: GridProps = $props();
@@ -77,9 +78,9 @@
   {:else}
     {#each items as item, i (i)}
       {#if variant == 2}
-        <Grid02 {...item} {onClick} {itemClassName} />
+        <Grid02 {...item} {onClick} {itemClassName} {isShowDescription} />
       {:else}
-        <Grid01 {...item} {onClick} {itemClassName} />
+        <Grid01 {...item} {onClick} {itemClassName} {isShowDescription} />
       {/if}
     {/each}
   {/if}

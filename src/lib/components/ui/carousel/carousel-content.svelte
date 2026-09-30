@@ -46,8 +46,11 @@
 		tabindex="0"
 		class={cn(
 			emblaCtx.orientation === "horizontal"
-				? "flex flex-row overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar -ms-4"
-				: "flex flex-col overflow-y-auto snap-y snap-mandatory scroll-smooth no-scrollbar -mt-4",
+				? "flex flex-row overflow-x-auto snap-x snap-mandatory scroll-smooth -ms-4"
+				: "flex flex-col overflow-y-auto snap-y snap-mandatory scroll-smooth -mt-4",
+			emblaCtx.isScrollbar
+				? "scrollbar-thin scrollbar-track-transparent"
+				: "no-scrollbar",
 			className
 		)}
 		onscroll={emblaCtx.onScroll}

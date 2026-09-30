@@ -1,8 +1,11 @@
 <script lang="ts">
-  import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { GridProps } from "../data/types";
   import Grid02 from "./02/Grid02.svelte";
   import Grid01 from "./01/Grid01.svelte";
+  import * as Carousel from "$lib/components/ui/carousel/index.js";
+  import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
+  import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
+  import { cn } from "$lib/utils";
 
   let {
     variant,
@@ -10,8 +13,13 @@
     items,
     itemClassName,
     onClick,
+    slotProps,
+    isScrollbar = false,
+    isShowDescription = true,
     autoPlay = false,
-  }: GridProps = $props();
+  }: GridProps & {
+    isScrollbar?: boolean;
+  } = $props();
 
   const plugins = $derived(
     autoPlay
@@ -24,50 +32,66 @@
         ]
       : [],
   );
+
+  const descriptionWidthHightClass = $derived(
+    isShowDescription
+      ? ""
+      : "min-w-[100px] md:min-h-[100px] md:min-w-[150px] md:min-h-[150px]",
+  );
 </script>
 
-<Carousel.Root {plugins} class="show-scrollbar">
-  <Carousel.Content>
-    {#if isLoading}
+{#if isLoading}
+  <Carousel.Root {plugins} {isScrollbar}>
+    <Carousel.Content>
       {#each Array.from({ length: 10 }) as _, i (`skeleton-${i}`)}
         <Carousel.Item class="basis-auto relative">
           {#if variant == 2}
-            <Grid02 title={`${i}`} description="" icon="" {isLoading} />
+            <Grid02
+              title={`${i}`}
+              description=""
+              icon=""
+              {isLoading}
+              {isShowDescription}
+            />
           {:else}
-            <Grid01 title={`${i}`} description="" icon="" {isLoading} />
+            <Grid01
+              title={`${i}`}
+              description=""
+              icon=""
+              {isLoading}
+              {isShowDescription}
+            />
           {/if}
         </Carousel.Item>
       {/each}
-    {:else}
-      {#each items as item, i (`panel-${i}`)}
-        <Carousel.Item class="basis-auto relative">
-          {#if variant == 2}
-            <Grid02 {...item} {onClick} {itemClassName} />
-          {:else}
-            <Grid01 {...item} {onClick} {itemClassName} />
-          {/if}
-        </Carousel.Item>
-      {/each}
-    {/if}
-  </Carousel.Content>
-</Carousel.Root>
-
-<style>
-  :global(.show-scrollbar [data-slot="carousel-content"] > div) {
-    scrollbar-width: auto !important;
-  }
-  :global(.show-scrollbar [data-slot="carousel-content"] > div)::-webkit-scrollbar {
-    display: block !important;
-    height: 8px;
-  }
-  :global(.show-scrollbar [data-slot="carousel-content"] > div)::-webkit-scrollbar-thumb {
-    background-color: hsl(var(--muted-foreground) / 0.3);
-    border-radius: 4px;
-  }
-  :global(.show-scrollbar [data-slot="carousel-content"] > div)::-webkit-scrollbar-thumb:hover {
-    background-color: hsl(var(--muted-foreground) / 0.5);
-  }
-  :global(.show-scrollbar [data-slot="carousel-content"] > div)::-webkit-scrollbar-track {
-    background-color: hsl(var(--muted) / 0.5);
-  }
-</style>
+    </Carousel.Content>
+  </Carousel.Root>
+{:else}
+  <CarouselSlot
+    containerClass="w-full"
+    isButtonPreviousAndNext={false}
+    plugins={[autoplay({ delay: 4000, stopOnInteraction: true })]}
+    {isScrollbar}
+    {...slotProps}
+  >
+    {#each items as item, i (`panel-${item.id ?? i}`)}
+      <Carousel.Item class={`basis-auto relative ${i == 0 ? "ml-3" : ""}`}>
+        {#if variant == 2}
+          <Grid02
+            {...item}
+            {onClick}
+            itemClassName={cn(itemClassName, descriptionWidthHightClass)}
+            isShowDescription={item.isShowDescription ?? isShowDescription}
+          />
+        {:else}
+          <Grid01
+            {...item}
+            {onClick}
+            itemClassName={cn(itemClassName, descriptionWidthHightClass)}
+            isShowDescription={item.isShowDescription ?? isShowDescription}
+          />
+        {/if}
+      </Carousel.Item>
+    {/each}
+  </CarouselSlot>
+{/if}

@@ -42,6 +42,10 @@ export type CarouselSlotProps = {
     isBorderBottom?: boolean;
     /** Classe CSS adicional para o container */
     containerClass?: string;
+    /** Classe CSS adicional para o container */
+    paddingBottom?: string;
+    /** Exibe a barra de scroolbar */
+    isScrollbar?: boolean;
     /** Plugins do carousel (ex: autoplay, loop) */
     plugins?: CarouselPlugins;
     /** Callback ao clicar no botão "Ver mais" */

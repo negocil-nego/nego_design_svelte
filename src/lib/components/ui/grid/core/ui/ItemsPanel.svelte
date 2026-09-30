@@ -5,10 +5,12 @@
 
   let {
     style = "grid",
+    isScrollbar = false,
     onClick,
     ...restProps
   }: GridProps & {
     style?: "inline" | "grid";
+    isScrollbar?: boolean;
   } = $props();
 
   let selectedKey = $state<string | number | undefined>("");
@@ -20,7 +22,12 @@
 </script>
 
 {#if style == "inline"}
-  <ItemsPanelCarousel {...restProps} {selectedKey} onClick={selectItem} />
+  <ItemsPanelCarousel
+    {...restProps}
+    {selectedKey}
+    onClick={selectItem}
+    {isScrollbar}
+  />
 {:else}
   <ItemsPanelGrid {...restProps} {selectedKey} onClick={selectItem} />
 {/if}

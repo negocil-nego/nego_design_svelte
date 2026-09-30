@@ -11,6 +11,7 @@
     isBorderBottom = false,
     containerClass = "w-full",
     plugins = [],
+    isScrollbar = false,
     onMoreViewClick,
     children,
   }: CarouselSlotProps = $props();
@@ -25,9 +26,9 @@
 </script>
 
 <div
-  class={`relative py-3 px-2 ${isBorderBottom ? "border-b" : ""} ${containerClass}`}
+  class={`relative py-3 px-2 overflow-x-auto ${isBorderBottom ? "border-b" : ""} ${containerClass}`}
 >
-  <Carousel.Root {plugins}>
+  <Carousel.Root {plugins} {isScrollbar}>
     <Carousel.Content
       class={positionButtonPreviousAndNext == "top_right" ? "" : "ml-0"}
     >

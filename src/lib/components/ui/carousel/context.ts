@@ -31,6 +31,8 @@ const CAROUSEL_CONTEXT = Symbol("CAROUSEL_CONTEXT");
 
 export type EmblaContext = {
 	orientation: "horizontal" | "vertical";
+	/** Mostra a barra de scroll no <Carousel.Content/> */
+	isScrollbar: boolean;
 	containerEl: HTMLElement | undefined;
 	canScrollNext: boolean;
 	canScrollPrev: boolean;

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { cn } from "$lib/utils";
   import type { ItemGridProps } from "../../data/types";
   import DescriptionGrid from "../shared/DescriptionGrid.svelte";
   import IconRenderGrid from "../shared/IconRenderGrid.svelte";
@@ -15,6 +16,7 @@
     itemClassName,
     descriptionClass,
     image,
+    isShowDescription = true,
     onClick,
   }: ItemGridProps = $props();
 
@@ -25,7 +27,8 @@
   onclick={() => {
     if (id && onClick) onClick(id);
   }}
-  class="relative overflow-hidden flex flex-col justify-center items-center gap-2 border rounded-lg p-2 cursor-pointer {itemClassName}"
+  class="relative overflow-hidden flex flex-col justify-center items-center gap-2 border rounded-lg p-2 cursor-pointer
+   {itemClassName}"
 >
   {#if hasImage}
     <div
@@ -41,14 +44,28 @@
       ? 'text-white'
       : ''}"
   >
-    <IconRenderGrid {icon} {iconClass} {isLoading} />
-    <TitleGrid {titleClass} {title} {isLoading} />
-    <DescriptionGrid
-      descriptionClass={hasImage
-        ? `text-white/90! ${descriptionClass ?? ""}`
-        : descriptionClass}
-      {description}
+    <IconRenderGrid
+      {icon}
       {isLoading}
+      iconClass={cn("animate__animated animate__fadeInDown", iconClass)}
     />
+    <TitleGrid
+      {title}
+      {isLoading}
+      titleClass={cn(
+        "animate__animated animate__fadeInDown",
+        isShowDescription ? "" : "mt-5",
+        titleClass,
+      )}
+    />
+    {#if isShowDescription}
+      <DescriptionGrid
+        descriptionClass={hasImage
+          ? `text-white/90! ${descriptionClass ?? ""}`
+          : descriptionClass}
+        {description}
+        {isLoading}
+      />
+    {/if}
   </div>
 </button>
