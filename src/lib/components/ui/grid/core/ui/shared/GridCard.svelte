@@ -14,6 +14,10 @@
     titleClass,
     descriptionClass,
     itemClassName,
+    width,
+    height,
+    itemWidth,
+    itemHeight,
     isShowDescription = true,
     isLoading = false,
     onClick,
@@ -33,6 +37,10 @@
     {titleClass}
     {descriptionClass}
     {itemClassName}
+    {width}
+    {height}
+    {itemWidth}
+    {itemHeight}
     {isShowDescription}
     {isLoading}
     {onClick}
@@ -48,6 +56,10 @@
     {titleClass}
     {descriptionClass}
     {itemClassName}
+    {width}
+    {height}
+    {itemWidth}
+    {itemHeight}
     {isShowDescription}
     {isLoading}
     {onClick}

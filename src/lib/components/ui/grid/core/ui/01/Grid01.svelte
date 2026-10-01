@@ -4,6 +4,7 @@
   import DescriptionGrid from "../shared/DescriptionGrid.svelte";
   import IconRenderGrid from "../shared/IconRenderGrid.svelte";
   import TitleGrid from "../shared/TitleGrid.svelte";
+  import ImageBackgroundGrid from "../shared/ImageBackgroundGrid.svelte";
 
   let {
     id,
@@ -16,28 +17,40 @@
     itemClassName,
     descriptionClass,
     image,
+    width,
+    height,
+    itemWidth,
+    itemHeight,
     onClick,
     isShowDescription = true,
   }: ItemGridProps = $props();
 
   const hasImage = $derived(!!image);
+
+  function formatDimension(val?: string | number): string | undefined {
+    if (val === undefined || val === null || val === "") return undefined;
+    return typeof val === "number" ? `${val}px` : val;
+  }
+
+  const customStyle = $derived.by(() => {
+    const styles: string[] = [];
+    const w = formatDimension(width ?? itemWidth);
+    const h = formatDimension(height ?? itemHeight);
+    if (w) styles.push(`width: ${w}`);
+    if (h) styles.push(`height: ${h}`);
+    return styles.length > 0 ? styles.join("; ") : undefined;
+  });
 </script>
 
 <button
+  type="button"
   onclick={() => {
     if (id && onClick) onClick(id);
   }}
+  style={customStyle}
   class="relative overflow-hidden flex flex-col justify-center items-center gap-2 rounded-xl {itemClassName}"
 >
-  {#if hasImage}
-    <div
-      class="absolute inset-0 bg-cover bg-center bg-no-repeat"
-      style="background-image: url('{image}')"
-    ></div>
-    <div
-      class="absolute inset-0 bg-black/20 shadow-[inset_0_0_24px_rgba(0,0,0,0.1)]"
-    ></div>
-  {/if}
+  <ImageBackgroundGrid {image} variant={1} />
   <div
     class="relative z-10 flex flex-col justify-center items-center gap-2 w-full
     {hasImage ? 'text-white' : ''}

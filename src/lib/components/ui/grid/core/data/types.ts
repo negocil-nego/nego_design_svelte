@@ -10,8 +10,12 @@ export interface ItemGridProps {
     titleClass?: string;
     itemClassName?: string;
     descriptionClass?: string;
-    icon: string | HugeiconsIconName;
+    icon?: string | HugeiconsIconName;
     image?: string | null;
+    width?: string | number;
+    height?: string | number;
+    itemWidth?: string | number;
+    itemHeight?: string | number;
     isShowDescription?: boolean;
     onClick?: (id: string | number) => void
 }
@@ -25,6 +29,10 @@ export interface GridProps {
     selectedKey?: string | number;
     autoPlay?: boolean;
     isShowDescription?: boolean;
-    slotProps?: CarouselSlotProps;  
+    slotProps?: CarouselSlotProps;
+    width?: string | number;
+    height?: string | number;
+    itemWidth?: string | number;
+    itemHeight?: string | number;
     onClick?: (id: string | number) => void
 }

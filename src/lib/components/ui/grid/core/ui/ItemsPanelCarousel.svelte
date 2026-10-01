@@ -11,6 +11,10 @@
     isLoading,
     items,
     itemClassName,
+    width,
+    height,
+    itemWidth,
+    itemHeight,
     onClick,
     slotProps,
     isScrollbar = false,
@@ -52,6 +56,10 @@
             {variant}
             {isLoading}
             {isShowDescription}
+            {width}
+            {height}
+            {itemWidth}
+            {itemHeight}
           />
         </Carousel.Item>
       {/each}
@@ -71,6 +79,10 @@
           {...item}
           {variant}
           {onClick}
+          width={item.width ?? width}
+          height={item.height ?? height}
+          itemWidth={item.itemWidth ?? itemWidth}
+          itemHeight={item.itemHeight ?? itemHeight}
           itemClassName={cn(itemClassName, descriptionWidthHightClass)}
           isShowDescription={item.isShowDescription ?? isShowDescription}
         />

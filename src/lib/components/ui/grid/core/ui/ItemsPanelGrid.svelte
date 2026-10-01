@@ -10,6 +10,10 @@
     items,
     itemClassName,
     isShowDescription,
+    width,
+    height,
+    itemWidth,
+    itemHeight,
     onClick,
     autoPlay = false,
   }: GridProps = $props();
@@ -75,6 +79,10 @@
         icon=""
         {variant}
         {isLoading}
+        {width}
+        {height}
+        {itemWidth}
+        {itemHeight}
       />
     {/each}
   {:else}
@@ -84,6 +92,10 @@
         {variant}
         {onClick}
         {itemClassName}
+        width={item.width ?? width}
+        height={item.height ?? height}
+        itemWidth={item.itemWidth ?? itemWidth}
+        itemHeight={item.itemHeight ?? itemHeight}
         isShowDescription={item.isShowDescription ?? isShowDescription}
       />
     {/each}

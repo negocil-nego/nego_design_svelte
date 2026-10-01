@@ -21,6 +21,10 @@
     className,
     gridColumns = 3,
     rowColumns = 3,
+    width,
+    height,
+    itemWidth,
+    itemHeight,
     isScrollbar = false,
     autoPlay = false,
     onClick,
@@ -75,6 +79,10 @@
                 {isLoading}
                 {isShowDescription}
                 {itemClassName}
+                {width}
+                {height}
+                {itemWidth}
+                {itemHeight}
               />
             {/each}
           </div>
@@ -92,6 +100,10 @@
                   {variant}
                   {onClick}
                   {itemClassName}
+                  width={item.width ?? width}
+                  height={item.height ?? height}
+                  itemWidth={item.itemWidth ?? itemWidth}
+                  itemHeight={item.itemHeight ?? itemHeight}
                   isShowDescription={item.isShowDescription ??
                     isShowDescription}
                 />

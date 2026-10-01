@@ -8,7 +8,7 @@
     iconClass,
     isLoading,
   }: {
-    icon: string;
+    icon?: string;
     iconClass?: string;
     isLoading?: boolean;
   } = $props();
@@ -16,6 +16,6 @@
 
 {#if isLoading}
   <Skeleton class="min-w-17.5 md:min-w-25 h-2.5 bg-gray-400" />
-{:else}
+{:else if icon}
   <IconRender {icon} class={cn("size-[30px]", iconClass)} />
 {/if}

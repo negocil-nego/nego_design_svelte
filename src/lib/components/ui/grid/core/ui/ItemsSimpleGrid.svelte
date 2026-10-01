@@ -3,7 +3,17 @@
   import type { GridProps } from "../data/types";
   import GridCard from "./shared/GridCard.svelte";
 
-  let { variant, className, isLoading, onClick, items }: GridProps = $props();
+  let {
+    variant,
+    className,
+    isLoading,
+    width,
+    height,
+    itemWidth,
+    itemHeight,
+    onClick,
+    items,
+  }: GridProps = $props();
 
   const styleMobile = "flex justify-between overflow-x-auto no-scrollbar";
 
@@ -33,11 +43,23 @@
         icon=""
         {variant}
         {isLoading}
+        {width}
+        {height}
+        {itemWidth}
+        {itemHeight}
       />
     {/each}
   {:else}
     {#each items as item, i (i)}
-      <GridCard {...item} {variant} {onClick} />
+      <GridCard
+        {...item}
+        {variant}
+        {onClick}
+        width={item.width ?? width}
+        height={item.height ?? height}
+        itemWidth={item.itemWidth ?? itemWidth}
+        itemHeight={item.itemHeight ?? itemHeight}
+      />
     {/each}
   {/if}
 </div>
