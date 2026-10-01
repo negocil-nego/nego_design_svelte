@@ -553,6 +553,62 @@ export const components: DocComponent[] = [
     ],
   },
   {
+    slug: "carousel-items-panel",
+    name: "CarouselItemsPanel",
+    category: "Carousels",
+    description:
+      "Paginated carousel displaying grids of items (Grid01 / Grid02 cards). Groups items into slides based on configurable columns and rows (default 3x3), with header, custom slot controls, loading skeleton, and autoplay.",
+    path: "src/lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte",
+    importPath: "CarouselItemsPanel",
+    examples: [
+      {
+        title: "Items Panel Carousel",
+        code: `<script lang="ts">
+  import { CarouselItemsPanel } from "negodesign";
+  import type { ItemGridProps } from "negodesign/types";
+
+  const items: ItemGridProps[] = [
+    { id: "1", icon: "SparklesIcon", title: "Praias", description: "Águas cristalinas" },
+    { id: "2", icon: "Hotel01Icon", title: "Hotéis", description: "Hospedagem de luxo" },
+    { id: "3", icon: "Airplane01Icon", title: "Voos", description: "Melhores destinos" },
+  ];
+</` + `script>
+
+<CarouselItemsPanel
+  gridColumns={3}
+  rowColumns={3}
+  variant={1}
+  {items}
+  headerProps={{
+    title: "Categorias em Destaque",
+    description: "Explore os melhores destinos e serviços",
+  }}
+  slotProps={{
+    positionButtonPreviousAndNext: "top_right",
+    isButtonPreviousAndNext: true,
+  }}
+  onClick={(id) => console.log("Clicado:", id)}
+/>`,
+        href: "/carousel/panel",
+      },
+    ],
+    props: [
+      { name: "items", type: "ItemGridProps[]", description: "Required. Array of grid items { id, title, icon, description?, image? }", required: true },
+      { name: "gridColumns", type: "number", description: "Number of columns per slide", default: "3" },
+      { name: "rowColumns", type: "number", description: "Number of rows per slide", default: "3" },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Header configuration (title, description, containerClass)" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Carousel slot configuration (buttons position, autoplay plugins, borders)" },
+      { name: "variant", type: "1 | 2", description: "Visual card variant (Grid01 or Grid02)", default: "1" },
+      { name: "isLoading", type: "boolean", description: "Displays animated loading skeletons in the grid", default: "false" },
+      { name: "isShowDescription", type: "boolean", description: "Toggles description visibility in cards", default: "true" },
+      { name: "itemClassName", type: "string", description: "Additional CSS class for individual cards" },
+      { name: "className", type: "string", description: "Additional CSS class for the grid container" },
+      { name: "autoPlay", type: "boolean", description: "Enables autoplay rotation", default: "false" },
+      { name: "isScrollbar", type: "boolean", description: "Enables horizontal scrollbar", default: "false" },
+      { name: "onClick", type: "(id: string | number) => void", description: "Callback when an item is clicked" },
+    ],
+  },
+  {
     slug: "items-simple-grid",
     name: "ItemsSimpleGrid",
     category: "Item Grid",

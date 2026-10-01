@@ -188,6 +188,7 @@ import type { CarouselGridPromotionProps } from "$lib/components/ui/carousel/cor
 import type { CarouselGridProductProps } from "$lib/components/ui/carousel/core/grid/product/types";
 import type { CarouselMediaProps } from "$lib/components/ui/carousel/core/media/types";
 import type { CarouselProfileProps } from "$lib/components/ui/carousel/core/profile/types";
+import type { CarouselItemsPanelProps } from "$lib/components/ui/carousel/core/panel/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
 import type {
     MenuProps,
@@ -346,6 +347,8 @@ export type {
     CarouselGridPromotionProps,
     /** Props do CarouselGridProduct — grid de cards de produto @see CarouselGridProductProps */
     CarouselGridProductProps,
+    /** Props do CarouselItemsPanel — carousel de grids de itens com paginação @see CarouselItemsPanelProps */
+    CarouselItemsPanelProps,
 
     /** Props base do banner de anúncio (AdCardBanner). @see BannerProps */
     BannerProps,

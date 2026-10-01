@@ -216,7 +216,7 @@ export default {
     "carousel.forget-password.slide1.title": "Passwort vergessen?",
     "carousel.forget-password.slide1.description": "Keine Sorge! Das passiert jedem. Geben Sie Ihre E-Mail-Adresse ein und wir senden Ihnen einen Link, um Ihr Passwort sicher zurückzusetzen.",
     "carousel.forget-password.slide2.title": "Überprüfen Sie Ihren Posteingang",
-    "carousel.register.slide2.description": "Wir haben einen Link zum Zurücksetzen des Passworts an Ihre E-Mail gesendet. Überprüfen Sie Ihren Posteingang und folgen Sie den Anweisungen, um ein neues Passwort zu erstellen.",
+    "carousel.forget-password.slide2.description": "Wir haben einen Link zum Zurücksetzen des Passworts an Ihre E-Mail gesendet. Überprüfen Sie Ihren Posteingang und folgen Sie den Anweisungen, um ein neues Passwort zu erstellen.",
     "carousel.forget-password.slide3.title": "Erstellen Sie ein neues Passwort",
     "carousel.forget-password.slide3.description": "Wählen Sie ein starkes, einzigartiges Passwort, um Ihr Konto zu schützen. Stellen Sie sicher, dass es einprägsam, aber für andere schwer zu erraten ist.",
 

@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { GridProps } from "../data/types";
-  import Grid02 from "./02/Grid02.svelte";
-  import Grid01 from "./01/Grid01.svelte";
+  import GridCard from "./shared/GridCard.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
   import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
@@ -45,23 +44,15 @@
     <Carousel.Content>
       {#each Array.from({ length: 10 }) as _, i (`skeleton-${i}`)}
         <Carousel.Item class="basis-auto relative">
-          {#if variant == 2}
-            <Grid02
-              title={`${i}`}
-              description=""
-              icon=""
-              {isLoading}
-              {isShowDescription}
-            />
-          {:else}
-            <Grid01
-              title={`${i}`}
-              description=""
-              icon=""
-              {isLoading}
-              {isShowDescription}
-            />
-          {/if}
+          <GridCard
+            id={i}
+            title={`${i}`}
+            description=""
+            icon=""
+            {variant}
+            {isLoading}
+            {isShowDescription}
+          />
         </Carousel.Item>
       {/each}
     </Carousel.Content>
@@ -76,21 +67,13 @@
   >
     {#each items as item, i (`panel-${item.id ?? i}`)}
       <Carousel.Item class={`basis-auto relative ${i == 0 ? "ml-3" : ""}`}>
-        {#if variant == 2}
-          <Grid02
-            {...item}
-            {onClick}
-            itemClassName={cn(itemClassName, descriptionWidthHightClass)}
-            isShowDescription={item.isShowDescription ?? isShowDescription}
-          />
-        {:else}
-          <Grid01
-            {...item}
-            {onClick}
-            itemClassName={cn(itemClassName, descriptionWidthHightClass)}
-            isShowDescription={item.isShowDescription ?? isShowDescription}
-          />
-        {/if}
+        <GridCard
+          {...item}
+          {variant}
+          {onClick}
+          itemClassName={cn(itemClassName, descriptionWidthHightClass)}
+          isShowDescription={item.isShowDescription ?? isShowDescription}
+        />
       </Carousel.Item>
     {/each}
   </CarouselSlot>

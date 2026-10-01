@@ -45,6 +45,7 @@ import CarouselProfile from "$lib/components/ui/carousel/core/profile/ui/Carouse
 import CarouselProduct from "$lib/components/ui/carousel/core/product/ui/CarouselProduct.svelte";
 import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
+import CarouselItemsPanel from "$lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte";
 
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
 import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
@@ -816,6 +817,22 @@ export {
      * @see CarouselGridPromotionProps
      */
     CarouselGridPromotion,
+
+    /**
+     * Carousel de grids paginadas de itens (cards Grid01 / Grid02).
+     * Agrupa os itens em slides com configuração de colunas (`gridColumns`) e linhas (`rowColumns`), padrão 3x3.
+     * Suporta cabeçalho (CarouselHeader), slot personalizável (CarouselSlot), loading skeleton e autoplay.
+     * @property {ItemGridProps[]} items - Itens para exibir
+     * @property {number} gridColumns - Número de colunas por slide (padrão: 3)
+     * @property {number} rowColumns - Número de linhas por slide (padrão: 3)
+     * @property {CarouselHeaderProps} headerProps - Cabeçalho do carousel
+     * @property {CarouselSlotProps} slotProps - Configuração do slot do carousel
+     * @property {1|2} variant - Variante visual dos cards
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @property {(id) => void} onClick - Callback ao clicar num item
+     * @see CarouselItemsPanelProps
+     */
+    CarouselItemsPanel,
 
     /**
      * Componente de abas com estilo underline. Troca o conteúdo (Snippet)

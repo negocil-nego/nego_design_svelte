@@ -357,6 +357,36 @@ ${"</" + "script>"}
   onButtonDetails={(id) => console.log(id)}
 />`;
 
+  const carouselItemsPanelCode = `<script lang="ts">
+  import { CarouselItemsPanel } from "negodesign";
+  import type { ItemGridProps } from "negodesign/types";
+
+  const items: ItemGridProps[] = [
+    { id: "1", icon: "SparklesIcon", title: "Praias", description: "Águas cristalinas" },
+    { id: "2", icon: "Hotel01Icon", title: "Resorts & Hotéis", description: "Hospedagem de alto padrão" },
+    { id: "3", icon: "Airplane01Icon", title: "Voos Promocionais", description: "Passagens com desconto" },
+    { id: "4", icon: "Restaurant01Icon", title: "Gastronomia", description: "Culinária típica regional" },
+    { id: "5", icon: "Compass01Icon", title: "Ecoturismo", description: "Passeios e trilhas ecológicas" },
+    { id: "6", icon: "Camera01Icon", title: "Tours Fotográficos", description: "Pontos turísticos imperdíveis" },
+  ];
+${"</" + "script>"}
+
+<CarouselItemsPanel
+  gridColumns={3}
+  rowColumns={2}
+  variant={1}
+  {items}
+  headerProps={{
+    title: "Serviços e Destinos",
+    description: "Confira as categorias disponíveis na plataforma",
+  }}
+  slotProps={{
+    positionButtonPreviousAndNext: "top_right",
+    isButtonPreviousAndNext: true,
+  }}
+  onClick={(id) => console.log("Item selecionado:", id)}
+/>`;
+
   const storeOtpCode = `<script lang="ts">
   import { openOtp, closeOtp, otpStore } from "negodesign/store";
 ${"</" + "script>"}
@@ -1106,6 +1136,28 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">CarouselProfile</h3>
       <CodeBlock code={carouselProfileCode} title="CarouselProfile.svelte" />
+    </div>
+  </section>
+
+  <section id="carousel-items-panel" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">CarouselItemsPanel</h2>
+      <a
+        href="/carousel/panel"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Carousel de grids paginadas de itens (<code class="rounded bg-muted px-1 py-0.5">Grid01</code> / <code class="rounded bg-muted px-1 py-0.5">Grid02</code>).
+      Permite definir a dimensão da grade em cada slide através de <code class="rounded bg-muted px-1 py-0.5">gridColumns</code> e <code class="rounded bg-muted px-1 py-0.5">rowColumns</code> (padrão 3x3 = 9 itens por slide),
+      com suporte a cabeçalho, controles de slot personalizáveis, estado vazio, skeleton de carregamento e autoplay.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CarouselItemsPanel</h3>
+      <CodeBlock code={carouselItemsPanelCode} title="CarouselItemsPanel.svelte" />
     </div>
   </section>
 

@@ -1,8 +1,7 @@
 <script lang="ts">
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import type { GridProps } from "../data/types";
-  import Grid02 from "./02/Grid02.svelte";
-  import Grid01 from "./01/Grid01.svelte";
+  import GridCard from "./shared/GridCard.svelte";
 
   let { variant, className, isLoading, onClick, items }: GridProps = $props();
 
@@ -27,19 +26,18 @@
 >
   {#if isLoading}
     {#each Array.from({ length: responsive.isMobile ? 3 : 10 }) as it, i (i)}
-      {#if variant == 2}
-        <Grid02 title={`${it}`} description="" icon="" {isLoading} />
-      {:else}
-        <Grid01 title={`${it}`} description="" icon="" {isLoading} />
-      {/if}
+      <GridCard
+        id={i}
+        title={`${it}`}
+        description=""
+        icon=""
+        {variant}
+        {isLoading}
+      />
     {/each}
   {:else}
     {#each items as item, i (i)}
-      {#if variant == 2}
-        <Grid02 {...item} {onClick} />
-      {:else}
-        <Grid01 {...item} {onClick} />
-      {/if}
+      <GridCard {...item} {variant} {onClick} />
     {/each}
   {/if}
 </div>
