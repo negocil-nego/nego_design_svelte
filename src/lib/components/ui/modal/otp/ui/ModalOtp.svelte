@@ -70,7 +70,6 @@
         maxlength={finalLength}
         bind:value={code}
         disabled={finalIsLoading}
-        placeholder="0"
       >
         {#snippet children({ cells })}
           {#if finalLength > 3}

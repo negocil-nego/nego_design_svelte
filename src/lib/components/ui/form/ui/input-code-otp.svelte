@@ -23,7 +23,7 @@
 </script>
 
 {#snippet otpInput()}
-  <InputOTP.Root maxlength={length} bind:value placeholder={placeholder || $t("input.otp.placeholder")}>
+  <InputOTP.Root maxlength={length} bind:value placeholder={placeholder || ""}>
     {#snippet children({ cells })}
       {#if separator}
         <InputOTP.Group>

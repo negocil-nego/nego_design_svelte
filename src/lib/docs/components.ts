@@ -42,6 +42,7 @@ export const categories = [
   "Login / Security",
   "Full Pages",
   "Image",
+  "Visibility / Hooks",
 ] as const;
 
 const navButtonExample = `import { Menu } from "negodesign"
@@ -2364,6 +2365,110 @@ ${"</" + "script>"}
       { name: "country", type: "string", description: "ISO country code (e.g. \"br\", \"pt\", \"us\") or language code", required: true },
       { name: "class", type: "string", description: "Additional CSS classes" },
       { name: "alt", type: "string", description: "Alt text for the image (defaults to country code uppercase)" },
+    ],
+  },
+  {
+    slug: "visibility-fallback",
+    name: "VisibilityFallback",
+    category: "Visibility / Hooks",
+    description:
+      "Monitors when a component is visible or leaves the viewport. Automatically renders a fallback snippet when out of view. Also exposes the useVisibility / useInView hooks.",
+    path: "src/lib/components/ui/visibility/VisibilityFallback.svelte",
+    importPath: "VisibilityFallback, useVisibility, useInView",
+    examples: [
+      {
+        title: "Sticky Navigation Bar (CarouselHero + Fixed Menu)",
+        description: "Exibe o CarouselHero com menu sobreposto no topo. Quando o usuário rola a página e o Hero sai da tela, o componente fixa o Menu automaticamente no topo com transição suave.",
+        code: `<script lang="ts">
+  import { VisibilityFallback, CarouselHero, Menu } from "negodesign";
+</` + `script>
+
+<VisibilityFallback
+  fixed={true}
+  fixedPosition="top"
+  animation="animate__fadeIn"
+  fallbackAnimation="animate__slideInDown animate__faster"
+>
+  {#snippet fallback({ isVisible, isFixed })}
+    <div class="w-full bg-background/95 backdrop-blur-md shadow-md border-b">
+      <Menu
+        logo={{ url: "/", label: "Negoturismo" }}
+        navMenu={{
+          links: [
+            { label: "Hospedagem", url: "#hospedagem", icon: "BedDoubleIcon" },
+            { label: "Voos", url: "#voos", icon: "Rocket01Icon" },
+          ],
+        }}
+        navMenuButton={{
+          textButtonLogin: "Entrar",
+          textButtonRegister: "Registrar",
+          onclickButtonLogin: () => console.log("Login"),
+          onclickButtonRegister: () => console.log("Registrar"),
+        }}
+      />
+    </div>
+  {/snippet}
+
+  <CarouselHero
+    items={slides}
+    simpleMenu={{
+      logo: { url: "/", label: "Negoturismo", className: "text-white" },
+      links: [
+        { label: "Hospedagem", url: "#hospedagem", icon: "BedDoubleIcon" },
+        { label: "Voos", url: "#voos", icon: "Rocket01Icon" },
+      ],
+      buttonClass: "text-white",
+    }}
+  />
+</VisibilityFallback>`,
+        href: "/visibility",
+      },
+
+      {
+        title: "Using useVisibility Hook directly",
+        description: "Hook for reactive viewport observation in Svelte 5.",
+        code: `<script lang="ts">
+  import { useVisibility } from "negodesign/hooks";
+
+  let targetEl = $state<HTMLDivElement | null>(null);
+  const visibility = useVisibility({
+    onChange: (visible) => console.log("Visível:", visible),
+  });
+
+  $effect(() => {
+    visibility.target = targetEl;
+  });
+</` + `script>
+
+<div bind:this={targetEl}>
+  Status: {visibility.isVisible ? "Na tela" : "Fora da tela"}
+</div>`,
+        href: "/visibility",
+      },
+    ],
+    props: [
+      { name: "children", type: "Snippet<[{ isVisible: boolean }]>", description: "Main content snippet shown when visible" },
+      { name: "fallback", type: "Snippet<[{ isVisible: boolean, isFixed: boolean, fixed: boolean }]>", description: "Fallback snippet shown when out of view (receives isVisible and isFixed status)" },
+      { name: "fixed", type: "boolean", description: "Enables fixed floating positioning when fallback is active", default: "false" },
+      { name: "isFixed", type: "boolean", description: "Alias for fixed prop", default: "false" },
+      { name: "fixedPosition", type: "\"top\" | \"bottom\" | \"top-left\" | \"top-right\" | \"bottom-left\" | \"bottom-right\" | \"center\" | \"custom\"", description: "Predefined screen position when fixed is active", default: "\"bottom-right\"" },
+      { name: "fixedClass", type: "string", description: "Additional CSS classes for fixed mode" },
+      { name: "animate", type: "boolean", description: "Enables smooth Animate.css transitions between main and fallback", default: "true" },
+      { name: "animation", type: "string", description: "Animate.css class for the main content entry", default: "\"animate__fadeIn animate__faster\"" },
+      { name: "fallbackAnimation", type: "string", description: "Animate.css class for the fallback entry", default: "\"animate__fadeIn animate__faster\"" },
+      { name: "rootMargin", type: "string", description: "Viewport margin detection (e.g. \"0px\", \"100px 0px\")", default: "\"0px\"" },
+      { name: "threshold", type: "number | number[]", description: "Visibility threshold ratio (0 to 1)", default: "0" },
+      { name: "once", type: "boolean", description: "Disconnect observer after first visible entry", default: "false" },
+      { name: "initialValue", type: "boolean", description: "Initial visibility value before detection", default: "true" },
+      { name: "keepMounted", type: "boolean", description: "Keep children mounted with display:none when hidden", default: "false" },
+      { name: "invert", type: "boolean", description: "Inverts logic: show fallback when in view, children when out", default: "false" },
+      { name: "visibleClass", type: "string", description: "CSS class applied when in view" },
+      { name: "hiddenClass", type: "string", description: "CSS class applied when out of view" },
+      { name: "fallbackClass", type: "string", description: "CSS class for the fallback container" },
+      { name: "class", type: "string", description: "Container CSS class" },
+      { name: "onChange", type: "(isVisible, entry) => void", description: "Callback when visibility changes" },
+      { name: "onEnter", type: "(entry) => void", description: "Callback when element enters viewport" },
+      { name: "onLeave", type: "(entry) => void", description: "Callback when element leaves viewport" },
     ],
   },
 ];

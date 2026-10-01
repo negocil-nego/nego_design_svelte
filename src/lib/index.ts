@@ -80,6 +80,7 @@ import ModalUpload from "$lib/components/ui/modal/upload/ui/ModalUpload.svelte";
 import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
 import ModalOtp from "$lib/components/ui/modal/otp/ui/ModalOtp.svelte";
 import ModalLogin from "$lib/components/ui/modal/login/ui/ModalLogin.svelte";
+import VisibilityFallback from "$lib/components/ui/visibility/VisibilityFallback.svelte";
 import Form from "$lib/components/ui/form/Form.svelte";
 
 import AdminSidebar from "$lib/components/pages/admin/sidebar/AdminSidebar.svelte";
@@ -92,6 +93,11 @@ import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUs
 import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
 import AdminSectionCards from "$lib/components/pages/admin/shared/section/AdminSectionCards.svelte";
 import AdminUserProfile from "$lib/components/pages/admin/shared/profile/AdminUserProfile.svelte";
+
+/** Hooks reativos de detecção de visibilidade, viewport e responsividade */
+export { useVisibility, useInView, useIntersectionObserver } from "./hooks/visibility.svelte.js";
+export { useDevice } from "./hooks/responsive.svelte.js";
+export { IsMobile } from "./hooks/is-mobile.svelte.js";
 
 /** Store reativa do idioma atual. Altere com `$locale = "pt"`. */
 export { locale } from "./i18n";
@@ -842,6 +848,21 @@ export {
      * @see TabUnderlineProps
      */
     TabUnderline,
+
+    /**
+     * Componente reativo que monitora a presença de um elemento na tela (viewport).
+     * Quando o elemento principal sai da tela, renderiza automaticamente o snippet de `fallback`.
+     * @property {Snippet} children - Conteúdo principal exibido quando visível
+     * @property {Snippet} fallback - Conteúdo alternativo exibido quando sai da tela
+     * @property {string} rootMargin - Margem de detecção do viewport (padrão: "0px")
+     * @property {number|number[]} threshold - Limite de visibilidade (0 a 1)
+     * @property {boolean} once - Desconecta após a primeira visualização
+     * @property {boolean} keepMounted - Mantém o children no DOM com display:none
+     * @see VisibilityFallbackProps
+     */
+    VisibilityFallback,
+    VisibilityFallback as ViewportFallback,
+    VisibilityFallback as InViewFallback,
 
     /**
      * Página de login completa com carousel hero ao fundo e card de autenticação

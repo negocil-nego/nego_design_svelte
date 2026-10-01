@@ -261,10 +261,20 @@ import type {
 } from "$lib/components/ui/modal/upload/types";
 import type { AdminSidebarProps } from "$lib/components/pages/admin/sidebar/types";
 import type { CarouselProductProps } from "$lib/components/ui/carousel/core/product/types";
+import type {
+    VisibilityFallbackProps,
+    VisibilityFallbackSlotProps,
+    VisibilityFallbackPosition
+} from "$lib/components/ui/visibility/types";
+import type { VisibilityOptions } from "$lib/hooks/visibility.svelte";
 
 export type {
     AdminSidebarProps,
     AdminSectionCardsProps,
+    VisibilityFallbackProps,
+    VisibilityFallbackSlotProps,
+    VisibilityFallbackPosition,
+    VisibilityOptions,
 
     GridProps,
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */

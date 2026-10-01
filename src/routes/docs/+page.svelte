@@ -387,6 +387,23 @@ ${"</" + "script>"}
   onClick={(id) => console.log("Item selecionado:", id)}
 />`;
 
+  const visibilityFallbackCode = `<script lang="ts">
+  import { VisibilityFallback, useVisibility } from "negodesign";
+${"</" + "script>"}
+
+<!-- Usando o componente com snippet de fallback -->
+<VisibilityFallback>
+  {#snippet fallback({ isVisible })}
+    <div class="p-4 bg-amber-50 dark:bg-amber-950/30 text-amber-600 rounded-lg">
+      Conteúdo alternativo / Placeholder (fora da tela)
+    </div>
+  {/snippet}
+
+  <div class="p-6 bg-primary text-white rounded-lg shadow-md">
+    Conteúdo principal visível
+  </div>
+</VisibilityFallback>`;
+
   const storeOtpCode = `<script lang="ts">
   import { openOtp, closeOtp, otpStore } from "negodesign/store";
 ${"</" + "script>"}
@@ -1158,6 +1175,28 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">CarouselItemsPanel</h3>
       <CodeBlock code={carouselItemsPanelCode} title="CarouselItemsPanel.svelte" />
+    </div>
+  </section>
+
+  <section id="visibility-fallback" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">VisibilityFallback & Hooks</h2>
+      <a
+        href="/visibility"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Monitora reativamente a visibilidade de elementos na tela (viewport). Permite alternar automaticamente
+      para um <code class="rounded bg-muted px-1 py-0.5">fallback</code> usando Snippets do Svelte 5 quando o elemento principal sai do campo de visão.
+      Também disponibiliza os hooks <code class="rounded bg-muted px-1 py-0.5">useVisibility</code> e <code class="rounded bg-muted px-1 py-0.5">useInView</code>.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">VisibilityFallback</h3>
+      <CodeBlock code={visibilityFallbackCode} title="VisibilityFallback.svelte" />
     </div>
   </section>
 
