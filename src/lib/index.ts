@@ -62,8 +62,11 @@ import CardProduct from "$lib/components/ui/card/core/product/CardProduct.svelte
 import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
+import ItemsPanelCarousel from "$lib/components/ui/grid/core/ui/ItemsPanelCarousel.svelte";
 import ItemsSimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
+import ItemsPanelGrid from "$lib/components/ui/grid/core/ui/ItemsPanelGrid.svelte";
 import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
+
 import ModalGridSelection from "$lib/components/ui/modal/grid/ui/ModalGridSelection.svelte";
 import ModalBadgeSelection from "$lib/components/ui/modal/badge/ui/ModalBadgeSelection.svelte";
 import ModalShareSelection from "$lib/components/ui/modal/share/ui/ModalShareSelection.svelte";
@@ -282,6 +285,31 @@ export {
      * @see MenuProps
      */
     Menu,
+
+    /**
+     * Sistema de carousel responsivo.
+     * Em mobile vira uma lista de scroll horizontal; em desktop usa colunas
+     * dinâmicas baseadas no número de itens. Suporta estado de carregamento.
+     * @property {ItemGridProps[]} items - Lista de itens a exibir
+     * @property {number} itemsPerPage - Número de itens por página
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @property {(id) => void} onClick - Callback ao clicar num item
+     * @see CarouselProps
+     */
+    ItemsPanelCarousel,
+
+    /**
+     * Grid de itens (cards) com variantes visuais 1 e 2.
+     * Em mobile vira uma lista de scroll horizontal; em desktop usa colunas
+     * dinâmicas baseadas no número de itens. Suporta estado de carregamento.
+     * @property {ItemGridProps[]} items - Lista de itens a exibir
+     * @property {1|2} variant - Variante visual dos cards (padrão: 1)
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @property {(id) => void} onClick - Callback ao clicar num item
+     * @property {string} className - Classe CSS adicional do container
+     * @see GridProps
+     */
+    ItemsPanelGrid,
 
     /**
      * Grid de itens (cards) com variantes visuais 1 e 2.

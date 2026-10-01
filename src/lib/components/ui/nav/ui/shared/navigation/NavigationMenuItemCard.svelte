@@ -30,7 +30,7 @@
       <li
         class="row-span-3 relative"
         style={header.imgUrl
-          ? `background-image: url(${header.imgUrl}); background-repeat: no-repeat; background-size: cover; background-position: center; border-radius: 12px;`
+          ? `background-image: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 60%, transparent 100%), url(${header.imgUrl}); background-repeat: no-repeat; background-size: cover; background-position: center; border-radius: 12px;`
           : ``}
       >
         <a
