@@ -52,7 +52,7 @@
 >
   <ImageBackgroundGrid {image} variant={1} />
   <div
-    class="relative z-10 flex flex-col justify-center items-center gap-2 w-full
+    class="relative flex flex-col justify-center items-center gap-2 w-full
     {hasImage ? 'text-white' : ''}
     "
   >

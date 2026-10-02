@@ -1,5 +1,5 @@
 <script lang="ts">
-    import SimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
+    import SimpleGrid from "$lib/components/ui/grid/core/shared/ui/ItemsSimpleGrid.svelte";
 </script>
 
 <SimpleGrid

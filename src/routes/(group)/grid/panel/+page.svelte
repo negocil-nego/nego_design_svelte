@@ -1,5 +1,5 @@
 <script lang="ts">
-  import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
+  import ItemsPanel from "$lib/components/ui/grid/core/shared/ui/ItemsPanel.svelte";
 </script>
 
 <ItemsPanel

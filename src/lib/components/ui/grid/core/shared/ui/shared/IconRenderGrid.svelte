@@ -15,7 +15,7 @@
 </script>
 
 {#if isLoading}
-  <Skeleton class="min-w-17.5 md:min-w-25 h-2.5 bg-gray-400" />
+  <Skeleton class="min-w-17.5 md:min-w-25 h-2.5 bg-gray-400 dark:bg-gray-900" />
 {:else if icon}
-  <IconRender {icon} class={cn("size-[30px]", iconClass)} />
+  <IconRender {icon} class={cn("size-15", iconClass)} />
 {/if}

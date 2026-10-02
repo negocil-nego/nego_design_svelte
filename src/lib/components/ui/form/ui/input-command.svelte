@@ -96,7 +96,6 @@
 <Popover bind:open class="w-full">
   <PopoverTrigger class={cn("w-full", className)}>
     <div class="flex items-center gap-2 w-full">
-      <ImageHugeicons icon="Search01Icon" class="text-dark dark:text-white size-5.5" />
       <input
         bind:this={inputRef}
         type="text"
@@ -118,7 +117,7 @@
     align="start"
     side="bottom"
     class="w-full p-0"
-    style="z-index: 100;"
+    style="z-index: 999;"
   >
     {#if children}
       {children()}
@@ -137,7 +136,10 @@
                   class="flex items-center gap-2 w-full px-2 py-1.5 text-sm rounded-md hover:bg-accent hover:text-accent-foreground cursor-pointer transition-colors text-left"
                 >
                   {#if item.icon}
-                    <ImageHugeicons icon={item.icon} class="size-4 text-current" />
+                    <ImageHugeicons
+                      icon={item.icon}
+                      class="size-4 text-current"
+                    />
                   {/if}
                   <span class="flex-1">{item.label}</span>
                   {#if item.shortcut}
@@ -152,7 +154,10 @@
         {:else if query}
           <Empty class="py-8">
             <div class="rounded-full bg-muted p-3 mb-3">
-              <ImageHugeicons icon="Search01Icon" class="text-muted-foreground size-6" />
+              <ImageHugeicons
+                icon="Search01Icon"
+                class="text-muted-foreground size-6"
+              />
             </div>
             <EmptyTitle class="text-sm"
               >{$t("search.input.no_results")}</EmptyTitle
@@ -164,7 +169,10 @@
         {:else}
           <Empty class="py-8">
             <div class="rounded-full bg-muted p-3 mb-3">
-              <ImageHugeicons icon="Search01Icon" class="text-muted-foreground size-6" />
+              <ImageHugeicons
+                icon="Search01Icon"
+                class="text-muted-foreground size-6"
+              />
             </div>
             <EmptyTitle class="text-sm"
               >{$t("search.input.type_to_search")}</EmptyTitle

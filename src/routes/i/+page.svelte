@@ -1,7 +1,7 @@
 <script lang="ts">
   import { CarouselHero } from "$lib";
   import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
-  import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
+  import ItemsPanel from "$lib/components/ui/grid/core/shared/ui/ItemsPanel.svelte";
   import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 </script>
 
@@ -72,3 +72,123 @@
     </div>
   </div>
 </CarouselHero>
+
+<ItemsPanel
+  variant={2}
+  style="inline"
+  itemClassName="bg-amber-50 border-none"
+  isShowDescription={false}
+  items={[
+    {
+      icon: "SparklesIcon",
+      title: "Café",
+      description: "Café com leite e pão de queijo para começar bem o dia",
+    },
+    {
+      icon: "Money01Icon",
+      title: "Computador",
+      description: "Computador com internet para trabalhar",
+    },
+    {
+      icon: "SmartPhone02Icon",
+      title: "Telefone",
+      description: "Telefone com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "SparklesIcon",
+      title: "Café",
+      description: "Café com leite e pão de queijo para começar bem o dia",
+    },
+    {
+      icon: "Money01Icon",
+      title: "Computador",
+      description: "Computador com internet para trabalhar",
+    },
+    {
+      icon: "SmartPhone02Icon",
+      title: "Telefone",
+      description: "Telefone com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "SparklesIcon",
+      title: "Café",
+      description: "Café com leite e pão de queijo para começar bem o dia",
+    },
+    {
+      icon: "Money01Icon",
+      title: "Computador",
+      description: "Computador com internet para trabalhar",
+    },
+    {
+      icon: "SmartPhone02Icon",
+      title: "Telefone",
+      description: "Telefone com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+    {
+      icon: "ComponentIcon",
+      title: "Teste",
+      description: "Teste com internet para trabalhar",
+    },
+  ]}
+/>
+
+<div class="relative flex justify-center mt-10">
+  <CarouselBadge
+    orientation="horizontal"
+    iconClass="size-6"
+    onClick={(value: string | number) => console.log(value)}
+    items={[
+      {
+        label: "Todos",
+        value: "hospegadem",
+        icon: "DashboardCircleAddIcon",
+      },
+      { label: "Hotel", value: "hotel", icon: "BedDoubleIcon" },
+      { label: "Hospedaria", value: "hospedaria", icon: "BedDoubleIcon" },
+      { label: "Pensão", value: "pensao", icon: "BedDoubleIcon" },
+    ]}
+    itemStyle="INLINE"
+    showButton={true}
+    isBorderInline
+  />
+</div>

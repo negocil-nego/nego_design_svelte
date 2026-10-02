@@ -20,7 +20,7 @@
     "border-1 bg-white dark:bg-background rounded-full p-2";
   const styleTopCenter = "bg-gradient text-white! cursor-pointer!";
   const styleCenter =
-    "absolute top-1/2 -translate-y-1/2 mt-0.5 md:mr-0 z-50 bg-blue-700! text-white! cursor-pointer!";
+    "absolute top-1/2 -translate-y-1/2 mt-0.5 md:mr-0 bg-blue-700! text-white! cursor-pointer!";
 
   const responsive = useDevice();
 </script>

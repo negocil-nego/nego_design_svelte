@@ -73,6 +73,19 @@ import type {
 } from "$lib/components/ui/carousel/core/types";
 
 import type {
+    GridBadgeProps,
+    GridHeaderProps,
+    ItemGridBadge
+} from "$lib/components/ui/grid/core/types";
+import type { GridHighlightsProps } from "$lib/components/ui/grid/core/highlights/types";
+import type { GridMediaProps } from "$lib/components/ui/grid/core/media/types";
+import type { GridProductProps } from "$lib/components/ui/grid/core/product/types";
+import type { GridProfileProps } from "$lib/components/ui/grid/core/profile/types";
+import type { GridPromotionProps } from "$lib/components/ui/grid/core/promotion/types";
+import type { GridItemsPanelProps } from "$lib/components/ui/grid/core/panel/types";
+import type { GridHeroItem, GridHeroProps } from "$lib/components/ui/grid/core/hero/types";
+
+import type {
     CarouselSlotProps,
     NotFoundEmptyProps
 } from "$lib/components/ui/panel/type";
@@ -198,7 +211,7 @@ import type {
 import type {
     GridProps,
     ItemGridProps
-} from "$lib/components/ui/grid/core/data/types";
+} from "$lib/components/ui/grid/core/shared/data/types";
 
 import type {
     ModelGridCard,
@@ -359,6 +372,29 @@ export type {
     CarouselGridProductProps,
     /** Props do CarouselItemsPanel — carousel de grids de itens com paginação @see CarouselItemsPanelProps */
     CarouselItemsPanelProps,
+
+    /** Props do GridHeader — cabeçalho de grid (título, descrição, borda). @see GridHeaderProps */
+    GridHeaderProps,
+    /** Item individual do GridBadge — categoria/opção com ícone/imagem. @see ItemGridBadge */
+    ItemGridBadge,
+    /** Props do GridBadge — grid de badges/categorias com orientação H/V. @see GridBadgeProps */
+    GridBadgeProps,
+    /** Item individual do GridHero — bloco com imagem, título e descrição. @see GridHeroItem */
+    GridHeroItem,
+    /** Props do GridHero — hero em grade (sem slides rotativos). @see GridHeroProps */
+    GridHeroProps,
+    /** Props do GridHighlights — grid de cards de destaque/organizações. @see GridHighlightsProps */
+    GridHighlightsProps,
+    /** Props do GridMedia — grid de cards de mídia (img/vídeo). @see GridMediaProps */
+    GridMediaProps,
+    /** Props do GridProfile — grid de cards de perfil (guias, organizações). @see GridProfileProps */
+    GridProfileProps,
+    /** Props do GridProduct — grid de cards de produto. @see GridProductProps */
+    GridProductProps,
+    /** Props do GridPromotion — grid de cards de promoção com preços. @see GridPromotionProps */
+    GridPromotionProps,
+    /** Props do GridItemsPanel — grid de itens (cards Grid01/Grid02). @see GridItemsPanelProps */
+    GridItemsPanelProps,
 
     /** Props base do banner de anúncio (AdCardBanner). @see BannerProps */
     BannerProps,

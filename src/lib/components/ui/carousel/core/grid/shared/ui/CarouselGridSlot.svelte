@@ -4,8 +4,8 @@
   import type { CarouselSlotProps } from "$lib/components/ui/panel/type";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
-  import type { GridProps } from "$lib/components/ui/grid/core/data/types";
-  import SimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
+  import type { GridProps } from "$lib/components/ui/grid/core/shared/data/types";
+  import SimpleGrid from "$lib/components/ui/grid/core/shared/ui/ItemsSimpleGrid.svelte";
 
   type Props = {
     slotProps?: CarouselSlotProps;

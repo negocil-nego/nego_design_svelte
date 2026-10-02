@@ -3,7 +3,7 @@
   import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
   import CarouselHeader from "../shared/ui/CarouselHeader.svelte";
   import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
-  import GridCard from "$lib/components/ui/grid/core/ui/shared/GridCard.svelte";
+  import GridCard from "$lib/components/ui/grid/core/shared/ui/shared/GridCard.svelte";
   import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import { t } from "$lib/i18n";

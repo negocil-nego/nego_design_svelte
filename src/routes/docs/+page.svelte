@@ -387,6 +387,153 @@ ${"</" + "script>"}
   onClick={(id) => console.log("Item selecionado:", id)}
 />`;
 
+  const gridHighlightsCode = `<script lang="ts">
+  import { GridHighlights } from "negodesign";
+  import items from "negodesign/card/core/highlight/data";
+${"</" + "script>"}
+
+<GridHighlights
+  {items}
+  varient={2}
+  headerProps={{
+    title: "Destaques",
+    description: "Confira os destaques que preparamos para você",
+  }}
+  onClickBtn={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`;
+
+  const gridMediaCode = `<script lang="ts">
+  import { GridMedia } from "negodesign";
+  import items from "negodesign/card/core/media/data";
+${"</" + "script>"}
+
+<GridMedia
+  {items}
+  headerProps={{
+    title: "Galeria de mídia",
+    description: "Browse our photos and videos",
+  }}
+  isImageButtonMaximized
+  isVideoButtonMaximized
+  onFavoriteClick={(id) => console.log(id)}
+  onButtonProfile={(id) => console.log(id)}
+  onButtonDetails={(id) => console.log(id)}
+/>`;
+
+  const gridProfileCode = `<script lang="ts">
+  import { GridProfile } from "negodesign";
+  import items from "negodesign/card/core/profile/data";
+${"</" + "script>"}
+
+<GridProfile
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Guias e intérpretes",
+    description: "Conheça os profissionais que acompanham a sua viagem",
+  }}
+  onFavoriteClick={(id) => console.log(id)}
+  onButtonProfile={(id) => console.log(id)}
+  onWhatsappClick={(id) => console.log(id)}
+/>`;
+
+  const gridProductCode = `<script lang="ts">
+  import { GridProduct } from "negodesign";
+  import items from "negodesign/card/core/product/data";
+${"</" + "script>"}
+
+<GridProduct
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Produtos em destaque",
+    description: "Explore os melhores produtos disponíveis",
+  }}
+  onClickBuy={(id) => console.log(id)}
+  onClickShop={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`;
+
+  const gridPromotionCode = `<script lang="ts">
+  import { GridPromotion } from "negodesign";
+  import items from "negodesign/card/core/promotion/data";
+${"</" + "script>"}
+
+<GridPromotion
+  {items}
+  headerProps={{
+    title: "Promoções imperdíveis",
+    description: "Confira as melhores ofertas exclusivas",
+  }}
+  onClickBuy={(id) => console.log(id)}
+  onClickShop={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`;
+
+  const gridBadgeCode = `<script lang="ts">
+  import { GridBadge } from "negodesign";
+${"</" + "script>"}
+
+<!-- icon aceita classes CSS (ícones Hugeicons) ou image -->
+<GridBadge
+  orientation="horizontal"
+  itemStyle="BORDER"
+  menuKey="hotel"
+  items={[
+    { label: "Todos", value: "todos", icon: "hgi hgi-stroke hgi-dashboard-circle-add" },
+    { label: "Hotel", value: "hotel", icon: "hgi hgi-stroke hgi-hotel-01" },
+    { label: "Pensão", value: "pensao", icon: "hgi hgi-stroke hgi-bed-double" },
+  ]}
+  onClick={(value) => console.log(value)}
+/>`;
+
+  const gridItemsPanelCode = `<script lang="ts">
+  import { GridItemsPanel } from "negodesign";
+  import type { ItemGridProps } from "negodesign/types";
+
+  const items: ItemGridProps[] = [
+    { id: "1", icon: "SparklesIcon", title: "Praias", description: "Águas cristalinas" },
+    { id: "2", icon: "Hotel01Icon", title: "Resorts & Hotéis", description: "Hospedagem de alto padrão" },
+    { id: "3", icon: "Airplane01Icon", title: "Voos Promocionais", description: "Passagens com desconto" },
+  ];
+${"</" + "script>"}
+
+<GridItemsPanel
+  variant={1}
+  {items}
+  headerProps={{
+    title: "Serviços e Destinos",
+    description: "Confira as categorias disponíveis na plataforma",
+  }}
+  onClick={(id) => console.log("Item selecionado:", id)}
+/>`;
+
+  const gridHeroCode = `<script lang="ts">
+  import { GridHero } from "negodesign";
+${"</" + "script>"}
+
+<GridHero
+  items={[
+    {
+      title: "Encontre a hospedagem ideal",
+      description: "Hotéis e apartamentos verificados em todo o país.",
+      image: "/images/hero-hotel.jpg",
+    },
+    {
+      title: "Guias turísticos locais",
+      description: "Explore com quem conhece o destino de verdade.",
+      image: "/images/hero-guide.jpg",
+    },
+  ]}
+  simpleMenu={{
+    logo: { url: "/", label: "Negoturismo" },
+    links: [{ label: "Hospedagem", url: "#", icon: "BedDoubleIcon" }],
+    isLanguageSwitcher: false,
+    isThemeSwitch: false,
+  }}
+/>`;
+
   const visibilityFallbackCode = `<script lang="ts">
   import { VisibilityFallback, useVisibility } from "negodesign";
 ${"</" + "script>"}
@@ -1175,6 +1322,166 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">CarouselItemsPanel</h3>
       <CodeBlock code={carouselItemsPanelCode} title="CarouselItemsPanel.svelte" />
+    </div>
+  </section>
+
+  <section id="grid-components" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">New: Grid components</h2>
+      <a
+        href="/grid/highlights"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Versões em grade dos componentes de carousel: os mesmos cards
+      (Highlights, Media, Profile, Product, Promotion) e itens, mas organizados
+      numa grelha responsiva —
+      <code class="rounded bg-muted px-1 py-0.5">1 coluna</code> em mobile,
+      <code class="rounded bg-muted px-1 py-0.5">3 colunas</code> em
+      <code class="rounded bg-muted px-1 py-0.5">md</code> e
+      <code class="rounded bg-muted px-1 py-0.5">4 colunas</code> em
+      <code class="rounded bg-muted px-1 py-0.5">xl</code>, sobrescrevível com
+      <code class="rounded bg-muted px-1 py-0.5">gridClass</code>. Todos aceitam
+      <code class="rounded bg-muted px-1 py-0.5">headerProps</code> (título e
+      descrição), mostram skeleton com
+      <code class="rounded bg-muted px-1 py-0.5">isLoading</code> e estado vazio
+      automaticamente — sem autoplay, sem botões de navegação.
+    </p>
+
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridHighlights</h3>
+        <a
+          href="/grid/highlights"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de cards de destaque com variantes 1 e 2
+        (<code class="rounded bg-muted px-1 py-0.5">varient</code>).
+      </p>
+      <CodeBlock code={gridHighlightsCode} title="GridHighlights.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridMedia</h3>
+        <a
+          href="/grid/media"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de cards de mídia (fotos/vídeos) com tags, rating e botões de
+        perfil/detalhes.
+      </p>
+      <CodeBlock code={gridMediaCode} title="GridMedia.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridProfile</h3>
+        <a
+          href="/grid/profile"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de cards de perfil (guias, intérpretes, organizações) com favorito,
+        perfil, email e whatsapp.
+      </p>
+      <CodeBlock code={gridProfileCode} title="GridProfile.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridProduct</h3>
+        <a
+          href="/grid/product"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de cards de produto com preço, rating e botões de compra.
+      </p>
+      <CodeBlock code={gridProductCode} title="GridProduct.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridPromotion</h3>
+        <a
+          href="/grid/promotion"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de cards de promoção com preço antigo/novo e botões de
+        comprar/carrinho. Não aceita <code class="rounded bg-muted px-1 py-0.5"
+          >variant</code
+        > — usa o visual do CardPromotion.
+      </p>
+      <CodeBlock code={gridPromotionCode} title="GridPromotion.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridBadge</h3>
+        <a
+          href="/grid/badge"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de badges/categorias selecionáveis com orientação horizontal ou
+        vertical, estilos <code class="rounded bg-muted px-1 py-0.5">BORDER</code
+        >, <code class="rounded bg-muted px-1 py-0.5">INLINE</code> e
+        <code class="rounded bg-muted px-1 py-0.5">DEFAULT</code>, estado ativo
+        via <code class="rounded bg-muted px-1 py-0.5">menuKey</code> e skeleton
+        com <code class="rounded bg-muted px-1 py-0.5">isLoading</code>.
+      </p>
+      <CodeBlock code={gridBadgeCode} title="GridBadge.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridItemsPanel</h3>
+        <a
+          href="/grid/items-panel"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Grid de itens (cards Grid01 / Grid02) com cabeçalho, estado vazio,
+        skeleton e clique por item — a contraparte em grade do
+        <a
+          href="/docs/carousel-items-panel"
+          class="font-medium text-primary underline underline-offset-4"
+          >CarouselItemsPanel</a
+        >.
+      </p>
+      <CodeBlock code={gridItemsPanelCode} title="GridItemsPanel.svelte" />
+    </div>
+
+    <div class="mt-4 rounded-xl border border-border bg-card p-5">
+      <div class="flex items-center justify-between gap-2">
+        <h3 class="text-sm font-semibold">GridHero</h3>
+        <a
+          href="/grid/hero"
+          class="text-xs font-medium text-primary hover:underline">Live demo</a
+        >
+      </div>
+      <p class="mt-1 text-xs text-muted-foreground">
+        Hero em grade: apresenta os blocos (imagem + título + descrição) numa
+        grelha em vez de slides rotativos, com menu sobreposto opcional
+        (<code class="rounded bg-muted px-1 py-0.5">simpleMenu</code> /
+        <code class="rounded bg-muted px-1 py-0.5">complexMenu</code>).
+      </p>
+      <CodeBlock code={gridHeroCode} title="GridHero.svelte" />
     </div>
   </section>
 

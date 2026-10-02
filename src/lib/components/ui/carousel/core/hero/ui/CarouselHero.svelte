@@ -132,7 +132,6 @@
 
       <section
         class="flex flex-col justify-center items-center flex-1 w-full h-auto text-center px-4 {sectionClass}"
-        style="z-index: 100;"
       >
         {#key selected.title}
           <div

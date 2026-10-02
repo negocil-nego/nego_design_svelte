@@ -47,6 +47,15 @@ import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBad
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 import CarouselItemsPanel from "$lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte";
 
+import GridBadge from "$lib/components/ui/grid/core/badge/ui/GridBadge.svelte";
+import GridHighlights from "$lib/components/ui/grid/core/highlights/ui/GridHighlights.svelte";
+import GridMedia from "$lib/components/ui/grid/core/media/ui/GridMedia.svelte";
+import GridProfile from "$lib/components/ui/grid/core/profile/ui/GridProfile.svelte";
+import GridProduct from "$lib/components/ui/grid/core/product/ui/GridProduct.svelte";
+import GridPromotion from "$lib/components/ui/grid/core/promotion/ui/GridPromotion.svelte";
+import GridItemsPanel from "$lib/components/ui/grid/core/panel/GridItemsPanel.svelte";
+import GridHero from "$lib/components/ui/grid/core/hero/ui/GridHero.svelte";
+
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
 import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 
@@ -63,10 +72,10 @@ import CardProduct from "$lib/components/ui/card/core/product/CardProduct.svelte
 import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
-import ItemsPanelCarousel from "$lib/components/ui/grid/core/ui/ItemsPanelCarousel.svelte";
-import ItemsSimpleGrid from "$lib/components/ui/grid/core/ui/ItemsSimpleGrid.svelte";
-import ItemsPanelGrid from "$lib/components/ui/grid/core/ui/ItemsPanelGrid.svelte";
-import ItemsPanel from "$lib/components/ui/grid/core/ui/ItemsPanel.svelte";
+import ItemsPanelCarousel from "$lib/components/ui/grid/core/shared/ui/ItemsPanelCarousel.svelte";
+import ItemsSimpleGrid from "$lib/components/ui/grid/core/shared/ui/ItemsSimpleGrid.svelte";
+import ItemsPanelGrid from "$lib/components/ui/grid/core/shared/ui/ItemsPanelGrid.svelte";
+import ItemsPanel from "$lib/components/ui/grid/core/shared/ui/ItemsPanel.svelte";
 
 import ModalGridSelection from "$lib/components/ui/modal/grid/ui/ModalGridSelection.svelte";
 import ModalBadgeSelection from "$lib/components/ui/modal/badge/ui/ModalBadgeSelection.svelte";
@@ -839,6 +848,72 @@ export {
      * @see CarouselItemsPanelProps
      */
     CarouselItemsPanel,
+
+    /**
+     * Grid de badges/categorias com orientação horizontal ou vertical.
+     * Versão em grade do CarouselBadge.
+     * @property {ItemGridBadge[]} items - Lista de itens do grid
+     * @property {"horizontal"|"vertical"} orientation - Orientação do conteúdo
+     * @see GridBadgeProps
+     */
+    GridBadge,
+
+    /**
+     * Grid de cards de destaque para organizações, serviços ou locais em evidência.
+     * @property {CardHighlightProps[]} items - Cards de destaque
+     * @property {GridHeaderProps} headerProps - Cabeçalho do grid
+     * @property {1|2} varient - Variante visual
+     * @see GridHighlightsProps
+     */
+    GridHighlights,
+
+    /**
+     * Grid responsivo de cards de mídia (imagens ou vídeos).
+     * @property {CardMediaProps[]} items - Cards de mídia
+     * @property {GridHeaderProps} headerProps - Cabeçalho do grid
+     * @see GridMediaProps
+     */
+    GridMedia,
+
+    /**
+     * Grid responsivo de cards de perfil (guias, intérpretes, organizações).
+     * @property {CardProfileProps[]} items - Cards de perfil
+     * @property {GridHeaderProps} headerProps - Cabeçalho do grid
+     * @see GridProfileProps
+     */
+    GridProfile,
+
+    /**
+     * Grid responsivo de cards de produto.
+     * @property {CardProductProps[]} items - Cards de produto
+     * @property {GridHeaderProps} headerProps - Cabeçalho do grid
+     * @see GridProductProps
+     */
+    GridProduct,
+
+    /**
+     * Grid responsivo de cards de produto em promoção.
+     * @property {CardPromotionProps[]} items - Cards de promoção
+     * @property {GridHeaderProps} headerProps - Cabeçalho do grid
+     * @see GridPromotionProps
+     */
+    GridPromotion,
+
+    /**
+     * Grid de itens (cards Grid01 / Grid02) com cabeçalho, loading skeleton e clique por item.
+     * @property {ItemGridProps[]} items - Itens para exibir
+     * @property {1|2} variant - Variante visual dos cards
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @see GridItemsPanelProps
+     */
+    GridItemsPanel,
+
+    /**
+     * Hero em grid — apresenta os itens em grade em vez de slides rotativos.
+     * @property {GridHeroItem[]} items - Blocos do hero (title, image, description)
+     * @see GridHeroProps
+     */
+    GridHero,
 
     /**
      * Componente de abas com estilo underline. Troca o conteúdo (Snippet)

@@ -31,6 +31,7 @@ export const categories = [
   "Banners",
   "Cards",
   "Carousels",
+  "Grids",
   "Item Grid",
   "Tabs",
   "Form Inputs",
@@ -607,6 +608,353 @@ export const components: DocComponent[] = [
       { name: "autoPlay", type: "boolean", description: "Enables autoplay rotation", default: "false" },
       { name: "isScrollbar", type: "boolean", description: "Enables horizontal scrollbar", default: "false" },
       { name: "onClick", type: "(id: string | number) => void", description: "Callback when an item is clicked" },
+    ],
+  },
+  {
+    slug: "grid-highlights",
+    name: "GridHighlights",
+    category: "Grids",
+    description:
+      "Responsive grid of highlight cards (organizations, featured services) with header, empty state, and loading skeleton — the grid counterpart of CarouselHighlights.",
+    path: "src/lib/components/ui/grid/core/highlights/ui/GridHighlights.svelte",
+    importPath: "GridHighlights",
+    examples: [
+      {
+        title: "Highlights Grid",
+        code: `import { GridHighlights } from "negodesign"
+import items from "negodesign/card/core/highlight/data"
+
+<GridHighlights
+  {items}
+  varient={2}
+  headerProps={{
+    title: "Destaques",
+    description: "Confira os destaques que preparamos para você",
+  }}
+  onClickBtn={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`,
+        href: "/grid/highlights",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardHighlightProps[]", description: "Required. Highlight card data", required: true },
+      { name: "varient", type: "1 | 2", description: "Card visual variant (note: prop spelled 'varient')", default: "1" },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass, isBorder)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container (overrides the default responsive columns)" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "onClickBtn", type: "(id) => void", description: "Called on the card action button" },
+      { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
+    ],
+  },
+  {
+    slug: "grid-media",
+    name: "GridMedia",
+    category: "Grids",
+    description:
+      "Responsive grid of media cards (photos/videos) with tags, rating and profile/details buttons — the grid counterpart of CarouselMedia.",
+    path: "src/lib/components/ui/grid/core/media/ui/GridMedia.svelte",
+    importPath: "GridMedia",
+    examples: [
+      {
+        title: "Media Grid",
+        code: `import { GridMedia } from "negodesign"
+import items from "negodesign/card/core/media/data"
+
+<GridMedia
+  {items}
+  headerProps={{
+    title: "Galeria de mídia",
+    description: "Browse our photos and videos",
+  }}
+  isImageButtonMaximized
+  isVideoButtonMaximized
+  onFavoriteClick={(id) => console.log(id)}
+  onButtonProfile={(id) => console.log(id)}
+  onButtonDetails={(id) => console.log(id)}
+/>`,
+        href: "/grid/media",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardMediaProps[]", description: "Required. Media card data", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "isImageButtonMaximized", type: "boolean", description: "Shows maximize button on the image" },
+      { name: "isVideoButtonMaximized", type: "boolean", description: "Shows maximize button on the video" },
+      { name: "onFavoriteClick", type: "(id) => void", description: "Called on the favorite button" },
+      { name: "onButtonProfile", type: "(id) => void", description: "Called on the profile button" },
+      { name: "onButtonDetails", type: "(id) => void", description: "Called on the details button" },
+    ],
+  },
+  {
+    slug: "grid-profile",
+    name: "GridProfile",
+    category: "Grids",
+    description:
+      "Responsive grid of profile cards (guides, interpreters, organizations) with favorite, profile, email and whatsapp actions — the grid counterpart of CarouselProfile.",
+    path: "src/lib/components/ui/grid/core/profile/ui/GridProfile.svelte",
+    importPath: "GridProfile",
+    examples: [
+      {
+        title: "Profile Grid",
+        code: `import { GridProfile } from "negodesign"
+import items from "negodesign/card/core/profile/data"
+
+<GridProfile
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Guias e intérpretes",
+    description: "Conheça os profissionais que acompanham a sua viagem",
+  }}
+  onFavoriteClick={(id) => console.log(id)}
+  onButtonProfile={(id) => console.log(id)}
+  onWhatsappClick={(id) => console.log(id)}
+/>`,
+        href: "/grid/profile",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardProfileProps[]", description: "Required. Profile card data", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "onFavoriteClick", type: "(id) => void", description: "Called on the favorite button" },
+      { name: "onButtonProfile", type: "(id) => void", description: "Called on the profile button" },
+      { name: "onEmailClick", type: "(id) => void", description: "Called on the email button" },
+      { name: "onWhatsappClick", type: "(id) => void", description: "Called on the whatsapp button" },
+    ],
+  },
+  {
+    slug: "grid-product",
+    name: "GridProduct",
+    category: "Grids",
+    description:
+      "Responsive grid of product cards with price, rating and buy/cart buttons — the grid counterpart of CarouselGridProduct.",
+    path: "src/lib/components/ui/grid/core/product/ui/GridProduct.svelte",
+    importPath: "GridProduct",
+    examples: [
+      {
+        title: "Product Grid",
+        code: `import { GridProduct } from "negodesign"
+import items from "negodesign/card/core/product/data"
+
+<GridProduct
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Produtos em destaque",
+    description: "Explore os melhores produtos disponíveis",
+  }}
+  onClickBuy={(id) => console.log(id)}
+  onClickShop={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`,
+        href: "/grid/product",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardProductProps[]", description: "Required. Product card data", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "onClickBuy", type: "(id) => void", description: "Called on the buy button" },
+      { name: "onClickShop", type: "(id) => void", description: "Called on the cart button" },
+      { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
+    ],
+  },
+  {
+    slug: "grid-promotion",
+    name: "GridPromotion",
+    category: "Grids",
+    description:
+      "Responsive grid of promotion cards with old/new prices and buy/cart/favorite buttons — the grid counterpart of CarouselGridPromotion. Does not accept a card variant.",
+    path: "src/lib/components/ui/grid/core/promotion/ui/GridPromotion.svelte",
+    importPath: "GridPromotion",
+    examples: [
+      {
+        title: "Promotion Grid",
+        code: `import { GridPromotion } from "negodesign"
+import items from "negodesign/card/core/promotion/data"
+
+<GridPromotion
+  {items}
+  headerProps={{
+    title: "Promoções imperdíveis",
+    description: "Confira as melhores ofertas exclusivas",
+  }}
+  onClickBuy={(id) => console.log(id)}
+  onClickShop={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`,
+        href: "/grid/promotion",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardPromotionProps[]", description: "Required. Promotion card data", required: true },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "onClickBuy", type: "(id) => void", description: "Called on the buy button" },
+      { name: "onClickShop", type: "(id) => void", description: "Called on the cart button" },
+      { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
+    ],
+  },
+  {
+    slug: "grid-badge",
+    name: "GridBadge",
+    category: "Grids",
+    description:
+      "Selectable grid of badges/categories (icon or image + label) with horizontal/vertical orientation, BORDER/INLINE/DEFAULT item styles, active state via menuKey, and loading skeleton.",
+    path: "src/lib/components/ui/grid/core/badge/ui/GridBadge.svelte",
+    importPath: "GridBadge",
+    examples: [
+      {
+        title: "Badge Grid",
+        code: `import { GridBadge } from "negodesign"
+
+<GridBadge
+  orientation="horizontal"
+  itemStyle="BORDER"
+  menuKey="hotel"
+  items={[
+    { label: "Todos", value: "todos", icon: "hgi hgi-stroke hgi-dashboard-circle-add" },
+    { label: "Hotel", value: "hotel", icon: "hgi hgi-stroke hgi-hotel-01" },
+    { label: "Pensão", value: "pensao", icon: "hgi hgi-stroke hgi-bed-double" },
+  ]}
+  onClick={(value) => console.log(value)}
+/>`,
+        href: "/grid/badge",
+      },
+    ],
+    props: [
+      { name: "items", type: "ItemGridBadge[]", description: "Required. Items: { value, label, image?, link?, icon?, isActive?, onClick? }", required: true },
+      { name: "orientation", type: "'horizontal' | 'vertical'", description: "Layout direction of the item content", default: "horizontal" },
+      { name: "itemStyle", type: "'BORDER' | 'INLINE' | 'DEFAULT'", description: "Visual item style", default: "DEFAULT" },
+      { name: "menuKey", type: "string", description: "Initially selected value" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isBorderInline", type: "boolean", description: "Shows an underline bar on the selected item (with itemStyle INLINE)" },
+      { name: "activeClass", type: "string", description: "CSS class applied to the selected item" },
+      { name: "imageClass", type: "string", description: "Image CSS class" },
+      { name: "iconClass", type: "string", description: "Icon CSS class" },
+      { name: "labelClass", type: "string", description: "Label CSS class" },
+      { name: "itemClass", type: "string", description: "CSS class for each item" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "onClick", type: "(value) => void", description: "Called when a badge is selected" },
+    ],
+  },
+  {
+    slug: "grid-items-panel",
+    name: "GridItemsPanel",
+    category: "Grids",
+    description:
+      "Grid of items (Grid01 / Grid02 cards) with header, empty state, loading skeleton and per-item click — the grid counterpart of CarouselItemsPanel.",
+    path: "src/lib/components/ui/grid/core/panel/GridItemsPanel.svelte",
+    importPath: "GridItemsPanel",
+    examples: [
+      {
+        title: "Items Panel Grid",
+        code: `<script lang="ts">
+  import { GridItemsPanel } from "negodesign";
+  import type { ItemGridProps } from "negodesign/types";
+
+  const items: ItemGridProps[] = [
+    { id: "1", icon: "SparklesIcon", title: "Praias", description: "Águas cristalinas" },
+    { id: "2", icon: "Hotel01Icon", title: "Resorts & Hotéis", description: "Hospedagem de alto padrão" },
+    { id: "3", icon: "Airplane01Icon", title: "Voos Promocionais", description: "Passagens com desconto" },
+  ];
+</` + `script>
+
+<GridItemsPanel
+  variant={1}
+  {items}
+  headerProps={{
+    title: "Serviços e Destinos",
+    description: "Confira as categorias disponíveis na plataforma",
+  }}
+  onClick={(id) => console.log("Item selecionado:", id)}
+/>`,
+        href: "/grid/items-panel",
+      },
+    ],
+    props: [
+      { name: "items", type: "ItemGridProps[]", description: "Required. Array of grid items { id, title, icon?, description?, image? }", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant (Grid01 or Grid02)", default: "1" },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "className", type: "string", description: "Additional CSS class for the container" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isShowDescription", type: "boolean", description: "Toggles description visibility in cards", default: "true" },
+      { name: "itemClassName", type: "string", description: "Additional CSS class for individual cards" },
+      { name: "width", type: "string | number", description: "Card width (ex: '200px', 200, '100%')" },
+      { name: "height", type: "string | number", description: "Card height (ex: '180px', 180)" },
+      { name: "itemWidth", type: "string | number", description: "Alias for width" },
+      { name: "itemHeight", type: "string | number", description: "Alias for height" },
+      { name: "onClick", type: "(id) => void", description: "Called when an item is clicked" },
+    ],
+  },
+  {
+    slug: "grid-hero",
+    name: "GridHero",
+    category: "Grids",
+    description:
+      "Hero presented as a responsive grid of image blocks (title + description) instead of rotating slides, with an optional overlaid simple/complex menu.",
+    path: "src/lib/components/ui/grid/core/hero/ui/GridHero.svelte",
+    importPath: "GridHero",
+    examples: [
+      {
+        title: "Hero Grid",
+        code: `import { GridHero } from "negodesign"
+
+<GridHero
+  items={[
+    {
+      title: "Encontre a hospedagem ideal",
+      description: "Hotéis e apartamentos verificados em todo o país.",
+      image: "/images/hero-hotel.jpg",
+    },
+    {
+      title: "Guias turísticos locais",
+      description: "Explore com quem conhece o destino de verdade.",
+      image: "/images/hero-guide.jpg",
+    },
+  ]}
+  simpleMenu={{
+    logo: { url: "/", label: "Negoturismo" },
+    links: [{ label: "Hospedagem", url: "#", icon: "BedDoubleIcon" }],
+    isLanguageSwitcher: false,
+    isThemeSwitch: false,
+  }}
+/>`,
+        href: "/grid/hero",
+      },
+    ],
+    props: [
+      { name: "items", type: "GridHeroItem[]", description: "Required. Blocks: { title, image, description }", required: true },
+      { name: "simpleMenu", type: "SimpleMenuProps", description: "Simple overlaid menu configuration" },
+      { name: "complexMenu", type: "ComplexMenuProps", description: "Complex (mega menu) configuration" },
+      { name: "menusProps", type: "MenuProps", description: "Menu wrapper props (logo, buttons, light/language)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "className", type: "string", description: "CSS class for the <header> container" },
+      { name: "sectionClass", type: "string", description: "CSS class for the <section> content" },
+      { name: "titleClass", type: "string", description: "CSS class for each block title" },
+      { name: "descriptionClass", type: "string", description: "CSS class for each block description" },
+      { name: "children", type: "Snippet", description: "Extra content rendered below the grid" },
     ],
   },
   {

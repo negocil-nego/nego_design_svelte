@@ -55,8 +55,10 @@
   {:else if typeof item.icon === "string"}
     <i class={`${item.icon} ${iconClass || DEFAULT_IMG_OR_ICON_CLASS}`}></i>
   {:else if item.icon}
-    <ImageHugeicons icon={item.icon}
-      class={iconClass || DEFAULT_IMG_OR_ICON_CLASS} />
+    <ImageHugeicons
+      icon={item.icon}
+      class={iconClass || DEFAULT_IMG_OR_ICON_CLASS}
+    />
   {/if}
 {/snippet}
 
@@ -80,7 +82,9 @@
                     ? 'text-gradient font-bold'
                     : activeClass
                   : ''} 
-              {itemStyle == 'BORDER' ? 'border-2 rounded-full min-w-25 px-1' : ''}
+              {itemStyle == 'BORDER'
+                  ? 'border-2 rounded-full min-w-25 px-1'
+                  : ''}
               {orientation === 'horizontal' ? 'flex-row' : 'flex-col'}
               {isInlineBorder ? 'pb-3' : ''}
               {itemClass} 
@@ -98,11 +102,11 @@
       </Carousel.Content>
       {#if showButton}
         <Carousel.Previous
-          class="z-999! bg-gradient text-white! cursor-pointer! {btnNavClass}"
+          class="bg-gradient text-white! cursor-pointer! {btnNavClass}"
           disabled={false}
         />
         <Carousel.Next
-          class="z-999! bg-gradient text-white! cursor-pointer! {btnNavClass}"
+          class="bg-gradient text-white! cursor-pointer! {btnNavClass}"
           disabled={false}
         />
       {/if}
