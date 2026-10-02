@@ -351,14 +351,13 @@ export {
     ItemsPanel,
 
     /**
-     * Modal de seleção em grid com cards clicáveis, pagination dots e botões
-     * de navegação (Back/Continue). Primeira variação do sistema de modais.
-     * @property {string} title - Título principal do modal
-     * @property {string} subtitle - Subtítulo/descrição
+     * Modal de seleção em grid com cards clicáveis e botões de navegação
+     * (Back/Continue). Duas variantes: 1 (centrado 3 colunas) e 2 (dark 2
+     * colunas com categorias). Cada card pode incluir `info` — pontos de
+     * informação com { icon, text, isChecked }.
      * @property {ModelGridCard[]} cards - Lista de cards seleccionáveis
      * @property {ModelGridCard | null} selectedCard - Card seleccionado (bindable)
-     * @property {number} totalSteps - Número total de passos (pagination dots)
-     * @property {number} currentStep - Passo actual
+     * @property {number} currentStep - Passo actual (controla o botão Back)
      * @property {boolean} isOpen - Visibilidade do modal (bindable)
      * @property {(card) => void} onSelect - Callback ao seleccionar um card
      * @property {() => void} onBack - Callback do botão Back

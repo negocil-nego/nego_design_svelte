@@ -8,12 +8,8 @@
     title,
     subtitle,
     categories = [],
-    selectedCategory = $bindable(null),
     cards = [],
     selectedCard = $bindable(null),
-    selectedCards = $bindable([]),
-    multiple = false,
-    totalSteps = 1,
     currentStep = 1,
     isOpen = $bindable(false),
     onSelect,
@@ -28,14 +24,10 @@
   <ModalGridSelection02
     bind:isOpen
     bind:selectedCard
-    bind:selectedCards
-    bind:selectedCategory
     {title}
     {subtitle}
     {categories}
     {cards}
-    {multiple}
-    {totalSteps}
     {currentStep}
     {onSelect}
     {onSelectCategory}
@@ -50,7 +42,6 @@
     {title}
     {subtitle}
     {cards}
-    {totalSteps}
     {currentStep}
     {onSelect}
     {onBack}

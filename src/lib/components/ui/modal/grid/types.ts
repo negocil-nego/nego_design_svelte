@@ -1,5 +1,6 @@
 import type { ModelGridCardProps } from "$lib/components/ui/modal/core/types";
 export type { ModelGridCardProps as ModelGridCard } from "$lib/components/ui/modal/core/types";
+export type { ModelGridCardInfoProps } from "$lib/components/ui/modal/core/types";
 
 /**
  * Modelo de dados para uma categoria/selecção no topo do modal (variante 2).
@@ -15,20 +16,17 @@ export type ModelGridCategory = {
 /**
  * Props do componente ModalGridSelection — modal de seleção em grid.
  * Suporta duas variantes visuais: 1 (centrado 3 colunas) e 2 (dark 2 colunas + categorias).
+ * A categoria seleccionada (variante 2) é mantida como estado interno — observe-a via onSelectCategory.
  * @property variant - Variante visual do modal (1 ou 2).
  * @property title - Título principal do modal.
  * @property subtitle - Subtítulo/descrição abaixo do título.
- * @property categories - Lista de categorias no topo (apenas variante 2).
- * @property selectedCategory - Categoria seleccionada (apenas variante 2).
- * @property cards - Lista de cards seleccionáveis.
+ * @property cards - Lista de cards seleccionáveis (cada card aceita info? para pontos de informação).
  * @property selectedCard - Card actualmente seleccionado.
- * @property selectedCards - Cards seleccionados (modo múltiplo, variante 2).
- * @property multiple - Permite seleção múltipla (variante 2).
- * @property totalSteps - Número total de passos (para pagination dots).
- * @property currentStep - Passo actual (para pagination dots).
  * @property isOpen - Controla a visibilidade do modal.
- * @property onSelect - Chamado ao seleccionar um card.
+ * @property currentStep - Passo actual (controla a visibilidade do botão Back).
+ * @property categories - Lista de categorias no topo (apenas variante 2).
  * @property onSelectCategory - Chamado ao seleccionar uma categoria (variante 2).
+ * @property onSelect - Chamado ao seleccionar um card.
  * @property onBack - Chamado ao clicar no botão "Back".
  * @property onContinue - Chamado ao clicar no botão "Continue".
  * @property class - Classe CSS extra no container do modal.
@@ -38,12 +36,8 @@ export type ModalGridSelectionProps = {
 	title: string;
 	subtitle?: string;
 	categories?: ModelGridCategory[];
-	selectedCategory?: ModelGridCategory | null;
 	cards: ModelGridCardProps[];
 	selectedCard?: ModelGridCardProps | null;
-	selectedCards?: ModelGridCardProps[];
-	multiple?: boolean;
-	totalSteps?: number;
 	currentStep?: number;
 	isOpen?: boolean;
 	onSelect?: (card: ModelGridCardProps) => void;

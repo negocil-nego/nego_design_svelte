@@ -9,7 +9,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     subtitle,
     cards = [],
     selectedCard = $bindable(null),
-    totalSteps = 1,
     currentStep = 1,
     isOpen = $bindable(false),
     onSelect,
@@ -34,7 +33,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   bind:isOpen
   {title}
   {subtitle}
-  {totalSteps}
   {currentStep}
   showProgress={false}
   showBack={currentStep > 1}
@@ -72,6 +70,21 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
             <p class="line-clamp-2 text-xs text-muted-foreground md:text-sm">
               {card.description}
             </p>
+          {/if}
+
+          {#if card.info?.length}
+            <ul class="flex w-full flex-col gap-1.5">
+              {#each card.info as point, j (`${card.title}-${j}`)}
+                <li
+                  class="flex items-center justify-center gap-2 text-xs {point.isChecked
+                    ? 'text-foreground'
+                    : 'text-muted-foreground opacity-70'}"
+                >
+                  <i class="{point.icon} shrink-0"></i>
+                  <span>{point.text}</span>
+                </li>
+              {/each}
+            </ul>
           {/if}
         </button>
       {/each}

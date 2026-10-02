@@ -36,11 +36,19 @@
       title: "Student",
       description: "You're here to impress your teachers.",
       icon: "🎓",
+      info: [
+        { icon: "hgi hgi-stroke hgi-tick-02", text: "Free for 1 year", isChecked: true },
+        { icon: "hgi hgi-stroke hgi-calendar-01", text: "Renewable plan", isChecked: false },
+      ],
     },
     {
       title: "Non-profit",
       description: "You're here to do greater good.",
       icon: "🤝",
+      info: [
+        { icon: "hgi hgi-stroke hgi-shield-01", text: "Verified NGOs only", isChecked: true },
+        { icon: "hgi hgi-stroke hgi-star", text: "Priority support", isChecked: false },
+      ],
     },
     {
       title: "Teaching",
@@ -70,6 +78,11 @@
       title: "UI/UX Design",
       description: "Design apps and prototypes.",
       icon: "🎨",
+      info: [
+        { icon: "hgi hgi-stroke hgi-tick-02", text: "Included in Pro", isChecked: true },
+        { icon: "hgi hgi-stroke hgi-clock-01", text: "20h / month", isChecked: true },
+        { icon: "hgi hgi-stroke hgi-star", text: "Extra hours on demand", isChecked: false },
+      ],
     },
     { title: "Finance", description: "Because I need money.", icon: "💰" },
     {
@@ -231,8 +244,6 @@
   bind:selectedCard={selectedGridCard}
   title="What will you be using slothUI for?"
   subtitle="We'll use this to recommend you our personalized features"
-  totalSteps={8}
-  currentStep={1}
   cards={gridCards}
   onSelect={(card) => console.log("Grid selected:", card)}
   onContinue={() => console.log("Grid continue")}
@@ -245,7 +256,6 @@
   title="What are you planning to use this app for?"
   {categories}
   cards={grid2Cards}
-  totalSteps={5}
   currentStep={2}
   onSelect={(card) => console.log("Grid2 selected:", card)}
   onContinue={() => console.log("Grid2 continue")}

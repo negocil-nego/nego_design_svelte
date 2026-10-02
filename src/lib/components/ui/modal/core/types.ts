@@ -58,17 +58,32 @@ export type ModelBadge = {
 };
 
 /**
+ * Ponto de informação apresentado dentro de um card do ModalGridSelection.
+ * Lista de características/informações do card (checklist).
+ * @property icon - Ícone do ponto (string CSS).
+ * @property text - Texto do ponto de informação.
+ * @property isChecked - Estado do ponto (true = destacado, false = esbatido).
+ */
+export type ModelGridCardInfoProps = {
+	icon: string;
+	text: string;
+	isChecked: boolean;
+};
+
+/**
  * Modelo de dados para um card seleccionável dentro do grid do modal.
  * Cada card representa uma opção com ícone, título e descrição (ex: "Estudante", "Empresa").
  * @property title - Título visível do card.
  * @property description - Descrição curta exibida abaixo do título.
  * @property icon - Ícone exibido no topo do card (string CSS ou HugeIcons).
+ * @property info - Pontos de informação/checklist apresentados dentro do card.
  */
 export type ModelGridCardProps = {
 	title: string;
 	description?: string;
 	icon: string | HugeiconsIconName;
 	url?: string;
+	info?: ModelGridCardInfoProps[];
 };
 
 /**

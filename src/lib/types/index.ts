@@ -215,6 +215,7 @@ import type {
 
 import type {
     ModelGridCard,
+    ModelGridCardInfoProps,
     ModelGridCategory,
     ModalGridSelectionProps
 } from "$lib/components/ui/modal/grid/types";
@@ -520,6 +521,8 @@ export type {
 
     /** Modelo de dados para um card seleccionável no ModalGridSelection. @see ModelGridCard */
     ModelGridCard,
+    /** Ponto de informação (checklist) apresentado dentro de um card do ModalGridSelection. @see ModelGridCardInfoProps */
+    ModelGridCardInfoProps,
     /** Modelo de dados para uma categoria no topo do ModalGridSelection (variante 2). @see ModelGridCategory */
     ModelGridCategory,
     /** Props do componente ModalGridSelection — modal de seleção em grid. @see ModalGridSelectionProps */

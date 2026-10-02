@@ -1040,10 +1040,8 @@ let selected = $state(null);
   bind:selectedCard={selected}
   title="What will you be using this for?"
   subtitle="We'll use this to recommend you our personalized features"
-  totalSteps={3}
-  currentStep={1}
   cards={[
-    { title: "Student", description: "You're here to impress your teachers.", icon: "nd-cap-icon" },
+    { title: "Student", description: "You're here to impress your teachers.", icon: "nd-cap-icon", info: [{ icon: "hgi hgi-stroke hgi-tick-02", text: "Free for 1 year", isChecked: true }] },
     { title: "Business", description: "You're here to grow your brand.", icon: "nd-briefcase-icon" },
     { title: "Personal", description: "You're here to make anything.", icon: "nd-user-icon" },
   ]}
@@ -1085,16 +1083,12 @@ let selected = $state(null);
       { name: "title", type: "string", description: "Required. Modal title", required: true },
       { name: "subtitle", type: "string", description: "Subtitle below the title" },
       { name: "categories", type: "ModelGridCategory[]", description: "Category pills at the top (variant 2 only): { label, value }" },
-      { name: "selectedCategory", type: "ModelGridCategory | null", description: "Currently selected category (variant 2, bindable)" },
-      { name: "cards", type: "ModelGridCard[]", description: "Required. Selectable cards: { title, description?, icon }", required: true },
+      { name: "cards", type: "ModelGridCard[]", description: "Required. Selectable cards: { title, description?, icon, info? } — info renders a checklist of points: { icon, text, isChecked }", required: true },
       { name: "selectedCard", type: "ModelGridCard | null", description: "Currently selected card (bindable)" },
-      { name: "selectedCards", type: "ModelGridCard[]", description: "Selected cards for multiple mode (variant 2, bindable)" },
-      { name: "multiple", type: "boolean", description: "Allows multiple card selection (variant 2)", default: "false" },
       { name: "isOpen", type: "boolean", description: "Controls modal visibility (bindable)" },
-      { name: "totalSteps", type: "number", description: "Total number of steps for pagination dots", default: "1" },
-      { name: "currentStep", type: "number", description: "Current step index", default: "1" },
+      { name: "currentStep", type: "number", description: "Current step index (drives the Back button visibility)", default: "1" },
       { name: "onSelect", type: "(card: ModelGridCard) => void", description: "Called when a card is selected" },
-      { name: "onSelectCategory", type: "(category: ModelGridCategory) => void", description: "Called when a category is selected (variant 2)" },
+      { name: "onSelectCategory", type: "(category: ModelGridCategory) => void", description: "Called when a category is selected (variant 2; selection state is internal)" },
       { name: "onBack", type: "() => void", description: "Called when the Back button is clicked" },
       { name: "onContinue", type: "() => void", description: "Called when the Continue button is clicked" },
       { name: "class", type: "string", description: "Extra container CSS class" },

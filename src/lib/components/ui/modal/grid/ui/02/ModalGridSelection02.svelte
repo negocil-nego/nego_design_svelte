@@ -12,12 +12,8 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     title,
     subtitle,
     categories = [],
-    selectedCategory = $bindable(null),
     cards = [],
     selectedCard = $bindable(null),
-    selectedCards = $bindable([]),
-    multiple = false,
-    totalSteps = 1,
     currentStep = 1,
     isOpen = $bindable(false),
     onSelect,
@@ -27,23 +23,11 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     class: className,
   }: ModalGridSelectionProps = $props();
 
+  let selectedCategory = $state<ModelGridCategory | null>(null);
+
   function handleSelectCard(card: ModelGridCard) {
-    if (multiple) {
-      const exists = selectedCards.some(
-        (c: ModelGridCard) => c.title === card.title,
-      );
-      if (exists) {
-        selectedCards = selectedCards.filter(
-          (c: ModelGridCard) => c.title !== card.title,
-        );
-      } else {
-        selectedCards = [...selectedCards, card];
-      }
-      onSelect?.(card);
-    } else {
-      selectedCard = card;
-      onSelect?.(card);
-    }
+    selectedCard = card;
+    onSelect?.(card);
   }
 
   function handleSelectCategory(category: ModelGridCategory) {
@@ -52,9 +36,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   }
 
   function isSelectedCard(card: ModelGridCard): boolean {
-    if (multiple) {
-      return selectedCards.some((c: ModelGridCard) => c.title === card.title);
-    }
     return selectedCard?.title === card.title;
   }
 
@@ -67,7 +48,6 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   bind:isOpen
   {title}
   {subtitle}
-  {totalSteps}
   {currentStep}
   showProgress={false}
   showBack={currentStep > 1}
@@ -128,6 +108,21 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
               <p class="mt-0.5 line-clamp-1 text-xs">
                 {card.description}
               </p>
+            {/if}
+
+            {#if card.info?.length}
+              <ul class="mt-1.5 flex flex-col gap-1">
+                {#each card.info as point, j (`${card.title}-${j}`)}
+                  <li
+                    class="flex items-center gap-1.5 text-xs {point.isChecked
+                      ? 'text-foreground'
+                      : 'text-muted-foreground opacity-70'}"
+                  >
+                    <i class="{point.icon} shrink-0"></i>
+                    <span class="truncate">{point.text}</span>
+                  </li>
+                {/each}
+              </ul>
             {/if}
           </div>
 

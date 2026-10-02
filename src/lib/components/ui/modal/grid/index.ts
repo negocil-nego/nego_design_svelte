@@ -9,4 +9,4 @@ export {
 	ModalGridSelection02,
 };
 
-export type { ModelGridCard, ModelGridCategory, ModalGridSelectionProps } from "./types";
+export type { ModelGridCard, ModelGridCardInfoProps, ModelGridCategory, ModalGridSelectionProps } from "./types";
