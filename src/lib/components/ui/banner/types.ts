@@ -31,6 +31,25 @@ export type BannerProps = {
 /** Alias para BannerProps — props do componente AdCardBanner. */
 export type AdCardBannerProps = BannerProps;
 
+/**
+ * Props do NotificationBannerAuth — banner global de autenticação.
+ * Escuta `otpStore`/`loginStore` e mostra um CTA para abrir o ModalOtp
+ * (com countdown) ou o ModalLogin. Os textos são derivados das stores quando
+ * não são fornecidos explicitamente.
+ * @component
+ */
+export type NotificationBannerAuthProps = Pick<
+    NotificationBannerProps,
+    "bgClass" | "textClass" | "ctaClass" | "class"
+> & {
+    /** Texto em destaque antes do separador (default: store). */
+    strongText?: string;
+    /** Descrição principal do banner (default: store). */
+    description?: string;
+    /** Texto do botão CTA (default: store). */
+    ctaText?: string;
+};
+
 export type NotificationBannerProps = {
     /** Strong text before the separator, e.g. "GeneriCon 2023" */
     strongText?: string;

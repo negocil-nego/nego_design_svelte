@@ -241,6 +241,7 @@ export default {
     "footer.copyr": "모든 권리 보유",
 
     "profile-user.info.title": "기본 사용자 정보",
+    "profile-user.info.edit": "편집",
     "profile-user.info.firstName.label": "이름",
     "profile-user.info.firstName.placeholder": "홍",
     "profile-user.info.lastName.label": "성",

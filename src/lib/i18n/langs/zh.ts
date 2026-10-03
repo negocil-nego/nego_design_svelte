@@ -241,6 +241,7 @@ export default {
     "footer.copyr": "版权所有",
 
     "profile-user.info.title": "基本用户信息",
+    "profile-user.info.edit": "编辑",
     "profile-user.info.firstName.label": "名",
     "profile-user.info.firstName.placeholder": "张",
     "profile-user.info.lastName.label": "姓",

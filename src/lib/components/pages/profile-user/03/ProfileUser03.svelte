@@ -9,9 +9,10 @@
 
 <script lang="ts">
 	import { t } from "$lib/i18n";
-	import type { ProfileUserData } from "../types";
+	import type { ProfileUserData, ProfileUserInfoProps } from "../types";
 	import ProfileUserHeader from "../shared/ProfileUserHeader.svelte";
 	import ProfileUserTabs from "../shared/ProfileUserTabs.svelte";
+	import ProfileUserInfo from "../shared/ProfileUserInfo.svelte";
 	import ProfileUserAddress from "../shared/ProfileUserAddress.svelte";
 	import ProfileUserResetPassword from "../shared/ProfileUserResetPassword.svelte";
 	import ProfileUserSetting from "../shared/ProfileUserSetting.svelte";
@@ -22,8 +23,10 @@
 		isLoading = false,
 		onAddAddress,
 		onChangePassword,
+		onEditInfo,
 		onLoginAsUser,
 		tabs: customTabs,
+		userInfo,
 	}: {
 		data: ProfileUserData;
 		activeTab?: string;
@@ -34,21 +37,24 @@
 			newPassword: string;
 			confirmPassword: string;
 		}) => void;
+		onEditInfo?: () => void;
 		onLoginAsUser?: (id: string | number) => void;
 		tabs?: { id: string; label: string }[];
+		userInfo?: ProfileUserInfoProps;
 	} = $props();
 
 	const defaultTabs = $derived(
 		customTabs?.length
 			? customTabs
 			: [
+					{ id: "info", label: $t("profile-user.variant1.tabs.basicInfo") || "Informações básicas" },
 					{ id: "addresses", label: $t("profile-user.variant1.tabs.addresses") || "Moradas" },
 					{ id: "security", label: $t("profile-user.variant2.tabs.security") || "Segurança" },
 					{ id: "settings", label: $t("profile-user.variant1.tabs.settings") || "Definições" },
 				]
 	);
 
-	const currentTab = $derived(activeTab ?? defaultTabs[0]?.id ?? "addresses");
+	const currentTab = $derived(activeTab ?? defaultTabs[0]?.id ?? "info");
 	const fullName = $derived(data.fullName ?? `${data.firstName} ${data.lastName}`);
 </script>
 
@@ -64,7 +70,14 @@
 		/>
 
 		<div class="pb-12">
-			{#if currentTab === "addresses"}
+			{#if currentTab === "info"}
+				<ProfileUserInfo
+					{data}
+					{isLoading}
+					onEdit={onEditInfo}
+					{...userInfo}
+				/>
+			{:else if currentTab === "addresses"}
 				<ProfileUserAddress
 					addresses={data.addresses}
 					{isLoading}

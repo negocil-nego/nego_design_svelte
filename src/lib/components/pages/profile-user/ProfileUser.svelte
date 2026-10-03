@@ -2,9 +2,12 @@
   /**
    * Página de perfil do utilizador com seleção de layout.
    * Permite escolher entre três variantes.
-   * - **1**: Header com avatar à esquerda, tabs para moradas e definições.
-   * - **2**: Header com avatar à esquerda, tabs para segurança.
-   * - **3**: Header com avatar à esquerda, tabs pill para moradas, segurança e definições.
+   * - **1**: Header com avatar à esquerda, tabs para informação, moradas, segurança e definições.
+   * - **2**: Header com avatar à esquerda, tabs para informação e segurança.
+   * - **3**: Header com avatar à esquerda, tabs pill para informação, moradas, segurança e definições.
+   *
+   * Blocos internos partilhados: `ProfileUserInfo` (detalhes da informação),
+   * `ProfileUserResetPassword` (alterar senha) e `ProfileUserSetting` (preferências).
    *
    * @component
    */
@@ -19,35 +22,35 @@
   let {
     varient = 1,
     data,
-    activeTab,
+    activeTab = $bindable(),
     isLoading = false,
     tabs,
+    userHeader,
+    userInfo,
+    userAddress,
+    userResetPassword,
+    userSetting,
+    userTabs,
     ...restProps
   }: ProfileUserProps = $props();
+
+  const sharedProps = $derived({
+    data,
+    isLoading,
+    tabs,
+    ...userHeader,
+    ...userAddress,
+    ...userResetPassword,
+    ...userSetting,
+    ...userTabs,
+    ...restProps,
+  });
 </script>
 
 {#if varient === 2}
-  <ProfileUser02
-    {data}
-    {activeTab}
-    {isLoading}
-    {tabs}
-    {...restProps}
-  />
+  <ProfileUser02 bind:activeTab {...sharedProps} {userInfo} />
 {:else if varient === 3}
-  <ProfileUser03
-    {data}
-    {activeTab}
-    {isLoading}
-    {tabs}
-    {...restProps}
-  />
+  <ProfileUser03 bind:activeTab {...sharedProps} {userInfo} />
 {:else}
-  <ProfileUser01
-    {data}
-    {activeTab}
-    {isLoading}
-    {tabs}
-    {...restProps}
-  />
+  <ProfileUser01 bind:activeTab {...sharedProps} {userInfo} />
 {/if}

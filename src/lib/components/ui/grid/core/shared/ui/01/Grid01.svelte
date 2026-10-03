@@ -65,7 +65,7 @@
       {title}
       {isLoading}
       titleClass={cn(
-        "animate__animated animate__fadeInDown",
+        "animate__animated animate__fadeInDown font-semibold",
         isShowDescription ? "" : "mt-5",
         titleClass,
       )}

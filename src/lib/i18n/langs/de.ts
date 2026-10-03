@@ -241,6 +241,7 @@ export default {
     "footer.copyr": "Alle Rechte vorbehalten",
 
     "profile-user.info.title": "Grundlegende Benutzerinformationen",
+    "profile-user.info.edit": "Bearbeiten",
     "profile-user.info.firstName.label": "Vorname",
     "profile-user.info.firstName.placeholder": "Max",
     "profile-user.info.lastName.label": "Nachname",

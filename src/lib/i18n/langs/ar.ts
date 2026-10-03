@@ -242,6 +242,7 @@ export default {
     "footer.copyr": "جميع الحقوق محفوظة",
 
     "profile-user.info.title": "معلومات المستخدم الأساسية",
+    "profile-user.info.edit": "تحرير",
     "profile-user.info.firstName.label": "الاسم الأول",
     "profile-user.info.firstName.placeholder": "أحمد",
     "profile-user.info.lastName.label": "اسم العائلة",

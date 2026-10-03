@@ -12,8 +12,8 @@
   const hasImage = $derived(!!image);
   const defaultOverlay = $derived(
     variant === 2
-      ? "bg-black/40 shadow-[inset_0_0_24px_rgba(0,0,0,0.6)]"
-      : "bg-black/20 shadow-[inset_0_0_24px_rgba(0,0,0,0.1)]",
+      ? "bg-black/60 shadow-[inset_0_0_24px_rgba(0,0,0,0.6)]"
+      : "bg-black/40 shadow-[inset_0_0_24px_rgba(0,0,0,0.4)]",
   );
 </script>
 

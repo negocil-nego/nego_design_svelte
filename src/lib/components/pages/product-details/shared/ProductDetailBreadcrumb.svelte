@@ -30,7 +30,7 @@
     aria-label="Breadcrumb"
     class="flex items-center gap-1.5 text-sm text-muted-foreground"
   >
-    {#each items as item, i (item.label)}
+    {#each items as item, i (`${i}-${item.label}`)}
       {#if item.href}
         <a href={item.href} class="hover:text-foreground transition-colors"
           >{item.label}</a

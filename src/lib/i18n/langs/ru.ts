@@ -241,6 +241,7 @@ export default {
     "footer.copyr": "Все права защищены",
 
     "profile-user.info.title": "Основная информация",
+    "profile-user.info.edit": "Редактировать",
     "profile-user.info.firstName.label": "Имя",
     "profile-user.info.firstName.placeholder": "Иван",
     "profile-user.info.lastName.label": "Фамилия",

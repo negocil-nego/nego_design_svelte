@@ -692,7 +692,7 @@ export {
      * @property {string} subTitle - Subtítulo
      * @property {string} description - Descrição
      * @property {string} image - URL da imagem
-     * @see SimpleHero
+     * @see HeroSimpleProps
      */
     SimpleHero,
 
@@ -1171,6 +1171,14 @@ export {
      */
     AdminContent,
 
+    /**
+     * Layout administrativo completo com sidebar colapsável e área de conteúdo.
+     * Compõe o AdminPanel (provider + header + breadcrumb) com o MenuBarSidebar,
+     * renderizando o conteúdo dos children na área principal.
+     * @property {MenuBarSidebarProps} sidebar - Configuração da sidebar (menus, utilizador, botões)
+     * @property {Snippet} children - Conteúdo principal exibido ao lado da sidebar
+     * @see AdminSidebarProps
+     */
     AdminSidebar,
 
     /**

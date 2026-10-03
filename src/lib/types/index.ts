@@ -97,8 +97,12 @@ import type {
     AdCardBannerProps,
     CtaCardBannerProps,
     CtaCardImageBannerProps,
-    NotificationBannerProps
+    NotificationBannerProps,
+    NotificationBannerAuthProps
 } from "$lib/components/ui/banner/types";
+
+import type { HeroSimpleProps } from "$lib/components/ui/hero/types";
+import type { CarouselProps } from "$lib/components/ui/carousel/context";
 
 import type {
     TabItem,
@@ -135,6 +139,12 @@ import type {
 } from "$lib/components/pages/admin/shared/types";
 
 import type {
+    AdminTabsProps,
+    AdminProfileTabProps,
+    AdminSecurityTabProps
+} from "$lib/components/pages/admin/shared/tabs/types";
+
+import type {
     AdminSectionProps,
     AdminSectionMenuItem,
     AdminSectionCardItProps,
@@ -165,6 +175,12 @@ import type {
     ProfileUserNotificationPref,
     ProfileUserMarketingPref,
     ProfileUserExperience,
+    ProfileUserInfoProps,
+    ProfileUserHeaderProps,
+    ProfileUserAddressProps,
+    ProfileUserResetPasswordProps,
+    ProfileUserSettingProps,
+    ProfileUserTabsProps,
 } from "$lib/components/pages/profile-user/types";
 
 import type {
@@ -286,13 +302,20 @@ import type {
 import type { VisibilityOptions } from "$lib/hooks/visibility.svelte";
 
 export type {
+    /** Props do AdminSidebar — layout administrativo com sidebar e conteúdo. @see AdminSidebarProps */
     AdminSidebarProps,
+    /** Props da AdminSectionCards — grade de cards apresentada numa secção admin. @see AdminSectionCardsProps */
     AdminSectionCardsProps,
+    /** Props do VisibilityFallback — alterna children/fallback consoante a visibilidade. @see VisibilityFallbackProps */
     VisibilityFallbackProps,
+    /** Snippets e classes de uma posição do VisibilityFallback. @see VisibilityFallbackSlotProps */
     VisibilityFallbackSlotProps,
+    /** Posições disponíveis no VisibilityFallback (top/bottom/left/right...). @see VisibilityFallbackPosition */
     VisibilityFallbackPosition,
+    /** Opções de detecção usadas por useVisibility/useInView (rootMargin, threshold, once...). @see VisibilityOptions */
     VisibilityOptions,
 
+    /** Props dos contentores de itens (ItemsPanel/ItemsPanelGrid/ItemsSimpleGrid). @see GridProps */
     GridProps,
     /** Props de um link individual no menu de navegação. @see NavMenuLinksProps */
     NavMenuLinksProps,
@@ -416,6 +439,14 @@ export type {
     CtaCardImageBannerProps,
     /** Props do NotificationBanner — banner de notificação com texto, CTA e dismiss. @see NotificationBannerProps */
     NotificationBannerProps,
+    /** Props do NotificationBannerAuth — banner global de autenticação (OTP/login) ligado às stores. @see NotificationBannerAuthProps */
+    NotificationBannerAuthProps,
+
+    /** Props do SimpleHero — hero estático com coluna de conteúdo e imagem circular. @see HeroSimpleProps */
+    HeroSimpleProps,
+
+    /** Props do Carousel — sistema de carousel responsivo baseado em Swiper. @see CarouselProps */
+    CarouselProps,
 
     /** Item básico de uma aba — valor identificador e label visível. @see TabItem */
     TabItem,
@@ -463,6 +494,13 @@ export type {
 
     /** Props do AdminUserSection — avatar do utilizador com dropdown de perfil no hover. @see AdminUserSectionProps */
     AdminUserSectionProps,
+
+    /** Props do AdminTabs — sistema de abas (underline) da área administrativa. @see AdminTabsProps */
+    AdminTabsProps,
+    /** Props da aba de perfil do utilizador (dados pessoais, morada e redes sociais). @see AdminProfileTabProps */
+    AdminProfileTabProps,
+    /** Props da aba de segurança (senha, email, telefone e secção de perigo). @see AdminSecurityTabProps */
+    AdminSecurityTabProps,
 
     /** Utilizador autenticado guardado no `userStore` (dados + callbacks do AdminUserSection). @see User */
     User,
@@ -527,6 +565,18 @@ export type {
     ProfileUserData,
     /** Props do componente ProfileUser — página de perfil com 3 variantes. @see ProfileUserProps */
     ProfileUserProps,
+    /** Props do ProfileUserInfo — secção com os detalhes da informação do utilizador. @see ProfileUserInfoProps */
+    ProfileUserInfoProps,
+    /** Props do ProfileUserHeader — cabeçalho do perfil (avatar, estado, função e acção). @see ProfileUserHeaderProps */
+    ProfileUserHeaderProps,
+    /** Props do ProfileUserAddress — secção de moradas do perfil. @see ProfileUserAddressProps */
+    ProfileUserAddressProps,
+    /** Props do ProfileUserResetPassword — formulário de alteração de senha. @see ProfileUserResetPasswordProps */
+    ProfileUserResetPasswordProps,
+    /** Props do ProfileUserSetting — secção de definições (notificações e marketing). @see ProfileUserSettingProps */
+    ProfileUserSettingProps,
+    /** Props do ProfileUserTabs — navegação por abas do perfil (underline ou pill). @see ProfileUserTabsProps */
+    ProfileUserTabsProps,
 
     /** Modelo de dados para um card seleccionável no ModalGridSelection. @see ModelGridCard */
     ModelGridCard,
@@ -570,8 +620,10 @@ export type {
     ModalFormProps,
     /** Props do componente ModalFormEmailOrPhone — formulário em modal para envio de OTP por email ou telefone. @see ModalFormEmailOrPhoneProps */
     ModalFormEmailOrPhoneProps,
-    ModalFormEmailOrPhoneSubmitData,
+    /** Canal escolhido no ModalFormEmailOrPhone (EMAIL, PHONE ou EMAIL_OR_PHONE). @see ModalFormEmailOrPhoneType */
     ModalFormEmailOrPhoneType,
+    /** Dados submetidos pelo ModalFormEmailOrPhone (canal, valor, email e telefone). @see ModalFormEmailOrPhoneSubmitData */
+    ModalFormEmailOrPhoneSubmitData,
 
     /** Props do componente ModalUpload — modal de upload de ficheiros. @see ModalUploadProps */
     ModalUploadProps,

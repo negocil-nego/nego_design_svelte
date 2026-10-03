@@ -8,13 +8,7 @@
     getAuthBannerStrongText,
     getAuthBannerVisible,
   } from "$lib/stores";
-  import type { NotificationBannerProps } from "$lib/components/ui/banner/types";
-
-  type Props = Pick<NotificationBannerProps, "bgClass" | "textClass" | "ctaClass" | "class"> & {
-    strongText?: string;
-    description?: string;
-    ctaText?: string;
-  };
+  import type { NotificationBannerAuthProps } from "$lib/components/ui/banner/types";
 
   let {
     strongText,
@@ -24,7 +18,7 @@
     textClass,
     ctaClass,
     class: className,
-  }: Props = $props();
+  }: NotificationBannerAuthProps = $props();
 
   const finalStrongText = $derived(strongText ?? getAuthBannerStrongText());
   const finalDescription = $derived(description ?? getAuthBannerDescription());

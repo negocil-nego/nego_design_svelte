@@ -241,6 +241,7 @@ export default {
     "footer.copyr": "全著作権所有",
 
     "profile-user.info.title": "基本ユーザー情報",
+    "profile-user.info.edit": "編集",
     "profile-user.info.firstName.label": "名",
     "profile-user.info.firstName.placeholder": "太郎",
     "profile-user.info.lastName.label": "姓",

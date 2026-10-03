@@ -242,6 +242,7 @@ export default {
     "footer.copyr": "All rights reserved",
 
     "profile-user.info.title": "Basic user info",
+    "profile-user.info.edit": "Edit",
     "profile-user.info.firstName.label": "First name",
     "profile-user.info.firstName.placeholder": "John",
     "profile-user.info.lastName.label": "Last name",
