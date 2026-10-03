@@ -1,18 +1,17 @@
 <script lang="ts">
-  import Button from "$lib/components/ui/button/button.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
-  import { t } from "$lib/i18n";
-  import ImgPlaceHolderGallery from "$lib/assets/placeholder-image.png";
   import ImgPlaceholderCompany from "$lib/assets/placeholder-company.png";
   import type { CardFlightProps } from "../../types";
   import CardFavorite from "../../shared/CardFavorite.svelte";
-  import CardDescription from "../../shared/CardDescription.svelte";
-  import CardTags from "../../shared/CardTags.svelte";
-  import CardFlightRoute from "../../shared/CardFlightRoute.svelte";
-  import CardFlightSchedule from "../../shared/CardFlightSchedule.svelte";
+  import {
+    CardFlightTimeline,
+    CardFlightBaggage,
+    CardFlightPopover,
+    CardFlightPrice,
+  } from "../shared";
 
   /**
-   * Card component with a travel route, schedule and booking button.
+   * Card component with minimalist flight presentation, route, schedule and popover details.
    * @component
    */
 
@@ -23,53 +22,60 @@
     title,
     origin,
     destination,
-    imageUrl,
     departureTime,
     arrivalTime,
     duration,
-    type,
-    country,
     price,
     currency,
+    baggage,
+    pricePerPersonLabel,
     isFavorite = false,
     isLoading = false,
     content,
-    buttonBuyText,
-    buttonBuyClass,
-    isDescriptionIcon,
-    isDescriptionLabel,
     onClickBuy,
     onClickFavorite,
+    className = "",
   }: CardFlightProps = $props();
 </script>
 
-<article class="relative rounded-lg border flex flex-col">
-  <aside class="relative w-full p-2">
-    <div class="absolute top-2 left-2 z-2 gap-1 p-2">
+<article
+  class="group relative rounded-xl border border-border/70 bg-card p-3 sm:p-3.5 shadow-xs transition-all duration-200 hover:shadow-sm hover:border-primary/30 flex flex-col justify-between {className}"
+>
+  <!-- Header: Airline Logo + Title + Description Popover + Favorite -->
+  <aside class="flex items-center justify-between gap-2 mb-2">
+    <div class="flex items-center gap-2 min-w-0">
       {#if isLoading}
-        <Skeleton class="h-5 w-20 rounded-full bg-black/20" />
-      {:else if logo}
-        <img
-          src={logo}
-          width={30}
-          height={30}
-          alt={title}
-          onerror={(e) =>
-            ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
-          class="rounded-lg"
-        />
+        <Skeleton class="size-6 rounded-full bg-muted" />
       {:else}
-        <img
-          src={ImgPlaceholderCompany}
-          width={30}
-          height={30}
-          alt={title}
-          class="rounded-lg"
-        />
+        <div
+          class="relative flex items-center justify-center size-6 rounded-full overflow-hidden bg-muted/40 border border-border/50 shrink-0"
+        >
+          <img
+            src={logo || ImgPlaceholderCompany}
+            alt={title || "Airline"}
+            onerror={(e) =>
+              ((e.target as HTMLImageElement).src = ImgPlaceholderCompany)}
+            class="size-full object-cover object-center"
+          />
+        </div>
       {/if}
+
+      <div class="min-w-0 flex-1">
+        {#if isLoading}
+          <Skeleton class="h-3.5 w-24 rounded" />
+        {:else if title}
+          <span
+            class="font-semibold text-[11px] sm:text-xs text-foreground tracking-tight line-clamp-1"
+          >
+            {title}
+          </span>
+        {/if}
+      </div>
     </div>
 
-    <div class="absolute top-2 right-2 z-2 flex items-center gap-1 p-2">
+    <!-- Actions: Popover for Description & Favorite -->
+    <div class="flex items-center gap-1 shrink-0">
+      <CardFlightPopover {title} {content} {tags} variant="icon" align="end" />
       <CardFavorite
         {id}
         {isFavorite}
@@ -77,88 +83,41 @@
         onFavoriteClick={onClickFavorite}
       />
     </div>
-
-    {#if isLoading}
-      <Skeleton
-        class="rounded-lg h-30 w-full object-cover object-center bg-black/15"
-      />
-    {:else if imageUrl}
-      <img
-        src={imageUrl}
-        alt={imageUrl}
-        class="rounded-lg h-36 md:h-44 w-full object-cover object-center"
-        onerror={(e) =>
-          ((e.target as HTMLImageElement).src = ImgPlaceHolderGallery)}
-      />
-    {:else}
-      <img
-        src={ImgPlaceHolderGallery}
-        alt="Not Found"
-        class="rounded-lg h-36 md:h-44 w-full object-cover object-center"
-      />
-    {/if}
-    <div class="absolute inset-0 bg-black/5 rounded-sm h-full w-full"></div>
   </aside>
 
-  <aside
-    class="inset-x-0 flex flex-col items-center justify-center gap-2 m-auto max-w-11/12 p-1 rounded-md"
-  >
-    <div class="w-full flex justify-between items-center mb-1 gap-2">
-      {#if title}
-        {#if isLoading}
-          <Skeleton class="h-4 w-30 rounded-lg" />
-        {:else}
-          <div class="font-semibold line-clamp-1">{title}</div>
-        {/if}
-      {/if}
-      {#if price}
-        {#if isLoading}
-          <Skeleton class="h-5 w-25 rounded-lg" />
-        {:else}
-          <div class="flex items-baseline gap-1 shrink-0">
-            <span class="text-lg font-semibold text-primary">{price}</span>
-            {#if currency}
-              <span class="text-sm text-gray-600 dark:text-gray-300">
-                {currency}
-              </span>
-            {/if}
-          </div>
-        {/if}
-      {/if}
-    </div>
+  <!-- Flight Timeline (Times & Minimalist Route Track) -->
+  <CardFlightTimeline
+    {departureTime}
+    {arrivalTime}
+    {origin}
+    {destination}
+    {duration}
+    {isLoading}
+  />
 
-    <div class="w-full">
-      <CardFlightRoute {origin} {destination} {type} {country} {isLoading} />
-    </div>
+  <!-- Dashed Line Separator -->
+  <div class="border-t border-dashed border-border/70 my-2 w-full"></div>
 
-    <div class="w-full">
-      <CardFlightSchedule
-        {departureTime}
-        {arrivalTime}
-        {duration}
-        {isLoading}
+  <!-- Footer Row: Luggage + Description on Left / Price per Person on Right -->
+  <footer class="flex items-center justify-between gap-2">
+    <div class="flex items-center gap-1.5">
+      <CardFlightBaggage {baggage} {tags} {isLoading} />
+      <CardFlightPopover
+        {title}
+        {content}
+        {tags}
+        variant="text"
+        align="start"
       />
     </div>
 
-    {#if tags && tags.length > 0}
-      <div class="w-full my-1">
-        <CardTags {tags} />
-      </div>
-    {/if}
-
-    <div class="w-full">
-      <CardDescription {content} {isDescriptionIcon} {isDescriptionLabel} />
-    </div>
-
-    {#if isLoading}
-      <Skeleton class="h-9 w-full rounded-md" />
-    {:else}
-      <Button
-        onclick={() => onClickBuy!(id)}
-        class="w-full mb-2 bg-gradient text-white rounded-full {buttonBuyClass}"
-      >
-        {buttonBuyText || $t("label.book")}
-      </Button>
-    {/if}
-  </aside>
+    <CardFlightPrice
+      {id}
+      {price}
+      {currency}
+      {pricePerPersonLabel}
+      {isLoading}
+      {onClickBuy}
+    />
+  </footer>
 </article>

@@ -98,6 +98,7 @@ export default {
     "label.highlight": "Destaques",
     "label.buy": "Compra",
     "label.book": "Reservar",
+    "label.price_per_person": "Preço por pessoa",
     "label.submit": "Submeter",
     "label.submitting": "A submeter...",
     "label.cancel": "Cancelar",

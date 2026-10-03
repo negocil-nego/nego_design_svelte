@@ -83,4 +83,5 @@ export type MenuProps = IMenuProps & {
     isThemeSwitch?: boolean
     /** Exibe o seletor de idioma */
     isLanguageSwitcher?: boolean
+    menuClass?: string
 }

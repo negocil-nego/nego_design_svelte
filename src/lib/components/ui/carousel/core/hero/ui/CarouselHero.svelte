@@ -18,6 +18,7 @@
     transitionMs = 1200,
     indicatorShow = false,
     sectionClass,
+    menuClass,
   }: CarouselHeroProps & {
     children?: Snippet;
     intervalMs?: number;
@@ -88,6 +89,15 @@
   let selected = $derived<CarouselHeroItem | undefined>(items?.[index]);
 </script>
 
+{#snippet navSimple()}
+  {#if simpleMenu}
+    <SimpleMenu {...simpleMenu} />
+  {/if}
+  {#if complexMenu}
+    <ComplexMenu {...complexMenu} />
+  {/if}
+{/snippet}
+
 {#if selected}
   <header
     class="w-full relative z-10 flex flex-col justify-center items-center h-75 md:h-100 {className}"
@@ -116,18 +126,17 @@
     <div class="relative z-10 w-full flex flex-col items-center flex-1">
       {#if menusProps}
         {#if simpleMenu}
-          <Menu navMenu={simpleMenu} {...menusProps} />
+          <Menu navMenu={simpleMenu} {...menusProps} {menuClass} />
         {/if}
         {#if complexMenu}
-          <Menu navMenu={complexMenu} {...menusProps} />
+          <Menu navMenu={complexMenu} {...menusProps} {menuClass} />
         {/if}
+      {:else if menuClass}
+        <div class={menuClass}>
+          {@render navSimple()}
+        </div>
       {:else}
-        {#if simpleMenu}
-          <SimpleMenu {...simpleMenu} />
-        {/if}
-        {#if complexMenu}
-          <ComplexMenu {...complexMenu} />
-        {/if}
+        {@render navSimple()}
       {/if}
 
       <section

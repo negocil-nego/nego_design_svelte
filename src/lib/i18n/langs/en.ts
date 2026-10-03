@@ -98,6 +98,7 @@ export default {
     "label.highlight": "Highlights",
     "label.buy": "Buy",
     "label.book": "Book",
+    "label.price_per_person": "Price per Person",
     "label.submit": "Submit",
     "label.submitting": "Submitting...",
     "label.cancel": "Cancel",

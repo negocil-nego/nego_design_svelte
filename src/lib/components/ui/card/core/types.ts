@@ -252,6 +252,10 @@ export interface CardFlightProps {
     price?: string | number;
     /** Moeda do preço (ex: "Kz", "USD") */
     currency?: string;
+    /** Informação ou limite de bagagem (ex: "25 KG") */
+    baggage?: string;
+    /** Etiqueta personalizada para o preço por pessoa (padrão: traduzido) */
+    pricePerPersonLabel?: string;
     /** Texto do botão de reserva (padrão: traduzido) */
     buttonBuyText?: string;
     /** Classe CSS personalizada para o botão de reserva */
