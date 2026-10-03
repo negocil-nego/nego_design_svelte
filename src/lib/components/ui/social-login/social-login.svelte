@@ -47,7 +47,7 @@ import type { HugeiconsIconName } from "$lib/components/ui/image/icons";
   {/if}
 
   <div class="flex gap-2">
-    {#each items as item}
+    {#each items as item (item.provider)}
       {#if variant === "icons-only"}
         <button
           type="button"

@@ -41,10 +41,8 @@
             class="size-16 rounded-2xl object-cover text-foreground sm:size-32"
         />
     {/snippet}
-    {#snippet children()}
-        <p class="mt-2 max-w-md text-xs text-muted-foreground">
-            Tens alguma dúvida? Fala connosco pelo email ou telefone durante o
-            horário útil.
-        </p>
-    {/snippet}
+    <p class="mt-2 max-w-md text-xs text-muted-foreground">
+        Tens alguma dúvida? Fala connosco pelo email ou telefone durante o
+        horário útil.
+    </p>
 </PageStatus>
