@@ -212,6 +212,63 @@ export interface CardPhoneOrWhatsappProps {
 }
 
 /**
+ * Props do CardFlight — card de viagem/voo com rota (origem → destino),
+ * horários de partida/chegada, duração, preço e botão de reserva.
+ */
+export interface CardFlightProps {
+    /** Identificador único da viagem */
+    id: string | number;
+    /** URL do logotipo da companhia/operadora */
+    logo?: string;
+    /** URL da imagem de capa da viagem */
+    imageUrl?: string;
+    /** Título do card (cidade de origem ou nome da viagem) */
+    title?: string;
+    /** Descrição/conteúdo do card */
+    content?: string;
+    /** Classe CSS adicional para o container */
+    className?: string;
+    /** Estado de carregamento (skeleton) */
+    isLoading?: boolean;
+    /** Indica se o item está marcado como favorito */
+    isFavorite?: boolean;
+    /** Lista de tags exibidas no card */
+    tags?: CardTagsProps[];
+    /** Cidade/Local de origem da viagem */
+    origin?: string;
+    /** Cidade/Local de destino da viagem */
+    destination?: string;
+    /** Data e hora de partida (texto já formatado ou ISO) */
+    departureTime?: string;
+    /** Data e hora estimada de chegada (texto já formatado ou ISO) */
+    arrivalTime?: string;
+    /** Duração estimada da viagem (ex: "1h 45min") */
+    duration?: string;
+    /** Tipo da viagem (ex: "FLIGHT", "INTERPROVINCIAL") */
+    type?: string;
+    /** Código ISO do país (ex: "ao") usado para exibir a bandeira */
+    country?: string;
+    /** Preço da viagem */
+    price?: string | number;
+    /** Moeda do preço (ex: "Kz", "USD") */
+    currency?: string;
+    /** Texto do botão de reserva (padrão: traduzido) */
+    buttonBuyText?: string;
+    /** Classe CSS personalizada para o botão de reserva */
+    buttonBuyClass?: string;
+    /** Exibe ícone antes da descrição */
+    isDescriptionIcon?: boolean;
+    /** Exibe etiqueta (label) na descrição */
+    isDescriptionLabel?: boolean;
+    /** Callback acionado ao clicar no botão de reserva */
+    onClickBuy?: (id: string | number) => void;
+    /** Callback acionado ao clicar no botão de carrinho */
+    onClickShop?: (id: string | number) => void;
+    /** Callback acionado ao clicar no botão de favorito */
+    onClickFavorite?: (id: string | number) => void;
+}
+
+/**
  * Props do CardProduct — card de produto com preço antigo/novo,
  * botão de comprar, favoritar e adicionar ao carrinho.
  */

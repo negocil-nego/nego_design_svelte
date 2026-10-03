@@ -46,6 +46,7 @@ import CarouselProduct from "$lib/components/ui/carousel/core/product/ui/Carouse
 import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 import CarouselItemsPanel from "$lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte";
+import CarouselFlight from "$lib/components/ui/carousel/core/flight/ui/CarouselFlight.svelte";
 
 import GridBadge from "$lib/components/ui/grid/core/badge/ui/GridBadge.svelte";
 import GridHighlights from "$lib/components/ui/grid/core/highlights/ui/GridHighlights.svelte";
@@ -55,6 +56,7 @@ import GridProduct from "$lib/components/ui/grid/core/product/ui/GridProduct.sve
 import GridPromotion from "$lib/components/ui/grid/core/promotion/ui/GridPromotion.svelte";
 import GridItemsPanel from "$lib/components/ui/grid/core/panel/GridItemsPanel.svelte";
 import GridHero from "$lib/components/ui/grid/core/hero/ui/GridHero.svelte";
+import GridFlight from "$lib/components/ui/grid/core/flight/ui/GridFlight.svelte";
 
 import CompanyProfile from "$lib/components/pages/company-profile/CompanyProfile.svelte";
 import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
@@ -69,6 +71,7 @@ import CardProfile from "$lib/components/ui/card/core/profile/CardProfile.svelte
 import CardHighlight from "$lib/components/ui/card/core/highlight/CardHighlight.svelte";
 import CardPromotion from "$lib/components/ui/card/core/promotion/CardPromotion.svelte";
 import CardProduct from "$lib/components/ui/card/core/product/CardProduct.svelte";
+import CardFlight from "$lib/components/ui/card/core/flight/CardFlight.svelte";
 import CardEmailPhoneWhatsapp from "$lib/components/ui/card/varients/CardEmailPhoneWhatsapp.svelte";
 import NegoDesign from "./components/NegoDesign.svelte";
 
@@ -734,6 +737,15 @@ export {
     CardProduct,
 
     /**
+     * Card de viagem/voo com rota (origem → destino), horários de
+     * partida/chegada, duração, preço e botão de reserva. Variantes 1 e 2.
+     * @property {1|2} variant - Variante visual
+     * @property {CardFlightProps} - Props do card de viagem
+     * @see CardFlightProps
+     */
+    CardFlight,
+
+    /**
      * Card de seleção de método OTP (email, telefone, WhatsApp).
      * Apresenta opções clicáveis para o utilizador escolher como receber o código de verificação.
      * @property {CardEmailPhoneWhatsappItem[]} items - Lista de opções
@@ -849,6 +861,18 @@ export {
     CarouselItemsPanel,
 
     /**
+     * Carousel de cards de viagem/voo com rota (origem → destino),
+     * horários, preço e botão de reserva.
+     * @property {CardFlightProps[]} items - Cards de viagem
+     * @property {CarouselHeaderProps} headerProps - Cabeçalho do carousel
+     * @property {CarouselSlotProps} slotProps - Configuração do slot do carousel
+     * @property {1|2} variant - Variante visual dos cards
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @see CarouselFlightProps
+     */
+    CarouselFlight,
+
+    /**
      * Grid de badges/categorias com orientação horizontal ou vertical.
      * Versão em grade do CarouselBadge.
      * @property {ItemGridBadge[]} items - Lista de itens do grid
@@ -906,6 +930,17 @@ export {
      * @see GridItemsPanelProps
      */
     GridItemsPanel,
+
+    /**
+     * Grid de cards de viagem/voo com rota (origem → destino),
+     * horários, preço e botão de reserva.
+     * @property {CardFlightProps[]} items - Cards de viagem
+     * @property {GridHeaderProps} headerProps - Cabeçalho do grid
+     * @property {1|2} variant - Variante visual dos cards
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @see GridFlightProps
+     */
+    GridFlight,
 
     /**
      * Hero em grid — apresenta os itens em grade em vez de slides rotativos.

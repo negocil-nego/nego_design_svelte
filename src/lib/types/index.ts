@@ -56,7 +56,8 @@ import type {
     CardPromotionProps,
     CardHighlightProps,
     CardTagsProps,
-    CardProductProps
+    CardProductProps,
+    CardFlightProps
 } from "$lib/components/ui/card/core/types";
 
 import type { CarouselGridMediaProps } from "$lib/components/ui/carousel/core/grid/media/types";
@@ -80,6 +81,7 @@ import type {
 import type { GridHighlightsProps } from "$lib/components/ui/grid/core/highlights/types";
 import type { GridMediaProps } from "$lib/components/ui/grid/core/media/types";
 import type { GridProductProps } from "$lib/components/ui/grid/core/product/types";
+import type { GridFlightProps } from "$lib/components/ui/grid/core/flight/types";
 import type { GridProfileProps } from "$lib/components/ui/grid/core/profile/types";
 import type { GridPromotionProps } from "$lib/components/ui/grid/core/promotion/types";
 import type { GridItemsPanelProps } from "$lib/components/ui/grid/core/panel/types";
@@ -275,6 +277,7 @@ import type {
 } from "$lib/components/ui/modal/upload/types";
 import type { AdminSidebarProps } from "$lib/components/pages/admin/sidebar/types";
 import type { CarouselProductProps } from "$lib/components/ui/carousel/core/product/types";
+import type { CarouselFlightProps } from "$lib/components/ui/carousel/core/flight/types";
 import type {
     VisibilityFallbackProps,
     VisibilityFallbackSlotProps,
@@ -339,6 +342,8 @@ export type {
     CardHighlightProps,
     /** Props do CardProduct — card de produto com preço antigo/novo e botão comprar. @see CardProductProps */
     CardProductProps,
+    /** Props do CardFlight — card de viagem/voo com rota, horários e botão de reserva. @see CardFlightProps */
+    CardFlightProps,
 
     /** Props do cabeçalho de carousel (título, descrição, botão "Ver tudo"). @see CarouselHeaderProps */
     CarouselHeaderProps,
@@ -367,6 +372,8 @@ export type {
     CarouselProductProps,
     /** Props do CarouselProfile — carousel de cards de perfil (organizações/guias). @see CarouselProfileProps */
     CarouselProfileProps,
+    /** Props do CarouselFlight — carousel de cards de viagem/voo. @see CarouselFlightProps */
+    CarouselFlightProps,
     /** Props do CarouselGridPromotion — grid de cards de produto em promoção. @see CarouselGridPromotionProps */
     CarouselGridPromotionProps,
     /** Props do CarouselGridProduct — grid de cards de produto @see CarouselGridProductProps */
@@ -392,6 +399,8 @@ export type {
     GridProfileProps,
     /** Props do GridProduct — grid de cards de produto. @see GridProductProps */
     GridProductProps,
+    /** Props do GridFlight — grid de cards de viagem/voo. @see GridFlightProps */
+    GridFlightProps,
     /** Props do GridPromotion — grid de cards de promoção com preços. @see GridPromotionProps */
     GridPromotionProps,
     /** Props do GridItemsPanel — grid de itens (cards Grid01/Grid02). @see GridItemsPanelProps */

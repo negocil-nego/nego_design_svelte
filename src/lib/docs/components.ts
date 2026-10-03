@@ -395,6 +395,56 @@ export const components: DocComponent[] = [
     ],
   },
   {
+    slug: "card-flight",
+    name: "CardFlight",
+    category: "Cards",
+    description:
+      "Travel/flight card with route (origin → destination), departure/arrival times, duration, price and a booking button, with variants 1 and 2.",
+    path: "src/lib/components/ui/card/core/flight/CardFlight.svelte",
+    importPath: "CardFlight",
+    examples: [
+      {
+        title: "Flight Card",
+        code: `<script lang="ts">
+  import { CardFlight } from "negodesign";
+  import type { CardFlightProps } from "negodesign/types";
+</script>
+
+<CardFlight
+  {...item}
+  variant={1}
+  onClickBuy={(id) => console.log("book", id)}
+  onClickFavorite={(id) => console.log("favorite", id)}
+/>`,
+        href: "/card/flight",
+      },
+    ],
+    props: [
+      { name: "variant", type: "1 | 2", description: "Selects CardFlight01 vs CardFlight02", default: "1" },
+      { name: "id", type: "string | number", description: "Required. Unique identifier", required: true },
+      { name: "logo", type: "string", description: "Airline/operator logo URL" },
+      { name: "imageUrl", type: "string", description: "Cover image URL" },
+      { name: "title", type: "string", description: "Travel title (e.g. 'Luanda — Lubango')" },
+      { name: "content", type: "string", description: "Travel description" },
+      { name: "origin", type: "string", description: "Departure city" },
+      { name: "destination", type: "string", description: "Arrival city" },
+      { name: "departureTime", type: "string", description: "Departure date and time" },
+      { name: "arrivalTime", type: "string", description: "Estimated arrival date and time" },
+      { name: "duration", type: "string", description: "Estimated duration (e.g. '1h 15min')" },
+      { name: "type", type: "string", description: "Travel type ('FLIGHT' or 'INTERPROVINCIAL')" },
+      { name: "country", type: "string", description: "ISO country code used for the flag (e.g. 'ao')" },
+      { name: "price", type: "string | number", description: "Travel price" },
+      { name: "currency", type: "string", description: "Currency of the price (e.g. 'Kz')" },
+      { name: "tags", type: "CardTagsProps[]", description: "Tag list: { text, icon? }" },
+      { name: "isFavorite", type: "boolean", description: "Whether marked as favorite" },
+      { name: "isLoading", type: "boolean", description: "Loading state" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the description" },
+      { name: "onClickBuy", type: "(id) => void", description: "Called on the booking button" },
+      { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
+    ],
+  },
+  {
     slug: "carousel-badge",
     name: "CarouselBadge",
     category: "Carousels",
@@ -611,6 +661,52 @@ export const components: DocComponent[] = [
     ],
   },
   {
+    slug: "carousel-flight",
+    name: "CarouselFlight",
+    category: "Carousels",
+    description:
+      "Horizontal carousel of travel/flight cards showing the route, schedule, price and a booking button, with header, autoplay, empty state and loading skeleton.",
+    path: "src/lib/components/ui/carousel/core/flight/ui/CarouselFlight.svelte",
+    importPath: "CarouselFlight",
+    examples: [
+      {
+        title: "Flights Carousel",
+        code: `<script lang="ts">
+  import { CarouselFlight } from "negodesign";
+  import items from "negodesign/card/core/flight/data";
+</script>
+
+<CarouselFlight
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Viagens em destaque",
+    description: "Descubra os próximos voos disponíveis",
+  }}
+  slotProps={{
+    positionButtonPreviousAndNext: "top_right",
+    isButtonPreviousAndNext: true,
+    onMoreViewClick: () => {},
+  }}
+  onClickBuy={(id) => console.log("book", id)}
+  onClickFavorite={(id) => console.log("favorite", id)}
+/>`,
+        href: "/carousel/flight",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardFlightProps[]", description: "Required. Travel card data", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Slot config (button position, more-view action, borders)" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "onClickBuy", type: "(id) => void", description: "Called on the booking button" },
+      { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
+    ],
+  },
+  {
     slug: "grid-highlights",
     name: "GridHighlights",
     category: "Grids",
@@ -773,6 +869,45 @@ import items from "negodesign/card/core/product/data"
       { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
       { name: "onClickBuy", type: "(id) => void", description: "Called on the buy button" },
       { name: "onClickShop", type: "(id) => void", description: "Called on the cart button" },
+      { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
+    ],
+  },
+  {
+    slug: "grid-flight",
+    name: "GridFlight",
+    category: "Grids",
+    description:
+      "Responsive grid of travel/flight cards showing the route, schedule, price and a booking button — the grid counterpart of CarouselFlight.",
+    path: "src/lib/components/ui/grid/core/flight/ui/GridFlight.svelte",
+    importPath: "GridFlight",
+    examples: [
+      {
+        title: "Flights Grid",
+        code: `import { GridFlight } from "negodesign"
+import items from "negodesign/card/core/flight/data"
+
+<GridFlight
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Viagens em destaque",
+    description: "Descubra os próximos voos disponíveis",
+  }}
+  onClickBuy={(id) => console.log(id)}
+  onClickFavorite={(id) => console.log(id)}
+/>`,
+        href: "/grid/flight",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardFlightProps[]", description: "Required. Travel card data", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "GridHeaderProps", description: "Header config (title, description, containerClass)" },
+      { name: "gridClass", type: "string", description: "Extra CSS classes for the grid container" },
+      { name: "isLoading", type: "boolean", description: "Shows skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows an icon before the card description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows a label in the card description" },
+      { name: "onClickBuy", type: "(id) => void", description: "Called on the booking button" },
       { name: "onClickFavorite", type: "(id) => void", description: "Called on the favorite button" },
     ],
   },

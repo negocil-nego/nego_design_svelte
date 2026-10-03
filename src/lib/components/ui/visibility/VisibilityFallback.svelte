@@ -1,7 +1,10 @@
 <script lang="ts">
 	import { useVisibility } from "$lib/hooks/visibility.svelte.js";
 	import { cn } from "$lib/utils.js";
-	import type { VisibilityFallbackPosition, VisibilityFallbackProps } from "./types.js";
+	import type {
+		VisibilityFallbackPosition,
+		VisibilityFallbackProps,
+	} from "./types.js";
 
 	let {
 		children,
@@ -52,35 +55,37 @@
 	const showMain = $derived(invert ? !isVisible : isVisible);
 	const effectiveIsFixed = $derived(fixed || isFixed);
 	const effectivePreserveSpace = $derived(
-		preserveSpace !== undefined ? preserveSpace : effectiveIsFixed
+		preserveSpace !== undefined ? preserveSpace : effectiveIsFixed,
 	);
 
 	const FIXED_POSITIONS: Record<VisibilityFallbackPosition, string> = {
-		top: "fixed top-0 left-0 right-0 z-50",
-		bottom: "fixed bottom-0 left-0 right-0 z-50",
-		"top-left": "fixed top-4 left-4 z-50",
-		"top-right": "fixed top-4 right-4 z-50",
-		"bottom-left": "fixed bottom-4 left-4 z-50",
-		"bottom-right": "fixed bottom-4 right-4 z-50",
-		center: "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50",
-		custom: "fixed z-50",
+		top: "fixed top-0 left-0 right-0 z-999",
+		bottom: "fixed bottom-0 left-0 right-0 z-999",
+		"top-left": "fixed top-4 left-4 z-999",
+		"top-right": "fixed top-4 right-4 z-999",
+		"bottom-left": "fixed bottom-4 left-4 z-999",
+		"bottom-right": "fixed bottom-4 right-4 z-999",
+		center: "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-999",
+		custom: "fixed z-999",
 	};
 
 	const mainAnimationClass = $derived(
-		animate ? cn("animate__animated", animation) : ""
+		animate ? cn("animate__animated", animation) : "",
 	);
 
 	const fallbackAnimationClass = $derived(
-		animate ? cn("animate__animated", fallbackAnimation) : ""
+		animate ? cn("animate__animated", fallbackAnimation) : "",
 	);
 
 	const fallbackContainerClass = $derived(
 		cn(
 			fallbackAnimationClass,
-			effectiveIsFixed && (FIXED_POSITIONS[fixedPosition] ?? "fixed bottom-4 right-4 z-50"),
+			effectiveIsFixed &&
+				(FIXED_POSITIONS[fixedPosition] ??
+					"fixed bottom-4 right-4 z-999"),
 			effectiveIsFixed && fixedClass,
-			fallbackClass
-		)
+			fallbackClass,
+		),
 	);
 </script>
 
@@ -90,12 +95,17 @@
 	class={cn(
 		"visibility-fallback relative transition-all duration-300 ease-in-out",
 		isVisible ? visibleClass : hiddenClass,
-		className
+		className,
 	)}
 	{...restProps}
 >
 	{#if effectivePreserveSpace}
-		<div class={cn(mainAnimationClass, !showMain && "invisible pointer-events-none")}>
+		<div
+			class={cn(
+				mainAnimationClass,
+				!showMain && "invisible pointer-events-none",
+			)}
+		>
 			{@render children?.({ isVisible })}
 		</div>
 		{#if !showMain && fallback}
@@ -134,4 +144,3 @@
 		</div>
 	{/if}
 </div>
-
