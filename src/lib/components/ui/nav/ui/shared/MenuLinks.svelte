@@ -18,7 +18,7 @@
   class={`flex ${orientation === "vertical" ? "flex-col" : "items-center"}  gap-2 md:gap-5 lg:gap-15 ${groupClass}`}
 >
   {#each links as item (item.label)}
-    <li>
+    <li class="flex items-start">
       <a
         class={`flex justify-center items-center gap-1 ${linkClass} ${item.key && menuKey === item.key ? activeClass : ""}`}
         href={item.url ?? item.href ?? "#"}

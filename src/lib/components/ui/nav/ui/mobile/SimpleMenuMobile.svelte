@@ -12,10 +12,9 @@
     links,
     onclickButtonLogin,
     onclickButtonRegister,
-    showUserSection = true,
   }: SimpleMenuMobileProps = $props();
 
-  const isLogged = $derived(isLoggedIn());
+  const isAction = $derived(onclickButtonRegister || onclickButtonLogin);
 </script>
 
 <MenuMobile>
@@ -24,12 +23,10 @@
     <MenuLinks {links} groupClass="space-y-3" orientation="vertical" />
   </nav>
 
-  <div class="mt-5">
-    <div class="mt-5 mb-4 font-semibold">{$t("label.action")}</div>
-    <section>
-      {#if showUserSection && isLogged}
-        <AdminUserSection />
-      {:else}
+  {#if isAction}
+    <div class="mt-5">
+      <div class="mt-5 mb-4 font-semibold">{$t("label.action")}</div>
+      <section>
         {#if onclickButtonRegister}
           <Button variant="outline" onclick={onclickButtonRegister}>
             <ImageHugeicons icon="UserIcon" />
@@ -42,7 +39,7 @@
             {$t("label.login")}
           </Button>
         {/if}
-      {/if}
-    </section>
-  </div>
+      </section>
+    </div>
+  {/if}
 </MenuMobile>

@@ -24,6 +24,10 @@
     <Drawer.Content
       class="data-[vaul-drawer-direction=bottom]:max-h-[50vh] data-[vaul-drawer-direction=top]:max-h-[50vh]"
     >
+      <div class="flex justify-end gap-5 py-5">
+        <ThemeSwitch />
+        <LanguageSwitcher />
+      </div>
       <Drawer.Header>
         <Drawer.Title>{$t("label.menu")}</Drawer.Title>
         <Drawer.Description>
@@ -34,10 +38,6 @@
         {@render children()}
       </div>
       <Drawer.Footer>
-        <div class="flex justify-center gap-5 py-5">
-          <ThemeSwitch />
-          <LanguageSwitcher />
-        </div>
         <Drawer.Close class={buttonVariants({ variant: "outline" })}>
           {$t("label.close")}
         </Drawer.Close>

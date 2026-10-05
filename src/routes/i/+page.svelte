@@ -54,13 +54,13 @@
     },
     groupClass: "text-white",
   }}
-  simpleMenu={{
+  complexMenu={{
     logo: { url: "/", label: "Negoturismo", className: "text-white" },
     linkClass: "text-white",
-    links: [
-      { label: "Hospedagem", url: "#", icon: "BedDoubleIcon" },
-      { label: "Voos", url: "#", icon: "Rocket01Icon" },
-      { label: "Tradutores", url: "#", icon: "Message01Icon" },
+    menus: [
+      { label: "Hospedagem", href: "#" },
+      { label: "Voos", href: "#" },
+      { label: "Tradutores", href: "#" },
     ],
   }}
 >

@@ -105,6 +105,7 @@ import AdminUserSection from "$lib/components/pages/admin/shared/section/AdminUs
 import AdminSection from "$lib/components/pages/admin/shared/section/AdminSection.svelte";
 import AdminSectionCards from "$lib/components/pages/admin/shared/section/AdminSectionCards.svelte";
 import AdminUserProfile from "$lib/components/pages/admin/shared/profile/AdminUserProfile.svelte";
+import Button from "$lib/components/ui/button/button.svelte";
 
 /** Hooks reativos de detecção de visibilidade, viewport e responsividade */
 export { useVisibility, useInView, useIntersectionObserver } from "./hooks/visibility.svelte.js";
@@ -290,6 +291,8 @@ export {
      * @see AdminUserProfileProps
      */
     AdminUserProfile,
+
+    Button,
 
     /**
      * Barra de navegação responsiva que alterna entre as variantes Simples
