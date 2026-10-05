@@ -1,6 +1,5 @@
 <script lang="ts">
   import { CarouselHero } from "$lib";
-  import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
   import ItemsPanel from "$lib/components/ui/grid/core/shared/ui/ItemsPanel.svelte";
   import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 </script>
@@ -67,7 +66,7 @@
   <div
     class="w-11/12 md:w-225 lg:w-11/12 mt-3 mb-10 space-y-2 flex flex-col items-center justify-center"
   >
-    <div class="px-2 md:px-0 md:w-8/12">
+    <div class="px-2 md:px-0 w-full">
       <SearchHostingerInput />
     </div>
   </div>
@@ -177,7 +176,7 @@
   ]}
 />
 
-<div class="relative flex justify-center mt-10">
+<!-- <div class="relative flex justify-center mt-10">
   <CarouselBadge
     orientation="horizontal"
     iconClass="size-6"
@@ -196,4 +195,4 @@
     showButton={true}
     isBorderInline
   />
-</div>
+</div> -->

@@ -387,6 +387,44 @@ ${"</" + "script>"}
   onClick={(id) => console.log("Item selecionado:", id)}
 />`;
 
+  const carouselSlotCode = `<script lang="ts">
+  import { CarouselSlot } from "negodesign";
+  import * as Carousel from "$lib/components/ui/carousel";
+${"</" + "script>"}
+
+<CarouselSlot
+  title="Destaques e Ofertas"
+  description="Navegue pelas melhores opções disponíveis"
+  positionButtonPreviousAndNext="top_right"
+  onMoreViewClick={() => console.log("Ver mais")}
+>
+  {#each items as item (item.id)}
+    <Carousel.Item class="basis-auto pl-2">
+      <!-- Seu Card aqui -->
+    </Carousel.Item>
+  {/each}
+</CarouselSlot>`;
+
+  const carouselFlightCode = `<script lang="ts">
+  import { CarouselFlight } from "negodesign";
+  import items from "negodesign/card/core/flight/data";
+${"</" + "script>"}
+
+<CarouselFlight
+  {items}
+  variant={1}
+  headerProps={{
+    title: "Voos em Destaque",
+    description: "Melhores rotas e horários",
+  }}
+  slotProps={{
+    positionButtonPreviousAndNext: "top_right",
+    onMoreViewClick: () => console.log("Ver todos"),
+  }}
+  onClickBuy={(id) => console.log("Comprar", id)}
+  onClickFavorite={(id) => console.log("Favoritar", id)}
+/>`;
+
   const gridHighlightsCode = `<script lang="ts">
   import { GridHighlights } from "negodesign";
   import items from "negodesign/card/core/highlight/data";
@@ -1322,6 +1360,46 @@ ${"</" + "script>"}
     <div class="mt-6 rounded-xl border border-border bg-card p-5">
       <h3 class="text-sm font-semibold">CarouselItemsPanel</h3>
       <CodeBlock code={carouselItemsPanelCode} title="CarouselItemsPanel.svelte" />
+    </div>
+  </section>
+
+  <section id="carousel-slot" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">CarouselSlot</h2>
+      <a
+        href="/carousel/slot"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Container unificado de carousel com suporte integrado a cabeçalho (título à esquerda), controles de navegação responsivos (à direita no topo ou centralizados nos extremos), plugins de autoplay, scrollbar horizontal, loading skeleton e estado vazio (<code class="rounded bg-muted px-1 py-0.5">NotFoundEmpty</code>).
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CarouselSlot</h3>
+      <CodeBlock code={carouselSlotCode} title="CarouselSlot.svelte" />
+    </div>
+  </section>
+
+  <section id="carousel-flight" class="mt-16 scroll-mt-6">
+    <div class="flex items-center gap-2">
+      <h2 class="text-2xl font-bold">CarouselFlight</h2>
+      <a
+        href="/carousel/flight"
+        class="inline-flex items-center gap-1 rounded-full border border-border bg-card px-3 py-0.5 text-xs font-semibold text-muted-foreground transition hover:bg-muted"
+      >
+        Live demo
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-3" />
+      </a>
+    </div>
+    <p class="mt-2 text-sm text-muted-foreground">
+      Carousel horizontal de cards de viagem/voo com rota, horários, preços, botão de reserva e favoritar.
+    </p>
+    <div class="mt-6 rounded-xl border border-border bg-card p-5">
+      <h3 class="text-sm font-semibold">CarouselFlight</h3>
+      <CodeBlock code={carouselFlightCode} title="CarouselFlight.svelte" />
     </div>
   </section>
 

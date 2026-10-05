@@ -707,6 +707,166 @@ export const components: DocComponent[] = [
     ],
   },
   {
+    slug: "carousel-slot",
+    name: "CarouselSlot",
+    category: "Carousels",
+    description:
+      "Unified carousel container component with built-in header, navigation controls (center or top-right/mobile), autoplay plugins, scrollbar, loading skeletons, and empty state support.",
+    path: "src/lib/components/ui/panel/CarouselSlot.svelte",
+    importPath: "CarouselSlot",
+    examples: [
+      {
+        title: "Carousel Slot with Header",
+        code: `<script lang="ts">
+  import { CarouselSlot } from "negodesign";
+  import * as Carousel from "$lib/components/ui/carousel";
+</` + `script>
+
+<CarouselSlot
+  title="Destaques"
+  description="Confira nossos principais itens"
+  positionButtonPreviousAndNext="top_right"
+  onMoreViewClick={() => console.log("Ver mais")}
+>
+  {#each items as item (item.id)}
+    <Carousel.Item class="basis-auto pl-2">
+      <!-- Seu Card aqui -->
+    </Carousel.Item>
+  {/each}
+</CarouselSlot>`,
+        href: "/carousel/slot",
+      },
+    ],
+    props: [
+      { name: "title", type: "string", description: "Carousel title aligned on the left" },
+      { name: "description", type: "string", description: "Subtitle/description below title" },
+      { name: "titleClass", type: "string", description: "Custom CSS class for title" },
+      { name: "descriptionClass", type: "string", description: "Custom CSS class for description" },
+      { name: "positionButtonPreviousAndNext", type: "'center' | 'top_right'", description: "Navigation buttons position: side center or top right (header)", default: "center" },
+      { name: "isButtonPreviousAndNext", type: "boolean", description: "Shows previous/next navigation buttons", default: "true" },
+      { name: "buttonPreviousAndNextClass", type: "string", description: "Custom CSS class for navigation buttons" },
+      { name: "isBorder", type: "boolean", description: "Adds border around the container", default: "false" },
+      { name: "isBorderBottom", type: "boolean", description: "Adds bottom border to the carousel slot", default: "false" },
+      { name: "containerClass", type: "string", description: "Container CSS class", default: "w-full" },
+      { name: "isScrollbar", type: "boolean", description: "Enables horizontal scrollbar", default: "false" },
+      { name: "plugins", type: "CarouselPlugins", description: "Embla plugins (e.g. autoplay)" },
+      { name: "onMoreViewClick", type: "() => void", description: "Callback when 'Ver mais' button is clicked" },
+      { name: "isEmpty", type: "boolean", description: "Displays NotFoundEmpty state when true", default: "false" },
+      { name: "isLoading", type: "boolean", description: "Displays loading skeletons when true", default: "false" },
+      { name: "emptyTitle", type: "string", description: "Title for empty state" },
+      { name: "emptyDescription", type: "string", description: "Description for empty state" },
+      { name: "emptyIcon", type: "HugeiconsIconName", description: "Icon for empty state" },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Legacy header configuration object" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Legacy slot configuration object" },
+    ],
+  },
+  {
+    slug: "carousel-product",
+    name: "CarouselProduct",
+    category: "Carousels",
+    description:
+      "Horizontal carousel of product cards with old/new prices, buy button, and responsive navigation header.",
+    path: "src/lib/components/ui/carousel/core/product/ui/CarouselProduct.svelte",
+    importPath: "CarouselProduct",
+    examples: [
+      {
+        title: "Product Carousel",
+        code: `import { CarouselProduct } from "negodesign";
+
+<CarouselProduct
+  items={products}
+  headerProps={{
+    title: "Produtos em Destaque",
+    description: "Melhores ofertas do dia",
+  }}
+  slotProps={{
+    onMoreViewClick: () => console.log("ver todos"),
+  }}
+/>`,
+        href: "/carousel/product",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardProductProps[]", description: "Required. Product card items", required: true },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Header configuration (title, description)" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Slot configuration (buttons, position, more-view)" },
+      { name: "isLoading", type: "boolean", description: "Shows loading skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows icon in description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows label in description" },
+    ],
+  },
+  {
+    slug: "carousel-profile",
+    name: "CarouselProfile",
+    category: "Carousels",
+    description:
+      "Horizontal carousel of profile cards (organizations, guides) with contact actions and responsive header.",
+    path: "src/lib/components/ui/carousel/core/profile/ui/CarouselProfile.svelte",
+    importPath: "CarouselProfile",
+    examples: [
+      {
+        title: "Profile Carousel",
+        code: `import { CarouselProfile } from "negodesign";
+
+<CarouselProfile
+  items={profiles}
+  variant={1}
+  headerProps={{
+    title: "Guias Turísticos",
+    description: "Profissionais certificados",
+  }}
+  slotProps={{
+    onMoreViewClick: () => {},
+  }}
+/>`,
+        href: "/carousel/profile",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardProfileProps[]", description: "Required. Profile card items", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Header configuration (title, description)" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Slot configuration (buttons, position, more-view)" },
+      { name: "isLoading", type: "boolean", description: "Shows loading skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows icon in description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows label in description" },
+    ],
+  },
+  {
+    slug: "carousel-media",
+    name: "CarouselMedia",
+    category: "Carousels",
+    description:
+      "Horizontal carousel of media cards (destinations, photo galleries) with autoplay and responsive header.",
+    path: "src/lib/components/ui/carousel/core/media/ui/CarouselMedia.svelte",
+    importPath: "CarouselMedia",
+    examples: [
+      {
+        title: "Media Carousel",
+        code: `import { CarouselMedia } from "negodesign";
+
+<CarouselMedia
+  items={mediaItems}
+  variant={1}
+  headerProps={{
+    title: "Galeria de Destinos",
+    description: "Fotos e vídeos de viagens",
+  }}
+/>`,
+        href: "/carousel/media",
+      },
+    ],
+    props: [
+      { name: "items", type: "CardMediaProps[]", description: "Required. Media card items", required: true },
+      { name: "variant", type: "1 | 2", description: "Card visual variant" },
+      { name: "headerProps", type: "CarouselHeaderProps", description: "Header configuration (title, description)" },
+      { name: "slotProps", type: "CarouselSlotProps", description: "Slot configuration (buttons, position, more-view)" },
+      { name: "isLoading", type: "boolean", description: "Shows loading skeletons", default: "false" },
+      { name: "isDescriptionIcon", type: "boolean", description: "Shows icon in description" },
+      { name: "isDescriptionLabel", type: "boolean", description: "Shows label in description" },
+    ],
+  },
+  {
     slug: "grid-highlights",
     name: "GridHighlights",
     category: "Grids",

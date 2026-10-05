@@ -3,17 +3,17 @@
   import type { Snippet } from "svelte";
 
   type Props = {
-    children: Snippet;
+    children?: Snippet;
   };
 
   const {
     title,
     description,
-    titleClass,
-    descriptionClass,
+    titleClass = "",
+    descriptionClass = "",
     containerClass = "",
+    isBorder = false,
     children,
-    isBorder,
   }: CarouselHeaderProps & Props = $props();
 </script>
 
@@ -23,18 +23,18 @@
     {isBorder ? 'border border-gray-50 dark:border-gray-800' : ''} 
     {containerClass}"
   >
-    <div class="flex flex-col gap-1">
-      <div>
+    {#if title || description}
+      <div class="flex flex-col gap-1 mb-2">
         {#if title}
           <h1 class={`text-xl ${titleClass}`}>{title}</h1>
         {/if}
         {#if description}
-          <div class={`mt-3 ${descriptionClass}`}>
+          <div class={`mt-1 text-sm ${descriptionClass}`}>
             {description}
           </div>
         {/if}
       </div>
-    </div>
-    <div>{@render children()}</div>
+    {/if}
+    <div>{@render children?.()}</div>
   </div>
 </div>

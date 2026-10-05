@@ -59,14 +59,14 @@
   );
 
   const FIXED_POSITIONS: Record<VisibilityFallbackPosition, string> = {
-    top: "fixed top-0 left-0 right-0 z-500",
-    bottom: "fixed bottom-0 left-0 right-0 z-500",
-    "top-left": "fixed top-4 left-4 z-500",
-    "top-right": "fixed top-4 right-4 z-500",
-    "bottom-left": "fixed bottom-4 left-4 z-500",
-    "bottom-right": "fixed bottom-4 right-4 z-500",
-    center: "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-500",
-    custom: "fixed z-500",
+    top: "fixed top-0 left-0 right-0 z-300",
+    bottom: "fixed bottom-0 left-0 right-0 z-300",
+    "top-left": "fixed top-4 left-4 z-300",
+    "top-right": "fixed top-4 right-4 z-300",
+    "bottom-left": "fixed bottom-4 left-4 z-300",
+    "bottom-right": "fixed bottom-4 right-4 z-300",
+    center: "fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-300",
+    custom: "fixed z-300",
   };
 
   const mainAnimationClass = $derived(
@@ -81,7 +81,7 @@
     cn(
       fallbackAnimationClass,
       effectiveIsFixed &&
-        (FIXED_POSITIONS[fixedPosition] ?? "fixed bottom-4 right-4 z-500"),
+        (FIXED_POSITIONS[fixedPosition] ?? "fixed bottom-4 right-4 z-300"),
       effectiveIsFixed && fixedClass,
       fallbackClass,
     ),

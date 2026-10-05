@@ -89,7 +89,7 @@
     </span>
   </PopoverTrigger>
 
-  <PopoverContent align="end" class="w-72 rounded-2xl p-4 z-900">
+  <PopoverContent align="end" class="w-72 rounded-2xl p-4">
     <div class="flex flex-col gap-3 border-b pb-4">
       {@render counterRow(
         $t("search.guests.adults"),

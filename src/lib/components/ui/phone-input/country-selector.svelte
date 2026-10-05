@@ -76,7 +76,7 @@
     </span>
     <span class="text-muted-foreground text-[10px]">▼</span>
   </Popover.Trigger>
-  <Popover.Content class="w-72 p-0 z-[9999]" align="start">
+  <Popover.Content class="w-72 p-0 z-200" align="start">
     <div class="flex flex-col">
       <div class="border-b p-2">
         <input

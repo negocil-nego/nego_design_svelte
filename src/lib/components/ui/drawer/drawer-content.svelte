@@ -72,7 +72,7 @@
       <div
         aria-hidden="true"
         class={cn(
-          "bg-muted mx-auto mt-4 h-1.5 w-[100px] shrink-0 rounded-full",
+          "bg-muted mx-auto mt-4 h-1.5 w-25 shrink-0 rounded-full",
           drawer.direction === "bottom" || drawer.direction === "top"
             ? "block"
             : "hidden",

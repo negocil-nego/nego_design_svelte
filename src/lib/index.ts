@@ -875,6 +875,7 @@ export {
      * @property {CarouselSlotProps} slotProps - Configuração do slot do carousel
      * @property {1|2} variant - Variante visual dos cards
      * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * */
     CarouselFlight,
 
     /**
