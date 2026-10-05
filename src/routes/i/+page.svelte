@@ -78,6 +78,11 @@
   style="inline"
   itemClassName="bg-amber-50 border-none"
   isShowDescription={false}
+  slotProps={{
+    positionButtonPreviousAndNext: "top_right",
+    isButtonPreviousAndNext: true,
+    onMoreViewClick: () => alert(`/organization`),
+  }}
   items={[
     {
       icon: "SparklesIcon",

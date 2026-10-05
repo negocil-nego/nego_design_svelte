@@ -47,6 +47,10 @@ import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBad
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 import CarouselItemsPanel from "$lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte";
 import CarouselFlight from "$lib/components/ui/carousel/core/flight/ui/CarouselFlight.svelte";
+import CarouselHeader from "$lib/components/ui/carousel/core/shared/ui/CarouselHeader.svelte";
+import CarouselHeaderSlot from "$lib/components/ui/carousel/core/shared/ui/CarouselHeaderSlot.svelte";
+import CarouselHeaderSlotMobile from "$lib/components/ui/carousel/core/shared/ui/CarouselHeaderSlotMobile.svelte";
+import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
 
 import GridBadge from "$lib/components/ui/grid/core/badge/ui/GridBadge.svelte";
 import GridHighlights from "$lib/components/ui/grid/core/highlights/ui/GridHighlights.svelte";
@@ -871,9 +875,32 @@ export {
      * @property {CarouselSlotProps} slotProps - Configuração do slot do carousel
      * @property {1|2} variant - Variante visual dos cards
      * @property {boolean} isLoading - Exibe skeletons de carregamento
-     * @see CarouselFlightProps
-     */
     CarouselFlight,
+
+    /**
+     * Cabeçalho de carousel com título, descrição e layout flexível.
+     * @see CarouselHeaderProps
+     */
+    CarouselHeader,
+
+    /**
+     * Slot de conteúdo de carousel com navegação (próximo/anterior) e plugins.
+     * @see CarouselSlotProps
+     */
+    CarouselSlot,
+
+    /**
+     * Componente reutilizável que combina CarouselHeader, CarouselSlot e estado vazio (NotFoundEmpty),
+     * alternando automaticamente para CarouselHeaderSlotMobile em dispositivos móveis.
+     * @see CarouselHeaderSlotProps
+     */
+    CarouselHeaderSlot,
+
+    /**
+     * Versão mobile do CarouselHeaderSlot com controles e layout compactos otimizados para touch.
+     * @see CarouselHeaderSlotMobileProps
+     */
+    CarouselHeaderSlotMobile,
 
     /**
      * Grid de badges/categorias com orientação horizontal ou vertical.

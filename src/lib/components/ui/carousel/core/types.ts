@@ -44,3 +44,43 @@ export interface CarouselHeaderProps {
     /** Exibe borda inferior no header */
     isBorder?: boolean;
 }
+
+import type { CarouselPlugins } from "$lib/components/ui/carousel/context";
+import type { CarouselSlotProps } from "$lib/components/ui/panel/type";
+import type { Snippet } from "svelte";
+
+/**
+ * Props do CarouselHeaderSlot — wrapper reutilizável que combina cabeçalho (CarouselHeader),
+ * slot de carousel (CarouselSlot), verificação de estado vazio (isEmpty) e loading,
+ * alternando automaticamente para versão mobile (CarouselHeaderSlotMobile) quando em telas mobile.
+ */
+export interface CarouselHeaderSlotProps {
+    /** Configurações do cabeçalho */
+    headerProps?: CarouselHeaderProps;
+    /** Configurações do slot de carousel */
+    slotProps?: CarouselSlotProps;
+    /** Indica se o carousel está sem dados para exibir */
+    isEmpty?: boolean;
+    /** Indica se os itens estão em carregamento */
+    isLoading?: boolean;
+    /** Título exibido no estado vazio (fallback: tradução de "empty.title") */
+    emptyTitle?: string;
+    /** Descrição exibida no estado vazio (fallback: tradução de "empty.description") */
+    emptyDescription?: string;
+    /** Ícone exibido no estado vazio */
+    emptyIcon?: HugeiconsIconName;
+    /** Plugins do carousel (ex: autoplay) */
+    plugins?: CarouselPlugins;
+    /** Exibe a barra de scroll horizontal */
+    isScrollbar?: boolean;
+    /** Snippet com o conteúdo do carousel (itens) */
+    children?: Snippet;
+    /** Snippet customizado para o estado vazio */
+    emptySnippet?: Snippet;
+}
+
+/**
+ * Props do CarouselHeaderSlotMobile — versão mobile do CarouselHeaderSlot.
+ */
+export type CarouselHeaderSlotMobileProps = CarouselHeaderSlotProps;
+

@@ -1,8 +1,6 @@
 <script lang="ts">
   import * as Carousel from "$lib/components/ui/carousel/index.js";
-  import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
-  import CarouselHeader from "../shared/ui/CarouselHeader.svelte";
-  import NotFoundEmpty from "$lib/components/ui/panel/NotFoundEmpty.svelte";
+  import CarouselHeaderSlot from "../shared/ui/CarouselHeaderSlot.svelte";
   import GridCard from "$lib/components/ui/grid/core/shared/ui/shared/GridCard.svelte";
   import { autoplay } from "$lib/components/ui/carousel/autoplay.js";
   import { useDevice } from "$lib/hooks/responsive.svelte";
@@ -50,68 +48,64 @@
   );
 </script>
 
-<CarouselHeader {...headerProps}>
-  {#if isEmpty}
-    <NotFoundEmpty
-      title={$t("empty.media.title")}
-      description={$t("empty.media.description")}
-    />
-  {:else}
-    <CarouselSlot
-      containerClass="w-full"
-      plugins={defaultPlugins}
-      {isScrollbar}
-      {...slotProps}
-    >
-      {#if isLoading}
-        <Carousel.Item class="basis-full min-w-0 shrink-0 grow-0 p-1">
-          <div
-            class="grid gap-3 w-full {className ?? ''}"
-            style={`grid-template-columns: repeat(${responsive.isMobile ? Math.min(gridColumns, 2) : gridColumns}, minmax(0, 1fr));`}
-          >
-            {#each Array.from({ length: itemsPerSlide }) as _, i (`loading-${i}`)}
-              <GridCard
-                id={i}
-                title={`${i}`}
-                description=""
-                icon=""
-                {variant}
-                {isLoading}
-                {isShowDescription}
-                {itemClassName}
-                {width}
-                {height}
-                {itemWidth}
-                {itemHeight}
-              />
-            {/each}
-          </div>
-        </Carousel.Item>
-      {:else}
-        {#each slides as slideItems, slideIndex (`slide-${slideIndex}`)}
-          <Carousel.Item class="basis-full min-w-0 shrink-0 grow-0 p-1">
-            <div
-              class="grid gap-3 w-full {className ?? ''}"
-              style={`grid-template-columns: repeat(${responsive.isMobile ? Math.min(gridColumns, 2) : gridColumns}, minmax(0, 1fr));`}
-            >
-              {#each slideItems as item, i (`item-${item.id ?? `${slideIndex}-${i}`}`)}
-                <GridCard
-                  {...item}
-                  {variant}
-                  {onClick}
-                  {itemClassName}
-                  width={item.width ?? width}
-                  height={item.height ?? height}
-                  itemWidth={item.itemWidth ?? itemWidth}
-                  itemHeight={item.itemHeight ?? itemHeight}
-                  isShowDescription={item.isShowDescription ??
-                    isShowDescription}
-                />
-              {/each}
-            </div>
-          </Carousel.Item>
+<CarouselHeaderSlot
+  {headerProps}
+  {slotProps}
+  {isEmpty}
+  {isLoading}
+  plugins={defaultPlugins}
+  {isScrollbar}
+  emptyTitle={$t("empty.media.title")}
+  emptyDescription={$t("empty.media.description")}
+>
+  {#if isLoading}
+    <Carousel.Item class="basis-full min-w-0 shrink-0 grow-0 p-1">
+      <div
+        class="grid gap-3 w-full {className ?? ''}"
+        style={`grid-template-columns: repeat(${responsive.isMobile ? Math.min(gridColumns, 2) : gridColumns}, minmax(0, 1fr));`}
+      >
+        {#each Array.from({ length: itemsPerSlide }) as _, i (`loading-${i}`)}
+          <GridCard
+            id={i}
+            title={`${i}`}
+            description=""
+            icon=""
+            {variant}
+            {isLoading}
+            {isShowDescription}
+            {itemClassName}
+            {width}
+            {height}
+            {itemWidth}
+            {itemHeight}
+          />
         {/each}
-      {/if}
-    </CarouselSlot>
+      </div>
+    </Carousel.Item>
+  {:else}
+    {#each slides as slideItems, slideIndex (`slide-${slideIndex}`)}
+      <Carousel.Item class="basis-full min-w-0 shrink-0 grow-0 p-1">
+        <div
+          class="grid gap-3 w-full {className ?? ''}"
+          style={`grid-template-columns: repeat(${responsive.isMobile ? Math.min(gridColumns, 2) : gridColumns}, minmax(0, 1fr));`}
+        >
+          {#each slideItems as item, i (`item-${item.id ?? `${slideIndex}-${i}`}`)}
+            <GridCard
+              {...item}
+              {variant}
+              {onClick}
+              {itemClassName}
+              width={item.width ?? width}
+              height={item.height ?? height}
+              itemWidth={item.itemWidth ?? itemWidth}
+              itemHeight={item.itemHeight ?? itemHeight}
+              isShowDescription={item.isShowDescription ??
+                isShowDescription}
+            />
+          {/each}
+        </div>
+      </Carousel.Item>
+    {/each}
   {/if}
-</CarouselHeader>
+</CarouselHeaderSlot>
+

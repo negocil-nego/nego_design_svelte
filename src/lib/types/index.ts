@@ -68,6 +68,8 @@ import type { CarouselPromotionProps } from "$lib/components/ui/carousel/core/pr
 import type {
     ItemCarousel,
     CarouselHeaderProps,
+    CarouselHeaderSlotProps,
+    CarouselHeaderSlotMobileProps,
     CarouselBadgeProps,
     CarouselHeroItem,
     CarouselHeroProps
@@ -370,6 +372,10 @@ export type {
 
     /** Props do cabeçalho de carousel (título, descrição, botão "Ver tudo"). @see CarouselHeaderProps */
     CarouselHeaderProps,
+    /** Props do cabeçalho + slot de carousel reutilizável. @see CarouselHeaderSlotProps */
+    CarouselHeaderSlotProps,
+    /** Props do cabeçalho + slot mobile de carousel. @see CarouselHeaderSlotMobileProps */
+    CarouselHeaderSlotMobileProps,
     /** Props do slot/container de carousel (botões navegação, plugins, bordas). @see CarouselSlotProps */
     CarouselSlotProps,
     /** Item individual do CarouselBadge — categoria/opção com ícone/imagem. @see ItemCarousel */
