@@ -104,6 +104,7 @@
         mainAnimationClass,
         !showMain && "invisible pointer-events-none",
       )}
+      style="animation-fill-mode: backwards"
     >
       {@render children?.({ isVisible })}
     </div>
@@ -117,7 +118,10 @@
       </div>
     {/if}
   {:else if keepMounted}
-    <div class={cn(mainAnimationClass, !showMain && "hidden")}>
+    <div
+      class={cn(mainAnimationClass, !showMain && "hidden")}
+      style="animation-fill-mode: backwards"
+    >
       {@render children?.({ isVisible })}
     </div>
     {#if !showMain && fallback}
@@ -130,7 +134,7 @@
       </div>
     {/if}
   {:else if showMain}
-    <div class={mainAnimationClass}>
+    <div class={mainAnimationClass} style="animation-fill-mode: backwards">
       {@render children?.({ isVisible })}
     </div>
   {:else if fallback}
