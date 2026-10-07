@@ -244,6 +244,7 @@ import type { CarouselGridProductProps } from "$lib/components/ui/carousel/core/
 import type { CarouselMediaProps } from "$lib/components/ui/carousel/core/media/types";
 import type { CarouselProfileProps } from "$lib/components/ui/carousel/core/profile/types";
 import type { CarouselItemsPanelProps } from "$lib/components/ui/carousel/core/panel/types";
+import type { CarouselItemsFlightProps } from "$lib/components/ui/carousel/core/panel/types";
 import type { CompanyProfileProps } from "$lib/components/pages/company-profile/types";
 import type {
     MenuProps,
@@ -286,6 +287,8 @@ import type {
 
 import type {
     ModalCoreProps,
+    ModalOptionItem,
+    ModalOptionsPanelProps,
     ModelGridCardProps
 } from "$lib/components/ui/modal/core/types";
 
@@ -431,6 +434,8 @@ export type {
     CarouselGridProductProps,
     /** Props do CarouselItemsPanel — carousel de grids de itens com paginação @see CarouselItemsPanelProps */
     CarouselItemsPanelProps,
+    /** Props do CarouselItemsFlight — carousel de cards de viagem/voo em grade com paginação @see CarouselItemsFlightProps */
+    CarouselItemsFlightProps,
     /** Props do CarouselCountry — carousel de países com bandeiras e traduções. @see CarouselCountryProps */
     CarouselCountryProps,
     /** Props do CarouselLanguage — carousel de idiomas com bandeiras. @see CarouselLanguageProps */
@@ -676,6 +681,10 @@ export type {
 
     /** Props do componente ModalCore — contentor base reutilizável para todos os modais. @see ModalCoreProps */
     ModalCoreProps,
+    /** Opção seleccionável no painel do ModalOptionsPanel. @see ModalOptionItem */
+    ModalOptionItem,
+    /** Props do componente ModalOptionsPanel — modal com painel de opções em grelha. @see ModalOptionsPanelProps */
+    ModalOptionsPanelProps,
     /** Props do componente ModalOtp — modal de verificação OTP global via otpStore. @see ModalOtpProps */
     ModalOtpProps,
     /** Props do componente ModalLogin — modal de autenticação global via loginStore. @see ModalLoginProps */

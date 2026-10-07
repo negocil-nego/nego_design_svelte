@@ -48,6 +48,7 @@ import CarouselCountry from "$lib/components/ui/carousel/core/country/ui/Carouse
 import CarouselLanguage from "$lib/components/ui/carousel/core/language/ui/CarouselLanguage.svelte";
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 import CarouselItemsPanel from "$lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte";
+import CarouselItemsFlight from "$lib/components/ui/carousel/core/panel/CarouselItemsFlight.svelte";
 import CarouselFlight from "$lib/components/ui/carousel/core/flight/ui/CarouselFlight.svelte";
 import CarouselHeader from "$lib/components/ui/carousel/core/shared/ui/CarouselHeader.svelte";
 import CarouselHeaderSlot from "$lib/components/ui/carousel/core/shared/ui/CarouselHeaderSlot.svelte";
@@ -101,6 +102,7 @@ import ModalForm from "$lib/components/ui/modal/form/ui/ModalForm.svelte";
 import ModalFormEmailOrPhone from "$lib/components/ui/modal/form/ui/ModalFormEmailOrPhone.svelte";
 import ModalUpload from "$lib/components/ui/modal/upload/ui/ModalUpload.svelte";
 import ModalCore from "$lib/components/ui/modal/core/ui/ModalCore.svelte";
+import ModalOptionsPanel from "$lib/components/ui/modal/core/ui/ModalOptionsPanel.svelte";
 import ModalOtp from "$lib/components/ui/modal/otp/ui/ModalOtp.svelte";
 import ModalLogin from "$lib/components/ui/modal/login/ui/ModalLogin.svelte";
 import VisibilityFallback from "$lib/components/ui/visibility/VisibilityFallback.svelte";
@@ -403,6 +405,20 @@ export {
      * @see ModalCoreProps
      */
     ModalCore,
+
+    /**
+     * Modal com painel de opções em grelha (bandeiras/ícones + label),
+     * construído sobre o ModalCore. Ideal para expandir listas longas
+     * de países/idiomas num único painel de seleção múltipla.
+     * @property {boolean} isOpen - Visibilidade do modal (bindable)
+     * @property {string} title - Título principal
+     * @property {string} subtitle - Subtítulo
+     * @property {ModalOptionItem[]} options - Opções apresentadas
+     * @property {string[]} selecteds - Valores seleccionados (realce)
+     * @property {(value: string) => void} onToggle - Clique numa opção
+     * @see ModalOptionsPanelProps
+     */
+    ModalOptionsPanel,
 
     /**
      * Modal de verificação OTP que abre globalmente em toda a aplicação.
@@ -932,6 +948,23 @@ export {
      * @see CarouselItemsPanelProps
      */
     CarouselItemsPanel,
+
+    /**
+     * Carousel de cards de viagem/voo em grade paginada (CardFlight).
+     * Agrupa os itens em slides com configuração de colunas (`gridColumns`) e linhas (`rowColumns`), padrão 3x3.
+     * Suporta cabeçalho (CarouselHeader), slot personalizável (CarouselSlot), loading skeleton e autoplay.
+     * @property {CardFlightProps[]} items - Cards de viagem para exibir
+     * @property {number} gridColumns - Número de colunas por slide (padrão: 3)
+     * @property {number} rowColumns - Número de linhas por slide (padrão: 3)
+     * @property {CarouselHeaderProps} headerProps - Cabeçalho do carousel
+     * @property {CarouselSlotProps} slotProps - Configuração do slot do carousel
+     * @property {1|2} variant - Variante visual dos cards
+     * @property {boolean} isLoading - Exibe skeletons de carregamento
+     * @property {(id) => void} onClickBuy - Callback ao clicar no botão de reserva
+     * @property {(id) => void} onClickFavorite - Callback ao clicar no favorito
+     * @see CarouselItemsFlightProps
+     */
+    CarouselItemsFlight,
 
     /**
      * Carousel de cards de viagem/voo com rota (origem → destino),

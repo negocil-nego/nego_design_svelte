@@ -89,16 +89,53 @@ export type ModelGridCardProps = {
 /**
  * Modelo de dados para uma rede social no modal de partilha.
  * Cada item representa uma plataforma de redes sociais para partilhar conteúdo.
- * @property name - Nome da rede social (ex: "Facebook", "Twitter").
+ * @property name - Nome da rede social.
  * @property icon - Ícone da rede social (string CSS ou HugeIcons).
  * @property img - URL da imagem/imagem de marca da rede social.
  * @property color - Cor da rede social (hex, rgb, etc.).
  * @property url - URL de partilha da rede social.
  */
 export type ModelSocialShare = {
-	name: string;
-	icon?: string | HugeiconsIconName;
-	img?: string;
-	color?: string;
-	url?: string;
+    name: string;
+    icon?: string | HugeiconsIconName;
+    img?: string;
+    color?: string;
+    url?: string;
+};
+
+/**
+ * Opção seleccionável apresentada no painel do ModalOptionsPanel.
+ * @property value - Valor identificador da opção.
+ * @property label - Texto visível da opção.
+ * @property country - Código ISO do país para exibir a bandeira via ImageFlag.
+ * @property icon - Ícone opcional (string CSS ou HugeIcons) quando não há bandeira.
+ */
+export type ModalOptionItem = {
+    value: string;
+    label: string;
+    country?: string;
+    icon?: string | HugeiconsIconName;
+};
+
+/**
+ * Props do componente ModalOptionsPanel — modal com painel de opções
+ * (bandeiras/ícones + label) em grelha, construído sobre o ModalCore.
+ * @property isOpen - Controla a visibilidade do modal (bindable).
+ * @property title - Título principal do modal.
+ * @property subtitle - Subtítulo/descrição abaixo do título.
+ * @property options - Lista de opções apresentadas no painel.
+ * @property selecteds - Valores actualmente seleccionados (realce).
+ * @property onToggle - Chamado ao clicar num item do painel.
+ * @property continueText - Texto do botão de fecho do rodapé.
+ * @property class - Classe CSS extra no container do modal.
+ */
+export type ModalOptionsPanelProps = {
+    isOpen?: boolean;
+    title: string;
+    subtitle?: string;
+    options: ModalOptionItem[];
+    selecteds?: string[];
+    onToggle?: (value: string) => void;
+    continueText?: string;
+    class?: string;
 };

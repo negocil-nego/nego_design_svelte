@@ -28,6 +28,14 @@
     optionClass?: string;
     /** Texto exibido quando a busca não encontra resultados */
     emptyLabel?: string;
+    /** Lista de códigos visíveis (whitelist) — vazio: todos */
+    visibles?: string[];
+    /** Exibe a opção "Todos" fixa no topo do dropdown (fora do scroll) */
+    isOptionAll?: boolean;
+    /** Exibe o botão "Mais opções" fixo no fim do dropdown, que abre o painel num modal */
+    isExpand?: boolean;
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void;
   };
 </script>
 
@@ -50,6 +58,10 @@
     disabled = false,
     optionClass = "",
     emptyLabel = "No languages found",
+    visibles,
+    isOptionAll = false,
+    isExpand = false,
+    onClickButtonAll,
   }: SelectLanguageProps = $props();
 
   const sameList = (a: string[], b: string[]) =>
@@ -74,11 +86,15 @@
   });
 
   const languageOptions = $derived(
-    Object.entries(languageFlagMap).map(([code, country]) => ({
-      value: code,
-      label: $t(`language.${code}`),
-      country,
-    })),
+    Object.entries(languageFlagMap)
+      .map(([code, country]) => ({
+        value: code,
+        label: $t(`language.${code}`),
+        country,
+      }))
+      .filter(
+        (option) => !visibles?.length || visibles.includes(option.value),
+      ),
   );
 </script>
 
@@ -96,4 +112,8 @@
   {optionClass}
   {emptyLabel}
   options={languageOptions}
+  {isOptionAll}
+  {isExpand}
+  expandTitle={$t("label.languages")}
+  {onClickButtonAll}
 />

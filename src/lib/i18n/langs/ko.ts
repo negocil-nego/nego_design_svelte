@@ -12,6 +12,7 @@ export default {
     "language.ar": "아랍어",
 
     "label.languages": "언어",
+    "label.all": "모두",
     "label.countries": "국가",
     "search.filter.language": "언어",
     "search.filter.country": "국가",

@@ -12,6 +12,7 @@ export default {
     "language.ar": "阿拉伯语",
 
     "label.languages": "语言",
+    "label.all": "全部",
     "label.countries": "国家",
     "search.filter.language": "语言",
     "search.filter.country": "国家",

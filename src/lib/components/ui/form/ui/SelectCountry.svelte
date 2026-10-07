@@ -30,6 +30,14 @@
     emptyLabel?: string;
     /** Idioma das traduções (padrão: idioma global da app) */
     locale?: string;
+    /** Lista de códigos visíveis (whitelist) — vazio: todos */
+    visibles?: string[];
+    /** Exibe a opção "Todos" fixa no topo do dropdown (fora do scroll) */
+    isOptionAll?: boolean;
+    /** Exibe o botão "Mais opções" fixo no fim do dropdown, que abre o painel num modal */
+    isExpand?: boolean;
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void;
   };
 </script>
 
@@ -37,7 +45,7 @@
   import InputSelect from "$lib/components/ui/form/ui/input-select.svelte";
   import { COUNTRIES } from "$lib/components/ui/image/flag-map";
   import { translateCountry } from "$lib/components/ui/image/country-translate";
-  import { locale } from "$lib/i18n";
+  import { locale, t } from "$lib/i18n";
 
   let {
     value = $bindable(""),
@@ -54,6 +62,10 @@
     optionClass = "",
     emptyLabel = "No countries found",
     locale: localeProp,
+    visibles,
+    isOptionAll = false,
+    isExpand = false,
+    onClickButtonAll,
   }: SelectCountryProps = $props();
 
   const sameList = (a: string[], b: string[]) =>
@@ -84,7 +96,9 @@
       value: c.iso2,
       label: translateCountry(c.iso2, activeLocale),
       country: c.iso2,
-    })),
+    })).filter(
+      (option) => !visibles?.length || visibles.includes(option.value),
+    ),
   );
 </script>
 
@@ -102,4 +116,8 @@
   {optionClass}
   {emptyLabel}
   options={countryOptions}
+  {isOptionAll}
+  {isExpand}
+  expandTitle={$t("label.countries")}
+  {onClickButtonAll}
 />

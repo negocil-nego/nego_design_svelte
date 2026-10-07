@@ -6,7 +6,7 @@
     items?: ItemCarousel[];
     /** Orientação do layout: horizontal (padrão) ou vertical */
     orientation?: "horizontal" | "vertical";
-    /** Classe CSS personalizada para a bandeira/imagem */
+    /** Classe CSS personalizada para a bandeira/imagem (padrão: `size-3 md:size-6 rounded-md`) */
     imageClass?: string;
     /** Classe CSS personalizada para o ícone */
     iconClass?: string;
@@ -34,6 +34,14 @@
     onClick?: (value: string | number) => void;
     /** Idioma das traduções (padrão: idioma global da app) */
     locale?: string;
+    /** Lista de códigos visíveis (whitelist) — vazio: todos */
+    visibles?: string[];
+    /** Exibe a opção "Todos" fixa no início (fora do scroll) */
+    isOptionAll?: boolean;
+    /** Exibe o botão "Mais opções" fixo no fim, que abre o painel num modal */
+    isExpand?: boolean;
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void;
   };
 </script>
 
@@ -41,13 +49,13 @@
   import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
   import { COUNTRIES } from "$lib/components/ui/image/flag-map";
   import { translateCountry } from "$lib/components/ui/image/country-translate";
-  import { locale } from "$lib/i18n";
+  import { locale, t } from "$lib/i18n";
 
   let {
     items,
     locale: localeProp,
     orientation = "horizontal",
-    imageClass,
+    imageClass = "size-3 md:size-6 rounded-md",
     iconClass,
     labelClass,
     activeClass,
@@ -60,17 +68,23 @@
     selecteds = $bindable([] as string[]),
     itemStyle = "DEFAULT",
     onClick,
+    visibles,
+    isOptionAll = false,
+    isExpand = false,
+    onClickButtonAll,
   }: CarouselCountryProps = $props();
 
   const activeLocale = $derived(localeProp ?? $locale);
 
   const countryItems = $derived(
-    items ??
+    (items ??
       COUNTRIES.map((c) => ({
         value: c.iso2,
         label: translateCountry(c.iso2, activeLocale),
         country: c.iso2,
-      })),
+      }))).filter(
+      (item) => !visibles?.length || visibles.includes(String(item.value)),
+    ),
   );
 </script>
 
@@ -90,4 +104,8 @@
   bind:selecteds
   {itemStyle}
   {onClick}
+  {isOptionAll}
+  {isExpand}
+  expandTitle={$t("label.countries")}
+  {onClickButtonAll}
 />

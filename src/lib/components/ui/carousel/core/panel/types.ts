@@ -1,4 +1,5 @@
 import type { CarouselSlotProps, ItemGridProps } from "$lib/types";
+import type { CardFlightProps } from "$lib/components/ui/card/core/types";
 import type { CarouselHeaderProps } from "../types";
 
 export interface CarouselItemsPanelProps {
@@ -36,4 +37,37 @@ export interface CarouselItemsPanelProps {
     onClick?: (id: string | number) => void;
     /** Habilita rotação automática */
     autoPlay?: boolean;
+}
+
+export interface CarouselItemsFlightProps {
+    /** Props do cabeçalho do carousel (título, descrição, etc.) */
+    headerProps?: CarouselHeaderProps;
+    /** Props do slot/container do carousel (botões navegação, plugins) */
+    slotProps?: CarouselSlotProps;
+    /** Lista de viagens/vagos para exibir */
+    items: CardFlightProps[];
+    /** Variante do card (1 ou 2) */
+    variant?: 1 | 2;
+    /** Classe CSS adicional aplicada a todos os cards */
+    itemClassName?: string;
+    /** Classe CSS adicional do container da grade */
+    className?: string;
+    /** Estado de carregamento (skeleton) */
+    isLoading?: boolean;
+    /** Exibe ícone antes da descrição do card */
+    isDescriptionIcon?: boolean;
+    /** Exibe etiqueta (label) na descrição do card */
+    isDescriptionLabel?: boolean;
+    /** Exibe barra de scroll no carousel */
+    isScrollbar?: boolean;
+    /** Número de colunas da grade em cada slide (padrão: 3) */
+    gridColumns?: number;
+    /** Número de linhas da grade em cada slide (padrão: 3) */
+    rowColumns?: number;
+    /** Habilita rotação automática */
+    autoPlay?: boolean;
+    /** Callback acionado ao clicar no botão de reserva (fallback do item) */
+    onClickBuy?: (id: string | number) => void;
+    /** Callback acionado ao clicar no botão de favorito (fallback do item) */
+    onClickFavorite?: (id: string | number) => void;
 }

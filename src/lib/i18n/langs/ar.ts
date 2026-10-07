@@ -13,6 +13,7 @@ export default {
     "language.ar": "العربية",
 
     "label.languages": "اللغات",
+    "label.all": "الكل",
     "label.countries": "الدول",
     "search.filter.language": "اللغة",
     "search.filter.country": "الدولة",

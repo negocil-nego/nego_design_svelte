@@ -1,3 +1,4 @@
+
 <script lang="ts" module>
   import type { ItemCarousel } from "$lib/components/ui/carousel/core/types";
 
@@ -6,7 +7,7 @@
     items?: ItemCarousel[];
     /** Orientação do layout: horizontal (padrão) ou vertical */
     orientation?: "horizontal" | "vertical";
-    /** Classe CSS personalizada para a bandeira/imagem */
+    /** Classe CSS personalizada para a bandeira/imagem (padrão: `size-3 md:size-6 rounded-md`) */
     imageClass?: string;
     /** Classe CSS personalizada para o ícone */
     iconClass?: string;
@@ -32,6 +33,14 @@
     itemStyle?: "BORDER" | "INLINE" | "DEFAULT";
     /** Callback ao clicar num item */
     onClick?: (value: string | number) => void;
+    /** Lista de códigos visíveis (whitelist) — vazio: todos */
+    visibles?: string[];
+    /** Exibe a opção "Todos" fixa no início (fora do scroll) */
+    isOptionAll?: boolean;
+    /** Exibe o botão "Mais opções" fixo no fim, que abre o painel num modal */
+    isExpand?: boolean;
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void;
   };
 </script>
 
@@ -43,7 +52,7 @@
   let {
     items,
     orientation = "horizontal",
-    imageClass,
+    imageClass = "size-3 md:size-6 rounded-md",
     iconClass,
     labelClass,
     activeClass,
@@ -56,15 +65,21 @@
     selecteds = $bindable([] as string[]),
     itemStyle = "DEFAULT",
     onClick,
+    visibles,
+    isOptionAll = false,
+    isExpand = false,
+    onClickButtonAll,
   }: CarouselLanguageProps = $props();
 
   const languageItems = $derived(
-    items ??
+    (items ??
       Object.entries(languageFlagMap).map(([code, country]) => ({
         value: code,
         label: $t(`language.${code}`),
         country,
-      })),
+      }))).filter(
+      (item) => !visibles?.length || visibles.includes(String(item.value)),
+    ),
   );
 </script>
 
@@ -84,4 +99,8 @@
   bind:selecteds
   {itemStyle}
   {onClick}
+  {isOptionAll}
+  {isExpand}
+  expandTitle={$t("label.languages")}
+  {onClickButtonAll}
 />

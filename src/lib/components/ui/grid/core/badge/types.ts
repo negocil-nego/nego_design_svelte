@@ -28,4 +28,12 @@ export interface GridBadgeProps {
     selecteds?: string[]
     itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
     onClick?: (value: string | number) => void,
+    /** Exibe a opção "Todos" como primeira célula do grid */
+    isOptionAll?: boolean,
+    /** Exibe o botão "Mais opções" como última célula, que abre o painel num modal */
+    isExpand?: boolean,
+    /** Título do modal aberto pelo botão "Mais opções" */
+    expandTitle?: string,
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void,
 }

@@ -30,6 +30,14 @@
     itemStyle?: "BORDER" | "INLINE" | "DEFAULT";
     /** Callback ao clicar num item */
     onClick?: (value: string | number) => void;
+    /** Lista de códigos visíveis (whitelist) — vazio: todos */
+    visibles?: string[];
+    /** Exibe a opção "Todos" como primeira célula do grid */
+    isOptionAll?: boolean;
+    /** Exibe o botão "Mais opções" como última célula, que abre o painel num modal */
+    isExpand?: boolean;
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void;
   };
 </script>
 
@@ -53,15 +61,21 @@
     selecteds = $bindable([] as string[]),
     itemStyle = "DEFAULT",
     onClick,
+    visibles,
+    isOptionAll = false,
+    isExpand = false,
+    onClickButtonAll,
   }: GridLanguageProps = $props();
 
   const languageItems = $derived(
-    items ??
+    (items ??
       Object.entries(languageFlagMap).map(([code, country]) => ({
         value: code,
         label: $t(`language.${code}`),
         country,
-      })),
+      }))).filter(
+      (item) => !visibles?.length || visibles.includes(String(item.value)),
+    ),
   );
 </script>
 
@@ -80,4 +94,8 @@
   bind:selecteds
   {itemStyle}
   {onClick}
+  {isOptionAll}
+  {isExpand}
+  expandTitle={$t("label.languages")}
+  {onClickButtonAll}
 />

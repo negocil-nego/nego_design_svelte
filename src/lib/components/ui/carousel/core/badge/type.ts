@@ -28,4 +28,12 @@ export interface CarouselBadgeProps {
     selecteds?: string[]
     itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
     onClick?: (value: string | number) => void,
+    /** Exibe a opção "Todos" fixa no início (fora do scroll) */
+    isOptionAll?: boolean,
+    /** Exibe o botão "Mais opções" fixo no fim, que abre o painel num modal */
+    isExpand?: boolean,
+    /** Título do modal aberto pelo botão "Mais opções" */
+    expandTitle?: string,
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void,
 }

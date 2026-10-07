@@ -1,9 +1,11 @@
 <script lang="ts">
 import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
 import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
+  import ModalOptionsPanel from "$lib/components/ui/modal/core/ui/ModalOptionsPanel.svelte";
   import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { Label } from "$lib/components/ui/label";
       import { cn } from "$lib/utils.js";
+  import { t } from "$lib/i18n";
 
   export type SelectOption = {
     value: string;
@@ -23,6 +25,14 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
     optionClass?: string;
     /** Texto exibido quando a busca não encontra resultados */
     emptyLabel?: string;
+    /** Exibe a opção "Todos" fixa no topo do dropdown (fora do scroll) */
+    isOptionAll?: boolean;
+    /** Exibe o botão "Mais opções" fixo no fim do dropdown, que abre o painel num modal */
+    isExpand?: boolean;
+    /** Título do modal aberto pelo botão "Mais opções" */
+    expandTitle?: string;
+    /** Callback disparado ao clicar no botão "Todos" — recebe a seleção resultante */
+    onClickButtonAll?: (values: string[]) => void;
   };
 
   let {
@@ -39,6 +49,10 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
     multiple = false,
     optionClass = "",
     emptyLabel = "",
+    isOptionAll = false,
+    isExpand = false,
+    expandTitle,
+    onClickButtonAll,
   }: Props = $props();
 
   const optionList = $derived<SelectOption[]>(
@@ -53,6 +67,7 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
 
   let query = $state("");
   let open = $state(false);
+  let expandOpen = $state(false);
 
   const selectedLabel = $derived(
     multiple
@@ -72,6 +87,15 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
         o.value.toLocaleLowerCase().includes(q),
     );
   });
+
+  const visibleValues = $derived(filteredOptions.map((o) => o.value));
+
+  const isAllSelected = $derived(
+    multiple
+      ? visibleValues.length > 0 &&
+        visibleValues.every((v) => values.includes(v))
+      : !value,
+  );
 
   function hasSelection() {
     return multiple ? values.length > 0 : !!value;
@@ -102,6 +126,38 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
     }
   }
 
+  function toggleAll() {
+    if (multiple) {
+      values = isAllSelected ? [] : [...visibleValues];
+      query = "";
+    } else {
+      value = "";
+      query = "";
+      open = false;
+    }
+    onClickButtonAll?.(multiple ? [...values] : value ? [value] : []);
+  }
+
+  function openExpand() {
+    open = false;
+    query = multiple ? "" : selectedLabel;
+    expandOpen = true;
+  }
+
+  function toggleModalValue(v: string) {
+    if (multiple) {
+      values = values.includes(v) ? values.filter((x) => x !== v) : [...values, v];
+      query = "";
+    } else {
+      value = v;
+      query = optionList.find((o) => o.value === v)?.label ?? "";
+    }
+  }
+
+  const modalSelecteds = $derived(
+    multiple ? values : value ? [value] : ([] as string[]),
+  );
+
   function clearSelection() {
     if (multiple) {
       values = [];
@@ -130,103 +186,97 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
   );
 </script>
 
-{#if isLabel}
-  <div class="flex flex-col gap-3 w-full">
-    {#if label}
-      <Label class={labelClass}>{label}</Label>
+{#snippet optionButton(option: SelectOption)}
+  <button
+    type="button"
+    role="option"
+    aria-selected={isSelected(option)}
+    class={cn(
+      "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
+      isSelected(option)
+        ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
+        : "text-foreground",
+      optionClass,
+    )}
+    onclick={() => selectOption(option)}
+  >
+    {#if option.country}
+      <ImageFlag country={option.country} class="size-4 shrink-0 rounded-sm" />
+    {/if}
+    <span class="flex-1 min-w-0 truncate">{option.label}</span>
+    {#if multiple}
+      <span
+        class="flex items-center justify-center"
+        class:opacity-0={!isSelected(option)}
+      >
+        <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-4" />
+      </span>
+    {/if}
+  </button>
+{/snippet}
+
+{#snippet dropdown()}
+  <div
+    role="listbox"
+    tabindex="-1"
+    class="absolute left-0 right-0 top-full z-10 mt-1 rounded-md border bg-popover p-1 shadow-md"
+    onmousedown={(e) => e.preventDefault()}
+  >
+    {#if isOptionAll}
+      <button
+        type="button"
+        role="option"
+        aria-selected={isAllSelected}
+        class={cn(
+          "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
+          isAllSelected
+            ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
+            : "text-foreground",
+          optionClass,
+        )}
+        onclick={toggleAll}
+      >
+        <span class="flex-1 min-w-0 truncate">{$t("label.all")}</span>
+        {#if multiple}
+          <span
+            class="flex items-center justify-center"
+            class:opacity-0={!isAllSelected}
+          >
+            <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-4" />
+          </span>
+        {/if}
+      </button>
     {/if}
 
-    <div class="relative">
-      {#if isIcon && !disabled}
-        <span
-          class="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
-        >
-          <ImageHugeicons icon="Search01Icon" class="size-4" />
-        </span>
-      {/if}
-
-      {#if !disabled && hasSelection()}
-        <button
-          type="button"
-          aria-label="clear"
-          class="absolute right-3 top-1/2 -translate-y-1/2 flex items-center cursor-pointer z-10 text-slate-400 hover:text-slate-600"
-          onmousedown={(e) => e.preventDefault()}
-          onclick={clearSelection}
-        >
-          <ImageHugeicons icon="Cancel01Icon" class="size-4" />
-        </button>
-      {:else}
-        <span
-          class="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400"
-        >
-          <ImageHugeicons icon="ChevronDownIcon" class="size-4" />
-        </span>
-      {/if}
-
-      <input
-        type="text"
-        class={inputClasses}
-        placeholder={placeholder}
-        {disabled}
-        value={query}
-        oninput={(e) => {
-          query = e.currentTarget.value;
-          open = true;
-        }}
-        onfocus={handleFocus}
-        onblur={handleBlur}
-        onkeydown={(e) => {
-          if (e.key === "Escape") open = false;
-          if (e.key === "Enter") open = false;
-        }}
-      />
-
-      {#if open && !disabled}
-        <div
-          role="listbox"
-          tabindex="-1"
-          class="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-y-auto rounded-md border bg-popover p-1 shadow-md"
-          onmousedown={(e) => e.preventDefault()}
-        >
-          {#if filteredOptions.length === 0}
-            <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
-              {emptyLabel || placeholder}
-            </div>
-          {:else}
-            {#each filteredOptions as option, i (option.value)}
-              <button
-                type="button"
-                role="option"
-                aria-selected={isSelected(option)}
-                class={cn(
-                  "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
-                  isSelected(option)
-                    ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
-                    : "text-foreground",
-                  optionClass,
-                )}
-                onclick={() => selectOption(option)}
-              >
-                {#if option.country}
-                  <ImageFlag country={option.country} class="size-4 shrink-0 rounded-sm" />
-                {/if}
-                <span class="flex-1 min-w-0 truncate">{option.label}</span>
-                {#if multiple}
-                  <span
-                    class="flex items-center justify-center"
-                    class:opacity-0={!isSelected(option)}
-                  >
-                    <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-4" />
-                  </span>
-                {/if}
-              </button>
-            {/each}
-          {/if}
+    <div class="max-h-56 overflow-y-auto">
+      {#if filteredOptions.length === 0}
+        <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
+          {emptyLabel || placeholder}
         </div>
+      {:else}
+        {#each filteredOptions as option, i (option.value)}
+          {@render optionButton(option)}
+        {/each}
       {/if}
     </div>
+
+    {#if isExpand}
+      <button
+        type="button"
+        class={cn(
+          "mt-1 flex w-full items-center justify-center gap-1 rounded border border-dashed border-border px-2 py-1.5 text-left text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-foreground",
+          optionClass,
+        )}
+        onclick={openExpand}
+      >
+        {$t("label.more.options")}
+        <ImageHugeicons icon="ArrowRight01Icon" class="size-4" />
+      </button>
+    {/if}
   </div>
-{:else}
+{/snippet}
+
+{#snippet field()}
   <div class="relative">
     {#if isIcon && !disabled}
       <span
@@ -273,47 +323,27 @@ import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
     />
 
     {#if open && !disabled}
-      <div
-        role="listbox"
-        tabindex="-1"
-        class="absolute left-0 right-0 top-full z-10 mt-1 max-h-56 overflow-y-auto rounded-md border bg-popover p-1 shadow-md"
-        onmousedown={(e) => e.preventDefault()}
-      >
-        {#if filteredOptions.length === 0}
-          <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
-            {emptyLabel || placeholder}
-          </div>
-        {:else}
-          {#each filteredOptions as option, i (option.value)}
-            <button
-              type="button"
-              role="option"
-              aria-selected={isSelected(option)}
-              class={cn(
-                "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
-                isSelected(option)
-                  ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
-                  : "text-foreground",
-                optionClass,
-              )}
-              onclick={() => selectOption(option)}
-            >
-              {#if option.country}
-                <ImageFlag country={option.country} class="size-4 shrink-0 rounded-sm" />
-              {/if}
-              <span class="flex-1 min-w-0 truncate">{option.label}</span>
-              {#if multiple}
-                <span
-                  class="flex items-center justify-center"
-                  class:opacity-0={!isSelected(option)}
-                >
-                  <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-4" />
-                </span>
-              {/if}
-            </button>
-          {/each}
-        {/if}
-      </div>
+      {@render dropdown()}
     {/if}
   </div>
+{/snippet}
+
+{#if isLabel}
+  <div class="flex flex-col gap-3 w-full">
+    {#if label}
+      <Label class={labelClass}>{label}</Label>
+    {/if}
+
+    {@render field()}
+  </div>
+{:else}
+  {@render field()}
 {/if}
+
+<ModalOptionsPanel
+  bind:isOpen={expandOpen}
+  title={expandTitle ?? label ?? $t("label.more.options")}
+  options={optionList}
+  selecteds={modalSelecteds}
+  onToggle={toggleModalValue}
+/>

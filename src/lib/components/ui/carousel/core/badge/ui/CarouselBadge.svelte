@@ -2,9 +2,11 @@
   import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
   import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
+  import ModalOptionsPanel from "$lib/components/ui/modal/core/ui/ModalOptionsPanel.svelte";
   import type { CarouselBadgeProps } from "$lib/components/ui/carousel/core/types.js";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
+  import { t } from "$lib/i18n";
 
   let {
     items = [],
@@ -22,6 +24,10 @@
     menuKey,
     selecteds = $bindable([] as string[]),
     onClick,
+    isOptionAll = false,
+    isExpand = false,
+    expandTitle,
+    onClickButtonAll,
   }: CarouselBadgeProps = $props();
 
   const borderB = $derived(
@@ -51,15 +57,33 @@
     return item.value !== undefined && selectedValues.includes(String(item.value));
   }
 
-  function toggleItem(item: (typeof items)[number]) {
-    const key = String(item.value);
+  function toggleValue(key: string) {
     selectedValues = selectedValues.includes(key)
       ? selectedValues.filter((v) => v !== key)
       : [...selectedValues, key];
     selecteds = selectedValues;
+  }
+
+  function toggleItem(item: (typeof items)[number]) {
+    const key = String(item.value);
+    toggleValue(key);
     item.onClick?.(item.value);
     onClick?.(item.value);
   }
+
+  const visibleValues = $derived(items.map((item) => String(item.value)));
+  const isAllSelected = $derived(
+    visibleValues.length > 0 &&
+      visibleValues.every((v) => selectedValues.includes(v)),
+  );
+
+  function toggleAll() {
+    selectedValues = isAllSelected ? [] : [...visibleValues];
+    selecteds = selectedValues;
+    onClickButtonAll?.([...selectedValues]);
+  }
+
+  let expandOpen = $state(false);
 </script>
 
 {#snippet itemVisual(item: (typeof items)[number])}
@@ -86,8 +110,23 @@
 {/snippet}
 
 {#if items.length > 0}
-  <div class="relative px-12 {isBorderInline ? 'pb-2' : ''}">
-    <Carousel.Root>
+  <div
+    class="relative flex items-center gap-2 {isBorderInline ? 'pb-2' : ''}"
+  >
+    {#if isOptionAll}
+      <button
+        type="button"
+        class="shrink-0 cursor-pointer whitespace-nowrap rounded-full border-2 px-3 py-1 text-sm font-medium transition-all {isAllSelected
+          ? activeClass
+          : 'border-border bg-card hover:border-foreground/40'}"
+        onclick={toggleAll}
+      >
+        {$t("label.all")}
+      </button>
+    {/if}
+
+    <div class="relative min-w-0 flex-1 px-12">
+      <Carousel.Root>
       <Carousel.Content class={borderB}>
         {#if isLoading}
           <div class="flex items-center justify-between w-full gap-1 md:gap-2">
@@ -133,6 +172,25 @@
           disabled={false}
         />
       {/if}
-    </Carousel.Root>
+      </Carousel.Root>
+    </div>
+
+    {#if isExpand}
+      <button
+        type="button"
+        class="shrink-0 cursor-pointer whitespace-nowrap rounded-full border-2 border-border bg-card px-3 py-1 text-sm font-medium transition-all hover:border-foreground/40"
+        onclick={() => (expandOpen = true)}
+      >
+        {$t("label.more.options")}
+      </button>
+    {/if}
   </div>
+
+  <ModalOptionsPanel
+    bind:isOpen={expandOpen}
+    title={expandTitle ?? $t("label.more.options")}
+    options={items}
+    selecteds={selectedValues}
+    onToggle={toggleValue}
+  />
 {/if}

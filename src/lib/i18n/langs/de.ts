@@ -12,6 +12,7 @@ export default {
     "language.ar": "Arabisch",
 
     "label.languages": "Sprachen",
+    "label.all": "Alle",
     "label.countries": "Länder",
     "search.filter.language": "Sprache",
     "search.filter.country": "Land",

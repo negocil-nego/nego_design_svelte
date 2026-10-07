@@ -1,9 +1,11 @@
 <script lang="ts">
   import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
   import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+  import ModalOptionsPanel from "$lib/components/ui/modal/core/ui/ModalOptionsPanel.svelte";
   import Skeleton from "$lib/components/ui/skeleton/skeleton.svelte";
   import GridSlot from "../../shared/ui/GridSlot.svelte";
   import { useDevice } from "$lib/hooks/responsive.svelte";
+  import { t } from "$lib/i18n";
   import type { GridBadgeProps } from "../types";
 
   let {
@@ -21,6 +23,10 @@
     menuKey,
     selecteds = $bindable([] as string[]),
     onClick,
+    isOptionAll = false,
+    isExpand = false,
+    expandTitle,
+    onClickButtonAll,
   }: GridBadgeProps = $props();
 
   const borderB = $derived(
@@ -50,15 +56,33 @@
     return item.value !== undefined && selectedValues.includes(String(item.value));
   }
 
-  function toggleItem(item: (typeof items)[number]) {
-    const key = String(item.value);
+  function toggleValue(key: string) {
     selectedValues = selectedValues.includes(key)
       ? selectedValues.filter((v) => v !== key)
       : [...selectedValues, key];
     selecteds = selectedValues;
+  }
+
+  function toggleItem(item: (typeof items)[number]) {
+    const key = String(item.value);
+    toggleValue(key);
     item.onClick?.(item.value);
     onClick?.(item.value);
   }
+
+  const visibleValues = $derived(items.map((item) => String(item.value)));
+  const isAllSelected = $derived(
+    visibleValues.length > 0 &&
+      visibleValues.every((v) => selectedValues.includes(v)),
+  );
+
+  function toggleAll() {
+    selectedValues = isAllSelected ? [] : [...visibleValues];
+    selecteds = selectedValues;
+    onClickButtonAll?.([...selectedValues]);
+  }
+
+  let expandOpen = $state(false);
 </script>
 
 {#snippet itemVisual(item: (typeof items)[number])}
@@ -91,8 +115,28 @@
         {#each Array.from( { length: skeletonCount }, ) as _, i (`skeleton-${i}`)}
           <Skeleton class="h-4 w-25 bg-gray-50/90" />
         {/each}
-      {:else}
-        {#each items as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
+        {:else}
+          {#if isOptionAll}
+            <div class="relative flex justify-center">
+              <button
+                type="button"
+                class="flex gap-1 mx-2 p-1 justify-center w-min shrink-0 items-center cursor-pointer relative hover:text-lg hover:font-bold
+              {isAllSelected ? activeClass : ''}
+              {itemStyle == 'BORDER'
+                  ? 'border-2 rounded-full min-w-25 px-1'
+                  : ''}
+              {orientation === 'horizontal' ? 'flex-row' : 'flex-col'}
+              {itemClass}
+            "
+                onclick={toggleAll}
+              >
+                <div class="whitespace-nowrap {labelClass}">
+                  {$t("label.all")}
+                </div>
+              </button>
+            </div>
+          {/if}
+          {#each items as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
           <div class="relative flex justify-center">
             <button
               type="button"
@@ -119,7 +163,32 @@
             {/if}
           </div>
         {/each}
+          {#if isExpand}
+            <div class="relative flex justify-center">
+              <button
+                type="button"
+                class="flex gap-1 mx-2 p-1 justify-center w-min shrink-0 items-center cursor-pointer relative hover:text-lg hover:font-bold
+                border-2 border-dashed border-border rounded-full min-w-25 px-1
+              {orientation === 'horizontal' ? 'flex-row' : 'flex-col'}
+              {itemClass}
+            "
+                onclick={() => (expandOpen = true)}
+              >
+                <div class="whitespace-nowrap {labelClass}">
+                  {$t("label.more.options")}
+                </div>
+              </button>
+            </div>
+          {/if}
       {/if}
     </GridSlot>
   </div>
+
+  <ModalOptionsPanel
+    bind:isOpen={expandOpen}
+    title={expandTitle ?? $t("label.more.options")}
+    options={items}
+    selecteds={selectedValues}
+    onToggle={toggleValue}
+  />
 {/if}
