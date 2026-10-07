@@ -1,4 +1,5 @@
 <script lang="ts">
+  import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
   import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   import * as Carousel from "$lib/components/ui/carousel/index.js";
   import type { CarouselBadgeProps } from "$lib/components/ui/carousel/core/types.js";
@@ -46,7 +47,13 @@
 </script>
 
 {#snippet itemVisual(item: (typeof items)[number])}
-  {#if item.image}
+  {#if item.country}
+    <ImageFlag
+      country={item.country}
+      alt={item.label}
+      class={imageClass || DEFAULT_IMG_OR_ICON_CLASS}
+    />
+  {:else if item.image}
     <img
       src={item.image}
       alt={item.label}
@@ -76,7 +83,7 @@
           {#each items as item, i (`badge-${i}-${item.value ?? item.label ?? i}`)}
             <Carousel.Item onclick={() => selectItem(item)}>
               <div
-                class="flex gap-1 mx-2 p-1 justify-center w-min items-center cursor-pointer relative hover:text-lg hover:font-bold
+                class="flex gap-1 mx-2 p-1 justify-center w-min shrink-0 items-center cursor-pointer relative hover:text-lg hover:font-bold
               {isSelected(item)
                   ? isInlineBorder
                     ? 'text-gradient font-bold'
@@ -91,7 +98,7 @@
             "
               >
                 {@render itemVisual(item)}
-                <div class={labelClass}>{item.label}</div>
+                <div class="whitespace-nowrap {labelClass}">{item.label}</div>
               </div>
               {#if isSelected(item) && isInlineBorder}
                 <div class="absolute pt-5 w-full h-2 bg-gradient"></div>

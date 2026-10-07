@@ -44,6 +44,8 @@ import CarouselMedia from "$lib/components/ui/carousel/core/media/ui/CarouselMed
 import CarouselProfile from "$lib/components/ui/carousel/core/profile/ui/CarouselProfile.svelte";
 import CarouselProduct from "$lib/components/ui/carousel/core/product/ui/CarouselProduct.svelte";
 import CarouselBadge from "$lib/components/ui/carousel/core/badge/ui/CarouselBadge.svelte";
+import CarouselCountry from "$lib/components/ui/carousel/core/country/ui/CarouselCountry.svelte";
+import CarouselLanguage from "$lib/components/ui/carousel/core/language/ui/CarouselLanguage.svelte";
 import CarouselHero from "$lib/components/ui/carousel/core/hero/ui/CarouselHero.svelte";
 import CarouselItemsPanel from "$lib/components/ui/carousel/core/panel/CarouselItemsPanel.svelte";
 import CarouselFlight from "$lib/components/ui/carousel/core/flight/ui/CarouselFlight.svelte";
@@ -53,6 +55,8 @@ import CarouselHeaderSlotMobile from "$lib/components/ui/carousel/core/shared/ui
 import CarouselSlot from "$lib/components/ui/panel/CarouselSlot.svelte";
 
 import GridBadge from "$lib/components/ui/grid/core/badge/ui/GridBadge.svelte";
+import GridCountry from "$lib/components/ui/grid/core/country/ui/GridCountry.svelte";
+import GridLanguage from "$lib/components/ui/grid/core/language/ui/GridLanguage.svelte";
 import GridHighlights from "$lib/components/ui/grid/core/highlights/ui/GridHighlights.svelte";
 import GridMedia from "$lib/components/ui/grid/core/media/ui/GridMedia.svelte";
 import GridProfile from "$lib/components/ui/grid/core/profile/ui/GridProfile.svelte";
@@ -68,6 +72,9 @@ import Menu from "$lib/components/ui/nav/ui/Menu.svelte";
 import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import PageRegister from "./components/pages/security/register/PageRegister.svelte";
 import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
+import SearchLanguageCountry from "$lib/components/ui/search/varients/SearchLanguageCountry.svelte";
+import SelectCountry from "$lib/components/ui/form/ui/SelectCountry.svelte";
+import SelectLanguage from "$lib/components/ui/form/ui/SelectLanguage.svelte";
 import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
 import SimpleHero from "$lib/components/ui/hero/SimpleHero.svelte";
 import CardMedia from "$lib/components/ui/card/core/media/CardMedia.svelte";
@@ -658,6 +665,40 @@ export {
     SearchHostingerInput,
 
     /**
+     * Barra de busca estilo Hostinger especializada em Idioma/País.
+     * Combina um InputCommand (sugestões de idiomas e países) com filtros
+     * de Idioma e País e botão de pesquisa. Responsivo — no mobile esconde
+     * os filtros.
+     * @property {string} value - Valor do input (bindable)
+     * @property {string} language - Idioma selecionado no filtro (bindable)
+     * @property {string} country - País selecionado no filtro (bindable)
+     * @property {boolean} multiple - Permite seleção múltipla nos filtros
+     * @property {(value: string) => void} onchange - Callback ao alterar o valor
+     * @property {(value: string) => void} onSubmit - Callback ao submeter a busca
+     * @property {(item: CommandItem) => void} onSelect - Callback ao selecionar um item
+     * @see SearchLanguageCountryProps
+     */
+    SearchLanguageCountry,
+
+    /**
+     * Select de países com bandeira, pesquisa por nome e seleção única/múltipla.
+     * @property {string} value - Valor selecionado (bindable) — modo único
+     * @property {string[]} values - Valores selecionados (bindable) — modo múltiplo
+     * @property {boolean} multiple - Permite selecionar vários países
+     * @see SelectCountryProps
+     */
+    SelectCountry,
+
+    /**
+     * Select de idiomas com bandeira, pesquisa por nome e seleção única/múltipla.
+     * @property {string} value - Valor selecionado (bindable) — modo único
+     * @property {string[]} values - Valores selecionados (bindable) — modo múltiplo
+     * @property {boolean} multiple - Permite selecionar vários idiomas
+     * @see SelectLanguageProps
+     */
+    SelectLanguage,
+
+    /**
      * Página de perfil da empresa com informações detalhadas, descrição,
      * galeria, localização e contactos.
      * @see CompanyProfileProps
@@ -673,6 +714,23 @@ export {
      * @see CarouselBadgeProps
      */
     CarouselBadge,
+
+    /**
+     * Carousel de países com bandeira (ImageFlag) e nome traduzido.
+     * Baseado no CarouselBadge — os labels nunca quebram, mesmo longos.
+     * @property {ItemCarousel[]} items - Itens personalizados (padrão: COUNTRIES)
+     * @property {string} locale - Idioma das traduções (padrão: idioma global)
+     * @see CarouselCountryProps
+     */
+    CarouselCountry,
+
+    /**
+     * Carousel de idiomas com bandeira (ImageFlag) e nome traduzido.
+     * Baseado no CarouselBadge — os labels nunca quebram, mesmo longos.
+     * @property {ItemCarousel[]} items - Itens personalizados (padrão: languageFlagMap)
+     * @see CarouselLanguageProps
+     */
+    CarouselLanguage,
 
     /**
      * Carousel hero em fullscreen com slides de imagem, título, descrição
@@ -911,6 +969,23 @@ export {
      * @see GridBadgeProps
      */
     GridBadge,
+
+    /**
+     * Grid de países com bandeira (ImageFlag) e nome traduzido.
+     * Versão em grade do CarouselCountry.
+     * @property {ItemGridBadge[]} items - Itens personalizados (padrão: COUNTRIES)
+     * @property {string} locale - Idioma das traduções (padrão: idioma global)
+     * @see GridCountryProps
+     */
+    GridCountry,
+
+    /**
+     * Grid de idiomas com bandeira (ImageFlag) e nome traduzido.
+     * Versão em grade do CarouselLanguage.
+     * @property {ItemGridBadge[]} items - Itens personalizados (padrão: languageFlagMap)
+     * @see GridLanguageProps
+     */
+    GridLanguage,
 
     /**
      * Grid de cards de destaque para organizações, serviços ou locais em evidência.

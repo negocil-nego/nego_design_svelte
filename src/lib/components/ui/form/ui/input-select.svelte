@@ -1,15 +1,28 @@
 <script lang="ts">
 import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
+import ImageFlag from "$lib/components/ui/image/ImageFlag.svelte";
   import type { InputLabelProps } from "../data/InputLabel.svelte.ts";
   import { Label } from "$lib/components/ui/label";
       import { cn } from "$lib/utils.js";
 
-  type SelectOption = { value: string; label: string };
+  export type SelectOption = {
+    value: string;
+    label: string;
+    country?: string;
+  };
   type SelectOptions = SelectOption[] | Record<string, string>;
 
   type Props = InputLabelProps & {
     options?: SelectOptions;
     disabled?: boolean;
+    /** Seleção múltipla (usa o array `values` em vez de `value`) */
+    multiple?: boolean;
+    /** Valores selecionados (bindable) quando `multiple` é `true` */
+    values?: string[];
+    /** Classe CSS personalizada para cada opção do dropdown */
+    optionClass?: string;
+    /** Texto exibido quando a busca não encontra resultados */
+    emptyLabel?: string;
   };
 
   let {
@@ -21,12 +34,20 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     placeholder,
     options = {},
     value = $bindable(""),
+    values = $bindable([] as string[]),
     disabled = false,
+    multiple = false,
+    optionClass = "",
+    emptyLabel = "",
   }: Props = $props();
 
-  const optionList = $derived(
+  const optionList = $derived<SelectOption[]>(
     Array.isArray(options)
-      ? options.map((o) => (typeof o === "string" ? { value: o, label: o } : o))
+      ? options.map((o) =>
+          typeof o === "string"
+            ? { value: o, label: o }
+            : { value: o.value, label: o.label, country: o.country },
+        )
       : Object.entries(options).map(([value, label]) => ({ value, label })),
   );
 
@@ -34,7 +55,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
   let open = $state(false);
 
   const selectedLabel = $derived(
-    optionList.find((o) => o.value === value)?.label ?? "",
+    multiple
+      ? optionList
+          .filter((o) => values.includes(o.value))
+          .map((o) => o.label)
+          .join(", ")
+      : optionList.find((o) => o.value === value)?.label ?? "",
   );
 
   const filteredOptions = $derived.by(() => {
@@ -47,30 +73,47 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
     );
   });
 
+  function hasSelection() {
+    return multiple ? values.length > 0 : !!value;
+  }
+
   function handleFocus() {
     if (disabled) return;
     open = true;
-    query = selectedLabel;
+    query = multiple ? "" : selectedLabel;
   }
 
-  function handleInput() {
-    open = true;
+  function handleBlur(e: FocusEvent) {
+    query = multiple ? selectedLabel : query || selectedLabel;
   }
 
   function selectOption(option: SelectOption) {
-    value = option.value;
-    query = option.label;
-    open = false;
+    if (multiple) {
+      if (values.includes(option.value)) {
+        values = values.filter((v) => v !== option.value);
+      } else {
+        values = [...values, option.value];
+      }
+      query = "";
+    } else {
+      value = option.value;
+      query = option.label;
+      open = false;
+    }
   }
 
   function clearSelection() {
-    value = "";
+    if (multiple) {
+      values = [];
+    } else {
+      value = "";
+    }
     query = "";
     open = false;
   }
 
-  function handleBlur(e: FocusEvent) {
-    query = selectedLabel;
+  function isSelected(option: SelectOption) {
+    return multiple ? values.includes(option.value) : option.value === value;
   }
 
   const inputClasses = $derived(
@@ -102,7 +145,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         </span>
       {/if}
 
-      {#if !disabled && value}
+      {#if !disabled && hasSelection()}
         <button
           type="button"
           aria-label="clear"
@@ -125,9 +168,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         class={inputClasses}
         placeholder={placeholder}
         {disabled}
-        bind:value={query}
+        value={query}
+        oninput={(e) => {
+          query = e.currentTarget.value;
+          open = true;
+        }}
         onfocus={handleFocus}
-        oninput={handleInput}
         onblur={handleBlur}
         onkeydown={(e) => {
           if (e.key === "Escape") open = false;
@@ -144,23 +190,35 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
         >
           {#if filteredOptions.length === 0}
             <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
-              {placeholder}
+              {emptyLabel || placeholder}
             </div>
           {:else}
             {#each filteredOptions as option, i (option.value)}
               <button
                 type="button"
                 role="option"
-                aria-selected={option.value === value}
+                aria-selected={isSelected(option)}
                 class={cn(
-                  "block w-full rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
-                  option.value === value
+                  "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
+                  isSelected(option)
                     ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
                     : "text-foreground",
+                  optionClass,
                 )}
                 onclick={() => selectOption(option)}
               >
-                {option.label}
+                {#if option.country}
+                  <ImageFlag country={option.country} class="size-4 shrink-0 rounded-sm" />
+                {/if}
+                <span class="flex-1 min-w-0 truncate">{option.label}</span>
+                {#if multiple}
+                  <span
+                    class="flex items-center justify-center"
+                    class:opacity-0={!isSelected(option)}
+                  >
+                    <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-4" />
+                  </span>
+                {/if}
               </button>
             {/each}
           {/if}
@@ -178,7 +236,7 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       </span>
     {/if}
 
-    {#if !disabled && value}
+    {#if !disabled && hasSelection()}
       <button
         type="button"
         aria-label="clear"
@@ -201,9 +259,12 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       class={inputClasses}
       placeholder={placeholder}
       {disabled}
-      bind:value={query}
+      value={query}
+      oninput={(e) => {
+        query = e.currentTarget.value;
+        open = true;
+      }}
       onfocus={handleFocus}
-      oninput={handleInput}
       onblur={handleBlur}
       onkeydown={(e) => {
         if (e.key === "Escape") open = false;
@@ -220,23 +281,35 @@ import ImageHugeicons from "$lib/components/ui/image/ImageHugeicons.svelte";
       >
         {#if filteredOptions.length === 0}
           <div class="px-2 py-1.5 text-center text-xs text-muted-foreground">
-            {placeholder}
+            {emptyLabel || placeholder}
           </div>
         {:else}
           {#each filteredOptions as option, i (option.value)}
             <button
               type="button"
               role="option"
-              aria-selected={option.value === value}
+              aria-selected={isSelected(option)}
               class={cn(
-                "block w-full rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
-                option.value === value
+                "flex w-full items-center gap-2 rounded px-2 py-1.5 text-left text-sm transition-colors hover:bg-muted",
+                isSelected(option)
                   ? "bg-primary font-medium text-primary-foreground hover:bg-primary"
                   : "text-foreground",
+                optionClass,
               )}
               onclick={() => selectOption(option)}
             >
-              {option.label}
+              {#if option.country}
+                <ImageFlag country={option.country} class="size-4 shrink-0 rounded-sm" />
+              {/if}
+              <span class="flex-1 min-w-0 truncate">{option.label}</span>
+              {#if multiple}
+                <span
+                  class="flex items-center justify-center"
+                  class:opacity-0={!isSelected(option)}
+                >
+                  <ImageHugeicons icon="CheckmarkCircle02Icon" class="size-4" />
+                </span>
+              {/if}
             </button>
           {/each}
         {/if}

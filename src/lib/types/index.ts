@@ -117,6 +117,28 @@ import type {
 } from "$lib/components/ui/search/types";
 
 import type {
+    CarouselCountryProps
+} from "$lib/components/ui/carousel/core/country/ui/CarouselCountry.svelte";
+import type {
+    CarouselLanguageProps
+} from "$lib/components/ui/carousel/core/language/ui/CarouselLanguage.svelte";
+import type {
+    GridCountryProps
+} from "$lib/components/ui/grid/core/country/ui/GridCountry.svelte";
+import type {
+    GridLanguageProps
+} from "$lib/components/ui/grid/core/language/ui/GridLanguage.svelte";
+import type {
+    SelectCountryProps
+} from "$lib/components/ui/form/ui/SelectCountry.svelte";
+import type {
+    SelectLanguageProps
+} from "$lib/components/ui/form/ui/SelectLanguage.svelte";
+import type {
+    SearchLanguageCountryProps
+} from "$lib/components/ui/search/varients/SearchLanguageCountry.svelte";
+
+import type {
     FooterLinkItem,
     FooterSocialItem,
     FooterColumnProps,
@@ -409,6 +431,10 @@ export type {
     CarouselGridProductProps,
     /** Props do CarouselItemsPanel — carousel de grids de itens com paginação @see CarouselItemsPanelProps */
     CarouselItemsPanelProps,
+    /** Props do CarouselCountry — carousel de países com bandeiras e traduções. @see CarouselCountryProps */
+    CarouselCountryProps,
+    /** Props do CarouselLanguage — carousel de idiomas com bandeiras. @see CarouselLanguageProps */
+    CarouselLanguageProps,
 
     /** Props do GridHeader — cabeçalho de grid (título, descrição, borda). @see GridHeaderProps */
     GridHeaderProps,
@@ -434,6 +460,10 @@ export type {
     GridPromotionProps,
     /** Props do GridItemsPanel — grid de itens (cards Grid01/Grid02). @see GridItemsPanelProps */
     GridItemsPanelProps,
+    /** Props do GridCountry — grid de países com bandeiras e traduções. @see GridCountryProps */
+    GridCountryProps,
+    /** Props do GridLanguage — grid de idiomas com bandeiras. @see GridLanguageProps */
+    GridLanguageProps,
 
     /** Props base do banner de anúncio (AdCardBanner). @see BannerProps */
     BannerProps,
@@ -463,6 +493,12 @@ export type {
 
     /** Props do SearchHostingerInput — barra de busca estilo Hostinger com calendário e hóspedes. @see SearchHostingerInputProps */
     SearchHostingerInputProps,
+    /** Props do SearchLanguageCountry — busca de idiomas/países com filtros. @see SearchLanguageCountryProps */
+    SearchLanguageCountryProps,
+    /** Props do SelectCountry — select de países com bandeiras e traduções. @see SelectCountryProps */
+    SelectCountryProps,
+    /** Props do SelectLanguage — select de idiomas com bandeiras. @see SelectLanguageProps */
+    SelectLanguageProps,
 
     /** Item de link individual exibido numa coluna do footer. @see FooterLinkItem */
     FooterLinkItem,

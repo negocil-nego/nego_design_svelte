@@ -11,6 +11,11 @@ export default {
     "language.ru": "러시아어",
     "language.ar": "아랍어",
 
+    "label.languages": "언어",
+    "label.countries": "국가",
+    "search.filter.language": "언어",
+    "search.filter.country": "국가",
+
     "input.email.label": "이메일",
     "input.email.placeholder": "이메일 주소를 입력하세요",
     "input.username.label": "사용자 이름",

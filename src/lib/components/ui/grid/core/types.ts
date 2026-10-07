@@ -12,6 +12,8 @@ export interface ItemGridBadge {
     value: string,
     /** Texto exibido no item */
     label: string,
+    /** Código ISO do país da bandeira a exibir via ImageFlag */
+    country?: string,
     /** URL da imagem opcional do item */
     image?: string,
     /** URL de navegação opcional */

@@ -11,6 +11,11 @@ export default {
     "language.ru": "俄语",
     "language.ar": "阿拉伯语",
 
+    "label.languages": "语言",
+    "label.countries": "国家",
+    "search.filter.language": "语言",
+    "search.filter.country": "国家",
+
     "input.email.label": "电子邮件",
     "input.email.placeholder": "输入您的电子邮件",
     "input.username.label": "用户名",

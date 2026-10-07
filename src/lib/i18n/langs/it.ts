@@ -11,6 +11,11 @@ export default {
     "language.ru": "Russo",
     "language.ar": "Arabo",
 
+    "label.languages": "Lingue",
+    "label.countries": "Paesi",
+    "search.filter.language": "Lingua",
+    "search.filter.country": "Paese",
+
     "input.email.label": "Email",
     "input.email.placeholder": "Inserisci la tua email",
     "input.username.label": "Nome utente",
