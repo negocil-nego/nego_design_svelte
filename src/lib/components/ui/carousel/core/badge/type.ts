@@ -24,6 +24,8 @@ export interface CarouselBadgeProps {
     isBorderInline?: boolean,
     showButton?: boolean
     menuKey?: string
+    /** Lista de valores selecionados/ativos a apresentar (bindable) */
+    selecteds?: string[]
     itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
     onClick?: (value: string | number) => void,
 }

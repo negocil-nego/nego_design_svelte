@@ -26,6 +26,8 @@
     showButton?: boolean;
     /** Chave do item ativo/menu */
     menuKey?: string;
+    /** Idiomas selecionados a apresentar/ativos (bindable) */
+    selecteds?: string[];
     /** Estilo do item: BORDER | INLINE | DEFAULT */
     itemStyle?: "BORDER" | "INLINE" | "DEFAULT";
     /** Callback ao clicar num item */
@@ -51,6 +53,7 @@
     isBorderInline = false,
     showButton = true,
     menuKey,
+    selecteds = $bindable([] as string[]),
     itemStyle = "DEFAULT",
     onClick,
   }: CarouselLanguageProps = $props();
@@ -78,6 +81,7 @@
   {isBorderInline}
   {showButton}
   {menuKey}
+  bind:selecteds
   {itemStyle}
   {onClick}
 />

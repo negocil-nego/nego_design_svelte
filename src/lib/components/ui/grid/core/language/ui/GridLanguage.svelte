@@ -24,6 +24,8 @@
     gridClass?: string;
     /** Chave do item ativo/menu */
     menuKey?: string;
+    /** Idiomas selecionados a apresentar/ativos (bindable) */
+    selecteds?: string[];
     /** Estilo do item: BORDER | INLINE | DEFAULT */
     itemStyle?: "BORDER" | "INLINE" | "DEFAULT";
     /** Callback ao clicar num item */
@@ -48,6 +50,7 @@
     isBorderInline = false,
     gridClass,
     menuKey,
+    selecteds = $bindable([] as string[]),
     itemStyle = "DEFAULT",
     onClick,
   }: GridLanguageProps = $props();
@@ -74,6 +77,7 @@
   {isBorderInline}
   {gridClass}
   {menuKey}
+  bind:selecteds
   {itemStyle}
   {onClick}
 />

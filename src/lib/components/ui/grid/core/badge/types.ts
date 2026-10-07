@@ -24,6 +24,8 @@ export interface GridBadgeProps {
     /** Classe CSS adicional para o container do grid */
     gridClass?: string,
     menuKey?: string
+    /** Lista de valores selecionados/ativos a apresentar (bindable) */
+    selecteds?: string[]
     itemStyle?: 'BORDER' | 'INLINE' | 'DEFAULT',
     onClick?: (value: string | number) => void,
 }

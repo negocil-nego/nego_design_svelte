@@ -6,7 +6,7 @@
   import { useDevice } from "$lib/hooks/responsive.svelte";
   import type { GridBadgeProps } from "../types";
 
-  const {
+  let {
     items = [],
     imageClass,
     iconClass,
@@ -19,6 +19,7 @@
     isLoading = false,
     itemClass,
     menuKey,
+    selecteds = $bindable([] as string[]),
     onClick,
   }: GridBadgeProps = $props();
 
@@ -32,14 +33,29 @@
   const skeletonCount = $derived(responsive.isMobile ? 2 : 8);
 
   // svelte-ignore state_referenced_locally
-  let selectedValue = $state<string | undefined>(menuKey ?? "");
+  let selectedValues = $state<string[]>(
+    selecteds.length ? [...selecteds] : menuKey ? [menuKey] : [],
+  );
+
+  const sameValues = (a: string[], b: string[]) =>
+    a.length === b.length && a.every((v, i) => v === b[i]);
+
+  $effect(() => {
+    if (!sameValues(selecteds, selectedValues)) {
+      selectedValues = [...selecteds];
+    }
+  });
 
   function isSelected(item: (typeof items)[number]) {
-    return item.value !== undefined && item.value === selectedValue;
+    return item.value !== undefined && selectedValues.includes(String(item.value));
   }
 
-  function selectItem(item: (typeof items)[number]) {
-    selectedValue = item.value;
+  function toggleItem(item: (typeof items)[number]) {
+    const key = String(item.value);
+    selectedValues = selectedValues.includes(key)
+      ? selectedValues.filter((v) => v !== key)
+      : [...selectedValues, key];
+    selecteds = selectedValues;
     item.onClick?.(item.value);
     onClick?.(item.value);
   }
@@ -80,7 +96,7 @@
           <div class="relative flex justify-center">
             <button
               type="button"
-              onclick={() => selectItem(item)}
+              onclick={() => toggleItem(item)}
               class="flex gap-1 mx-2 p-1 justify-center w-min shrink-0 items-center cursor-pointer relative hover:text-lg hover:font-bold
               {isSelected(item)
                   ? isInlineBorder

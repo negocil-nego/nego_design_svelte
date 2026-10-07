@@ -6,6 +6,8 @@
     value?: string;
     /** Valores selecionados (bindable) — modo seleção múltipla */
     values?: string[];
+    /** Idiomas selecionados a apresentar/ativos (bindable) — espelha `value`/`values` */
+    selecteds?: string[];
     /** Permite selecionar vários idiomas */
     multiple?: boolean;
     /** Rótulo do campo */
@@ -37,6 +39,7 @@
   let {
     value = $bindable(""),
     values = $bindable([] as string[]),
+    selecteds = $bindable([] as string[]),
     multiple = false,
     label,
     labelClass,
@@ -48,6 +51,27 @@
     optionClass = "",
     emptyLabel = "No languages found",
   }: SelectLanguageProps = $props();
+
+  const sameList = (a: string[], b: string[]) =>
+    a.length === b.length && a.every((v, i) => v === b[i]);
+
+  $effect(() => {
+    if (multiple) {
+      if (!sameList(selecteds, values)) values = selecteds;
+    } else {
+      const next = selecteds[0] ?? "";
+      if (next !== value) value = next;
+    }
+  });
+
+  $effect(() => {
+    if (multiple) {
+      if (!sameList(values, selecteds)) selecteds = values;
+    } else {
+      const mapped = value ? [value] : [];
+      if (!sameList(mapped, selecteds)) selecteds = mapped;
+    }
+  });
 
   const languageOptions = $derived(
     Object.entries(languageFlagMap).map(([code, country]) => ({

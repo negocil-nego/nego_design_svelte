@@ -134,6 +134,14 @@ export { getMergedTranslations } from "./i18n/config";
 /** Retorna a lista de idiomas disponíveis. */
 export { getLocales } from "./i18n/config";
 
+/** Mapa de país (enum do backend) → ISO 2 letras + utilitários (ISO_TO_NAME, countryIso, countryNameByIso). */
+export {
+    COUNTRY_ISO,
+    ISO_TO_NAME,
+    countryIso,
+    countryNameByIso,
+} from "./components/ui/image/country-iso";
+
 /** Store global do modal OTP. Também disponível via `negodesign/store`. */
 export { otpStore, openOtp, closeOtp } from "./stores";
 
