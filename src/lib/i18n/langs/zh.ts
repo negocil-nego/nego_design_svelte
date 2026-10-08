@@ -16,6 +16,11 @@ export default {
     "label.countries": "国家",
     "search.filter.language": "语言",
     "search.filter.country": "国家",
+    "search.filter.location": "位置",
+    "search.filter.price.min": "最低价格",
+    "search.filter.price.max": "最高价格",
+    "search.filter.organization": "组织",
+    "search.filter.province": "省",
 
     "input.email.label": "电子邮件",
     "input.email.placeholder": "输入您的电子邮件",

@@ -17,6 +17,11 @@ export default {
     "label.countries": "الدول",
     "search.filter.language": "اللغة",
     "search.filter.country": "الدولة",
+    "search.filter.location": "الموقع",
+    "search.filter.price.min": "أقل سعر",
+    "search.filter.price.max": "أعلى سعر",
+    "search.filter.organization": "المنظمة",
+    "search.filter.province": "مقاطعة",
 
     "input.email.label": "البريد الإلكتروني",
     "input.email.placeholder": "أدخل بريدك الإلكتروني",

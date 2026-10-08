@@ -113,7 +113,9 @@ import type {
 import type { TabUnderlineProps } from "$lib/components/ui/tabs/types";
 
 import type {
-    SearchHostingerInputProps
+    SearchHostingerInputProps,
+    SearchProductInputProps,
+    SearchTourismAreaInputProps
 } from "$lib/components/ui/search/types";
 
 import type {
@@ -500,6 +502,10 @@ export type {
     SearchHostingerInputProps,
     /** Props do SearchLanguageCountry — busca de idiomas/países com filtros. @see SearchLanguageCountryProps */
     SearchLanguageCountryProps,
+    /** Props do SearchProductInput — busca de produtos com preço, localização e organizações. @see SearchProductInputProps */
+    SearchProductInputProps,
+    /** Props do SearchTourismAreaInput — busca de áreas turísticas com províncias e localização. @see SearchTourismAreaInputProps */
+    SearchTourismAreaInputProps,
     /** Props do SelectCountry — select de países com bandeiras e traduções. @see SelectCountryProps */
     SelectCountryProps,
     /** Props do SelectLanguage — select de idiomas com bandeiras. @see SelectLanguageProps */

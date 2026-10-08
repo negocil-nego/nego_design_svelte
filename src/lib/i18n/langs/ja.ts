@@ -16,6 +16,11 @@ export default {
     "label.countries": "国々",
     "search.filter.language": "言語",
     "search.filter.country": "国",
+    "search.filter.location": "場所",
+    "search.filter.price.min": "最低価格",
+    "search.filter.price.max": "最高価格",
+    "search.filter.organization": "組織",
+    "search.filter.province": "州",
 
     "input.email.label": "メール",
     "input.email.placeholder": "メールアドレスを入力",

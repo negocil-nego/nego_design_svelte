@@ -74,6 +74,8 @@ import PageLogin from "./components/pages/security/login/PageLogin.svelte";
 import PageRegister from "./components/pages/security/register/PageRegister.svelte";
 import SearchHostingerInput from "$lib/components/ui/search/varients/SearchHostingerInput.svelte";
 import SearchLanguageCountry from "$lib/components/ui/search/varients/SearchLanguageCountry.svelte";
+import SearchProductInput from "$lib/components/ui/search/varients/SearchProductInput.svelte";
+import SearchTourismAreaInput from "$lib/components/ui/search/varients/SearchTourismAreaInput.svelte";
 import SelectCountry from "$lib/components/ui/form/ui/SelectCountry.svelte";
 import SelectLanguage from "$lib/components/ui/form/ui/SelectLanguage.svelte";
 import Footer from "$lib/components/ui/footer/ui/Footer.svelte";
@@ -703,6 +705,43 @@ export {
      * @see SearchLanguageCountryProps
      */
     SearchLanguageCountry,
+
+    /**
+     * Barra de busca para produtos com campo de localização, preço mínimo/máximo
+     * e selector múltiplo de organizações. Responsivo — no mobile esconde os
+     * filtros de preço e organização.
+     * @property {string} value - Texto de localização (bindable)
+     * @property {number | null} priceMin - Preço mínimo (bindable)
+     * @property {number | null} priceMax - Preço máximo (bindable)
+     * @property {{ image: string; name: string }[]} organizations - Organizações do selector
+     * @property {string[]} organizationValues - Organizações selecionadas (bindable)
+     * @property {CommandGroup[]} groups - Grupos de sugestões para o InputCommand
+     * @property {(value: string) => void} onchange - Callback ao alterar o valor
+     * @property {(value: string) => void} onSubmit - Callback ao submeter a busca
+     * @property {(item: CommandItem) => void} onSelect - Callback ao selecionar um item
+     * @property {(value: string) => void} onLocationChange - Callback ao alterar a localização
+     * @property {(priceMin: number | null, priceMax: number | null) => void} onPriceChange - Callback ao alterar os preços
+     * @property {(values: string[]) => void} onOrganizationChange - Callback ao alterar as organizações
+     * @see SearchProductInputProps
+     */
+    SearchProductInput,
+
+    /**
+     * Barra de busca de áreas turísticas com campo de localização e selector
+     * múltiplo de províncias (padrão: províncias de Angola). Responsivo — no
+     * mobile esconde o filtro de províncias.
+     * @property {string} value - Texto de localização (bindable)
+     * @property {{ value: string; label: string }[]} provinces - Províncias disponíveis
+     * @property {string[]} provinceValues - Províncias selecionadas (bindable)
+     * @property {CommandGroup[]} groups - Grupos de sugestões para o InputCommand
+     * @property {(value: string) => void} onchange - Callback ao alterar o valor
+     * @property {(value: string) => void} onSubmit - Callback ao submeter a busca
+     * @property {(item: CommandItem) => void} onSelect - Callback ao selecionar um item
+     * @property {(value: string) => void} onLocationChange - Callback ao alterar a localização
+     * @property {(values: string[]) => void} onProvinceChange - Callback ao alterar as províncias
+     * @see SearchTourismAreaInputProps
+     */
+    SearchTourismAreaInput,
 
     /**
      * Select de países com bandeira, pesquisa por nome e seleção única/múltipla.

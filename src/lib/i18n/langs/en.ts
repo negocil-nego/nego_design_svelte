@@ -16,6 +16,11 @@ export default {
     "label.countries": "Countries",
     "search.filter.language": "Language",
     "search.filter.country": "Country",
+    "search.filter.location": "Location",
+    "search.filter.price.min": "Min price",
+    "search.filter.price.max": "Max price",
+    "search.filter.organization": "Organization",
+    "search.filter.province": "Province",
 
     "input.email.label": "Email",
     "input.email.placeholder": "Enter your email",

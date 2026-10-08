@@ -16,6 +16,11 @@ export default {
     "label.countries": "국가",
     "search.filter.language": "언어",
     "search.filter.country": "국가",
+    "search.filter.location": "위치",
+    "search.filter.price.min": "최저가",
+    "search.filter.price.max": "최고가",
+    "search.filter.organization": "조직",
+    "search.filter.province": "도",
 
     "input.email.label": "이메일",
     "input.email.placeholder": "이메일 주소를 입력하세요",

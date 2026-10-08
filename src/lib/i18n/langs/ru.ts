@@ -16,6 +16,11 @@ export default {
     "label.countries": "Страны",
     "search.filter.language": "Язык",
     "search.filter.country": "Страна",
+    "search.filter.location": "Местоположение",
+    "search.filter.price.min": "Мин. цена",
+    "search.filter.price.max": "Макс. цена",
+    "search.filter.organization": "Организация",
+    "search.filter.province": "Провинция",
 
     "input.email.label": "Электронная почта",
     "input.email.placeholder": "Введите ваш email",
